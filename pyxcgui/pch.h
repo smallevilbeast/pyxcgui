@@ -3,9 +3,9 @@
 
 // 添加要在此处预编译的标头
 #include "framework.h"
+#include <windows.h>
+#include <string>
 
-#pragma comment(lib, "libminizip.lib")
-#pragma comment(lib, "zlib.lib")
 #pragma comment(lib, "XCGUI-v3.3.4.lib")
 
 #endif 
