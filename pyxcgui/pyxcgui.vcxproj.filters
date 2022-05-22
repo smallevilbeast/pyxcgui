@@ -24,6 +24,51 @@
     <ClInclude Include="main.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="XCApp.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="XCWindow.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="XCBase.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="XCObjectUI.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="XCWidget.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="XCElement.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="XCShape.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="XCAdapter.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="XCBkManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="XCMenu.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="XCDraw.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="XCFont.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="XCImage.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="XCListItemTemplate.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="XCResource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -33,6 +78,51 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="XCObjectUI.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="XCWidget.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="XCElement.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="XCShape.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="XCAdapter.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="XCBkManager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="XCMenu.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="XCDraw.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="XCFont.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="XCImage.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="XCListItemTemplate.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="XCResource.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="XCApp.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="XCBase.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="XCWindow.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

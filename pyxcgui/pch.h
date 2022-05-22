@@ -6,6 +6,14 @@
 #include <windows.h>
 #include <string>
 
+
+#include <pybind11/pybind11.h>
+#include <pybind11/stl.h>
+#include <pybind11/stl_bind.h>
+
+namespace py = pybind11;
+
+#include <xcgui.h>
 #pragma comment(lib, "XCGUI-v3.3.4.lib")
 
 #endif 

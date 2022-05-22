@@ -182,6 +182,21 @@
     <ClInclude Include="framework.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="XCAdapter.h" />
+    <ClInclude Include="XCApp.h" />
+    <ClInclude Include="XCBase.h" />
+    <ClInclude Include="XCBkManager.h" />
+    <ClInclude Include="XCDraw.h" />
+    <ClInclude Include="XCElement.h" />
+    <ClInclude Include="XCFont.h" />
+    <ClInclude Include="XCImage.h" />
+    <ClInclude Include="XCListItemTemplate.h" />
+    <ClInclude Include="XCMenu.h" />
+    <ClInclude Include="XCObjectUI.h" />
+    <ClInclude Include="XCResource.h" />
+    <ClInclude Include="XCShape.h" />
+    <ClInclude Include="XCWidget.h" />
+    <ClInclude Include="XCWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
@@ -192,6 +207,21 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="XCAdapter.cpp" />
+    <ClCompile Include="XCApp.cpp" />
+    <ClCompile Include="XCBase.cpp" />
+    <ClCompile Include="XCBkManager.cpp" />
+    <ClCompile Include="XCDraw.cpp" />
+    <ClCompile Include="XCElement.cpp" />
+    <ClCompile Include="XCFont.cpp" />
+    <ClCompile Include="XCImage.cpp" />
+    <ClCompile Include="XCListItemTemplate.cpp" />
+    <ClCompile Include="XCMenu.cpp" />
+    <ClCompile Include="XCObjectUI.cpp" />
+    <ClCompile Include="XCResource.cpp" />
+    <ClCompile Include="XCShape.cpp" />
+    <ClCompile Include="XCWidget.cpp" />
+    <ClCompile Include="XCWindow.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
