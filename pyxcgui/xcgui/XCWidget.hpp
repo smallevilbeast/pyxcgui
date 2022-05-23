@@ -5,8 +5,17 @@
 
 namespace xcgui {
 
-	struct XCLayoutSizeInfo
+	class XCLayoutSize
 	{
+	public:
+		XCLayoutSize() = default;
+		XCLayoutSize(layout_size_ sizeType, int size) 
+			:sizeType(sizeType)
+			, size(size)
+		{
+
+		}
+
 		layout_size_ sizeType;
 		int size;
 	};
@@ -40,30 +49,30 @@ namespace xcgui {
 		}
 
 		// 设置宽度
-		void SetWidth(const XCLayoutSizeInfo& sizeInfo)
+		void SetWidth(const XCLayoutSize& sizeInfo)
 		{
 			XWidget_LayoutItem_SetWidth(*m_pHandle, sizeInfo.sizeType, sizeInfo.size);
 		}
 
 
 		// 设置高度
-		void SetHeight(const XCLayoutSizeInfo& sizeInfo)
+		void SetHeight(const XCLayoutSize& sizeInfo)
 		{
 			XWidget_LayoutItem_SetHeight(*m_pHandle, sizeInfo.sizeType, sizeInfo.size);
 		}
 
 		// 取宽度
-		XCLayoutSizeInfo* GetWidth()
+		XCLayoutSize* GetWidth()
 		{
-			auto sizeInfo = new XCLayoutSizeInfo();
+			auto sizeInfo = new XCLayoutSize();
 			XWidget_LayoutItem_GetWidth(*m_pHandle, &sizeInfo->sizeType, &sizeInfo->size);
 			return sizeInfo;
 		}
 
 		// 取高度信息
-		XCLayoutSizeInfo* GetHeight()
+		XCLayoutSize* GetHeight()
 		{
-			auto sizeInfo = new XCLayoutSizeInfo();
+			auto sizeInfo = new XCLayoutSize();
 			XWidget_LayoutItem_GetHeight(*m_pHandle, &sizeInfo->sizeType, &sizeInfo->size);
 			return sizeInfo;
 		}
