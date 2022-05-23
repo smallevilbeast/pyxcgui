@@ -196,6 +196,7 @@
     <ClInclude Include="XCResource.h" />
     <ClInclude Include="XCShape.h" />
     <ClInclude Include="XCWidget.h" />
+    <ClInclude Include="XCWidgetLayout.h" />
     <ClInclude Include="XCWindow.h" />
   </ItemGroup>
   <ItemGroup>
@@ -221,6 +222,7 @@
     <ClCompile Include="XCResource.cpp" />
     <ClCompile Include="XCShape.cpp" />
     <ClCompile Include="XCWidget.cpp" />
+    <ClCompile Include="XCWidgetLayout.cpp" />
     <ClCompile Include="XCWindow.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

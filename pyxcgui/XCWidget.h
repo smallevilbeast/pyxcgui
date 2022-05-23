@@ -2,6 +2,7 @@
 #include "pch.h"
 #include "XCObjectUI.h"
 #include "XCWindow.h"
+#include "XCWidgetLayout.h"
 
 class XCWidget: public XCObjectUI
 {
@@ -28,5 +29,29 @@ public:
 
 	// 取窗口句柄系统
 	uintptr_t GetHWND();
+
+	// 取窗口
+	XCWindow* getWindow();
+
+	// 设置元素ID
+	void SetID(int nID);
+
+	// 获取元素ID
+	int GetID();
+
+	// 设置元素UID, 全局唯一标识符
+	void SetUID(int nUID);
+
+	// 获取元素UID,全局唯一标识符
+	int GetUID();
+
+	// 设置元素name
+	void SetName(const std::wstring& name);
+
+	// 获取元素name
+	std::wstring GetName();
+
+public:
+	XCWidgetLayout m_layout;
 };
 
