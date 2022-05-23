@@ -12,6 +12,7 @@
 #include <pybind11/stl_bind.h>
 
 namespace py = pybind11;
+using namespace pybind11::literals;
 
 #include <xcgui.h>
 #pragma comment(lib, "XCGUI-v3.3.4.lib")

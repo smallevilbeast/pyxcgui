@@ -75,7 +75,7 @@
     <OutDir>$(SolutionDir)Bin\</OutDir>
     <IntDir>$(SolutionDir)Temp\$(ProjectName)\$(Configuration)\</IntDir>
     <TargetExt>.pyd</TargetExt>
-    <IncludePath>..\Include;..\Include\python;$(IncludePath)</IncludePath>
+    <IncludePath>.\;..\Include;..\Include\python;$(IncludePath)</IncludePath>
     <LibraryPath>..\Lib\x86;$(LibraryPath)</LibraryPath>
     <TargetName>xcgui</TargetName>
   </PropertyGroup>
@@ -84,7 +84,7 @@
     <OutDir>$(SolutionDir)Bin\</OutDir>
     <IntDir>$(SolutionDir)Temp\$(ProjectName)\$(Configuration)\</IntDir>
     <TargetExt>.pyd</TargetExt>
-    <IncludePath>..\Include;..\Include\python;$(IncludePath)</IncludePath>
+    <IncludePath>.\;..\Include;..\Include\python;$(IncludePath)</IncludePath>
     <LibraryPath>..\Lib\x86;$(LibraryPath)</LibraryPath>
     <TargetName>xcgui</TargetName>
   </PropertyGroup>
@@ -93,7 +93,7 @@
     <OutDir>$(SolutionDir)Bin\x64\</OutDir>
     <IntDir>$(SolutionDir)Temp\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
     <TargetExt>.pyd</TargetExt>
-    <IncludePath>..\Include;..\Include\python;$(IncludePath)</IncludePath>
+    <IncludePath>.\;..\Include;..\Include\python;$(IncludePath)</IncludePath>
     <LibraryPath>..\Lib\x64;$(LibraryPath)</LibraryPath>
     <TargetName>xcgui</TargetName>
   </PropertyGroup>
@@ -102,7 +102,7 @@
     <OutDir>$(SolutionDir)Bin\x64\</OutDir>
     <IntDir>$(SolutionDir)Temp\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
     <TargetExt>.pyd</TargetExt>
-    <IncludePath>..\Include;..\Include\python;$(IncludePath)</IncludePath>
+    <IncludePath>.\;..\Include;..\Include\python;$(IncludePath)</IncludePath>
     <LibraryPath>..\Lib\x64;$(LibraryPath)</LibraryPath>
     <TargetName>xcgui</TargetName>
   </PropertyGroup>
@@ -179,25 +179,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="binding\XApp.hpp" />
+    <ClInclude Include="binding\XEnum.hpp" />
+    <ClInclude Include="binding\XWidget.hpp" />
+    <ClInclude Include="binding\XWindow.hpp" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="pch.h" />
-    <ClInclude Include="XCAdapter.h" />
-    <ClInclude Include="XCApp.h" />
-    <ClInclude Include="XCBase.h" />
-    <ClInclude Include="XCBkManager.h" />
-    <ClInclude Include="XCDraw.h" />
-    <ClInclude Include="XCElement.h" />
-    <ClInclude Include="XCFont.h" />
-    <ClInclude Include="XCImage.h" />
-    <ClInclude Include="XCListItemTemplate.h" />
-    <ClInclude Include="XCMenu.h" />
-    <ClInclude Include="XCObjectUI.h" />
-    <ClInclude Include="XCResource.h" />
-    <ClInclude Include="XCShape.h" />
-    <ClInclude Include="XCWidget.h" />
-    <ClInclude Include="XCWidgetLayout.h" />
-    <ClInclude Include="XCWindow.h" />
+    <ClInclude Include="xcgui\XCApp.hpp" />
+    <ClInclude Include="xcgui\XCBase.hpp" />
+    <ClInclude Include="xcgui\XCObjectUI.hpp" />
+    <ClInclude Include="xcgui\XCWidget.hpp" />
+    <ClInclude Include="xcgui\XCWindow.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
@@ -208,22 +201,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="XCAdapter.cpp" />
-    <ClCompile Include="XCApp.cpp" />
-    <ClCompile Include="XCBase.cpp" />
-    <ClCompile Include="XCBkManager.cpp" />
-    <ClCompile Include="XCDraw.cpp" />
-    <ClCompile Include="XCElement.cpp" />
-    <ClCompile Include="XCFont.cpp" />
-    <ClCompile Include="XCImage.cpp" />
-    <ClCompile Include="XCListItemTemplate.cpp" />
-    <ClCompile Include="XCMenu.cpp" />
-    <ClCompile Include="XCObjectUI.cpp" />
-    <ClCompile Include="XCResource.cpp" />
-    <ClCompile Include="XCShape.cpp" />
-    <ClCompile Include="XCWidget.cpp" />
-    <ClCompile Include="XCWidgetLayout.cpp" />
-    <ClCompile Include="XCWindow.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

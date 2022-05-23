@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="xcgui">
+      <UniqueIdentifier>{3364995f-7f65-4fee-a249-3198265897b3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -24,52 +27,31 @@
     <ClInclude Include="main.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="XCApp.h">
+    <ClInclude Include="xcgui\XCBase.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="XCWindow.h">
+    <ClInclude Include="xcgui\XCObjectUI.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="XCBase.h">
+    <ClInclude Include="xcgui\XCWidget.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="XCObjectUI.h">
+    <ClInclude Include="xcgui\XCWindow.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="XCWidget.h">
+    <ClInclude Include="xcgui\XCApp.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="XCElement.h">
+    <ClInclude Include="binding\XApp.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="XCShape.h">
+    <ClInclude Include="binding\XWidget.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="XCAdapter.h">
+    <ClInclude Include="binding\XWindow.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="XCBkManager.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="XCMenu.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="XCDraw.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="XCFont.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="XCImage.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="XCListItemTemplate.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="XCResource.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="XCWidgetLayout.h">
+    <ClInclude Include="binding\XEnum.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -81,54 +63,6 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="XCObjectUI.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="XCWidget.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="XCElement.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="XCShape.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="XCAdapter.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="XCBkManager.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="XCMenu.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="XCDraw.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="XCFont.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="XCImage.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="XCListItemTemplate.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="XCResource.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="XCApp.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="XCBase.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="XCWindow.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="XCWidgetLayout.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
