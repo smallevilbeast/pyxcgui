@@ -1,7 +1,6 @@
 #include "pch.h"
 #include "xcgui/XCWindow.hpp"
 
-
 namespace xcgui {
 
 	void declareWindow(py::module& m) {

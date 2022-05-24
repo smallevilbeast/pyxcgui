@@ -6,7 +6,10 @@ namespace xcgui {
 	class XCObjectUI : public XCBase {
 
 	public:
-		XCObjectUI() = default;
+		XCObjectUI() 
+		: XCBase()
+		{
+		}
 		XCObjectUI(HXCGUI handle)
 		: XCBase(handle)
 		{

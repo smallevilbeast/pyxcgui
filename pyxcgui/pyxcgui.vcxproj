@@ -181,6 +181,7 @@
   <ItemGroup>
     <ClInclude Include="binding\XApp.hpp" />
     <ClInclude Include="binding\XEnum.hpp" />
+    <ClInclude Include="binding\XStruct.hpp" />
     <ClInclude Include="binding\XWidget.hpp" />
     <ClInclude Include="binding\XWindow.hpp" />
     <ClInclude Include="framework.h" />
