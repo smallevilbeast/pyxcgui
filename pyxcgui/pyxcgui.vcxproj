@@ -189,7 +189,9 @@
     <ClInclude Include="framework.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="xcgui.h" />
     <ClInclude Include="xcgui\XCApp.hpp" />
+    <ClInclude Include="xcgui\XCBkManager.hpp" />
     <ClInclude Include="xcgui\XCObject.hpp" />
     <ClInclude Include="xcgui\XCCast.hpp" />
     <ClInclude Include="xcgui\XCDraw.hpp" />

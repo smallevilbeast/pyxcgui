@@ -14,7 +14,7 @@
 namespace py = pybind11;
 using namespace pybind11::literals;
 
-#include <xcgui.h>
+#include "xcgui.h"
 #pragma comment(lib, "XCGUI-v3.3.4.lib")
 
 #endif 

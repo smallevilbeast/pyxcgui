@@ -18,13 +18,16 @@ namespace xcgui {
 			.def("redraw", &XCWindow::Redraw, "immediate"_a)
 			.def("redrawRect", &XCWindow::RedrawRect, "rect"_a, "immediate"_a)
 			.def("setFoucsEle", &XCWindow::SetFoucsEle, "ele"_a)
+
 			.def("getFoucsEle", [](const XCWindow& self) -> XCObject* {
 				return CastObject((HXCGUI)self.GetFocusEle());
 			}, py::return_value_policy::take_ownership)
 
+
 			.def("getStayEle", [](const XCWindow& self) -> XCObject* {
 				return CastObject((HXCGUI)self.GetStayEle());
 			}, py::return_value_policy::take_ownership)
+
 
 			.def("showWindow", &XCWindow::ShowWindow, "showType"_a = SW_SHOW);
 
