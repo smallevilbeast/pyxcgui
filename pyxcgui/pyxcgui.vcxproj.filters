@@ -27,9 +27,6 @@
     <ClInclude Include="main.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="xcgui\XCBase.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="xcgui\XCObjectUI.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -55,6 +52,27 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="binding\XStruct.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="xcgui\XCStruct.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="binding\XObjectUI.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="xcgui\XCElement.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="xcgui\XCDraw.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="xcgui\XCCast.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="xcgui\XCObject.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="binding\XObject.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

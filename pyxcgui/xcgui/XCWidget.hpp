@@ -1,7 +1,7 @@
 #pragma once
 #include "pch.h"
 #include "XCObjectUI.hpp"
-#include "XCWindow.hpp"
+#include "XCStruct.hpp"
 
 namespace xcgui {
 
@@ -84,17 +84,17 @@ namespace xcgui {
 		}
 
 		// 布局项_置外间距
-		void SetMargin(const marginSize_& marginInfo)
+		void SetMargin(const XCRect& marginInfo)
 		{
-			XWidget_LayoutItem_SetMargin(*m_pHandle, marginInfo.leftSize, marginInfo.topSize,
-				marginInfo.rightSize, marginInfo.bottomSize);
+			XWidget_LayoutItem_SetMargin(*m_pHandle, marginInfo.left, marginInfo.top,
+				marginInfo.right, marginInfo.bottom);
 		}
 
 		// 布局项_取外间距
-		marginSize_* GetMargin()
+		XCRect* GetMargin()
 		{
-			auto marginInfo = new marginSize_();
-			XWidget_LayoutItem_GetMargin(*m_pHandle, marginInfo);
+			auto marginInfo = new XCRect();
+			XWidget_LayoutItem_GetMargin(*m_pHandle, (marginSize_*)marginInfo);
 			return marginInfo;
 		}
 
@@ -155,31 +155,25 @@ namespace xcgui {
 			return XWidget_IsLayoutControl(m_handle);
 		}
 
-		// 取父元素
-		XCWidget* GetParentEle()
+		// todo 取父元素
+		HELE GetParentEle()	const 
 		{
 			if (!m_handle)
 				return nullptr;
 
 			auto eleHandle = XWidget_GetParentEle(m_handle);
-			if (!eleHandle) {
-				return nullptr;
-			}
-			return new XCWidget((HXCGUI)eleHandle);
+			return eleHandle;
 		}
 
-		// 获取父对象,父可能是元素或窗口,通过此函数可以检查是否有父
-		XCObjectUI* getParent()
+		// todo 获取父对象,父可能是元素或窗口,通过此函数可以检查是否有父
+		HXCGUI getParent() const 
 		{
 			if (!m_handle)
 				return nullptr;
 
-			auto handle = XWidget_GetParent(m_handle);
-			if (!handle)
-				return nullptr;
-
-			return new XCObjectUI(handle);
+			return XWidget_GetParent(m_handle);
 		}
+
 
 		// 取窗口句柄系统
 		uintptr_t GetHWND()
@@ -188,14 +182,12 @@ namespace xcgui {
 		}
 
 		// 取窗口
-		XCWindow* getWindow()
+		HWINDOW GetWindow() const 
 		{
-			auto winHandle = XWidget_GetHWINDOW(m_handle);
-			if (!winHandle) {
+			if (!m_handle)
 				return nullptr;
-			}
 
-			return new XCWindow(winHandle);
+			return XWidget_GetHWINDOW(m_handle);
 		}
 
 		// 设置元素ID

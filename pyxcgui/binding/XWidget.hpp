@@ -1,6 +1,8 @@
 #pragma once
 #include "pch.h"
 #include "xcgui/XCWidget.hpp"
+#include "xcgui/XCWindow.hpp"
+#include "xcgui/XCCast.hpp"
 
 
 namespace xcgui {
@@ -18,8 +20,8 @@ namespace xcgui {
 			.def("enableWrap", &XCWidgetLayout::EnableWrap, "wrap"_a)
 			.def("enableSwap", &XCWidgetLayout::EnableSwap, "swap"_a)
 			.def("enableFloat", &XCWidgetLayout::EnableFloat, "float"_a)
-			.def("setWidth", &XCWidgetLayout::SetWidth, "sizeInfo"_a)
-			.def("setHeight", &XCWidgetLayout::SetHeight, "sizeInfo"_a)
+			.def("setWidth", &XCWidgetLayout::SetWidth, "layoutSize"_a)
+			.def("setHeight", &XCWidgetLayout::SetHeight, "layoutSize"_a)
 			.def("getWidth", &XCWidgetLayout::GetWidth, py::return_value_policy::take_ownership)
 			.def("getHeight", &XCWidgetLayout::GetHeight, py::return_value_policy::take_ownership)
 			.def("setAlign", &XCWidgetLayout::SetAlign, "align"_a)
@@ -30,12 +32,38 @@ namespace xcgui {
 
 
 
-		py::class_<XCWidget>(m, "XWidget")
-			.def(py::init<>())
+		py::class_<XCWidget, XCObjectUI>(m, "XWidget")
+			.def("isShow", &XCWidget::IsShow)
 			.def("show", &XCWidget::Show, "show"_a)
 			.def("enableLayoutControl", &XCWidget::EnableLayoutControl, "enable"_a)
 			.def("IsLayoutControl", &XCWidget::IsLayoutControl)
-			.def("getParentEle", &XCWidget::GetParentEle, py::return_value_policy::take_ownership);
+
+			.def("getParentEle", [](const XCWidget& self) -> XCObject* { 
+				return CastObject(self.GetParentEle());
+			}, py::return_value_policy::take_ownership)
+
+
+			.def("getParent", [](const XCWidget& self) -> XCObject* {
+				return CastObject(self.getParent());
+			}, py::return_value_policy::take_ownership)
+
+
+			.def("getHWND", &XCWidget::GetHWND)
+			.def("getWindow", [](const XCWidget& self) -> XCWindow* {
+				auto winHandle = self.GetWindow();
+				if (!winHandle) {
+					return nullptr;
+				}
+				return new XCWindow(winHandle);
+			}, py::return_value_policy::take_ownership)
+
+			.def("setID", &XCWidget::SetID, "id"_a)
+			.def("getID", &XCWidget::GetID)
+			.def("setUID", &XCWidget::SetUID, "uid"_a)
+			.def("getUID", &XCWidget::GetUID)
+			.def("setName", &XCWidget::SetName, "name"_a)
+			.def("getName", &XCWidget::GetName)
+			.def_readonly("layout", &XCWidget::m_layout, py::return_value_policy::reference);
 
 	}
 }

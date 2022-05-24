@@ -3,14 +3,14 @@
 
 namespace xcgui {
 
-	class XCBase
+	class XCObject
 	{
 	public:
-		XCBase()
-			: m_handle(nullptr)
+		XCObject()
+			: m_handle(NULL)
 		{}
 
-		XCBase(HXCGUI handle)
+		XCObject(HXCGUI handle)
 			:m_handle(handle)
 		{
 		}
@@ -40,7 +40,7 @@ namespace xcgui {
 		}
 
 
-		HXCGUI GetHandle()
+		HXCGUI GetHandle() const
 		{
 			return m_handle;
 		}

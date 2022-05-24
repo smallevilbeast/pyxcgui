@@ -1,34 +1,24 @@
 #pragma once
 #include "pch.h"
+#include "xcgui/XCStruct.hpp"
+
 
 namespace xcgui {
 
 	void declareStruct(py::module& m) {
 
-		py::class_<POINTF>(m, "POINTF")
+		py::class_<XCPoint>(m, "XPoint")
 			.def(py::init<>())
-			.def_readwrite("x", &POINTF::x)
-			.def_readwrite("y", &POINTF::y);
+			.def(py::init<int, int>(), "x"_a, "y"_a)
+			.def_readwrite("x", &XCPoint::x)
+			.def_readwrite("y", &XCPoint::y);
 
-		py::class_<RECTF>(m, "RECTF")
+		py::class_<XCRect>(m, "XRect")
 			.def(py::init<>())
-			.def_readwrite("left", &RECTF::left)
-			.def_readwrite("top", &RECTF::top)
-			.def_readwrite("right", &RECTF::right)
-			.def_readwrite("bottom", &RECTF::bottom);
-
-		py::class_<borderSize_>(m, "borderSize_")
-			.def(py::init<>())
-			.def_readwrite("leftSize", &borderSize_::leftSize)
-			.def_readwrite("topSize", &borderSize_::topSize)
-			.def_readwrite("rightSize", &borderSize_::rightSize)
-			.def_readwrite("bottomSize", &borderSize_::bottomSize);
-
-		py::class_<position_>(m, "position_")
-			.def(py::init<>())
-			.def_readwrite("iRow", &position_::iRow)
-			.def_readwrite("iColumn", &position_::iColumn);
-
-
+			.def(py::init<int, int, int, int>(), "left"_a, "top"_a, "right"_a, "bottom"_a)
+			.def_readwrite("left", &XCRect::left)
+			.def_readwrite("top", &XCRect::top)
+			.def_readwrite("right", &XCRect::right)
+			.def_readwrite("bottom", &XCRect::bottom);
 	}
 }

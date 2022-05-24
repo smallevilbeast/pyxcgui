@@ -180,7 +180,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="binding\XApp.hpp" />
+    <ClInclude Include="binding\XObject.hpp" />
     <ClInclude Include="binding\XEnum.hpp" />
+    <ClInclude Include="binding\XObjectUI.hpp" />
     <ClInclude Include="binding\XStruct.hpp" />
     <ClInclude Include="binding\XWidget.hpp" />
     <ClInclude Include="binding\XWindow.hpp" />
@@ -188,8 +190,12 @@
     <ClInclude Include="main.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="xcgui\XCApp.hpp" />
-    <ClInclude Include="xcgui\XCBase.hpp" />
+    <ClInclude Include="xcgui\XCObject.hpp" />
+    <ClInclude Include="xcgui\XCCast.hpp" />
+    <ClInclude Include="xcgui\XCDraw.hpp" />
+    <ClInclude Include="xcgui\XCElement.hpp" />
     <ClInclude Include="xcgui\XCObjectUI.hpp" />
+    <ClInclude Include="xcgui\XCStruct.hpp" />
     <ClInclude Include="xcgui\XCWidget.hpp" />
     <ClInclude Include="xcgui\XCWindow.hpp" />
   </ItemGroup>

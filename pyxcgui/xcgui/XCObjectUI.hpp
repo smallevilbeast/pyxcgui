@@ -1,17 +1,17 @@
 #pragma once
 #include "pch.h"
-#include "XCBase.hpp"
+#include "XCObject.hpp"
 
 namespace xcgui {
-	class XCObjectUI : public XCBase {
-
+	class XCObjectUI : public XCObject 
+	{
 	public:
 		XCObjectUI() 
-		: XCBase()
+		: XCObject()
 		{
 		}
 		XCObjectUI(HXCGUI handle)
-		: XCBase(handle)
+		: XCObject(handle)
 		{
 		}
 		
