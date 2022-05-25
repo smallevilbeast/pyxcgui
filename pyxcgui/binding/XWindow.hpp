@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "xcgui/XCWindow.hpp"
 #include "xcgui/XCCast.hpp"
+#include "XEventManager.hpp"
 
 namespace xcgui {
 
@@ -19,6 +20,9 @@ namespace xcgui {
 				"x"_a, "y"_a, "width"_a, "height"_a, "title"_a,
 				"hWndParent"_a = 0, "style"_a = (int)window_style_default)
 			.def("attach", &XCWindow::Attach, "hwnd"_a, "style"_a)
+			.def("regEvent", [](const XCWindow& self, int eventType, const XEventCallback& callback, const py::object& userdata) {
+				XEventManager::GetInstance()->RegWindowEvent(self.GetWindowHandle(), eventType, callback, userdata);
+			}, "eventType"_a, "callback"_a, "userdata"_a)
 			.def("addChild", &XCWindow::AddChild, "child"_a)
 			.def("insertChild", &XCWindow::InsertChild, "child"_a, "index"_a)
 			.def("redraw", &XCWindow::Redraw, "immediate"_a)
@@ -33,6 +37,8 @@ namespace xcgui {
 			.def("getStayEle", [](const XCWindow& self) -> XCObject* {
 				return CastObject((HXCGUI)self.GetStayEle());
 			}, py::return_value_policy::take_ownership)
+
+			
 
 
 			.def("showWindow", &XCWindow::ShowWindow, "showType"_a = SW_SHOW);

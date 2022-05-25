@@ -10,7 +10,10 @@ namespace xcgui {
 			.def("getType", &XCObject::GetType)
 			.def("getTypeBase", &XCObject::GetTypeBase)
 			.def("getTypeEx", &XCObject::GetTypeEx)
-			.def("setTypeEx", &XCObject::SetTypeEx, "nType"_a);
+			.def("setTypeEx", &XCObject::SetTypeEx, "nType"_a)
+			.def("__eq__", [](const XCObject& self, const XCObject& other) {
+				return self.GetHandle() == other.GetHandle();
+			});
 
 	}
 }

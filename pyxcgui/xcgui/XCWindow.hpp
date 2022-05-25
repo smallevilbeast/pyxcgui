@@ -104,7 +104,10 @@ namespace xcgui {
 			return XWnd_ShowWindow(GetWindowHandle(), showType);
 		}
 
-
+		HWINDOW GetWindowHandle() const
+		{
+			return (HWINDOW)m_handle;
+		}
 
 	protected:
 		void SetWindowHandle(HWINDOW winHandle)
@@ -112,10 +115,7 @@ namespace xcgui {
 			this->SetHandle((HXCGUI)winHandle);
 		}
 
-		HWINDOW GetWindowHandle() const 
-		{
-			return (HWINDOW)m_handle;
-		}
+
 
 	};
 
