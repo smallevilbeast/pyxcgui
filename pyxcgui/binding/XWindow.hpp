@@ -4,6 +4,12 @@
 
 namespace xcgui {
 
+	struct XWindowEvent {
+		
+		py::args args;
+		py::kwargs kwargs;
+	};
+
 	void declareWindow(py::module& m) {
 
 		py::class_<XCWindow, XCObjectUI>(m, "XWindow")

@@ -8,11 +8,14 @@
 #include "binding/XWidget.hpp"
 #include "binding/XWindow.hpp"
 
+
+
+
+						 
 namespace xcgui {
 
 	PYBIND11_MODULE(xcgui, m) {
 		m.doc() = "xcgui for python";
-
 
 		// 所有枚举类型
 		declareEnum(m);
