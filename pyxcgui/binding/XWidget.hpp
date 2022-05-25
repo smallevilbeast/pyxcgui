@@ -22,11 +22,11 @@ namespace xcgui {
 			.def("enableFloat", &XCWidgetLayout::EnableFloat, "float"_a)
 			.def("setWidth", &XCWidgetLayout::SetWidth, "layoutSize"_a)
 			.def("setHeight", &XCWidgetLayout::SetHeight, "layoutSize"_a)
-			.def("getWidth", &XCWidgetLayout::GetWidth, py::return_value_policy::take_ownership)
-			.def("getHeight", &XCWidgetLayout::GetHeight, py::return_value_policy::take_ownership)
+			.def("getWidth", &XCWidgetLayout::GetWidth)
+			.def("getHeight", &XCWidgetLayout::GetHeight)
 			.def("setAlign", &XCWidgetLayout::SetAlign, "align"_a)
 			.def("setMargin", &XCWidgetLayout::SetMargin, "margin"_a)
-			.def("getMargin", &XCWidgetLayout::GetMargin, py::return_value_policy::take_ownership)
+			.def("getMargin", &XCWidgetLayout::GetMargin)
 			.def("setMinSize", &XCWidgetLayout::SetMinSize, "width"_a, "height"_a)
 			.def("setPosition", &XCWidgetLayout::SetPosition, "left"_a, "top"_a, "right"_a, "bottom"_a);
 
@@ -49,13 +49,13 @@ namespace xcgui {
 
 
 			.def("getHWND", &XCWidget::GetHWND)
-			.def("getWindow", [](const XCWidget& self) -> XCWindow* {
+			.def("getWindow", [](const XCWidget& self) -> XCWindow {
 				auto winHandle = self.GetWindow();
 				if (!winHandle) {
 					return nullptr;
 				}
-				return new XCWindow(winHandle);
-			}, py::return_value_policy::take_ownership)
+				return XCWindow(winHandle);
+			})
 
 			.def("setID", &XCWidget::SetID, "id"_a)
 			.def("getID", &XCWidget::GetID)

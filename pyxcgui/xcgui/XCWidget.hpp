@@ -62,19 +62,19 @@ namespace xcgui {
 		}
 
 		// 取宽度
-		XCLayoutSize* GetWidth()
+		XCLayoutSize GetWidth() 
 		{
-			auto sizeInfo = new XCLayoutSize();
-			XWidget_LayoutItem_GetWidth(*m_pHandle, &sizeInfo->sizeType, &sizeInfo->size);
-			return sizeInfo;
+			XCLayoutSize layoutSize;
+			XWidget_LayoutItem_GetWidth(*m_pHandle, &layoutSize.sizeType, &layoutSize.size);
+			return layoutSize;
 		}
 
 		// 取高度信息
-		XCLayoutSize* GetHeight()
+		XCLayoutSize GetHeight()
 		{
-			auto sizeInfo = new XCLayoutSize();
-			XWidget_LayoutItem_GetHeight(*m_pHandle, &sizeInfo->sizeType, &sizeInfo->size);
-			return sizeInfo;
+			XCLayoutSize layoutSize;
+			XWidget_LayoutItem_GetHeight(*m_pHandle, &layoutSize.sizeType, &layoutSize.size);
+			return layoutSize;
 		}
 
 		// 根据水平垂直轴变化对齐
@@ -84,18 +84,18 @@ namespace xcgui {
 		}
 
 		// 布局项_置外间距
-		void SetMargin(const XCRect& marginInfo)
+		void SetMargin(const XCRect& pRect)
 		{
-			XWidget_LayoutItem_SetMargin(*m_pHandle, marginInfo.left, marginInfo.top,
-				marginInfo.right, marginInfo.bottom);
+			XWidget_LayoutItem_SetMargin(*m_pHandle, pRect.left, pRect.top,
+				pRect.right, pRect.bottom);
 		}
 
 		// 布局项_取外间距
-		XCRect* GetMargin()
+		XCRect GetMargin()
 		{
-			auto marginInfo = new XCRect();
-			XWidget_LayoutItem_GetMargin(*m_pHandle, (marginSize_*)marginInfo);
-			return marginInfo;
+			XCRect margin;
+			XWidget_LayoutItem_GetMargin(*m_pHandle, (marginSize_*)&margin);
+			return margin;
 		}
 
 		// 限制大小仅针对缩放有效(自动, 填充父, 比例, 百分比)
