@@ -7,6 +7,7 @@
 #include "binding/XApp.hpp"
 #include "binding/XWidget.hpp"
 #include "binding/XWindow.hpp"
+#include "binding/XImage.hpp"
 
 
 
@@ -25,6 +26,9 @@ namespace xcgui {
 
 		// base
 		declareBase(m);
+
+		// image
+		declareImage(m);
 
 		// ObjectUI
 		declareObjectUI(m);
