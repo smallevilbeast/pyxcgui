@@ -1,7 +1,8 @@
 #pragma once
 
 #include "pch.h"
-#include "XCObjectUI.hpp"
+#include "XCObjectUI.hpp"  
+#include "XCStruct.hpp"
 
 namespace xcgui {
 	class XCWindow : public XCObjectUI

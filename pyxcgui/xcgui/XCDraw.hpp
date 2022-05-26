@@ -1,6 +1,6 @@
 #pragma once
 #include "pch.h"
-#include "XCBase.hpp"
+#include "XCObject.hpp"
 #include "XCWindow.hpp"
 
 namespace xcgui {
