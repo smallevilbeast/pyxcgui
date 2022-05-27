@@ -12,7 +12,7 @@ namespace xcgui {
 
 	void declareElement(py::module& m) {
 
-		py::class_<XCElement, XCWidget, XCObjectUI, XCObject>(m, "XElement")
+		py::class_<XCElement, XCWidget>(m, "XElement")
 			.def("regEvent", [](const XCElement& self, int eventType, const XEventCallback& callback, const py::object& userdata) {
 					XEventManager::GetInstance()->RegEleEvent(self.getEleHandle(), eventType, callback, userdata);
 			}, "eventType"_a, "callback"_a, "userdata"_a = py::none())

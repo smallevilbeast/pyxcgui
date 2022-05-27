@@ -8,7 +8,6 @@ namespace xcgui {
 
 	void declareButton(py::module& m) {
 		py::class_<XCButton, XCElement>(m, "XButton")
-
 			.def(py::init([](const XCObjectUI& parent, int x, int y, int cx, int cy, const std::wstring& text) {
 				XCButton button(x, y, cx, cy, text, parent.GetHandle());
 				return button;
