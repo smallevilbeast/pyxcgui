@@ -25,6 +25,10 @@ namespace xcgui {
 			m_mData[handle] = object;
 		}
 		py::object& GetUserData(HXCGUI handle) {
+			auto iter = m_mData.find(handle);
+			if (iter == m_mData.end()) {
+				m_mData[handle] = py::none();
+			}
 			return m_mData[handle];
 		}
 

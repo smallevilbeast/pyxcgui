@@ -206,6 +206,7 @@
     <ClInclude Include="xcgui\XCElement.hpp" />
     <ClInclude Include="xcgui\XCObjectUI.hpp" />
     <ClInclude Include="xcgui\XCStruct.hpp" />
+    <ClInclude Include="xcgui\XCSvg.hpp" />
     <ClInclude Include="xcgui\XCWidget.hpp" />
     <ClInclude Include="xcgui\XCWindow.hpp" />
   </ItemGroup>

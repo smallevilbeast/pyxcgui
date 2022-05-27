@@ -54,8 +54,8 @@ namespace xcgui {
 		}
 
 		// 加载图片从资源
-		HIMAGE LoadRes(int id, const wchar_t* pType, HMODULE hModule = NULL) { 
-			m_handle = XImage_LoadRes(id, pType, hModule);
+		HIMAGE LoadRes(int id, const std::wstring& typeName, HMODULE hModule = NULL) { 
+			m_handle = XImage_LoadRes(id, typeName.c_str(), hModule);
 			return (HIMAGE)m_handle;
 		}
 
@@ -126,6 +126,36 @@ namespace xcgui {
 			return (HIMAGE)m_handle;
 		}
 
+		// 	hSvg SVG句柄
+		HIMAGE LoadSvg(HSVG hSvg) {
+			m_handle = XImage_LoadSvg(hSvg);
+			return (HIMAGE)m_handle;
+		}
+
+		// 加载从SVG文件
+		HIMAGE LoadSvgFile(const std::wstring& fileName) {
+			m_handle = XImage_LoadSvgFile(fileName.c_str());
+			return (HIMAGE)m_handle;
+		}
+
+		//  多字节字符串ANSI
+		HIMAGE LoadSvgString(const std::string& data) {
+			m_handle = XImage_LoadSvgString(data.c_str());
+			return (HIMAGE)m_handle;
+		}
+
+		// UNICODE字符串
+		HIMAGE LoadSvgStringW(const std::wstring& data) {
+			m_handle = XImage_LoadSvgStringW(data.c_str());
+			return (HIMAGE)m_handle;
+		}
+
+		//  加载从SVG字符串UTF8
+		HIMAGE LoadSvgStringUtf8(const std::string& data) {
+			m_handle = XImage_LoadSvgStringUtf8(data.c_str());
+			return (HIMAGE)m_handle;
+		}
+
 		// 是否为拉伸图片句柄
 		bool IsStretch() { 
 			return XImage_IsStretch((HIMAGE)m_handle);
@@ -136,35 +166,6 @@ namespace xcgui {
 			return XImage_IsTile((HIMAGE)m_handle);
 		}
 
-		// 	hSvg SVG句柄
-		HIMAGE LoadSvg(HSVG hSvg) { 
-			m_handle = XImage_LoadSvg(hSvg);
-			return (HIMAGE)m_handle;
-		}
-
-		// 加载从SVG文件
-		HIMAGE LoadSvgFile(const std::wstring& fileName) { 
-			m_handle = XImage_LoadSvgFile(fileName.c_str());
-			return (HIMAGE)m_handle;
-		}
-
-		//  多字节字符串ANSI
-		HIMAGE LoadSvgString(const std::string& data) { 
-			m_handle = XImage_LoadSvgString(data.c_str());
-			return (HIMAGE)m_handle;
-		}
-
-		// UNICODE字符串
-		HIMAGE LoadSvgStringW(const std::wstring& data) { 
-			m_handle = XImage_LoadSvgStringW(data.c_str());
-			return (HIMAGE)m_handle;
-		}
-
-		//  加载从SVG字符串UTF8
-		HIMAGE LoadSvgStringUtf8(const std::string& data) {
-			m_handle = XImage_LoadSvgStringUtf8(data.c_str());
-			return (HIMAGE)m_handle;
-		}
 
 		// SVG句柄
 		HSVG GetSvg() { 
