@@ -9,16 +9,20 @@ namespace xcgui {
 		XCBkManager()
 			: XCObject() 
 		{
-			m_handle = (HXCGUI)XBkM_Create();
+			m_handle = XBkM_Create();
 		}
 
 		~XCBkManager() {
-			XBkM_Destroy(this->GetBkmHandle());
 		}
 
 
 		HBKM GetBkmHandle() const {
 			return (HBKM)m_handle;
+		}
+
+		// 
+		void Destroy() { 
+			XBkM_Destroy(GetBkmHandle());
 		}
 
 		// ÉèÖÃ±³¾°ÄÚÈİ
