@@ -19,5 +19,15 @@ using namespace pybind11::literals;
 #include "xcgui.h"
 #pragma comment(lib, "XCGUI-v3.3.4.lib")
 
+#define SINGLETON_DEFINE(TypeName)				\
+static TypeName* GetInstance()					\
+{												\
+	static TypeName type_instance;				\
+	return &type_instance;						\
+}												\
+												\
+TypeName(const TypeName&) = delete;				\
+TypeName& operator=(const TypeName&) = delete
+
 #endif 
 

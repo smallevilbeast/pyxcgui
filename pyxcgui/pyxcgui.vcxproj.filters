@@ -99,6 +99,9 @@
     <ClInclude Include="binding\XElement.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="binding\XUserDataManager.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">

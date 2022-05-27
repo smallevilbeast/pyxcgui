@@ -6,16 +6,6 @@
 
 #include "xcgui/XCWindow.hpp"
 
-#define SINGLETON_DEFINE(TypeName)				\
-static TypeName* GetInstance()					\
-{												\
-	static TypeName type_instance;				\
-	return &type_instance;						\
-}												\
-												\
-TypeName(const TypeName&) = delete;				\
-TypeName& operator=(const TypeName&) = delete
-
 namespace xcgui {
 
 

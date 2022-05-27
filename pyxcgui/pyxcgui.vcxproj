@@ -187,6 +187,7 @@
     <ClInclude Include="binding\XEnum.hpp" />
     <ClInclude Include="binding\XObjectUI.hpp" />
     <ClInclude Include="binding\XStruct.hpp" />
+    <ClInclude Include="binding\XUserDataManager.hpp" />
     <ClInclude Include="binding\XWidget.hpp" />
     <ClInclude Include="binding\XWindow.hpp" />
     <ClInclude Include="framework.h" />

@@ -2,6 +2,7 @@
 #include "pch.h"
 #include "xcgui/XCApp.hpp"
 #include "XEventManager.hpp"
+#include "XUserDataManager.hpp"
 
 namespace xcgui {
 
@@ -11,6 +12,7 @@ namespace xcgui {
 			.def("run", &XCApp::Run)
 			.def("exit", [](XCApp& self) {
 				XEventManager::GetInstance()->Release();
+				XUserDataManager::GetInstance()->Release();
 				self.Exit();
 			});
 	}

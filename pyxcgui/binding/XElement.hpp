@@ -2,6 +2,10 @@
 #include "pch.h"
 #include "xcgui/XCElement.hpp"
 #include "xcgui/XCCast.hpp"
+#include "xcgui/XCFont.hpp"
+#include "xcgui/XCBkManager.hpp"
+#include "xcgui/XCDraw.hpp"
+#include "XUserDataManager.hpp"
 
 namespace xcgui {
 
@@ -132,7 +136,9 @@ namespace xcgui {
 			.def("enableEvent_XE_MOUSEWHEEL", &XCElement::EnableEvent_XE_MOUSEWHEEL, "enable"_a)
 			.def("remove", &XCElement::Remove)
 			.def("setZOrder", &XCElement::SetZOrder, "index"_a)
-			.def("setZOrderEx", &XCElement::SetZOrderEx, "index"_a)
+			.def("setZOrderEx", [](XCElement& self, const XCWidget& destEle, zorder_ zorder) {
+				self.SetZOrderEx((HELE)destEle.GetHandle(), zorder);
+			}, "destEle"_a, "index"_a)
 			.def("getZOrder", &XCElement::GetZOrder)
 			.def("enableTopmost", &XCElement::EnableTopmost, "enable"_a)
 			.def("redraw", &XCElement::Redraw, "immediate"_a=false)
@@ -182,8 +188,67 @@ namespace xcgui {
 			.def("getFocusBorderColor", [](XCElement& self) {
 				return (intptr_t)self.GetFocusBorderColor();
 			})
+			.def("setFont", [](XCElement& self, const XCFont& font) {
+				self.SetFont(font.getFontHandle());
+			})
+			.def("getFont", [](XCElement& self) -> XCFont {
+				auto handle = self.GetFont();
+				return XCFont(handle);
+			})
 
-		;
+			.def("getFontEx", [](XCElement& self) -> XCFont {
+				auto handle = self.GetFontEx();
+				return XCFont(handle);
+			})
+			.def("setAlpha", &XCElement::SetAlpha, "alpha"_a)
+			.def("getAlpha", &XCElement::GetAlpha)
+			.def("destroy", &XCElement::Destroy)
+			.def("addBkBorder", &XCElement::AddBkBorder, "state"_a, "hColor"_a, "width"_a)
+			.def("addBkFill", &XCElement::AddBkFill, "state"_a, "hColor"_a)
+			.def("addBkImage", [](XCElement& self, int nState, const XCImage& image) {
+				self.AddBkImage(nState, image.getImageHandle());
+				}, "state"_a, "image"_a)
+			.def("setBkInfo", &XCElement::SetBkInfo, "text"_a)
+			.def("getBkInfoCount", &XCElement::GetBkInfoCount)
+			.def("clearBkInfo", &XCElement::ClearBkInfo)
+			.def("getBkManager", [](XCElement& self) -> XCBkManager {
+				auto handle = self.GetBkManager();
+				return XCBkManager(handle);
+			})
+			.def("getBkManagerEx", [](XCElement& self) -> XCBkManager {
+				auto handle = self.GetBkManagerEx();
+				return XCBkManager(handle);
+			})
+			.def("setBkManager", [](XCElement& self, const XCBkManager& bkm) {
+				self.SetBkManager(bkm.GetBkmHandle());
+			})
+			.def("getStateFlags", &XCElement::GetStateFlags)
+			.def("drawFocus", [](XCElement& self, const XCDraw& draw, const XCRect& rect) {
+				self.DrawFocus(draw.getDrawHandle(), (RECT*)&rect);
+			}, "draw"_a, "rect"_a)
+			.def("drawEle", [](XCElement& self, const XCDraw& draw) {
+				self.DrawEle(draw.getDrawHandle());
+			}, "draw"_a)
+			.def("setUserData", [](XCElement& self, const py::object& userdata) {
+				XUserDataManager::GetInstance()->SetUserData(self.GetHandle(), userdata);
+			}, "userdata"_a)
+			.def("getUserData", [](XCElement& self) {
+				return XUserDataManager::GetInstance()->GetUserData(self.GetHandle());
+			})
+			.def("getContentSize", [](XCElement& self, bool horizon, int cx, int cy) {
+				XCSize size;
+				self.GetContentSize(horizon, cx, cy, (SIZE*)&size);
+			}, "horizon"_a, "cx"_a, "cy"_a)
+			.def("setCapture", &XCElement::SetCapture, "enable"_a)
+			.def("enableTransparentChannel", &XCElement::EnableTransparentChannel, "enable"_a)
+			.def("setXCTimer", &XCElement::SetXCTimer, "eventId"_a, "elapse"_a)
+			.def("killXCTimer", &XCElement::KillXCTimer, "eventId"_a)
+			.def("setToolTip", &XCElement::SetToolTip, "text"_a)
+			.def("setToolTipEx", &XCElement::SetToolTipEx, "text"_a, "textAlign"_a)
+			.def("getToolTip", &XCElement::GetToolTip)
+			.def("popupToolTip", &XCElement::PopupToolTip, "x"_a, "y"_a)
+			.def("adjustLayout", &XCElement::AdjustLayout, "adjustNo"_a)
+			.def("adjustLayoutEx", &XCElement::AdjustLayoutEx, "flags"_a, "adjustNo"_a);
 
 	}
 }

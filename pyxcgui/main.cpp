@@ -8,6 +8,7 @@
 #include "binding/XWidget.hpp"
 #include "binding/XWindow.hpp"
 #include "binding/XImage.hpp"
+#include "binding/XElement.hpp"
 
 
 
@@ -41,6 +42,9 @@ namespace xcgui {
 
 		// widget
 		declareWidget(m);
+
+		// element
+		declareElement(m);
 
 
 		
