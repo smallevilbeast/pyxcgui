@@ -1,19 +1,19 @@
 #pragma once
 #include "pch.h"
-#include "XCElement.hpp"
+#include "xcgui/XCElement.hpp"
 
 namespace xcgui {
-	class XCButton : XCElement
+	class XCButton : public XCElement
 	{
 	public:
 		// 创建按钮元素  
-		HELE Create(int x, int y, int cx, int cy, const wchar_t* pName, HXCGUI hParent = NULL) {
-			m_handle = XBtn_Create(x, y, cx, cy, pName, hParent); return (HELE)m_handle;
+		HELE Create(int x, int y, int cx, int cy, const std::wstring& name, HXCGUI hParent = NULL) {
+			m_handle = XBtn_Create(x, y, cx, cy, name.c_str(), hParent); return (HELE)m_handle;
 		}
 
 		// 创建按钮元素  
-		XCButton(int x, int y, int cx, int cy, const wchar_t* pName, HXCGUI hParent = NULL) {
-			m_handle = XBtn_Create(x, y, cx, cy, pName, hParent);
+		XCButton(int x, int y, int cx, int cy, const std::wstring& name, HXCGUI hParent = NULL) {
+			m_handle = XBtn_Create(x, y, cx, cy, name.c_str(), hParent);
 		}
 
 		// 是否选中状态.  

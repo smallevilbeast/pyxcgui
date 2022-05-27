@@ -6,12 +6,17 @@
 #include "xcgui/XCBkManager.hpp"
 #include "xcgui/XCDraw.hpp"
 #include "XUserDataManager.hpp"
+#include "XEventManager.hpp"
 
 namespace xcgui {
 
 	void declareElement(py::module& m) {
 
 		py::class_<XCElement, XCWidget, XCObjectUI, XCObject>(m, "XElement")
+			.def("regEvent", [](const XCElement& self, int eventType, const XEventCallback& callback, const py::object& userdata) {
+					XEventManager::GetInstance()->RegEleEvent(self.getEleHandle(), eventType, callback, userdata);
+			}, "eventType"_a, "callback"_a, "userdata"_a = py::none())
+
 			.def("sendEvent", [](XCElement& self, int eventType, intptr_t wParam, intptr_t lParam) -> int {
 					return self.SendEvent(eventType, (WPARAM)wParam, (LPARAM)lParam);
 				}, "eventType"_a, "wParam"_a, "lParam"_a)
@@ -238,6 +243,7 @@ namespace xcgui {
 			.def("getContentSize", [](XCElement& self, bool horizon, int cx, int cy) {
 				XCSize size;
 				self.GetContentSize(horizon, cx, cy, (SIZE*)&size);
+				return size;
 			}, "horizon"_a, "cx"_a, "cy"_a)
 			.def("setCapture", &XCElement::SetCapture, "enable"_a)
 			.def("enableTransparentChannel", &XCElement::EnableTransparentChannel, "enable"_a)

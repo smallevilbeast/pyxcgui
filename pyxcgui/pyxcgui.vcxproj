@@ -179,6 +179,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="binding\element\XButton.hpp" />
     <ClInclude Include="binding\XApp.hpp" />
     <ClInclude Include="binding\XElement.hpp" />
     <ClInclude Include="binding\XEventManager.hpp" />
@@ -194,9 +195,9 @@
     <ClInclude Include="main.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="xcgui.h" />
+    <ClInclude Include="xcgui\element\XCButton.hpp" />
     <ClInclude Include="xcgui\XCApp.hpp" />
     <ClInclude Include="xcgui\XCBkManager.hpp" />
-    <ClInclude Include="xcgui\XCButton.hpp" />
     <ClInclude Include="xcgui\XCFont.hpp" />
     <ClInclude Include="xcgui\XCImage.hpp" />
     <ClInclude Include="xcgui\XCObject.hpp" />

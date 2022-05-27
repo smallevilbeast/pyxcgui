@@ -9,6 +9,7 @@
 #include "binding/XWindow.hpp"
 #include "binding/XImage.hpp"
 #include "binding/XElement.hpp"
+#include "binding/element/XButton.hpp"
 
 
 
@@ -45,6 +46,9 @@ namespace xcgui {
 
 		// element
 		declareElement(m);
+
+		// button
+		declareButton(m);
 
 
 		

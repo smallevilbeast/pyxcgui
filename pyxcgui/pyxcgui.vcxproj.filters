@@ -93,13 +93,16 @@
     <ClInclude Include="xcgui\XCFont.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="xcgui\XCButton.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="binding\XElement.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="binding\XUserDataManager.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="xcgui\element\XCButton.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="binding\element\XButton.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
