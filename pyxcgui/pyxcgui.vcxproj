@@ -180,6 +180,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="binding\XApp.hpp" />
+    <ClInclude Include="binding\XElement.hpp" />
     <ClInclude Include="binding\XEventManager.hpp" />
     <ClInclude Include="binding\XImage.hpp" />
     <ClInclude Include="binding\XObject.hpp" />
@@ -194,6 +195,8 @@
     <ClInclude Include="xcgui.h" />
     <ClInclude Include="xcgui\XCApp.hpp" />
     <ClInclude Include="xcgui\XCBkManager.hpp" />
+    <ClInclude Include="xcgui\XCButton.hpp" />
+    <ClInclude Include="xcgui\XCFont.hpp" />
     <ClInclude Include="xcgui\XCImage.hpp" />
     <ClInclude Include="xcgui\XCObject.hpp" />
     <ClInclude Include="xcgui\XCCast.hpp" />

@@ -131,7 +131,7 @@ namespace xcgui {
 		}
 
 		// 开始或关闭图片动画的播放.  
-		void EnableAnimation(bool bEnable, bool bLoopPlay = FALSE) {
+		void EnableAnimation(bool bEnable, bool bLoopPlay = false) {
 			XBtn_EnableAnimation((HELE)m_handle, bEnable, bLoopPlay);
 		}
 	};

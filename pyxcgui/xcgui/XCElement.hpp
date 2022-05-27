@@ -164,8 +164,8 @@ namespace xcgui {
 		//@参数 nAdjustNo 调整布局流水号
 		//@返回 如果返回0坐标没有改变,如果大小改变返回2(触发XE_SIZE), 否则返回1(仅改变left,top,没有改变大小).
 		//@别名  置坐标()
-		int SetRect(RECT* pRect, bool bRedraw = FALSE, int nFlags = adjustLayout_all, UINT nAdjustNo = 0) {
-			return XEle_SetRect((HELE)m_handle, pRect, bRedraw, nFlags, nAdjustNo);
+		int SetRect(const XCRect& rect, bool bRedraw = false, int nFlags = adjustLayout_all, UINT nAdjustNo = 0) {
+			return XEle_SetRect((HELE)m_handle, (RECT*)&rect, bRedraw, nFlags, nAdjustNo);
 		}
 
 		// 设置元素坐标.  
@@ -178,7 +178,7 @@ namespace xcgui {
 		//@参数 nAdjustNo 调整布局流水号
 		//@返回 如果坐标未改变返回0,如果大小改变返回2(触发XE_SIZE), 否则返回1.
 		//@别名  置坐标扩展()
-		int SetRectEx(int x, int y, int cx, int cy, bool bRedraw = FALSE, int nFlags = adjustLayout_all, UINT nAdjustNo = 0) {
+		int SetRectEx(int x, int y, int cx, int cy, bool bRedraw = false, int nFlags = adjustLayout_all, UINT nAdjustNo = 0) {
 			return XEle_SetRectEx((HELE)m_handle, x, y, cx, cy, bRedraw, nFlags, nAdjustNo);
 		}
 
@@ -189,8 +189,8 @@ namespace xcgui {
 		//@参数 nAdjustNo 调整布局流水号
 		//@返回 如果坐标未改变返回0,如果大小改变返回2(触发XE_SIZE), 否则返回1.
 		//@别名  置逻辑坐标()
-		int SetRectLogic(RECT* pRect, bool bRedraw = FALSE, int nFlags = adjustLayout_all, UINT nAdjustNo = 0) {
-			return XEle_SetRectLogic((HELE)m_handle, pRect, bRedraw, nFlags, nAdjustNo);
+		int SetRectLogic(const XCRect& rect, bool bRedraw = false, int nFlags = adjustLayout_all, UINT nAdjustNo = 0) {
+			return XEle_SetRectLogic((HELE)m_handle, (RECT*)&rect, bRedraw, nFlags, nAdjustNo);
 		}
 
 		// 移动元素坐标
@@ -201,7 +201,7 @@ namespace xcgui {
 		//@参数 nAdjustNo 调整布局流水号
 		//@返回 如果坐标未改变返回0,如果大小改变返回2(触发XE_SIZE), 否则返回1.
 		//@别名  置位置()
-		int SetPosition(int x, int y, bool bRedraw = FALSE, int nFlags = adjustLayout_all, UINT nAdjustNo = 0) {
+		int SetPosition(int x, int y, bool bRedraw = false, int nFlags = adjustLayout_all, UINT nAdjustNo = 0) {
 			return XEle_SetPosition((HELE)m_handle, x, y, bRedraw, nFlags, nAdjustNo);
 		}
 
@@ -213,7 +213,7 @@ namespace xcgui {
 		//@参数 nAdjustNo 调整布局流水号
 		//@返回 如果坐标未改变返回0,如果大小改变返回2(触发XE_SIZE), 否则返回1.
 		//@别名  置位置逻辑()
-		int SetPositionLogic(int x, int y, bool bRedraw = FALSE, int nFlags = adjustLayout_all, UINT nAdjustNo = 0) {
+		int SetPositionLogic(int x, int y, bool bRedraw = false, int nFlags = adjustLayout_all, UINT nAdjustNo = 0) {
 			return XEle_SetPositionLogic((HELE)m_handle, x, y, bRedraw, nFlags, nAdjustNo);
 		}
 
@@ -230,7 +230,7 @@ namespace xcgui {
 		//@参数 nFlags 调整布局标识位, @ref adjustLayout_
 		//@参数 nAdjustNo 调整布局流水号
 		//@别名  置大小()
-		int SetSize(int nWidth, int nHeight, bool bRedraw = FALSE, int nFlags = adjustLayout_all, UINT nAdjustNo = 0) {
+		int SetSize(int nWidth, int nHeight, bool bRedraw = false, int nFlags = adjustLayout_all, UINT nAdjustNo = 0) {
 			return XEle_SetSize((HELE)m_handle, nWidth, nHeight, bRedraw, nFlags, nAdjustNo);
 		}
 
@@ -459,7 +459,7 @@ namespace xcgui {
 		// 重绘元素.  
 		//@参数 bImmediate 是否立即重绘,默认为否.
 		//@别名  重绘()
-		void Redraw(bool bImmediate = FALSE) {
+		void Redraw(bool bImmediate = false) {
 			XEle_Redraw((HELE)m_handle, bImmediate);
 		}
 
@@ -467,7 +467,7 @@ namespace xcgui {
 		//@参数 pRect 相对于元素客户区坐标.
 		//@参数 bImmediate 是否立即重绘,默认为否.
 		//@别名  重绘指定区域()
-		void RedrawRect(RECT* pRect, bool bImmediate = FALSE) {
+		void RedrawRect(RECT* pRect, bool bImmediate = false) {
 			XEle_RedrawRect((HELE)m_handle, pRect, bImmediate);
 		}
 

@@ -90,6 +90,15 @@
     <ClInclude Include="binding\XImage.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="xcgui\XCFont.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="xcgui\XCButton.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="binding\XElement.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">

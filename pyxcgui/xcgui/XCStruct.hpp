@@ -22,6 +22,25 @@ namespace xcgui {
 		int y;
 	};
 
+	class XCSize
+	{
+	public:
+		XCSize()
+			:width(0)
+			, height(0)
+		{
+		}
+		XCSize(int width, int height)
+			:width(width)
+			, height(height)
+		{
+
+		}
+	public:
+		int width;
+		int height;
+	};
+
 	
 	class XCRect
 	{
