@@ -8,6 +8,7 @@
 #include "binding/XWidget.hpp"
 #include "binding/XWindow.hpp"
 #include "binding/XImage.hpp"
+#include "binding/XImageSrc.hpp"
 #include "binding/XElement.hpp"
 #include "binding/element/XButton.hpp"
 
@@ -31,6 +32,9 @@ namespace xcgui {
 
 		// image
 		declareImage(m);
+
+		// image
+		declareImageSrc(m);
 
 		// ObjectUI
 		declareObjectUI(m);

@@ -37,7 +37,7 @@ namespace xcgui {
 
 		// 加载图片从资源.  
 		HIMAGE LoadRes(int id, const std::wstring& typeName, HMODULE hModule) { 
-			//m_handle = XImgSrc_LoadRes(id, typeName.c_str(), hModule);
+			m_handle = XImgSrc_LoadRes(id, typeName.c_str(), hModule);
 			return (HIMAGE)m_handle;
 		}
 		
