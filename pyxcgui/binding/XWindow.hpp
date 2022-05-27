@@ -22,7 +22,7 @@ namespace xcgui {
 			.def("attach", &XCWindow::Attach, "hwnd"_a, "style"_a)
 			.def("regEvent", [](const XCWindow& self, int eventType, const XEventCallback& callback, const py::object& userdata) {
 				XEventManager::GetInstance()->RegWindowEvent(self.GetWindowHandle(), eventType, callback, userdata);
-			}, "eventType"_a, "callback"_a, "userdata"_a)
+			}, "eventType"_a, "callback"_a, "userdata"_a= py::none())
 			.def("addChild", &XCWindow::AddChild, "child"_a)
 			.def("insertChild", &XCWindow::InsertChild, "child"_a, "index"_a)
 			.def("redraw", &XCWindow::Redraw, "immediate"_a)
