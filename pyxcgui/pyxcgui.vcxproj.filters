@@ -24,9 +24,6 @@
     <ClInclude Include="pch.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="main.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="xcgui\XCObjectUI.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -109,6 +106,18 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="binding\XImageSrc.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="binding\XFont.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="binding\XSvg.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="binding\XDraw.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="binding\XBkManager.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

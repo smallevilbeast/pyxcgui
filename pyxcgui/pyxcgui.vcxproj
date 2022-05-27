@@ -181,19 +181,22 @@
   <ItemGroup>
     <ClInclude Include="binding\element\XButton.hpp" />
     <ClInclude Include="binding\XApp.hpp" />
+    <ClInclude Include="binding\XBkManager.hpp" />
+    <ClInclude Include="binding\XDraw.hpp" />
     <ClInclude Include="binding\XElement.hpp" />
     <ClInclude Include="binding\XEventManager.hpp" />
+    <ClInclude Include="binding\XFont.hpp" />
     <ClInclude Include="binding\XImage.hpp" />
     <ClInclude Include="binding\XImageSrc.hpp" />
     <ClInclude Include="binding\XObject.hpp" />
     <ClInclude Include="binding\XEnum.hpp" />
     <ClInclude Include="binding\XObjectUI.hpp" />
     <ClInclude Include="binding\XStruct.hpp" />
+    <ClInclude Include="binding\XSvg.hpp" />
     <ClInclude Include="binding\XUserDataManager.hpp" />
     <ClInclude Include="binding\XWidget.hpp" />
     <ClInclude Include="binding\XWindow.hpp" />
     <ClInclude Include="framework.h" />
-    <ClInclude Include="main.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="xcgui.h" />
     <ClInclude Include="xcgui\element\XCButton.hpp" />

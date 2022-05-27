@@ -3,7 +3,8 @@
 #include "XCObject.hpp"
 
 namespace xcgui {
-	class XCBkManager: XCObject
+
+	class XCBkManager: public XCObject
 	{
 	public:
 		XCBkManager()
