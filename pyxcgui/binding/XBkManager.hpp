@@ -15,7 +15,7 @@ namespace xcgui {
 			.def("addInfo", &XCBkManager::AddInfo)
 			.def("addBorder", &XCBkManager::AddBorder, "state"_a, "color"_a, "width"_a, "bkId"_a=0)
 			.def("addFill", &XCBkManager::AddFill, "state"_a, "color"_a, "bkId"_a)
-			.def("AddImage", [](XCBkManager& self, int state, const XCImage& image, int bkId=0) {
+			.def("addImage", [](XCBkManager& self, int state, const XCImage& image, int bkId=0) {
 				self.AddImage(state, image.getImageHandle(), bkId);
 			}, "state"_a, "image"_a, "bkId"_a = 0)
 			.def("getCount", &XCBkManager::GetCount)

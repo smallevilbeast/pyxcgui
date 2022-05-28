@@ -104,7 +104,7 @@ namespace xcgui {
 				}, "hIcon"_a, py::return_value_policy::take_ownership)
 					
 			
-			.def_static("LoadFromHBITMAP", [](uintptr_t hBitmap) -> XCImageSrc* {
+			.def_static("loadFromHBITMAP", [](uintptr_t hBitmap) -> XCImageSrc* {
 				auto pImage = new XCImageSrc();
 				if (!pImage->LoadFromHBITMAP((HBITMAP)hBitmap)) {
 					return nullptr;

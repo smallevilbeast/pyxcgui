@@ -139,7 +139,7 @@ namespace xcgui {
 				}, "hIcon"_a, py::return_value_policy::take_ownership)
 					
 			
-			.def_static("LoadFromHBITMAP", [](uintptr_t hBitmap) -> XCImage* {
+			.def_static("loadFromHBITMAP", [](uintptr_t hBitmap) -> XCImage* {
 				auto pImage = new XCImage();
 				if (!pImage->LoadFromHBITMAP((HBITMAP)hBitmap)) {
 					return nullptr;
@@ -147,7 +147,7 @@ namespace xcgui {
 				return pImage;
 				}, "hBitmap"_a, py::return_value_policy::take_ownership)
 
-			.def_static("LoadSvg", [](const XCSvg& svg) -> XCImage* {
+			.def_static("loadSvg", [](const XCSvg& svg) -> XCImage* {
 				auto pImage = new XCImage();
 				if (!pImage->LoadSvg(svg.getSvgHandle())) {
 					return nullptr;
@@ -155,7 +155,7 @@ namespace xcgui {
 				return pImage;
 				}, "hBitmap"_a, py::return_value_policy::take_ownership)
 
-			.def_static("LoadSvgFile", [](const std::wstring& fileName) -> XCImage* {
+			.def_static("loadSvgFile", [](const std::wstring& fileName) -> XCImage* {
 				auto pImage = new XCImage();
 				if (!pImage->LoadSvgFile(fileName)) {
 					return nullptr;
@@ -163,7 +163,7 @@ namespace xcgui {
 				return pImage;
 				}, "fileName"_a, py::return_value_policy::take_ownership)
 
-			.def_static("LoadSvgString", [](const std::wstring& data) -> XCImage* {
+			.def_static("loadSvgString", [](const std::wstring& data) -> XCImage* {
 				auto pImage = new XCImage();
 				if (!pImage->LoadSvgStringW(data)) {
 					return nullptr;
@@ -172,8 +172,8 @@ namespace xcgui {
 				}, "data"_a, py::return_value_policy::take_ownership)
 
 
-			.def("IsStretch", &XCImage::IsStretch)
-			.def("IsTile", &XCImage::IsStretch)
+			.def("isStretch", &XCImage::IsStretch)
+			.def("isTile", &XCImage::IsStretch)
 
 			.def("getSvg", [](XCImage& self) -> XCSvg* {
 				auto handle = self.GetSvg();
