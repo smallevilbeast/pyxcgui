@@ -67,5 +67,19 @@ namespace xcgui {
 		int bottom;
 	};
 
+	class XCFontInfo {
+	public:
+		XCFontInfo(const std::wstring& name, int size, int style)
+			:name(name)
+			, size(size)
+			, style(style)
+		{
+
+		}
+
+		std::wstring name;
+		int size;
+		int style;
+	};
 
 }

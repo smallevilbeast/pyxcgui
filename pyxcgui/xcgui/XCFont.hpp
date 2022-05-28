@@ -74,8 +74,8 @@ namespace xcgui {
 		}
 
 		// 创建从资源
-		HFONTX CreateFromRes(int id, const wchar_t* pType, int fontSize, int style, HMODULE hModule = NULL) { 
-			m_handle = XFont_CreateFromRes(id, pType, fontSize, style, hModule);
+		HFONTX CreateFromRes(int id, const std::wstring& typeName, int fontSize, int style, HMODULE hModule = NULL) { 
+			m_handle = XFont_CreateFromRes(id, typeName.c_str(), fontSize, style, hModule);
 			return (HFONTX)m_handle;
 		}
 
@@ -87,7 +87,7 @@ namespace xcgui {
 		
 		// 获取字体,返回GDI+ Font指针
 		void* GetFont() { 
-			XFont_GetFont((HFONTX)m_handle); 
+			return XFont_GetFont((HFONTX)m_handle); 
 		}
 
 		// 获取字体信息.  

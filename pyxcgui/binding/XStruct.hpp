@@ -26,5 +26,11 @@ namespace xcgui {
 			.def_readwrite("top", &XCRect::top)
 			.def_readwrite("right", &XCRect::right)
 			.def_readwrite("bottom", &XCRect::bottom);
+
+		py::class_<XCFontInfo>(m, "XFontInfo")
+			.def(py::init<const std::wstring&, int, int>(), "name"_a, "size"_a, "style"_a)
+			.def_readwrite("name", &XCFontInfo::name)
+			.def_readwrite("size", &XCFontInfo::size)
+			.def_readwrite("style", &XCFontInfo::style);
 	}
 }
