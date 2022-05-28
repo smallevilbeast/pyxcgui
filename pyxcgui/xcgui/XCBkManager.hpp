@@ -26,11 +26,6 @@ namespace xcgui {
 			return (HBKM)m_handle;
 		}
 
-		// 
-		void Destroy() { 
-			XBkM_Destroy(GetBkmHandle());
-		}
-
 		// 设置背景内容
 		int SetBkInfo(const std::wstring& text) { 
 			return XBkM_SetBkInfo(GetBkmHandle(), text.c_str()); 
@@ -81,26 +76,6 @@ namespace xcgui {
 			return XBkM_DrawEx(GetBkmHandle(), nState, hDraw, pRect, nStateEx);
 		}
 
-		// 是否自动销毁
-		void EnableAutoDestroy(BOOL bEnable) {
-			XBkM_EnableAutoDestroy(GetBkmHandle(), bEnable);
-		}
-
-		// 增加引用计数
-		void AddRef() { 
-			XBkM_AddRef(GetBkmHandle()); 
-		}
-
-	    // 释放引用计数,当引用计数为0时,自动销毁
-		void Release() { 
-			XBkM_Release(GetBkmHandle()); 
-		}
-
-		// 获取引用计数
-		int GetRefCount() { 
-			return XBkM_GetRefCount(GetBkmHandle()); 
-		}
-
 		// 取指定状态文本颜色
 		bool GetStateTextColor(int nState, COLORREF* color) { 
 			return XBkM_GetStateTextColor(GetBkmHandle(), nState, color); 
@@ -109,6 +84,31 @@ namespace xcgui {
 		// 背景对象ID
 		vint GetObject(int id) { 
 			return XBkM_GetObject(GetBkmHandle(), id); 
+		}
+
+		// 是否自动销毁
+		void EnableAutoDestroy(BOOL bEnable) {
+			XBkM_EnableAutoDestroy(GetBkmHandle(), bEnable);
+		}
+
+		// 增加引用计数
+		void AddRef() {
+			XBkM_AddRef(GetBkmHandle());
+		}
+
+		// 释放引用计数,当引用计数为0时,自动销毁
+		void Release() {
+			XBkM_Release(GetBkmHandle());
+		}
+
+		// 获取引用计数
+		int GetRefCount() {
+			return XBkM_GetRefCount(GetBkmHandle());
+		}
+
+		// 
+		void Destroy() {
+			XBkM_Destroy(GetBkmHandle());
 		}
 
 	};
