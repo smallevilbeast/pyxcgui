@@ -69,6 +69,11 @@ namespace xcgui {
 
 	class XCFontInfo {
 	public:
+		XCFontInfo()
+			:name()
+			,size(0)
+			,style(0)
+		{}
 		XCFontInfo(const std::wstring& name, int size, int style)
 			:name(name)
 			, size(size)
@@ -80,6 +85,46 @@ namespace xcgui {
 		std::wstring name;
 		int size;
 		int style;
+	};
+
+	class XCRotateInfo {
+	public:
+		XCRotateInfo()
+			:angle(0)
+			,x(0)
+			,y(0)
+			,offset(false)
+		{}
+		XCRotateInfo(float angle, float x, float y, bool offset) 
+			:angle(angle)
+			,x(x)
+			,y(y)
+			,offset(offset)
+		{
+
+		}
+
+		float angle;
+		float x;
+		float y;
+		bool offset;
+	};
+
+	class XCStrokeInfo {
+	public:
+		XCStrokeInfo()
+			:color(0)
+			,strokeWidth(0)
+		{}
+		XCStrokeInfo(COLORREF color, float strokeWidth) 
+			:color(color)
+			,strokeWidth(strokeWidth)
+		{
+
+		}
+
+		COLORREF color;
+		float strokeWidth;
 	};
 
 }

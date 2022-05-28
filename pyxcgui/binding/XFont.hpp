@@ -66,6 +66,7 @@ namespace xcgui {
 					return xFontInfo;
 				})
 
+			.def("enableAutoDestroy", &XCFont::EnableAutoDestroy, "enable"_a)
 			.def("addRef", &XCFont::AddRef)
 			.def("release", &XCFont::Release)
 			.def("getRefCount", &XCFont::GetRefCount)

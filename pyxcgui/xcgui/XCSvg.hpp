@@ -27,7 +27,7 @@ namespace xcgui {
 			return (HSVG)m_handle;
 		}
 
-		HSVG XSvg_LoadString(const std::string& data) {
+		HSVG LoadString(const std::string& data) {
 			m_handle = XSvg_LoadString(data.c_str());
 			return (HSVG)m_handle;
 		}
@@ -57,7 +57,7 @@ namespace xcgui {
 		}
 
 		BYTE GetAlpha() {
-			XSvg_GetAlpha((HSVG)m_handle);
+			return XSvg_GetAlpha((HSVG)m_handle);
 		}
 
 		void SetPosition(int x, int y) {
@@ -81,7 +81,7 @@ namespace xcgui {
 		}
 
 		float GetRotateAngle() {
-			XSvg_GetRotateAngle((HSVG)m_handle);
+			return XSvg_GetRotateAngle((HSVG)m_handle);
 		}
 
 		void SetSize(int width, int height) {

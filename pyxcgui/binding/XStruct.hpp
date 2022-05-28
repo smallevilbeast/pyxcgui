@@ -28,9 +28,24 @@ namespace xcgui {
 			.def_readwrite("bottom", &XCRect::bottom);
 
 		py::class_<XCFontInfo>(m, "XFontInfo")
+			.def(py::init<>())
 			.def(py::init<const std::wstring&, int, int>(), "name"_a, "size"_a, "style"_a)
 			.def_readwrite("name", &XCFontInfo::name)
 			.def_readwrite("size", &XCFontInfo::size)
 			.def_readwrite("style", &XCFontInfo::style);
+
+		py::class_<XCRotateInfo>(m, "XRotateInfo")
+			.def(py::init<>())
+			.def(py::init<float, float, float, bool>(), "angle"_a, "x"_a, "y"_a, "offset"_a)
+			.def_readwrite("angle", &XCRotateInfo::angle)
+			.def_readwrite("x", &XCRotateInfo::x)
+			.def_readwrite("y", &XCRotateInfo::y)
+			.def_readwrite("offset", &XCRotateInfo::offset);
+
+		py::class_<XCStrokeInfo>(m, "XStrokeInfo")
+			.def(py::init<>())
+			.def(py::init<COLORREF, float>(), "color"_a, "strokeWidth"_a)
+			.def_readwrite("name", &XCStrokeInfo::color)
+			.def_readwrite("strokeWidth", &XCStrokeInfo::strokeWidth);
 	}
 }
