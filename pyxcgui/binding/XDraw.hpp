@@ -66,7 +66,7 @@ namespace xcgui {
 			.def("gdiCreatePolygonRgn", [](XCDraw& self, const std::vector<XCPoint>& pointList, int polyFillMode) -> uintptr_t {
 				return (uintptr_t)self.GDI_CreatePolygonRgn( (POINT*)(& pointList[0]),  pointList.size(), polyFillMode);
 			}, "pointList"_a, "polyFillMode"_a)
-			.def("gdiCreatePolygonRgn", &XCDraw::GDI_Rectangle, "left"_a, "top"_a, "right"_a, "bottom"_a)
+			.def("gdiRectangle", &XCDraw::GDI_Rectangle, "left"_a, "top"_a, "right"_a, "bottom"_a)
 			
 			.def("gdiFillRgn", [](XCDraw& self, uintptr_t hRgn, uintptr_t hBrush){
 				return self.GDI_FillRgn((HRGN)hRgn, (HBRUSH)hBrush);
