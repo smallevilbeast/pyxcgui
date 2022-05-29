@@ -120,6 +120,5 @@ namespace xcgui {
 			.def("release", &XCImageSrc::Release)
 			.def("getRefCount", &XCImageSrc::GetRefCount)
 			.def("destroy", &XCImageSrc::Destroy);
-			;
 	}
 }

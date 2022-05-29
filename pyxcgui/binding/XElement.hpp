@@ -13,6 +13,11 @@ namespace xcgui {
 	void declareElement(py::module& m) {
 
 		py::class_<XCElement, XCWidget>(m, "XElement")
+			.def(py::init([](const XCObjectUI& parent, int x, int y, int cx, int cy) {
+				XCElement ele(x, y, cx, cy, parent.GetHandle());
+				return ele;
+			}), "parent"_a, "x"_a, "y"_a, "width"_a, "height"_a)
+
 			.def("regEvent", [](const XCElement& self, int eventType, const XEventCallback& callback, const py::object& userdata) {
 					XEventManager::GetInstance()->RegEleEvent(self.getEleHandle(), eventType, callback, userdata);
 			}, "eventType"_a, "callback"_a, "userdata"_a = py::none())

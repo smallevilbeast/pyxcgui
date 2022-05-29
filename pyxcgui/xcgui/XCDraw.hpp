@@ -26,6 +26,12 @@ namespace xcgui {
 		XCDraw(HWINDOW hWin)
 		{
 			m_handle = XDraw_Create(hWin);
+	
+		}
+
+		HDRAW Create(HWINDOW hWin) {
+			m_handle = XDraw_Create(hWin);
+			return (HDRAW)m_handle;
 		}
 
 		// 创建图形绘制模块实例
@@ -55,7 +61,7 @@ namespace xcgui {
 		}
 
 		// GDI_置背景模式
-		int GDI_SetBkMode(BOOL bTransparent) {
+		int GDI_SetBkMode(bool bTransparent) {
 			return XDraw_GDI_SetBkMode((HDRAW)m_handle, bTransparent);
 		}
 
@@ -128,7 +134,7 @@ namespace xcgui {
 		//@参数 nBottomRect 右下角Y坐标.
 		//@返回 如果函数成功,返回非零值,如果函数失败,返回值是零.
 		//@别名  GDI_矩形()
-		BOOL GDI_Rectangle(int nLeftRect, int nTopRect, int nRightRect, int nBottomRect) {
+		bool GDI_Rectangle(int nLeftRect, int nTopRect, int nRightRect, int nBottomRect) {
 			return XDraw_GDI_Rectangle((HDRAW)m_handle, nLeftRect, nTopRect, nRightRect, nBottomRect);
 		}
 
@@ -137,14 +143,14 @@ namespace xcgui {
 		//@参数 hbr 画刷句柄.
 		//@返回 如果函数成功,返回非零值,如果函数失败,返回值是零.
 		//@别名  GID_填充区域()
-		BOOL GDI_FillRgn(HRGN hrgn, HBRUSH hbr) {
+		bool GDI_FillRgn(HRGN hrgn, HBRUSH hbr) {
 			return XDraw_GDI_FillRgn((HDRAW)m_handle, hrgn, hbr);
 		}
 
 		//@参数 pRect 矩形区域
 		//@返回 如果成功返回TRUE,否则返回FALSE
 		//@别名  GDI_椭圆()
-		BOOL GDI_Ellipse(RECT* pRect) {
+		bool GDI_Ellipse(RECT* pRect) {
 			return XDraw_GDI_Ellipse((HDRAW)m_handle, pRect);
 		}
 
@@ -155,7 +161,7 @@ namespace xcgui {
 		//@参数 height 边框高度,水平边.
 		//@返回 如果函数成功,返回非零值,如果函数失败,返回值是零.
 		//@别名  GDI_边框区域()
-		BOOL GDI_FrameRgn(HRGN hrgn, HBRUSH hbr, int width, int nHeight) {
+		bool GDI_FrameRgn(HRGN hrgn, HBRUSH hbr, int width, int nHeight) {
 			return XDraw_GDI_FrameRgn((HDRAW)m_handle, hrgn, hbr, width, nHeight);
 		}
 
@@ -165,7 +171,7 @@ namespace xcgui {
 		//@参数 pPoint 接收以前的当前位置到一个POINT结构的指针,如果这个参数是NULL指针,没有返回原来的位置.
 		//@返回 如果函数成功,返回非零值,如果函数失败,返回值是零.
 		//@别名  GDI_移动到起点()
-		BOOL GDI_MoveToEx(int X, int Y, POINT* pPoint = NULL) {
+		bool GDI_MoveToEx(int X, int Y, POINT* pPoint = NULL) {
 			return XDraw_GDI_MoveToEx((HDRAW)m_handle, X, Y, pPoint);
 		}
 
@@ -174,7 +180,7 @@ namespace xcgui {
 		//@参数 nYEnd Y坐标,线结束点.
 		//@返回 如果函数成功,返回非零值,如果函数失败,返回值是零.
 		//@别名  GDI_线终点()
-		BOOL GDI_LineTo(int nXEnd, int nYEnd) {
+		bool GDI_LineTo(int nXEnd, int nYEnd) {
 			return XDraw_GDI_LineTo((HDRAW)m_handle, nXEnd, nYEnd);
 		}
 
@@ -183,7 +189,7 @@ namespace xcgui {
 		//@参数 arrayPtSize 参见MSDN.
 		//@返回 参见MSDN.
 		//@别名  GDI_折线()
-		BOOL GDI_Polyline(POINT* pArrayPt, int arrayPtSize) {
+		bool GDI_Polyline(POINT* pArrayPt, int arrayPtSize) {
 			return XDraw_GDI_Polyline((HDRAW)m_handle, pArrayPt, arrayPtSize);
 		}
 
@@ -198,7 +204,7 @@ namespace xcgui {
 		//@参数 diFlags .
 		//@返回 .
 		//@别名  GDI_图标扩展()
-		BOOL GDI_DrawIconEx(int xLeft, int yTop, HICON hIcon, int cxWidth, int cyWidth, UINT istepIfAniCur, HBRUSH hbrFlickerFreeDraw, UINT diFlags) {
+		bool GDI_DrawIconEx(int xLeft, int yTop, HICON hIcon, int cxWidth, int cyWidth, UINT istepIfAniCur, HBRUSH hbrFlickerFreeDraw, UINT diFlags) {
 			return XDraw_GDI_DrawIconEx((HDRAW)m_handle, xLeft, yTop, hIcon, cxWidth, cyWidth, istepIfAniCur, hbrFlickerFreeDraw, diFlags);
 		}
 
@@ -213,7 +219,7 @@ namespace xcgui {
 		//@参数 dwRop XX.
 		//@返回 .
 		//@别名  GDI_复制()
-		BOOL GDI_BitBlt(int nXDest, int nYDest, int width, int nHeight, HDC hdcSrc, int nXSrc, int nYSrc, DWORD dwRop) {
+		bool GDI_BitBlt(int nXDest, int nYDest, int width, int nHeight, HDC hdcSrc, int nXSrc, int nYSrc, DWORD dwRop) {
 			return XDraw_GDI_BitBlt((HDRAW)m_handle, nXDest, nYDest, width, nHeight, hdcSrc, nXSrc, nYSrc, dwRop);
 		}
 
@@ -228,7 +234,7 @@ namespace xcgui {
 		//@参数 dwRop XX.
 		//@返回 .
 		//@别名  GDI_复制2()
-		BOOL GDI_BitBlt2(int nXDest, int nYDest, int width, int nHeight, HDRAW hDrawSrc, int nXSrc, int nYSrc, DWORD dwRop) {
+		bool GDI_BitBlt2(int nXDest, int nYDest, int width, int nHeight, HDRAW hDrawSrc, int nXSrc, int nYSrc, DWORD dwRop) {
 			return XDraw_GDI_BitBlt2((HDRAW)m_handle, nXDest, nYDest, width, nHeight, hDrawSrc, nXSrc, nYSrc, dwRop);
 		}
 
@@ -245,7 +251,7 @@ namespace xcgui {
 		//@参数 alpha XX.
 		//@返回 成功返回TRUE否则返回FALSE.
 		//@别名  GDI_带透明复制()
-		BOOL GDI_AlphaBlend(int nXOriginDest, int nYOriginDest, int nWidthDest, int nHeightDest, HDC hdcSrc, int nXOriginSrc, int nYOriginSrc, int nWidthSrc, int nHeightSrc, int alpha) {
+		bool GDI_AlphaBlend(int nXOriginDest, int nYOriginDest, int nWidthDest, int nHeightDest, HDC hdcSrc, int nXOriginSrc, int nYOriginSrc, int nWidthSrc, int nHeightSrc, int alpha) {
 			return XDraw_GDI_AlphaBlend((HDRAW)m_handle, nXOriginDest, nYOriginDest, nWidthDest, nHeightDest, hdcSrc, nXOriginSrc, nYOriginSrc, nWidthSrc, nHeightSrc, alpha);
 		}
 
@@ -302,7 +308,7 @@ namespace xcgui {
 		// 设置文本垂直显示.  
 		//@参数 bVertical 是否垂直显示文本.
 		//@别名  置文本垂直()
-		void SetTextVertical(BOOL bVertical) {
+		void SetTextVertical(bool bVertical) {
 			XDraw_SetTextVertical((HDRAW)m_handle, bVertical);
 		}
 
@@ -350,14 +356,14 @@ namespace xcgui {
 		// 启用平滑模式.  
 		//@参数 bEnable 是否启用.
 		//@别名  启用平滑模式()
-		void EnableSmoothingMode(BOOL bEnable) {
+		void EnableSmoothingMode(bool bEnable) {
 			XDraw_EnableSmoothingMode((HDRAW)m_handle, bEnable);
 		}
 
 		// 当启用之后,调用GDI+函数时, 如果参数alpha=255,将自动修改为254, 应对GDI+的bug, 否则透明通道异常
 		//@参数 bTransparent 是否启用
 		//@别名  启用窗口透明判断()
-		void EnableWndTransparent(BOOL bTransparent) {
+		void EnableWndTransparent(bool bTransparent) {
 			XDraw_EnableWndTransparent((HDRAW)m_handle, bTransparent);
 		}
 
@@ -722,7 +728,7 @@ namespace xcgui {
 		//@参数 pRect 坐标.
 		//@参数 bOnlyBorder 是否只绘制边缘区域.
 		//@别名  图片自适应()
-		void ImageAdaptive(HIMAGE hImageFrame, RECT* pRect, BOOL bOnlyBorder = FALSE) {
+		void ImageAdaptive(HIMAGE hImageFrame, RECT* pRect, bool bOnlyBorder = false) {
 			XDraw_ImageAdaptive((HDRAW)m_handle, hImageFrame, pRect, bOnlyBorder);
 		}
 
@@ -731,7 +737,7 @@ namespace xcgui {
 		//@参数 pRect 坐标.
 		//@参数 bOnlyBorder 是否只绘制边缘区域.
 		//@别名  图片自适应F()
-		void ImageAdaptiveF(HIMAGE hImageFrame, RECTF* pRect, BOOL bOnlyBorder = FALSE) {
+		void ImageAdaptiveF(HIMAGE hImageFrame, RECTF* pRect, bool bOnlyBorder = false) {
 			XDraw_ImageAdaptiveF((HDRAW)m_handle, hImageFrame, pRect, bOnlyBorder);
 		}
 
@@ -758,7 +764,7 @@ namespace xcgui {
 		//@参数 pRect 坐标.
 		//@参数 bClip 是否裁剪区域.
 		//@别名  图片增强()
-		void ImageSuper(HIMAGE hImageFrame, RECT* pRect, BOOL bClip = FALSE) {
+		void ImageSuper(HIMAGE hImageFrame, RECT* pRect, bool bClip = false) {
 			XDraw_ImageSuper((HDRAW)m_handle, hImageFrame, pRect, bClip);
 		}
 
@@ -767,7 +773,7 @@ namespace xcgui {
 		//@参数 pRect 坐标.
 		//@参数 bClip 是否裁剪区域.
 		//@别名  图片增强F()
-		void ImageSuperF(HIMAGE hImageFrame, RECTF* pRect, BOOL bClip = FALSE) {
+		void ImageSuperF(HIMAGE hImageFrame, RECTF* pRect, bool bClip = false) {
 			XDraw_ImageSuperF((HDRAW)m_handle, hImageFrame, pRect, bClip);
 		}
 
@@ -796,7 +802,7 @@ namespace xcgui {
 		//@参数 pRectMask 坐标,遮盖.
 		//@参数 bClip 是否裁剪区域.
 		//@别名  图片增强遮盖()
-		void ImageSuperMask(HIMAGE hImageFrame, HIMAGE hImageFrameMask, RECT* pRect, RECT* pRectMask, BOOL bClip = FALSE) {
+		void ImageSuperMask(HIMAGE hImageFrame, HIMAGE hImageFrameMask, RECT* pRect, RECT* pRectMask, bool bClip = false) {
 			XDraw_ImageSuperMask((HDRAW)m_handle, hImageFrame, hImageFrameMask, pRect, pRectMask, bClip);
 		}
 
@@ -816,16 +822,16 @@ namespace xcgui {
 		//@参数 nCount 字符串长度.
 		//@参数 pRect 坐标.
 		//@别名  文本指定矩形()
-		void DrawText(const wchar_t* pString, int nCount, RECT* pRect) {
-			XDraw_DrawText((HDRAW)m_handle, pString, nCount, pRect);
+		void DrawText(const std::wstring& text, RECT* pRect) {
+			XDraw_DrawText((HDRAW)m_handle, text.c_str(), text.size(), pRect);
 		}
 
 		//@参数 pString 字符串.
 		//@参数 nCount 字符串长度.
 		//@参数 pRect 坐标.
 		//@别名  文本指定矩形F()
-		void DrawTextF(const wchar_t* pString, int nCount, RECTF* pRect) {
-			XDraw_DrawTextF((HDRAW)m_handle, pString, nCount, pRect);
+		void DrawTextF(const std::wstring& text, RECTF* pRect) {
+			XDraw_DrawTextF((HDRAW)m_handle, text.c_str(), text.size(), pRect);
 		}
 
 		// 参见MSDN.  
@@ -834,8 +840,8 @@ namespace xcgui {
 		//@参数 pRect 坐标.
 		//@参数 colorLine 下划线颜色.
 		//@别名  文本下划线()
-		void DrawTextUnderline(const wchar_t* pString, int nCount, RECT* pRect, COLORREF colorLine) {
-			XDraw_DrawTextUnderline((HDRAW)m_handle, pString, nCount, pRect, colorLine);
+		void DrawTextUnderline(const std::wstring& text, RECT* pRect, COLORREF colorLine) {
+			XDraw_DrawTextUnderline((HDRAW)m_handle, text.c_str(), text.size(), pRect, colorLine);
 		}
 
 		//@参数 pString 字符串.
@@ -843,8 +849,8 @@ namespace xcgui {
 		//@参数 pRect 坐标.
 		//@参数 colorLine 下划线颜色.
 		//@别名  文本下划线F()
-		void DrawTextUnderlineF(const wchar_t* pString, int nCount, RECTF* pRect, COLORREF colorLine) {
-			XDraw_DrawTextUnderlineF((HDRAW)m_handle, pString, nCount, pRect, colorLine);
+		void DrawTextUnderlineF(const std::wstring& text, RECTF* pRect, COLORREF colorLine) {
+			XDraw_DrawTextUnderlineF((HDRAW)m_handle, text.c_str(), text.size(), pRect, colorLine);
 		}
 
 		//@参数 xStart XX.
@@ -852,8 +858,8 @@ namespace xcgui {
 		//@参数 pString XX.
 		//@参数 cbString XX.
 		//@别名  文本()
-		void TextOut(int xStart, int yStart, const wchar_t* pString, int cbString) {
-			XDraw_TextOut((HDRAW)m_handle, xStart, yStart, pString, cbString);
+		void TextOut(int xStart, int yStart, const std::wstring& text) {
+			XDraw_TextOut((HDRAW)m_handle, xStart, yStart, text.c_str(), text.size());
 		}
 
 		//@参数 xStart XX.
@@ -861,40 +867,40 @@ namespace xcgui {
 		//@参数 pString XX.
 		//@参数 cbString XX.
 		//@别名  文本F()
-		void TextOutF(float xStart, float yStart, const wchar_t* pString, int cbString) {
-			XDraw_TextOutF((HDRAW)m_handle, xStart, yStart, pString, cbString);
+		void TextOutF(float xStart, float yStart, const std::wstring& text) {
+			XDraw_TextOutF((HDRAW)m_handle, xStart, yStart, text.c_str(), text.size());
 		}
 
 		//@参数 xStart XX.
 		//@参数 yStart XX.
 		//@参数 pString XX.
 		//@别名  文本扩展()
-		void TextOutEx(int xStart, int yStart, const wchar_t* pString) {
-			XDraw_TextOutEx((HDRAW)m_handle, xStart, yStart, pString);
+		void TextOutEx(int xStart, int yStart, const std::wstring& text) {
+			XDraw_TextOutEx((HDRAW)m_handle, xStart, yStart, text.c_str());
 		}
 
 		//@参数 xStart XX.
 		//@参数 yStart XX.
 		//@参数 pString XX.
 		//@别名  文本扩展F()
-		void TextOutExF(float xStart, float yStart, const wchar_t* pString) {
-			XDraw_TextOutExF((HDRAW)m_handle, xStart, yStart, pString);
+		void TextOutExF(float xStart, float yStart, const std::wstring& text) {
+			XDraw_TextOutExF((HDRAW)m_handle, xStart, yStart, text.c_str());
 		}
 
 		//@参数 xStart XX.
 		//@参数 yStart XX.
 		//@参数 pString XX.
 		//@别名  文本A()
-		void TextOutA(int xStart, int yStart, const char* pString) {
-			XDraw_TextOutA((HDRAW)m_handle, xStart, yStart, pString);
+		void TextOutA(int xStart, int yStart, const std::string& text) {
+			XDraw_TextOutA((HDRAW)m_handle, xStart, yStart, text.c_str());
 		}
 
 		//@参数 xStart XX.
 		//@参数 yStart XX.
 		//@参数 pString XX.
 		//@别名  文本AF()
-		void TextOutAF(float xStart, float yStart, const char* pString) {
-			XDraw_TextOutAF((HDRAW)m_handle, xStart, yStart, pString);
+		void TextOutAF(float xStart, float yStart, const std::string& text) {
+			XDraw_TextOutAF((HDRAW)m_handle, xStart, yStart, text.c_str());
 		}
 
 		//@参数 hSvg SVG句柄

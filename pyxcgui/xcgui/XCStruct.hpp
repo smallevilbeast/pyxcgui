@@ -22,6 +22,25 @@ namespace xcgui {
 		int y;
 	};
 
+	class XCPointF
+	{
+	public:
+		XCPointF()
+			:x(0)
+			, y(0)
+		{
+		}
+		XCPointF(float x, float y)
+			:x(x)
+			, y(y)
+		{
+
+		}
+	public:
+		float x;
+		float y;
+	};
+
 	class XCSize
 	{
 	public:
@@ -65,6 +84,31 @@ namespace xcgui {
 		int top;
 		int right;
 		int bottom;
+	};
+
+	class XCRectF
+	{
+	public:
+		XCRectF()
+			:left(0)
+			, top(0)
+			, right(0)
+			, bottom(0)
+		{
+		}
+		XCRectF(float left, float top, float right, float bottom)
+			:left(left)
+			, top(top)
+			, right(right)
+			, bottom(bottom)
+		{
+
+		}
+	public:
+		float left;
+		float top;
+		float right;
+		float bottom;
 	};
 
 	class XCFontInfo {

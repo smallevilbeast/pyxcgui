@@ -31,9 +31,6 @@ namespace xcgui {
 		// base
 		declareBase(m);
 
-		// bkManager
-		declareBkManager(m);
-
 		// xfont
 		declareFont(m);
 
@@ -48,8 +45,9 @@ namespace xcgui {
 
 		// draw
 		declareDraw(m);
-		
 
+		// bkManager
+		declareBkManager(m);
 
 		// ObjectUI
 		declareObjectUI(m);
