@@ -6,6 +6,11 @@ namespace xcgui {
 	class XCButton : public XCElement
 	{
 	public:
+		XCButton(HELE handle) :
+			XCElement(handle)
+		{
+
+		}
 		// 创建按钮元素  
 		HELE Create(int x, int y, int cx, int cy, const std::wstring& name, HXCGUI hParent = NULL) {
 			m_handle = XBtn_Create(x, y, cx, cy, name.c_str(), hParent); return (HELE)m_handle;

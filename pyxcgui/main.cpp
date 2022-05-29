@@ -55,9 +55,6 @@ namespace xcgui {
 		// app
 		declareApp(m);
 
-		// window
-		declareWindow(m);
-
 		// widget
 		declareWidget(m);
 
@@ -67,6 +64,8 @@ namespace xcgui {
 		// button
 		declareButton(m);
 
+		// window
+		declareWindow(m);
 
 		
 	}

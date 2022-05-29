@@ -160,10 +160,10 @@ namespace xcgui {
 				auto handle = self.GetChildByIndex(index);
 				return CastObject(handle);
 			}, "index"_a)
-			.def("getChildByID", [](XCElement& self, int index) {
-				auto handle = self.GetChildByIndex(index);
+			.def("getChildByID", [](XCElement& self, int nId) {
+				auto handle = self.GetChildByID(nId);
 				return CastObject(handle);
-				})
+				}, "nId"_a)
 			.def("setBorderSize", &XCElement::SetBorderSize, "left"_a, "top"_a, "right"_a, "bottom"_a)
 			.def("getBorderSize", [](XCElement& self) -> XCRect {
 					XCRect rect;
