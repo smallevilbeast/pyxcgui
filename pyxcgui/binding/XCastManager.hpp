@@ -212,12 +212,14 @@ namespace xcgui
 				return nullptr;
 			XCObject* pObj = nullptr;
 			pObj = this->FindObject(handle);
-			if (pObj)
+			if (pObj) {
 				return pObj;
-			
+			}
+
 			pObj = NewObject(handle);
-			if (!pObj)
+			if (!pObj) {
 				return nullptr;
+			}
 
 			m_mObjects[handle] = pObj;
 			return pObj;
