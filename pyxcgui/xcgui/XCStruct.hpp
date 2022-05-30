@@ -1,5 +1,6 @@
 #pragma once
 #include "pch.h"
+#include "XCObject.hpp"
 
 namespace xcgui {
 
@@ -169,6 +170,16 @@ namespace xcgui {
 
 		COLORREF color;
 		float strokeWidth;
+	};
+
+
+	class XCEvent {
+	public:
+		int eventType;
+		XCObject* sender;
+		XCPoint mouse;
+		uintptr_t wParam;
+		uintptr_t lParam;
 	};
 
 }

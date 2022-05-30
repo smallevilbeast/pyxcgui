@@ -13,6 +13,7 @@
 #include "binding/XDraw.hpp"
 #include "binding/XImage.hpp"
 #include "binding/XImageSrc.hpp"
+#include "binding/XGlobal.hpp"
 #include "binding/XElement.hpp"
 #include "binding/element/XButton.hpp"
 
@@ -25,11 +26,14 @@ namespace xcgui {
 		// 所有枚举类型
 		declareEnum(m);
 
+		// base
+		declareBase(m);
+
 		// 所有struct
 		declareStruct(m);
 
-		// base
-		declareBase(m);
+		// event
+		declareGlobal(m);
 
 		// xfont
 		declareFont(m);

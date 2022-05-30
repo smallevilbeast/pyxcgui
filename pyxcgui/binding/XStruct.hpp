@@ -70,5 +70,13 @@ namespace xcgui {
 			.def(py::init<COLORREF, float>(), "color"_a, "strokeWidth"_a)
 			.def_readwrite("name", &XCStrokeInfo::color)
 			.def_readwrite("strokeWidth", &XCStrokeInfo::strokeWidth);
+
+
+		py::class_<XCEvent>(m, "XEvent")
+			.def_readonly("eventType", &XCEvent::eventType)
+			.def_readonly("sender", &XCEvent::sender)
+			.def_readonly("mouse", &XCEvent::mouse)
+			.def_readonly("wParam", &XCEvent::wParam)
+			.def_readonly("lParam", &XCEvent::lParam);
 	}
 }

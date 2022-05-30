@@ -123,6 +123,9 @@
     <ClInclude Include="binding\XCastManager.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="binding\XGlobal.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">

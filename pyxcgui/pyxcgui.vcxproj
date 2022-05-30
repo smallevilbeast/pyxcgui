@@ -187,6 +187,7 @@
     <ClInclude Include="binding\XElement.hpp" />
     <ClInclude Include="binding\XEventManager.hpp" />
     <ClInclude Include="binding\XFont.hpp" />
+    <ClInclude Include="binding\XGlobal.hpp" />
     <ClInclude Include="binding\XImage.hpp" />
     <ClInclude Include="binding\XImageSrc.hpp" />
     <ClInclude Include="binding\XObject.hpp" />
