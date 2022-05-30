@@ -268,7 +268,7 @@ namespace xcgui {
 		}
 
 		// 获取窗口name
-		const std::wstring& GetName() { 
+		std::wstring GetName() { 
 			auto pName = XWnd_GetName(GetWindowHandle());
 			if (!pName) {
 				return L"";
@@ -362,7 +362,7 @@ namespace xcgui {
 		}
 
 		// 取标题
-		const std::wstring& GetTitle() { 
+		std::wstring GetTitle() { 
 			auto pTitle = XWnd_GetTitle(GetWindowHandle()); 
 			if (!pTitle) {
 				return L"";

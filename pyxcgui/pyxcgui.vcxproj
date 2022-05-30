@@ -182,6 +182,7 @@
     <ClInclude Include="binding\element\XButton.hpp" />
     <ClInclude Include="binding\XApp.hpp" />
     <ClInclude Include="binding\XBkManager.hpp" />
+    <ClInclude Include="binding\XCastManager.hpp" />
     <ClInclude Include="binding\XDraw.hpp" />
     <ClInclude Include="binding\XElement.hpp" />
     <ClInclude Include="binding\XEventManager.hpp" />
@@ -205,7 +206,7 @@
     <ClInclude Include="xcgui\XCFont.hpp" />
     <ClInclude Include="xcgui\XCImage.hpp" />
     <ClInclude Include="xcgui\XCObject.hpp" />
-    <ClInclude Include="xcgui\XCCast.hpp" />
+    <ClInclude Include="xcgui\XCCastManager.hpp" />
     <ClInclude Include="xcgui\XCDraw.hpp" />
     <ClInclude Include="xcgui\XCElement.hpp" />
     <ClInclude Include="xcgui\XCObjectUI.hpp" />

@@ -1,8 +1,8 @@
 #pragma once
 #include "pch.h"
 #include "xcgui/element/XCButton.hpp"
-#include "xcgui/XCCast.hpp"
 #include "xcgui/XCImage.hpp"
+#include "binding/XCastManager.hpp"
 
 namespace xcgui {
 
@@ -25,8 +25,8 @@ namespace xcgui {
 			}, "ele"_a)
 			.def("getBindEle", [](XCButton& self) {
 				auto handle = self.GetBindEle();
-				return CastObject(handle);
-			}, py::return_value_policy::take_ownership)
+				return XCastManager::GetInstance()->CastObject(handle);
+			}, py::return_value_policy::reference)
 			.def("setTextAlign", &XCButton::SetTextAlign, "flags"_a)
 			.def("getTextAlign", &XCButton::GetTextAlign)
 			.def("setIconAlign", &XCButton::SetIconAlign, "align"_a)

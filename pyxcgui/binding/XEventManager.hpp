@@ -5,11 +5,12 @@
 #include <functional>
 
 #include "xcgui/XCWindow.hpp"
+#include "XCastManager.hpp"
 
 namespace xcgui {
 
 
-	using XEventCallback = std::function<bool(const py::object& userdata)>;
+	using XEventCallback = std::function<bool(XCObject* sender, const py::object& userdata)>;
 
 	class XEventObject {
 	public:
@@ -77,7 +78,8 @@ namespace xcgui {
 				if (eventIter != eventMap.end()) {
 					auto& eventList = eventIter->second;
 					for (auto& event : eventList) {
-						if (event.callback(event.userdata))
+						auto pSender = XCastManager::GetInstance()->CastObject(ele);
+						if (event.callback(pSender, event.userdata))
 						{
 							*pbHandled = TRUE;
 							break;

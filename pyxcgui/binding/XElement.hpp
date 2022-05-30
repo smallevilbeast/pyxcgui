@@ -1,12 +1,12 @@
 #pragma once
 #include "pch.h"
 #include "xcgui/XCElement.hpp"
-#include "xcgui/XCCast.hpp"
 #include "xcgui/XCFont.hpp"
 #include "xcgui/XCBkManager.hpp"
 #include "xcgui/XCDraw.hpp"
 #include "XUserDataManager.hpp"
 #include "XEventManager.hpp"
+#include "XCastManager.hpp"
 
 namespace xcgui {
 
@@ -117,10 +117,10 @@ namespace xcgui {
 			.def("isEnable", &XCElement::IsEnable)
 			.def("isEnableFocus", &XCElement::IsEnableFocus)
 			.def("isMouseThrough", &XCElement::IsMouseThrough)
-			.def("hitChildEle", [](XCElement& self, const XCPoint& point) -> XCObject* {
+			.def("hitChildEle", [](XCElement& self, const XCPoint& point) {
 					auto handle = self.HitChildEle((POINT*) & point);
-					return CastObject(handle);
-			}, "point"_a, py::return_value_policy::take_ownership)
+					return XCastManager::GetInstance()->CastObject(handle);
+			}, "point"_a, py::return_value_policy::reference)
 			
 			.def("isBkTransparent", &XCElement::IsBkTransparent)
 			.def("isEnableEvent_XE_PAINT_END", &XCElement::IsEnableEvent_XE_PAINT_END)
@@ -155,15 +155,17 @@ namespace xcgui {
 			.def("redrawRect", [](XCElement& self, const XCRect& rect, bool immediate) {
 				self.RedrawRect((RECT*)&rect, immediate);
 			}, "rect"_a, "immediate"_a = false)
+
 			.def("getChildCount", &XCElement::GetChildCount)
 			.def("getChildByIndex", [](XCElement& self, int index) {
 				auto handle = self.GetChildByIndex(index);
-				return CastObject(handle);
-			}, "index"_a)
+				return XCastManager::GetInstance()->CastObject(handle);
+			}, "index"_a, py::return_value_policy::reference)
 			.def("getChildByID", [](XCElement& self, int nId) {
 				auto handle = self.GetChildByID(nId);
-				return CastObject(handle);
-				}, "nId"_a)
+				return XCastManager::GetInstance()->CastObject(handle);
+				}, "nId"_a, py::return_value_policy::reference)
+
 			.def("setBorderSize", &XCElement::SetBorderSize, "left"_a, "top"_a, "right"_a, "bottom"_a)
 			.def("getBorderSize", [](XCElement& self) -> XCRect {
 					XCRect rect;

@@ -9,6 +9,7 @@ namespace xcgui {
 		XCObject()
 			: m_handle(NULL)
 		{}
+		virtual ~XCObject() = default;
 
 		XCObject(HXCGUI handle)
 			:m_handle(handle)

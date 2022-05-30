@@ -31,7 +31,11 @@ namespace xcgui {
 			.def_readwrite("left", &XCRect::left)
 			.def_readwrite("top", &XCRect::top)
 			.def_readwrite("right", &XCRect::right)
-			.def_readwrite("bottom", &XCRect::bottom);
+			.def_readwrite("bottom", &XCRect::bottom)
+			.def_readwrite("x", &XCRect::left)
+			.def_readwrite("y", &XCRect::top)
+			.def_readwrite("width", &XCRect::right)
+			.def_readwrite("height", &XCRect::bottom);
 
 
 		py::class_<XCRectF>(m, "XRectF")
@@ -40,7 +44,11 @@ namespace xcgui {
 			.def_readwrite("left", &XCRectF::left)
 			.def_readwrite("top", &XCRectF::top)
 			.def_readwrite("right", &XCRectF::right)
-			.def_readwrite("bottom", &XCRectF::bottom);
+			.def_readwrite("bottom", &XCRectF::bottom)
+			.def_readwrite("x", &XCRectF::left)
+			.def_readwrite("y", &XCRectF::top)
+			.def_readwrite("width", &XCRectF::right)
+			.def_readwrite("height", &XCRectF::bottom);
 
 		py::class_<XCFontInfo>(m, "XFontInfo")
 			.def(py::init<>())

@@ -3,6 +3,7 @@
 #include "xcgui/XCApp.hpp"
 #include "XEventManager.hpp"
 #include "XUserDataManager.hpp"
+#include "XCastManager.hpp"
 
 namespace xcgui {
 
@@ -13,6 +14,7 @@ namespace xcgui {
 			.def("exit", [](XCApp& self) {
 				XEventManager::GetInstance()->Release();
 				XUserDataManager::GetInstance()->Release();
+				XCastManager::GetInstance()->Release();
 				self.Exit();
 			});
 	}

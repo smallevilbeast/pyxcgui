@@ -1,8 +1,7 @@
 #pragma once
 #include "pch.h"
 #include "xcgui/XCWidget.hpp"
-#include "xcgui/XCWindow.hpp"
-#include "xcgui/XCCast.hpp"
+#include "XCastManager.hpp"
 
 
 namespace xcgui {
@@ -39,23 +38,19 @@ namespace xcgui {
 			.def("IsLayoutControl", &XCWidget::IsLayoutControl)
 
 			.def("getParentEle", [](const XCWidget& self) -> XCObject* { 
-				return CastObject(self.GetParentEle());
-			}, py::return_value_policy::take_ownership)
+				return XCastManager::GetInstance()->CastObject(self.GetParentEle());
+			}, py::return_value_policy::reference)
 
 
 			.def("getParent", [](const XCWidget& self) -> XCObject* {
-				return CastObject(self.getParent());
-			}, py::return_value_policy::take_ownership)
+				return XCastManager::GetInstance()->CastObject(self.getParent());
+			}, py::return_value_policy::reference)
 
 
 			.def("getHWND", &XCWidget::GetHWND)
-			.def("getWindow", [](const XCWidget& self) -> XCWindow {
-				auto winHandle = self.GetWindow();
-				if (!winHandle) {
-					return nullptr;
-				}
-				return XCWindow(winHandle);
-			})
+			.def("getWindow", [](const XCWidget& self) -> XCObject* {
+				return XCastManager::GetInstance()->CastObject(self.GetWindow());
+			}, py::return_value_policy::reference)
 
 			.def("setID", &XCWidget::SetID, "id"_a)
 			.def("getID", &XCWidget::GetID)

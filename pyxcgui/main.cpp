@@ -67,6 +67,8 @@ namespace xcgui {
 		// window
 		declareWindow(m);
 
+	
+
 		
 	}
 }

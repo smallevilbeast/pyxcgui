@@ -1,12 +1,12 @@
 #include "pch.h"
 #include "xcgui/XCWindow.hpp"
-#include "xcgui/XCCast.hpp"
 #include "xcgui/XCElement.hpp"
 #include "xcgui/XCFont.hpp"
 #include "xcgui/XCDraw.hpp"
 #include "xcgui/XCImage.hpp"
 #include "xcgui/element/XCButton.hpp"
 #include "XEventManager.hpp" 
+#include "XCastManager.hpp"
 
 namespace xcgui {
 
@@ -35,13 +35,13 @@ namespace xcgui {
 			.def("setFoucsEle", &XCWindow::SetFoucsEle, "ele"_a)
 
 			.def("getFoucsEle", [](const XCWindow& self) -> XCObject* {
-				return CastObject((HXCGUI)self.GetFocusEle());
-			}, py::return_value_policy::take_ownership)
+				return XCastManager::GetInstance()->CastObject((HXCGUI)self.GetFocusEle());
+			}, py::return_value_policy::reference)
 
 
 			.def("getStayEle", [](const XCWindow& self) -> XCObject* {
-				return CastObject((HXCGUI)self.GetStayEle());
-			}, py::return_value_policy::take_ownership)
+				return XCastManager::GetInstance()->CastObject((HXCGUI)self.GetStayEle());
+			}, py::return_value_policy::reference)
 
 			.def("drawWindow", [](XCWindow& self, const XCDraw& draw){
 				self.DrawWindow(draw.getDrawHandle());
@@ -81,8 +81,8 @@ namespace xcgui {
 			}, "ele"_a)
 			.def("getCaptureEle", [](XCWindow& self) {
 				auto ele = self.GetCaptureEle();
-				return CastObject((HXCGUI)ele);
-			}, py::return_value_policy::take_ownership)
+				return XCastManager::GetInstance()->CastObject((HXCGUI)ele);
+			}, py::return_value_policy::reference)
 
 			.def("getDrawRect", [](XCWindow& self) {
 				XCRect rect;
@@ -130,22 +130,22 @@ namespace xcgui {
 			.def("setMinimumSize", &XCWindow::SetMinimumSize, "width"_a, "height"_a)
 			.def("hitChildEle", [](XCWindow& self, const XCPoint& point) -> XCObject* {
 					auto handle = self.HitChildEle((POINT*) & point);
-					return CastObject(handle);
-			}, "point"_a, py::return_value_policy::take_ownership)
+					return XCastManager::GetInstance()->CastObject(handle);
+			}, "point"_a, py::return_value_policy::reference)
 
 			.def("getChildCount", &XCWindow::GetChildCount)
 			.def("getChildByIndex", [](XCWindow& self, int index) {
 				auto handle = self.GetChildByIndex(index);
-				return CastObject(handle);
-			}, "index"_a)
+				return XCastManager::GetInstance()->CastObject(handle);
+			}, "index"_a, py::return_value_policy::reference)
 			.def("getChildByID", [](XCWindow& self, int nId) {
 				auto handle = self.GetChildByID(nId);
-				return CastObject(handle);
-			}, "nId"_a)
+				return XCastManager::GetInstance()->CastObject(handle);
+			}, "nId"_a, py::return_value_policy::reference)
 			.def("getChild", [](XCWindow& self, int nId) {
 				auto handle = self.GetChild(nId);
-				return CastObject(handle);
-			}, "nId"_a)
+				return XCastManager::GetInstance()->CastObject(handle);
+			}, "nId"_a, py::return_value_policy::reference)
 
 
 			.def("setIcon", [](XCWindow& self, const XCImage& image) {
@@ -182,12 +182,10 @@ namespace xcgui {
 			.def("setCaretPos", &XCWindow::SetCaretPos, "x"_a, "y"_a, "width"_a, "height"_a, "update"_a)
 			.def("setCaretColor", &XCWindow::SetCaretColor, "color"_a)
 			.def("showCaret", &XCWindow::ShowCaret, "show"_a)
-
-
 			.def("getCaretHELE", [](XCWindow& self) -> XCObject* {
 					auto handle = self.GetCaretHELE();
-					return CastObject(handle);
-			}, py::return_value_policy::take_ownership)
+					return XCastManager::GetInstance()->CastObject(handle);
+			}, py::return_value_policy::reference)
 
 
 
