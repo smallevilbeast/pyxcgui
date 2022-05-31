@@ -182,23 +182,83 @@ namespace xcgui {
 			.def("setCaretPos", &XCWindow::SetCaretPos, "x"_a, "y"_a, "width"_a, "height"_a, "update"_a)
 			.def("setCaretColor", &XCWindow::SetCaretColor, "color"_a)
 			.def("showCaret", &XCWindow::ShowCaret, "show"_a)
-			.def("getCaretHELE", [](XCWindow& self) -> XCObject* {
-					auto handle = self.GetCaretHELE();
-					return XCastManager::GetInstance()->CastObject(handle);
+			.def("getCare", [](XCWindow& self) -> XCObject* {
+				auto handle = self.GetCaretHELE();
+				return XCastManager::GetInstance()->CastObject(handle);
 			}, py::return_value_policy::reference)
+			.def("getCareInfo", [](XCWindow& self) ->  XCCareInfo {
+				XCCareInfo info;
+				auto handle = self.GetCaretInfo(&info.x, &info.y, &info.width, &info.height);
+				info.pCare = XCastManager::GetInstance()->CastObject(handle);
+				return info;
+			})
+			.def("destroyCaret", &XCWindow::DestroyCaret)
+			.def("getClientRect", [](XCWindow& self) -> XCRect {
+				XCRect rect;
+				self.GetClientRect((RECT*)&rect);
+				return rect;
+			})
+
+			.def("getBodyRect", [](XCWindow& self) -> XCRect {
+				XCRect rect;
+				self.GetBodyRect((RECT*)&rect);
+				return rect;
+			})
+
+			.def("getLayoutRect", [](XCWindow& self) -> XCRect {
+				XCRect rect;
+				self.GetLayoutRect((RECT*)&rect);
+				return rect;
+			})
+
+			.def("setPosition", &XCWindow::SetPosition, "x"_a, "y"_a)
 
 
+			.def("getRect", [](XCWindow& self) -> XCRect {
+				XCRect rect;
+				self.GetRect((RECT*)&rect);
+				return rect;
+			})
 
+			.def("setRect", [](XCWindow& self, const XCRect& rect) {
+				self.SetRect((RECT*)&rect);
+				return rect;
+			})
 
+			.def("maxWindow", &XCWindow::MaxWindow, "maximize"_a)
+			.def("setTimer", &XCWindow::SetTimer, "eventId"_a, "elapse"_a)
+			.def("killTimer", &XCWindow::KillTimer, "eventId"_a)
+			.def("setXCTimer", &XCWindow::SetXCTimer, "eventId"_a, "elapse"_a)
+			.def("killXCTimer", &XCWindow::KillXCTimer, "eventId"_a)
+			.def("addBkFill", &XCWindow::AddBkFill, "state"_a, "color"_a)
+			.def("addBkImage", [](XCWindow& self, int state, const XCImage& image){
+				self.AddBkImage(state, image.getImageHandle());
+			})
 
+			.def("setBkInfo", &XCWindow::SetBkInfo, "text"_a)
+			.def("getBkInfoCount", &XCWindow::GetBkInfoCount)
+			.def("clearBkInfo", &XCWindow::ClearBkInfo)
+			.def("getBkManager", [](XCWindow& self) -> XCObject* {
+				auto handle = self.GetBkManager();
+				return XCastManager::GetInstance()->CastObject(handle);
+			})
+			.def("getBkManagerEx", [](XCWindow& self) -> XCObject* {
+				auto handle = self.GetBkManagerEx();
+				return XCastManager::GetInstance()->CastObject(handle);
+			})
+			.def("setBkMagager", [](XCWindow& self, const XCBkManager& manager){
+				self.SetBkMagager(manager.GetBkmHandle());
+			})
 
-
-
-
-
-
-
-				;
-
+			.def("setTransparentType", &XCWindow::SetTransparentType, "nType"_a)
+			.def("getTransparentType", &XCWindow::GetTransparentType)
+			.def("setTransparentAlpha", &XCWindow::SetTransparentAlpha, "alpha"_a)
+			.def("setTransparentColor", &XCWindow::SetTransparentColor, "color"_a)
+			.def("setShadowInfo", &XCWindow::SetShadowInfo, "size"_a, "depth"_a, "angeleSize"_a, "rightAngle"_a, "color"_a)
+			.def("getShadowInfo", [](XCWindow& self){
+				XCShadowInfo info;
+				self.GetShadowInfo(&info.size, &info.depth, &info.angeleSize, (BOOL*)& info.rightAngle, &info.color);
+				return info;
+			});
 	}
 }

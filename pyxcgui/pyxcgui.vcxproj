@@ -205,6 +205,7 @@
     <ClInclude Include="xcgui\XCApp.hpp" />
     <ClInclude Include="xcgui\XCBkManager.hpp" />
     <ClInclude Include="xcgui\XCFont.hpp" />
+    <ClInclude Include="xcgui\XCGlobal.hpp" />
     <ClInclude Include="xcgui\XCImage.hpp" />
     <ClInclude Include="xcgui\XCObject.hpp" />
     <ClInclude Include="xcgui\XCCastManager.hpp" />

@@ -182,4 +182,22 @@ namespace xcgui {
 		uintptr_t lParam;
 	};
 
+	class XCCareInfo {
+	public:
+		int x;
+		int y;
+		int width;
+		int height;
+		XCObject* pCare;
+	};
+
+	class XCShadowInfo {
+	public:
+		int size;
+		int depth;
+		int angeleSize;
+		bool rightAngle;
+		COLORREF color;
+	};
+
 }

@@ -16,6 +16,7 @@ namespace xcgui {
 		XCDraw(HDRAW drawHandle)
 			:XCObject(drawHandle)
 		{
+			m_handle = drawHandle;
 		}
 
 		HDRAW getDrawHandle() const

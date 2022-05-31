@@ -31,11 +31,11 @@ namespace xcgui {
 			.def_readwrite("left", &XCRect::left)
 			.def_readwrite("top", &XCRect::top)
 			.def_readwrite("right", &XCRect::right)
-			.def_readwrite("bottom", &XCRect::bottom)
-			.def_readwrite("x", &XCRect::left)
-			.def_readwrite("y", &XCRect::top)
-			.def_readwrite("width", &XCRect::right)
-			.def_readwrite("height", &XCRect::bottom);
+			.def_readwrite("bottom", &XCRect::bottom);
+			//.def_readwrite("x", &XCRect::left)
+			//.def_readwrite("y", &XCRect::top)
+			//.def_readwrite("width", &XCRect::right)
+			//.def_readwrite("height", &XCRect::bottom);
 
 
 		py::class_<XCRectF>(m, "XRectF")
@@ -44,11 +44,11 @@ namespace xcgui {
 			.def_readwrite("left", &XCRectF::left)
 			.def_readwrite("top", &XCRectF::top)
 			.def_readwrite("right", &XCRectF::right)
-			.def_readwrite("bottom", &XCRectF::bottom)
-			.def_readwrite("x", &XCRectF::left)
-			.def_readwrite("y", &XCRectF::top)
-			.def_readwrite("width", &XCRectF::right)
-			.def_readwrite("height", &XCRectF::bottom);
+			.def_readwrite("bottom", &XCRectF::bottom);
+			//.def_readwrite("x", &XCRectF::left)
+			//.def_readwrite("y", &XCRectF::top)
+			//.def_readwrite("width", &XCRectF::right)
+			//.def_readwrite("height", &XCRectF::bottom);
 
 		py::class_<XCFontInfo>(m, "XFontInfo")
 			.def(py::init<>())
@@ -78,5 +78,19 @@ namespace xcgui {
 			.def_readonly("mouse", &XCEvent::mouse)
 			.def_readonly("wParam", &XCEvent::wParam)
 			.def_readonly("lParam", &XCEvent::lParam);
+
+		py::class_<XCCareInfo>(m, "XCareInfo")
+			.def_readonly("x", &XCCareInfo::x)
+			.def_readonly("y", &XCCareInfo::y)
+			.def_readonly("width", &XCCareInfo::width)
+			.def_readonly("height", &XCCareInfo::height)
+			.def_readonly("care", &XCCareInfo::pCare);
+
+		py::class_<XCShadowInfo>(m, "XShadowInfo")
+			.def_readonly("size", &XCShadowInfo::size)
+			.def_readonly("depth", &XCShadowInfo::depth)
+			.def_readonly("angeleSize", &XCShadowInfo::angeleSize)
+			.def_readonly("rightAngle", &XCShadowInfo::rightAngle)
+			.def_readonly("color", &XCShadowInfo::color);
 	}
-}
+}													
