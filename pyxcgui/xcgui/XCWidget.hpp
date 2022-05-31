@@ -20,115 +20,17 @@ namespace xcgui {
 		int size;
 	};
 
-	class XCWidgetLayout
-	{
-	public:
-		XCWidgetLayout(HXCGUI* pHandle)
-			:m_pHandle(pHandle)
-		{
-
-		}
-
-		// 强制换行
-		void EnableWrap(bool bWrap)
-		{
-			XWidget_LayoutItem_EnableWrap(*m_pHandle, bWrap);
-		}
-
-		// 根据水平垂直布局变换, 交换属性(宽度,高度,最小宽度,最小高度)
-		void EnableSwap(bool bEnable)
-		{
-			XWidget_LayoutItem_EnableSwap(*m_pHandle, bEnable);
-		}
-
-
-		// 向反方向对齐
-		void EnableFloat(bool bFloat)
-		{
-			XWidget_LayoutItem_EnableFloat(*m_pHandle, bFloat);
-		}
-
-		// 设置宽度
-		void SetWidth(const XCLayoutSize& sizeInfo)
-		{
-			XWidget_LayoutItem_SetWidth(*m_pHandle, sizeInfo.sizeType, sizeInfo.size);
-		}
-
-
-		// 设置高度
-		void SetHeight(const XCLayoutSize& sizeInfo)
-		{
-			XWidget_LayoutItem_SetHeight(*m_pHandle, sizeInfo.sizeType, sizeInfo.size);
-		}
-
-		// 取宽度
-		XCLayoutSize GetWidth() 
-		{
-			XCLayoutSize layoutSize;
-			XWidget_LayoutItem_GetWidth(*m_pHandle, &layoutSize.sizeType, &layoutSize.size);
-			return layoutSize;
-		}
-
-		// 取高度信息
-		XCLayoutSize GetHeight()
-		{
-			XCLayoutSize layoutSize;
-			XWidget_LayoutItem_GetHeight(*m_pHandle, &layoutSize.sizeType, &layoutSize.size);
-			return layoutSize;
-		}
-
-		// 根据水平垂直轴变化对齐
-		void SetAlign(layout_align_axis_ nAlign)
-		{
-			XWidget_LayoutItem_SetAlign(*m_pHandle, nAlign);
-		}
-
-		// 布局项_置外间距
-		void SetMargin(const XCRect& pRect)
-		{
-			XWidget_LayoutItem_SetMargin(*m_pHandle, pRect.left, pRect.top,
-				pRect.right, pRect.bottom);
-		}
-
-		// 布局项_取外间距
-		XCRect GetMargin()
-		{
-			XCRect margin;
-			XWidget_LayoutItem_GetMargin(*m_pHandle, (marginSize_*)&margin);
-			return margin;
-		}
-
-		// 限制大小仅针对缩放有效(自动, 填充父, 比例, 百分比)
-		void SetMinSize(int width, int height)
-		{
-			XWidget_LayoutItem_SetMinSize(*m_pHandle, width, height);
-		}
-
-		// 相对位置, 值大于等于0有效
-		void SetPosition(int left, int top, int right, int bottom)
-		{
-			XWidget_LayoutItem_SetPosition(*m_pHandle, left, top, right, bottom);
-		}
-
-
-	protected:
-		HXCGUI* m_pHandle;
-
-	};
-
 
 	class XCWidget : public XCObjectUI
 	{
 	public:
 		XCWidget() 
-			:XCObjectUI(),
-			m_layout(&m_handle)
+			:XCObjectUI()
 		{
 
 		}
 		XCWidget(HXCGUI handle)
 			:XCObjectUI(handle)
-			, m_layout(&m_handle)
 		{
 		}
 		// 是否显示
@@ -231,9 +133,86 @@ namespace xcgui {
 			}
 			return pName;
 		}
+		// 强制换行
+		void LayoutEnableWrap(bool bWrap)
+		{
+			XWidget_LayoutItem_EnableWrap(m_handle, bWrap);
+		}
 
-	public:
-		XCWidgetLayout m_layout;
+		// 根据水平垂直布局变换, 交换属性(宽度,高度,最小宽度,最小高度)
+		void LayoutEnableSwap(bool bEnable)
+		{
+			XWidget_LayoutItem_EnableSwap(m_handle, bEnable);
+		}
+
+
+		// 向反方向对齐
+		void LayoutEnableFloat(bool bFloat)
+		{
+			XWidget_LayoutItem_EnableFloat(m_handle, bFloat);
+		}
+
+		// 设置宽度
+		void LayoutSetWidth(const XCLayoutSize& sizeInfo)
+		{
+			XWidget_LayoutItem_SetWidth(m_handle, sizeInfo.sizeType, sizeInfo.size);
+		}
+
+
+		// 设置高度
+		void LayoutSetHeight(const XCLayoutSize& sizeInfo)
+		{
+			XWidget_LayoutItem_SetHeight(m_handle, sizeInfo.sizeType, sizeInfo.size);
+		}
+
+		// 取宽度
+		XCLayoutSize LayoutGetWidth()
+		{
+			XCLayoutSize layoutSize;
+			XWidget_LayoutItem_GetWidth(m_handle, &layoutSize.sizeType, &layoutSize.size);
+			return layoutSize;
+		}
+
+		// 取高度信息
+		XCLayoutSize LayoutGetHeight()
+		{
+			XCLayoutSize layoutSize;
+			XWidget_LayoutItem_GetHeight(m_handle, &layoutSize.sizeType, &layoutSize.size);
+			return layoutSize;
+		}
+
+		// 根据水平垂直轴变化对齐
+		void LayoutSetAlign(layout_align_axis_ nAlign)
+		{
+			XWidget_LayoutItem_SetAlign(m_handle, nAlign);
+		}
+
+		// 布局项_置外间距
+		void LayoutSetMargin(const XCRect& pRect)
+		{
+			XWidget_LayoutItem_SetMargin(m_handle, pRect.left, pRect.top,
+				pRect.right, pRect.bottom);
+		}
+
+		// 布局项_取外间距
+		XCRect LayoutGetMargin()
+		{
+			XCRect margin;
+			XWidget_LayoutItem_GetMargin(m_handle, (marginSize_*)&margin);
+			return margin;
+		}
+
+		// 限制大小仅针对缩放有效(自动, 填充父, 比例, 百分比)
+		void LayoutSetMinSize(int width, int height)
+		{
+			XWidget_LayoutItem_SetMinSize(m_handle, width, height);
+		}
+
+		// 相对位置, 值大于等于0有效
+		void LayoutSetPosition(int left, int top, int right, int bottom)
+		{
+			XWidget_LayoutItem_SetPosition(m_handle, left, top, right, bottom);
+		}
 	};
 
 

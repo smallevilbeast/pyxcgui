@@ -14,23 +14,6 @@ namespace xcgui {
 			.def_readwrite("sizeType", &XCLayoutSize::sizeType)
 			.def_readwrite("size", &XCLayoutSize::size);
 
-
-		py::class_<XCWidgetLayout>(m, "XWidgetLayout")
-			.def("enableWrap", &XCWidgetLayout::EnableWrap, "wrap"_a)
-			.def("enableSwap", &XCWidgetLayout::EnableSwap, "swap"_a)
-			.def("enableFloat", &XCWidgetLayout::EnableFloat, "float"_a)
-			.def("setWidth", &XCWidgetLayout::SetWidth, "layoutSize"_a)
-			.def("setHeight", &XCWidgetLayout::SetHeight, "layoutSize"_a)
-			.def("getWidth", &XCWidgetLayout::GetWidth)
-			.def("getHeight", &XCWidgetLayout::GetHeight)
-			.def("setAlign", &XCWidgetLayout::SetAlign, "align"_a)
-			.def("setMargin", &XCWidgetLayout::SetMargin, "margin"_a)
-			.def("getMargin", &XCWidgetLayout::GetMargin)
-			.def("setMinSize", &XCWidgetLayout::SetMinSize, "width"_a, "height"_a)
-			.def("setPosition", &XCWidgetLayout::SetPosition, "left"_a, "top"_a, "right"_a, "bottom"_a);
-
-
-
 		py::class_<XCWidget, XCObjectUI>(m, "XWidget")
 			.def("isShow", &XCWidget::IsShow)
 			.def("show", &XCWidget::Show, "show"_a)
@@ -58,7 +41,18 @@ namespace xcgui {
 			.def("getUID", &XCWidget::GetUID)
 			.def("setName", &XCWidget::SetName, "name"_a)
 			.def("getName", &XCWidget::GetName)
-			.def_readonly("layout", &XCWidget::m_layout, py::return_value_policy::reference);
+			.def("layoutEnableWrap", &XCWidget::LayoutEnableWrap, "wrap"_a)
+			.def("layoutEnableSwap", &XCWidget::LayoutEnableSwap, "swap"_a)
+			.def("layoutEnableFloat", &XCWidget::LayoutEnableFloat, "float"_a)
+			.def("layoutSetWidth", &XCWidget::LayoutSetWidth, "layoutSize"_a)
+			.def("layoutSetHeight", &XCWidget::LayoutSetHeight, "layoutSize"_a)
+			.def("layoutGetWidth", &XCWidget::LayoutGetWidth)
+			.def("layoutGetHeight", &XCWidget::LayoutGetHeight)
+			.def("layoutSetAlign", &XCWidget::LayoutSetAlign, "align"_a)
+			.def("layoutSetMargin", &XCWidget::LayoutSetMargin, "margin"_a)
+			.def("layoutGetMargin", &XCWidget::LayoutGetMargin)
+			.def("layoutSetMinSize", &XCWidget::LayoutSetMinSize, "width"_a, "height"_a)
+			.def("layoutSetPosition", &XCWidget::LayoutSetPosition, "left"_a, "top"_a, "right"_a, "bottom"_a);
 
 	}
 }
