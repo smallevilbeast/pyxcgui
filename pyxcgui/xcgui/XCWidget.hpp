@@ -32,6 +32,7 @@ namespace xcgui {
 		XCWidget(HXCGUI handle)
 			:XCObjectUI(handle)
 		{
+			m_handle = handle;
 		}
 		//  «∑Òœ‘ æ
 		bool IsShow() 

@@ -15,6 +15,7 @@ namespace xcgui {
 		XCImage(HIMAGE ele)
 			:XCObject((HXCGUI)ele)
 		{
+			m_handle = ele;
 		}
 
 

@@ -13,6 +13,7 @@ namespace xcgui {
 		XCObjectUI(HXCGUI handle)
 		: XCObject(handle)
 		{
+			m_handle = handle;
 		}
 		
 		// 设置UI对象样式
@@ -47,6 +48,21 @@ namespace xcgui {
 				return std::wstring(pName);
 			}
 			return L"";
+		}
+
+		// 通过name获取对象句柄
+		HXCGUI FindObjectByName(const std::wstring& name) {
+			return XC_GetObjectByName(name.c_str());
+		}
+
+		// 通过UID获取对象句柄,不包括窗口对象.
+		HXCGUI FindObjectByUID(int nId) {
+			return XC_GetObjectByUID(nId);
+		}
+
+		// 通过UID名称获取对象句柄
+		HXCGUI FindObjectByUIDName(const std::wstring& name) {
+			return XC_GetObjectByUIDName(name.c_str());
 		}
 
 	};

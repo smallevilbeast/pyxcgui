@@ -9,7 +9,7 @@ namespace xcgui {
 		XCButton(HELE handle) :
 			XCElement(handle)
 		{
-
+			m_handle = handle;
 		}
 		// 创建按钮元素  
 		HELE Create(int x, int y, int cx, int cy, const std::wstring& name, HXCGUI hParent = NULL) {

@@ -135,18 +135,23 @@ namespace xcgui {
 			}, "point"_a, py::return_value_policy::reference)
 
 			.def("getChildCount", &XCWindow::GetChildCount)
-			.def("getChildByIndex", [](XCWindow& self, int index) {
+			.def("getChildByIndex", [](XCWindow& self, int index) -> XCObject* {
 				auto handle = self.GetChildByIndex(index);
 				return XCastManager::GetInstance()->CastObject(handle);
 			}, "index"_a, py::return_value_policy::reference)
-			.def("getChildByID", [](XCWindow& self, int nId) {
+			.def("getChildByID", [](XCWindow& self, int nId) -> XCObject* {
 				auto handle = self.GetChildByID(nId);
 				return XCastManager::GetInstance()->CastObject(handle);
 			}, "nId"_a, py::return_value_policy::reference)
-			.def("getChild", [](XCWindow& self, int nId) {
-				auto handle = self.GetChild(nId);
+			
+			.def("findChildByID", [](XCWindow& self, int nId) -> XCObject* {
+				auto handle = self.FindChildByID(nId);
 				return XCastManager::GetInstance()->CastObject(handle);
 			}, "nId"_a, py::return_value_policy::reference)
+			.def("findChildByIDName", [](XCWindow& self, const std::wstring& name) -> XCObject* {
+				auto handle = self.FindChildByIDName(name);
+				return XCastManager::GetInstance()->CastObject(handle);
+			}, "name"_a, py::return_value_policy::reference)
 
 
 			.def("setIcon", [](XCWindow& self, const XCImage& image) {

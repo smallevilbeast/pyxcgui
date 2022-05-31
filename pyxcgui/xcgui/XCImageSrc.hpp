@@ -16,6 +16,7 @@ namespace xcgui {
 		XCImageSrc(HIMAGE handle)
 			:XCObject((HXCGUI)handle)
 		{
+			m_handle = handle;
 		}
 
 		HIMAGE getImageSrcHandle() const

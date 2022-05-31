@@ -19,7 +19,7 @@ namespace xcgui {
 		XCBkManager(HBKM handle) :
 			XCObject(handle)
 		{
-
+			m_handle = handle;
 		}
 
 		HBKM GetBkmHandle() const {

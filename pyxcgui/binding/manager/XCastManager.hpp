@@ -63,20 +63,20 @@ namespace xcgui
 			case XC_POPUPMENUCHILDWINDOW:
 				break;
 			case XC_OBJECT_UI:
-				return new XCObjectUI(handle);
+				pObj = new XCObjectUI(handle);
 				break;
 			case XC_WIDGET_UI:
-				return new XCWidget(handle);
+				pObj = new XCWidget(handle);
 				break;
 			case XC_ELE:
-				return new XCElement((HELE)handle);
+				pObj = new XCElement((HELE)handle);
 				break;
 			case XC_ELE_LAYOUT:
 				break;
 			case XC_LAYOUT_FRAME:
 				break;
 			case XC_BUTTON:
-				return new XCButton((HELE)handle);
+				pObj = new XCButton((HELE)handle);
 				break;
 			case XC_EDIT:
 				break;

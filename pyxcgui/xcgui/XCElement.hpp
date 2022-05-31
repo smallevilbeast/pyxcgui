@@ -16,6 +16,7 @@ namespace xcgui {
 		XCElement(HELE ele)
 			:XCWidget(ele)
 		{
+			m_handle = ele;
 		}
 
 

@@ -105,7 +105,7 @@ namespace xcgui {
 
 		// 背景对象_取旋转角度
 		int GetRotate() {
-			XBkObj_GetRotate(m_handle);
+			return XBkObj_GetRotate(m_handle);
 		}
 
 		// 背景对象_取填充色

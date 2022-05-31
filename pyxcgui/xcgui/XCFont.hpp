@@ -16,6 +16,7 @@ namespace xcgui {
 		XCFont(HFONTX handle)
 			:XCObject((HXCGUI)handle)
 		{
+			m_handle = handle;
 		}
 
 

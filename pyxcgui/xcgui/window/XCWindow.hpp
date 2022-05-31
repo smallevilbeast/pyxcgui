@@ -13,6 +13,7 @@ namespace xcgui {
 		XCWindow(HWINDOW hWindow)
 			:XCObjectUI((HXCGUI)hWindow)
 		{
+			m_handle = hWindow;
 		}
 
 		XCWindow()
@@ -333,8 +334,12 @@ namespace xcgui {
 		}
 
 		// 获取子对象通过对象ID,如果对象不在该窗口上无效
-		HXCGUI GetChild(int nID) { 
+		HXCGUI FindChildByID(int nID) { 
 			return XWnd_GetChild(GetWindowHandle(), nID); 
+		}
+
+		HXCGUI FindChildByIDName(const std::wstring& name) {
+			return XC_GetObjectByIDName(GetWindowHandle(), name.c_str());
 		}
 		
 		// 置图标

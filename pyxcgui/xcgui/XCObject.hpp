@@ -14,6 +14,7 @@ namespace xcgui {
 		XCObject(HXCGUI handle)
 			:m_handle(handle)
 		{
+			m_handle = handle;
 		}
 
 		//  获取对象最终类型
@@ -41,7 +42,7 @@ namespace xcgui {
 		}
 
 
-		HXCGUI GetHandle() const
+		virtual HXCGUI GetHandle() const
 		{
 			return m_handle;
 		}
