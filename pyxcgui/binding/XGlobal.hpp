@@ -2,6 +2,7 @@
 #include "pch.h"
 #include "xcgui.h"
 #include "XCastManager.hpp"
+#include "xcgui/Utils.hpp"
 
 namespace xcgui {
 
@@ -15,6 +16,14 @@ namespace xcgui {
 		m.def("RGB", [](BYTE r, BYTE g, BYTE b) {
 			return (RGB(r, g, b)) &0xFFFFFFFF;
 		}, "r"_a, "g"_a, "b"_a);
+
+		m.def("RGB", [](const std::string& hexColor) {
+			return hexToRGBColorRef(hexColor);
+		}, "hexcolor"_a);
+
+		m.def("RGBA", [](const std::string& hexColor) {
+			return hexToRGBAColorRef(hexColor);
+		}, "hexcolor"_a);
 
 		m.def("RGBA", [](BYTE r, BYTE g, BYTE b, BYTE a) {
 			return  (RGBA(r, g, b, a)) & 0xFFFFFFFF;
