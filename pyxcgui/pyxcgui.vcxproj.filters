@@ -30,7 +30,7 @@
     <ClInclude Include="xcgui\XCWidget.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="xcgui\XCWindow.hpp">
+    <ClInclude Include="xcgui\window\XCWindow.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="xcgui\XCApp.hpp">
@@ -42,7 +42,7 @@
     <ClInclude Include="binding\XWidget.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="binding\XWindow.hpp">
+    <ClInclude Include="binding\window\XWindow.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="binding\XEnum.hpp">
@@ -72,7 +72,7 @@
     <ClInclude Include="binding\XObject.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="xcgui\XCBkManager.hpp">
+    <ClInclude Include="xcgui\bkmanager\XCBkManager.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="xcgui.h">
@@ -126,10 +126,7 @@
     <ClInclude Include="binding\XGlobal.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="xcgui\XCGlobal.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="xcgui\Utils.hpp">
+    <ClInclude Include="xcgui\utils\Color.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="xcgui\XCLayoutBox.hpp">

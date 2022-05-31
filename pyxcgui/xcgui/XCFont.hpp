@@ -1,7 +1,7 @@
 #pragma once
 #include "pch.h"
 #include "XCObject.hpp"
-#include "XCWindow.hpp"
+#include "xcgui/window/XCWindow.hpp"
 
 namespace xcgui {
 

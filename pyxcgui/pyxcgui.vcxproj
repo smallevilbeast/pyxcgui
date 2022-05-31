@@ -198,16 +198,15 @@
     <ClInclude Include="binding\XSvg.hpp" />
     <ClInclude Include="binding\XUserDataManager.hpp" />
     <ClInclude Include="binding\XWidget.hpp" />
-    <ClInclude Include="binding\XWindow.hpp" />
+    <ClInclude Include="binding\window\XWindow.hpp" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="xcgui.h" />
     <ClInclude Include="xcgui\element\XCButton.hpp" />
-    <ClInclude Include="xcgui\Utils.hpp" />
+    <ClInclude Include="xcgui\utils\Color.hpp" />
     <ClInclude Include="xcgui\XCApp.hpp" />
-    <ClInclude Include="xcgui\XCBkManager.hpp" />
+    <ClInclude Include="xcgui\bkmanager\XCBkManager.hpp" />
     <ClInclude Include="xcgui\XCFont.hpp" />
-    <ClInclude Include="xcgui\XCGlobal.hpp" />
     <ClInclude Include="xcgui\XCImage.hpp" />
     <ClInclude Include="xcgui\XCLayoutBox.hpp" />
     <ClInclude Include="xcgui\XCObject.hpp" />
@@ -218,7 +217,7 @@
     <ClInclude Include="xcgui\XCStruct.hpp" />
     <ClInclude Include="xcgui\XCSvg.hpp" />
     <ClInclude Include="xcgui\XCWidget.hpp" />
-    <ClInclude Include="xcgui\XCWindow.hpp" />
+    <ClInclude Include="xcgui\window\XCWindow.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />

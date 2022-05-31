@@ -1,13 +1,13 @@
 #include "pch.h"
-#include "xcgui/XCWindow.hpp"
+#include "xcgui/window/XCWindow.hpp"
 #include "xcgui/XCElement.hpp"
 #include "xcgui/XCFont.hpp"
 #include "xcgui/XCDraw.hpp"
 #include "xcgui/XCImage.hpp"
 #include "xcgui/XCLayoutBox.hpp"
 #include "xcgui/element/XCButton.hpp"
-#include "XEventManager.hpp" 
-#include "XCastManager.hpp"
+#include "binding/XEventManager.hpp" 
+#include "binding/XCastManager.hpp"
 
 namespace xcgui {
 

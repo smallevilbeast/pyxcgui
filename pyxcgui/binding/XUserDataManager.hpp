@@ -4,7 +4,7 @@
 #include <vector>
 #include <functional>
 
-#include "xcgui/XCWindow.hpp"
+#include "xcgui/window/XCWindow.hpp"
 
 namespace xcgui {
 

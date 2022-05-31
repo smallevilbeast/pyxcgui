@@ -1,9 +1,9 @@
 #pragma once
 #include "pch.h"
-#include "xcgui/XCWindow.hpp"
+#include "xcgui/window/XCWindow.hpp"
 #include "xcgui/XCFont.hpp"
 #include "xcgui/XCDraw.hpp"
-#include "xcgui/XCBkManager.hpp"
+#include "xcgui/bkmanager/XCBkManager.hpp"
 #include "xcgui/XCImage.hpp"
 #include "xcgui/XCImageSrc.hpp"
 #include "xcgui/XCSvg.hpp"

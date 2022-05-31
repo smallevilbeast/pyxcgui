@@ -7,7 +7,7 @@
 #include "binding/XObjectUI.hpp"
 #include "binding/XApp.hpp"
 #include "binding/XWidget.hpp"
-#include "binding/XWindow.hpp"
+#include "binding/window/XWindow.hpp"
 #include "binding/XFont.hpp"
 #include "binding/XSvg.hpp"
 #include "binding/XDraw.hpp"

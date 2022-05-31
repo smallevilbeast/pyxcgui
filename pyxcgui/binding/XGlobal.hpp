@@ -2,7 +2,7 @@
 #include "pch.h"
 #include "xcgui.h"
 #include "XCastManager.hpp"
-#include "xcgui/Utils.hpp"
+#include "xcgui/utils/Color.hpp"
 
 namespace xcgui {
 

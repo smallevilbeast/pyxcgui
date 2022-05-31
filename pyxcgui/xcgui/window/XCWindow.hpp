@@ -1,9 +1,9 @@
 #pragma once
 
 #include "pch.h"
-#include "XCObjectUI.hpp"  
-#include "XCStruct.hpp"
-#include "XCLayoutBox.hpp"
+#include "xcgui/XCObjectUI.hpp"  
+#include "xcgui/XCStruct.hpp"
+#include "xcgui/XCLayoutBox.hpp"
 
 namespace xcgui {
 	class XCWindow : public XCObjectUI,  public XCLayoutBox
