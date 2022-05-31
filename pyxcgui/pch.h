@@ -29,5 +29,6 @@ static TypeName* GetInstance()					\
 TypeName(const TypeName&) = delete;				\
 TypeName& operator=(const TypeName&) = delete
 
+
 #endif 
 

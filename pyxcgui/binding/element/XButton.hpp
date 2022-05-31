@@ -8,10 +8,24 @@ namespace xcgui {
 
 	void declareButton(py::module& m) {
 		py::class_<XCButton, XCElement>(m, "XButton")
-			.def(py::init([](const XCObjectUI& parent, int x, int y, int cx, int cy, const std::wstring& text) {
-				XCButton button(x, y, cx, cy, text, parent.GetHandle());
+			.def(py::init([](int x, int y, int cx, int cy, const std::wstring& text, XCObjectUI* parent=nullptr) {
+				HXCGUI handle = nullptr;
+				if (parent) {
+					handle = parent->GetHandle();
+				}
+				XCButton button(x, y, cx, cy, text, handle);
 				return button;
-				}), "parent"_a, "x"_a, "y"_a, "width"_a, "height"_a, "text"_a)
+			}), "x"_a, "y"_a, "width"_a, "height"_a, "text"_a, "parent"_a=nullptr)
+
+			.def(py::init([](int cx, int cy, const std::wstring& text, XCObjectUI* parent=nullptr) {
+				HXCGUI handle = nullptr;
+				if (parent) {
+					handle = parent->GetHandle();
+				}
+				XCButton button(0,0, cx, cy, text, handle);
+				return button;
+			}), "width"_a, "height"_a, "text"_a, "parent"_a=nullptr)
+
 			.def("isCheck", &XCButton::IsCheck)
 			.def("setCheck", &XCButton::SetCheck, "checked"_a)
 			.def("setState", &XCButton::SetState, "state"_a)

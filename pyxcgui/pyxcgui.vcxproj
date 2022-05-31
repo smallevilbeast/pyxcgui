@@ -190,6 +190,7 @@
     <ClInclude Include="binding\XGlobal.hpp" />
     <ClInclude Include="binding\XImage.hpp" />
     <ClInclude Include="binding\XImageSrc.hpp" />
+    <ClInclude Include="binding\XLayoutBox.hpp" />
     <ClInclude Include="binding\XObject.hpp" />
     <ClInclude Include="binding\XEnum.hpp" />
     <ClInclude Include="binding\XObjectUI.hpp" />
@@ -208,6 +209,7 @@
     <ClInclude Include="xcgui\XCFont.hpp" />
     <ClInclude Include="xcgui\XCGlobal.hpp" />
     <ClInclude Include="xcgui\XCImage.hpp" />
+    <ClInclude Include="xcgui\XCLayoutBox.hpp" />
     <ClInclude Include="xcgui\XCObject.hpp" />
     <ClInclude Include="xcgui\XCCastManager.hpp" />
     <ClInclude Include="xcgui\XCDraw.hpp" />

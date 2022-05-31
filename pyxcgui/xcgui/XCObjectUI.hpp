@@ -3,7 +3,7 @@
 #include "XCObject.hpp"
 
 namespace xcgui {
-	class XCObjectUI : public XCObject 
+	class XCObjectUI :virtual public XCObject 
 	{
 	public:
 		XCObjectUI() 

@@ -3,9 +3,10 @@
 #include "pch.h"
 #include "XCObjectUI.hpp"  
 #include "XCStruct.hpp"
+#include "XCLayoutBox.hpp"
 
 namespace xcgui {
-	class XCWindow : public XCObjectUI
+	class XCWindow : public XCObjectUI,  public XCLayoutBox
 	{
 	public:
 

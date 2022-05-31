@@ -18,7 +18,7 @@ namespace xcgui {
 			.def("isShow", &XCWidget::IsShow)
 			.def("show", &XCWidget::Show, "show"_a)
 			.def("enableLayoutControl", &XCWidget::EnableLayoutControl, "enable"_a)
-			.def("IsLayoutControl", &XCWidget::IsLayoutControl)
+			.def("isLayoutControl", &XCWidget::IsLayoutControl)
 
 			.def("getParentEle", [](const XCWidget& self) -> XCObject* { 
 				return XCastManager::GetInstance()->CastObject(self.GetParentEle());

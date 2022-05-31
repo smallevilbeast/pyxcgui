@@ -15,6 +15,7 @@
 #include "binding/XImageSrc.hpp"
 #include "binding/XGlobal.hpp"
 #include "binding/XElement.hpp"
+#include "binding/XLayoutBox.hpp"
 #include "binding/element/XButton.hpp"
 
 						 
@@ -28,6 +29,9 @@ namespace xcgui {
 
 		// base
 		declareBase(m);
+
+		// layoutBox
+		declareLayoutBox(m);
 
 		// ËùÓÐstruct
 		declareStruct(m);

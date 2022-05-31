@@ -4,6 +4,7 @@
 #include "xcgui/XCFont.hpp"
 #include "xcgui/XCDraw.hpp"
 #include "xcgui/XCImage.hpp"
+#include "xcgui/XCLayoutBox.hpp"
 #include "xcgui/element/XCButton.hpp"
 #include "XEventManager.hpp" 
 #include "XCastManager.hpp"
@@ -18,7 +19,7 @@ namespace xcgui {
 
 	void declareWindow(py::module& m) {
 
-		py::class_<XCWindow, XCObjectUI>(m, "XWindow")
+		py::class_<XCWindow, XCObjectUI, XCLayoutBox>(m, "XWindow")
 			.def(py::init<>())
 			.def(py::init<int, int, const std::wstring&>(), "width"_a, "height"_a, "title"_a)
 			.def(py::init<int, int, int, int, const std::wstring&, uintptr_t, int>(),

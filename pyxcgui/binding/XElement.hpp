@@ -141,7 +141,7 @@ namespace xcgui {
 			.def("enableEvent_XE_PAINT_END", &XCElement::EnableEvent_XE_PAINT_END, "enable"_a)
 			.def("enableBkTransparent", &XCElement::EnableBkTransparent, "enable"_a)
 			.def("enableMouseThrough", &XCElement::EnableMouseThrough, "enable"_a)
-			.def("eEnableKeyTab", &XCElement::EnableKeyTab, "enable"_a)
+			.def("enableKeyTab", &XCElement::EnableKeyTab, "enable"_a)
 			.def("enableSwitchFocus", &XCElement::EnableSwitchFocus, "enable"_a)
 			.def("enableEvent_XE_MOUSEWHEEL", &XCElement::EnableEvent_XE_MOUSEWHEEL, "enable"_a)
 			.def("remove", &XCElement::Remove)
