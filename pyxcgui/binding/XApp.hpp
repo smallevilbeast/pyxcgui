@@ -1,9 +1,9 @@
 #pragma once
 #include "pch.h"
 #include "xcgui/XCApp.hpp"
-#include "XEventManager.hpp"
-#include "XUserDataManager.hpp"
-#include "XCastManager.hpp"
+#include "manager/XEventManager.hpp"
+#include "manager/XUserDataManager.hpp"
+#include "manager/XCastManager.hpp"
 
 namespace xcgui {
 

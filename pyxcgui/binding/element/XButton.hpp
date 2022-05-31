@@ -2,7 +2,7 @@
 #include "pch.h"
 #include "xcgui/element/XCButton.hpp"
 #include "xcgui/XCImage.hpp"
-#include "binding/XCastManager.hpp"
+#include "binding/manager/XCastManager.hpp"
 
 namespace xcgui {
 

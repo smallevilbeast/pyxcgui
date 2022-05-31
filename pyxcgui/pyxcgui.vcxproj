@@ -179,13 +179,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="binding\bkmanager\XBkObject.hpp" />
     <ClInclude Include="binding\element\XButton.hpp" />
     <ClInclude Include="binding\XApp.hpp" />
-    <ClInclude Include="binding\XBkManager.hpp" />
-    <ClInclude Include="binding\XCastManager.hpp" />
+    <ClInclude Include="binding\bkmanager\XBkManager.hpp" />
+    <ClInclude Include="binding\manager\XCastManager.hpp" />
     <ClInclude Include="binding\XDraw.hpp" />
     <ClInclude Include="binding\XElement.hpp" />
-    <ClInclude Include="binding\XEventManager.hpp" />
+    <ClInclude Include="binding\manager\XEventManager.hpp" />
     <ClInclude Include="binding\XFont.hpp" />
     <ClInclude Include="binding\XGlobal.hpp" />
     <ClInclude Include="binding\XImage.hpp" />
@@ -196,12 +197,13 @@
     <ClInclude Include="binding\XObjectUI.hpp" />
     <ClInclude Include="binding\XStruct.hpp" />
     <ClInclude Include="binding\XSvg.hpp" />
-    <ClInclude Include="binding\XUserDataManager.hpp" />
+    <ClInclude Include="binding\manager\XUserDataManager.hpp" />
     <ClInclude Include="binding\XWidget.hpp" />
     <ClInclude Include="binding\window\XWindow.hpp" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="xcgui.h" />
+    <ClInclude Include="xcgui\bkmanager\XCBkObject.hpp" />
     <ClInclude Include="xcgui\element\XCButton.hpp" />
     <ClInclude Include="xcgui\utils\Color.hpp" />
     <ClInclude Include="xcgui\XCApp.hpp" />

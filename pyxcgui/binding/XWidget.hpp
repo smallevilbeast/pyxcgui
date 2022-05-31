@@ -1,7 +1,7 @@
 #pragma once
 #include "pch.h"
 #include "xcgui/XCWidget.hpp"
-#include "XCastManager.hpp"
+#include "manager/XCastManager.hpp"
 
 
 namespace xcgui {

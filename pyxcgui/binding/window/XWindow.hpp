@@ -6,8 +6,8 @@
 #include "xcgui/XCImage.hpp"
 #include "xcgui/XCLayoutBox.hpp"
 #include "xcgui/element/XCButton.hpp"
-#include "binding/XEventManager.hpp" 
-#include "binding/XCastManager.hpp"
+#include "binding/manager/XEventManager.hpp" 
+#include "binding/manager/XCastManager.hpp"
 
 namespace xcgui {
 

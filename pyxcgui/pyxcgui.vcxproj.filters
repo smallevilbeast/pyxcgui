@@ -78,7 +78,7 @@
     <ClInclude Include="xcgui.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="binding\XEventManager.hpp">
+    <ClInclude Include="binding\manager\XEventManager.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="xcgui\XCImage.hpp">
@@ -93,7 +93,7 @@
     <ClInclude Include="binding\XElement.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="binding\XUserDataManager.hpp">
+    <ClInclude Include="binding\manager\XUserDataManager.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="xcgui\element\XCButton.hpp">
@@ -117,10 +117,10 @@
     <ClInclude Include="binding\XDraw.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="binding\XBkManager.hpp">
+    <ClInclude Include="binding\bkmanager\XBkManager.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="binding\XCastManager.hpp">
+    <ClInclude Include="binding\manager\XCastManager.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="binding\XGlobal.hpp">
@@ -133,6 +133,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="binding\XLayoutBox.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="xcgui\bkmanager\XCBkObject.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="binding\bkmanager\XBkObject.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

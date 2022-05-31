@@ -82,7 +82,7 @@ namespace xcgui {
 		}
 
 		// ±≥æ∞∂‘œÛID
-		vint GetObject(int id) { 
+		vint GetBkObject(int id) { 
 			return XBkM_GetObject(GetBkmHandle(), id); 
 		}
 

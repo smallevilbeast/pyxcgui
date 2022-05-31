@@ -1,6 +1,7 @@
 #pragma once
 #include "pch.h"
 #include "xcgui/bkmanager/XCBkManager.hpp"
+#include "xcgui/bkmanager/XCBkObject.hpp"
 #include "xcgui/XCImage.hpp"
 #include "xcgui/XCDraw.hpp"
 #include "xcgui/XCStruct.hpp"
@@ -32,7 +33,16 @@ namespace xcgui {
 					return 0;
 				return color;
 			})
-			.def("getObject", &XCBkManager::GetObject, "bkId"_a)
+			.def("getBkObjectHandle", &XCBkManager::GetBkObject, "bkId"_a)
+			.def("getBkObject", [](XCBkManager& self, int bkId) -> XCBkObject* {
+				auto handle = self.GetBkObject(bkId);
+				if (!handle) {
+					return nullptr;
+				}
+				return new XCBkObject(handle);
+
+			}, "bkId"_a, py::return_value_policy::take_ownership)
+
 			.def("enableAutoDestroy", &XCBkManager::EnableAutoDestroy, "enable"_a)
 			.def("addRef", &XCBkManager::AddRef)
 			.def("release", &XCBkManager::Release)

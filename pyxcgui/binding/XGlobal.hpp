@@ -1,7 +1,7 @@
 #pragma once
 #include "pch.h"
 #include "xcgui.h"
-#include "XCastManager.hpp"
+#include "manager/XCastManager.hpp"
 #include "xcgui/utils/Color.hpp"
 
 namespace xcgui {

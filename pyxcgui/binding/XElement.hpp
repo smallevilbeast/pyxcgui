@@ -4,9 +4,9 @@
 #include "xcgui/XCFont.hpp"
 #include "xcgui/bkmanager/XCBkManager.hpp"
 #include "xcgui/XCDraw.hpp"
-#include "XUserDataManager.hpp"
-#include "XEventManager.hpp"
-#include "XCastManager.hpp"
+#include "manager/XUserDataManager.hpp"
+#include "manager/XEventManager.hpp"
+#include "manager/XCastManager.hpp"
 
 namespace xcgui {
 

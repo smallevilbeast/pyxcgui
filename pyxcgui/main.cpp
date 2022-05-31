@@ -3,7 +3,8 @@
 #include "binding/XEnum.hpp"
 #include "binding/XStruct.hpp"
 #include "binding/XObject.hpp"
-#include "binding/XBkManager.hpp"
+#include "binding/bkmanager/XBkManager.hpp"
+#include "binding/bkmanager/XBkObject.hpp"
 #include "binding/XObjectUI.hpp"
 #include "binding/XApp.hpp"
 #include "binding/XWidget.hpp"
@@ -53,6 +54,9 @@ namespace xcgui {
 
 		// draw
 		declareDraw(m);
+
+		// bkObject
+		declareBkObject(m);
 
 		// bkManager
 		declareBkManager(m);
