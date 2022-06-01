@@ -18,6 +18,7 @@
 #include "binding/XElement.hpp"
 #include "binding/XLayoutBox.hpp"
 #include "binding/element/XButton.hpp"
+#include "binding/XResource.hpp"
 
 						 
 namespace xcgui {
@@ -60,6 +61,9 @@ namespace xcgui {
 
 		// bkManager
 		declareBkManager(m);
+
+		// resource
+		declareResource(m);
 
 		// ObjectUI
 		declareObjectUI(m);

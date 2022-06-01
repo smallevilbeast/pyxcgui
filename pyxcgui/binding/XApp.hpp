@@ -4,6 +4,7 @@
 #include "manager/XEventManager.hpp"
 #include "manager/XUserDataManager.hpp"
 #include "manager/XCastManager.hpp"
+#include "manager/XCallbackManager.hpp"
 
 namespace xcgui {
 
@@ -15,6 +16,7 @@ namespace xcgui {
 				XEventManager::GetInstance()->Release();
 				XUserDataManager::GetInstance()->Release();
 				XCastManager::GetInstance()->Release();
+				XCallbackManager::GetInstance()->Release();
 				self.Exit();
 			});
 	}

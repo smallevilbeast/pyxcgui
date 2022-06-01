@@ -67,7 +67,7 @@ namespace xcgui {
 			.def("enableDrawBk", &XCWindow::EnableDrawBk, "enable"_a)
 			.def("enableAutoFocus", &XCWindow::EnableAutoFocus, "enable"_a)
 			.def("enableMaxWindow", &XCWindow::EnableMaxWindow, "enable"_a)
-			.def("enablemLimitWindowSize", &XCWindow::EnablemLimitWindowSize, "enable"_a)
+			.def("enableLimitWindowSize", &XCWindow::EnablemLimitWindowSize, "enable"_a)
 			.def("enableDragFiles", &XCWindow::EnableDragFiles, "enable"_a)
 			.def("enableLayout", &XCWindow::EnableLayout, "enable"_a)
 			.def("enableLayoutOverlayBorder", &XCWindow::EnableLayoutOverlayBorder, "enable"_a)

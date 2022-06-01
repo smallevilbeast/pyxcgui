@@ -181,6 +181,7 @@
   <ItemGroup>
     <ClInclude Include="binding\bkmanager\XBkObject.hpp" />
     <ClInclude Include="binding\element\XButton.hpp" />
+    <ClInclude Include="binding\manager\XCallbackManager.hpp" />
     <ClInclude Include="binding\XApp.hpp" />
     <ClInclude Include="binding\bkmanager\XBkManager.hpp" />
     <ClInclude Include="binding\manager\XCastManager.hpp" />
@@ -195,6 +196,7 @@
     <ClInclude Include="binding\XObject.hpp" />
     <ClInclude Include="binding\XEnum.hpp" />
     <ClInclude Include="binding\XObjectUI.hpp" />
+    <ClInclude Include="binding\XResource.hpp" />
     <ClInclude Include="binding\XStruct.hpp" />
     <ClInclude Include="binding\XSvg.hpp" />
     <ClInclude Include="binding\manager\XUserDataManager.hpp" />
@@ -231,6 +233,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="xcgui\XCImageSrc.hpp" />
+    <ClCompile Include="xcgui\XCResource.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
