@@ -3,6 +3,7 @@
 #include "xcgui.h"
 #include "manager/XCastManager.hpp"
 #include "xcgui/utils/Color.hpp"
+#include "xcgui/XCStruct.hpp"
 
 namespace xcgui {
 
@@ -32,6 +33,12 @@ namespace xcgui {
 		m.def("RGBA", [](int rgb, BYTE a) {
 			return  ((rgb & 16777215) | (a & 255) << 24) & 0xFFFFFFFF;
 		}, "rgb"_a, "a"_a);
+
+		m.def("pointClientToScreen", [](uintptr_t hwnd, XCPoint& point) {
+			XCPoint newPoint(point.x, point.y);
+			::ClientToScreen((HWND)hwnd, (LPPOINT)&newPoint);
+			return newPoint;
+		}, "hwnd"_a, "point"_a);
 	}
 
 }

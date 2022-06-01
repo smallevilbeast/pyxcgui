@@ -51,29 +51,36 @@ namespace xcgui {
 			.def("getWidth", &XCElement::GetWidth)
 			.def("getHeight", &XCElement::GetHeight)
 
-			.def("rectWndClientToEleClient", [](XCElement& self) -> XCRect {
-					XCRect rect;
-					self.RectWndClientToEleClient((RECT*)&rect);
-					return rect;
-				})
+			.def("rectWndClientToEleClient", [](XCElement& self, const XCRect& rect) -> XCRect {
+					XCRect newRect(rect.left, rect.top, rect.right, rect.bottom);
+					self.RectWndClientToEleClient((RECT*)&newRect);
+					return newRect;
+				}, "rect"_a)
 
-			.def("pointWndClientToEleClient", [](XCElement& self) -> XCPoint {
-					XCPoint point;
+			.def("pointWndClientToEleClient", [](XCElement& self, const XCPoint& pt) -> XCPoint {
+					XCPoint point(pt.x, pt.y);
 					self.PointWndClientToEleClient((POINT*)&point);
 					return point;
-				})
+				}, "point"_a)
 
-			.def("rectClientToWndClient", [](XCElement& self) -> XCRect {
-					XCRect rect;
-					self.RectClientToWndClient((RECT*)&rect);
-					return rect;
-				})
+			.def("rectClientToWndClient", [](XCElement& self, const XCRect& rect) -> XCRect {
+					XCRect newRect(rect.left, rect.top, rect.right, rect.bottom);
+					self.RectClientToWndClient((RECT*)&newRect);
+					return newRect;
+				}, "rect"_a)
 					
-			.def("pointClientToWndClient", [](XCElement& self) -> XCPoint {
-					XCPoint point;
+			.def("pointClientToWndClient", [](XCElement& self, const XCPoint& pt) -> XCPoint {
+					XCPoint point(pt.x, pt.y);
 					self.PointClientToWndClient((POINT*)&point);
 					return point;
-				})
+				}, "point"_a)
+
+			.def("pointClientToScreen", [](XCElement& self, 
+				position_flag_ position_flag=position_flag_leftBottom, int xOffset = 0, int yOffset = 0) -> XCPoint {
+					XCPoint point;
+					self.PointClientToScreen((POINT*)&point, position_flag, xOffset, yOffset);
+					return point;
+				}, "position_flag"_a= position_flag_leftBottom, "xOffset"_a=0, "yOffset"_a=0)
 		
 			.def("getWndClientRect", [](XCElement& self) -> XCRect {
 					XCRect rect;

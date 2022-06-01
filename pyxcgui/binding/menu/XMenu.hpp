@@ -14,7 +14,7 @@ namespace xcgui {
 			.def("addItemIcon", [](XCMenu& self, int nID, const std::wstring& text, 
 				int nParentID, const XCImage& image, int nFlags = 0){
 					self.AddItemIcon(nID, text, nParentID, image.getImageHandle(), nFlags);
-			}, "nId"_a, "text"_a, "parentId"_a, "image"_a, "flags"_a)
+			}, "nId"_a, "text"_a, "parentId"_a, "image"_a, "flags"_a = 0)
 
 			.def("insertItem", &XCMenu::InsertItem, "nId"_a, "text"_a, "flags"_a, "insertId"_a)
 			.def("insertItemIcon", [](XCMenu& self, int nID, const std::wstring& text, 

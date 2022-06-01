@@ -118,6 +118,54 @@ namespace xcgui {
 		//@别名  客户区点到窗口客户区()
 		void PointClientToWndClient(POINT* pPt) {
 			XEle_PointClientToWndClient((HELE)m_handle, pPt);
+		}		  
+
+		bool PointClientToScreen(in_out_ POINT* pPt, position_flag_ flag = position_flag_leftBottom, 
+			int xOffset = 0, int yOffset = 0) {
+			
+			RECT rect;
+			this->GetRect(&rect);
+			switch (flag)
+			{
+			case position_flag_leftBottom:
+			{
+				pPt->x = rect.left;
+				pPt->y = rect.bottom;
+				break;
+			}
+			case position_flag_leftTop:
+			{
+				pPt->x = rect.left;
+				pPt->y = rect.top;
+				break;
+			}		
+			case position_flag_rightTop:
+			{
+				pPt->x = rect.right;
+				pPt->y = rect.top;
+				break;
+			}
+				
+			case position_flag_rightBottom:
+			{
+				pPt->x = rect.right;
+				pPt->y = rect.bottom;
+				break;
+			}
+				
+			case position_flag_center:
+			{
+				pPt->x = rect.left + (rect.right - rect.left) / 2;
+				pPt->y = rect.top + (rect.bottom - rect.top) / 2;
+				break;
+			}
+			default:
+				break;
+			}
+			pPt->x += xOffset;
+			pPt->y += yOffset;
+
+			return ::ClientToScreen((HWND)GetHWND(), pPt);
 		}
 
 		// 元素基于窗口客户区坐标.  
