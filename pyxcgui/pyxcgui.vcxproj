@@ -182,6 +182,7 @@
     <ClInclude Include="binding\bkmanager\XBkObject.hpp" />
     <ClInclude Include="binding\element\XButton.hpp" />
     <ClInclude Include="binding\manager\XCallbackManager.hpp" />
+    <ClInclude Include="binding\menu\XMenu.hpp" />
     <ClInclude Include="binding\XApp.hpp" />
     <ClInclude Include="binding\bkmanager\XBkManager.hpp" />
     <ClInclude Include="binding\manager\XCastManager.hpp" />
@@ -207,6 +208,7 @@
     <ClInclude Include="xcgui.h" />
     <ClInclude Include="xcgui\bkmanager\XCBkObject.hpp" />
     <ClInclude Include="xcgui\element\XCButton.hpp" />
+    <ClInclude Include="xcgui\menu\XCMenu.hpp" />
     <ClInclude Include="xcgui\utils\Color.hpp" />
     <ClInclude Include="xcgui\XCApp.hpp" />
     <ClInclude Include="xcgui\bkmanager\XCBkManager.hpp" />
