@@ -33,10 +33,12 @@ namespace xcgui {
 			.def("getParentItem", &XCMenu::GetParentItem, "nId"_a)
 			.def("setAutoDestroy", &XCMenu::SetAutoDestroy, "enable"_a)
 			.def("enableDrawBackground", &XCMenu::EnableDrawBackground, "enable"_a)
+
 			.def("popup", [](XCMenu& self, uintptr_t hParentWnd, int x, int y,
 				XCElement* parentEle = nullptr, menu_popup_position_ nPosition = menu_popup_position_left_top) {
 				return self.Popup((HWND)hParentWnd, x, y, parentEle ? parentEle->getEleHandle() : nullptr, nPosition);
-			})
+			}, "parentHWND"_a, "x"_a, "y"_a, "parentEle"_a=nullptr, "position"_a=menu_popup_position_left_top)
+
 			.def("destroyMenu", &XCMenu::DestroyMenu)
 			.def("closeMenu", &XCMenu::CloseMenu)
 			.def("setBkImage", [](XCMenu& self, const XCImage& image) {
@@ -57,7 +59,7 @@ namespace xcgui {
 			.def("setBorderSize", &XCMenu::SetBorderSize, "left"_a, "top"_a, "right"_a, "bottom"_a)
 			.def("getLeftWidth", &XCMenu::GetLeftWidth)
 			.def("getLeftSpaceText", &XCMenu::GetLeftSpaceText)
-			.def("setItemCheck", &XCMenu::GetLeftWidth, "nId"_a, "check"_a)
+			.def("setItemCheck", &XCMenu::SetItemCheck, "nId"_a, "check"_a)
 			.def("isItemCheck", &XCMenu::IsItemCheck, "nId"_a);
 	}
 }

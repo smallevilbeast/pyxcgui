@@ -170,8 +170,11 @@ namespace xcgui {
 		//@参数 nID 项ID.
 		//@返回 返回文本内容
 		//@别名  取项文本()
-		const std::wstring& GetItemText(int nID) {
-			return XMenu_GetItemText((HMENUX)m_handle, nID);
+		std::wstring GetItemText(int nID) {
+			 auto pText = XMenu_GetItemText((HMENUX)m_handle, nID);
+			 if (!pText)
+				 return nullptr;
+			 return pText;
 		}
 
 		//@备注 获取项文本长度,不包含字符串空终止符.  

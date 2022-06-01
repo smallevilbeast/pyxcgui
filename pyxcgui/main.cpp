@@ -19,6 +19,7 @@
 #include "binding/XLayoutBox.hpp"
 #include "binding/element/XButton.hpp"
 #include "binding/XResource.hpp"
+#include "binding/menu/XMenu.hpp"
 
 						 
 namespace xcgui {
@@ -76,6 +77,9 @@ namespace xcgui {
 
 		// element
 		declareElement(m);
+
+		// menu
+		declareMenu(m);
 
 		// button
 		declareButton(m);
