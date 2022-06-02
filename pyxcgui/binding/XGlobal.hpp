@@ -2,6 +2,7 @@
 #include "pch.h"
 #include "xcgui.h"
 #include "manager/XCastManager.hpp"
+#include "manager/XMainThreadManager.hpp"
 #include "xcgui/utils/Color.hpp"
 #include "xcgui/XCStruct.hpp"
 
@@ -39,6 +40,10 @@ namespace xcgui {
 			::ClientToScreen((HWND)hwnd, (LPPOINT)&newPoint);
 			return newPoint;
 		}, "hwnd"_a, "point"_a);
+
+		m.def("callUiThread", [](py::object method, py::args args, py::kwargs kwargs) {
+			XMainThreadManager::GetInstance()->CallUiThread(method, args, kwargs);
+		}, "func"_a); // py::call_guard<py::gil_scoped_release>()
 	}
 
 }

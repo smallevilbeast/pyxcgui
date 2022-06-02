@@ -182,6 +182,7 @@
     <ClInclude Include="binding\bkmanager\XBkObject.hpp" />
     <ClInclude Include="binding\element\XButton.hpp" />
     <ClInclude Include="binding\manager\XCallbackManager.hpp" />
+    <ClInclude Include="binding\manager\XMainThreadManager.hpp" />
     <ClInclude Include="binding\menu\XMenu.hpp" />
     <ClInclude Include="binding\XApp.hpp" />
     <ClInclude Include="binding\bkmanager\XBkManager.hpp" />
