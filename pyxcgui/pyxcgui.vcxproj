@@ -225,6 +225,7 @@
     <ClInclude Include="xcgui\XCSvg.hpp" />
     <ClInclude Include="xcgui\XCWidget.hpp" />
     <ClInclude Include="xcgui\window\XCWindow.hpp" />
+    <ClInclude Include="xcgui\XCDesigner.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
