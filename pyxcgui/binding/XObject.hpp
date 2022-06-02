@@ -14,6 +14,8 @@ namespace xcgui {
 			})
 			.def("getTypeEx", &XCObject::GetTypeEx)
 			.def("setTypeEx", &XCObject::SetTypeEx, "nType"_a)
+			.def("setProperty", &XCObject::SetProperty, "name"_a, "value"_a)
+			.def("getProperty", &XCObject::GetProperty, "name"_a)
 			.def("__eq__", [](const XCObject& self, const XCObject& other) {
 				return self.GetHandle() == other.GetHandle();
 			});

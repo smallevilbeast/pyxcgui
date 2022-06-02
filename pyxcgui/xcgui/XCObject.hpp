@@ -42,6 +42,19 @@ namespace xcgui {
 		}
 
 
+		// 获取对象属性.
+		std::wstring GetProperty(const std::wstring& name) {
+			auto pName = XC_GetProperty(m_handle, name.c_str());
+			if (!pName) {
+				return L"";
+			}
+			return pName;
+		}
+
+		bool SetProperty(const std::wstring& name, const std::wstring& value) {
+			return XC_SetProperty(m_handle, name.c_str(), value.c_str());
+		}
+
 		virtual HXCGUI GetHandle() const
 		{
 			return m_handle;
