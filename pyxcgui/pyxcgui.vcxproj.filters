@@ -159,6 +159,9 @@
     <ClInclude Include="xcgui\XCDesigner.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="binding\XDesigner.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">

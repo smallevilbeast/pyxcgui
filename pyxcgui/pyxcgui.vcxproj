@@ -187,6 +187,7 @@
     <ClInclude Include="binding\XApp.hpp" />
     <ClInclude Include="binding\bkmanager\XBkManager.hpp" />
     <ClInclude Include="binding\manager\XCastManager.hpp" />
+    <ClInclude Include="binding\XDesigner.hpp" />
     <ClInclude Include="binding\XDraw.hpp" />
     <ClInclude Include="binding\XElement.hpp" />
     <ClInclude Include="binding\manager\XEventManager.hpp" />
