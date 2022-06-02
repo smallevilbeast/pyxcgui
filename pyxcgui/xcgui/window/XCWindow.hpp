@@ -5,6 +5,7 @@
 #include "xcgui/XCStruct.hpp"
 #include "xcgui/XCLayoutBox.hpp"
 #include "xcgui/XCImage.hpp"
+#include "xcgui/XCDesigner.hpp"
 
 namespace xcgui {
 	class XCWindow : public XCObjectUI,  public XCLayoutBox
@@ -20,8 +21,8 @@ namespace xcgui {
 		XCWindow()
 		: XCObjectUI()
 		{
-			auto hWindow = XWnd_Create(0, 0, 0, 0, NULL, NULL, window_style_default);
-			this->SetWindowHandle(hWindow);
+			//auto hWindow = XWnd_Create(0, 0, 0, 0, NULL, NULL, window_style_default);
+			//this->SetWindowHandle(hWindow);
 		}
 
 		XCWindow(int width, int height, const std::wstring& title) 

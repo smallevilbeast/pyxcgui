@@ -20,6 +20,7 @@
 #include "binding/element/XButton.hpp"
 #include "binding/XResource.hpp"
 #include "binding/menu/XMenu.hpp"
+#include "binding/XDesigner.hpp"
 
 						 
 namespace xcgui {
@@ -32,6 +33,9 @@ namespace xcgui {
 
 		// base
 		declareBase(m);
+
+		// designer
+		declareDesigner(m);
 
 		// layoutBox
 		declareLayoutBox(m);

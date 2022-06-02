@@ -13,6 +13,7 @@ namespace xcgui {
 	void declareElement(py::module& m) {
 
 		py::class_<XCElement, XCWidget>(m, "XElement")
+			.def(py::init<>())
 			.def(py::init([](const XCObjectUI& parent, int x, int y, int cx, int cy) {
 				XCElement ele(x, y, cx, cy, parent.GetHandle());
 				return ele;
