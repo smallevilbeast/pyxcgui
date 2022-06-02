@@ -53,6 +53,21 @@ namespace xcgui {
 
 			}, "data"_a, "fileName"_a, "password"_a, "parent"_a = nullptr, "attachHWND"_a = 0,
 				py::return_value_policy::reference)
+
+			.def_static("loadResource", &XCDesigner::LoadResource, "filename"_a)
+			.def_static("loadResourceString", &XCDesigner::LoadResourceString, "xml"_a, "filename"_a)
+			.def_static("loadResourceZip", &XCDesigner::LoadResourceZip, "zipFileName"_a, "filename"_a, "password"_a)
+			.def_static("loadResourceZipMem", [](const py::bytes data, const std::wstring& fileName, const std::wstring& password) {
+				return XCDesigner::LoadResourceZipMem(data, fileName, password);
+			}, "data"_a, "filename"_a, "password"_a)
+
+			.def_static("loadStyle", &XCDesigner::LoadStyle, "filename"_a)
+			.def_static("loadStyleString", &XCDesigner::LoadStyleString, "xml"_a, "filename"_a)
+			.def_static("loadStyleZip", &XCDesigner::LoadStyleZip, "zipFileName"_a, "filename"_a, "password"_a)
+			.def_static("loadStyleZipMem", [](const py::bytes data, const std::wstring& fileName, const std::wstring& password) {
+				return XCDesigner::LoadStyleZipMem(data, fileName, password);
+			}, "data"_a, "filename"_a, "password"_a)
+
 		;
 	}
 
