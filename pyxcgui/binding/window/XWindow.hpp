@@ -265,6 +265,17 @@ namespace xcgui {
 				XCShadowInfo info;
 				self.GetShadowInfo(&info.size, &info.depth, &info.angeleSize, (BOOL*)& info.rightAngle, &info.color);
 				return info;
-			});
+			})
+			.def("notifyMsgSetBorderSize", &XCWindow::NotifyMsgSetBorderSize, "left"_a, "top"_a, "right"_a, "bottom"_a)
+			.def("notifyMsgSetCaptionHeight", &XCWindow::NotifyMsgSetCaptionHeight, "height"_a)
+			.def("notifyMsgSetDuration", &XCWindow::NotifyMsgSetDuration, "duration"_a)
+			.def("notifyMsgSetParentMargin", &XCWindow::NotifyMsgSetParentMargin, "left"_a, "top"_a, "right"_a, "bottom"_a)
+			.def("notifyMsgSetSpace", &XCWindow::NotifyMsgSetSpace, "space"_a)
+			.def("notifyMsgSetWidth", &XCWindow::NotifyMsgSetWidth, "width"_a)
+			.def("notifyMsgWindowPopup", &XCWindow::NotifyMsgWindowPopup, "position"_a, "title"_a, "text"_a, "icon"_a, "skin"_a)
+			.def("notifyMsgWindowPopupEx", &XCWindow::NotifyMsgWindowPopupEx, "position"_a, "title"_a, "text"_a, "icon"_a, "skin"_a,
+				"btnClose"_a, "autoClose"_a, "width"_a, "height"_a)
+
+			;
 	}
 }

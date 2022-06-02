@@ -153,7 +153,7 @@ namespace xcgui {
 					return nullptr;
 				}
 				return pImage;
-				}, "hBitmap"_a, py::return_value_policy::take_ownership)
+				}, "svg"_a, py::return_value_policy::take_ownership)
 
 			.def_static("loadSvgFile", [](const std::wstring& fileName) -> XCImage* {
 				auto pImage = new XCImage();

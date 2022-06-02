@@ -4,6 +4,7 @@
 #include "xcgui/XCObjectUI.hpp"  
 #include "xcgui/XCStruct.hpp"
 #include "xcgui/XCLayoutBox.hpp"
+#include "xcgui/XCImage.hpp"
 
 namespace xcgui {
 	class XCWindow : public XCObjectUI,  public XCLayoutBox
@@ -565,12 +566,54 @@ namespace xcgui {
 		window_transparent_ GetTransparentType() { 
 			return XWnd_GetTransparentType(GetWindowHandle()); 
 		}
+
+		void NotifyMsgSetBorderSize(int left, int top, int right, int bottom) {
+			XNotifyMsg_SetBorderSize(GetWindowHandle(), left, top, right, bottom);
+		}
+
+
+		void NotifyMsgSetCaptionHeight(int height) {
+			XNotifyMsg_SetCaptionHeight(GetWindowHandle(), height);
+		}
+
+		void NotifyMsgSetDuration(uint32_t duration) {
+			XNotifyMsg_SetDuration(GetWindowHandle(), duration);
+		}
+
+		void NotifyMsgSetParentMargin(int left, int top, int right, int bottom) {
+			XNotifyMsg_SetParentMargin(GetWindowHandle(), left, top, right, bottom);
+		}
+
+		void NotifyMsgSetSpace(int space) {
+			XNotifyMsg_SetSpace(GetWindowHandle(), space);
+		}
+
+		void NotifyMsgSetWidth(int width) {
+			XNotifyMsg_SetWidth(GetWindowHandle(), width);
+		}
+
+		void NotifyMsgWindowPopup(position_flag_ position, const std::wstring& title,
+			const std::wstring& text, const XCImage& icon, notifyMsg_skin_ skin)
+		{
+			XNotifyMsg_WindowPopup(GetWindowHandle(), position, title.c_str(), text.c_str(), icon.getImageHandle(), skin);
+		}
+
+		void NotifyMsgWindowPopupEx(position_flag_ position, const std::wstring& title,
+			const std::wstring& text, const XCImage& icon, notifyMsg_skin_ skin,
+			bool btnClose, bool autoClose, int width, int height)
+		{
+			XNotifyMsg_WindowPopupEx(GetWindowHandle(), position, title.c_str(), 
+				text.c_str(), icon.getImageHandle(), skin, btnClose, autoClose, width, height);
+		}
 		
 
 		HWINDOW GetWindowHandle() const
 		{
 			return (HWINDOW)m_handle;
 		}
+
+
+
 
 	protected:
 		void SetWindowHandle(HWINDOW winHandle)

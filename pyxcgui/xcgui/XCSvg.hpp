@@ -23,6 +23,11 @@ namespace xcgui {
 			return (HSVG)m_handle;
 		}
 
+		HSVG LoadFile(const std::wstring& fileName) {
+			m_handle = XSvg_LoadFile(fileName.c_str());
+			return (HSVG)m_handle;
+		}
+
 		HSVG LoadRes(int id, const std::wstring& typeName, HMODULE hModule) {
 			m_handle = XSvg_LoadRes(id, typeName.c_str(), hModule);
 			return (HSVG)m_handle;

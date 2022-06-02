@@ -8,6 +8,14 @@ namespace xcgui {
 	void declareSvg(py::module& m) {
 
 		py::class_<XCSvg, XCObject>(m, "XSvg")
+			.def_static("loadFile", [](const std::wstring& filename) -> XCSvg* {
+				auto pSvg = new XCSvg();
+				if (!pSvg->LoadFile(filename.c_str())) {
+					return nullptr;
+				}
+				return pSvg;
+			}, "filename"_a, py::return_value_policy::take_ownership)
+
 			.def_static("loadRes", [](int resId, const std::wstring& typeName, uintptr_t hModule) -> XCSvg* {
 				auto pSvg = new XCSvg();
 				if (!pSvg->LoadRes(resId, typeName, (HMODULE)hModule)) {
