@@ -92,5 +92,19 @@ namespace xcgui {
 			.def_readonly("angeleSize", &XCShadowInfo::angeleSize)
 			.def_readonly("rightAngle", &XCShadowInfo::rightAngle)
 			.def_readonly("color", &XCShadowInfo::color);
+
+		py::class_<XCDateInfo>(m, "XDateInfo")
+			.def(py::init<>())
+			.def(py::init<int, int, int>(), "year"_a, "month"_a, "day"_a)
+			.def_readwrite("year", &XCDateInfo::year)
+			.def_readwrite("month", &XCDateInfo::month)
+			.def_readwrite("day", &XCDateInfo::day);
+
+		py::class_<XCTimeInfo>(m, "XTimeInfo")
+			.def(py::init<>())
+			.def(py::init<int, int, int>(), "hour"_a, "minute"_a, "second"_a)
+			.def_readwrite("hour", &XCTimeInfo::hour)
+			.def_readwrite("minute", &XCTimeInfo::minute)
+			.def_readwrite("second", &XCTimeInfo::second);
 	}
 }													

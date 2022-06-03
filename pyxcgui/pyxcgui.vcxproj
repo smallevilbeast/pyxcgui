@@ -186,6 +186,7 @@
     <ClInclude Include="binding\adapter\XAdapterTree.hpp" />
     <ClInclude Include="binding\bkmanager\XBkObject.hpp" />
     <ClInclude Include="binding\element\XButton.hpp" />
+    <ClInclude Include="binding\element\XDateTime.hpp" />
     <ClInclude Include="binding\element\XTextLink.hpp" />
     <ClInclude Include="binding\manager\XCallbackManager.hpp" />
     <ClInclude Include="binding\manager\XMainThreadManager.hpp" />
@@ -223,6 +224,7 @@
     <ClInclude Include="xcgui\adapter\XCAdapterTree.hpp" />
     <ClInclude Include="xcgui\bkmanager\XCBkObject.hpp" />
     <ClInclude Include="xcgui\element\XCButton.hpp" />
+    <ClInclude Include="xcgui\element\XCDateTime.hpp" />
     <ClInclude Include="xcgui\element\XCTextLink.hpp" />
     <ClInclude Include="xcgui\menu\XCMenu.hpp" />
     <ClInclude Include="xcgui\utils\Color.hpp" />

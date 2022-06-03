@@ -200,4 +200,48 @@ namespace xcgui {
 		COLORREF color;
 	};
 
+
+	class XCDateInfo
+	{
+	public:
+		XCDateInfo()
+			:year(0)
+			, month(0)
+			, day(0)
+		{
+		}
+		XCDateInfo(int year, int month, int day)
+			:year(year)
+			, month(month)
+			, day(day)
+		{
+
+		}
+	public:
+		int year;
+		int month;
+		int day;
+	};
+
+	class XCTimeInfo
+	{
+	public:
+		XCTimeInfo()
+			:hour(0)
+			, minute(0)
+			, second(0)
+		{
+		}
+		XCTimeInfo(int hour, int minute, int second)
+			:hour(hour)
+			, minute(minute)
+			, second(second)
+		{
+
+		}
+	public:
+		int hour;
+		int minute;
+		int second;
+	};
 }

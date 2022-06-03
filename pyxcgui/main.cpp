@@ -29,6 +29,7 @@
 #include "binding/adapter/XAdapterMap.hpp"
 #include "binding/adapter/XAdapterListView.hpp"
 #include "binding/element/XTextLink.hpp"
+#include "binding/element/XDateTime.hpp"
 
 						 
 namespace xcgui {
@@ -122,6 +123,9 @@ namespace xcgui {
 
 		// textlink
 		declareTextLink(m);
+
+		// datetime
+		declareDateTime(m);
 		
 	}
 }
