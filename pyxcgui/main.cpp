@@ -28,6 +28,7 @@
 #include "binding/adapter/XAdapterTable.hpp"
 #include "binding/adapter/XAdapterMap.hpp"
 #include "binding/adapter/XAdapterListView.hpp"
+#include "binding/element/XTextLink.hpp"
 
 						 
 namespace xcgui {
@@ -118,6 +119,9 @@ namespace xcgui {
 
 		// adapterListView
 		declareAdapterListView(m);
+
+		// textlink
+		declareTextLink(m);
 		
 	}
 }

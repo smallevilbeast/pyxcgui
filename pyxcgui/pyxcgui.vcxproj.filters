@@ -201,6 +201,12 @@
     <ClInclude Include="binding\adapter\XAdapterListView.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="xcgui\element\XCTextLink.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="binding\element\XTextLink.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
