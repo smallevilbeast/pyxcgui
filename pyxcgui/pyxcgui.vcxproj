@@ -211,6 +211,7 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="xcgui.h" />
     <ClInclude Include="xcgui\adapter\XCAdapter.hpp" />
+    <ClInclude Include="xcgui\adapter\XCAdapterListView.hpp" />
     <ClInclude Include="xcgui\adapter\XCAdapterMap.hpp" />
     <ClInclude Include="xcgui\adapter\XCAdapterTable.hpp" />
     <ClInclude Include="xcgui\adapter\XCAdapterTree.hpp" />
