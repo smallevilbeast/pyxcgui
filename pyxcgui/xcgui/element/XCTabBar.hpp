@@ -118,7 +118,7 @@ namespace xcgui {
 		//@参数 hLabel 标签按钮句柄.
 		//@返回 成功返回索引值,否则返回 @ref XC_ID_ERROR.
 		//@别名  取标签位置索引()
-		int GetindexByEle(HELE hLabel) {
+		int GetIndexByEle(HELE hLabel) {
 			return XTabBar_GetindexByEle(getEleHandle(), hLabel);
 		}
 

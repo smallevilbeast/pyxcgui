@@ -191,7 +191,11 @@
     <ClInclude Include="binding\element\XMenuBar.hpp" />
     <ClInclude Include="binding\element\XMonthCal.hpp" />
     <ClInclude Include="binding\element\XProgressBar.hpp" />
+    <ClInclude Include="binding\element\XScrollBar.hpp" />
+    <ClInclude Include="binding\element\XSliderBar.hpp" />
+    <ClInclude Include="binding\element\XTabBar.hpp" />
     <ClInclude Include="binding\element\XTextLink.hpp" />
+    <ClInclude Include="binding\element\XToolBar.hpp" />
     <ClInclude Include="binding\manager\XCallbackManager.hpp" />
     <ClInclude Include="binding\manager\XMainThreadManager.hpp" />
     <ClInclude Include="binding\menu\XMenu.hpp" />

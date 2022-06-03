@@ -252,6 +252,18 @@
     <ClInclude Include="binding\element\XProgressBar.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="binding\element\XScrollBar.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="binding\element\XSliderBar.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="binding\element\XTabBar.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="binding\element\XToolBar.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">

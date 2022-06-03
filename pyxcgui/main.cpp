@@ -36,6 +36,9 @@
 #include "binding/element/XPane.hpp"
 #include "binding/element/XProgressBar.hpp"
 #include "binding/element/XScrollBar.hpp"
+#include "binding/element/XSliderBar.hpp"
+#include "binding/element/XTabBar.hpp"
+#include "binding/element/XToolBar.hpp"
 
 						 
 namespace xcgui {
@@ -150,5 +153,14 @@ namespace xcgui {
 
 		// scrollbar
 		declareScrollBar(m);
+	
+		// sliderBar
+		declareSliderBar(m);
+
+		// tabBar
+		declareTabBar(m);
+
+		// Toolbar
+		declareToolbar(m);
 	}
 }
