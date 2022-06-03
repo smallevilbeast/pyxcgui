@@ -213,6 +213,12 @@
     <ClInclude Include="binding\element\XDateTime.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="xcgui\element\XCMonthCal.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="binding\element\XMonthCal.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">

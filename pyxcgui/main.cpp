@@ -30,6 +30,7 @@
 #include "binding/adapter/XAdapterListView.hpp"
 #include "binding/element/XTextLink.hpp"
 #include "binding/element/XDateTime.hpp"
+#include "binding/element/XMonthCal.hpp"
 
 						 
 namespace xcgui {
@@ -126,6 +127,9 @@ namespace xcgui {
 
 		// datetime
 		declareDateTime(m);
+
+		// monthCal
+		declareMonthCal(m);
 		
 	}
 }
