@@ -20,7 +20,7 @@ namespace xcgui {
 			.def("addItemTextEx", &XCAdapterTable::AddItemTextEx, "name"_a, "value"_a)
 
 
-			.def("AddItemImage", [](XCAdapterTable& self, const XCImage& image) {
+			.def("addItemImage", [](XCAdapterTable& self, const XCImage& image) {
 				return self.AddItemImage(image.getImageHandle());
 			}, "image"_a)
 

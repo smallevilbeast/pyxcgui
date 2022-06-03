@@ -47,7 +47,7 @@ namespace xcgui {
 				return pFont;
 				}, "data"_a, "size"_a, "style"_a, py::return_value_policy::take_ownership)
 
-			.def_static("CreateFromRes", [](int id, const std::wstring& typeName, int fontSize, int style, uintptr_t hModule) -> XCFont* {
+			.def_static("createFromRes", [](int id, const std::wstring& typeName, int fontSize, int style, uintptr_t hModule) -> XCFont* {
 				auto pFont = new XCFont();
 				if (!pFont->CreateFromRes(id, typeName, fontSize, style, (HMODULE)hModule)) {
 					return nullptr;

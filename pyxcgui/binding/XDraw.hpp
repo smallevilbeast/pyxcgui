@@ -300,7 +300,7 @@ namespace xcgui {
 				self.ImageMask(image.getImageHandle(), imageMask.getImageHandle(), (RECT*)&rect, x2, y2);
 			}, "image"_a, "imageMask"_a, "rect"_a, "x2"_a, "y2"_a)
 
-			.def("ImageSuperMask", [](XCDraw& self, const XCImage& image, const XCImage& imageMask,
+			.def("imageSuperMask", [](XCDraw& self, const XCImage& image, const XCImage& imageMask,
 				const XCRect& rect, const XCRect& rectMask, bool bClip=false) {
 				self.ImageSuperMask(image.getImageHandle(), imageMask.getImageHandle(), (RECT*)&rect, (RECT*)&rectMask, bClip);
 			}, "image"_a, "imageMask"_a, "rect"_a, "rectMask"_a, "clip"_a)
