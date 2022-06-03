@@ -171,6 +171,18 @@
     <ClInclude Include="binding\window\XModelWindow.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="xcgui\adapter\XCAdapter.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="xcgui\adapter\XCAdapterTree.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="xcgui\adapter\XCAdapterMap.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="xcgui\adapter\XCAdapterTable.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
