@@ -71,7 +71,7 @@ namespace xcgui {
 		//@参数 pValue 值.
 		//@返回 成功返回TRUE否则返回FALSE.
 		//@别名 数据适配器列表视_组设置文本()
-		bool Group_SetText(int iGroup, int iColumn, const std::wstring& value) {
+		bool GroupSetText(int iGroup, int iColumn, const std::wstring& value) {
 			return XAdListView_Group_SetText(m_handle, iGroup, iColumn, value.c_str());
 		}
 		

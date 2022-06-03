@@ -129,8 +129,10 @@ namespace xcgui {
 		//@参数 iColumn 列索引.
 		//@返回 返回文本内容
 		//@别名  取项文本()
-		const wchar_t* GetItemText(int nID, int iColumn) {
-			return XAdTree_GetItemText(m_handle, nID, iColumn);
+		std::wstring GetItemText(int nID, int iColumn) {
+			auto pText = XAdTree_GetItemText(m_handle, nID, iColumn);
+			if (!pText) return L"";
+			return pText;
 		}
 
 		//@备注 获取项文本内容.  
@@ -138,8 +140,10 @@ namespace xcgui {
 		//@参数 name.c_str() 字段名称.
 		//@返回 返回文本内容
 		//@别名  取项文本扩展()
-		const wchar_t* GetItemTextEx(int nID, const std::wstring& name) {
-			return XAdTree_GetItemTextEx(m_handle, nID, name.c_str());
+		std::wstring GetItemTextEx(int nID, const std::wstring& name) {
+			auto pText = XAdTree_GetItemTextEx(m_handle, nID, name.c_str());
+			if (!pText) return L"";
+			return pText;
 		}
 
 		//@备注 获取项内容.  

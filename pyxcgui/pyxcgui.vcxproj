@@ -179,6 +179,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="binding\adapter\XAdapter.hpp" />
+    <ClInclude Include="binding\adapter\XAdapterListView.hpp" />
+    <ClInclude Include="binding\adapter\XAdapterMap.hpp" />
+    <ClInclude Include="binding\adapter\XAdapterTable.hpp" />
+    <ClInclude Include="binding\adapter\XAdapterTree.hpp" />
     <ClInclude Include="binding\bkmanager\XBkObject.hpp" />
     <ClInclude Include="binding\element\XButton.hpp" />
     <ClInclude Include="binding\manager\XCallbackManager.hpp" />

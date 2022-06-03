@@ -131,7 +131,7 @@ namespace xcgui {
 		//@参数 hImage 图片句柄.
 		//@返回 返回项索引.
 		//@别名 数据适配器表_插入项图片()
-		int _InsertItemImage(int iItem, HIMAGE hImage) {
+		int InsertItemImage(int iItem, HIMAGE hImage) {
 			return XAdTable_InsertItemImage(m_handle, iItem, hImage);
 		}
 

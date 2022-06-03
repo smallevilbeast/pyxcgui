@@ -48,9 +48,11 @@ namespace xcgui {
 		/// @brief 取项文本 
 		/// @param name.c_str() 字段称.  
 		/// @return 返回文本内容.
-		const wchar_t* GetItemText(const std::wstring& name)
+		std::wstring GetItemText(const std::wstring& name)
 		{
-			return XAdMap_GetItemText(m_handle, name.c_str());
+			auto pText = XAdMap_GetItemText(m_handle, name.c_str());
+			if (!pText) return L"";
+			return pText;
 		}
 		/// @brief 返回文本内容.
 		/// @param name.c_str() 字段称. 

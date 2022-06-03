@@ -186,6 +186,21 @@
     <ClInclude Include="xcgui\adapter\XCAdapterListView.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="binding\adapter\XAdapter.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="binding\adapter\XAdapterTree.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="binding\adapter\XAdapterTable.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="binding\adapter\XAdapterMap.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="binding\adapter\XAdapterListView.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">

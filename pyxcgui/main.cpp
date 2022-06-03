@@ -23,6 +23,11 @@
 #include "binding/window/XWindow.hpp"
 #include "binding/window/XFrameWindow.hpp"
 #include "binding/window/XModelWindow.hpp"
+#include "binding/adapter/XAdapter.hpp"
+#include "binding/adapter/XAdapterTree.hpp"
+#include "binding/adapter/XAdapterTable.hpp"
+#include "binding/adapter/XAdapterMap.hpp"
+#include "binding/adapter/XAdapterListView.hpp"
 
 						 
 namespace xcgui {
@@ -98,6 +103,21 @@ namespace xcgui {
 
 		// modelWindow
 		declareModelWindow(m);
+
+		// adapter
+		declareAdapter(m);
+
+		// adapterTree
+		declareAdapterTree(m);
+
+		// adapterTable
+		declareAdapterTable(m);
+
+		// adapterMap
+		declareAdapterMap(m);
+
+		// adapterListView
+		declareAdapterListView(m);
 		
 	}
 }
