@@ -162,6 +162,15 @@
     <ClInclude Include="binding\XDesigner.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="xcgui\window\XCFrameWindow.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="binding\window\XFrameWindow.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="binding\window\XModelWindow.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -177,6 +186,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="xcgui\XCResource.hpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="xcgui\window\XCModelWindow.hpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

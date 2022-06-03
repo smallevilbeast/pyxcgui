@@ -41,7 +41,7 @@ namespace xcgui {
 
 
 		// hWnd 要附加的外部窗口句柄
-		bool Attach(uintptr_t hWnd, int style)
+		virtual bool Attach(uintptr_t hWnd, int style)
 		{
 			auto hWindow = XWnd_Attach((HWND)hWnd, style);
 			this->SetWindowHandle(hWindow);
