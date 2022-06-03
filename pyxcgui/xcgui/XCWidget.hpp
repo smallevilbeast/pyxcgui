@@ -21,7 +21,7 @@ namespace xcgui {
 	};
 
 
-	class XCWidget : public XCObjectUI
+	class XCWidget : virtual public XCObjectUI
 	{
 	public:
 		XCWidget() 

@@ -31,6 +31,11 @@
 #include "binding/element/XTextLink.hpp"
 #include "binding/element/XDateTime.hpp"
 #include "binding/element/XMonthCal.hpp"
+#include "binding/element/XLayoutEle.hpp"
+#include "binding/element/XMenuBar.hpp"
+#include "binding/element/XPane.hpp"
+#include "binding/element/XProgressBar.hpp"
+#include "binding/element/XScrollBar.hpp"
 
 						 
 namespace xcgui {
@@ -131,5 +136,19 @@ namespace xcgui {
 		// monthCal
 		declareMonthCal(m);
 		
+		// layoutEle
+		declareLayoutEle(m);
+
+		// menubar
+		declareMenuBar(m);
+
+		// panel
+		declarePanel(m);
+
+		// progressBar
+		declareProgressBar(m);
+
+		// scrollbar
+		declareScrollBar(m);
 	}
 }

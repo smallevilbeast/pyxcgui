@@ -4,7 +4,7 @@
 
 namespace xcgui {
 
-	class XCElement : public XCWidget
+	class XCElement : virtual public XCWidget
 	{
 	public:
 		XCElement()

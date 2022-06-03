@@ -187,7 +187,10 @@
     <ClInclude Include="binding\bkmanager\XBkObject.hpp" />
     <ClInclude Include="binding\element\XButton.hpp" />
     <ClInclude Include="binding\element\XDateTime.hpp" />
+    <ClInclude Include="binding\element\XLayoutEle.hpp" />
+    <ClInclude Include="binding\element\XMenuBar.hpp" />
     <ClInclude Include="binding\element\XMonthCal.hpp" />
+    <ClInclude Include="binding\element\XProgressBar.hpp" />
     <ClInclude Include="binding\element\XTextLink.hpp" />
     <ClInclude Include="binding\manager\XCallbackManager.hpp" />
     <ClInclude Include="binding\manager\XMainThreadManager.hpp" />
@@ -226,8 +229,16 @@
     <ClInclude Include="xcgui\bkmanager\XCBkObject.hpp" />
     <ClInclude Include="xcgui\element\XCButton.hpp" />
     <ClInclude Include="xcgui\element\XCDateTime.hpp" />
+    <ClInclude Include="xcgui\element\XCMenuBar.hpp" />
     <ClInclude Include="xcgui\element\XCMonthCal.hpp" />
+    <ClInclude Include="xcgui\element\XCPane.hpp" />
+    <ClInclude Include="xcgui\element\XCScrollBar.hpp" />
+    <ClInclude Include="xcgui\element\XCSliderBar.hpp" />
+    <ClInclude Include="xcgui\element\XCSrollView.hpp" />
+    <ClInclude Include="xcgui\element\XCTabBar.hpp" />
     <ClInclude Include="xcgui\element\XCTextLink.hpp" />
+    <ClInclude Include="xcgui\element\XCLayoutEle.hpp" />
+    <ClInclude Include="xcgui\element\XCProgressBar.hpp" />
     <ClInclude Include="xcgui\menu\XCMenu.hpp" />
     <ClInclude Include="xcgui\utils\Color.hpp" />
     <ClInclude Include="xcgui\window\XCFrameWindow.hpp" />
@@ -259,6 +270,10 @@
     <ClCompile Include="xcgui\window\XCModelWindow.hpp" />
     <ClCompile Include="xcgui\XCImageSrc.hpp" />
     <ClCompile Include="xcgui\XCResource.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="binding\element\XPane.hpp" />
+    <None Include="xcgui\element\XCToolBar.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

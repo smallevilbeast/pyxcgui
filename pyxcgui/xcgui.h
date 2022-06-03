@@ -3356,6 +3356,7 @@ XC_API int  WINAPI XProgBar_GetRange(HELE hEle);
 
 XC_API void WINAPI XProgBar_SetPos(HELE hEle, int pos);
 XC_API int  WINAPI XProgBar_GetPos(HELE hEle);
+XC_API void WINAPI XProgBar_EnableStretch(HELE hEle, BOOL bStretch);
 XC_API void WINAPI XProgBar_EnableHorizon(HELE hEle, BOOL bHorizon);
 XC_API void WINAPI XProgBar_SetImageLoad(HELE hEle, HIMAGE hImage);
 XC_API HELE WINAPI XPGrid_Create(int x, int y, int cx, int cy, HXCGUI hParent = NULL);

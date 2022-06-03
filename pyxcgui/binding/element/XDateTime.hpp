@@ -9,7 +9,6 @@ namespace xcgui {
 
 	void declareDateTime(py::module& m) {
 		py::class_<XCDateTime, XCElement>(m, "XDateTime")
-			.def(py::init<>())
 			.def(py::init([](int x, int y, int cx, int cy, XCObjectUI* parent = nullptr) {
 				HXCGUI handle = nullptr;
 				if (parent) {
