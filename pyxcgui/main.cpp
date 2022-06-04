@@ -41,6 +41,7 @@
 #include "binding/element/XToolBar.hpp"
 #include "binding/element/XScrollView.hpp"
 #include "binding/element/XEdit.hpp"
+#include "binding/element/XLayoutFrame.hpp"
 
 						 
 namespace xcgui {
@@ -170,5 +171,8 @@ namespace xcgui {
 
 		// edit
 		declareEdit(m);
+
+		// layoutFrame
+		declareLayoutFrame(m);
 	}
 }
