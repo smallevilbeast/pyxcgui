@@ -187,6 +187,7 @@
     <ClInclude Include="binding\bkmanager\XBkObject.hpp" />
     <ClInclude Include="binding\element\XButton.hpp" />
     <ClInclude Include="binding\element\XDateTime.hpp" />
+    <ClInclude Include="binding\element\XEdit.hpp" />
     <ClInclude Include="binding\element\XLayoutEle.hpp" />
     <ClInclude Include="binding\element\XMenuBar.hpp" />
     <ClInclude Include="binding\element\XMonthCal.hpp" />
@@ -231,7 +232,9 @@
     <ClInclude Include="xcgui\adapter\XCAdapterMap.hpp" />
     <ClInclude Include="xcgui\adapter\XCAdapterTable.hpp" />
     <ClInclude Include="xcgui\adapter\XCAdapterTree.hpp" />
+    <ClInclude Include="xcgui\animation\XCAnimation.hpp" />
     <ClInclude Include="xcgui\bkmanager\XCBkObject.hpp" />
+    <ClInclude Include="xcgui\ease\XCEase.hpp" />
     <ClInclude Include="xcgui\element\XCButton.hpp" />
     <ClInclude Include="xcgui\element\XCComboBox.hpp" />
     <ClInclude Include="xcgui\element\XCDateTime.hpp" />

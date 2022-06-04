@@ -106,5 +106,9 @@ namespace xcgui {
 			.def_readwrite("hour", &XCTimeInfo::hour)
 			.def_readwrite("minute", &XCTimeInfo::minute)
 			.def_readwrite("second", &XCTimeInfo::second);
+
+		py::class_<position_>(m, "XPosition")
+			.def_readwrite("row", &position_::iRow)
+			.def_readwrite("column", &position_::iColumn);
 	}
 }													

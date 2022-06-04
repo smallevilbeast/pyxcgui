@@ -40,6 +40,7 @@
 #include "binding/element/XTabBar.hpp"
 #include "binding/element/XToolBar.hpp"
 #include "binding/element/XScrollView.hpp"
+#include "binding/element/XEdit.hpp"
 
 						 
 namespace xcgui {
@@ -166,5 +167,8 @@ namespace xcgui {
 
 		// scrollView
 		declareScrollView(m);
+
+		// edit
+		declareEdit(m);
 	}
 }

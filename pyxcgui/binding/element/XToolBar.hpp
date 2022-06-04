@@ -1,4 +1,4 @@
-								   				 				 					 							#pragma once
+#pragma once
 #include "pch.h"
 #include "xcgui/element/XCToolBar.hpp"
 #include "xcgui/XCStruct.hpp"

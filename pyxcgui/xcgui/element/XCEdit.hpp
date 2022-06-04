@@ -4,7 +4,6 @@
 
 namespace xcgui {
 
-
 	class XCEdit : public XCScrollView
 	{
 
@@ -200,8 +199,15 @@ namespace xcgui {
 		//@参数 nOutlen 内存大小, 字符为单位
 		//@返回 返回实际接收文本长度
 		//@别名  取文本()
-		int GetText(wchar_t* pOut, int nOutlen) {
-			return XEdit_GetText(getEleHandle(), pOut, nOutlen);
+		std::wstring GetText(int maxSize=-1) {
+			if (maxSize == -1) {
+				maxSize = this->GetLength();
+			}
+			maxSize += 1;
+			std::wstring out;
+			out.resize(maxSize);
+			int realLen = XEdit_GetText(getEleHandle(), (wchar_t*)out.c_str(), maxSize);
+			return out.substr(0, realLen);
 		}
 
 		//@备注 获取指定行文本内容
@@ -210,8 +216,15 @@ namespace xcgui {
 		//@参数 nOutlen 接收文本内存块长度,字符为单位
 		//@返回 返回实际接收文本长度
 		//@别名  取文本行()
-		int GetTextRow(int iRow, wchar_t* pOut, int nOutlen) {
-			return XEdit_GetTextRow(getEleHandle(), iRow, pOut, nOutlen);
+		std::wstring GetTextRow(int iRow, int maxSize=-1) {
+			if (maxSize == -1) {
+				maxSize = GetLengthRow(iRow);
+			}
+			maxSize += 1;
+			std::wstring out;
+			out.resize(maxSize);
+			int realLen = XEdit_GetTextRow(getEleHandle(), iRow, (wchar_t*)out.c_str(), maxSize); 
+			return out.substr(0, realLen);
 		}
 
 		//@备注 包含非文本内容
@@ -296,8 +309,8 @@ namespace xcgui {
 		//@参数 bColor 是否使用颜色
 		//@返回 返回样式索引
 		//@别名  添加样式扩展()
-		int AddStyleEx(const wchar_t* fontName, int fontSize, int fontStyle, COLORREF color, bool bColor) {
-			return XEdit_AddStyleEx(getEleHandle(), fontName, fontSize, fontStyle, color, bColor);
+		int AddStyleEx(const std::wstring& fontName, int fontSize, int fontStyle, COLORREF color, bool bColor) {
+			return XEdit_AddStyleEx(getEleHandle(), fontName.c_str(), fontSize, fontStyle, color, bColor);
 		}
 
 		//@参数 iStyle 样式索引
@@ -493,8 +506,15 @@ namespace xcgui {
 		//@参数 nOutLen 接收内存大小,字符为单位
 		//@返回 返回接收文本内容实际长度
 		//@别名  取选择文本()
-		int GetSelectText(wchar_t* pOut, int nOutLen) {
-			return XEdit_GetSelectText(getEleHandle(), pOut, nOutLen);
+		std::wstring GetSelectText(int maxSize=-1) {
+			std::wstring out;
+			if (maxSize == -1) {
+				maxSize = GetSelectTextLength();
+			}
+			maxSize += 1;
+			out.resize(maxSize);
+			auto realLen = XEdit_GetSelectText(getEleHandle(), (wchar_t*)out.c_str(), out.size());
+			return out.substr(0, realLen);
 		}
 
 		//@备注 不包括非文本内容
