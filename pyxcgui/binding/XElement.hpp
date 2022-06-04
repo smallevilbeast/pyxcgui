@@ -210,7 +210,7 @@ namespace xcgui {
 			})
 			.def("setFont", [](XCElement& self, const XCFont& font) {
 				self.SetFont(font.getFontHandle());
-			})
+			}, "font"_a)
 			.def("getFont", [](XCElement& self) -> XCFont {
 				auto handle = self.GetFont();
 				return XCFont(handle);
@@ -241,7 +241,7 @@ namespace xcgui {
 			})
 			.def("setBkManager", [](XCElement& self, const XCBkManager& bkm) {
 				self.SetBkManager(bkm.GetBkmHandle());
-			})
+			}, "bkm"_a)
 			.def("getStateFlags", &XCElement::GetStateFlags)
 			.def("drawFocus", [](XCElement& self, const XCDraw& draw, const XCRect& rect) {
 				self.DrawFocus(draw.getDrawHandle(), (RECT*)&rect);

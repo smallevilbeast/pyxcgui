@@ -229,7 +229,7 @@ namespace xcgui {
 			.def("setRect", [](XCWindow& self, const XCRect& rect) {
 				self.SetRect((RECT*)&rect);
 				return rect;
-			})
+			}, "rect"_a)
 
 			.def("maxWindow", &XCWindow::MaxWindow, "maximize"_a)
 			.def("setTimer", &XCWindow::SetTimer, "eventId"_a, "elapse"_a)
@@ -239,7 +239,7 @@ namespace xcgui {
 			.def("addBkFill", &XCWindow::AddBkFill, "state"_a, "color"_a)
 			.def("addBkImage", [](XCWindow& self, int state, const XCImage& image){
 				self.AddBkImage(state, image.getImageHandle());
-			})
+			}, "state"_a, "image"_a)
 
 			.def("setBkInfo", &XCWindow::SetBkInfo, "text"_a)
 			.def("getBkInfoCount", &XCWindow::GetBkInfoCount)
@@ -254,7 +254,7 @@ namespace xcgui {
 			})
 			.def("setBkMagager", [](XCWindow& self, const XCBkManager& manager){
 				self.SetBkMagager(manager.GetBkmHandle());
-			})
+			}, "bkm"_a)
 
 			.def("setTransparentType", &XCWindow::SetTransparentType, "nType"_a)
 			.def("getTransparentType", &XCWindow::GetTransparentType)

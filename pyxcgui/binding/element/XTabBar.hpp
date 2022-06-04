@@ -71,10 +71,10 @@ namespace xcgui {
 			.def("getLabelCount", &XCTabBar::GetLabelCount)
 			.def("getIndexByEle", [](XCTabBar& self, const XCElement& ele) {
 				return self.GetIndexByEle(ele.getEleHandle());
-			})
+			}, "ele"_a)
 			.def("setLabelSpacing", &XCTabBar::SetLabelSpacing, "spacing"_a)
 			.def("setPadding", &XCTabBar::SetPadding, "left"_a, "top"_a, "right"_a, "bottom"_a)
-			.def("setSelect", &XCTabBar::SetSelect)
+			.def("setSelect", &XCTabBar::SetSelect, "index"_a)
 			.def("setUp", &XCTabBar::SetUp)
 			.def("setDown", &XCTabBar::SetDown)
 			.def("enableTile", &XCTabBar::EnableTile, "enable"_a)
@@ -82,10 +82,10 @@ namespace xcgui {
 			.def("enableClose", &XCTabBar::EnableClose, "enable"_a)
 			.def("setCloseSize", [](XCTabBar& self, const XCSize& size) {
 				self.SetCloseSize((SIZE*)&size);
-			})
+			}, "size"_a)
 			.def("setTurnButtonSize", [](XCTabBar& self, const XCSize& size) {
 				self.SetTurnButtonSize((SIZE*)&size);
-			})
+			}, "size"_a)
 
 			.def("setLabelWidth", &XCTabBar::SetLabelWidth, "index"_a, "width"_a)
 			.def("showLabel", &XCTabBar::ShowLabel, "index"_a, "enable"_a)

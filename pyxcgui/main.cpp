@@ -42,6 +42,7 @@
 #include "binding/element/XScrollView.hpp"
 #include "binding/element/XEdit.hpp"
 #include "binding/element/XLayoutFrame.hpp"
+#include "binding/template/XTemplate.hpp"
 
 						 
 namespace xcgui {
@@ -174,5 +175,8 @@ namespace xcgui {
 
 		// layoutFrame
 		declareLayoutFrame(m);
+
+		// template
+		declareTemplate(m);
 	}
 }

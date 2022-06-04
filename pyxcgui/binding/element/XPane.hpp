@@ -49,7 +49,7 @@ namespace xcgui {
 
 			.def("drawPane", [](XCPane& self, const XCDraw& draw) {
 				self.DrawPane(draw.getDrawHandle());
-			})
+			}, "draw"_a)
 			
 			.def("setSelect", &XCPane::SetSelect)
 				

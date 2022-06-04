@@ -73,8 +73,8 @@ namespace xcgui {
 			.def("deleteAll", &XCAdapterListView::DeleteAll)
 			.def("deleteAllGroup", &XCAdapterListView::DeleteAllGroup)
 			.def("deleteAllItem", &XCAdapterListView::DeleteAllItem)
-			.def("deleteColumnGroup", &XCAdapterListView::DeleteColumnGroup)
-			.def("deleteColumnItem", &XCAdapterListView::DeleteColumnItem)
+			.def("deleteColumnGroup", &XCAdapterListView::DeleteColumnGroup, "column"_a)
+			.def("deleteColumnItem", &XCAdapterListView::DeleteColumnItem, "column"_a)
 
 			.def("itemGetText", &XCAdapterListView::ItemGetText, "group"_a, "item"_a, "column"_a)
 			.def("itemGetTextEx", &XCAdapterListView::ItemGetTextEx, "group"_a, "item"_a, "name"_a)

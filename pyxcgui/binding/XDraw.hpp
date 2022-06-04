@@ -47,7 +47,7 @@ namespace xcgui {
 				return point;
 			})
 			.def("gdiRestoreGDIOBJ", &XCDraw::GDI_RestoreGDIOBJ)
-			.def("gdiSetBkMode", &XCDraw::GDI_SetBkMode)
+			.def("gdiSetBkMode", &XCDraw::GDI_SetBkMode, "mode"_a)
 			.def("gdiSelectClipRgn", [](XCDraw& self, uintptr_t hRgn) -> uintptr_t {
 				return (uintptr_t)self.GDI_SelectClipRgn((HRGN)hRgn);
 			}, "hRgn"_a)

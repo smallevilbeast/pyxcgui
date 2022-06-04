@@ -202,6 +202,7 @@
     <ClInclude Include="binding\manager\XCallbackManager.hpp" />
     <ClInclude Include="binding\manager\XMainThreadManager.hpp" />
     <ClInclude Include="binding\menu\XMenu.hpp" />
+    <ClInclude Include="binding\template\XTemplate.hpp" />
     <ClInclude Include="binding\window\XFrameWindow.hpp" />
     <ClInclude Include="binding\window\XModelWindow.hpp" />
     <ClInclude Include="binding\XApp.hpp" />
@@ -257,6 +258,7 @@
     <ClInclude Include="xcgui\element\XCLayoutFrame.hpp" />
     <ClInclude Include="xcgui\element\XCTree.hpp" />
     <ClInclude Include="xcgui\menu\XCMenu.hpp" />
+    <ClInclude Include="xcgui\template\XListItemTemplate.hpp" />
     <ClInclude Include="xcgui\utils\Color.hpp" />
     <ClInclude Include="xcgui\window\XCFrameWindow.hpp" />
     <ClInclude Include="xcgui\XCApp.hpp" />

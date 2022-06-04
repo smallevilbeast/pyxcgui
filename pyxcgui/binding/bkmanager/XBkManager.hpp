@@ -12,8 +12,8 @@ namespace xcgui {
 
 		py::class_<XCBkManager, XCObject>(m, "XBkManager")
 			.def(py::init<>())
-			.def("setInfo", &XCBkManager::SetInfo, "text")
-			.def("addInfo", &XCBkManager::AddInfo)
+			.def("setInfo", &XCBkManager::SetInfo, "text"_a)
+			.def("addInfo", &XCBkManager::AddInfo, "text"_a)
 			.def("addBorder", &XCBkManager::AddBorder, "state"_a, "color"_a, "width"_a, "bkId"_a=0)
 			.def("addFill", &XCBkManager::AddFill, "state"_a, "color"_a, "bkId"_a)
 			.def("addImage", [](XCBkManager& self, int state, const XCImage& image, int bkId=0) {
@@ -32,7 +32,7 @@ namespace xcgui {
 				if (!self.GetStateTextColor(state, &color))
 					return 0;
 				return color;
-			})
+			}, "state"_a)
 			.def("getBkObjectHandle", &XCBkManager::GetBkObject, "bkId"_a)
 			.def("getBkObject", [](XCBkManager& self, int bkId) -> XCBkObject* {
 				auto handle = self.GetBkObject(bkId);

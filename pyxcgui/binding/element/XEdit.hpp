@@ -73,7 +73,7 @@ namespace xcgui {
 			.def("isPassword", &XCEdit::IsPassword)
 			.def("isAutoWrap", &XCEdit::IsAutoWrap)
 			.def("isEmpty", &XCEdit::IsEmpty)
-			.def("isInSelect", &XCEdit::IsInSelect)
+			.def("isInSelect", &XCEdit::IsInSelect, "row"_a, "column"_a)
 			.def("getRowCount", &XCEdit::GetRowCount)
 
 			.def("getData", &XCEdit::GetData, py::return_value_policy::reference)
@@ -90,7 +90,7 @@ namespace xcgui {
 			
 			.def("setBackFont", [](XCEdit& self, const XCFont& font) {
 				self.SetBackFont(font.getFontHandle());
-			})
+			}, "font"_a)
 
 			.def("setSpaceSize", &XCEdit::SetSpaceSize, "size"_a)
 			.def("setCharSpaceSize", &XCEdit::SetCharSpaceSize, "size"_a, "sizeZh"_a)
@@ -122,7 +122,7 @@ namespace xcgui {
 				edit_style_info_ info = { 0 };
 				self.GetStyleInfo(style, &info);
 				return info;
-			})
+			}, "style"_a)
 
 			.def("setCurStyle", &XCEdit::SetCurStyle, "style"_a)
 			.def("setSelectTextStyle", &XCEdit::SetSelectTextStyle, "style"_a)
@@ -150,7 +150,7 @@ namespace xcgui {
 				XCPoint info;
 				self.GetPoint(row, col, (POINT*)&info);
 				return info;
-			})
+			}, "row"_a, "column"_a)
 
 			.def("autoScroll", &XCEdit::AutoScroll)
 			.def("autoScrollEx", &XCEdit::AutoScrollEx, "row"_a, "column"_a)
@@ -159,7 +159,7 @@ namespace xcgui {
 				position_ info;
 				self.PosToRowCol(pos, &info);
 				return info;
-			})
+			}, "pos"_a)
 			.def("rowColToPos", &XCEdit::RowColToPos, "row"_a, "column"_a)
 
 
