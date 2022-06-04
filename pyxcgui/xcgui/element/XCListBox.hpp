@@ -250,8 +250,8 @@ namespace xcgui {
 		//@参数 pStringXML 字符串指针.
 		//@返回 成功返回TRUE否则返回FALSE.
 		//@别名  置项模板从字符串()
-		bool SetItemTemplateXMLFromString(const char* pStringXML) {
-			return XListBox_SetItemTemplateXMLFromString(getEleHandle(), pStringXML);
+		bool SetItemTemplateXMLFromString(const std::string& xmlData) {
+			return XListBox_SetItemTemplateXMLFromString(getEleHandle(), xmlData.c_str());
 		}
 
 		//@备注 通过模板项ID,获取实例化模板项ID对应的对象句柄.  

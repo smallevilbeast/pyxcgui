@@ -43,6 +43,7 @@
 #include "binding/element/XEdit.hpp"
 #include "binding/element/XLayoutFrame.hpp"
 #include "binding/template/XTemplate.hpp"
+#include "binding/element/XListBox.hpp"
 
 						 
 namespace xcgui {
@@ -178,5 +179,8 @@ namespace xcgui {
 
 		// template
 		declareTemplate(m);
+
+		// listBox
+		declareListBox(m);
 	}
 }

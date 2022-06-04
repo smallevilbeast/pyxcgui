@@ -245,4 +245,43 @@ namespace xcgui {
 		int second;
 	};
 
+	class XCRange {
+	public:
+		XCRange()
+			:start(0)
+			,end(0)
+		{
+
+		}
+		XCRange(int start, int end)
+			:start(start)
+			, end(end)
+		{
+
+		}
+
+
+		int start;
+		int end;
+	};
+
+	class XCItemHeightInfo {
+	public:
+		XCItemHeightInfo()
+			:height(0)
+			, selHeight(0)
+		{
+
+		}
+		XCItemHeightInfo(int height, int selHeight)
+			:height(height)
+			, selHeight(selHeight)
+		{
+
+		}
+
+
+		int height;
+		int selHeight;
+	};
 }

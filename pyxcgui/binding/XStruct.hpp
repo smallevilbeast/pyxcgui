@@ -110,5 +110,17 @@ namespace xcgui {
 		py::class_<position_>(m, "XPosition")
 			.def_readwrite("row", &position_::iRow)
 			.def_readwrite("column", &position_::iColumn);
+
+		py::class_<XCRange>(m, "XRange")
+			.def(py::init<>())
+			.def(py::init<int, int>(), "start"_a, "end"_a)
+			.def_readwrite("start", &XCRange::start)
+			.def_readwrite("end", &XCRange::end);
+
+		py::class_<XCItemHeightInfo>(m, "XItemHeightInfo")
+			.def(py::init<>())
+			.def(py::init<int, int>(), "height"_a, "selHeight"_a)
+			.def_readwrite("height", &XCItemHeightInfo::height)
+			.def_readwrite("selHeight", &XCItemHeightInfo::selHeight);
 	}
 }													

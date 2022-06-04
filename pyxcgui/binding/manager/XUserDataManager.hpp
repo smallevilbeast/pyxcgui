@@ -11,7 +11,11 @@ namespace xcgui {
 	class XUserDataManager {
 	public:
 		SINGLETON_DEFINE(XUserDataManager);
-		XUserDataManager() = default;
+		XUserDataManager() :
+			m_none(py::none())
+		{
+
+		}
 		~XUserDataManager() {
 			Release();
 		}
@@ -20,14 +24,33 @@ namespace xcgui {
 	public:
 		void Release() {
 			m_mData.clear();
+			m_mItemData.clear();
 		}
 		void SetUserData(HXCGUI handle, const py::object& object) {
 			m_mData[handle] = object;
 		}
+
+		void SetItemUserData(HELE handle, int item, const py::object& object) {
+			m_mItemData[handle][item] = object;
+		}
+
+		py::object& getItemUserData(HELE handle, int item) {
+			auto iter = m_mItemData.find(handle);
+			if (iter == m_mItemData.end()) {
+				return m_none;
+			}
+			auto& itemData = iter->second;
+			auto itemIter = itemData.find(item);
+			if (itemIter == itemData.end()) {
+				return m_none;
+			}
+			return itemIter->second;
+		}
+
 		py::object& GetUserData(HXCGUI handle) {
 			auto iter = m_mData.find(handle);
 			if (iter == m_mData.end()) {
-				m_mData[handle] = py::none();
+				return m_none;
 			}
 			return m_mData[handle];
 		}
@@ -41,6 +64,8 @@ namespace xcgui {
 
 
 	protected:
+		py::object m_none;
 		std::map<HXCGUI, py::object> m_mData;
+		std::map<HELE, std::map<int, py::object>> m_mItemData;
 	};
 }
