@@ -39,6 +39,7 @@
 #include "binding/element/XSliderBar.hpp"
 #include "binding/element/XTabBar.hpp"
 #include "binding/element/XToolBar.hpp"
+#include "binding/element/XScrollView.hpp"
 
 						 
 namespace xcgui {
@@ -162,5 +163,8 @@ namespace xcgui {
 
 		// Toolbar
 		declareToolbar(m);
+
+		// scrollView
+		declareScrollView(m);
 	}
 }

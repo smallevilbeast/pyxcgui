@@ -2723,6 +2723,8 @@ XC_API BOOL WINAPI XEditor_IsBreakpoint(HELE hEle, int iRow);
 XC_API BOOL WINAPI XEditor_SetBreakpoint(HELE hEle, int iRow, BOOL bActivate = TRUE);
 XC_API int  WINAPI XEditor_GetBreakpointCount(HELE hEle);
 XC_API int  WINAPI XEditor_GetBreakpoints(HELE hEle, out_buffer_ int* aPoints, int nCount);
+XC_API void WINAPI XEditor_SetTipsDelay(HELE hEle, int nDelay);
+XC_API void WINAPI XEditor_SetAutoMatchSelectModel(HELE hEle, int model);
 XC_API BOOL WINAPI XEditor_RemoveBreakpoint(HELE hEle, int iRow);
 XC_API void WINAPI XEditor_ClearBreakpoint(HELE hEle);
 XC_API BOOL WINAPI XEditor_SetRunRow(HELE hEle, int iRow);
@@ -4217,7 +4219,7 @@ XC_API void WINAPI XEdit_SetRowSpace(HELE hEle, int nSpace);
 XC_API void WINAPI XEdit_SetBackFont(HELE hEle, HFONTX hFont);
 
 XC_API BOOL WINAPI XEdit_ReleaseStyle(HELE hEle, int iStyle);
-XC_API int  WINAPI XEdit_ModifyStyle(HELE hEle, HFONTX hFont, COLORREF color, BOOL bColor);
+XC_API int  WINAPI XEdit_ModifyStyle(HELE hEle, int iStyle, HFONTX hFont, COLORREF color, BOOL bColor);
 
 XC_API void WINAPI XEdit_SetSpaceSize(HELE hEle, int size);
 XC_API void WINAPI XEdit_SetCharSpaceSize(HELE hEle, int size, int sizeZh);

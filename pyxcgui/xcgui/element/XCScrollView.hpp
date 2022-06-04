@@ -4,17 +4,17 @@
 
 namespace xcgui {
 
-	class XCSrollView : public XCElement
+	class XCScrollView : virtual public XCElement
 	{
 	public:
-		XCSrollView(HELE handle)
+		XCScrollView(HELE handle)
 		{
 			m_handle = handle;
 		}
 
-		XCSrollView() = default;
+		XCScrollView() = default;
 
-		XCSrollView(int x, int y, int width, int height, HXCGUI parent = NULL) {
+		XCScrollView(int x, int y, int width, int height, HXCGUI parent = NULL) {
 			m_handle = XSView_Create(x, y, width, height, parent);
 		}
 

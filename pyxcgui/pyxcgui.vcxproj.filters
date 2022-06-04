@@ -234,7 +234,7 @@
     <ClInclude Include="xcgui\element\XCScrollBar.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="xcgui\element\XCSrollView.hpp">
+    <ClInclude Include="xcgui\element\XCScrollView.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="xcgui\element\XCSliderBar.hpp">
@@ -262,6 +262,33 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="binding\element\XToolBar.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="binding\element\XScrollView.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="xcgui\element\XCEdit.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="xcgui\element\XCComboBox.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="xcgui\element\XCEditor.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="xcgui\element\XCLayoutFrame.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="xcgui\element\XCListBox.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="xcgui\element\XCList.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="xcgui\element\XCTree.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="xcgui\element\XCListView.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
