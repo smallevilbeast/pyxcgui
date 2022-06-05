@@ -34,6 +34,7 @@ namespace xcgui {
 			;
 
 		py::class_<XCListItemTemplate>(m, "XTemplate")
+			.def(py::init<listItemTemp_type_>(), "tempType"_a)
 			.def_static("load", [](listItemTemp_type_ nType, const std::wstring& fileName) -> XCListItemTemplate* {
 				auto pTemplate = new XCListItemTemplate();
 				if (!pTemplate->Load(nType, fileName)) {

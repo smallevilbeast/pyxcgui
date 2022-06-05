@@ -154,16 +154,16 @@ namespace xcgui {
 		}
 
 		// 设置宽度
-		void LayoutSetWidth(const XCLayoutSize& sizeInfo)
+		void LayoutSetWidth(layout_size_ sizeType, int size=0)
 		{
-			XWidget_LayoutItem_SetWidth(m_handle, sizeInfo.sizeType, sizeInfo.size);
+			XWidget_LayoutItem_SetWidth(m_handle, sizeType, size);
 		}
 
 
 		// 设置高度
-		void LayoutSetHeight(const XCLayoutSize& sizeInfo)
+		void LayoutSetHeight(layout_size_ sizeType, int size = 0)
 		{
-			XWidget_LayoutItem_SetHeight(m_handle, sizeInfo.sizeType, sizeInfo.size);
+			XWidget_LayoutItem_SetHeight(m_handle, sizeType, size);
 		}
 
 		// 取宽度

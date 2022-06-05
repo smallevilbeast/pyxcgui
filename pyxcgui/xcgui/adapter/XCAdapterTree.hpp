@@ -8,6 +8,10 @@ namespace xcgui {
 	class XCAdapterTree : public XCAdapter
 	{
 	public:
+		XCAdapterTree(HXCGUI handle) {
+			m_handle = handle;
+		}
+
 		XCAdapterTree() {
 			m_handle = XAdTree_Create();
 		}

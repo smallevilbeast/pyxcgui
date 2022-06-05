@@ -8,6 +8,11 @@
 #include "xcgui/XCImageSrc.hpp"
 #include "xcgui/XCSvg.hpp"
 #include "xcgui/element/XCButton.hpp"
+#include "xcgui/adapter/XCAdapter.hpp"
+#include "xcgui/adapter/XCAdapterListView.hpp"
+#include "xcgui/adapter/XCAdapterMap.hpp"
+#include "xcgui/adapter/XCAdapterTable.hpp"
+#include "xcgui/adapter/XCAdapterTree.hpp"
 
 namespace xcgui
 {
@@ -173,12 +178,16 @@ namespace xcgui
 			case XC_ADAPTER:
 				break;
 			case XC_ADAPTER_TABLE:
+				pObj = new XCAdapterTable(handle);
 				break;
 			case XC_ADAPTER_TREE:
+				pObj = new XCAdapterTree(handle);
 				break;
 			case XC_ADAPTER_LISTVIEW:
+				pObj = new XCAdapterListView(handle);
 				break;
 			case XC_ADAPTER_MAP:
+				pObj = new XCAdapterMap(handle);
 				break;
 			case XC_BKINFOM:
 				break;

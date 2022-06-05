@@ -8,6 +8,10 @@ namespace xcgui {
 	class XCAdapterListView : public XCAdapter
 	{
 	public:
+		XCAdapterListView(HXCGUI handle) {
+			m_handle = handle;
+		}
+
 		XCAdapterListView() {
 			m_handle = XAdListView_Create();
 		}

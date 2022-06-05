@@ -8,6 +8,10 @@ namespace xcgui {
 	class XCAdapterMap : public XCAdapter
 	{
 	public:
+		XCAdapterMap(HXCGUI handle) {
+			m_handle = handle;
+		}
+
 		XCAdapterMap() {
 			m_handle = XAdMap_Create();
 		}
