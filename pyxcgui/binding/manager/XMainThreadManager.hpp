@@ -46,7 +46,6 @@ namespace xcgui {
 			,args(args)
 			,kwargs(kwargs)
 		{
-
 		}
 
 		py::object method;

@@ -7,7 +7,7 @@ namespace xcgui {
 	class XCSliderBar : public XCElement
 	{
 	public:
-		XCSliderBar(HELE handle)
+		XCSliderBar(HXCGUI handle)
 		{
 			m_handle = handle;
 		}

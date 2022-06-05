@@ -11,6 +11,7 @@ namespace xcgui {
 	void declareBkManager(py::module& m) {
 
 		py::class_<XCBkManager, XCObject>(m, "XBkManager")
+			PYCASTOBJECT(XCBkManager)
 			.def(py::init<>())
 			.def("setInfo", &XCBkManager::SetInfo, "text"_a)
 			.def("addInfo", &XCBkManager::AddInfo, "text"_a)

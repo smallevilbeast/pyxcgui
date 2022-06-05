@@ -7,7 +7,7 @@ namespace xcgui {
 	class XCScrollBar : public XCElement
 	{
 	public:
-		XCScrollBar(HELE handle)
+		XCScrollBar(HXCGUI handle)
 		{
 			m_handle = handle;
 		}

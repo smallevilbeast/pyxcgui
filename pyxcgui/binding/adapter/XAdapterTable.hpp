@@ -8,6 +8,7 @@ namespace xcgui {
 	void declareAdapterTable(py::module& m) {
 
 		py::class_<XCAdapterTable, XCAdapter>(m, "XAdapterTable")
+			PYCASTOBJECT(XCAdapterTable)
 			.def(py::init<>())
 			.def("sort", &XCAdapterTable::Sort, "column"_a, "ascending"_a)
 			.def("getItemDataType", &XCAdapterTable::GetItemDataType, "item"_a, "column"_a)

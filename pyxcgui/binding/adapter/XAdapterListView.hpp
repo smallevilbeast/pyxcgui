@@ -8,6 +8,7 @@ namespace xcgui {
 	void declareAdapterListView(py::module& m) {
 
 		py::class_<XCAdapterListView, XCAdapter>(m, "XAdapterListView")
+			PYCASTOBJECT(XCAdapterListView)
 			.def(py::init<>())
 			.def("groupAddColumn", &XCAdapterListView::GroupAddColumn, "name"_a)
 			.def("groupAddItemText", &XCAdapterListView::GroupAddItemText, "value"_a, "pos"_a=-1)

@@ -6,6 +6,7 @@ namespace xcgui {
 
 	void declareLayoutEle(py::module& m) {
 		py::class_<XCLayoutEle, XCElement, XCLayoutBox>(m, "XLayoutEle")
+			PYCASTOBJECT(XCLayoutEle)
 			.def(py::init([](int x, int y, int cx, int cy, XCObjectUI* parent = nullptr) {
 				HXCGUI handle = nullptr;
 				if (parent) {
@@ -29,7 +30,8 @@ namespace xcgui {
 				if (parent) {
 					handle = parent->GetHandle();
 				}
-				XCLayoutEle obj(handle);
+				XCLayoutEle obj;
+				obj.CreateEx(handle);
 				return obj;
 			}), "parent"_a=nullptr)
 

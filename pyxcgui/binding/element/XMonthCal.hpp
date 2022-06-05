@@ -9,6 +9,7 @@ namespace xcgui {
 
 	void declareMonthCal(py::module& m) {
 		py::class_<XCMonthCal, XCElement>(m, "XMonthCal")
+			PYCASTOBJECT(XCMonthCal)
 			.def(py::init([](int x, int y, int cx, int cy, XCObjectUI* parent = nullptr) {
 				HXCGUI handle = nullptr;
 				if (parent) {

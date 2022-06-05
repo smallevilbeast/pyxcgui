@@ -6,8 +6,7 @@ namespace xcgui {
 	class XCMenu : public XCObject
 	{
 	public:
-		XCMenu(HMENUX handle) :
-			XCObject(handle)
+		XCMenu(HXCGUI handle)
 		{
 			m_handle = handle;
 		}

@@ -8,9 +8,8 @@ namespace xcgui {
 	{
 
 	public:
-		XCEdit(HELE handle)
+		XCEdit(HXCGUI handle)
 		{
-
 			m_handle = handle;
 		}
 

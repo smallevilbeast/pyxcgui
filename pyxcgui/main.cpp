@@ -1,7 +1,9 @@
 #pragma once
 #include "pch.h"
+#include "binding/XDefine.hpp"
 #include "binding/XEnum.hpp"
 #include "binding/XStruct.hpp"
+#include "binding/XStructAuto.hpp"
 #include "binding/XObject.hpp"
 #include "binding/bkmanager/XBkManager.hpp"
 #include "binding/bkmanager/XBkObject.hpp"
@@ -51,6 +53,9 @@ namespace xcgui {
 	PYBIND11_MODULE(xcgui, m) {
 		m.doc() = "xcgui for python";
 
+		// define
+		declareDefine(m);
+
 		// 所有枚举类型
 		declareEnum(m);
 
@@ -65,6 +70,9 @@ namespace xcgui {
 
 		// 所有struct
 		declareStruct(m);
+
+		// auto struct
+		declareStructAuto(m);
 
 		// event
 		declareGlobal(m);

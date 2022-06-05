@@ -8,6 +8,7 @@ namespace xcgui {
 
 	void declareSliderBar(py::module& m) {
 		py::class_<XCSliderBar, XCElement>(m, "XSliderBar")
+			PYCASTOBJECT(XCSliderBar)
 			.def(py::init([](int x, int y, int cx, int cy, XCObjectUI* parent = nullptr) {
 				HXCGUI handle = nullptr;
 				if (parent) {

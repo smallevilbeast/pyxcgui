@@ -7,7 +7,7 @@ namespace xcgui {
 	class XCPane : public XCElement
 	{
 	public:
-		XCPane(HELE handle)
+		XCPane(HXCGUI handle)
 		{
 			m_handle = handle;
 		}

@@ -7,7 +7,7 @@ namespace xcgui {
 	class XCMonthCal : public XCElement
 	{
 	public:
-		XCMonthCal(HELE handle)
+		XCMonthCal(HXCGUI handle)
 		{
 			m_handle = handle;
 		}

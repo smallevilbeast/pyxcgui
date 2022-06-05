@@ -2,53 +2,62 @@
 #include "pch.h"
 #include "xcgui/XCStruct.hpp"
 
-
+	 	 
 namespace xcgui {
 
 	void declareStruct(py::module& m) {
 
+		py::class_<tagRECT>(m, "RECT")
+			PYCAST(tagRECT)
+			.def_readwrite("left", &tagRECT::left)
+			.def_readwrite("top", &tagRECT::top)
+			.def_readwrite("right", &tagRECT::right)
+			.def_readwrite("bottom", &tagRECT::bottom);
+
+		py::class_<tagSIZE>(m, "SIZE")
+			PYCAST(tagSIZE)
+			.def_readwrite("cx", &tagSIZE::cx)
+			.def_readwrite("cy", &tagSIZE::cy);
+
 		py::class_<XCPoint>(m, "XPoint")
+			PYCAST(XCPoint)
 			.def(py::init<>())
 			.def(py::init<int, int>(), "x"_a, "y"_a)
 			.def_readwrite("x", &XCPoint::x)
 			.def_readwrite("y", &XCPoint::y);
 						  
 		py::class_<XCPointF>(m, "XPointF")
+			PYCAST(XCPointF)
 			.def(py::init<>())
 			.def(py::init<float, float>(), "x"_a, "y"_a)
 			.def_readwrite("x", &XCPointF::x)
 			.def_readwrite("y", &XCPointF::y);
 		
 		py::class_<XCSize>(m, "XSize")
+			PYCAST(XCSize)
 			.def(py::init<>())
 			.def(py::init<int, int>(), "width"_a, "height"_a)
 			.def_readwrite("width", &XCSize::width)
 			.def_readwrite("height", &XCSize::height);
 
 		py::class_<XCRect>(m, "XRect")
+			PYCAST(XCRect)
 			.def(py::init<>())
 			.def(py::init<int, int, int, int>(), "left"_a, "top"_a, "right"_a, "bottom"_a)
 			.def_readwrite("left", &XCRect::left)
 			.def_readwrite("top", &XCRect::top)
 			.def_readwrite("right", &XCRect::right)
 			.def_readwrite("bottom", &XCRect::bottom);
-			//.def_readwrite("x", &XCRect::left)
-			//.def_readwrite("y", &XCRect::top)
-			//.def_readwrite("width", &XCRect::right)
-			//.def_readwrite("height", &XCRect::bottom);
 
 
 		py::class_<XCRectF>(m, "XRectF")
+			PYCAST(XCRectF)
 			.def(py::init<>())
 			.def(py::init<float, float, float, float>(), "left"_a, "top"_a, "right"_a, "bottom"_a)
 			.def_readwrite("left", &XCRectF::left)
 			.def_readwrite("top", &XCRectF::top)
 			.def_readwrite("right", &XCRectF::right)
 			.def_readwrite("bottom", &XCRectF::bottom);
-			//.def_readwrite("x", &XCRectF::left)
-			//.def_readwrite("y", &XCRectF::top)
-			//.def_readwrite("width", &XCRectF::right)
-			//.def_readwrite("height", &XCRectF::bottom);
 
 		py::class_<XCFontInfo>(m, "XFontInfo")
 			.def(py::init<>())
@@ -106,10 +115,6 @@ namespace xcgui {
 			.def_readwrite("hour", &XCTimeInfo::hour)
 			.def_readwrite("minute", &XCTimeInfo::minute)
 			.def_readwrite("second", &XCTimeInfo::second);
-
-		py::class_<position_>(m, "XPosition")
-			.def_readwrite("row", &position_::iRow)
-			.def_readwrite("column", &position_::iColumn);
 
 		py::class_<XCRange>(m, "XRange")
 			.def(py::init<>())

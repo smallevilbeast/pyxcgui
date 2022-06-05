@@ -7,6 +7,13 @@ namespace xcgui {
 	class XCLayoutBox :virtual public XCObject
 	{
 	public:
+		XCLayoutBox() {
+
+		}
+		XCLayoutBox(HXCGUI handle)
+		{
+			m_handle = handle;
+		}
 		// 布局盒子_启用水平
 		void EnableHorizon(bool bEnable) {
 			XLayoutBox_EnableHorizon(m_handle, bEnable);

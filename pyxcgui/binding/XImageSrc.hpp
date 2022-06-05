@@ -7,6 +7,7 @@ namespace xcgui {
 	void declareImageSrc(py::module& m) {
 
 		py::class_<XCImageSrc, XCObject>(m, "XImageSrc")
+			PYCASTOBJECT(XCImageSrc)
 			.def_static("loadFile", [](const std::wstring& fileName) -> XCImageSrc* {
 				auto pImage = new XCImageSrc();
 				if (!pImage->LoadFile(fileName)) {

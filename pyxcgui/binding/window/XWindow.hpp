@@ -20,6 +20,7 @@ namespace xcgui {
 	void declareWindow(py::module& m) {
 
 		py::class_<XCWindow, XCObjectUI, XCLayoutBox>(m, "XWindow")
+			PYCASTOBJECT(XCWindow)
 			.def(py::init<>())
 			.def(py::init<int, int, const std::wstring&>(), "width"_a, "height"_a, "title"_a)
 			.def(py::init<int, int, int, int, const std::wstring&, uintptr_t, int>(),

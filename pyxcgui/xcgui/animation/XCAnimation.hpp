@@ -9,9 +9,8 @@ namespace xcgui {
 	{
 
 	public:
-		XCAnimation(HELE handle)
+		XCAnimation(HXCGUI handle)
 		{
-
 			m_handle = handle;
 		}
 

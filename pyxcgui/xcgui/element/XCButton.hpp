@@ -6,8 +6,7 @@ namespace xcgui {
 	class XCButton : public XCElement
 	{
 	public:
-		XCButton(HELE handle) :
-			XCElement(handle)
+		XCButton(HXCGUI handle)
 		{
 			m_handle = handle;
 		}

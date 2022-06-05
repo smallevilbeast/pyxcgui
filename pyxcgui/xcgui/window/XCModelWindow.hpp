@@ -10,6 +10,11 @@ namespace xcgui {
 	{
 	public:
 		XCModelWindow() = default;
+		XCModelWindow(HXCGUI handle)
+		{
+			m_handle = handle;
+		}
+
 		XCModelWindow(int width, int height, const std::wstring& title, uintptr_t hWndParent, int xcStyle) {
 			m_handle = XModalWnd_Create(width, height, title.c_str(), (HWND)hWndParent, xcStyle);
 		}

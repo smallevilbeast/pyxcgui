@@ -9,9 +9,8 @@ namespace xcgui {
 	{
 
 	public:
-		XCTree(HELE handle)
+		XCTree(HXCGUI handle)
 		{
-
 			m_handle = handle;
 		}
 

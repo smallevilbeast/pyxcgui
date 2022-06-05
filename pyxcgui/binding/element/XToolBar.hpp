@@ -8,6 +8,7 @@ namespace xcgui {
 
 	void declareToolbar(py::module& m) {
 		py::class_<XCToolBar, XCElement>(m, "XToolBar")
+			PYCASTOBJECT(XCToolBar)
 			.def(py::init([](int x, int y, int cx, int cy, XCObjectUI* parent = nullptr) {
 				HXCGUI handle = nullptr;
 				if (parent) {

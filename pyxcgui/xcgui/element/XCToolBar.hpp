@@ -7,10 +7,9 @@ namespace xcgui {
 	class XCToolBar : public XCElement
 	{
 	public:
-		XCToolBar(HELE handle)
+		XCToolBar(HXCGUI handle)
 		{
 			m_handle = handle;
-			;
 		}
 
 

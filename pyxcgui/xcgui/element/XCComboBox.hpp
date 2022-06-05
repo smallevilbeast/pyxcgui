@@ -9,9 +9,8 @@ namespace xcgui {
 	{
 
 	public:
-		XCComboBox(HELE handle)
+		XCComboBox(HXCGUI handle)
 		{
-
 			m_handle = handle;
 		}
 

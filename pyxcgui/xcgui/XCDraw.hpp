@@ -13,8 +13,7 @@ namespace xcgui {
 		{
 		}
 
-		XCDraw(HDRAW drawHandle)
-			:XCObject(drawHandle)
+		XCDraw(HXCGUI drawHandle)
 		{
 			m_handle = drawHandle;
 		}

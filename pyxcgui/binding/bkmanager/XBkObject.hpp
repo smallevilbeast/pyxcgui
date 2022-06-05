@@ -9,6 +9,7 @@ namespace xcgui {
 
 	void declareBkObject(py::module& m) {
 		py::class_<XCBkObject>(m, "XBkObject")
+			PYCASTOBJECT(XCBkObject)
 			.def("setMargin", &XCBkObject::SetMargin, "left"_a, "top"_a, "right"_a, "bottom"_a)
 			.def("setAlign", &XCBkObject::SetAlign, "flags"_a)
 			.def("setImage", [](XCBkObject& self, const XCImage& image) {

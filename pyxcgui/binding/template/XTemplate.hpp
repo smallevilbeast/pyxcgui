@@ -1,11 +1,12 @@
 				 #pragma once
 #include "pch.h"
-#include "xcgui/template/XListItemTemplate.hpp"
+#include "xcgui/template/XCListItemTemplate.hpp"
 
 namespace xcgui {
 
 	void declareTemplate(py::module& m) {
 		py::class_<XCTemplateNode>(m, "XTemplateNode")
+			PYCASTOBJECT(XCTemplateNode)
 			.def(py::init<XC_OBJECT_TYPE>(), "objectType"_a)
 			.def_static("cloneNode", [](const XCTemplateNode& node) -> XCTemplateNode* {
 				auto pNode = new XCTemplateNode();
@@ -34,6 +35,7 @@ namespace xcgui {
 			;
 
 		py::class_<XCListItemTemplate>(m, "XTemplate")
+			PYCASTOBJECT(XCListItemTemplate)
 			.def(py::init<listItemTemp_type_>(), "tempType"_a)
 			.def_static("load", [](listItemTemp_type_ nType, const std::wstring& fileName) -> XCListItemTemplate* {
 				auto pTemplate = new XCListItemTemplate();

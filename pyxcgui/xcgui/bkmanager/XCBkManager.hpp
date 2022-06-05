@@ -16,8 +16,7 @@ namespace xcgui {
 		~XCBkManager() {
 		}
 
-		XCBkManager(HBKM handle) :
-			XCObject(handle)
+		XCBkManager(HXCGUI handle)
 		{
 			m_handle = handle;
 		}

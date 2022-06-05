@@ -7,7 +7,7 @@ namespace xcgui {
 	class XCTabBar : public XCElement
 	{
 	public:
-		XCTabBar(HELE handle)
+		XCTabBar(HXCGUI handle)
 		{
 			m_handle = handle;
 		}

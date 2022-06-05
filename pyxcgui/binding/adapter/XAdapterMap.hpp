@@ -8,6 +8,7 @@ namespace xcgui {
 	void declareAdapterMap(py::module& m) {
 
 		py::class_<XCAdapterMap, XCAdapter>(m, "XAdapterMap")
+			PYCASTOBJECT(XCAdapterMap)
 			.def(py::init<>())
 
 			.def("addItemText", &XCAdapterMap::AddItemText, "name"_a, "value"_a)

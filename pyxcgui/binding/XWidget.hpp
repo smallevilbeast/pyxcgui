@@ -15,6 +15,7 @@ namespace xcgui {
 			.def_readwrite("size", &XCLayoutSize::size);
 
 		py::class_<XCWidget, XCObjectUI>(m, "XWidget")
+			PYCASTOBJECT(XCWidget)
 			.def("isShow", &XCWidget::IsShow)
 			.def("show", &XCWidget::Show, "show"_a)
 			.def("enableLayoutControl", &XCWidget::EnableLayoutControl, "enable"_a)

@@ -8,6 +8,7 @@ namespace xcgui {
 	void declareSvg(py::module& m) {
 
 		py::class_<XCSvg, XCObject>(m, "XSvg")
+			PYCASTOBJECT(XCSvg)
 			.def_static("loadFile", [](const std::wstring& filename) -> XCSvg* {
 				auto pSvg = new XCSvg();
 				if (!pSvg->LoadFile(filename.c_str())) {

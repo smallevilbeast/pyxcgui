@@ -303,13 +303,19 @@
     <ClInclude Include="binding\element\XLayoutFrame.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="xcgui\template\XListItemTemplate.hpp">
+    <ClInclude Include="xcgui\template\XCListItemTemplate.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="binding\template\XTemplate.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="binding\element\XListBox.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="binding\XDefine.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="binding\XStructAuto.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

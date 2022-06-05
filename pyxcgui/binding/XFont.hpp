@@ -10,6 +10,7 @@ namespace xcgui {
 		
 
 		py::class_<XCFont, XCObject>(m, "XFont")
+			PYCASTOBJECT(XCFont)
 			.def(py::init([](int size) {
 				auto font = new XCFont(size);
 				return font;

@@ -8,6 +8,7 @@ namespace xcgui {
 	void declareAdapterTree(py::module& m) {
 
 		py::class_<XCAdapterTree, XCAdapter>(m, "XAdapterTree")
+			PYCASTOBJECT(XCAdapterTree)
 			.def(py::init<>())
 			.def("addColumn", &XCAdapterTree::AddColumn, "name"_a)
 			.def("setColumn", &XCAdapterTree::SetColumn, "colName"_a)

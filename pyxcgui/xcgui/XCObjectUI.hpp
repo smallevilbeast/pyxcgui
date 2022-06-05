@@ -11,7 +11,6 @@ namespace xcgui {
 		{
 		}
 		XCObjectUI(HXCGUI handle)
-		: XCObject(handle)
 		{
 			m_handle = handle;
 		}

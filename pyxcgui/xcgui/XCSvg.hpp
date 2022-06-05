@@ -13,10 +13,9 @@ namespace xcgui {
 		{
 		}
 
-		XCSvg(HSVG svgHandle)
-			:XCObject(svgHandle)
+		XCSvg(HXCGUI handle)
 		{
-			m_handle = svgHandle;
+			m_handle = handle;
 		}
 
 		HSVG getSvgHandle() const {

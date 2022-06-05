@@ -8,6 +8,7 @@ namespace xcgui {
 	void declareModelWindow(py::module& m) {
 
 		py::class_<XCModelWindow, XCWindow>(m, "XModelWindow")
+			PYCASTOBJECT(XCModelWindow)
 			.def(py::init<>())
 			.def(py::init([](int width, int height, const std::wstring& title) {
 				XCModelWindow window(width, height, title, 0, window_style_default);

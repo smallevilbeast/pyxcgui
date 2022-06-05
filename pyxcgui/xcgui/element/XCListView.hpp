@@ -9,9 +9,8 @@ namespace xcgui {
 	{
 
 	public:
-		XCListView(HELE handle)
+		XCListView(HXCGUI handle)
 		{
-
 			m_handle = handle;
 		}
 

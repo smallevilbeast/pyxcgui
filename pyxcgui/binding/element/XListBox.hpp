@@ -4,7 +4,7 @@
 #include "binding/manager/XUserDataManager.hpp"
 #include "binding/manager/XCastManager.hpp"
 #include "xcgui/XCStruct.hpp"
-#include "xcgui/template/XListItemTemplate.hpp"
+#include "xcgui/template/XCListItemTemplate.hpp"
 #include "xcgui/adapter/XCAdapter.hpp"
 #include "xcgui/XCImage.hpp"
 
@@ -12,11 +12,8 @@ namespace xcgui {
 
 	void declareListBox(py::module& m) {
 
-		py::class_<listBox_item_info_>(m, "XListBoxItemInfo")
-			.def_readwrite("height", &listBox_item_info_::nHeight)
-			.def_readwrite("selHeight", &listBox_item_info_::nSelHeight);
-
 		py::class_<XCListBox, XCScrollView>(m, "XListBox")
+			PYCASTOBJECT(XCListBox)
 			.def(py::init([](int x, int y, int cx, int cy, XCObjectUI* parent = nullptr) {
 				HXCGUI handle = nullptr;
 				if (parent) {
@@ -179,7 +176,7 @@ namespace xcgui {
 
 			}, "itemId"_a, "column"_a, py::return_value_policy::take_ownership)
 
-			.def("GetItemImageEx", [](XCListBox& self, int iItem, const std::wstring& name) -> XCImage* {
+			.def("getItemImageEx", [](XCListBox& self, int iItem, const std::wstring& name) -> XCImage* {
 				auto handle = self.GetItemImageEx(iItem, name);
 				if (!handle) return nullptr;
 				return new XCImage(handle);

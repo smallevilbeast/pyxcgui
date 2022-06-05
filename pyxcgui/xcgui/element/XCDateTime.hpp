@@ -7,7 +7,7 @@ namespace xcgui {
 	class XCDateTime : public XCElement
 	{
 	public:
-		XCDateTime(HELE handle)
+		XCDateTime(HXCGUI handle)
 		{
 			m_handle = handle;
 		}

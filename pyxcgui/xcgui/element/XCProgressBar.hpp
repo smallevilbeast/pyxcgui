@@ -7,7 +7,7 @@ namespace xcgui {
 	class XCProgressBar : public XCElement
 	{
 	public:
-		XCProgressBar(HELE handle)
+		XCProgressBar(HXCGUI handle)
 		{
 			m_handle = handle;
 		}

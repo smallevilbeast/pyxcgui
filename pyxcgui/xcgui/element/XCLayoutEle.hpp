@@ -8,7 +8,7 @@ namespace xcgui {
 	class XCLayoutEle : public XCElement, public XCLayoutBox
 	{
 	public:
-		XCLayoutEle(HELE handle)
+		XCLayoutEle(HXCGUI handle)
 		{
 			m_handle = handle;
 		}
@@ -19,8 +19,9 @@ namespace xcgui {
 			m_handle = XLayout_Create(x, y, width, height, parent);
 		}
 
-		XCLayoutEle(HXCGUI parent) {
+		HXCGUI CreateEx(HXCGUI parent) {
 			m_handle = XLayout_CreateEx(parent);
+			return m_handle;
 		}
 
 		//@备注 启用布局功能.  

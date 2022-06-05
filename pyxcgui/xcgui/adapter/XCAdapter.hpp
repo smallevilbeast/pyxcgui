@@ -9,6 +9,11 @@ namespace xcgui {
 	{
 	public:
 		XCAdapter() = default;
+
+		XCAdapter(HXCGUI handle)
+		{
+			m_handle = handle;
+		}
 		
 		// 增加引用计数()
 		int AddRef() {

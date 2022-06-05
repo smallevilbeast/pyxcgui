@@ -42,6 +42,7 @@ namespace xcgui {
 				m_bLoadFileCallbackReg = true;
 			}
 
+
 			m_mResourceCallbacks.emplace_back(callback);
 		}
 		

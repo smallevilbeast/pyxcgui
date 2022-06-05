@@ -14,10 +14,13 @@ namespace xcgui {
 		{
 
 		}
-		XCBkObject(vint handle)
-			:m_handle(handle)
-		{
+		XCBkObject(vint handle) {
+			m_handle = handle;
+		}
 
+		XCBkObject(HXCGUI handle)
+		{
+			m_handle = (vint)handle;
 		}
 		
 		virtual ~XCBkObject() = default;

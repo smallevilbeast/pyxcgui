@@ -7,7 +7,7 @@ namespace xcgui {
 	class XCEditor : public XCEdit
 	{
 	public:
-		XCEditor(HELE handle)
+		XCEditor(HXCGUI handle)
 		{
 			m_handle = handle;
 		}

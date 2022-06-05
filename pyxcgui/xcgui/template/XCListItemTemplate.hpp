@@ -10,8 +10,8 @@ namespace xcgui {
 	public:
 		XCTemplateNode() = default;
 
-		XCTemplateNode(HTNODE handle) {
-			m_handle = handle;
+		XCTemplateNode(HXCGUI handle) {
+			m_handle = (HTNODE)handle;
 		}
 
 
@@ -61,11 +61,12 @@ namespace xcgui {
 	public:
 		XCListItemTemplate() = default;
 
-		XCListItemTemplate(HTEMP handle)
+		XCListItemTemplate(HXCGUI handle)
 		{
 
-			m_handle = handle;
+			m_handle = (HTEMP)handle;
 		}
+
 
 		XCListItemTemplate(listItemTemp_type_ tempType) {
 

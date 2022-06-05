@@ -13,8 +13,7 @@ namespace xcgui {
 		{
 		}
 
-		XCImageSrc(HIMAGE handle)
-			:XCObject((HXCGUI)handle)
+		XCImageSrc(HXCGUI handle)
 		{
 			m_handle = handle;
 		}

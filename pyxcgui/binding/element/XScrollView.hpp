@@ -8,6 +8,7 @@ namespace xcgui {
 
 	void declareScrollView(py::module& m) {
 		py::class_<XCScrollView, XCElement>(m, "XScrollView")
+			PYCASTOBJECT(XCScrollView)
 			.def(py::init([](int x, int y, int cx, int cy, XCObjectUI* parent = nullptr) {
 				HXCGUI handle = nullptr;
 				if (parent) {

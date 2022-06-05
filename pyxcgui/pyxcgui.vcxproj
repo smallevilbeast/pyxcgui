@@ -209,6 +209,7 @@
     <ClInclude Include="binding\XApp.hpp" />
     <ClInclude Include="binding\bkmanager\XBkManager.hpp" />
     <ClInclude Include="binding\manager\XCastManager.hpp" />
+    <ClInclude Include="binding\XDefine.hpp" />
     <ClInclude Include="binding\XDesigner.hpp" />
     <ClInclude Include="binding\XDraw.hpp" />
     <ClInclude Include="binding\XElement.hpp" />
@@ -223,6 +224,7 @@
     <ClInclude Include="binding\XObjectUI.hpp" />
     <ClInclude Include="binding\XResource.hpp" />
     <ClInclude Include="binding\XStruct.hpp" />
+    <ClInclude Include="binding\XStructAuto.hpp" />
     <ClInclude Include="binding\XSvg.hpp" />
     <ClInclude Include="binding\manager\XUserDataManager.hpp" />
     <ClInclude Include="binding\XWidget.hpp" />
@@ -259,7 +261,7 @@
     <ClInclude Include="xcgui\element\XCLayoutFrame.hpp" />
     <ClInclude Include="xcgui\element\XCTree.hpp" />
     <ClInclude Include="xcgui\menu\XCMenu.hpp" />
-    <ClInclude Include="xcgui\template\XListItemTemplate.hpp" />
+    <ClInclude Include="xcgui\template\XCListItemTemplate.hpp" />
     <ClInclude Include="xcgui\utils\Color.hpp" />
     <ClInclude Include="xcgui\window\XCFrameWindow.hpp" />
     <ClInclude Include="xcgui\XCApp.hpp" />

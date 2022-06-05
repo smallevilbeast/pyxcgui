@@ -7,8 +7,7 @@ namespace xcgui {
 	class XCTextLink : public XCButton
 	{
 	public:
-		XCTextLink(HELE handle)
-			:XCButton(handle)
+		XCTextLink(HXCGUI handle)
 		{
 			m_handle = handle;
 		}

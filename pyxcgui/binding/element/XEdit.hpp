@@ -9,39 +9,8 @@ namespace xcgui {
 
 	void declareEdit(py::module& m) {
 
-		py::class_<edit_style_info_>(m, "XEditStyleInfo")
-			.def_readwrite("styleType", &edit_style_info_::type)
-			.def_readwrite("ref", &edit_style_info_::nRef)
-			.def_readwrite("color", &edit_style_info_::color)
-			.def_property("useColor", [](edit_style_info_ self) -> bool {
-				return self.bColor;
-			}, 
-			[](edit_style_info_ self, bool bColor) {
-				self.bColor = bColor;
-
-			})
-			.def_property_readonly("obj", [](edit_style_info_& self) -> XCObject* {
-				return XCastManager::GetInstance()->CastObject(self.hFont_image_obj);
-			}, py::return_value_policy::reference);
-
-			py::class_<edit_data_copy_style_>(m, "XEditDataCopyStyle")
-				.def_property_readonly("obj", [](edit_data_copy_style_& self) {
-					return XCastManager::GetInstance()->CastObject(self.hFont_image_obj);
-				}, py::return_value_policy::reference)
-				.def_readwrite("color", &edit_data_copy_style_::color)
-				.def_property_readonly("useColor", [](edit_data_copy_style_& self) -> bool {
-					return self.bColor;
-				});
-
-			py::class_<edit_data_copy_>(m, "XEditDataCopy")
-				.def_readwrite("count", &edit_data_copy_::nCount)
-				.def_readwrite("styleCount", &edit_data_copy_::nStyleCount)
-				.def_readwrite("style", &edit_data_copy_::pStyle)
-				.def_readwrite("data", &edit_data_copy_::pData);
-
-
-
 		py::class_<XCEdit, XCScrollView>(m, "XEdit")
+			PYCASTOBJECT(XCEdit)
 			.def(py::init([](int x, int y, int cx, int cy, XCObjectUI* parent = nullptr) {
 				HXCGUI handle = nullptr;
 				if (parent) {

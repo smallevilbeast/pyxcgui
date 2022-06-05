@@ -7,6 +7,7 @@ namespace xcgui {
 	void declareAdapter(py::module& m) {
 
 		py::class_<XCAdapter, XCObject>(m, "XAdapter")
+			PYCASTOBJECT(XCAdapter)
 			.def("enableAutoDestroy", &XCAdapter::EnableAutoDestroy, "enable"_a)
 			.def("addRef", &XCAdapter::AddRef)
 			.def("release", &XCAdapter::Release)

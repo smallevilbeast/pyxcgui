@@ -10,9 +10,8 @@ namespace xcgui {
 	{
 
 	public:
-		XCLayoutFrame(HELE handle)
+		XCLayoutFrame(HXCGUI handle)
 		{
-
 			m_handle = handle;
 		}
 
@@ -22,9 +21,10 @@ namespace xcgui {
 
 			m_handle = XLayoutFrame_Create(x, y, width, height, parent);
 		}
-		XCLayoutFrame(HXCGUI parent) {
 
+		HXCGUI CreateEx(HXCGUI parent) {
 			m_handle = XLayoutFrame_CreateEx(parent);
+			return m_handle;
 		}
 
 		//@备注 启用布局功能

@@ -30,6 +30,18 @@ static TypeName* GetInstance()					\
 TypeName(const TypeName&) = delete;				\
 TypeName& operator=(const TypeName&) = delete
 
+#define PYCAST(TypeName)\
+.def_static("cast", [](uintptr_t pointer) -> TypeName* {           \
+	if (::IsBadReadPtr((const void*)pointer, sizeof(uintptr_t))) { \
+		return nullptr;											   \
+	}															   \
+	return (TypeName*)(pointer);								   \
+}, "pointer"_a, py::return_value_policy::reference)		
+
+#define PYCASTOBJECT(TypeName)\
+.def_static("cast", [](uintptr_t pointer) -> TypeName* {\
+	return new TypeName((HXCGUI)pointer);					    \
+}, "handle"_a, py::return_value_policy::take_ownership)		
 
 #endif 
 

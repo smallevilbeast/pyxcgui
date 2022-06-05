@@ -12,14 +12,12 @@ namespace xcgui {
 	{
 	public:
 
-		XCWindow(HWINDOW hWindow)
-			:XCObjectUI((HXCGUI)hWindow)
+		XCWindow(HXCGUI handle)
 		{
-			m_handle = hWindow;
+			m_handle = handle;
 		}
 
 		XCWindow()
-		: XCObjectUI()
 		{
 			//auto hWindow = XWnd_Create(0, 0, 0, 0, NULL, NULL, window_style_default);
 			//this->SetWindowHandle(hWindow);

@@ -10,6 +10,10 @@ namespace xcgui {
 	{
 	public:
 		XCFrameWindow() = default;
+		XCFrameWindow(HXCGUI handle)
+		{
+			m_handle = handle;
+		}
 		XCFrameWindow(int x, int y, int cx, int cy, const std::wstring& title, uintptr_t hWndParent, int xcStyle) {
 			m_handle = XFrameWnd_Create(x, y, cx, cy, title.c_str(), (HWND)hWndParent, xcStyle);
 		}

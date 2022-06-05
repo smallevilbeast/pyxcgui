@@ -7,7 +7,7 @@ namespace xcgui {
 	class XCScrollView : virtual public XCElement
 	{
 	public:
-		XCScrollView(HELE handle)
+		XCScrollView(HXCGUI handle)
 		{
 			m_handle = handle;
 		}

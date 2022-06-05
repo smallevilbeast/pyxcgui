@@ -11,7 +11,7 @@ namespace xcgui {
 	void declareDraw(py::module& m) {
 
 		py::class_<XCDraw, XCObject>(m, "XDraw")
-				
+			PYCASTOBJECT(XCDraw)
 			.def_static("create", [](const XCObject& win) -> XCDraw* {
 				auto handle = win.GetHandle();
 				if (!XC_IsHWINDOW(handle)) {

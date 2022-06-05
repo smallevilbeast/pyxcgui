@@ -7,6 +7,7 @@ namespace xcgui {
 	void declareLayoutBox(py::module& m) {
 
 		py::class_<XCLayoutBox, XCObject>(m, "XLayoutBox")
+			PYCASTOBJECT(XCLayoutBox)
 			.def("enableHorizon", &XCLayoutBox::EnableHorizon, "enable"_a)
 			.def("enableAutoWrap", &XCLayoutBox::EnableAutoWrap, "enable"_a)
 			.def("enableOverflowHide", &XCLayoutBox::EnableOverflowHide, "enable"_a)
