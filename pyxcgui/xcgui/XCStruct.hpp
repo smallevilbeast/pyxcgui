@@ -284,4 +284,15 @@ namespace xcgui {
 		int height;
 		int selHeight;
 	};
+
+	class XCListViewItemRangeInfo 
+	{
+	public:
+		int group1;
+		int group2;
+		int startGroup;
+		int startItem;
+		int endGroup;
+		int endItem;
+	};
 }

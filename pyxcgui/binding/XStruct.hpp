@@ -135,5 +135,14 @@ namespace xcgui {
 			.def(py::init<int, int>(), "height"_a, "selHeight"_a)
 			.def_readwrite("height", &XCItemHeightInfo::height)
 			.def_readwrite("selHeight", &XCItemHeightInfo::selHeight);
+
+		py::class_<XCListViewItemRangeInfo>(m, "XListViewItemRangeInfo")
+			.def_readwrite("group1", &XCListViewItemRangeInfo::group1)
+			.def_readwrite("group2", &XCListViewItemRangeInfo::group2)
+			.def_readwrite("startGroup", &XCListViewItemRangeInfo::startGroup)
+			.def_readwrite("startItem", &XCListViewItemRangeInfo::startItem)
+			.def_readwrite("endGroup", &XCListViewItemRangeInfo::endGroup)
+			.def_readwrite("endItem", &XCListViewItemRangeInfo::endItem)
+			;
 	}
 }													

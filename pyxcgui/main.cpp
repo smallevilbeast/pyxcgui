@@ -48,6 +48,7 @@
 #include "binding/template/XTemplate.hpp"
 #include "binding/element/XListBox.hpp"
 #include "binding/element/XList.hpp"
+#include "binding/element/XListView.hpp"
 
 						 
 namespace xcgui {
@@ -198,5 +199,8 @@ namespace xcgui {
 
 		// list
 		declareList(m);
+
+		// listView
+		declareListView(m);
 	}
 }

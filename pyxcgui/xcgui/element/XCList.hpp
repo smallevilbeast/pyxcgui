@@ -637,16 +637,20 @@ namespace xcgui {
 		//@参数 iColumn 
 		//@返回 返回文本内容
 		//@别名  取项文本()
-		const wchar_t* GetItemText(int iRow, int iColumn) {
-			return XList_GetItemText(getEleHandle(), iRow, iColumn);
+		std::wstring GetItemText(int iRow, int iColumn) {
+			auto pText = XList_GetItemText(getEleHandle(), iRow, iColumn);
+			if (!pText) return L"";
+			return pText;
 		}
 
 		//@参数 iRow 
 		//@参数 name.c_str() 
 		//@返回 返回文本内容
 		//@别名  取项文本扩展()
-		const wchar_t* GetItemTextEx(int iRow, const std::wstring& name) {
-			return XList_GetItemTextEx(getEleHandle(), iRow, name.c_str());
+		std::wstring GetItemTextEx(int iRow, const std::wstring& name) {
+			auto pText =  XList_GetItemTextEx(getEleHandle(), iRow, name.c_str());
+			if (!pText) return L"";
+			return pText;
 		}
 
 		//@参数 iRow 

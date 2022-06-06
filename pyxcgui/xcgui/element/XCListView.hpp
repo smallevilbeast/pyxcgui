@@ -334,7 +334,7 @@ namespace xcgui {
 		//@参数 iPos 插入位置, -1添加到末尾
 		//@返回 返回组索引
 		//@别名  组添加项文本()
-		int Group_AddItemText(const std::wstring& value, int iPos) {
+		int Group_AddItemText(const std::wstring& value, int iPos=-1) {
 			return XListView_Group_AddItemText(getEleHandle(), value.c_str(), iPos);
 		}
 
@@ -343,7 +343,7 @@ namespace xcgui {
 		//@参数 iPos 插入位置, -1添加到末尾
 		//@返回 返回组索引
 		//@别名  组添加项文本扩展()
-		int Group_AddItemTextEx(const std::wstring& name, const std::wstring& value, int iPos) {
+		int Group_AddItemTextEx(const std::wstring& name, const std::wstring& value, int iPos=-1) {
 			return XListView_Group_AddItemTextEx(getEleHandle(), name.c_str(), value.c_str(), iPos);
 		}
 
@@ -351,7 +351,7 @@ namespace xcgui {
 		//@参数 iPos 插入位置, -1添加到末尾
 		//@返回 返回组索引
 		//@别名  组添加项图片()
-		int Group_AddItemImage(HIMAGE hImage, int iPos) {
+		int Group_AddItemImage(HIMAGE hImage, int iPos=-1) {
 			return XListView_Group_AddItemImage(getEleHandle(), hImage, iPos);
 		}
 
@@ -405,7 +405,9 @@ namespace xcgui {
 		//@返回 返回文本内容
 		//@别名  组取文本()
 		std::wstring Group_GetText(int iGroup, int iColumn) {
-			return XListView_Group_GetText(getEleHandle(), iGroup, iColumn);
+			auto pText = XListView_Group_GetText(getEleHandle(), iGroup, iColumn);
+			if (!pText) return L"";
+			return pText;
 		}
 
 		//@参数 iGroup 组索引
@@ -413,7 +415,9 @@ namespace xcgui {
 		//@返回 返回文本内容
 		//@别名  组取文本扩展()
 		std::wstring Group_GetTextEx(int iGroup, const std::wstring& name) {
-			return XListView_Group_GetTextEx(getEleHandle(), iGroup, name.c_str());
+			auto pText = XListView_Group_GetTextEx(getEleHandle(), iGroup, name.c_str());
+			if (!pText) return L"";
+			return pText;
 		}
 
 		//@参数 iGroup 组索引
@@ -457,7 +461,7 @@ namespace xcgui {
 		//@参数 iPos 插入位置, -1添加到末尾
 		//@返回 返回项索引
 		//@别名  项添加文本()
-		int Item_AddItemText(int iGroup, const std::wstring& value, int iPos) {
+		int Item_AddItemText(int iGroup, const std::wstring& value, int iPos=-1) {
 			return XListView_Item_AddItemText(getEleHandle(), iGroup, value.c_str(), iPos);
 		}
 
@@ -467,7 +471,7 @@ namespace xcgui {
 		//@参数 iPos 插入位置, -1添加到末尾
 		//@返回 返回项索引
 		//@别名  项添加文本扩展()
-		int Item_AddItemTextEx(int iGroup, const std::wstring& name, const std::wstring& value, int iPos) {
+		int Item_AddItemTextEx(int iGroup, const std::wstring& name, const std::wstring& value, int iPos=-1) {
 			return XListView_Item_AddItemTextEx(getEleHandle(), iGroup, name.c_str(), value.c_str(), iPos);
 		}
 
@@ -476,7 +480,7 @@ namespace xcgui {
 		//@参数 iPos 插入位置, -1添加到末尾
 		//@返回 返回项索引
 		//@别名  项添加图片()
-		int Item_AddItemImage(int iGroup, HIMAGE hImage, int iPos) {
+		int Item_AddItemImage(int iGroup, HIMAGE hImage, int iPos=-1) {
 			return XListView_Item_AddItemImage(getEleHandle(), iGroup, hImage, iPos);
 		}
 
@@ -486,7 +490,7 @@ namespace xcgui {
 		//@参数 iPos 插入位置, -1添加到末尾
 		//@返回 返回项索引
 		//@别名  项添加图片扩展()
-		int Item_AddItemImageEx(int iGroup, const std::wstring& name, HIMAGE hImage, int iPos) {
+		int Item_AddItemImageEx(int iGroup, const std::wstring& name, HIMAGE hImage, int iPos=-1) {
 			return XListView_Item_AddItemImageEx(getEleHandle(), iGroup, name.c_str(), hImage, iPos);
 		}
 
@@ -528,6 +532,43 @@ namespace xcgui {
 		//@别名  项置图片扩展()
 		bool Item_SetImageEx(int iGroup, int iItem, const std::wstring& name, HIMAGE hImage) {
 			return XListView_Item_SetImageEx(getEleHandle(), iGroup, iItem, name.c_str(), hImage);
+		}
+
+
+		//@参数 iGroup 组索引
+		//@参数 iItem 项索引
+		//@参数 iColumn 列索引
+		//@返回 返回文本内容
+		//@别名  项取文本()
+		std::wstring Item_GetText(int iGroup, int iItem, int iColumn) {
+			return XListView_Item_GetText(getEleHandle(), iGroup, iItem, iColumn);
+		}
+
+		//@参数 iGroup 组索引
+		//@参数 iItem 项索引
+		//@参数 name.c_str() 字段称
+		//@返回 返回文本内容
+		//@别名  项取文本扩展()
+		std::wstring Item_GetTextEx(int iGroup, int iItem, const std::wstring& name) {
+			return XListView_Item_GetTextEx(getEleHandle(), iGroup, iItem, name.c_str());
+		}
+
+		//@参数 iGroup 组索引
+		//@参数 iItem 项索引
+		//@参数 iColumn 列索引
+		//@返回 返回图片句柄
+		//@别名  项取图片()
+		HIMAGE Item_GetImage(int iGroup, int iItem, int iColumn) {
+			return XListView_Item_GetImage(getEleHandle(), iGroup, iItem, iColumn);
+		}
+
+		//@参数 iGroup 组索引
+		//@参数 iItem 项索引
+		//@参数 name.c_str() 字段称
+		//@返回 返回图片句柄
+		//@别名  项取图片扩展()
+		HIMAGE Item_GetImageEx(int iGroup, int iItem, const std::wstring& name) {
+			return XListView_Item_GetImageEx(getEleHandle(), iGroup, iItem, name.c_str());
 		}
 
 		//@参数 iGroup 组索引
@@ -578,41 +619,6 @@ namespace xcgui {
 			XListView_DeleteColumnItem(getEleHandle(), iColumn);
 		}
 
-		//@参数 iGroup 组索引
-		//@参数 iItem 项索引
-		//@参数 iColumn 列索引
-		//@返回 返回文本内容
-		//@别名  项取文本()
-		std::wstring Item_GetText(int iGroup, int iItem, int iColumn) {
-			return XListView_Item_GetText(getEleHandle(), iGroup, iItem, iColumn);
-		}
-
-		//@参数 iGroup 组索引
-		//@参数 iItem 项索引
-		//@参数 name.c_str() 字段称
-		//@返回 返回文本内容
-		//@别名  项取文本扩展()
-		std::wstring Item_GetTextEx(int iGroup, int iItem, const std::wstring& name) {
-			return XListView_Item_GetTextEx(getEleHandle(), iGroup, iItem, name.c_str());
-		}
-
-		//@参数 iGroup 组索引
-		//@参数 iItem 项索引
-		//@参数 iColumn 列索引
-		//@返回 返回图片句柄
-		//@别名  项取图片()
-		HIMAGE Item_GetImage(int iGroup, int iItem, int iColumn) {
-			return XListView_Item_GetImage(getEleHandle(), iGroup, iItem, iColumn);
-		}
-
-		//@参数 iGroup 组索引
-		//@参数 iItem 项索引
-		//@参数 name.c_str() 字段称
-		//@返回 返回图片句柄
-		//@别名  项取图片扩展()
-		HIMAGE Item_GetImageEx(int iGroup, int iItem, const std::wstring& name) {
-			return XListView_Item_GetImageEx(getEleHandle(), iGroup, iItem, name.c_str());
-		}
 
 	};
 }

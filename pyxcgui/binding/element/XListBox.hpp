@@ -106,11 +106,10 @@ namespace xcgui {
 			.def("setItemTemplateFromMem", [](XCListBox& self, const py::bytes xmlData) {
 				return self.SetItemTemplateXMLFromString(xmlData);
 			}, "xmlData"_a)
-			.def("getTemplateObject", [](XCListBox& self, int itemId, int templateId) -> XCListItemTemplate* {
+			.def("getTemplateObject", [](XCListBox& self, int itemId, int templateId) -> XCObject* {
 				auto handle = self.GetTemplateObject(itemId, templateId);
-				if (!handle) return nullptr;
-				return new XCListItemTemplate((HTEMP)handle);
-			},  "itemId"_a, "templateId"_a, py::return_value_policy::take_ownership)
+				return XCastManager::GetInstance()->CastObject(handle);
+			},  "itemId"_a, "templateId"_a, py::return_value_policy::reference)
 
 
 			.def("enableMultiSel", &XCListBox::EnableMultiSel, "enable"_a)
