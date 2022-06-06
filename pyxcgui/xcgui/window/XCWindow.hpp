@@ -570,6 +570,14 @@ namespace xcgui {
 			return XWnd_GetTransparentType(GetWindowHandle()); 
 		}
 
+		bool PostMessage(UINT msg, WPARAM wParam, LPARAM lParam) {
+			return XC_PostMessage(GetWindowHandle(), msg, wParam, lParam);
+		}
+
+		bool SendMessage(UINT msg, WPARAM wParam, LPARAM lParam) {
+			return XC_SendMessage(GetWindowHandle(), msg, wParam, lParam);
+		}
+
 		void NotifyMsgSetBorderSize(int left, int top, int right, int bottom) {
 			XNotifyMsg_SetBorderSize(GetWindowHandle(), left, top, right, bottom);
 		}

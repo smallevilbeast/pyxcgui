@@ -75,9 +75,6 @@ namespace xcgui {
 		// auto struct
 		declareStructAuto(m);
 
-		// event
-		declareGlobal(m);
-
 		// xfont
 		declareFont(m);
 
@@ -104,6 +101,9 @@ namespace xcgui {
 
 		// ObjectUI
 		declareObjectUI(m);
+
+		// global
+		declareGlobal(m);
 
 		// app
 		declareApp(m);

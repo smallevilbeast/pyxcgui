@@ -271,6 +271,9 @@ namespace xcgui {
 				self.GetShadowInfo(&info.size, &info.depth, &info.angeleSize, (BOOL*)& info.rightAngle, &info.color);
 				return info;
 			})
+			.def("sendMessage", &XCWindow::SendMessage, "msg"_a, "wParam"_a, "lParam"_a)
+			.def("postMessage", &XCWindow::PostMessage, "msg"_a, "wParam"_a, "lParam"_a)
+
 			.def("notifyMsgSetBorderSize", &XCWindow::NotifyMsgSetBorderSize, "left"_a, "top"_a, "right"_a, "bottom"_a)
 			.def("notifyMsgSetCaptionHeight", &XCWindow::NotifyMsgSetCaptionHeight, "height"_a)
 			.def("notifyMsgSetDuration", &XCWindow::NotifyMsgSetDuration, "duration"_a)
