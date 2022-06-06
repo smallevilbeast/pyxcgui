@@ -3,6 +3,7 @@
 #include "xcgui/element/XCToolBar.hpp"
 #include "xcgui/XCStruct.hpp"
 #include "binding/manager/XCastManager.hpp"
+#include "xcgui/utils/Color.hpp"
 
 namespace xcgui {
 
@@ -32,7 +33,9 @@ namespace xcgui {
 				self.InsertEle(ele.getEleHandle(), index);
 			}, "ele"_a, "index"_a)
 
-			.def("insertSeparator", &XCToolBar::InsertSeparator, "index"_a=-1, "color"_a= COLORREF_MAKE(128, 128, 128, 255))
+			.def("insertSeparator", &XCToolBar::InsertSeparator, "index"_a=-1, 
+				"color"_a= (uint32_t)(COLORREF_MAKE(128, 128, 128, 255) & 0xFFFFFFFF))
+
 			.def("enableButtonMenu", &XCToolBar::EnableButtonMenu, "enable"_a)
 			.def("getEle", [](XCToolBar& self, int index) -> XCObject* {
 				auto handel = self.GetEle(index);

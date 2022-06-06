@@ -114,17 +114,35 @@ namespace xcgui {
 		//@参数 pStringXML 字符串指针.
 		//@返回 成功返回TRUE否则返回FALSE.
 		//@别名  置项模板从字符串()
-		bool SetItemTemplateXMLFromString(const char* pStringXML) {
-			return XTree_SetItemTemplateXMLFromString(getEleHandle(), pStringXML);
+		bool SetItemTemplateXMLFromString(const std::string& xmlData) {
+			return XTree_SetItemTemplateXMLFromString(getEleHandle(), xmlData.c_str());
 		}
 
 		//@备注 设置项模板文件,项选中状态.  
 		//@参数 pStringXML 字符串指针.
 		//@返回 成功返回TRUE否则返回FALSE.
 		//@别名  置选择项模板从字符串()
-		bool SetItemTemplateXMLSelFromString(const char* pStringXML) {
-			return XTree_SetItemTemplateXMLSelFromString(getEleHandle(), pStringXML);
+		bool SetItemTemplateXMLSelFromString(const std::string& xmlData) {
+			return XTree_SetItemTemplateXMLSelFromString(getEleHandle(), xmlData.c_str());
 		}
+
+		//@备注 通过模板项ID,获取实例化模板项ID对应的对象句柄.  
+		//@参数 nID 树项ID.
+		//@参数 nTempItemID 模板项ID.
+		//@返回 成功返回对象句柄,否则返回NULL.
+		//@别名  取模板对象()
+		HXCGUI GetTemplateObject(int nID, int nTempItemID) {
+			return XTree_GetTemplateObject(getEleHandle(), nID, nTempItemID);
+		}
+
+		//@备注 获取当前对象所在模板实例,属于列表树中哪一个项.  
+		//@参数 hXCGUI 对象句柄, UI元素句柄或形状对象句柄..
+		//@返回 成功返回项ID, 否则返回@ref XC_ID_ERROR.
+		//@别名  取对象所在项()
+		int GetItemIDFromHXCGUI(HXCGUI hXCGUI) {
+			return XTree_GetItemIDFromHXCGUI(getEleHandle(), hXCGUI);
+		}
+
 
 		//@备注 设置是否绘制指定状态下项的背景.  
 		//@参数 nFlags 标志位 @ref list_drawItemBk_flag_.
@@ -366,22 +384,6 @@ namespace xcgui {
 			return XTree_MoveItem(getEleHandle(), nMoveItem, nDestItem, nFlag);
 		}
 
-		//@备注 通过模板项ID,获取实例化模板项ID对应的对象句柄.  
-		//@参数 nID 树项ID.
-		//@参数 nTempItemID 模板项ID.
-		//@返回 成功返回对象句柄,否则返回NULL.
-		//@别名  取模板对象()
-		HXCGUI GetTemplateObject(int nID, int nTempItemID) {
-			return XTree_GetTemplateObject(getEleHandle(), nID, nTempItemID);
-		}
-
-		//@备注 获取当前对象所在模板实例,属于列表树中哪一个项.  
-		//@参数 hXCGUI 对象句柄, UI元素句柄或形状对象句柄..
-		//@返回 成功返回项ID, 否则返回@ref XC_ID_ERROR.
-		//@别名  取对象所在项()
-		int GetItemIDFromHXCGUI(HXCGUI hXCGUI) {
-			return XTree_GetItemIDFromHXCGUI(getEleHandle(), hXCGUI);
-		}
 
 		//@参数 value.c_str() 
 		//@参数 nParentID 

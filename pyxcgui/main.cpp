@@ -49,6 +49,7 @@
 #include "binding/element/XListBox.hpp"
 #include "binding/element/XList.hpp"
 #include "binding/element/XListView.hpp"
+#include "binding/element/XTree.hpp"
 
 						 
 namespace xcgui {
@@ -202,5 +203,8 @@ namespace xcgui {
 
 		// listView
 		declareListView(m);
+
+		// tree
+		declareTree(m);
 	}
 }
