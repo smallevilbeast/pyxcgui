@@ -34,18 +34,18 @@ namespace xcgui {
 
 
 			.def("enableFixedRowHeight", &XCListBox::EnableFixedRowHeight, "enable"_a)
-			.def("enablemTemplateReuse", &XCListBox::EnablemTemplateReuse, "enable"_a)
+			.def("enableTemplateReuse", &XCListBox::EnablemTemplateReuse, "enable"_a)
 			.def("enableVirtualTable", &XCListBox::EnableVirtualTable, "enable"_a)
 			.def("setVirtualRowCount", &XCListBox::SetVirtualRowCount, "rowCount"_a)
 			.def("setDrawItemBkFlags", &XCListBox::SetDrawItemBkFlags, "flags"_a)
 			.def("setSplitLineColor", &XCListBox::SetSplitLineColor, "color"_a)
 			
 			.def("setItemData", [](XCListBox& self, int itemId, const py::object& object) {
-				XUserDataManager::GetInstance()->SetItemUserData(self.getEleHandle(), itemId, object);
+				XUserDataManager::GetInstance()->SetItemUserData(self.getEleHandle(), std::to_string(itemId), object);
 			}, "itemId"_a, "userdata"_a)
 
 			.def("getItemData", [](XCListBox& self, int itemId) {
-				XUserDataManager::GetInstance()->getItemUserData(self.getEleHandle(), itemId);
+				XUserDataManager::GetInstance()->getItemUserData(self.getEleHandle(), std::to_string(itemId));
 			}, "itemId"_a)
 
 			.def("setItemInfo", [](XCListBox& self, int iItem, listBox_item_info_& info) {

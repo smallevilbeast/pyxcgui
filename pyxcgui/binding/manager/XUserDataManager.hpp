@@ -30,11 +30,11 @@ namespace xcgui {
 			m_mData[handle] = object;
 		}
 
-		void SetItemUserData(HELE handle, int item, const py::object& object) {
+		void SetItemUserData(HELE handle, const std::string& item, const py::object& object) {
 			m_mItemData[handle][item] = object;
 		}
 
-		py::object& getItemUserData(HELE handle, int item) {
+		py::object& getItemUserData(HELE handle, const std::string& item) {
 			auto iter = m_mItemData.find(handle);
 			if (iter == m_mItemData.end()) {
 				return m_none;
@@ -66,6 +66,6 @@ namespace xcgui {
 	protected:
 		py::object m_none;
 		std::map<HXCGUI, py::object> m_mData;
-		std::map<HELE, std::map<int, py::object>> m_mItemData;
+		std::map<HELE, std::map<std::string, py::object>> m_mItemData;
 	};
 }

@@ -190,6 +190,7 @@
     <ClInclude Include="binding\element\XEdit.hpp" />
     <ClInclude Include="binding\element\XLayoutEle.hpp" />
     <ClInclude Include="binding\element\XLayoutFrame.hpp" />
+    <ClInclude Include="binding\element\XList.hpp" />
     <ClInclude Include="binding\element\XListBox.hpp" />
     <ClInclude Include="binding\element\XMenuBar.hpp" />
     <ClInclude Include="binding\element\XMonthCal.hpp" />
@@ -264,6 +265,7 @@
     <ClInclude Include="xcgui\menu\XCMenu.hpp" />
     <ClInclude Include="xcgui\template\XCListItemTemplate.hpp" />
     <ClInclude Include="xcgui\utils\Color.hpp" />
+    <ClInclude Include="xcgui\utils\String.hpp" />
     <ClInclude Include="xcgui\window\XCFrameWindow.hpp" />
     <ClInclude Include="xcgui\window\XCMsgWindow.hpp" />
     <ClInclude Include="xcgui\XCApp.hpp" />

@@ -1,28 +1,9 @@
 #pragma once
 #include "pch.h"
-
-#include <iostream>
-#include <string>
 #include <vector>
+#include "String.hpp"
 
-using namespace std;
-
-std::vector<std::string> SplitWithCharacters(const std::string& str, int splitLength) {
-	int NumSubstrings = str.length() / splitLength;
-	std::vector<std::string> ret;
-
-	for (int i = 0; i < NumSubstrings; i++) {
-		ret.push_back(str.substr(i * splitLength, splitLength));
-	}
-
-	// If there are leftover characters, create a shorter item at the end.
-	if (str.length() % splitLength != 0) {
-		ret.push_back(str.substr(splitLength * NumSubstrings));
-	}
-	return ret;
-}
-
-COLORREF hexToRGBColorRef(string hex) {
+COLORREF hexToRGBColorRef(std::string hex) {
 
 	if (hex.at(0) == '#') {
 		hex.erase(0, 1);
@@ -32,7 +13,7 @@ COLORREF hexToRGBColorRef(string hex) {
 		hex += "0";
 	}
 
-	std::vector<string> colori = SplitWithCharacters(hex, 2);
+	std::vector<std::string> colori = SplitWithCharacters(hex, 2);
 
 	BYTE r = stoi(colori[0], nullptr, 16);
 	BYTE g = stoi(colori[1], nullptr, 16);
@@ -41,7 +22,7 @@ COLORREF hexToRGBColorRef(string hex) {
 	return (RGB(r, g, b)) & 0xFFFFFFFF;
 }
 
-COLORREF hexToRGBAColorRef(string hex) {
+COLORREF hexToRGBAColorRef(std::string hex) {
 
 	if (hex.at(0) == '#') {
 		hex.erase(0, 1);
@@ -51,7 +32,7 @@ COLORREF hexToRGBAColorRef(string hex) {
 		hex += "0";
 	}
 
-	std::vector<string> colori = SplitWithCharacters(hex, 2);
+	std::vector<std::string> colori = SplitWithCharacters(hex, 2);
 	
 	BYTE a = stoi(colori[0], nullptr, 16);
 	BYTE r = stoi(colori[1], nullptr, 16);

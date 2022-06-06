@@ -47,6 +47,7 @@
 #include "binding/element/XLayoutFrame.hpp"
 #include "binding/template/XTemplate.hpp"
 #include "binding/element/XListBox.hpp"
+#include "binding/element/XList.hpp"
 
 						 
 namespace xcgui {
@@ -194,5 +195,8 @@ namespace xcgui {
 
 		// listBox
 		declareListBox(m);
+
+		// list
+		declareList(m);
 	}
 }
