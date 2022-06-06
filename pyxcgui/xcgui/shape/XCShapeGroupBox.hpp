@@ -20,6 +20,7 @@ namespace xcgui {
 
 		HXCGUI Create(int x, int y, int cx, int cy, const std::wstring& name, HXCGUI hParent = NULL) {
 			m_handle = XShapeGroupBox_Create(x, y, cx, cy, name.c_str(), hParent);
+			return m_handle;
 		}
 
 		//@备注 设置边框颜色.  
@@ -62,8 +63,8 @@ namespace xcgui {
 		//@备注 设置文本内容.  
 		//@参数 pText 文本内容.
 		//@别名  置文本()
-		void SetText(const wchar_t* pText) {
-			XShapeGroupBox_SetText(m_handle, pText);
+		void SetText(const std::wstring& text) {
+			XShapeGroupBox_SetText(m_handle, text.c_str());
 		}
 
 		//@备注 获取文本偏移量.  
@@ -86,7 +87,7 @@ namespace xcgui {
 		//@备注 启用圆角.  
 		//@参数 bEnable 是否启用.
 		//@别名  启用圆角()
-		void EnableRoundAngle(BOOL bEnable) {
+		void EnableRoundAngle(bool bEnable) {
 			XShapeGroupBox_EnableRoundAngle(m_handle, bEnable);
 		}
 

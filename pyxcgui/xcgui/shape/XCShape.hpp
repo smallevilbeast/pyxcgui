@@ -107,7 +107,7 @@ namespace xcgui {
 		//@参数 bRedraw 是否重绘.
 		//@返回 如果成功返回TRUE, 否则返回FALSE.
 		//@别名  置逻辑坐标()
-		BOOL SetRectLogic(RECT* pRect, BOOL bRedraw) {
+		bool SetRectLogic(RECT* pRect, bool bRedraw) {
 			return XShape_SetRectLogic(m_handle, pRect, bRedraw);
 		}
 
@@ -135,7 +135,7 @@ namespace xcgui {
 		//@备注 是否显示布局边界.  
 		//@参数 bShow 是否显示.
 		//@别名  显示布局边界()
-		void ShowLayout(BOOL bShow) {
+		void ShowLayout(bool bShow) {
 			XShape_ShowLayout(m_handle, bShow);
 		}
 

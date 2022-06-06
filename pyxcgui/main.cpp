@@ -51,6 +51,16 @@
 #include "binding/element/XListView.hpp"
 #include "binding/element/XTree.hpp"
 #include "binding/ease/XEase.hpp"
+#include "binding/shape/XShape.hpp"
+#include "binding/shape/XShapeEllipse.hpp"
+#include "binding/shape/XShapeGif.hpp"
+#include "binding/shape/XShapePicture.hpp"
+#include "binding/shape/XShapeGroupBox.hpp"	   
+#include "binding/shape/XShapeLine.hpp"
+#include "binding/shape/XShapeText.hpp"
+#include "binding/shape/XShapeRect.hpp"
+#include "binding/shape/XShapeTable.hpp"
+
 
 						 
 namespace xcgui {
@@ -210,5 +220,32 @@ namespace xcgui {
 
 		// ease 
 		declareEase(m);
+
+		// shape
+		declareShape(m);
+
+		// shapeEllipse
+		declareShapeEllipse(m);
+
+		// shapeGif
+		declareShapeGif(m);
+
+		// shapePicture
+		declareShapePicture(m);
+
+		// shapeGroupBox
+		declareShapeGroupBox(m);
+
+		// shapeLine
+		declareShapeLine(m);
+
+		// shapeText
+		declareShapeText(m);
+
+		// shapeRect
+		declareShapeRect(m);
+
+		// shapeTable
+		declareShapeTable(m);
 	}
 }

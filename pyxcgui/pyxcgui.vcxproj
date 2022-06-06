@@ -217,6 +217,7 @@
     <ClInclude Include="binding\shape\XShapeGroupBox.hpp" />
     <ClInclude Include="binding\shape\XShapeLine.hpp" />
     <ClInclude Include="binding\shape\XShapePicture.hpp" />
+    <ClInclude Include="binding\shape\XShapeRect.hpp" />
     <ClInclude Include="binding\shape\XShapeTable.hpp" />
     <ClInclude Include="binding\shape\XShapeText.hpp" />
     <ClInclude Include="binding\template\XTemplate.hpp" />
@@ -313,7 +314,6 @@
     <ClInclude Include="xcgui\XCDesigner.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="binding\shape\XShapeRect.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="pch.cpp">

@@ -20,6 +20,7 @@ namespace xcgui {
 
 		HXCGUI Create(int x, int y, int cx, int cy, HXCGUI hParent = NULL) {
 			m_handle = XShapeGif_Create(x, y, cx, cy, hParent);
+			return m_handle;
 		}
 
 		//@±∏◊¢ …Ë÷√GIFÕº∆¨.  

@@ -414,6 +414,9 @@
     <ClInclude Include="binding\shape\XShapeText.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="binding\shape\XShapeRect.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -432,9 +435,6 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="xcgui\window\XCModelWindow.hpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="binding\shape\XShapeRect.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -61,9 +61,9 @@
 #include "xcgui/shape/XCShapeGroupBox.hpp"
 #include "xcgui/shape/XCShapeLine.hpp"
 #include "xcgui/shape/XCShapePicture.hpp"
-#include "xcgui/shape/XCShapeRect.hpp"
 #include "xcgui/shape/XCShapeTable.hpp"
 #include "xcgui/shape/XCShapeText.hpp"
+#include "xcgui/shape/XCShapeRect.hpp"
 
 // animation
 #include "xcgui/animation/XCAnimation.hpp"

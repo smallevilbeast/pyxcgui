@@ -20,6 +20,7 @@ namespace xcgui {
 
 		HXCGUI Create(int x, int y, int cx, int cy, const std::wstring& name, HXCGUI hParent = NULL) {
 			m_handle = XShapeText_Create(x, y, cx, cy, name.c_str(), hParent);
+			return m_handle;
 		}
 
 		//@备注 设置文本内容.  

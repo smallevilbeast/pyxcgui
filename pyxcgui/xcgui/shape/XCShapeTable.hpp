@@ -20,6 +20,7 @@ namespace xcgui {
 
 		HXCGUI Create(int x, int y, int cx, int cy, HXCGUI hParent = NULL) {
 			m_handle = XTable_Create(x, y, cx, cy, hParent);
+			return m_handle;
 		}
 
 		//@参数 nRow 行数量
