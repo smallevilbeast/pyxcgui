@@ -184,7 +184,12 @@
     <ClInclude Include="binding\adapter\XAdapterMap.hpp" />
     <ClInclude Include="binding\adapter\XAdapterTable.hpp" />
     <ClInclude Include="binding\adapter\XAdapterTree.hpp" />
+    <ClInclude Include="binding\animation\XAnimation.hpp" />
+    <ClInclude Include="binding\animation\XAnimationGroup.hpp" />
+    <ClInclude Include="binding\animation\XAnimationItem.hpp" />
+    <ClInclude Include="binding\animation\XAnimationSequence.hpp" />
     <ClInclude Include="binding\bkmanager\XBkObject.hpp" />
+    <ClInclude Include="binding\ease\XEase.hpp" />
     <ClInclude Include="binding\element\XButton.hpp" />
     <ClInclude Include="binding\element\XDateTime.hpp" />
     <ClInclude Include="binding\element\XEdit.hpp" />
@@ -206,6 +211,14 @@
     <ClInclude Include="binding\manager\XCallbackManager.hpp" />
     <ClInclude Include="binding\manager\XMainThreadManager.hpp" />
     <ClInclude Include="binding\menu\XMenu.hpp" />
+    <ClInclude Include="binding\shape\XShape.hpp" />
+    <ClInclude Include="binding\shape\XShapeEllipse.hpp" />
+    <ClInclude Include="binding\shape\XShapeGif.hpp" />
+    <ClInclude Include="binding\shape\XShapeGroupBox.hpp" />
+    <ClInclude Include="binding\shape\XShapeLine.hpp" />
+    <ClInclude Include="binding\shape\XShapePicture.hpp" />
+    <ClInclude Include="binding\shape\XShapeTable.hpp" />
+    <ClInclude Include="binding\shape\XShapeText.hpp" />
     <ClInclude Include="binding\template\XTemplate.hpp" />
     <ClInclude Include="binding\window\XFrameWindow.hpp" />
     <ClInclude Include="binding\window\XModelWindow.hpp" />
@@ -300,6 +313,7 @@
     <ClInclude Include="xcgui\XCDesigner.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="binding\shape\XShapeRect.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="pch.cpp">

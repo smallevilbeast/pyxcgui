@@ -375,6 +375,45 @@
     <ClInclude Include="xcgui\animation\XCAnimationItem.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="binding\ease\XEase.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="binding\animation\XAnimation.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="binding\animation\XAnimationGroup.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="binding\animation\XAnimationItem.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="binding\animation\XAnimationSequence.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="binding\shape\XShape.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="binding\shape\XShapeEllipse.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="binding\shape\XShapeGif.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="binding\shape\XShapeGroupBox.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="binding\shape\XShapeLine.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="binding\shape\XShapePicture.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="binding\shape\XShapeTable.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="binding\shape\XShapeText.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -393,6 +432,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="xcgui\window\XCModelWindow.hpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="binding\shape\XShapeRect.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

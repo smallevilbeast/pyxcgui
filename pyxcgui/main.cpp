@@ -50,6 +50,7 @@
 #include "binding/element/XList.hpp"
 #include "binding/element/XListView.hpp"
 #include "binding/element/XTree.hpp"
+#include "binding/ease/XEase.hpp"
 
 						 
 namespace xcgui {
@@ -206,5 +207,8 @@ namespace xcgui {
 
 		// tree
 		declareTree(m);
+
+		// ease 
+		declareEase(m);
 	}
 }
