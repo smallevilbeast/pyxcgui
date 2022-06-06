@@ -26,24 +26,28 @@ namespace xcgui {
 		XCWindow(int width, int height, const std::wstring& title) 
 			: XCObjectUI() 
 		{
-			auto hWindow = XWnd_Create(0, 0, width, height, title.c_str(), NULL, window_style_default);
-			this->SetWindowHandle(hWindow);
+			m_handle = XWnd_Create(0, 0, width, height, title.c_str(), NULL, window_style_default);
 		}
 
 		XCWindow(int x, int y, int width, int height, const std::wstring& title, uintptr_t hWndParent = 0, int style = window_style_default)
 			: XCObjectUI()
 		{
-			auto hWindow = XWnd_Create(x, y, width, height, title.c_str(), (HWND)hWndParent, style);
-			this->SetWindowHandle(hWindow);
+			m_handle = XWnd_Create(x, y, width, height, title.c_str(), (HWND)hWndParent, style);
+		}
+
+		XCWindow(DWORD dwExStyle, DWORD dwStyle, const std::wstring& className,
+			int x, int y, int cx, int cy, const std::wstring& title, uintptr_t hWndParent, int xcStyle = window_style_default)
+		{
+			m_handle = XWnd_CreateEx(dwExStyle, dwStyle, (wchar_t*)className.c_str(),
+				x, y, cx, cy, (wchar_t*)title.c_str(), (HWND)hWndParent, xcStyle);
 		}
 
 
 		// hWnd 要附加的外部窗口句柄
 		virtual bool Attach(uintptr_t hWnd, int style)
 		{
-			auto hWindow = XWnd_Attach((HWND)hWnd, style);
-			this->SetWindowHandle(hWindow);
-			return hWindow;
+			m_handle = XWnd_Attach((HWND)hWnd, style);
+			return m_handle;
 		}
 
 		// 	添加子对象到窗口 

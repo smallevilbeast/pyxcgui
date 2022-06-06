@@ -15,18 +15,18 @@ namespace xcgui {
 				return window;
 				}), "width"_a, "height"_a, "title"_a)
 			.def(py::init<int, int, const std::wstring&, uintptr_t, int>()
-				,"width"_a, "height"_a, "title"_a, "hwndParent"_a, "xcStyle"_a)
+				,"width"_a, "height"_a, "title"_a, "hwndParent"_a, "xcStyle"_a= (int)window_style_modal)
 			
 			.def(py::init<DWORD, DWORD, const std::wstring&,
 						int, int, int, int, const std::wstring&, uintptr_t, int>()
 				, "exStyle"_a, "style"_a, "className"_a, "x"_a, "y"_a, "width"_a, "height"_a,
-				"title"_a, "hwndParent"_a, "xcStyle"_a)
+				"title"_a, "hwndParent"_a, "xcStyle"_a= (int)window_style_modal)
 
 			.def("attach", &XCModelWindow::Attach, "hwnd"_a, "style"_a)
-			.def("doModal", &XCModelWindow::DoModal)
+			.def("doModal", &XCModelWindow::DoModal, py::call_guard<py::gil_scoped_release>())
 			.def("enableAutoClose", &XCModelWindow::EnableAutoClose, "enable"_a)
 			.def("enableEscClose", &XCModelWindow::EnableEscClose, "enable"_a)
-			.def("endModal", &XCModelWindow::EndModal, "result"_a)
+			.def("endModal", &XCModelWindow::EndModal, "result"_a, py::call_guard<py::gil_scoped_release>())
 			;
 	}
 }

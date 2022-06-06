@@ -15,12 +15,12 @@ namespace xcgui {
 				return window;
 				}), "width"_a, "height"_a, "title"_a)
 			.def(py::init<int, int, int, int, const std::wstring&, uintptr_t, int>()
-				, "x"_a, "y"_a, "width"_a, "height"_a, "title"_a, "hwndParent"_a, "xcStyle"_a)
+				, "x"_a, "y"_a, "width"_a, "height"_a, "title"_a, "hwndParent"_a, "xcStyle"_a=(int)window_style_default)
 			
 			.def(py::init<DWORD, DWORD, const std::wstring&,
 						int, int, int, int, const std::wstring&, uintptr_t, int>()
 				, "exStyle"_a, "style"_a, "className"_a, "x"_a, "y"_a, "width"_a, "height"_a,
-				"title"_a, "hwndParent"_a, "xcStyle"_a)
+				"title"_a, "hwndParent"_a, "xcStyle"_a=int(window_style_default))
 
 			.def("attach", &XCFrameWindow::Attach, "hwnd"_a, "style"_a)
 			.def("setView", [](XCFrameWindow& self, const XCElement& ele){

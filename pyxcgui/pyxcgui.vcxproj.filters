@@ -318,6 +318,12 @@
     <ClInclude Include="binding\XStructAuto.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="binding\window\XMsgWindow.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="xcgui\window\XCMsgWindow.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">

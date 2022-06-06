@@ -7,8 +7,15 @@ namespace xcgui {
 
 	void declareStruct(py::module& m) {
 
+		py::class_<tagPOINT>(m, "POINT")
+			PYCAST(tagPOINT)
+			.def(py::init<>())
+			.def_readwrite("x", &tagPOINT::x)
+			.def_readwrite("y", &tagPOINT::y);
+
 		py::class_<tagRECT>(m, "RECT")
 			PYCAST(tagRECT)
+			.def(py::init<>())
 			.def_readwrite("left", &tagRECT::left)
 			.def_readwrite("top", &tagRECT::top)
 			.def_readwrite("right", &tagRECT::right)
@@ -16,6 +23,7 @@ namespace xcgui {
 
 		py::class_<tagSIZE>(m, "SIZE")
 			PYCAST(tagSIZE)
+			.def(py::init<>())
 			.def_readwrite("cx", &tagSIZE::cx)
 			.def_readwrite("cy", &tagSIZE::cy);
 

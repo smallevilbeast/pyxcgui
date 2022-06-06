@@ -26,7 +26,11 @@ namespace xcgui {
 			.def(py::init<int, int, int, int, const std::wstring&, uintptr_t, int>(),
 				"x"_a, "y"_a, "width"_a, "height"_a, "title"_a,
 				"hWndParent"_a = 0, "style"_a = (int)window_style_default)
-			.def("attach", &XCWindow::Attach, "hwnd"_a, "style"_a)
+			.def(py::init<DWORD, DWORD, const std::wstring&,
+				int, int, int, int, const std::wstring&, uintptr_t, int>()
+				, "exStyle"_a, "style"_a, "className"_a, "x"_a, "y"_a, "width"_a, "height"_a,
+				"title"_a, "hwndParent"_a, "xcStyle"_a)
+			.def("attach", &XCWindow::Attach, "hwnd"_a, "style"_a= (int)window_style_default)
 			.def("regEvent", [](const XCWindow& self, int eventType, const XEventCallback& callback, const py::object& userdata) {
 				XEventManager::GetInstance()->RegWindowEvent(self.GetWindowHandle(), eventType, callback, userdata);
 			}, "eventType"_a, "callback"_a, "userdata"_a= py::none())

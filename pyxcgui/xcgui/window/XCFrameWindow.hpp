@@ -14,12 +14,12 @@ namespace xcgui {
 		{
 			m_handle = handle;
 		}
-		XCFrameWindow(int x, int y, int cx, int cy, const std::wstring& title, uintptr_t hWndParent, int xcStyle) {
+		XCFrameWindow(int x, int y, int cx, int cy, const std::wstring& title, uintptr_t hWndParent, int xcStyle= window_style_default) {
 			m_handle = XFrameWnd_Create(x, y, cx, cy, title.c_str(), (HWND)hWndParent, xcStyle);
 		}
 
 		XCFrameWindow(DWORD dwExStyle, DWORD dwStyle, const std::wstring& className,
-			int x, int y, int cx, int cy, const std::wstring& title, uintptr_t hWndParent, int xcStyle)
+			int x, int y, int cx, int cy, const std::wstring& title, uintptr_t hWndParent, int xcStyle= window_style_default)
 		{
 			m_handle = XFrameWnd_CreateEx(dwExStyle, dwStyle, (wchar_t*)className.c_str(), 
 				x, y, cx, cy, (wchar_t*)title.c_str(), (HWND)hWndParent, xcStyle);

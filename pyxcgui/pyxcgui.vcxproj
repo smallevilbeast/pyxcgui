@@ -206,6 +206,7 @@
     <ClInclude Include="binding\template\XTemplate.hpp" />
     <ClInclude Include="binding\window\XFrameWindow.hpp" />
     <ClInclude Include="binding\window\XModelWindow.hpp" />
+    <ClInclude Include="binding\window\XMsgWindow.hpp" />
     <ClInclude Include="binding\XApp.hpp" />
     <ClInclude Include="binding\bkmanager\XBkManager.hpp" />
     <ClInclude Include="binding\manager\XCastManager.hpp" />
@@ -264,6 +265,7 @@
     <ClInclude Include="xcgui\template\XCListItemTemplate.hpp" />
     <ClInclude Include="xcgui\utils\Color.hpp" />
     <ClInclude Include="xcgui\window\XCFrameWindow.hpp" />
+    <ClInclude Include="xcgui\window\XCMsgWindow.hpp" />
     <ClInclude Include="xcgui\XCApp.hpp" />
     <ClInclude Include="xcgui\bkmanager\XCBkManager.hpp" />
     <ClInclude Include="xcgui\XCFont.hpp" />

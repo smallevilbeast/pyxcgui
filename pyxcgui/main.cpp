@@ -25,6 +25,7 @@
 #include "binding/window/XWindow.hpp"
 #include "binding/window/XFrameWindow.hpp"
 #include "binding/window/XModelWindow.hpp"
+#include "binding/window/XMsgWindow.hpp"
 #include "binding/adapter/XAdapter.hpp"
 #include "binding/adapter/XAdapterTree.hpp"
 #include "binding/adapter/XAdapterTable.hpp"
@@ -127,6 +128,9 @@ namespace xcgui {
 
 		// modelWindow
 		declareModelWindow(m);
+
+		// msgWindow
+		declareMsgWindow(m);
 
 		// adapter
 		declareAdapter(m);

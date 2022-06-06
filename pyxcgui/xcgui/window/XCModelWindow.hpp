@@ -15,12 +15,12 @@ namespace xcgui {
 			m_handle = handle;
 		}
 
-		XCModelWindow(int width, int height, const std::wstring& title, uintptr_t hWndParent, int xcStyle) {
+		XCModelWindow(int width, int height, const std::wstring& title, uintptr_t hWndParent, int xcStyle= window_style_modal) {
 			m_handle = XModalWnd_Create(width, height, title.c_str(), (HWND)hWndParent, xcStyle);
 		}
 
 		XCModelWindow(DWORD dwExStyle, DWORD dwStyle, const std::wstring& className,
-			int x, int y, int cx, int cy, const std::wstring& title, uintptr_t hWndParent, int xcStyle)
+			int x, int y, int cx, int cy, const std::wstring& title, uintptr_t hWndParent, int xcStyle = window_style_modal)
 		{
 			m_handle = XModalWnd_CreateEx(dwExStyle, dwStyle, (wchar_t*)className.c_str(),
 				x, y, cx, cy, (wchar_t*)title.c_str(), (HWND)hWndParent, xcStyle);
