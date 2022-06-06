@@ -2,13 +2,14 @@
 #include "pch.h"
 
 namespace xcgui {
+
 	class XCEase
 	{
 	public:
 		//@备注 线性
-	//@参数 pos 位置, 0.0f - 1.0f
-	//@返回 返回计算结果
-	//@别名 缓动_Linear()
+		//@参数 pos 位置, 0.0f - 1.0f
+		//@返回 返回计算结果
+		//@别名 缓动_Linear()
 		static float Linear(float pos) {
 			return XEase_Linear(pos);
 		}

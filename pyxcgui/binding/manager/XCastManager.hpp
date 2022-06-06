@@ -54,6 +54,23 @@
 #include "xcgui/element/XCToolBar.hpp"
 #include "xcgui/element/XCTree.hpp"
 
+// shape
+#include "xcgui/shape/XCShape.hpp"
+#include "xcgui/shape/XCShapeEllipse.hpp"
+#include "xcgui/shape/XCShapeGif.hpp"
+#include "xcgui/shape/XCShapeGroupBox.hpp"
+#include "xcgui/shape/XCShapeLine.hpp"
+#include "xcgui/shape/XCShapePicture.hpp"
+#include "xcgui/shape/XCShapeRect.hpp"
+#include "xcgui/shape/XCShapeTable.hpp"
+#include "xcgui/shape/XCShapeText.hpp"
+
+// animation
+#include "xcgui/animation/XCAnimation.hpp"
+#include "xcgui/animation/XCAnimationGroup.hpp"
+#include "xcgui/animation/XCAnimationItem.hpp"
+#include "xcgui/animation/XCAnimationSequence.hpp"
+
 
 namespace xcgui
 {
@@ -207,22 +224,31 @@ namespace xcgui
 			case XC_LIST_HEADER:
 				break;
 			case XC_SHAPE:
+				pObj = new XCShape(handle);
 				break;
 			case XC_SHAPE_TEXT:
+				pObj = new XCShapeText(handle);
 				break;
 			case XC_SHAPE_PICTURE:
+				pObj = new XCShapePicture(handle);
 				break;
 			case XC_SHAPE_RECT:
+				pObj = new XCShapeRect(handle);
 				break;
 			case XC_SHAPE_ELLIPSE:
+				pObj = new XCShapeEllipse(handle);
 				break;
 			case XC_SHAPE_LINE:
+				pObj = new XCShapeLine(handle);
 				break;
 			case XC_SHAPE_GROUPBOX:
+				pObj = new XCShapeGroupBox(handle);
 				break;
 			case XC_SHAPE_GIF:
+				pObj = new XCShapeGif(handle);
 				break;
 			case XC_SHAPE_TABLE:
+				pObj = new XCShapeTable(handle);
 				break;
 			case XC_MENU:
 				pObj = new XCMenu(handle);
@@ -276,10 +302,13 @@ namespace xcgui
 			case XC_LAYOUT_BOX:
 				break;
 			case XC_ANIMATION_SEQUENCE:
+				pObj = new XCAnimationSequence(handle);
 				break;
 			case XC_ANIMATION_GROUP:
+				pObj = new XCAnimationGroup(handle);
 				break;
 			case XC_ANIMATION_ITEM:
+				pObj = new XCAnimationItem(handle);
 				break;
 			default:
 				break;

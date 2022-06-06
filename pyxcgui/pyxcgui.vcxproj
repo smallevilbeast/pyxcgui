@@ -241,7 +241,10 @@
     <ClInclude Include="xcgui\adapter\XCAdapterMap.hpp" />
     <ClInclude Include="xcgui\adapter\XCAdapterTable.hpp" />
     <ClInclude Include="xcgui\adapter\XCAdapterTree.hpp" />
+    <ClInclude Include="xcgui\animation\XCAnimationSequence.hpp" />
     <ClInclude Include="xcgui\animation\XCAnimation.hpp" />
+    <ClInclude Include="xcgui\animation\XCAnimationGroup.hpp" />
+    <ClInclude Include="xcgui\animation\XCAnimationItem.hpp" />
     <ClInclude Include="xcgui\bkmanager\XCBkObject.hpp" />
     <ClInclude Include="xcgui\ease\XCEase.hpp" />
     <ClInclude Include="xcgui\element\XCButton.hpp" />
@@ -265,6 +268,15 @@
     <ClInclude Include="xcgui\element\XCLayoutFrame.hpp" />
     <ClInclude Include="xcgui\element\XCTree.hpp" />
     <ClInclude Include="xcgui\menu\XCMenu.hpp" />
+    <ClInclude Include="xcgui\shape\XCShape.hpp" />
+    <ClInclude Include="xcgui\shape\XCShapeEllipse.hpp" />
+    <ClInclude Include="xcgui\shape\XCShapeGif.hpp" />
+    <ClInclude Include="xcgui\shape\XCShapeGroupBox.hpp" />
+    <ClInclude Include="xcgui\shape\XCShapeLine.hpp" />
+    <ClInclude Include="xcgui\shape\XCShapePicture.hpp" />
+    <ClInclude Include="xcgui\shape\XCShapeRect.hpp" />
+    <ClInclude Include="xcgui\shape\XCShapeText.hpp" />
+    <ClInclude Include="xcgui\shape\XCShapeTable.hpp" />
     <ClInclude Include="xcgui\template\XCListItemTemplate.hpp" />
     <ClInclude Include="xcgui\utils\Color.hpp" />
     <ClInclude Include="xcgui\utils\String.hpp" />
