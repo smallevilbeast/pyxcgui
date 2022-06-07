@@ -17,8 +17,6 @@ namespace py = pybind11;
 using namespace pybind11::literals;
 
 #include "xcgui.h"
-#pragma comment(lib, "XCGUI-v3.3.4.lib")
-//#pragma comment(lib, "XCGUI_DLL.lib")
 
 #define SINGLETON_DEFINE(TypeName)				\
 static TypeName* GetInstance()					\

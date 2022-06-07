@@ -339,3 +339,9 @@ ASALocalRun/
 # BeatPulse healthcheck temp database 
 healthchecksdb
 Temp/
+Lib/
+.python-version
+build/
+wheelhouse/
+*.egg-info/
+cmake-build-debug/
