@@ -165,7 +165,7 @@ extra_link = {
 extra_compile_args = {
     'darwin': [],
     'posix': [],
-    'win32': ['/MT'],
+    'win32': ['/MT', "/EHsc", "/bigobj"],
 }
 
 extra_compile_cpp_args = {
@@ -198,13 +198,11 @@ extension.extra_compile_cpp_args = extra_compile_cpp_args[target_os]
 
 setup(
     name='xcgui',
-
     version='0.1.1',
-
     description='xcgui - bundled xcgui for python',
     long_description="",
     long_description_content_type='text/markdown',
-    url='https://github.com/podgorskiy/xcgui',
+    url='https://github.com/smallevilbeast/pyxcgui',
     author='evilbeast',
     author_email='houshao55@gmail.com',
     license='MIT',
@@ -219,6 +217,5 @@ setup(
         'Programming Language :: Python :: 3.11',
     ],
     keywords='xcgui pybind11 ui',
-    packages=['xcgui'],
     ext_modules=[extension]
 )
