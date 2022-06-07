@@ -8,12 +8,16 @@
 #include "XCastManager.hpp"
 #include "xcgui/XCStruct.hpp"
 #include "xcgui/XCResource.hpp"
+#include "xcgui/animation/XCAnimationItem.hpp"
+#include "xcgui/animation/XCAnimation.hpp"
 
 namespace xcgui {
 	
 	
 
 	using XResourceLoadFileCallback = std::function<bool(const std::wstring& filename)>;
+	using XAnimationItemCallback = std::function<void(XCAnimationItem* sender, float pos)>;
+	using XAnimationCallback = std::function<void(XCAnimation* sender, int flag)>;
 
 	class XCallbackManager {
 	public:
@@ -29,6 +33,8 @@ namespace xcgui {
 	public:
 		void Release() {
 			m_mResourceCallbacks.clear();
+			m_mAnimationItemCallbacks.clear();
+			m_mAnimationCallbacks.clear();
 		}
 		
 		static BOOL WINAPI OnLoadFileCallback(const wchar_t* pName) {
@@ -55,8 +61,53 @@ namespace xcgui {
 			}
 		}
 
+
+		// ¶¯»­Ïî
+		static void WINAPI OnAnimationItemCallback(HXCGUI hAnimationItem, float pos) {
+			XCallbackManager::GetInstance()->ExecAnimationItemCallback(hAnimationItem, pos);
+		}
+
+		void SetAnimationItemCallback(HXCGUI handle, const XAnimationItemCallback& callback) {
+			auto iter = m_mAnimationItemCallbacks.find(handle);
+			if (iter == m_mAnimationItemCallbacks.end()) {
+				XAnimaItem_SetCallback(handle, &XCallbackManager::OnAnimationItemCallback);
+			}
+			m_mAnimationItemCallbacks[handle] = callback;
+		}
+
+		void ExecAnimationItemCallback(HXCGUI hAnimationItem, float pos) {
+			auto iter = m_mAnimationItemCallbacks.find(hAnimationItem);
+			if (iter != m_mAnimationItemCallbacks.end()) {
+				XCAnimationItem* pSender = dynamic_cast<XCAnimationItem*>(XCastManager::GetInstance()->CastObject(hAnimationItem));
+				iter->second(pSender, pos);
+			}
+		}
+
+		// ¶¯»­
+		static void WINAPI OnAnimationCallback(HXCGUI hAnimation, int flag) {
+			XCallbackManager::GetInstance()->ExecAnimationCallback(hAnimation, flag);
+		}
+
+		void SetAnimationCallback(HXCGUI handle, const XAnimationCallback& callback) {
+			auto iter = m_mAnimationCallbacks.find(handle);
+			if (iter == m_mAnimationCallbacks.end()) {
+				XAnima_SetCallBack(handle, &XCallbackManager::OnAnimationCallback);
+			}
+			m_mAnimationCallbacks[handle] = callback;
+		}
+
+		void ExecAnimationCallback(HXCGUI hAnimation, int flag) {
+			auto iter = m_mAnimationCallbacks.find(hAnimation);
+			if (iter != m_mAnimationCallbacks.end()) {
+				XCAnimation* pSender = dynamic_cast<XCAnimation*>(XCastManager::GetInstance()->CastObject(hAnimation));
+				iter->second(pSender, flag);
+			}
+		}
+
 	protected:
 		bool m_bLoadFileCallbackReg;
 		std::vector<XResourceLoadFileCallback> m_mResourceCallbacks;
+		std::map<HXCGUI, XAnimationItemCallback> m_mAnimationItemCallbacks;
+		std::map<HXCGUI, XAnimationCallback> m_mAnimationCallbacks;
 	};
 }

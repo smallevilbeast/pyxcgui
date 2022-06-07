@@ -61,6 +61,9 @@
 #include "binding/shape/XShapeRect.hpp"
 #include "binding/shape/XShapeTable.hpp"
 
+// animation
+#include "binding/animation/XAnimationItem.hpp"
+
 
 						 
 namespace xcgui {
@@ -247,5 +250,8 @@ namespace xcgui {
 
 		// shapeTable
 		declareShapeTable(m);
+
+		// animationItem
+		declareAnimationItem(m);
 	}
 }

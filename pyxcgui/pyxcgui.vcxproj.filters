@@ -384,9 +384,6 @@
     <ClInclude Include="binding\animation\XAnimationGroup.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="binding\animation\XAnimationItem.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="binding\animation\XAnimationSequence.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -415,6 +412,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="binding\shape\XShapeRect.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="binding\animation\XAnimationItem.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

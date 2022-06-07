@@ -123,21 +123,21 @@ namespace xcgui {
 			.def("setGroupHeight", &XCListView::SetGroupHeight, "height"_a)
 			.def("getGroupHeight", &XCListView::GetGroupHeight)
 
-			.def("setGroupUserData", [](XCListBox& self, int groupId, const py::object& object) {
+			.def("setGroupUserData", [](XCListView& self, int groupId, const py::object& object) {
 				XUserDataManager::GetInstance()->SetItemUserData(self.getEleHandle(), std::to_string(groupId), object);
 			}, "group"_a, "userdata"_a)
 
-			.def("getGroupUserData", [](XCListBox& self, int groupId) {
+			.def("getGroupUserData", [](XCListView& self, int groupId) {
 				XUserDataManager::GetInstance()->getItemUserData(self.getEleHandle(), std::to_string(groupId));
 			}, "group"_a)
 
-			.def("setItemUserData", [](XCList& self, int group, int item, const py::object& object) {
+			.def("setItemUserData", [](XCListView& self, int group, int item, const py::object& object) {
 				XUserDataManager::GetInstance()->SetItemUserData(self.getEleHandle(), 
 					vformat("%d_%d", group,  item), 
 					object);
 			}, "group"_a, "item"_a, "userdata"_a)
 
-			.def("getItemUserData", [](XCList& self, int group, int item) {
+			.def("getItemUserData", [](XCListView& self, int group, int item) {
 				XUserDataManager::GetInstance()->getItemUserData(self.getEleHandle(), vformat("%d_%d", group, item));
 			}, "group"_a, "item"_a)
 
