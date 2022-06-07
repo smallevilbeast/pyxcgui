@@ -23,8 +23,12 @@
 
 ## 获取
 
-```
+```bash
 pip install xcgui
+```
+国内源安装
+```
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple xcgui
 ```
 
 ## 可视化UI设计器
