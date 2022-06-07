@@ -95,3 +95,6 @@ if __name__ == '__main__':
 
 ```
 
+帮助&支持
+-------------------------
+点击链接加入群聊【xcgui for python】(https://jq.qq.com/?_wv=1027&k=oIXzbTbI)
