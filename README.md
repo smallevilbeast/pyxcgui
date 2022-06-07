@@ -27,7 +27,7 @@
 pip install xcgui
 ```
 国内源安装
-```
+```bash
 pip install -i https://pypi.tuna.tsinghua.edu.cn/simple xcgui
 ```
 
