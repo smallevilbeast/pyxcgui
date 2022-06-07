@@ -6,9 +6,6 @@ namespace xcgui {
 
 	class XCAnimation : public XCObject
 	{
-	protected:
-		HXCGUI m_objectUI;
-
 	public:
 		XCAnimation(HXCGUI handle)
 		{
@@ -104,6 +101,7 @@ namespace xcgui {
 			XAnima_Pause(m_handle);
 		}
 
-
+	protected:
+		HXCGUI m_objectHandle;
 	};
 }

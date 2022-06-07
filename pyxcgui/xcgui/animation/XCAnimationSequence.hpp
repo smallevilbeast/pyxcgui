@@ -16,9 +16,9 @@ namespace xcgui {
 
 		XCAnimationSequence() = default;
 
-		XCAnimationSequence(HXCGUI hObjectUI, int nLoopCount) {
-			m_objectUI = hObjectUI;
-			m_handle = XAnima_Create(hObjectUI, nLoopCount);
+		XCAnimationSequence(HXCGUI objectHandle, int nLoopCount) {
+			m_objectHandle = objectHandle;
+			m_handle = XAnima_Create(objectHandle, nLoopCount);
 		}
 
 		//@备注 移动到目标位置, 默认以UI对象中心点为操作方式,避免出现坐标错位
@@ -245,7 +245,6 @@ namespace xcgui {
 		HXCGUI DestroyObjectUI(float duration) {
 			return XAnima_DestroyObjectUI(m_handle, duration);
 		}
-
 
 	};
 }

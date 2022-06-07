@@ -63,6 +63,9 @@
 
 // animation
 #include "binding/animation/XAnimationItem.hpp"
+#include "binding/animation/XAnimation.hpp"
+#include "binding/animation/XAnimationGroup.hpp"
+#include "binding/animation/XAnimationSequence.hpp"
 
 
 						 
@@ -253,5 +256,14 @@ namespace xcgui {
 
 		// animationItem
 		declareAnimationItem(m);
+
+		// animation
+		declareAnimation(m);
+
+		// animationSequence
+		declareAnimationSequence(m);
+
+		// animationGroup
+		declareAnimationGroup(m);
 	}
 }
