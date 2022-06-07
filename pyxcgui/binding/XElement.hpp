@@ -194,7 +194,7 @@ namespace xcgui {
 			.def("setMinSize", &XCElement::SetMinSize, "width"_a, "height"_a)
 			.def("setMaxSize", &XCElement::SetMaxSize, "width"_a, "height"_a)
 			.def("setMaxSize", &XCElement::SetLockScroll, "horizon"_a, "vertical"_a)
-			.def("setTextColor", [](XCElement& self, uintptr_t hColor) {
+			.def("setTextColor", [](XCElement& self, COLORREF hColor) {
 				self.SetTextColor(hColor);
 			}, "hColor"_a)
 			.def("getTextColor", [](XCElement& self) {
@@ -203,7 +203,7 @@ namespace xcgui {
 			.def("getTextColorEx", [](XCElement& self) {
 				return (intptr_t)self.GetTextColorEx();
 			})
-			.def("setFocusBorderColor", [](XCElement& self, uintptr_t hColor) {
+			.def("setFocusBorderColor", [](XCElement& self, COLORREF hColor) {
 				self.SetFocusBorderColor(hColor);
 			}, "hColor"_a)
 			.def("getFocusBorderColor", [](XCElement& self) {
