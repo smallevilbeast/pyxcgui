@@ -78,7 +78,7 @@ class DemoWindow(XWindow):
         self.enableHorizon(False)
         self.setSpace(20)
         self.btn = XButton(100, 30, "测试", self)
-        self.btn.regEvent(34, self.onBtnClick)
+        self.btn.regEvent(xcgui.XE_BNCLICK, self.onBtnClick)
         self.edit = XEdit(200, 30, self)
 
     def onBtnClick(self, event, userdata):
