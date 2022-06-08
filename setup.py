@@ -198,7 +198,7 @@ extension.extra_compile_cpp_args = extra_compile_cpp_args[target_os]
 
 setup(
     name='xcgui',
-    version='0.1.3',
+    version='0.1.4',
     description='xcgui - bundled xcgui for python',
     long_description="",
     long_description_content_type='text/markdown',
@@ -216,6 +216,8 @@ setup(
         'Programming Language :: Python :: 3.10',
         'Programming Language :: Python :: 3.11',
     ],
+    package_data={"": ["py.typed", "*.pyi"]},
+    include_package_data=True,
     packages=find_packages(include=['xcgui', 'xcgui.*']),
     keywords='xcgui pybind11 ui',
     ext_modules=[extension]

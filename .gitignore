@@ -345,3 +345,5 @@ build/
 wheelhouse/
 *.egg-info/
 cmake-build-debug/
+venv
+
