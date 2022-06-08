@@ -181,7 +181,7 @@ def add_prefix(l, prefix):
     return [os.path.join(prefix, x) for x in l]
 
 
-extension = Extension("xcgui",
+extension = Extension("xcgui._xcgui",
                       xcgui_sources,
                       define_macros=definitions[target_os],
                       include_dirs=[
@@ -216,6 +216,7 @@ setup(
         'Programming Language :: Python :: 3.10',
         'Programming Language :: Python :: 3.11',
     ],
+    packages=find_packages(include=['xcgui', 'xcgui.*']),
     keywords='xcgui pybind11 ui',
     ext_modules=[extension]
 )

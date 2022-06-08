@@ -71,7 +71,7 @@
 						 
 namespace xcgui {
 
-	PYBIND11_MODULE(xcgui, m) {
+	PYBIND11_MODULE(_xcgui, m) {
 		m.doc() = "xcgui for python";
 
 		// define
