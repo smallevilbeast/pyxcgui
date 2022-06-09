@@ -17,9 +17,9 @@ namespace xcgui {
 
 			.def("release", &XCAnimation::Release, "enable"_a)
 
-			.def_static("releaseEx", [](const XCObjectUI& ele, bool bEnd) {
+			.def_static("releaseEx", [](const XCObject& ele, bool bEnd=false) {
 				XCAnimation::ReleaseEx(ele.GetHandle(), bEnd);
-			}, "objectUI"_a, "end"_a)
+			}, "objectUI"_a, "end"_a=false)
 			
 			.def("enableAutoDestroy", &XCAnimation::EnableAutoDestroy, "enable"_a)
 			

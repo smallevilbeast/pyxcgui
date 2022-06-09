@@ -32,7 +32,7 @@ namespace xcgui {
 			.def("setState", &XCButton::SetState, "state"_a)
 			.def("getState", &XCButton::GetState)
 			.def("getStateEx", &XCButton::GetStateEx)
-			.def("setTypeEx", &XCButton::SetTypeEx, "nType"_a)
+			.def("setBtnTypeEx", &XCButton::SetBtnTypeEx, "nType"_a)
 			.def("setGroupId", &XCButton::SetGroupID, "groupId"_a)
 			.def("getGroupId", &XCButton::GetGroupID)
 			.def("setBindEle", [](XCButton& self, const XCWidget& ele) {

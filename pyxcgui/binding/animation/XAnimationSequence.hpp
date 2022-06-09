@@ -40,7 +40,7 @@ namespace xcgui {
 			.def("scale", [](XCAnimationSequence& self, UINT duration, float scaleX, float scaleY, int nLoopCount = 0, int easeFlag = 0, bool bGoBack = true) {
 				auto handle = self.Scale(duration, scaleX, scaleY, nLoopCount, easeFlag, bGoBack);
 				return XCAnimationItem(handle);
-			}, "duration"_a, "scaleX"_a, "scaleY"_a, "loopCount"_a=1, "easeFlag"_a=0, "goBack"_a=false)
+			}, "duration"_a, "scaleX"_a, "scaleY"_a, "loopCount"_a=1, "easeFlag"_a=0, "goBack"_a=true)
 				
 			.def("scaleSize", [](XCAnimationSequence& self, UINT duration, float width, float height, int nLoopCount = 1, int easeFlag = 0, bool bGoBack = false) {
 				auto handle = self.ScaleSize(duration, width, height, nLoopCount, easeFlag, bGoBack);

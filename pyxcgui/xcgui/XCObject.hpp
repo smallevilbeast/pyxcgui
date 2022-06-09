@@ -54,6 +54,10 @@ namespace xcgui {
 			return XC_SetProperty(m_handle, name.c_str(), value.c_str());
 		}
 
+		void ReleaseAnimation(bool end=true) {
+			XAnima_ReleaseEx(m_handle, end);
+		}
+
 		virtual HXCGUI GetHandle() const
 		{
 			return m_handle;

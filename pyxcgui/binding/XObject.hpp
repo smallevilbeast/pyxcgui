@@ -13,6 +13,12 @@ namespace xcgui {
 			.def("getHandle", [](XCObject& self) -> uintptr_t {
 				return (uintptr_t)self.GetHandle();
 			})
+			.def("getHandle", [](XCObject& self) -> uintptr_t {
+				return (uintptr_t)self.GetHandle();
+			})
+			.def("releaseAnimation", [](XCObject& self, bool end=false) {
+				self.ReleaseAnimation(end);
+			}, "end"_a=false)
 			.def("getTypeEx", &XCObject::GetTypeEx)
 			.def("setTypeEx", &XCObject::SetTypeEx, "nType"_a)
 			.def("setProperty", &XCObject::SetProperty, "name"_a, "value"_a)

@@ -49,7 +49,7 @@ namespace xcgui {
 		}
 
 		// 设置按钮类型并自动修改样式和文本对齐方式.  
-		void SetTypeEx(XC_OBJECT_TYPE_EX nType) {
+		void SetBtnTypeEx(XC_OBJECT_TYPE_EX nType) {
 			XBtn_SetTypeEx((HELE)m_handle, nType);
 		}
 
