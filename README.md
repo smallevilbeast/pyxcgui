@@ -35,7 +35,7 @@ pip install -i https://pypi.tuna.tsinghua.edu.cn/simple xcgui
 
 使用UI设计器可以快速设计界面，节省大量代码。
 
-[![uidesigner](https://z3.ax1x.com/2021/09/15/4Vmh9S.png)](https://github.com/twgh/xcgui-example/tree/main/uidesigner)
+![uidesigner](https://z3.ax1x.com/2021/09/15/4Vmh9S.png)
 
 [设计器使用例子]只有这么多代码：
 
