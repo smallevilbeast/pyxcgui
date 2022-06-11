@@ -98,10 +98,10 @@ namespace xcgui {
 				self.BindAdapterHeader(adapter.GetHandle());
 			}, "adapter"_a)
 
-			.def("createAdapter", [](XCList& self) -> XCObject* {
-				auto handle = self.CreateAdapter();
+			.def("createAdapter", [](XCList& self, int colExtendCount) -> XCObject* {
+				auto handle = self.CreateAdapter(colExtendCount);
 				return XCastManager::GetInstance()->CastObject(handle);
-			}, py::return_value_policy::reference)
+			}, "colExtendCount"_a, py::return_value_policy::reference)
 
 			.def("createAdapterHeader", [](XCList& self) -> XCObject* {
 				auto handle = self.CreateAdapterHeader();
@@ -277,6 +277,7 @@ namespace xcgui {
 			.def("deleteColumnAll", &XCList::DeleteColumnAll)
 			.def("getCount_AD", &XCList::GetCount_AD)
 			.def("getCountColumn_AD", &XCList::GetCountColumn_AD)
+			.def("setDragRectColor", &XCList::SetDragRectColor, "color"_a, "width"_a)
 			;
 	}
 }

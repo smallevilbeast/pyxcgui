@@ -273,8 +273,8 @@ namespace xcgui {
 		//@备注 创建数据适配器，根据绑定的项模板初始化数据适配器的列.  
 		//@返回 返回适配器句柄.
 		//@别名  创建数据适配器()
-		HXCGUI CreateAdapter() {
-			return XList_CreateAdapter(getEleHandle());
+		HXCGUI CreateAdapter(int colExtendCount=0) {
+			return XList_CreateAdapter(getEleHandle(), colExtendCount);
 		}
 
 		//@备注 创建数据适配器，根据绑定的项模板初始化数据适配器的列.  
@@ -736,6 +736,12 @@ namespace xcgui {
 		//@别名  取列数量AD()
 		int GetCountColumn_AD() {
 			return XList_GetCountColumn_AD(getEleHandle());
+		}
+
+
+		// 列表视_置拖动矩形颜色
+		void SetDragRectColor(COLORREF color, int width) {
+			return XList_SetDragRectColor(getEleHandle(), color, width);
 		}
 
 	};

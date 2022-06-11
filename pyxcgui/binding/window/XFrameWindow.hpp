@@ -49,7 +49,10 @@ namespace xcgui {
 			.def("getLayoutAreaRect", [](XCFrameWindow& self) {
 				XCRect rect;
 				self.GetLayoutAreaRect((RECT*)&rect);
-			})
+				})
+
+			// 3.3.5 ÐÂÔö
+			.def("getDragFloatWndTopFlag", &XCFrameWindow::GetDragFloatWndTopFlag)
 			;
 	}
 }

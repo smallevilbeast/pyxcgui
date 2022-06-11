@@ -935,6 +935,19 @@ namespace xcgui {
 			XDraw_DrawSvgSize((HDRAW)m_handle, hSvg, nWidth, nHeight);
 		}
 
+
+		// 3.5 新增
+		// 使用矩形作为遮罩
+		void ImageMaskRect(HIMAGE hImageFrame,RECT* pRect,RECT* pRcMask, RECT* pRcRoundAngle) {
+			XDraw_ImageMaskRect((HDRAW)m_handle, hImageFrame, pRect, pRcMask, pRcRoundAngle);
+		}
+
+		// 使用圆形作为遮罩
+		void ImageMaskEllipse(HIMAGE hImageFrame, RECT* pRect, RECT* pRcMask) {
+			XDraw_ImageMaskEllipse((HDRAW)m_handle, hImageFrame, pRect, pRcMask);
+		}
+
+
 	};
 
 }

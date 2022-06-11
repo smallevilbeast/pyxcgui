@@ -110,7 +110,31 @@ namespace xcgui {
 		m.def("FreeLibrary", [](uintptr_t hModule) {
 			return XCGlobal::FreeLibrary((HMODULE)hModule);
 		}, "hModule"_a);
+		
+		m.def("GetTextShowRect", [](const std::wstring& text, const XCFont& font, int textAlign, int maxWidth) {
+			XCSize info;
+			XCGlobal::GetTextShowRect(text, font.getFontHandle(), textAlign, maxWidth, (SIZE*)&info);
+			return info;
+		}, "text"_a, "font"_a, "textAlign"_a, "maxWidth"_a);
 
+		m.def("GetTextShowSize", [](const std::wstring& text, const XCFont& font) {
+			XCSize info;
+			XCGlobal::GetTextShowSize(text, font.getFontHandle(), (SIZE*)&info);
+			return info;
+		}, "text"_a, "font"_a);
+
+
+		m.def("GetTextShowSizeEx", [](const std::wstring& text, const XCFont& font, int textAlign) {
+			XCSize info;
+			XCGlobal::GetTextShowSizeEx(text, font.getFontHandle(), textAlign, (SIZE*)&info);
+			return info;
+		}, "text"_a, "font"_a, "textAlign"_a);
+
+		m.def("GetTextSize", [](const std::wstring& text, const XCFont& font) {
+			XCSize info;
+			XCGlobal::GetTextSize(text, font.getFontHandle(), (SIZE*)&info);
+			return info;
+		}, "text"_a, "font"_a);
 
 		;
 	}

@@ -226,6 +226,7 @@ namespace xcgui {
 			.def("deleteAllItem", &XCListView::DeleteAllItem)
 			.def("deleteColumnGroup", &XCListView::DeleteColumnGroup, "column"_a)
 			.def("deleteColumnItem", &XCListView::DeleteColumnItem, "column"_a)
+			.def("setDragRectColor", &XCListView::SetDragRectColor, "color"_a, "width"_a)
 			;
 	}
 }

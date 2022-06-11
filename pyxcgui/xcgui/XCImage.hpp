@@ -264,6 +264,13 @@ namespace xcgui {
 		void Destroy() { 
 			XImage_Destroy((HIMAGE)m_handle);
 		}
+
+		// 3.3.5 新增
+		// 置缩放大小 启用缩放属性后有效,值大于0有效
+		void SetScaleSize(int width, int height) {
+			XImage_SetScaleSize((HIMAGE)m_handle, width, height);
+		}
+		
 	};
 
 }

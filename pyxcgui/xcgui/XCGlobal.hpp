@@ -82,6 +82,22 @@ namespace xcgui {
 			return XC_FreeLibrary(hModule);
 		}
 
+		static void GetTextShowRect(const std::wstring& text, HFONTX font, int textAlign, int maxWidth, out_ SIZE* pOutSize) {
+			XC_GetTextShowRect(text.c_str(), text.size(), font, textAlign, maxWidth, pOutSize);
+		}
+
+		static void GetTextShowSize(const std::wstring& text, HFONTX font, out_ SIZE* pOutSize) {
+			XC_GetTextShowSize(text.c_str(), text.size(), font, pOutSize);
+		}
+
+		static void GetTextShowSizeEx(const std::wstring& text, HFONTX font, int textAlign, out_ SIZE* pOutSize) {
+			XC_GetTextShowSizeEx(text.c_str(), text.size(), font, textAlign, pOutSize);
+		}
+
+		static void GetTextSize(const std::wstring& text, HFONTX font, out_ SIZE* pOutSize) {
+			XC_GetTextSize(text.c_str(), text.size(), font, pOutSize);
+		}
+
 
 	};
 

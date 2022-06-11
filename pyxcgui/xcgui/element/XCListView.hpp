@@ -619,6 +619,14 @@ namespace xcgui {
 			XListView_DeleteColumnItem(getEleHandle(), iColumn);
 		}
 
+		// 列表视_置拖动矩形颜色
+		void SetDragRectColor(COLORREF color, int width) {
+			return XListView_SetDragRectColor(getEleHandle(), color, width);
+		}
+
+
+
+
 
 	};
 }

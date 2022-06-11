@@ -185,5 +185,10 @@ namespace xcgui {
 			return XEditor_AddExcludeDefVarKeyword(getEleHandle(), keyword.c_str());
 		}
 
+		// 代码编辑框_置自动匹配结果显示模式  	0:中英文, 1:英文, 3:中文
+		void SetAutoMatchMode(int mode) {
+			XEditor_SetAutoMatchMode(getEleHandle(), mode);
+		}
+
 	};
 }

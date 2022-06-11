@@ -71,6 +71,11 @@ namespace xcgui {
 		}
 
 
+		// 3.3.5 ÐÂÔö
+		frameWnd_cell_type_  GetDragFloatWndTopFlag() {
+			return XFrameWnd_GetDragFloatWndTopFlag(GetWindowHandle());
+		}
+
 
 	};
 

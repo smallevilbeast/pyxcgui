@@ -2723,8 +2723,6 @@ XC_API BOOL WINAPI XEditor_IsBreakpoint(HELE hEle, int iRow);
 XC_API BOOL WINAPI XEditor_SetBreakpoint(HELE hEle, int iRow, BOOL bActivate = TRUE);
 XC_API int  WINAPI XEditor_GetBreakpointCount(HELE hEle);
 XC_API int  WINAPI XEditor_GetBreakpoints(HELE hEle, out_buffer_ int* aPoints, int nCount);
-XC_API void WINAPI XEditor_SetTipsDelay(HELE hEle, int nDelay);
-XC_API void WINAPI XEditor_SetAutoMatchSelectModel(HELE hEle, int model);
 XC_API BOOL WINAPI XEditor_RemoveBreakpoint(HELE hEle, int iRow);
 XC_API void WINAPI XEditor_ClearBreakpoint(HELE hEle);
 XC_API BOOL WINAPI XEditor_SetRunRow(HELE hEle, int iRow);
@@ -2751,6 +2749,8 @@ XC_API void WINAPI XEditor_AddFunction(HELE hEle, const wchar_t* pKey);
 XC_API void WINAPI XEditor_AddExcludeDefVarKeyword(HELE hEle, const wchar_t* pKeyword);
 XC_API void WINAPI XEditor_FunArgsExpand_AddArg(HELE hEle, const wchar_t* pTypeName, const wchar_t* pArgName, const wchar_t* pText);
 XC_API void WINAPI XEditor_FunArgsExpand_Expand(HELE hEle, const wchar_t* pFunName, int iRow, int iCol, int iCol2, int nDepth);
+XC_API void WINAPI XEditor_SetTipsDelay(HELE 	hEle, int 	nDelay);
+XC_API void WINAPI XEditor_SetAutoMatchSelectModel(HELE 	hEle, int 	model);
 XC_API HELE WINAPI XEdit_Create(int x, int y, int cx, int cy, HXCGUI hParent = NULL);
 XC_API HELE WINAPI XEdit_CreateEx(int x, int y, int cx, int cy, edit_type_ type, HXCGUI hParent = NULL);
 XC_API void WINAPI XEdit_EnableAutoWrap(HELE hEle, BOOL bEnable);
@@ -2894,9 +2894,8 @@ XC_API COLORREF WINAPI XEle_GetFocusBorderColor(HELE hEle);
 XC_API void WINAPI XEle_SetFont(HELE hEle, HFONTX hFontx);
 XC_API HFONTX WINAPI XEle_GetFont(HELE hEle);
 XC_API HFONTX WINAPI XEle_GetFontEx(HELE hEle);
-XC_API void WINAPI XEle_SetAlpha(HELE hEle, BYTE alpha);
 XC_API BYTE WINAPI XEle_GetAlpha(HELE hEle);
-
+XC_API void WINAPI XEle_SetAlpha(HELE hEle, BYTE alpha);
 XC_API int  WINAPI XEle_GetChildCount(HELE hEle);
 XC_API HXCGUI WINAPI XEle_GetChildByIndex(HELE hEle, int index);
 XC_API HXCGUI WINAPI XEle_GetChildByID(HELE hEle, int nID);
@@ -3160,7 +3159,7 @@ XC_API void WINAPI XList_CancelSelectAll(HELE hEle);
 XC_API HELE WINAPI XList_GetHeaderHELE(HELE hEle);
 XC_API void WINAPI XList_BindAdapter(HELE hEle, HXCGUI hAdapter);
 XC_API void WINAPI XList_BindAdapterHeader(HELE hEle, HXCGUI hAdapter);
-XC_API HXCGUI WINAPI XList_CreateAdapter(HELE hEle);
+XC_API HXCGUI WINAPI XList_CreateAdapter(HELE hEle, int col_extend_count = 0);
 XC_API HXCGUI WINAPI XList_CreateAdapterHeader(HELE hEle);
 XC_API HXCGUI WINAPI XList_GetAdapter(HELE hEle);
 XC_API HXCGUI WINAPI XList_GetAdapterHeader(HELE hEle);
@@ -3360,7 +3359,6 @@ XC_API int  WINAPI XProgBar_GetRange(HELE hEle);
 
 XC_API void WINAPI XProgBar_SetPos(HELE hEle, int pos);
 XC_API int  WINAPI XProgBar_GetPos(HELE hEle);
-XC_API void WINAPI XProgBar_EnableStretch(HELE hEle, BOOL bStretch);
 XC_API void WINAPI XProgBar_EnableHorizon(HELE hEle, BOOL bHorizon);
 XC_API void WINAPI XProgBar_SetImageLoad(HELE hEle, HIMAGE hImage);
 XC_API HELE WINAPI XPGrid_Create(int x, int y, int cx, int cy, HXCGUI hParent = NULL);
@@ -3775,6 +3773,7 @@ XC_API void WINAPI XDraw_DrawArc(HDRAW hDraw, int x, int y, int nWidth, int nHei
 XC_API void WINAPI XObj_SetTypeEx(HXCGUI hXCGUI, XC_OBJECT_TYPE_EX nType);
 XC_API void WINAPI XWnd_Show(HWINDOW hWindow, BOOL bShow);
 XC_API void WINAPI XProgBar_EnableShowText(HELE hEle, BOOL bEnable);
+XC_API void WINAPI XProgBar_EnableStretch(HELE 	hEle, BOOL 	bStretch);
 
 XC_API void WINAPI XWidget_SetID(HXCGUI hXCGUI, int nID);
 XC_API int  WINAPI XWidget_GetID(HXCGUI hXCGUI);
@@ -4113,6 +4112,7 @@ XC_API void   WINAPI XAnimaScale_SetPosition(HXCGUI hAnimationScale, position_fl
 
 XC_API HXCGUI WINAPI XAnima_GetObjectUI(HXCGUI hAnimation); //获取动画关联的UI对象
 XC_API void   WINAPI XAnima_EnableAutoDestroy(HXCGUI hAnimation, BOOL bEnable);//启用自动销毁
+XC_API void   WINAPI XAnima_SetCallback(HXCGUI 	hAnimationEx, funAnimation 	callback);
 
 
 //v3.3.1---------------------------------------------------------
@@ -4124,7 +4124,7 @@ XC_API HWINDOW WINAPI XFrameWnd_CreateEx(DWORD dwExStyle, DWORD dwStyle, wchar_t
 
 //新增
 XC_API HXCGUI WINAPI XAnima_DestroyObjectUI(HXCGUI hSequence, float duration);
-XC_API void   WINAPI XAnima_SetCallBack(HXCGUI hAnimation, funAnimation callback);
+XC_API void   WINAPI XAnima_SetCallback(HXCGUI hAnimation, funAnimation callback);
 XC_API void   WINAPI XAnima_SetUserData(HXCGUI hAnimation, vint nUserData);
 XC_API vint   WINAPI XAnima_GetUserData(HXCGUI hAnimation);
 XC_API BOOL   WINAPI XAnima_Stop(HXCGUI hAnimation);
@@ -4266,7 +4266,7 @@ XC_API HIMAGE WINAPI XAdListView_Group_GetImage(HXCGUI hAdapter, int iGroup, int
 XC_API HIMAGE WINAPI XAdListView_Group_GetImageEx(HXCGUI hAdapter, int iGroup, const wchar_t* pName);//new
 
 XC_API const wchar_t* WINAPI XAdListView_Item_GetText(HXCGUI hAdapter, int iGroup, int iItem, int iColumn);
-XC_API HIMAGE WINAPI XAdListView_Item_GetImage(HXCGUI hAdapter, int iGroup, int iItem, int iColumn);
+XC_API HIMAGE WINAPI XAdListView_Item_GetImage(HXCGUI hAdapter, int iGroup, int iItem, int 	iColumn);
 
 XC_API const wchar_t* WINAPI XListView_Group_GetText(HELE hEle, int iGroup, int iColumn); //new
 XC_API const wchar_t* XListView_Group_GetTextEx(HELE hEle, int iGroup, const wchar_t* pName); //new
@@ -4286,4 +4286,21 @@ XC_API void WINAPI XDateTime_Popup(HELE hEle);
 XC_API void WINAPI XMonthCal_SetTextColor(HELE hEle, int nFlag, COLORREF color);
 XC_API HTEMP WINAPI XTemp_Clone(HTEMP hTemp);
 XC_API frameWnd_cell_type_ WINAPI XFrameWnd_GetDragFloatWndTopFlag(HWINDOW hWindow);
+
+//3.3.5
+XC_API void WINAPI XImage_SetScaleSize(HIMAGE hImage, int width, int height);
+XC_API void WINAPI XEditor_SetAutoMatchMode(HELE hEle, int mode);
+//--------------------------
+XC_API void WINAPI XListView_SetDragRectColor(HELE hEle, COLORREF color, int width);
+XC_API void WINAPI XListBox_SetDragRectColor(HELE hEle, COLORREF color, int width);
+XC_API void WINAPI XList_SetDragRectColor(HELE hEle, COLORREF color, int width);
+
+XC_API HSVG WINAPI XSvg_LoadZipMem(void* data, int length, const wchar_t* pFileName, const wchar_t* pPassword);
+
+XC_API HFONTX WINAPI XFont_CreateFromZip(const wchar_t* pZipFileName,const wchar_t* pFileName, const wchar_t* pPassword, int fontSize, int style);
+XC_API HFONTX WINAPI XFont_CreateFromZipMem(void* data, int length, const wchar_t* pFileName, const wchar_t* pPassword, int fontSize, int style);
+
+//增加参数 col_extend_count  列表项模板支持列延伸
+//XC_API HXCGUI WINAPI XList_CreateAdapter(HELE hEle, int col_extend_count=0);
+
 

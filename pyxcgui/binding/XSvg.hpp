@@ -12,6 +12,7 @@ namespace xcgui {
 			.def_static("loadFile", [](const std::wstring& filename) -> XCSvg* {
 				auto pSvg = new XCSvg();
 				if (!pSvg->LoadFile(filename.c_str())) {
+					delete pSvg;
 					return nullptr;
 				}
 				return pSvg;
@@ -20,6 +21,7 @@ namespace xcgui {
 			.def_static("loadRes", [](int resId, const std::wstring& typeName, uintptr_t hModule) -> XCSvg* {
 				auto pSvg = new XCSvg();
 				if (!pSvg->LoadRes(resId, typeName, (HMODULE)hModule)) {
+					delete pSvg;
 					return nullptr;
 				}
 				return pSvg;
@@ -28,6 +30,7 @@ namespace xcgui {
  			.def_static("loadString", [](const std::wstring& name) -> XCSvg* {
 				auto pSvg = new XCSvg();
 				if (!pSvg->LoadStringW(name)) {
+					delete pSvg;
 					return nullptr;
 				}
 				return pSvg;
@@ -37,11 +40,20 @@ namespace xcgui {
    			.def_static("loadZip", [](const std::wstring& zipFileName, const std::wstring& fileName, const std::wstring& password) -> XCSvg* {
 				auto pSvg = new XCSvg();
 				if (!pSvg->LoadZip(zipFileName, fileName, password)) {
+					delete pSvg;
 					return nullptr;
 				}
 				return pSvg;
 			}, "zipFileName"_a, "fileName"_a, "password"_a, py::return_value_policy::take_ownership)
 
+			.def_static("loadZipMem", [](const py::bytes& data, const std::wstring& fileName, const std::wstring& password) -> XCSvg* {
+				auto pSvg = new XCSvg();
+				if (!pSvg->LoadZipMem(data, fileName, password)) {
+					delete pSvg;
+					return nullptr;
+				}
+				return pSvg;
+			}, "data"_a, "fileName"_a, "password"_a, py::return_value_policy::take_ownership)
 
 			.def("show", &XCSvg::Show, "enable"_a)
 			.def("setAlpha", &XCSvg::SetAlpha, "alpha"_a)

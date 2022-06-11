@@ -172,7 +172,7 @@ namespace xcgui {
 			}, "avatar"_a, "bubble"_a, "flag"_a)
 
 			.def("addChatEnd", &XCEdit::AddChatEnd)
-			.def("SetChatIndentation", &XCEdit::SetChatIndentation, "indentation"_a)
+			.def("setChatIndentation", &XCEdit::SetChatIndentation, "indentation"_a)
 
 			;
 	}

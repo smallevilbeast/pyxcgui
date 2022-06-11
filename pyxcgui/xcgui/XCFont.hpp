@@ -79,6 +79,18 @@ namespace xcgui {
 			return (HFONTX)m_handle;
 		}
 
+		//字体_创建从ZIP
+		HFONTX CreateFromZip(const std::wstring& zipFileName, const std::wstring& fileName, const std::wstring& password, int fontSize, int style = fontStyle_regular) {
+			m_handle = XFont_CreateFromZip(zipFileName.c_str(), fileName.c_str(), password.c_str(), fontSize, style);
+			return (HFONTX)m_handle;
+		}
+
+		// 加载从内存ZIP
+		HFONTX  CreateFromZipMem(const std::string& data, const std::wstring& fileName, const std::wstring& password, int fontStyle, int style) {
+			m_handle = XFont_CreateFromZipMem((void*)data.c_str(), data.size(), fileName.c_str(), password.c_str(), fontStyle, style);
+			return (HFONTX)m_handle;
+		}
+
 		// 是否自动销毁
 		void EnableAutoDestroy(bool bEnable) { 
 			XFont_EnableAutoDestroy((HFONTX)m_handle, bEnable);

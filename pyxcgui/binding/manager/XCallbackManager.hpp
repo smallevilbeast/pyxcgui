@@ -104,7 +104,7 @@ namespace xcgui {
 		void SetAnimationCallback(HXCGUI handle, const XAnimationCallback& callback) {
 			auto iter = m_mAnimationCallbacks.find(handle);
 			if (iter == m_mAnimationCallbacks.end()) {
-				XAnima_SetCallBack(handle, &XCallbackManager::OnAnimationCallback);
+				XAnima_SetCallback(handle, &XCallbackManager::OnAnimationCallback);
 			}
 			m_mAnimationCallbacks[handle] = callback;
 		}

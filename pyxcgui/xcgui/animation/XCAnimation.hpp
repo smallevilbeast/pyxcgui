@@ -62,7 +62,7 @@ namespace xcgui {
 		//@参数 callback 回调函数
 		//@别名 动画_置回调()
 		void SetCallBack(funAnimation callback) {
-			XAnima_SetCallBack(m_handle, callback);
+			XAnima_SetCallback(m_handle, callback);
 		}
 
 

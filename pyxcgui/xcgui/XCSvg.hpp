@@ -53,6 +53,12 @@ namespace xcgui {
 			return (HSVG)m_handle;
 		}
 
+		// º”‘ÿ¥”ƒ⁄¥ÊZIP
+		HIMAGE LoadZipMem(const std::string& data, const std::wstring& fileName, const std::wstring& password) {
+			m_handle = XSvg_LoadZipMem((void*)data.c_str(), data.size(), fileName.c_str(), password.c_str());
+			return (HIMAGE)m_handle;
+		}
+
 		void Show(bool bShow) {
 			XSvg_Show((HSVG)m_handle, bShow);
 		}

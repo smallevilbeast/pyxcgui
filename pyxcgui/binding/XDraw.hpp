@@ -20,6 +20,7 @@ namespace xcgui {
 				auto pDraw = new XCDraw();
 				if (!pDraw->Create((HWINDOW)handle))
 				{
+					delete pDraw;
 					return nullptr;
 				}
 				return pDraw;
@@ -34,6 +35,7 @@ namespace xcgui {
 
 				auto pDraw = new XCDraw();
 				if (!pDraw->CreateGDI((HWINDOW)handle, (HDC)hdc)) {
+					delete pDraw;
 					return nullptr;
 				}
 				return pDraw;
@@ -344,6 +346,17 @@ namespace xcgui {
 			}, "svg"_a, "x"_a, "y"_a, "width"_a, "height"_a)
 			.def("drawSvgSize", [](XCDraw& self, const XCSvg& svg, int width, int height) {
 				self.DrawSvgSize(svg.getSvgHandle(), width, height);
-			}, "svg"_a, "width"_a, "height"_a);
+			}, "svg"_a, "width"_a, "height"_a)
+				
+			// 3.5.5ÐÂÔö
+			.def("imageMaskRect", [](XCDraw& self, const XCImage& image, const XCRect& rect, const XCRect& rectMask, const XCRect& rectRoundAngle) {
+				self.ImageMaskRect(image.getImageHandle(), (RECT*)&rect, (RECT*)&rectMask, (RECT*)&rectRoundAngle);
+			}, "image"_a, "rect"_a, "rectMask"_a, "rectRoundAngle"_a)
+			.def("imageMaskEllipse", [](XCDraw& self, const XCImage& image, const XCRect& rect, const XCRect& rectMask) {
+				self.ImageMaskEllipse(image.getImageHandle(), (RECT*)&rect, (RECT*)&rectMask);
+			}, "image"_a, "rect"_a, "rectMask"_a)
+
+				
+			;
 	}
 }

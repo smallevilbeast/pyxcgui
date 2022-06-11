@@ -550,5 +550,11 @@ namespace xcgui {
 		}
 
 
+		// 列表视_置拖动矩形颜色
+		void SetDragRectColor(COLORREF color, int width) {
+			return XListBox_SetDragRectColor(getEleHandle(), color, width);
+		}
+
+
 	};
 }

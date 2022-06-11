@@ -13,6 +13,7 @@ namespace xcgui {
 			.def_static("loadFile", [](const std::wstring& fileName) -> XCImage* {
 				auto pImage = new XCImage();
 				if (!pImage->LoadFile(fileName)) {
+					delete pImage;
 					return nullptr;
 				}
 				return pImage;
@@ -21,6 +22,7 @@ namespace xcgui {
 			.def_static("loadSrc", [](const XCImageSrc& imageSrc) -> XCImage* {
 				auto pImage = new XCImage();
 				if (!pImage->loadSrc(imageSrc.getImageSrcHandle())) {
+					delete pImage;
 					return nullptr;
 				}
 				return pImage;
@@ -29,6 +31,7 @@ namespace xcgui {
 			.def_static("loadFileAdaptive", [](const std::wstring& fileName, int leftSize, int topSize, int rightSize, int bottomSize) -> XCImage* {
 				auto pImage = new XCImage();
 				if (!pImage->LoadFileAdaptive(fileName, leftSize, topSize, rightSize, bottomSize)) {
+					delete pImage;
 					return nullptr;
 				}
 				return pImage;
@@ -37,6 +40,7 @@ namespace xcgui {
 			.def_static("loadFileRect", [](const std::wstring& fileName, int x, int y, int cx, int cy) -> XCImage* {
 				auto pImage = new XCImage();
 				if (!pImage->LoadFileRect(fileName, x, y, cx, cy)) {
+					delete pImage;
 					return nullptr;
 				}
 				return pImage;
@@ -45,6 +49,7 @@ namespace xcgui {
 			.def_static("loadRes", [](int id, const std::wstring& typeName, uintptr_t hModule) -> XCImage* {
 				auto pImage = new XCImage();
 				if (!pImage->LoadRes(id, typeName, (HMODULE)hModule)) {
+					delete pImage;
 					return nullptr;
 				}
 				return pImage;
@@ -53,6 +58,7 @@ namespace xcgui {
 			.def_static("loadZip", [](const std::wstring& zipFileName, const std::wstring& fileName, const std::wstring& password) -> XCImage* {
 				auto pImage = new XCImage();
 				if (!pImage->LoadZip(zipFileName, fileName, password)) {
+					delete pImage;
 					return nullptr;
 				}
 				return pImage;
@@ -63,6 +69,7 @@ namespace xcgui {
 				const std::wstring& password, int x1, int x2, int y1, int y2) -> XCImage* {
 				auto pImage = new XCImage();
 				if (!pImage->LoadZipAdaptive(zipFileName, fileName, password, x1, x2, y1, y2)) {
+					delete pImage;
 					return nullptr;
 				}
 				return pImage;
@@ -72,6 +79,7 @@ namespace xcgui {
 				const std::wstring& password, int x, int y, int cx, int cy) -> XCImage* {
 				auto pImage = new XCImage();
 				if (!pImage->LoadZipRect(zipFileName, fileName, password, x, y, cx, cy)) {
+					delete pImage;
 					return nullptr;
 				}
 				return pImage;
@@ -81,6 +89,7 @@ namespace xcgui {
 			.def_static("loadZipMem", [](const py::bytes& data, const std::wstring& fileName, const std::wstring& password) -> XCImage* {
 				auto pImage = new XCImage();
 				if (!pImage->LoadZipMem(data, fileName, password)) {
+					delete pImage;
 					return nullptr;
 				}
 				return pImage;
@@ -89,6 +98,7 @@ namespace xcgui {
 			.def_static("loadMemory", [](const py::bytes& data) -> XCImage* {
 				auto pImage = new XCImage();
 				if (!pImage->LoadMemory(data)) {
+					delete pImage;
 					return nullptr;
 				}
 				return pImage;
@@ -98,6 +108,7 @@ namespace xcgui {
 			.def_static("loadMemoryRect", [](const py::bytes& data, int x, int y, int cx, int cy) -> XCImage* {
 				auto pImage = new XCImage();
 				if (!pImage->LoadMemoryRect(data, x, y, cx, cy)) {
+					delete pImage;
 					return nullptr;
 				}
 				return pImage;
@@ -107,6 +118,7 @@ namespace xcgui {
 			.def_static("loadMemoryAdaptive", [](const py::bytes& data, int leftSize, int topSize, int rightSize, int bottomSize) -> XCImage* {
 				auto pImage = new XCImage();
 				if (!pImage->LoadMemoryAdaptive(data, leftSize, topSize, rightSize, bottomSize)) {
+					delete pImage;
 					return nullptr;
 				}
 				return pImage;
@@ -116,6 +128,7 @@ namespace xcgui {
 			.def_static("loadFromImage", [](uintptr_t gdiImageHandle) -> XCImage* {
 				auto pImage = new XCImage();
 				if (!pImage->LoadFromImage((void*)gdiImageHandle)) {
+					delete pImage;
 					return nullptr;
 				}
 				return pImage;
@@ -125,6 +138,7 @@ namespace xcgui {
 			.def_static("loadFromExtractIcon", [](const std::wstring& fileName) -> XCImage* {
 				auto pImage = new XCImage();
 				if (!pImage->LoadFromExtractIcon(fileName)) {
+					delete pImage;
 					return nullptr;
 				}
 				return pImage;
@@ -134,6 +148,7 @@ namespace xcgui {
 			.def_static("loadFromHICON", [](uintptr_t hIcon) -> XCImage* {
 				auto pImage = new XCImage();
 				if (!pImage->LoadFromHICON((HICON)hIcon)) {
+					delete pImage;
 					return nullptr;
 				}
 				return pImage;
@@ -143,6 +158,7 @@ namespace xcgui {
 			.def_static("loadFromHBITMAP", [](uintptr_t hBitmap) -> XCImage* {
 				auto pImage = new XCImage();
 				if (!pImage->LoadFromHBITMAP((HBITMAP)hBitmap)) {
+					delete pImage;
 					return nullptr;
 				}
 				return pImage;
@@ -151,6 +167,7 @@ namespace xcgui {
 			.def_static("loadSvg", [](const XCSvg& svg) -> XCImage* {
 				auto pImage = new XCImage();
 				if (!pImage->LoadSvg(svg.getSvgHandle())) {
+					delete pImage;
 					return nullptr;
 				}
 				return pImage;
@@ -159,6 +176,7 @@ namespace xcgui {
 			.def_static("loadSvgFile", [](const std::wstring& fileName) -> XCImage* {
 				auto pImage = new XCImage();
 				if (!pImage->LoadSvgFile(fileName)) {
+					delete pImage;
 					return nullptr;
 				}
 				return pImage;
@@ -167,6 +185,7 @@ namespace xcgui {
 			.def_static("loadSvgString", [](const std::wstring& data) -> XCImage* {
 				auto pImage = new XCImage();
 				if (!pImage->LoadSvgStringW(data)) {
+					delete pImage;
 					return nullptr;
 				}
 				return pImage;
@@ -204,7 +223,10 @@ namespace xcgui {
 			.def("addRef", &XCImage::AddRef)
 			.def("release", &XCImage::Release)
 			.def("getRefCount", &XCImage::GetRefCount)
-			.def("destroy", &XCImage::Destroy);
+			.def("destroy", &XCImage::Destroy)
+			.def("setScaleSize", &XCImage::SetScaleSize, "width"_a, "height"_a)
+			
+			;
 
 	}
 }
