@@ -24,8 +24,26 @@ namespace xcgui {
 	public:
 		void Release() {
 			m_mData.clear();
+
+			for (auto& iter : m_mItemData) {
+				iter.second.clear();
+			}
 			m_mItemData.clear();
 		}
+
+		void RleaseByHandle(HXCGUI handle) {
+			auto iter = m_mData.find(handle);
+			if (iter != m_mData.end()) {
+				m_mData.erase(iter);
+			}
+
+			auto iterItem = m_mItemData.find(handle);
+			if (iterItem != m_mItemData.end()) {
+				iterItem->second.clear();
+				m_mItemData.erase(iterItem);
+			}
+		}
+
 		void SetUserData(HXCGUI handle, const py::object& object) {
 			m_mData[handle] = object;
 		}
@@ -66,6 +84,6 @@ namespace xcgui {
 	protected:
 		py::object m_none;
 		std::map<HXCGUI, py::object> m_mData;
-		std::map<HELE, std::map<std::string, py::object>> m_mItemData;
+		std::map<HXCGUI, std::map<std::string, py::object>> m_mItemData;
 	};
 }

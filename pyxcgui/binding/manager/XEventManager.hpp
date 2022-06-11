@@ -63,7 +63,26 @@ namespace xcgui {
 			m_mEventCallbacks[handle][eventType].emplace_back(eventObject);
 		}
 
+		void ReleaseByHandle(HXCGUI handle) {
+			auto iter = m_mEventCallbacks.find(handle);
+			if (iter != m_mEventCallbacks.end()) {
+				for (auto& subIter : iter->second) {
+					subIter.second.clear();
+				}
+				iter->second.clear();
+				m_mEventCallbacks.erase(iter);
+			}
+			
+		}
+
 		void Release() {
+			for (auto& iter : m_mEventCallbacks)
+			{
+				for (auto& subIter : iter.second) {
+					subIter.second.clear();
+				}
+				iter.second.clear();
+			}
 			m_mEventCallbacks.clear();
 		}
 

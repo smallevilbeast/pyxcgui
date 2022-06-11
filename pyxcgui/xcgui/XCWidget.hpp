@@ -188,10 +188,9 @@ namespace xcgui {
 		}
 
 		// 布局项_置外间距
-		void LayoutSetMargin(const XCRect& pRect)
+		void LayoutSetMargin(int left, int top, int right, int bottom)
 		{
-			XWidget_LayoutItem_SetMargin(m_handle, pRect.left, pRect.top,
-				pRect.right, pRect.bottom);
+			XWidget_LayoutItem_SetMargin(m_handle, left, top, right, bottom);
 		}
 
 		// 布局项_取外间距

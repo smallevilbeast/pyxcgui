@@ -36,6 +36,19 @@ namespace xcgui {
 			m_mAnimationItemCallbacks.clear();
 			m_mAnimationCallbacks.clear();
 		}
+
+		void ReleaseByHandle(HXCGUI handle) {
+			auto iter = m_mAnimationCallbacks.find(handle);
+			if (iter != m_mAnimationCallbacks.end()) {
+				m_mAnimationCallbacks.erase(iter);
+			}
+
+			auto iterItem = m_mAnimationItemCallbacks.find(handle);
+			if (iterItem != m_mAnimationItemCallbacks.end()) {
+				m_mAnimationItemCallbacks.erase(iterItem);
+			}
+
+		}
 		
 		static BOOL WINAPI OnLoadFileCallback(const wchar_t* pName) {
 			XCallbackManager::GetInstance()->ExecLoadFileCallback(pName);

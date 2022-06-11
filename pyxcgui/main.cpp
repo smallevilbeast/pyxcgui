@@ -71,7 +71,11 @@
 						 
 namespace xcgui {
 
+#ifdef PYXCGUIVS
+	PYBIND11_MODULE(xcgui, m) {
+#else
 	PYBIND11_MODULE(_xcgui, m) {
+#endif 
 		m.doc() = "xcgui for python";
 
 		// define

@@ -18,7 +18,7 @@ namespace xcgui {
 				XCastManager::GetInstance()->Release();
 				XCallbackManager::GetInstance()->Release();
 				self.Exit();
-			}, py::call_guard<py::gil_scoped_release>())
+			})
 			
 
 			.def("addFileSearchPath", &XCApp::AddFileSearchPath, "path"_a)
@@ -29,7 +29,7 @@ namespace xcgui {
 			.def("enableGdiDrawText", &XCApp::EnableGdiDrawText, "enable"_a)
 			.def("enableResMonitor", &XCApp::EnableResMonitor, "enable"_a)
 			.def("showLayoutFrame", &XCApp::ShowLayoutFrame, "enable"_a)
-			.def("showSvgFram", &XCApp::ShowSvgFram, "enable"_a)
+			.def("showSvgFrame", &XCApp::ShowSvgFrame, "enable"_a)
 			.def("setLayoutFrameColor", &XCApp::SetLayoutFrameColor, "color"_a)
 			.def("setPaintFrequency", &XCApp::SetPaintFrequency, "milliseconds"_a)
 			.def("setTextRenderingHint", &XCApp::SetTextRenderingHint, "nType"_a)

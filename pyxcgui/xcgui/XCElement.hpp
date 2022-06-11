@@ -682,8 +682,7 @@ namespace xcgui {
 		//@返回 返回透明度
 		//@别名  取透明度()
 		BYTE GetAlpha() {
-			//return XEle_GetAlpha((HELE)m_handle);
-			return 0;
+			return XEle_GetAlpha((HELE)m_handle);
 		}
 
 		// 销毁元素.  

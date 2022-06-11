@@ -2895,6 +2895,8 @@ XC_API void WINAPI XEle_SetFont(HELE hEle, HFONTX hFontx);
 XC_API HFONTX WINAPI XEle_GetFont(HELE hEle);
 XC_API HFONTX WINAPI XEle_GetFontEx(HELE hEle);
 XC_API void WINAPI XEle_SetAlpha(HELE hEle, BYTE alpha);
+XC_API BYTE WINAPI XEle_GetAlpha(HELE hEle);
+
 XC_API int  WINAPI XEle_GetChildCount(HELE hEle);
 XC_API HXCGUI WINAPI XEle_GetChildByIndex(HELE hEle, int index);
 XC_API HXCGUI WINAPI XEle_GetChildByID(HELE hEle, int nID);

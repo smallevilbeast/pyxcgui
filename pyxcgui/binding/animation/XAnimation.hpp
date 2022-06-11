@@ -15,7 +15,9 @@ namespace xcgui {
 				self.Run(ele.GetHandle());
 			}, "obejctUI"_a)
 
-			.def("release", &XCAnimation::Release, "enable"_a)
+			.def("release", [](XCAnimation& self, bool end=false) {
+				self.Release(end);
+			}, "end"_a)
 
 			.def_static("releaseEx", [](const XCObject& ele, bool bEnd=false) {
 				XCAnimation::ReleaseEx(ele.GetHandle(), bEnd);

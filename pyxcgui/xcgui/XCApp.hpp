@@ -61,7 +61,7 @@ namespace xcgui {
 		}
 
 		// 显示边界 辅助功能
-		void ShowSvgFram(bool bShow) {
+		void ShowSvgFrame(bool bShow) {
 			XC_ShowSvgFrame(bShow);
 		}
 

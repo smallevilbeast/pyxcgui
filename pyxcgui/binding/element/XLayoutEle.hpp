@@ -16,7 +16,7 @@ namespace xcgui {
 				return obj;
 			}), "x"_a, "y"_a, "width"_a, "height"_a, "parent"_a = nullptr)
 
-		.	def(py::init([](int cx, int cy, XCObjectUI* parent=nullptr) {
+			.def(py::init([](int cx, int cy, XCObjectUI* parent=nullptr) {
 				HXCGUI handle = nullptr;
 				if (parent) {
 					handle = parent->GetHandle();

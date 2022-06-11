@@ -7,6 +7,7 @@
 #include "manager/XUserDataManager.hpp"
 #include "manager/XEventManager.hpp"
 #include "manager/XCastManager.hpp"
+#include "manager/XCallbackManager.hpp"
 
 namespace xcgui {
 
@@ -14,11 +15,23 @@ namespace xcgui {
 
 		py::class_<XCElement, XCWidget>(m, "XElement")
 			PYCASTOBJECT(XCElement)
-			.def(py::init<>())
-			.def(py::init([](const XCObjectUI& parent, int x, int y, int cx, int cy) {
-				XCElement ele(x, y, cx, cy, parent.GetHandle());
+			.def(py::init([](int x, int y, int cx, int cy, const XCObjectUI* parent=nullptr) {	  
+				HXCGUI handle = nullptr;
+				if (parent) {
+					handle = parent->GetHandle();
+				}
+				XCElement ele(x, y, cx, cy, handle);
 				return ele;
-			}), "parent"_a, "x"_a, "y"_a, "width"_a, "height"_a)
+			}), "x"_a, "y"_a, "width"_a, "height"_a, "parent"_a=nullptr)
+
+			.def(py::init([](int cx, int cy, XCObjectUI* parent=nullptr) {
+				HXCGUI handle = nullptr;
+				if (parent) {
+					handle = parent->GetHandle();
+				}
+				XCElement obj(0,0, cx, cy, handle);
+				return obj;
+			}), "width"_a, "height"_a, "parent"_a=nullptr)
 
 			.def("regEvent", [](const XCElement& self, int eventType, const XEventCallback& callback, const py::object& userdata) {
 					XEventManager::GetInstance()->RegEleEvent(self.getEleHandle(), eventType, callback, userdata);
@@ -223,7 +236,12 @@ namespace xcgui {
 			})
 			.def("setAlpha", &XCElement::SetAlpha, "alpha"_a)
 			.def("getAlpha", &XCElement::GetAlpha)
-			.def("destroy", &XCElement::Destroy)
+			.def("destroy", [](XCElement& self) {
+				XEventManager::GetInstance()->ReleaseByHandle(self.GetHandle());
+				XUserDataManager::GetInstance()->RleaseByHandle(self.GetHandle());
+				XCallbackManager::GetInstance()->ReleaseByHandle(self.GetHandle());
+				self.Destroy();
+			})
 			.def("addBkBorder", &XCElement::AddBkBorder, "state"_a, "hColor"_a, "width"_a)
 			.def("addBkFill", &XCElement::AddBkFill, "state"_a, "hColor"_a)
 			.def("addBkImage", [](XCElement& self, int nState, const XCImage& image) {

@@ -50,7 +50,7 @@ namespace xcgui {
 			.def("layoutGetWidth", &XCWidget::LayoutGetWidth)
 			.def("layoutGetHeight", &XCWidget::LayoutGetHeight)
 			.def("layoutSetAlign", &XCWidget::LayoutSetAlign, "align"_a)
-			.def("layoutSetMargin", &XCWidget::LayoutSetMargin, "margin"_a)
+			.def("layoutSetMargin", &XCWidget::LayoutSetMargin, "left"_a, "top"_a, "right"_a, "bottom"_a)
 			.def("layoutGetMargin", &XCWidget::LayoutGetMargin)
 			.def("layoutSetMinSize", &XCWidget::LayoutSetMinSize, "width"_a, "height"_a)
 			.def("layoutSetPosition", &XCWidget::LayoutSetPosition, "left"_a, "top"_a, "right"_a, "bottom"_a);
