@@ -79,26 +79,10 @@ namespace xcgui
 	public:
 		SINGLETON_DEFINE(XCastManager);
 		XCastManager() = default;
-		~XCastManager() {
-			Release();
-		}
+		~XCastManager() = default;
 
 
 	public:
-		void Release() {	 
-			for (auto iter : m_mObjects) {
-				delete iter.second;
-			}
-			m_mObjects.clear();
-		}
-
-		XCObject* FindObject(HXCGUI handle) {
-			auto iter = m_mObjects.find(handle);
-			if (iter != m_mObjects.end()) {
-				return iter->second;
-			}
-			return nullptr;
-		}
 
 		XCObject* NewObject(HXCGUI handle) {
 			auto objectType = XObj_GetType(handle);
@@ -320,39 +304,13 @@ namespace xcgui
 		{
 			if (!handle)
 				return nullptr;
-			XCObject* pObj = nullptr;
-			pObj = this->FindObject(handle);
-			if (pObj) {
-				return pObj;
-			}
-
-			pObj = NewObject(handle);
+			auto pObj = NewObject(handle);
 			if (!pObj) {
 				return nullptr;
 			}
-
-			m_mObjects[handle] = pObj;
 			return pObj;
 		}
 
-		XCObject* CastObject(const XCObject& obj) {
-			return CastObject(obj.GetHandle());
-		}
-
-		XCObject* CastObject(const XCObject* pObj) {
-			return CastObject(pObj->GetHandle());
-		}
-
-		void ReleaseByHandle(HXCGUI handle) {
-			auto iter = m_mObjects.find(handle);
-			if (iter != m_mObjects.end()) {
-				delete iter->second;
-				m_mObjects.erase(iter);
-			}
-		}
-		
-	protected:
-		std::map<HXCGUI, XCObject*> m_mObjects;
 	};
 
 

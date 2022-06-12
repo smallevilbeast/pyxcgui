@@ -66,7 +66,7 @@ namespace xcgui {
 			.def("getTemplateObject", [](XCTree& self, int itemId, int templateId) -> XCObject* {
 				auto handle = self.GetTemplateObject(itemId, templateId);
 				return XCastManager::GetInstance()->CastObject(handle);
-			}, "itemId"_a, "templateId"_a, py::return_value_policy::reference)
+			}, "itemId"_a, "templateId"_a, py::return_value_policy::take_ownership)
 
 			.def("getItemIdFromUIObject", [](XCTree& self, const XCWidget& widget) {
 				return self.GetItemIDFromHXCGUI(widget.GetHandle());
@@ -105,14 +105,14 @@ namespace xcgui {
 			.def("createAdapter", [](XCTree& self) -> XCObject* {
 				auto handle = self.CreateAdapter();
 				return XCastManager::GetInstance()->CastObject(handle);
-			}, py::return_value_policy::reference)
+			}, py::return_value_policy::take_ownership)
 			.def("bindAdapter", [](XCTree& self, const XCAdapter& adapter) {
 				self.BindAdapter(adapter.GetHandle());
 			}, "adapter"_a)
 			.def("getAdapter", [](XCTree& self) -> XCObject* {
 				auto handle = self.GetAdapter();
 				return XCastManager::GetInstance()->CastObject(handle);
-			}, py::return_value_policy::reference)
+			}, py::return_value_policy::take_ownership)
 
 			.def("refreshData", &XCTree::RefreshData)
 			.def("refreshItem", &XCTree::RefreshItem, "itemId"_a)

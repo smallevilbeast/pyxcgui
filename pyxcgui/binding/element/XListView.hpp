@@ -36,14 +36,14 @@ namespace xcgui {
 			.def("createAdapter", [](XCListView& self) -> XCObject* {
 				auto handle = self.CreateAdapter();
 				return XCastManager::GetInstance()->CastObject(handle);
-			}, py::return_value_policy::reference)
+			}, py::return_value_policy::take_ownership)
 			.def("bindAdapter", [](XCListView& self, const XCAdapter& adapter) {
 				self.BindAdapter(adapter.GetHandle());
 			}, "adapter"_a)
 			.def("getAdapter", [](XCListView& self) -> XCObject* {
 				auto handle = self.GetAdapter();
 				return XCastManager::GetInstance()->CastObject(handle);
-			}, py::return_value_policy::reference)
+			}, py::return_value_policy::take_ownership)
 
 
 			.def("setItemTemplateXML", &XCListView::SetItemTemplateXML, "xmlFile"_a)
@@ -56,12 +56,12 @@ namespace xcgui {
 			.def("getTemplateObject", [](XCListView& self, int groupId, int itemId, int templateId) -> XCObject* {
 				auto handle = self.GetTemplateObject(groupId, itemId, templateId);
 				return XCastManager::GetInstance()->CastObject(handle);
-			}, "groupId"_a, "itemId"_a, "templateId"_a, py::return_value_policy::reference)
+			}, "groupId"_a, "itemId"_a, "templateId"_a, py::return_value_policy::take_ownership)
 
 			.def("getTemplateObjectGroup", [](XCListView& self, int groupId, int itemId) -> XCObject* {
 				auto handle = self.GetTemplateObjectGroup(groupId, itemId);
 				return XCastManager::GetInstance()->CastObject(handle);
-			}, "groupId"_a, "itemId"_a, py::return_value_policy::reference)
+			}, "groupId"_a, "itemId"_a, py::return_value_policy::take_ownership)
 
 			.def("getItemIdFromUIObject", [](XCListView& self, const XCWidget& widget) {
 				listView_item_id_ info = {0};

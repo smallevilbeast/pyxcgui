@@ -19,15 +19,15 @@ namespace xcgui {
 			.def("findObjectByName", [](XCObjectUI& self, const std::wstring& name) -> XCObject* {
 				auto handle = self.FindObjectByName(name);
 				return XCastManager::GetInstance()->CastObject(handle);
-			}, "name"_a, py::return_value_policy::reference)
+			}, "name"_a, py::return_value_policy::take_ownership)
 			.def("findObjectByUID", [](XCObjectUI& self, int nId) -> XCObject* {
 				auto handle = self.FindObjectByUID(nId);
 				return XCastManager::GetInstance()->CastObject(handle);
-			}, "nID"_a, py::return_value_policy::reference)
+			}, "nID"_a, py::return_value_policy::take_ownership)
 			.def("findObjectByUIDName", [](XCObjectUI& self, const std::wstring& name) -> XCObject* {
 				auto handle = self.FindObjectByUIDName(name);
 				return XCastManager::GetInstance()->CastObject(handle);
-			}, "name"_a, py::return_value_policy::reference)
+			}, "name"_a, py::return_value_policy::take_ownership)
 
 			.def("loadLayout", [](XCObjectUI& self, const std::wstring& fileName, 
 				XCObject* parent=nullptr, uintptr_t attachHWND=0) -> bool {

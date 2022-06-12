@@ -7,9 +7,8 @@
 #include "xcgui/window/XCWindow.hpp"
 #include "XCastManager.hpp"
 #include "xcgui/XCStruct.hpp"
-#include "XUserDataManager.hpp"
 #include "XCastManager.hpp"
-#include "XCallbackManager.hpp"
+
 
 namespace xcgui {
 
@@ -85,13 +84,6 @@ namespace xcgui {
 			m_mEventCallbacks.clear();
 		}
 
-		void ReleaseAllByHandle(HXCGUI handle) {
-			ReleaseByHandle(handle);
-			XCastManager::GetInstance()->ReleaseByHandle(handle);
-			XCallbackManager::GetInstance()->ReleaseByHandle(handle);
-			XUserDataManager::GetInstance()->ReleaseByHandle(handle);
-
-		}
 
 	protected:
 		int OnGuiEventCallback(HXCGUI ele, UINT nEvent, WPARAM wParam, LPARAM lParam, BOOL* pbHandled) {

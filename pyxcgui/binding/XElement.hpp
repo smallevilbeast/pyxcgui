@@ -141,7 +141,7 @@ namespace xcgui {
 			.def("hitChildEle", [](XCElement& self, const XCPoint& point) {
 					auto handle = self.HitChildEle((POINT*) & point);
 					return XCastManager::GetInstance()->CastObject(handle);
-			}, "point"_a, py::return_value_policy::reference)
+			}, "point"_a, py::return_value_policy::take_ownership)
 			
 			.def("isBkTransparent", &XCElement::IsBkTransparent)
 			.def("isEnableEvent_XE_PAINT_END", &XCElement::IsEnableEvent_XE_PAINT_END)
@@ -181,11 +181,11 @@ namespace xcgui {
 			.def("getChildByIndex", [](XCElement& self, int index) {
 				auto handle = self.GetChildByIndex(index);
 				return XCastManager::GetInstance()->CastObject(handle);
-			}, "index"_a, py::return_value_policy::reference)
+			}, "index"_a, py::return_value_policy::take_ownership)
 			.def("getChildByID", [](XCElement& self, int nId) {
 				auto handle = self.GetChildByID(nId);
 				return XCastManager::GetInstance()->CastObject(handle);
-				}, "nId"_a, py::return_value_policy::reference)
+				}, "nId"_a, py::return_value_policy::take_ownership)
 
 			.def("setBorderSize", &XCElement::SetBorderSize, "left"_a, "top"_a, "right"_a, "bottom"_a)
 			.def("getBorderSize", [](XCElement& self) -> XCRect {

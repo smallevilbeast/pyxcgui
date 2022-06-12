@@ -41,7 +41,7 @@ namespace xcgui {
 			.def("getBindEle", [](XCButton& self) {
 				auto handle = self.GetBindEle();
 				return XCastManager::GetInstance()->CastObject(handle);
-			}, py::return_value_policy::reference)
+			}, py::return_value_policy::take_ownership)
 			.def("setTextAlign", &XCButton::SetTextAlign, "flags"_a)
 			.def("getTextAlign", &XCButton::GetTextAlign)
 			.def("setIconAlign", &XCButton::SetIconAlign, "align"_a)

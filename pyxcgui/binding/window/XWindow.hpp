@@ -42,12 +42,12 @@ namespace xcgui {
 
 			.def("getFoucsEle", [](const XCWindow& self) -> XCObject* {
 				return XCastManager::GetInstance()->CastObject((HXCGUI)self.GetFocusEle());
-			}, py::return_value_policy::reference)
+			}, py::return_value_policy::take_ownership)
 
 
 			.def("getStayEle", [](const XCWindow& self) -> XCObject* {
 				return XCastManager::GetInstance()->CastObject((HXCGUI)self.GetStayEle());
-			}, py::return_value_policy::reference)
+			}, py::return_value_policy::take_ownership)
 
 			.def("drawWindow", [](XCWindow& self, const XCDraw& draw){
 				self.DrawWindow(draw.getDrawHandle());
@@ -88,7 +88,7 @@ namespace xcgui {
 			.def("getCaptureEle", [](XCWindow& self) {
 				auto ele = self.GetCaptureEle();
 				return XCastManager::GetInstance()->CastObject((HXCGUI)ele);
-			}, py::return_value_policy::reference)
+			}, py::return_value_policy::take_ownership)
 
 			.def("getDrawRect", [](XCWindow& self) {
 				XCRect rect;
@@ -137,26 +137,26 @@ namespace xcgui {
 			.def("hitChildEle", [](XCWindow& self, const XCPoint& point) -> XCObject* {
 					auto handle = self.HitChildEle((POINT*) & point);
 					return XCastManager::GetInstance()->CastObject(handle);
-			}, "point"_a, py::return_value_policy::reference)
+			}, "point"_a, py::return_value_policy::take_ownership)
 
 			.def("getChildCount", &XCWindow::GetChildCount)
 			.def("getChildByIndex", [](XCWindow& self, int index) -> XCObject* {
 				auto handle = self.GetChildByIndex(index);
 				return XCastManager::GetInstance()->CastObject(handle);
-			}, "index"_a, py::return_value_policy::reference)
+			}, "index"_a, py::return_value_policy::take_ownership)
 			.def("getChildByID", [](XCWindow& self, int nId) -> XCObject* {
 				auto handle = self.GetChildByID(nId);
 				return XCastManager::GetInstance()->CastObject(handle);
-			}, "nId"_a, py::return_value_policy::reference)
+			}, "nId"_a, py::return_value_policy::take_ownership)
 			
 			.def("findChildByID", [](XCWindow& self, int nId) -> XCObject* {
 				auto handle = self.FindChildByID(nId);
 				return XCastManager::GetInstance()->CastObject(handle);
-			}, "nId"_a, py::return_value_policy::reference)
+			}, "nId"_a, py::return_value_policy::take_ownership)
 			.def("findChildByIDName", [](XCWindow& self, const std::wstring& name) -> XCObject* {
 				auto handle = self.FindChildByIDName(name);
 				return XCastManager::GetInstance()->CastObject(handle);
-			}, "name"_a, py::return_value_policy::reference)
+			}, "name"_a, py::return_value_policy::take_ownership)
 
 
 			.def("setIcon", [](XCWindow& self, const XCImage& image) {
@@ -196,7 +196,7 @@ namespace xcgui {
 			.def("getCare", [](XCWindow& self) -> XCObject* {
 				auto handle = self.GetCaretHELE();
 				return XCastManager::GetInstance()->CastObject(handle);
-			}, py::return_value_policy::reference)
+			}, py::return_value_policy::take_ownership)
 			.def("getCareInfo", [](XCWindow& self) ->  XCCareInfo {
 				XCCareInfo info;
 				auto handle = self.GetCaretInfo(&info.x, &info.y, &info.width, &info.height);
@@ -252,11 +252,11 @@ namespace xcgui {
 			.def("getBkManager", [](XCWindow& self) -> XCObject* {
 				auto handle = self.GetBkManager();
 				return XCastManager::GetInstance()->CastObject(handle);
-			})
+			}, py::return_value_policy::take_ownership)
 			.def("getBkManagerEx", [](XCWindow& self) -> XCObject* {
 				auto handle = self.GetBkManagerEx();
 				return XCastManager::GetInstance()->CastObject(handle);
-			})
+			}, py::return_value_policy::take_ownership)
 			.def("setBkMagager", [](XCWindow& self, const XCBkManager& manager){
 				self.SetBkMagager(manager.GetBkmHandle());
 			}, "bkm"_a)

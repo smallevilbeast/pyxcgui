@@ -10,12 +10,11 @@ namespace xcgui {
 
 	void declareApp(py::module& m) {
 		py::class_<XCApp>(m, "XApp")
-			.def(py::init<bool>(), py::arg("bD2D") = false)
+			.def(py::init<bool>(), py::arg("useD2D") = false)
 			.def("run", &XCApp::Run, py::call_guard<py::gil_scoped_release>())
 			.def("exit", [](XCApp& self) {
 				XEventManager::GetInstance()->Release();
 				XUserDataManager::GetInstance()->Release();
-				XCastManager::GetInstance()->Release();
 				XCallbackManager::GetInstance()->Release();
 				self.Exit();
 			})

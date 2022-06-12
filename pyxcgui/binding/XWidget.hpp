@@ -23,18 +23,18 @@ namespace xcgui {
 
 			.def("getParentEle", [](const XCWidget& self) -> XCObject* { 
 				return XCastManager::GetInstance()->CastObject(self.GetParentEle());
-			}, py::return_value_policy::reference)
+			}, py::return_value_policy::take_ownership)
 
 
 			.def("getParent", [](const XCWidget& self) -> XCObject* {
 				return XCastManager::GetInstance()->CastObject(self.getParent());
-			}, py::return_value_policy::reference)
+			}, py::return_value_policy::take_ownership)
 
 
 			.def("getHWND", &XCWidget::GetHWND)
 			.def("getWindow", [](const XCWidget& self) -> XCObject* {
 				return XCastManager::GetInstance()->CastObject(self.GetWindow());
-			}, py::return_value_policy::reference)
+			}, py::return_value_policy::take_ownership)
 
 			.def("setID", &XCWidget::SetID, "id"_a)
 			.def("getID", &XCWidget::GetID)

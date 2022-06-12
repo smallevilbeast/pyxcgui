@@ -101,22 +101,22 @@ namespace xcgui {
 			.def("createAdapter", [](XCList& self, int colExtendCount) -> XCObject* {
 				auto handle = self.CreateAdapter(colExtendCount);
 				return XCastManager::GetInstance()->CastObject(handle);
-			}, "colExtendCount"_a, py::return_value_policy::reference)
+			}, "colExtendCount"_a, py::return_value_policy::take_ownership)
 
 			.def("createAdapterHeader", [](XCList& self) -> XCObject* {
 				auto handle = self.CreateAdapterHeader();
 				return XCastManager::GetInstance()->CastObject(handle);
-			}, py::return_value_policy::reference)
+			}, py::return_value_policy::take_ownership)
 
 			.def("getAdapter", [](XCList& self) -> XCObject* {
 				auto handle = self.GetAdapter();
 				return XCastManager::GetInstance()->CastObject(handle);
-			}, py::return_value_policy::reference)
+			}, py::return_value_policy::take_ownership)
 
 			.def("getAdapterHeader", [](XCList& self) -> XCObject* {
 				auto handle = self.GetAdapterHeader();
 				return XCastManager::GetInstance()->CastObject(handle);
-			}, py::return_value_policy::reference)
+			}, py::return_value_policy::take_ownership)
 
 			.def("setItemTemplateXML", &XCList::SetItemTemplateXML, "xmlFile"_a)
 			.def("setItemTemplate", [](XCList& self, const XCListItemTemplate& itemTemplate) {

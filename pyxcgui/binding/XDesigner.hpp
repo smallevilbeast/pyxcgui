@@ -16,7 +16,7 @@ namespace xcgui {
 				auto handle = XCDesigner::LoadLayout(fileName, parentHandle, (HWND)attachHWND);
 				return XCastManager::GetInstance()->CastObject(handle);
 
-			}, "fileName"_a, "parent"_a=nullptr, "attachHWND"_a=0, py::return_value_policy::reference)
+			}, "fileName"_a, "parent"_a=nullptr, "attachHWND"_a=0, py::return_value_policy::take_ownership)
 
 		   .def_static("loadLayoutFromString", [](const std::string& xml, XCObject* parent=nullptr, uintptr_t attachHWND=0) -> XCObject* {
 				HXCGUI parentHandle = NULL;
@@ -26,7 +26,7 @@ namespace xcgui {
 				auto handle = XCDesigner::LoadLayoutFromString(xml, parentHandle, (HWND)attachHWND);
 				return XCastManager::GetInstance()->CastObject(handle);
 
-			}, "xml"_a, "parent"_a=nullptr, "attachHWND"_a=0, py::return_value_policy::reference)
+			}, "xml"_a, "parent"_a=nullptr, "attachHWND"_a=0, py::return_value_policy::take_ownership)
 
 			.def_static("loadLayoutZip", [](const std::wstring& zipFileName,
 				const std::wstring& fileName, const std::wstring& password,
@@ -39,7 +39,7 @@ namespace xcgui {
 				return XCastManager::GetInstance()->CastObject(handle);
 
 			}, "zipFileName"_a, "fileName"_a, "password"_a, "parent"_a = nullptr, "attachHWND"_a = 0,
-				py::return_value_policy::reference)
+				py::return_value_policy::take_ownership)
 
 			.def_static("loadLayoutZipMem", [](const py::bytes& data,
 				const std::wstring& fileName, const std::wstring& password,
@@ -52,7 +52,7 @@ namespace xcgui {
 				return XCastManager::GetInstance()->CastObject(handle);
 
 			}, "data"_a, "fileName"_a, "password"_a, "parent"_a = nullptr, "attachHWND"_a = 0,
-				py::return_value_policy::reference)
+				py::return_value_policy::take_ownership)
 
 			.def_static("loadResource", &XCDesigner::LoadResource, "filename"_a)
 			.def_static("loadResourceString", &XCDesigner::LoadResourceString, "xml"_a, "filename"_a)

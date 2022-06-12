@@ -28,7 +28,7 @@ namespace xcgui {
 			.def("getObjectUI", [](XCAnimation& self) -> XCObject*  {
 				auto handle = self.GetObjectUI();
 				return XCastManager::GetInstance()->CastObject(handle);
-			}, py::return_value_policy::reference)
+			}, py::return_value_policy::take_ownership)
 				
 			.def("setCallback", [](XCAnimation& self, const XAnimationCallback& callback) {
 				XCallbackManager::GetInstance()->SetAnimationCallback(self.GetHandle(), callback);

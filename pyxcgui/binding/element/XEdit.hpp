@@ -45,7 +45,7 @@ namespace xcgui {
 			.def("isInSelect", &XCEdit::IsInSelect, "row"_a, "column"_a)
 			.def("getRowCount", &XCEdit::GetRowCount)
 
-			.def("getData", &XCEdit::GetData, py::return_value_policy::reference)
+			.def("getData", &XCEdit::GetData, py::return_value_policy::take_ownership)
 			.def("addData", [](XCEdit& self, edit_data_copy_* data, std::vector<USHORT> styleTable){
 				self.AddData(data, &styleTable[0], styleTable.size());
 			}, "data"_a, "styleTableList"_a)

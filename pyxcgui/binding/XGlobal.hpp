@@ -15,7 +15,7 @@ namespace xcgui {
 
 		m.def("Cast", [](uintptr_t handle) -> XCObject* {
 			return XCastManager::GetInstance()->CastObject((HXCGUI)handle);
-		}, "handle"_a, py::return_value_policy::reference);
+		}, "handle"_a, py::return_value_policy::take_ownership);
 
 
 		m.def("RGB", [](BYTE r, BYTE g, BYTE b) {

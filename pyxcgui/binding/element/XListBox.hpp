@@ -109,21 +109,21 @@ namespace xcgui {
 			.def("getTemplateObject", [](XCListBox& self, int itemId, int templateId) -> XCObject* {
 				auto handle = self.GetTemplateObject(itemId, templateId);
 				return XCastManager::GetInstance()->CastObject(handle);
-			},  "itemId"_a, "templateId"_a, py::return_value_policy::reference)
+			},  "itemId"_a, "templateId"_a, py::return_value_policy::take_ownership)
 
 
 			.def("enableMultiSel", &XCListBox::EnableMultiSel, "enable"_a)
 			.def("createAdapter", [](XCListBox& self) -> XCObject* {
 				auto handle = self.CreateAdapter();
 				return XCastManager::GetInstance()->CastObject(handle);
-			}, py::return_value_policy::reference)
+			}, py::return_value_policy::take_ownership)
 			.def("bindAdapter", [](XCListBox& self, const XCAdapter& adapter) {
 				self.BindAdapter(adapter.GetHandle());
 			}, "adapter"_a)
 			.def("getAdapter", [](XCListBox& self) -> XCObject* {
 				auto handle = self.GetAdapter();
 				return XCastManager::GetInstance()->CastObject(handle);
-			}, py::return_value_policy::reference)
+			}, py::return_value_policy::take_ownership)
 
 			.def("sort", &XCListBox::Sort, "columnAdapter"_a, "ascending"_a)
 			.def("refreshData", &XCListBox::RefreshData)
