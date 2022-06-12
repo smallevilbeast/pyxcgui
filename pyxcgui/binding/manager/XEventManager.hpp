@@ -61,6 +61,7 @@ namespace xcgui {
 			}
 		}
 
+
 		void RegDestroyEvent(HXCGUI handle) {
 			if (XC_IsHWINDOW(handle)) {
 				RegWindowDestroyEvent((HWINDOW)handle);
@@ -75,7 +76,6 @@ namespace xcgui {
 
 		void RegWindowEvent(HWINDOW handle, int eventType, const XEventCallback& callback, const py::object& userdata)
 		{
-			py::gil_scoped_acquire gil;
 
 			this->RegWindowDestroyEvent(handle);
 
@@ -89,8 +89,6 @@ namespace xcgui {
 		}
 
 		void RegEleEvent(HELE handle, int eventType, const XEventCallback& callback, const py::object& userdata) {
-
-			py::gil_scoped_acquire gil;
 
 			this->RegElementDestroyEvent(handle);
 
@@ -126,17 +124,20 @@ namespace xcgui {
 		}
 
 		void ReleaseAllByHandle(HXCGUI handle) {
+		
+
 			ReleaseByHandle(handle);
 			XCastManager::GetInstance()->ReleaseByHandle(handle);
 			XCallbackManager::GetInstance()->ReleaseByHandle(handle);
 			XUserDataManager::GetInstance()->ReleaseByHandle(handle);
+
 		}
 
 	protected:
 		int OnGuiEventCallback(HXCGUI ele, UINT nEvent, WPARAM wParam, LPARAM lParam, BOOL* pbHandled) {
 			
-			py::gil_scoped_acquire gil;
-
+			//py::gil_scoped_release gil_release;
+			
 			auto winIter = m_mEventCallbacks.find(ele);
 			if (winIter != m_mEventCallbacks.end()) {
 				auto& eventMap = winIter->second;
@@ -162,8 +163,14 @@ namespace xcgui {
 					}
 				}
 			}
-			if (nEvent == WM_DESTROY || nEvent == XE_DESTROY_END) {
-				this->ReleaseByHandle(ele);
+
+			if (nEvent ==  WM_DESTROY && XC_IsHWINDOW(ele)) {
+				py::gil_scoped_acquire gil_acquire;
+				this->ReleaseAllByHandle(ele);
+			}
+
+			if (nEvent == XE_DESTROY_END && XC_IsHELE(ele)) {
+				this->ReleaseAllByHandle(ele);
 			}
 			
 			return 0;
