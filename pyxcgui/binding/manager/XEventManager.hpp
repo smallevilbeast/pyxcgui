@@ -49,6 +49,7 @@ namespace xcgui {
 			if (!IsReged(handle, WM_DESTROY))
 			{
 				XWnd_RegEventCPP1(handle, WM_DESTROY, &XEventManager::OnGuiEventCallback);
+				m_mEventCallbacks[handle][WM_DESTROY] = std::vector<XEventObject>();
 			}
 		}
 
@@ -56,6 +57,7 @@ namespace xcgui {
 			if (!IsReged(handle, XE_DESTROY_END))
 			{
 				XEle_RegEventCPP1(handle, XE_DESTROY_END, &XEventManager::OnGuiEventCallback);
+				m_mEventCallbacks[handle][XE_DESTROY_END] = std::vector<XEventObject>();
 			}
 		}
 
@@ -73,6 +75,8 @@ namespace xcgui {
 
 		void RegWindowEvent(HWINDOW handle, int eventType, const XEventCallback& callback, const py::object& userdata)
 		{
+			py::gil_scoped_acquire gil;
+
 			this->RegWindowDestroyEvent(handle);
 
 			if (!IsReged(handle, eventType))
@@ -85,6 +89,8 @@ namespace xcgui {
 		}
 
 		void RegEleEvent(HELE handle, int eventType, const XEventCallback& callback, const py::object& userdata) {
+
+			py::gil_scoped_acquire gil;
 
 			this->RegElementDestroyEvent(handle);
 
@@ -127,7 +133,6 @@ namespace xcgui {
 		}
 
 	protected:
-		
 		int OnGuiEventCallback(HXCGUI ele, UINT nEvent, WPARAM wParam, LPARAM lParam, BOOL* pbHandled) {
 			
 			py::gil_scoped_acquire gil;
