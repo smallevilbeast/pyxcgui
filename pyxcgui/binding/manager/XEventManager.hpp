@@ -17,6 +17,7 @@ namespace xcgui {
 
 	class XEventObject {
 	public:
+
 		XEventObject(const XEventCallback& callback, const py::object& userdata)
 			: callback(callback)
 			, userdata(userdata)
@@ -39,73 +40,42 @@ namespace xcgui {
 	public:
 		bool IsReged(HXCGUI handle, int eventType) {
 			auto iter = m_mEventCallbacks.find(handle);
-			if (iter != m_mEventCallbacks.end() && iter->second.find(eventType) != iter->second.end()) {
-				return true;
+			if (iter != m_mEventCallbacks.end()) {
+				auto& typeMap = iter->second;
+				auto subIter = typeMap.find(eventType);
+				if (subIter != typeMap.end()) {
+					return true;
+				}
 			}
 			return false;
 		}
 
-		void RegWindowDestroyEvent(HWINDOW handle) {
-			if (!IsReged(handle, WM_DESTROY))
-			{
-				XWnd_RegEventCPP1(handle, WM_DESTROY, &XEventManager::OnGuiEventCallback);
-				m_mEventCallbacks[handle][WM_DESTROY] = std::vector<XEventObject>();
-			}
-		}
-
-		void RegElementDestroyEvent(HELE handle) {
-			if (!IsReged(handle, XE_DESTROY_END))
-			{
-				XEle_RegEventCPP1(handle, XE_DESTROY_END, &XEventManager::OnGuiEventCallback);
-				m_mEventCallbacks[handle][XE_DESTROY_END] = std::vector<XEventObject>();
-			}
-		}
-
-
-		void RegDestroyEvent(HXCGUI handle) {
-			if (XC_IsHWINDOW(handle)) {
-				RegWindowDestroyEvent((HWINDOW)handle);
-				return;
-			}
-
-			if (XC_IsHELE(handle)) {
-				RegElementDestroyEvent((HELE)handle);
-				return;
-			}
-		}
 
 		void RegWindowEvent(HWINDOW handle, int eventType, const XEventCallback& callback, const py::object& userdata)
 		{
-
-			this->RegWindowDestroyEvent(handle);
 
 			if (!IsReged(handle, eventType))
 			{
 				XWnd_RegEventCPP1(handle, eventType, &XEventManager::OnGuiEventCallback);
 			}
 
-			XEventObject eventObject(callback, userdata);
-			m_mEventCallbacks[handle][eventType].emplace_back(eventObject);
+			XEventObject* eventObject =  new XEventObject(callback, userdata);
+			m_mEventCallbacks[handle][eventType] = std::move(XEventItem(eventObject));
 		}
 
 		void RegEleEvent(HELE handle, int eventType, const XEventCallback& callback, const py::object& userdata) {
-
-			this->RegElementDestroyEvent(handle);
 
 			if (!IsReged(handle, eventType))
 			{
 				XEle_RegEventCPP1(handle, eventType, &XEventManager::OnGuiEventCallback);
 			}
-			XEventObject eventObject(callback, userdata);
-			m_mEventCallbacks[handle][eventType].emplace_back(eventObject);
+			XEventObject* eventObject = new XEventObject(callback, userdata);
+			m_mEventCallbacks[handle][eventType] = std::move(XEventItem(eventObject));
 		}
 
 		void ReleaseByHandle(HXCGUI handle) {
 			auto iter = m_mEventCallbacks.find(handle);
 			if (iter != m_mEventCallbacks.end()) {
-				for (auto& subIter : iter->second) {
-					subIter.second.clear();
-				}
 				iter->second.clear();
 				m_mEventCallbacks.erase(iter);
 			}
@@ -115,17 +85,12 @@ namespace xcgui {
 		void Release() {
 			for (auto& iter : m_mEventCallbacks)
 			{
-				for (auto& subIter : iter.second) {
-					subIter.second.clear();
-				}
 				iter.second.clear();
 			}
 			m_mEventCallbacks.clear();
 		}
 
 		void ReleaseAllByHandle(HXCGUI handle) {
-		
-
 			ReleaseByHandle(handle);
 			XCastManager::GetInstance()->ReleaseByHandle(handle);
 			XCallbackManager::GetInstance()->ReleaseByHandle(handle);
@@ -135,49 +100,55 @@ namespace xcgui {
 
 	protected:
 		int OnGuiEventCallback(HXCGUI ele, UINT nEvent, WPARAM wParam, LPARAM lParam, BOOL* pbHandled) {
-			
-			//py::gil_scoped_release gil_release;
-			
+
 			auto winIter = m_mEventCallbacks.find(ele);
 			if (winIter != m_mEventCallbacks.end()) {
 				auto& eventMap = winIter->second;
 				auto eventIter = eventMap.find((int)nEvent);
 				if (eventIter != eventMap.end()) {
-					auto& eventList = eventIter->second;
-					for (auto& eventObj : eventList) {
-						auto pSender = XCastManager::GetInstance()->CastObject(ele);
-						
-						XCEvent event;
-						event.eventType = nEvent;
-						event.sender = pSender;
-						event.wParam = (uintptr_t)wParam;
-						event.lParam = (uintptr_t)lParam;
-													  
-						
-						if (eventObj.callback(event, eventObj.userdata))
-						{
-						
-							*pbHandled = TRUE;
-							break;
-						}
+					auto& eventItem = eventIter->second;
+					auto pSender = XCastManager::GetInstance()->CastObject(ele);
+
+					XCEvent event;
+					event.eventType = nEvent;
+					event.sender = pSender;
+					event.wParam = (uintptr_t)wParam;
+					event.lParam = (uintptr_t)lParam;
+
+					if ((*eventIter->second.notify).callback(event, (*eventIter->second.notify).userdata))
+					{
+
+						*pbHandled = TRUE;
 					}
 				}
 			}
-
-			if (nEvent ==  WM_DESTROY && XC_IsHWINDOW(ele)) {
-				py::gil_scoped_acquire gil_acquire;
-				this->ReleaseAllByHandle(ele);
-			}
-
-			if (nEvent == XE_DESTROY_END && XC_IsHELE(ele)) {
-				this->ReleaseAllByHandle(ele);
-			}
-			
 			return 0;
 		}
 
 
 	protected:
-		std::map<HXCGUI, std::map<int, std::vector<XEventObject>>> m_mEventCallbacks;
+		struct XEventItem
+		{
+			XEventItem(XEventObject* _notify = nullptr)
+			{
+				notify.reset(_notify);
+			}
+
+			XEventItem(XEventItem&& item) throw()
+				: notify(std::move(item.notify))
+			{
+			}
+
+			XEventItem& operator=(XEventItem&& item) throw()
+			{
+				if (this != &item)
+					notify = std::move(item.notify);
+				return *this;
+			}
+
+			std::unique_ptr<XEventObject> notify;
+		};
+
+		std::map<HXCGUI, std::map<int, XEventItem>> m_mEventCallbacks;
 	};
 }
