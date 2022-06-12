@@ -54,10 +54,7 @@ namespace xcgui {
 		void RegWindowEvent(HWINDOW handle, int eventType, const XEventCallback& callback, const py::object& userdata)
 		{
 
-			if (!IsReged(handle, eventType))
-			{
-				XWnd_RegEventCPP1(handle, eventType, &XEventManager::OnGuiEventCallback);
-			}
+			XWnd_RegEventCPP1(handle, eventType, &XEventManager::OnGuiEventCallback);
 
 			XEventObject* eventObject =  new XEventObject(callback, userdata);
 			m_mEventCallbacks[handle][eventType] = std::move(XEventItem(eventObject));
@@ -65,10 +62,8 @@ namespace xcgui {
 
 		void RegEleEvent(HELE handle, int eventType, const XEventCallback& callback, const py::object& userdata) {
 
-			if (!IsReged(handle, eventType))
-			{
-				XEle_RegEventCPP1(handle, eventType, &XEventManager::OnGuiEventCallback);
-			}
+			XEle_RegEventCPP1(handle, eventType, &XEventManager::OnGuiEventCallback);
+
 			XEventObject* eventObject = new XEventObject(callback, userdata);
 			m_mEventCallbacks[handle][eventType] = std::move(XEventItem(eventObject));
 		}
