@@ -237,9 +237,7 @@ namespace xcgui {
 			.def("setAlpha", &XCElement::SetAlpha, "alpha"_a)
 			.def("getAlpha", &XCElement::GetAlpha)
 			.def("destroy", [](XCElement& self) {
-				XEventManager::GetInstance()->ReleaseByHandle(self.GetHandle());
-				XUserDataManager::GetInstance()->RleaseByHandle(self.GetHandle());
-				XCallbackManager::GetInstance()->ReleaseByHandle(self.GetHandle());
+				XEventManager::GetInstance()->ReleaseAllByHandle(self.GetHandle());
 				self.Destroy();
 			})
 			.def("addBkBorder", &XCElement::AddBkBorder, "state"_a, "hColor"_a, "width"_a)

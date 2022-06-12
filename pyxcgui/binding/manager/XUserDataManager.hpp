@@ -31,7 +31,7 @@ namespace xcgui {
 			m_mItemData.clear();
 		}
 
-		void RleaseByHandle(HXCGUI handle) {
+		void ReleaseByHandle(HXCGUI handle) {
 			auto iter = m_mData.find(handle);
 			if (iter != m_mData.end()) {
 				m_mData.erase(iter);
@@ -71,13 +71,6 @@ namespace xcgui {
 				return m_none;
 			}
 			return m_mData[handle];
-		}
-
-		void RemoveUserData(HXCGUI handle) {
-			auto iter = m_mData.find(handle);
-			if (iter != m_mData.end()) {
-				m_mData.erase(iter);
-			}
 		}
 
 

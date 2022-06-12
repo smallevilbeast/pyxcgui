@@ -7,6 +7,9 @@
 #include "xcgui/window/XCWindow.hpp"
 #include "XCastManager.hpp"
 #include "xcgui/XCStruct.hpp"
+#include "XUserDataManager.hpp"
+#include "XCastManager.hpp"
+#include "XCallbackManager.hpp"
 
 namespace xcgui {
 
@@ -42,8 +45,36 @@ namespace xcgui {
 			return false;
 		}
 
+		void RegWindowDestroyEvent(HWINDOW handle) {
+			if (!IsReged(handle, WM_DESTROY))
+			{
+				XWnd_RegEventCPP1(handle, WM_DESTROY, &XEventManager::OnGuiEventCallback);
+			}
+		}
+
+		void RegElementDestroyEvent(HELE handle) {
+			if (!IsReged(handle, XE_DESTROY_END))
+			{
+				XEle_RegEventCPP1(handle, XE_DESTROY_END, &XEventManager::OnGuiEventCallback);
+			}
+		}
+
+		void RegDestroyEvent(HXCGUI handle) {
+			if (XC_IsHWINDOW(handle)) {
+				RegWindowDestroyEvent((HWINDOW)handle);
+				return;
+			}
+
+			if (XC_IsHELE(handle)) {
+				RegElementDestroyEvent((HELE)handle);
+				return;
+			}
+		}
+
 		void RegWindowEvent(HWINDOW handle, int eventType, const XEventCallback& callback, const py::object& userdata)
 		{
+			this->RegWindowDestroyEvent(handle);
+
 			if (!IsReged(handle, eventType))
 			{
 				XWnd_RegEventCPP1(handle, eventType, &XEventManager::OnGuiEventCallback);
@@ -54,7 +85,9 @@ namespace xcgui {
 		}
 
 		void RegEleEvent(HELE handle, int eventType, const XEventCallback& callback, const py::object& userdata) {
-	
+
+			this->RegElementDestroyEvent(handle);
+
 			if (!IsReged(handle, eventType))
 			{
 				XEle_RegEventCPP1(handle, eventType, &XEventManager::OnGuiEventCallback);
@@ -86,9 +119,19 @@ namespace xcgui {
 			m_mEventCallbacks.clear();
 		}
 
+		void ReleaseAllByHandle(HXCGUI handle) {
+			ReleaseByHandle(handle);
+			XCastManager::GetInstance()->ReleaseByHandle(handle);
+			XCallbackManager::GetInstance()->ReleaseByHandle(handle);
+			XUserDataManager::GetInstance()->ReleaseByHandle(handle);
+		}
+
 	protected:
+		
 		int OnGuiEventCallback(HXCGUI ele, UINT nEvent, WPARAM wParam, LPARAM lParam, BOOL* pbHandled) {
 			
+			py::gil_scoped_acquire gil;
+
 			auto winIter = m_mEventCallbacks.find(ele);
 			if (winIter != m_mEventCallbacks.end()) {
 				auto& eventMap = winIter->second;
@@ -100,18 +143,24 @@ namespace xcgui {
 						
 						XCEvent event;
 						event.eventType = nEvent;
-						event.sender = pSender;
+						event.sender = nullptr;
 						event.wParam = (uintptr_t)wParam;
 						event.lParam = (uintptr_t)lParam;
-
+													  
+						
 						if (eventObj.callback(event, eventObj.userdata))
 						{
+						
 							*pbHandled = TRUE;
 							break;
 						}
 					}
 				}
 			}
+			if (nEvent == WM_DESTROY || nEvent == XE_DESTROY_END) {
+				this->ReleaseByHandle(ele);
+			}
+			
 			return 0;
 		}
 

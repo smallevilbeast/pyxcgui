@@ -10,11 +10,11 @@ namespace xcgui {
 		py::class_<XCAnimationSequence, XCAnimation>(m, "XAnimationSequence")
 			PYCASTOBJECT(XCAnimationSequence)
 			
-			.def(py::init([](const XCObject& xcObject, int loopCount=1) {
+			.def(py::init([](const XCObject& xcObject, int loopCount=0) {
 				auto handle = xcObject.GetHandle();
 				XCAnimationSequence obj(handle, loopCount);
 				return obj;
-			}), "xcObject"_a, "loopCount"_a=1)
+			}), "xcObject"_a, "loopCount"_a=0)
 
 			.def("move", [](XCAnimationSequence& self, UINT duration, float x, float y, int nLoopCount = 1, int easeFlag = 0, bool bGoBack = false) {
 				auto handle = self.Move(duration, x, y, nLoopCount, easeFlag, bGoBack);

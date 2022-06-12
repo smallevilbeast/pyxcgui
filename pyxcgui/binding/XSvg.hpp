@@ -27,14 +27,14 @@ namespace xcgui {
 				return pSvg;
 			}, "resId"_a, "filename"_a, "hModule"_a, py::return_value_policy::take_ownership)
 
- 			.def_static("loadString", [](const std::wstring& name) -> XCSvg* {
+ 			.def_static("loadString", [](const std::wstring& text) -> XCSvg* {
 				auto pSvg = new XCSvg();
-				if (!pSvg->LoadStringW(name)) {
+				if (!pSvg->LoadStringW(text)) {
 					delete pSvg;
 					return nullptr;
 				}
 				return pSvg;
-			}, "name"_a, py::return_value_policy::take_ownership)
+			}, "text"_a, py::return_value_policy::take_ownership)
 
 
    			.def_static("loadZip", [](const std::wstring& zipFileName, const std::wstring& fileName, const std::wstring& password) -> XCSvg* {

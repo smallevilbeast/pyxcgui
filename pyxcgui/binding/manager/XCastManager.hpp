@@ -342,6 +342,14 @@ namespace xcgui
 		XCObject* CastObject(const XCObject* pObj) {
 			return CastObject(pObj->GetHandle());
 		}
+
+		void ReleaseByHandle(HXCGUI handle) {
+			auto iter = m_mObjects.find(handle);
+			if (iter != m_mObjects.end()) {
+				delete iter->second;
+				m_mObjects.erase(iter);
+			}
+		}
 		
 	protected:
 		std::map<HXCGUI, XCObject*> m_mObjects;

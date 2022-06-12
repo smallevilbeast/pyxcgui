@@ -36,8 +36,8 @@ namespace xcgui {
 			}, "eventType"_a, "callback"_a, "userdata"_a= py::none())
 			.def("addChild", &XCWindow::AddChild, "child"_a)
 			.def("insertChild", &XCWindow::InsertChild, "child"_a, "index"_a)
-			.def("redraw", &XCWindow::Redraw, "immediate"_a)
-			.def("redrawRect", &XCWindow::RedrawRect, "rect"_a, "immediate"_a)
+			.def("redraw", &XCWindow::Redraw, "immediate"_a=false)
+			.def("redrawRect", &XCWindow::RedrawRect, "rect"_a, "immediate"_a=false)
 			.def("setFoucsEle", &XCWindow::SetFoucsEle, "ele"_a)
 
 			.def("getFoucsEle", [](const XCWindow& self) -> XCObject* {

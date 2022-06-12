@@ -16,7 +16,7 @@ namespace xcgui {
 
 		XCAnimationGroup() = default;
 
-		XCAnimationGroup(int nLoopCount=1) {
+		XCAnimationGroup(int nLoopCount=0) {
 
 			m_handle = XAnimaGroup_Create(nLoopCount);
 		}
