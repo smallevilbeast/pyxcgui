@@ -143,7 +143,7 @@ namespace xcgui {
 						
 						XCEvent event;
 						event.eventType = nEvent;
-						event.sender = nullptr;
+						event.sender = pSender;
 						event.wParam = (uintptr_t)wParam;
 						event.lParam = (uintptr_t)lParam;
 													  
