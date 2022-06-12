@@ -7,7 +7,6 @@
 #include "manager/XUserDataManager.hpp"
 #include "manager/XEventManager.hpp"
 #include "manager/XCastManager.hpp"
-#include "manager/XCallbackManager.hpp"
 
 namespace xcgui {
 
@@ -237,7 +236,6 @@ namespace xcgui {
 			.def("setAlpha", &XCElement::SetAlpha, "alpha"_a)
 			.def("getAlpha", &XCElement::GetAlpha)
 			.def("destroy", [](XCElement& self) {
-				XEventManager::GetInstance()->ReleaseAllByHandle(self.GetHandle());
 				self.Destroy();
 			})
 			.def("addBkBorder", &XCElement::AddBkBorder, "state"_a, "hColor"_a, "width"_a)
