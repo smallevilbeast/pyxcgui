@@ -606,14 +606,22 @@ namespace xcgui {
 		void NotifyMsgWindowPopup(position_flag_ position, const std::wstring& title,
 			const std::wstring& text, const XCImage& icon, notifyMsg_skin_ skin)
 		{
-			XNotifyMsg_WindowPopup(GetWindowHandle(), position, title.c_str(), text.c_str(), icon.getImageHandle(), skin);
+			const wchar_t* pTitle = nullptr;
+			if (!title.empty()) {
+				pTitle = title.c_str();
+			}
+			XNotifyMsg_WindowPopup(GetWindowHandle(), position, pTitle, text.c_str(), icon.getImageHandle(), skin);
 		}
 
 		void NotifyMsgWindowPopupEx(position_flag_ position, const std::wstring& title,
 			const std::wstring& text, const XCImage& icon, notifyMsg_skin_ skin,
 			bool btnClose, bool autoClose, int width, int height)
 		{
-			XNotifyMsg_WindowPopupEx(GetWindowHandle(), position, title.c_str(), 
+			const wchar_t* pTitle = nullptr;
+			if (!title.empty()) {
+				pTitle = title.c_str();
+			}
+			XNotifyMsg_WindowPopupEx(GetWindowHandle(), position, pTitle, 
 				text.c_str(), icon.getImageHandle(), skin, btnClose, autoClose, width, height);
 		}
 		
