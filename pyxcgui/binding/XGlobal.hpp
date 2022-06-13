@@ -18,24 +18,24 @@ namespace xcgui {
 		}, "handle"_a, py::return_value_policy::take_ownership);
 
 
-		m.def("RGB", [](BYTE r, BYTE g, BYTE b) {
-			return (RGB(r, g, b)) &0xFFFFFFFF;
+		m.def("RGB", [](BYTE r, BYTE g, BYTE b) -> COLORREF {
+			return RGB(r, g, b);
 		}, "r"_a, "g"_a, "b"_a);
 
-		m.def("RGB", [](const std::string& hexColor) {
+		m.def("RGB", [](const std::string& hexColor) -> COLORREF {
 			return hexToRGBColorRef(hexColor);
 		}, "hexcolor"_a);
 
-		m.def("RGBA", [](const std::string& hexColor) {
+		m.def("RGBA", [](const std::string& hexColor) -> COLORREF {
 			return hexToRGBAColorRef(hexColor);
 		}, "hexcolor"_a);
 
-		m.def("RGBA", [](BYTE r, BYTE g, BYTE b, BYTE a) {
-			return  (RGBA(r, g, b, a)) & 0xFFFFFFFF;
+		m.def("RGBA", [](BYTE r, BYTE g, BYTE b, BYTE a) -> COLORREF {
+			return  RGBA(r, g, b, a);
 		}, "r"_a, "g"_a, "b"_a, "a"_a);
 
-		m.def("RGBA", [](int rgb, BYTE a) {
-			return  ((rgb & 16777215) | (a & 255) << 24) & 0xFFFFFFFF;
+		m.def("RGBA", [](COLORREF rgb, BYTE a) -> COLORREF {
+			return  (rgb & 16777215) | (a & 255) << 24;
 		}, "rgb"_a, "a"_a);
 
 		m.def("PointClientToScreen", [](uintptr_t hwnd, XCPoint& point) {

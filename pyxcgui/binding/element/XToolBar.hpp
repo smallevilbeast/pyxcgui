@@ -35,7 +35,7 @@ namespace xcgui {
 			}, "ele"_a, "index"_a)
 
 			.def("insertSeparator", &XCToolBar::InsertSeparator, "index"_a=-1, 
-				"color"_a= (uint32_t)(COLORREF_MAKE(128, 128, 128, 255) & 0xFFFFFFFF))
+				"color"_a= (COLORREF)(COLORREF_MAKE(128, 128, 128, 255)))
 
 			.def("enableButtonMenu", &XCToolBar::EnableButtonMenu, "enable"_a)
 			.def("getEle", [](XCToolBar& self, int index) -> XCObject* {

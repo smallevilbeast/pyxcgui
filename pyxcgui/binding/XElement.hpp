@@ -211,16 +211,16 @@ namespace xcgui {
 				self.SetTextColor(hColor);
 			}, "hColor"_a)
 			.def("getTextColor", [](XCElement& self) {
-				return (intptr_t)self.GetTextColor();
+				return self.GetTextColor();
 			})
 			.def("getTextColorEx", [](XCElement& self) {
-				return (intptr_t)self.GetTextColorEx();
+				return self.GetTextColorEx();
 			})
 			.def("setFocusBorderColor", [](XCElement& self, COLORREF hColor) {
 				self.SetFocusBorderColor(hColor);
 			}, "hColor"_a)
 			.def("getFocusBorderColor", [](XCElement& self) {
-				return (intptr_t)self.GetFocusBorderColor();
+				return self.GetFocusBorderColor();
 			})
 			.def("setFont", [](XCElement& self, const XCFont& font) {
 				self.SetFont(font.getFontHandle());
