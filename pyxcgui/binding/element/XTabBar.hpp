@@ -9,6 +9,7 @@ namespace xcgui {
 	void declareTabBar(py::module& m) {
 		py::class_<XCTabBar, XCElement>(m, "XTabBar")
 			PYCASTOBJECT(XCTabBar)
+			PYOBJECTVALID(XCTabBar, XC_TABBAR)
 			.def(py::init([](int x, int y, int cx, int cy, XCObjectUI* parent = nullptr) {
 				HXCGUI handle = nullptr;
 				if (parent) {

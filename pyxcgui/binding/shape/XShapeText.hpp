@@ -9,6 +9,7 @@ namespace xcgui {
 	void declareShapeText(py::module& m) {
 		py::class_<XCShapeText, XCShape>(m, "XShapeText")
 			PYCASTOBJECT(XCShapeText)
+			PYOBJECTVALID(XCShapeText, XC_SHAPE_TEXT)
 			.def(py::init([](int x, int y, int cx, int cy, const std::wstring& text, XCObjectUI* parent = nullptr) {
 				HXCGUI handle = nullptr;
 				if (parent) {

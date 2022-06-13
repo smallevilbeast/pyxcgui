@@ -41,5 +41,10 @@ TypeName& operator=(const TypeName&) = delete
 	return new TypeName((HXCGUI)pointer);					    \
 }, "handle"_a, py::return_value_policy::take_ownership)		
 
+#define PYOBJECTVALID(TypeName, ObjectType)  \
+.def("isValid", [](TypeName& self) -> bool { \
+	return self.GetType() == ObjectType;     \
+})
+
 #endif 
 

@@ -7,6 +7,7 @@ namespace xcgui {
 	void declareShapeRect(py::module& m) {
 		py::class_<XCShapeRect, XCShape>(m, "XShapeRect")
 			PYCASTOBJECT(XCShapeRect)
+			PYOBJECTVALID(XCShapeRect, XC_SHAPE_RECT)
 			.def(py::init([](int x, int y, int cx, int cy, XCObjectUI* parent = nullptr) {
 				HXCGUI handle = nullptr;
 				if (parent) {

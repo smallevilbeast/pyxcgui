@@ -7,6 +7,7 @@ namespace xcgui {
 	void declareShapeLine(py::module& m) {
 		py::class_<XCShapeLine, XCShape>(m, "XShapeLine")
 			PYCASTOBJECT(XCShapeLine)
+			PYOBJECTVALID(XCShapeLine, XC_SHAPE_LINE)
 			.def(py::init([](int x, int y, int cx, int cy, XCObjectUI* parent = nullptr) {
 				HXCGUI handle = nullptr;
 				if (parent) {

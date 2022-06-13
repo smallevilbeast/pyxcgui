@@ -15,6 +15,7 @@ namespace xcgui {
 
 		py::class_<XCTree, XCScrollView>(m, "XTree")
 			PYCASTOBJECT(XCTree)
+			PYOBJECTVALID(XCTree, XC_TREE)
 			.def(py::init([](int x, int y, int cx, int cy, XCObjectUI* parent = nullptr) {
 				HXCGUI handle = nullptr;
 				if (parent) {

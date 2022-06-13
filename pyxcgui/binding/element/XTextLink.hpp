@@ -8,6 +8,7 @@ namespace xcgui {
 	void declareTextLink(py::module& m) {
 		py::class_<XCTextLink, XCButton>(m, "XTextLink")
 			PYCASTOBJECT(XCTextLink)
+			PYOBJECTVALID(XCTextLink, XC_TEXTLINK)
 			.def(py::init([](int x, int y, int cx, int cy, const std::wstring& text, XCObjectUI* parent = nullptr) {
 				HXCGUI handle = nullptr;
 				if (parent) {

@@ -14,6 +14,7 @@ namespace xcgui {
 
 		py::class_<XCElement, XCWidget>(m, "XElement")
 			PYCASTOBJECT(XCElement)
+			PYOBJECTVALID(XCElement, XC_ELE)
 			.def(py::init([](int x, int y, int cx, int cy, const XCObjectUI* parent=nullptr) {	  
 				HXCGUI handle = nullptr;
 				if (parent) {
@@ -275,7 +276,7 @@ namespace xcgui {
 				self.GetContentSize(horizon, cx, cy, (SIZE*)&size);
 				return size;
 			}, "horizon"_a, "cx"_a, "cy"_a)
-			.def("setCapture", &XCElement::SetCapture, "enable"_a)
+			.def("setCapture", &XCElement::SetCapture, "enable"_a, py::call_guard<py::gil_scoped_release>())
 			.def("enableTransparentChannel", &XCElement::EnableTransparentChannel, "enable"_a)
 			.def("setXCTimer", &XCElement::SetXCTimer, "eventId"_a, "elapse"_a)
 			.def("killXCTimer", &XCElement::KillXCTimer, "eventId"_a)
@@ -283,8 +284,8 @@ namespace xcgui {
 			.def("setToolTipEx", &XCElement::SetToolTipEx, "text"_a, "textAlign"_a)
 			.def("getToolTip", &XCElement::GetToolTip)
 			.def("popupToolTip", &XCElement::PopupToolTip, "x"_a, "y"_a)
-			.def("adjustLayout", &XCElement::AdjustLayout, "adjustNo"_a)
-			.def("adjustLayoutEx", &XCElement::AdjustLayoutEx, "flags"_a, "adjustNo"_a);
+			.def("adjustLayout", &XCElement::AdjustLayout, "adjustNo"_a=0)
+			.def("adjustLayoutEx", &XCElement::AdjustLayoutEx, "flags"_a, "adjustNo"_a=0);
 
 	}
 }

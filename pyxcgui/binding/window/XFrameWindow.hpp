@@ -9,6 +9,7 @@ namespace xcgui {
 
 		py::class_<XCFrameWindow, XCWindow>(m, "XFrameWindow")
 			PYCASTOBJECT(XCFrameWindow)
+			PYOBJECTVALID(XCFrameWindow, XC_FRAMEWND)
 			.def(py::init<>())
 			.def(py::init([](int width, int height, const std::wstring& title) {
 				XCFrameWindow window(0, 0, width, height, title, 0, window_style_default);

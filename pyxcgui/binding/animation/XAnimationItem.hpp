@@ -9,7 +9,7 @@ namespace xcgui {
 	void declareAnimationItem(py::module& m) {
 		py::class_<XCAnimationItem, XCObject>(m, "XAnimationItem")
 			PYCASTOBJECT(XCAnimationItem)
-			
+			PYOBJECTVALID(XCAnimationItem, XC_ANIMATION_ITEM)
 			.def("enableAutoDestroy", &XCAnimationItem::EnableAutoDestroy, "enable"_a)
 			
 			.def("enableCompleteRelease", &XCAnimationItem::EnableCompleteRelease, "enable"_a)

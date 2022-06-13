@@ -10,7 +10,6 @@ namespace xcgui {
 	void declareAnimation(py::module& m) {
 		py::class_<XCAnimation, XCObject>(m, "XAnimation")
 			PYCASTOBJECT(XCAnimation)
-
 			.def("run", [](XCAnimation& self, const XCObjectUI& ele) {
 				self.Run(ele.GetHandle());
 			}, "obejctUI"_a)

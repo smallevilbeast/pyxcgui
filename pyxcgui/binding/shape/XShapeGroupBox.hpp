@@ -9,6 +9,7 @@ namespace xcgui {
 	void declareShapeGroupBox(py::module& m) {
 		py::class_<XCShapeGroupBox, XCShape>(m, "XShapeGroupBox")
 			PYCASTOBJECT(XCShapeGroupBox)
+			PYOBJECTVALID(XCShapeGroupBox, XC_SHAPE_GROUPBOX)
 			.def(py::init([](int x, int y, int cx, int cy, const std::wstring& text, XCObjectUI* parent = nullptr) {
 				HXCGUI handle = nullptr;
 				if (parent) {

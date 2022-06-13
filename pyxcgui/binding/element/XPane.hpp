@@ -10,6 +10,7 @@ namespace xcgui {
 	void declarePanel(py::module& m) {
 		py::class_<XCPane, XCElement>(m, "XPane")
 			PYCASTOBJECT(XCPane)
+			PYOBJECTVALID(XCPane, XC_PANE)
 			.def(py::init([](const std::wstring& name, int width, int height, XCFrameWindow* parent) {
 				HWINDOW handle = nullptr;
 				if (parent) {

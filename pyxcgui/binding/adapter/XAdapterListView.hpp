@@ -9,6 +9,7 @@ namespace xcgui {
 
 		py::class_<XCAdapterListView, XCAdapter>(m, "XAdapterListView")
 			PYCASTOBJECT(XCAdapterListView)
+			PYOBJECTVALID(XCAdapterListView, XC_ADAPTER_LISTVIEW)
 			.def(py::init<>())
 			.def("groupAddColumn", &XCAdapterListView::GroupAddColumn, "name"_a)
 			.def("groupAddItemText", &XCAdapterListView::GroupAddItemText, "value"_a, "pos"_a=-1)

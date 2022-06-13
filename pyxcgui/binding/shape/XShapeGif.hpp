@@ -8,6 +8,7 @@ namespace xcgui {
 	void declareShapeGif(py::module& m) {
 		py::class_<XCShapeGif, XCShape>(m, "XShapeGif")
 			PYCASTOBJECT(XCShapeGif)
+			PYOBJECTVALID(XCShapeGif, XC_SHAPE_GIF)
 			.def(py::init([](int x, int y, int cx, int cy, XCObjectUI* parent = nullptr) {
 				HXCGUI handle = nullptr;
 				if (parent) {

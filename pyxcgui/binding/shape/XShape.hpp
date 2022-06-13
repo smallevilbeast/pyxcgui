@@ -8,6 +8,7 @@ namespace xcgui {
 	void declareShape(py::module& m) {
 		py::class_<XCShape, XCWidget>(m, "XShape")
 			PYCASTOBJECT(XCShape)	
+			PYOBJECTVALID(XCShape, XC_SHAPE)
 			.def("removeShape", &XCShape::RemoveShape)
 			.def("getZOrder", &XCShape::GetZOrder)
 			.def("redraw", &XCShape::Redraw)

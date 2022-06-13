@@ -9,12 +9,16 @@ namespace xcgui {
 	void declareAnimationSequence(py::module& m) {
 		py::class_<XCAnimationSequence, XCAnimation>(m, "XAnimationSequence")
 			PYCASTOBJECT(XCAnimationSequence)
+			PYOBJECTVALID(XCAnimationSequence, XC_ANIMATION_SEQUENCE)
 			
-			.def(py::init([](const XCObject& xcObject, int loopCount=0) {
-				auto handle = xcObject.GetHandle();
+			.def(py::init([](const XCObject* pObject=nullptr, int loopCount=0) {
+				HXCGUI handle = nullptr;
+				if (pObject) {
+					handle = pObject->GetHandle();
+				}
 				XCAnimationSequence obj(handle, loopCount);
 				return obj;
-			}), "xcObject"_a, "loopCount"_a=0)
+			}), "xcObject"_a=nullptr, "loopCount"_a=0)
 
 			.def("move", [](XCAnimationSequence& self, UINT duration, float x, float y, int nLoopCount = 1, int easeFlag = 0, bool bGoBack = false) {
 				auto handle = self.Move(duration, x, y, nLoopCount, easeFlag, bGoBack);

@@ -21,6 +21,7 @@ namespace xcgui {
 
 		py::class_<XCWindow, XCObjectUI, XCLayoutBox>(m, "XWindow")
 			PYCASTOBJECT(XCWindow)
+			PYOBJECTVALID(XCWindow, XC_WINDOW)
 			.def(py::init<>())
 			.def(py::init<int, int, const std::wstring&>(), "width"_a, "height"_a, "title"_a)
 			.def(py::init<int, int, int, int, const std::wstring&, uintptr_t, int>(),
@@ -84,7 +85,7 @@ namespace xcgui {
 			
 			.def("setCaptureEle", [](XCWindow& self, const XCElement& ele){
 				self.SetCaptureEle(ele.getEleHandle());
-			}, "ele"_a)
+			}, "ele"_a, py::call_guard<py::gil_scoped_release>())
 			.def("getCaptureEle", [](XCWindow& self) {
 				auto ele = self.GetCaptureEle();
 				return XCastManager::GetInstance()->CastObject((HXCGUI)ele);

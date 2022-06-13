@@ -9,6 +9,7 @@ namespace xcgui {
 	void declareShapeTable(py::module& m) {
 		py::class_<XCShapeTable, XCShape>(m, "XShapeTable")
 			PYCASTOBJECT(XCShapeTable)
+			PYOBJECTVALID(XCShapeTable, XC_SHAPE_TABLE)
 			.def(py::init([](int x, int y, int cx, int cy, XCObjectUI* parent = nullptr) {
 				HXCGUI handle = nullptr;
 				if (parent) {

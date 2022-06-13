@@ -9,6 +9,7 @@ namespace xcgui {
 	void declareButton(py::module& m) {
 		py::class_<XCButton, XCElement>(m, "XButton")
 			PYCASTOBJECT(XCButton)
+			PYOBJECTVALID(XCButton, XC_BUTTON)
 			.def(py::init([](int x, int y, int cx, int cy, const std::wstring& text, XCObjectUI* parent=nullptr) {
 				HXCGUI handle = nullptr;
 				if (parent) {

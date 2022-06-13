@@ -10,6 +10,7 @@ namespace xcgui {
 	void declareMenuBar(py::module& m) {
 		py::class_<XCMenuBar, XCElement>(m, "XMenuBar")
 			PYCASTOBJECT(XCMenuBar)
+			PYOBJECTVALID(XCMenuBar, XC_MENUBAR)
 			.def(py::init([](int x, int y, int cx, int cy, XCObjectUI* parent = nullptr) {
 				HXCGUI handle = nullptr;
 				if (parent) {

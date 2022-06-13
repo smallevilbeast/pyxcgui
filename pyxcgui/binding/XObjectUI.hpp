@@ -10,6 +10,7 @@ namespace xcgui {
 
 		py::class_<XCObjectUI, XCObject>(m, "XObjectUI")
 			PYCASTOBJECT(XCObjectUI)
+			PYOBJECTVALID(XCSvg, XC_OBJECT_UI)
 			.def("setStyle", &XCObjectUI::SetStyle, "style"_a)
 			.def("getStyle", &XCObjectUI::GetStyle)
 			.def("enableCss", &XCObjectUI::EnableCSS, "enable"_a)

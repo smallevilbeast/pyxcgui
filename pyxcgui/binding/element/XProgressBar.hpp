@@ -9,6 +9,7 @@ namespace xcgui {
 	void declareProgressBar(py::module& m) {
 		py::class_<XCProgressBar, XCElement>(m, "XProgressBar")
 			PYCASTOBJECT(XCProgressBar)
+			PYOBJECTVALID(XCProgressBar, XC_PROGRESSBAR)
 			.def(py::init([](int x, int y, int cx, int cy, XCObjectUI* parent = nullptr) {
 				HXCGUI handle = nullptr;
 				if (parent) {

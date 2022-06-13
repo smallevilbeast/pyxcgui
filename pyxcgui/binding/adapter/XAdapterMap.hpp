@@ -9,6 +9,7 @@ namespace xcgui {
 
 		py::class_<XCAdapterMap, XCAdapter>(m, "XAdapterMap")
 			PYCASTOBJECT(XCAdapterMap)
+			PYOBJECTVALID(XCAdapterMap, XC_ADAPTER_MAP)
 			.def(py::init<>())
 
 			.def("addItemText", &XCAdapterMap::AddItemText, "name"_a, "value"_a)

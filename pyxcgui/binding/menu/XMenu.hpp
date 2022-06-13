@@ -9,6 +9,7 @@ namespace xcgui {
 	void declareMenu(py::module& m) {
 		py::class_<XCMenu, XCObject>(m, "XMenu")
 			PYCASTOBJECT(XCMenu)
+			PYOBJECTVALID(XCMenu, XC_MENU)
 			.def(py::init())
 			
 			.def("addItem", &XCMenu::AddItem, "nId"_a, "text"_a, "parentId"_a=XC_ID_ROOT, "flags"_a=0)

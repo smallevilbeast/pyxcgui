@@ -12,11 +12,12 @@ namespace xcgui {
 
 		py::class_<XCBkManager, XCObject>(m, "XBkManager")
 			PYCASTOBJECT(XCBkManager)
+			PYOBJECTVALID(XCBkManager, XC_BKINFOM)
 			.def(py::init<>())
 			.def("setInfo", &XCBkManager::SetInfo, "text"_a)
 			.def("addInfo", &XCBkManager::AddInfo, "text"_a)
 			.def("addBorder", &XCBkManager::AddBorder, "state"_a, "color"_a, "width"_a, "bkId"_a=0)
-			.def("addFill", &XCBkManager::AddFill, "state"_a, "color"_a, "bkId"_a)
+			.def("addFill", &XCBkManager::AddFill, "state"_a, "color"_a, "bkId"_a=0)
 			.def("addImage", [](XCBkManager& self, int state, const XCImage& image, int bkId=0) {
 				self.AddImage(state, image.getImageHandle(), bkId);
 			}, "state"_a, "image"_a, "bkId"_a = 0)
@@ -34,15 +35,15 @@ namespace xcgui {
 					return 0;
 				return color;
 			}, "state"_a)
-			.def("getBkObjectHandle", &XCBkManager::GetBkObject, "bkId"_a)
-			.def("getBkObject", [](XCBkManager& self, int bkId) -> XCBkObject* {
+			.def("getBkObjectHandle", &XCBkManager::GetBkObject, "bkId"_a=0)
+			.def("getBkObject", [](XCBkManager& self, int bkId=0) -> XCBkObject* {
 				auto handle = self.GetBkObject(bkId);
 				if (!handle) {
 					return nullptr;
 				}
 				return new XCBkObject(handle);
 
-			}, "bkId"_a, py::return_value_policy::take_ownership)
+			}, "bkId"_a=0, py::return_value_policy::take_ownership)
 
 			.def("enableAutoDestroy", &XCBkManager::EnableAutoDestroy, "enable"_a)
 			.def("addRef", &XCBkManager::AddRef)

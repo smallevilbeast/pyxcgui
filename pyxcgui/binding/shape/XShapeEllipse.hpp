@@ -7,6 +7,7 @@ namespace xcgui {
 	void declareShapeEllipse(py::module& m) {
 		py::class_<XCShapeEllipse, XCShape>(m, "XShapeEllipse")
 			PYCASTOBJECT(XCShapeEllipse)
+			PYOBJECTVALID(XCShapeEllipse, XC_SHAPE_ELLIPSE)
 			.def(py::init([](int x, int y, int cx, int cy, XCObjectUI* parent = nullptr) {
 				HXCGUI handle = nullptr;
 				if (parent) {

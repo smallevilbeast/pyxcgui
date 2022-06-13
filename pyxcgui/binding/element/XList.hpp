@@ -15,6 +15,7 @@ namespace xcgui {
 
 		py::class_<XCList, XCScrollView>(m, "XList")
 			PYCASTOBJECT(XCList)
+			PYOBJECTVALID(XCList, XC_LIST)
 			.def(py::init([](int x, int y, int cx, int cy, XCObjectUI* parent = nullptr) {
 				HXCGUI handle = nullptr;
 				if (parent) {
