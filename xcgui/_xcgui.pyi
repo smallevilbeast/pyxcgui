@@ -4,7 +4,7 @@
 
 """xcgui for python"""
 from __future__ import annotations
-import xcgui
+import _xcgui
 import typing
 
 __all__ = [
@@ -16,6 +16,10 @@ __all__ = [
     "FreeLibrary",
     "GetDefaultFont",
     "GetProcAddress",
+    "GetTextShowRect",
+    "GetTextShowSize",
+    "GetTextShowSizeEx",
+    "GetTextSize",
     "LoadDll",
     "LoadLibrary",
     "Malloc",
@@ -979,6 +983,7 @@ class XObject():
         获取对象的基础类型, 返回对象类型, 以下类型之一: (XC_ERROR, XC_WINDOW, XC_ELE, XC_SHAPE, XC_ADAPTER)
         """
     def getTypeEx(self) -> XC_OBJECT_TYPE_EX: ...
+    def releaseAnimation(self, end: bool = False) -> None: ...
     def setProperty(self, name: str, value: str) -> bool: ...
     def setTypeEx(self, nType: XC_OBJECT_TYPE_EX) -> None: ...
     __hash__ = None
@@ -990,6 +995,7 @@ class XAdapter(XObject):
     def destroy(self) -> None: ...
     def enableAutoDestroy(self, enable: int) -> None: ...
     def getRefCount(self) -> int: ...
+    def isValid(self) -> bool: ...
     def release(self) -> int: ...
     pass
 class XAdapterMap(XAdapter, XObject):
@@ -1002,6 +1008,7 @@ class XAdapterMap(XAdapter, XObject):
     def getCount(self) -> int: ...
     def getItemImage(self, name: str) -> XImage: ...
     def getItemText(self, name: str) -> str: ...
+    def isValid(self) -> bool: ...
     def setItemImage(self, name: str, image: XImage) -> bool: ...
     def setItemText(self, name: str, value: str) -> bool: ...
     pass
@@ -1034,6 +1041,7 @@ class XAdapterTable(XAdapter, XObject):
     def insertItemImageEx(self, item: int, name: str, image: XImage) -> int: ...
     def insertItemText(self, item: int, value: str) -> int: ...
     def insertItemTextEx(self, item: int, name: str, value: str) -> int: ...
+    def isValid(self) -> bool: ...
     def setColumn(self, colName: str) -> int: ...
     def setItemFloat(self, item: int, column: int, value: float) -> bool: ...
     def setItemFloatEx(self, item: int, name: str, value: float) -> bool: ...
@@ -1063,6 +1071,7 @@ class XAdapterTree(XAdapter, XObject):
     def insertItemImageEx(self, name: str, image: XImage, parentId: int = 0, insertId: int = -3) -> int: ...
     def insertItemText(self, value: str, parentId: int = 0, insertId: int = -3) -> int: ...
     def insertItemTextEx(self, name: str, value: str, parentId: int = 0, insertId: int = -3) -> int: ...
+    def isValid(self) -> bool: ...
     def setColumn(self, colName: str) -> int: ...
     def setItemImage(self, nId: int, column: int, image: XImage) -> bool: ...
     def setItemImageEx(self, nId: int, name: str, image: XImage) -> bool: ...
@@ -1076,19 +1085,20 @@ class XAnimation(XObject):
     def getObjectUI(self) -> XObject: ...
     def getUserData(self) -> None: ...
     def pause(self) -> None: ...
-    def release(self, enable: bool) -> bool: ...
+    def release(self, end: bool) -> None: ...
     @staticmethod
-    def releaseEx(objectUI: XObjectUI, end: bool) -> None: ...
+    def releaseEx(objectUI: XObject, end: bool = False) -> None: ...
     def run(self, obejctUI: XObjectUI) -> None: ...
     def setCallback(self, callback: typing.Callable[[XAnimation, int], None]) -> None: ...
     def setUserData(self, userdata: object) -> None: ...
     def start(self) -> None: ...
     pass
 class XAnimationGroup(XAnimation, XObject):
-    def __init__(self, loopCount: int = 1) -> None: ...
+    def __init__(self, loopCount: int = 0) -> None: ...
     def addItem(self, sequence: XAnimationSequence) -> None: ...
     @staticmethod
     def cast(handle: int) -> XAnimationGroup: ...
+    def isValid(self) -> bool: ...
     pass
 class XAnimationItem(XObject):
     @staticmethod
@@ -1096,6 +1106,7 @@ class XAnimationItem(XObject):
     def enableAutoDestroy(self, enable: bool) -> None: ...
     def enableCompleteRelease(self, enable: bool) -> None: ...
     def getUserData(self) -> None: ...
+    def isValid(self) -> bool: ...
     def moveSetFlag(self, flags: int) -> None: ...
     def rotateSetCenter(self, x: float, y: float, offset: bool) -> None: ...
     def scaleSetPosition(self, position: position_flag_) -> None: ...
@@ -1103,7 +1114,7 @@ class XAnimationItem(XObject):
     def setUserData(self, userdata: object) -> None: ...
     pass
 class XAnimationSequence(XAnimation, XObject):
-    def __init__(self, xcObject: XObject, loopCount: int = 1) -> None: ...
+    def __init__(self, xcObject: XObject = None, loopCount: int = 0) -> None: ...
     def alpha(self, duration: int, alpha: int, loopCount: int = 1, easeFlag: int = 0, goBack: bool = False) -> XAnimationItem: ...
     def alphaEx(self, duration: int, fromAlpha: int, toAlpha: int, loopCount: int = 1, easeFlag: int = 0, goBack: bool = False) -> XAnimationItem: ...
     @staticmethod
@@ -1113,6 +1124,7 @@ class XAnimationSequence(XAnimation, XObject):
     def delay(self, duration: float) -> XAnimationItem: ...
     def delayEx(self, duration: float, loopCount: int = 1, easeFlag: int = 0, goBack: bool = False) -> XAnimationItem: ...
     def destroyObjectUI(self, duration: float) -> XAnimationItem: ...
+    def isValid(self) -> bool: ...
     def layoutHeight(self, duration: int, sizeType: layout_size_, height: float, loopCount: int = 1, easeFlag: int = 0, goBack: bool = False) -> XAnimationItem: ...
     def layoutSize(self, duration: int, widthSizeType: layout_size_, width: float, heightSizeType: layout_size_, height: float, loopCount: int = 1, easeFlag: int = 0, goBack: bool = False) -> XAnimationItem: ...
     def layoutWidth(self, duration: int, sizeType: layout_size_, width: float, loopCount: int = 1, easeFlag: int = 0, goBack: bool = False) -> XAnimationItem: ...
@@ -1120,12 +1132,12 @@ class XAnimationSequence(XAnimation, XObject):
     def moveEx(self, duration: int, fromX: float, fromY: float, toX: float, toY: float, loopCount: int = 1, easeFlag: int = 0, goBack: bool = False) -> XAnimationItem: ...
     def rotate(self, duration: int, angle: float, loopCount: int = 1, easeFlag: int = 0, goBack: bool = False) -> XAnimationItem: ...
     def rotateEx(self, duration: int, fromAngle: float, toAngle: float, loopCount: int = 1, easeFlag: int = 0, goBack: bool = False) -> XAnimationItem: ...
-    def scale(self, duration: int, scaleX: float, scaleY: float, loopCount: int = 1, easeFlag: int = 0, goBack: bool = False) -> XAnimationItem: ...
+    def scale(self, duration: int, scaleX: float, scaleY: float, loopCount: int = 1, easeFlag: int = 0, goBack: bool = True) -> XAnimationItem: ...
     def scaleSize(self, duration: int, width: float, height: float, loopCount: int = 1, easeFlag: int = 0, goBack: bool = False) -> XAnimationItem: ...
     def show(self, duration: float, show: bool) -> XAnimationItem: ...
     pass
 class XApp():
-    def __init__(self, bD2D: bool = False) -> None: ...
+    def __init__(self, useD2D: bool = False) -> None: ...
     def addFileSearchPath(self, path: str) -> None: ...
     def debugToFileInfo(self, file: str) -> None: ...
     def enableAutoExitApp(self, enable: bool) -> None: ...
@@ -1140,12 +1152,12 @@ class XApp():
     def setPaintFrequency(self, milliseconds: int) -> None: ...
     def setTextRenderingHint(self, nType: int) -> None: ...
     def showLayoutFrame(self, enable: bool) -> None: ...
-    def showSvgFram(self, enable: bool) -> None: ...
+    def showSvgFrame(self, enable: bool) -> None: ...
     pass
 class XBkManager(XObject):
     def __init__(self) -> None: ...
     def addBorder(self, state: int, color: int, width: int, bkId: int = 0) -> None: ...
-    def addFill(self, state: int, color: int, bkId: int) -> None: ...
+    def addFill(self, state: int, color: int, bkId: int = 0) -> None: ...
     def addImage(self, state: int, image: XImage, bkId: int = 0) -> None: ...
     def addInfo(self, text: str) -> int: ...
     def addRef(self) -> None: ...
@@ -1156,11 +1168,12 @@ class XBkManager(XObject):
     def draw(self, state: int, draw: XDraw, rect: XRect) -> bool: ...
     def drawEx(self, state: int, draw: XDraw, rect: XRect, stateEx: int) -> bool: ...
     def enableAutoDestroy(self, enable: int) -> None: ...
-    def getBkObject(self, bkId: int) -> XBkObject: ...
-    def getBkObjectHandle(self, bkId: int) -> int: ...
+    def getBkObject(self, bkId: int = 0) -> XBkObject: ...
+    def getBkObjectHandle(self, bkId: int = 0) -> int: ...
     def getCount(self) -> int: ...
     def getRefCount(self) -> int: ...
     def getStateTextColor(self, state: int) -> int: ...
+    def isValid(self) -> bool: ...
     def release(self) -> None: ...
     def setInfo(self, text: str) -> int: ...
     pass
@@ -1203,6 +1216,7 @@ class XObjectUI(XObject):
     def findObjectByUIDName(self, name: str) -> XObject: ...
     def getCssName(self) -> str: ...
     def getStyle(self) -> XC_OBJECT_STYLE: ...
+    def isValid(self) -> bool: ...
     def loadLayout(self, fileName: str, parent: XObject = None, attachHWND: int = 0) -> bool: ...
     def loadLayoutFromString(self, xml: str, parent: XObject = None, attachHWND: int = 0) -> bool: ...
     def loadLayoutZip(self, zipFileName: str, fileName: str, password: str, parent: XObject = None, attachHWND: int = 0) -> bool: ...
@@ -1258,13 +1272,13 @@ class XC_DWRITE_RENDERING_MODE():
         """
         :type: int
         """
-    XC_DWRITE_RENDERING_MODE_ALIASED: xcgui.XC_DWRITE_RENDERING_MODE # value = <XC_DWRITE_RENDERING_MODE.XC_DWRITE_RENDERING_MODE_ALIASED: 1>
-    XC_DWRITE_RENDERING_MODE_CLEARTYPE_GDI_CLASSIC: xcgui.XC_DWRITE_RENDERING_MODE # value = <XC_DWRITE_RENDERING_MODE.XC_DWRITE_RENDERING_MODE_CLEARTYPE_GDI_CLASSIC: 2>
-    XC_DWRITE_RENDERING_MODE_CLEARTYPE_GDI_NATURAL: xcgui.XC_DWRITE_RENDERING_MODE # value = <XC_DWRITE_RENDERING_MODE.XC_DWRITE_RENDERING_MODE_CLEARTYPE_GDI_NATURAL: 3>
-    XC_DWRITE_RENDERING_MODE_CLEARTYPE_NATURAL: xcgui.XC_DWRITE_RENDERING_MODE # value = <XC_DWRITE_RENDERING_MODE.XC_DWRITE_RENDERING_MODE_CLEARTYPE_NATURAL: 4>
-    XC_DWRITE_RENDERING_MODE_CLEARTYPE_NATURAL_SYMMETRIC: xcgui.XC_DWRITE_RENDERING_MODE # value = <XC_DWRITE_RENDERING_MODE.XC_DWRITE_RENDERING_MODE_CLEARTYPE_NATURAL_SYMMETRIC: 5>
-    XC_DWRITE_RENDERING_MODE_DEFAULT: xcgui.XC_DWRITE_RENDERING_MODE # value = <XC_DWRITE_RENDERING_MODE.XC_DWRITE_RENDERING_MODE_DEFAULT: 0>
-    XC_DWRITE_RENDERING_MODE_OUTLINE: xcgui.XC_DWRITE_RENDERING_MODE # value = <XC_DWRITE_RENDERING_MODE.XC_DWRITE_RENDERING_MODE_OUTLINE: 6>
+    XC_DWRITE_RENDERING_MODE_ALIASED: _xcgui.XC_DWRITE_RENDERING_MODE # value = <XC_DWRITE_RENDERING_MODE.XC_DWRITE_RENDERING_MODE_ALIASED: 1>
+    XC_DWRITE_RENDERING_MODE_CLEARTYPE_GDI_CLASSIC: _xcgui.XC_DWRITE_RENDERING_MODE # value = <XC_DWRITE_RENDERING_MODE.XC_DWRITE_RENDERING_MODE_CLEARTYPE_GDI_CLASSIC: 2>
+    XC_DWRITE_RENDERING_MODE_CLEARTYPE_GDI_NATURAL: _xcgui.XC_DWRITE_RENDERING_MODE # value = <XC_DWRITE_RENDERING_MODE.XC_DWRITE_RENDERING_MODE_CLEARTYPE_GDI_NATURAL: 3>
+    XC_DWRITE_RENDERING_MODE_CLEARTYPE_NATURAL: _xcgui.XC_DWRITE_RENDERING_MODE # value = <XC_DWRITE_RENDERING_MODE.XC_DWRITE_RENDERING_MODE_CLEARTYPE_NATURAL: 4>
+    XC_DWRITE_RENDERING_MODE_CLEARTYPE_NATURAL_SYMMETRIC: _xcgui.XC_DWRITE_RENDERING_MODE # value = <XC_DWRITE_RENDERING_MODE.XC_DWRITE_RENDERING_MODE_CLEARTYPE_NATURAL_SYMMETRIC: 5>
+    XC_DWRITE_RENDERING_MODE_DEFAULT: _xcgui.XC_DWRITE_RENDERING_MODE # value = <XC_DWRITE_RENDERING_MODE.XC_DWRITE_RENDERING_MODE_DEFAULT: 0>
+    XC_DWRITE_RENDERING_MODE_OUTLINE: _xcgui.XC_DWRITE_RENDERING_MODE # value = <XC_DWRITE_RENDERING_MODE.XC_DWRITE_RENDERING_MODE_OUTLINE: 6>
     __members__: dict # value = {'XC_DWRITE_RENDERING_MODE_DEFAULT': <XC_DWRITE_RENDERING_MODE.XC_DWRITE_RENDERING_MODE_DEFAULT: 0>, 'XC_DWRITE_RENDERING_MODE_ALIASED': <XC_DWRITE_RENDERING_MODE.XC_DWRITE_RENDERING_MODE_ALIASED: 1>, 'XC_DWRITE_RENDERING_MODE_CLEARTYPE_GDI_CLASSIC': <XC_DWRITE_RENDERING_MODE.XC_DWRITE_RENDERING_MODE_CLEARTYPE_GDI_CLASSIC: 2>, 'XC_DWRITE_RENDERING_MODE_CLEARTYPE_GDI_NATURAL': <XC_DWRITE_RENDERING_MODE.XC_DWRITE_RENDERING_MODE_CLEARTYPE_GDI_NATURAL: 3>, 'XC_DWRITE_RENDERING_MODE_CLEARTYPE_NATURAL': <XC_DWRITE_RENDERING_MODE.XC_DWRITE_RENDERING_MODE_CLEARTYPE_NATURAL: 4>, 'XC_DWRITE_RENDERING_MODE_CLEARTYPE_NATURAL_SYMMETRIC': <XC_DWRITE_RENDERING_MODE.XC_DWRITE_RENDERING_MODE_CLEARTYPE_NATURAL_SYMMETRIC: 5>, 'XC_DWRITE_RENDERING_MODE_OUTLINE': <XC_DWRITE_RENDERING_MODE.XC_DWRITE_RENDERING_MODE_OUTLINE: 6>}
     pass
 class XC_OBJECT_STYLE():
@@ -1368,39 +1382,39 @@ class XC_OBJECT_STYLE():
         :type: int
         """
     __members__: dict # value = {'xc_style_default': <XC_OBJECT_STYLE.xc_style_default: 0>, 'button_style_default': <XC_OBJECT_STYLE.xc_style_default: 0>, 'button_style_radio': <XC_OBJECT_STYLE.button_style_radio: 1>, 'button_style_check': <XC_OBJECT_STYLE.button_style_check: 2>, 'button_style_icon': <XC_OBJECT_STYLE.button_style_icon: 3>, 'button_style_expand': <XC_OBJECT_STYLE.button_style_expand: 4>, 'button_style_close': <XC_OBJECT_STYLE.button_style_close: 5>, 'button_style_max': <XC_OBJECT_STYLE.button_style_max: 6>, 'button_style_min': <XC_OBJECT_STYLE.button_style_min: 7>, 'button_style_scrollbar_left': <XC_OBJECT_STYLE.button_style_scrollbar_left: 8>, 'button_style_scrollbar_right': <XC_OBJECT_STYLE.button_style_scrollbar_right: 9>, 'button_style_scrollbar_up': <XC_OBJECT_STYLE.button_style_scrollbar_up: 10>, 'button_style_scrollbar_down': <XC_OBJECT_STYLE.button_style_scrollbar_down: 11>, 'button_style_scrollbar_slider_h': <XC_OBJECT_STYLE.button_style_scrollbar_slider_h: 12>, 'button_style_scrollbar_slider_v': <XC_OBJECT_STYLE.button_style_scrollbar_slider_v: 13>, 'button_style_tabBar': <XC_OBJECT_STYLE.button_style_tabBar: 14>, 'button_style_slider': <XC_OBJECT_STYLE.button_style_slider: 15>, 'button_style_toolBar': <XC_OBJECT_STYLE.button_style_toolBar: 16>, 'button_style_toolBar_left': <XC_OBJECT_STYLE.button_style_toolBar_left: 17>, 'button_style_toolBar_right': <XC_OBJECT_STYLE.button_style_toolBar_right: 18>, 'button_style_pane_close': <XC_OBJECT_STYLE.button_style_pane_close: 19>, 'button_style_pane_lock': <XC_OBJECT_STYLE.button_style_pane_lock: 20>, 'button_style_pane_menu': <XC_OBJECT_STYLE.button_style_pane_menu: 21>, 'button_style_pane_dock_left': <XC_OBJECT_STYLE.button_style_pane_dock_left: 22>, 'button_style_pane_dock_top': <XC_OBJECT_STYLE.button_style_pane_dock_top: 23>, 'button_style_pane_dock_right': <XC_OBJECT_STYLE.button_style_pane_dock_right: 24>, 'button_style_pane_dock_bottom': <XC_OBJECT_STYLE.button_style_pane_dock_bottom: 25>, 'element_style_frameWnd_dock_left': <XC_OBJECT_STYLE.element_style_frameWnd_dock_left: 26>, 'element_style_frameWnd_dock_top': <XC_OBJECT_STYLE.element_style_frameWnd_dock_top: 27>, 'element_style_frameWnd_dock_right': <XC_OBJECT_STYLE.element_style_frameWnd_dock_right: 28>, 'element_style_frameWnd_dock_bottom': <XC_OBJECT_STYLE.element_style_frameWnd_dock_bottom: 29>, 'element_style_toolBar_separator': <XC_OBJECT_STYLE.element_style_toolBar_separator: 30>, 'listBox_style_comboBox': <XC_OBJECT_STYLE.listBox_style_comboBox: 31>}
-    button_style_check: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_check: 2>
-    button_style_close: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_close: 5>
-    button_style_default: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.xc_style_default: 0>
-    button_style_expand: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_expand: 4>
-    button_style_icon: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_icon: 3>
-    button_style_max: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_max: 6>
-    button_style_min: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_min: 7>
-    button_style_pane_close: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_pane_close: 19>
-    button_style_pane_dock_bottom: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_pane_dock_bottom: 25>
-    button_style_pane_dock_left: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_pane_dock_left: 22>
-    button_style_pane_dock_right: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_pane_dock_right: 24>
-    button_style_pane_dock_top: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_pane_dock_top: 23>
-    button_style_pane_lock: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_pane_lock: 20>
-    button_style_pane_menu: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_pane_menu: 21>
-    button_style_radio: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_radio: 1>
-    button_style_scrollbar_down: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_scrollbar_down: 11>
-    button_style_scrollbar_left: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_scrollbar_left: 8>
-    button_style_scrollbar_right: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_scrollbar_right: 9>
-    button_style_scrollbar_slider_h: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_scrollbar_slider_h: 12>
-    button_style_scrollbar_slider_v: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_scrollbar_slider_v: 13>
-    button_style_scrollbar_up: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_scrollbar_up: 10>
-    button_style_slider: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_slider: 15>
-    button_style_tabBar: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_tabBar: 14>
-    button_style_toolBar: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_toolBar: 16>
-    button_style_toolBar_left: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_toolBar_left: 17>
-    button_style_toolBar_right: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_toolBar_right: 18>
-    element_style_frameWnd_dock_bottom: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.element_style_frameWnd_dock_bottom: 29>
-    element_style_frameWnd_dock_left: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.element_style_frameWnd_dock_left: 26>
-    element_style_frameWnd_dock_right: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.element_style_frameWnd_dock_right: 28>
-    element_style_frameWnd_dock_top: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.element_style_frameWnd_dock_top: 27>
-    element_style_toolBar_separator: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.element_style_toolBar_separator: 30>
-    listBox_style_comboBox: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.listBox_style_comboBox: 31>
-    xc_style_default: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.xc_style_default: 0>
+    button_style_check: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_check: 2>
+    button_style_close: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_close: 5>
+    button_style_default: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.xc_style_default: 0>
+    button_style_expand: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_expand: 4>
+    button_style_icon: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_icon: 3>
+    button_style_max: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_max: 6>
+    button_style_min: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_min: 7>
+    button_style_pane_close: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_pane_close: 19>
+    button_style_pane_dock_bottom: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_pane_dock_bottom: 25>
+    button_style_pane_dock_left: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_pane_dock_left: 22>
+    button_style_pane_dock_right: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_pane_dock_right: 24>
+    button_style_pane_dock_top: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_pane_dock_top: 23>
+    button_style_pane_lock: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_pane_lock: 20>
+    button_style_pane_menu: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_pane_menu: 21>
+    button_style_radio: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_radio: 1>
+    button_style_scrollbar_down: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_scrollbar_down: 11>
+    button_style_scrollbar_left: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_scrollbar_left: 8>
+    button_style_scrollbar_right: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_scrollbar_right: 9>
+    button_style_scrollbar_slider_h: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_scrollbar_slider_h: 12>
+    button_style_scrollbar_slider_v: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_scrollbar_slider_v: 13>
+    button_style_scrollbar_up: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_scrollbar_up: 10>
+    button_style_slider: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_slider: 15>
+    button_style_tabBar: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_tabBar: 14>
+    button_style_toolBar: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_toolBar: 16>
+    button_style_toolBar_left: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_toolBar_left: 17>
+    button_style_toolBar_right: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_toolBar_right: 18>
+    element_style_frameWnd_dock_bottom: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.element_style_frameWnd_dock_bottom: 29>
+    element_style_frameWnd_dock_left: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.element_style_frameWnd_dock_left: 26>
+    element_style_frameWnd_dock_right: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.element_style_frameWnd_dock_right: 28>
+    element_style_frameWnd_dock_top: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.element_style_frameWnd_dock_top: 27>
+    element_style_toolBar_separator: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.element_style_toolBar_separator: 30>
+    listBox_style_comboBox: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.listBox_style_comboBox: 31>
+    xc_style_default: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.xc_style_default: 0>
     pass
 class XC_OBJECT_TYPE():
     """
@@ -1584,80 +1598,80 @@ class XC_OBJECT_TYPE():
         """
         :type: int
         """
-    XC_ADAPTER: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_ADAPTER: 102>
-    XC_ADAPTER_LISTVIEW: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_ADAPTER_LISTVIEW: 105>
-    XC_ADAPTER_MAP: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_ADAPTER_MAP: 106>
-    XC_ADAPTER_TABLE: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_ADAPTER_TABLE: 103>
-    XC_ADAPTER_TREE: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_ADAPTER_TREE: 104>
-    XC_ANIMATION_GROUP: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_ANIMATION_GROUP: 132>
-    XC_ANIMATION_ITEM: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_ANIMATION_ITEM: 133>
-    XC_ANIMATION_SEQUENCE: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_ANIMATION_SEQUENCE: 131>
-    XC_BKINFOM: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_BKINFOM: 116>
-    XC_BUTTON: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_BUTTON: 22>
-    XC_COMBOBOX: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_COMBOBOX: 24>
-    XC_COMBOBOXWINDOW: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_COMBOBOXWINDOW: 11>
-    XC_DATETIME: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_DATETIME: 36>
-    XC_EDIT: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_EDIT: 45>
-    XC_EDITOR: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_EDITOR: 46>
-    XC_EDIT_COLOR: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_EDIT_COLOR: 38>
-    XC_EDIT_FILE: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_EDIT_FILE: 50>
-    XC_EDIT_FOLDER: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_EDIT_FOLDER: 51>
-    XC_EDIT_SET: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_EDIT_SET: 39>
-    XC_ELE: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_ELE: 21>
-    XC_ELE_LAYOUT: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_ELE_LAYOUT: 53>
-    XC_ERROR: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_ERROR: -1>
-    XC_FLOATWND: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_FLOATWND: 4>
-    XC_FONT: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_FONT: 84>
-    XC_FRAMEWND: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_FRAMEWND: 3>
-    XC_HDRAW: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_HDRAW: 83>
-    XC_IMAGE: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_IMAGE: 82>
-    XC_IMAGE_FRAME: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_IMAGE_FRAME: 88>
-    XC_IMAGE_TEXTURE: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_IMAGE: 82>
-    XC_LAYOUT_BOX: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LAYOUT_BOX: 124>
-    XC_LAYOUT_FRAME: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LAYOUT_FRAME: 54>
-    XC_LAYOUT_LIST: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LAYOUT_LIST: 112>
-    XC_LAYOUT_LISTVIEW: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LAYOUT_LISTVIEW: 111>
-    XC_LAYOUT_OBJECT: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LAYOUT_OBJECT: 101>
-    XC_LAYOUT_OBJECT_GROUP: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LAYOUT_OBJECT_GROUP: 113>
-    XC_LAYOUT_OBJECT_ITEM: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LAYOUT_OBJECT_ITEM: 114>
-    XC_LAYOUT_PANEL: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LAYOUT_PANEL: 115>
-    XC_LIST: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LIST: 27>
-    XC_LISTBOX: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LISTBOX: 28>
-    XC_LISTVIEW: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LISTVIEW: 29>
-    XC_LIST_HEADER: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LIST_HEADER: 52>
-    XC_MENU: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_MENU: 81>
-    XC_MENUBAR: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_MENUBAR: 31>
-    XC_MENUBAR_BUTTON: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_MENUBAR_BUTTON: 44>
-    XC_MODALWINDOW: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_MODALWINDOW: 2>
-    XC_MONTHCAL: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_MONTHCAL: 35>
-    XC_NOTHING: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_NOTHING: 0>
-    XC_OBJECT_UI: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_OBJECT_UI: 19>
-    XC_PANE: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_PANE: 42>
-    XC_PANE_SPLIT: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_PANE_SPLIT: 43>
-    XC_POPUPMENUCHILDWINDOW: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_POPUPMENUCHILDWINDOW: 13>
-    XC_POPUPMENUWINDOW: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_POPUPMENUWINDOW: 12>
-    XC_PROGRESSBAR: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_PROGRESSBAR: 33>
-    XC_PROPERTYGRID: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_PROPERTYGRID: 37>
-    XC_RICHEDIT: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_RICHEDIT: 23>
-    XC_SCROLLBAR: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SCROLLBAR: 25>
-    XC_SCROLLVIEW: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SCROLLVIEW: 26>
-    XC_SHAPE: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SHAPE: 61>
-    XC_SHAPE_ELLIPSE: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SHAPE_ELLIPSE: 65>
-    XC_SHAPE_GIF: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SHAPE_GIF: 68>
-    XC_SHAPE_GROUPBOX: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SHAPE_GROUPBOX: 67>
-    XC_SHAPE_LINE: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SHAPE_LINE: 66>
-    XC_SHAPE_PICTURE: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SHAPE_PICTURE: 63>
-    XC_SHAPE_RECT: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SHAPE_RECT: 64>
-    XC_SHAPE_TABLE: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SHAPE_TABLE: 69>
-    XC_SHAPE_TEXT: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SHAPE_TEXT: 62>
-    XC_SLIDERBAR: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SLIDERBAR: 32>
-    XC_SVG: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SVG: 89>
-    XC_TABBAR: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_TABBAR: 40>
-    XC_TEXTLINK: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_TEXTLINK: 41>
-    XC_TOOLBAR: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_TOOLBAR: 34>
-    XC_TREE: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_TREE: 30>
-    XC_WIDGET_UI: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_WIDGET_UI: 20>
-    XC_WINDOW: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_WINDOW: 1>
+    XC_ADAPTER: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_ADAPTER: 102>
+    XC_ADAPTER_LISTVIEW: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_ADAPTER_LISTVIEW: 105>
+    XC_ADAPTER_MAP: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_ADAPTER_MAP: 106>
+    XC_ADAPTER_TABLE: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_ADAPTER_TABLE: 103>
+    XC_ADAPTER_TREE: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_ADAPTER_TREE: 104>
+    XC_ANIMATION_GROUP: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_ANIMATION_GROUP: 132>
+    XC_ANIMATION_ITEM: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_ANIMATION_ITEM: 133>
+    XC_ANIMATION_SEQUENCE: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_ANIMATION_SEQUENCE: 131>
+    XC_BKINFOM: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_BKINFOM: 116>
+    XC_BUTTON: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_BUTTON: 22>
+    XC_COMBOBOX: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_COMBOBOX: 24>
+    XC_COMBOBOXWINDOW: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_COMBOBOXWINDOW: 11>
+    XC_DATETIME: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_DATETIME: 36>
+    XC_EDIT: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_EDIT: 45>
+    XC_EDITOR: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_EDITOR: 46>
+    XC_EDIT_COLOR: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_EDIT_COLOR: 38>
+    XC_EDIT_FILE: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_EDIT_FILE: 50>
+    XC_EDIT_FOLDER: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_EDIT_FOLDER: 51>
+    XC_EDIT_SET: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_EDIT_SET: 39>
+    XC_ELE: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_ELE: 21>
+    XC_ELE_LAYOUT: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_ELE_LAYOUT: 53>
+    XC_ERROR: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_ERROR: -1>
+    XC_FLOATWND: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_FLOATWND: 4>
+    XC_FONT: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_FONT: 84>
+    XC_FRAMEWND: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_FRAMEWND: 3>
+    XC_HDRAW: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_HDRAW: 83>
+    XC_IMAGE: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_IMAGE: 82>
+    XC_IMAGE_FRAME: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_IMAGE_FRAME: 88>
+    XC_IMAGE_TEXTURE: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_IMAGE: 82>
+    XC_LAYOUT_BOX: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LAYOUT_BOX: 124>
+    XC_LAYOUT_FRAME: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LAYOUT_FRAME: 54>
+    XC_LAYOUT_LIST: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LAYOUT_LIST: 112>
+    XC_LAYOUT_LISTVIEW: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LAYOUT_LISTVIEW: 111>
+    XC_LAYOUT_OBJECT: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LAYOUT_OBJECT: 101>
+    XC_LAYOUT_OBJECT_GROUP: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LAYOUT_OBJECT_GROUP: 113>
+    XC_LAYOUT_OBJECT_ITEM: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LAYOUT_OBJECT_ITEM: 114>
+    XC_LAYOUT_PANEL: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LAYOUT_PANEL: 115>
+    XC_LIST: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LIST: 27>
+    XC_LISTBOX: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LISTBOX: 28>
+    XC_LISTVIEW: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LISTVIEW: 29>
+    XC_LIST_HEADER: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LIST_HEADER: 52>
+    XC_MENU: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_MENU: 81>
+    XC_MENUBAR: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_MENUBAR: 31>
+    XC_MENUBAR_BUTTON: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_MENUBAR_BUTTON: 44>
+    XC_MODALWINDOW: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_MODALWINDOW: 2>
+    XC_MONTHCAL: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_MONTHCAL: 35>
+    XC_NOTHING: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_NOTHING: 0>
+    XC_OBJECT_UI: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_OBJECT_UI: 19>
+    XC_PANE: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_PANE: 42>
+    XC_PANE_SPLIT: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_PANE_SPLIT: 43>
+    XC_POPUPMENUCHILDWINDOW: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_POPUPMENUCHILDWINDOW: 13>
+    XC_POPUPMENUWINDOW: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_POPUPMENUWINDOW: 12>
+    XC_PROGRESSBAR: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_PROGRESSBAR: 33>
+    XC_PROPERTYGRID: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_PROPERTYGRID: 37>
+    XC_RICHEDIT: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_RICHEDIT: 23>
+    XC_SCROLLBAR: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SCROLLBAR: 25>
+    XC_SCROLLVIEW: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SCROLLVIEW: 26>
+    XC_SHAPE: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SHAPE: 61>
+    XC_SHAPE_ELLIPSE: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SHAPE_ELLIPSE: 65>
+    XC_SHAPE_GIF: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SHAPE_GIF: 68>
+    XC_SHAPE_GROUPBOX: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SHAPE_GROUPBOX: 67>
+    XC_SHAPE_LINE: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SHAPE_LINE: 66>
+    XC_SHAPE_PICTURE: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SHAPE_PICTURE: 63>
+    XC_SHAPE_RECT: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SHAPE_RECT: 64>
+    XC_SHAPE_TABLE: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SHAPE_TABLE: 69>
+    XC_SHAPE_TEXT: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SHAPE_TEXT: 62>
+    XC_SLIDERBAR: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SLIDERBAR: 32>
+    XC_SVG: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SVG: 89>
+    XC_TABBAR: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_TABBAR: 40>
+    XC_TEXTLINK: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_TEXTLINK: 41>
+    XC_TOOLBAR: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_TOOLBAR: 34>
+    XC_TREE: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_TREE: 30>
+    XC_WIDGET_UI: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_WIDGET_UI: 20>
+    XC_WINDOW: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_WINDOW: 1>
     __members__: dict # value = {'XC_ERROR': <XC_OBJECT_TYPE.XC_ERROR: -1>, 'XC_NOTHING': <XC_OBJECT_TYPE.XC_NOTHING: 0>, 'XC_WINDOW': <XC_OBJECT_TYPE.XC_WINDOW: 1>, 'XC_MODALWINDOW': <XC_OBJECT_TYPE.XC_MODALWINDOW: 2>, 'XC_FRAMEWND': <XC_OBJECT_TYPE.XC_FRAMEWND: 3>, 'XC_FLOATWND': <XC_OBJECT_TYPE.XC_FLOATWND: 4>, 'XC_COMBOBOXWINDOW': <XC_OBJECT_TYPE.XC_COMBOBOXWINDOW: 11>, 'XC_POPUPMENUWINDOW': <XC_OBJECT_TYPE.XC_POPUPMENUWINDOW: 12>, 'XC_POPUPMENUCHILDWINDOW': <XC_OBJECT_TYPE.XC_POPUPMENUCHILDWINDOW: 13>, 'XC_OBJECT_UI': <XC_OBJECT_TYPE.XC_OBJECT_UI: 19>, 'XC_WIDGET_UI': <XC_OBJECT_TYPE.XC_WIDGET_UI: 20>, 'XC_ELE': <XC_OBJECT_TYPE.XC_ELE: 21>, 'XC_ELE_LAYOUT': <XC_OBJECT_TYPE.XC_ELE_LAYOUT: 53>, 'XC_LAYOUT_FRAME': <XC_OBJECT_TYPE.XC_LAYOUT_FRAME: 54>, 'XC_BUTTON': <XC_OBJECT_TYPE.XC_BUTTON: 22>, 'XC_EDIT': <XC_OBJECT_TYPE.XC_EDIT: 45>, 'XC_EDITOR': <XC_OBJECT_TYPE.XC_EDITOR: 46>, 'XC_RICHEDIT': <XC_OBJECT_TYPE.XC_RICHEDIT: 23>, 'XC_COMBOBOX': <XC_OBJECT_TYPE.XC_COMBOBOX: 24>, 'XC_SCROLLBAR': <XC_OBJECT_TYPE.XC_SCROLLBAR: 25>, 'XC_SCROLLVIEW': <XC_OBJECT_TYPE.XC_SCROLLVIEW: 26>, 'XC_LIST': <XC_OBJECT_TYPE.XC_LIST: 27>, 'XC_LISTBOX': <XC_OBJECT_TYPE.XC_LISTBOX: 28>, 'XC_LISTVIEW': <XC_OBJECT_TYPE.XC_LISTVIEW: 29>, 'XC_TREE': <XC_OBJECT_TYPE.XC_TREE: 30>, 'XC_MENUBAR': <XC_OBJECT_TYPE.XC_MENUBAR: 31>, 'XC_SLIDERBAR': <XC_OBJECT_TYPE.XC_SLIDERBAR: 32>, 'XC_PROGRESSBAR': <XC_OBJECT_TYPE.XC_PROGRESSBAR: 33>, 'XC_TOOLBAR': <XC_OBJECT_TYPE.XC_TOOLBAR: 34>, 'XC_MONTHCAL': <XC_OBJECT_TYPE.XC_MONTHCAL: 35>, 'XC_DATETIME': <XC_OBJECT_TYPE.XC_DATETIME: 36>, 'XC_PROPERTYGRID': <XC_OBJECT_TYPE.XC_PROPERTYGRID: 37>, 'XC_EDIT_COLOR': <XC_OBJECT_TYPE.XC_EDIT_COLOR: 38>, 'XC_EDIT_SET': <XC_OBJECT_TYPE.XC_EDIT_SET: 39>, 'XC_TABBAR': <XC_OBJECT_TYPE.XC_TABBAR: 40>, 'XC_TEXTLINK': <XC_OBJECT_TYPE.XC_TEXTLINK: 41>, 'XC_PANE': <XC_OBJECT_TYPE.XC_PANE: 42>, 'XC_PANE_SPLIT': <XC_OBJECT_TYPE.XC_PANE_SPLIT: 43>, 'XC_MENUBAR_BUTTON': <XC_OBJECT_TYPE.XC_MENUBAR_BUTTON: 44>, 'XC_EDIT_FILE': <XC_OBJECT_TYPE.XC_EDIT_FILE: 50>, 'XC_EDIT_FOLDER': <XC_OBJECT_TYPE.XC_EDIT_FOLDER: 51>, 'XC_LIST_HEADER': <XC_OBJECT_TYPE.XC_LIST_HEADER: 52>, 'XC_SHAPE': <XC_OBJECT_TYPE.XC_SHAPE: 61>, 'XC_SHAPE_TEXT': <XC_OBJECT_TYPE.XC_SHAPE_TEXT: 62>, 'XC_SHAPE_PICTURE': <XC_OBJECT_TYPE.XC_SHAPE_PICTURE: 63>, 'XC_SHAPE_RECT': <XC_OBJECT_TYPE.XC_SHAPE_RECT: 64>, 'XC_SHAPE_ELLIPSE': <XC_OBJECT_TYPE.XC_SHAPE_ELLIPSE: 65>, 'XC_SHAPE_LINE': <XC_OBJECT_TYPE.XC_SHAPE_LINE: 66>, 'XC_SHAPE_GROUPBOX': <XC_OBJECT_TYPE.XC_SHAPE_GROUPBOX: 67>, 'XC_SHAPE_GIF': <XC_OBJECT_TYPE.XC_SHAPE_GIF: 68>, 'XC_SHAPE_TABLE': <XC_OBJECT_TYPE.XC_SHAPE_TABLE: 69>, 'XC_MENU': <XC_OBJECT_TYPE.XC_MENU: 81>, 'XC_IMAGE': <XC_OBJECT_TYPE.XC_IMAGE: 82>, 'XC_IMAGE_TEXTURE': <XC_OBJECT_TYPE.XC_IMAGE: 82>, 'XC_HDRAW': <XC_OBJECT_TYPE.XC_HDRAW: 83>, 'XC_FONT': <XC_OBJECT_TYPE.XC_FONT: 84>, 'XC_IMAGE_FRAME': <XC_OBJECT_TYPE.XC_IMAGE_FRAME: 88>, 'XC_SVG': <XC_OBJECT_TYPE.XC_SVG: 89>, 'XC_LAYOUT_OBJECT': <XC_OBJECT_TYPE.XC_LAYOUT_OBJECT: 101>, 'XC_ADAPTER': <XC_OBJECT_TYPE.XC_ADAPTER: 102>, 'XC_ADAPTER_TABLE': <XC_OBJECT_TYPE.XC_ADAPTER_TABLE: 103>, 'XC_ADAPTER_TREE': <XC_OBJECT_TYPE.XC_ADAPTER_TREE: 104>, 'XC_ADAPTER_LISTVIEW': <XC_OBJECT_TYPE.XC_ADAPTER_LISTVIEW: 105>, 'XC_ADAPTER_MAP': <XC_OBJECT_TYPE.XC_ADAPTER_MAP: 106>, 'XC_BKINFOM': <XC_OBJECT_TYPE.XC_BKINFOM: 116>, 'XC_LAYOUT_LISTVIEW': <XC_OBJECT_TYPE.XC_LAYOUT_LISTVIEW: 111>, 'XC_LAYOUT_LIST': <XC_OBJECT_TYPE.XC_LAYOUT_LIST: 112>, 'XC_LAYOUT_OBJECT_GROUP': <XC_OBJECT_TYPE.XC_LAYOUT_OBJECT_GROUP: 113>, 'XC_LAYOUT_OBJECT_ITEM': <XC_OBJECT_TYPE.XC_LAYOUT_OBJECT_ITEM: 114>, 'XC_LAYOUT_PANEL': <XC_OBJECT_TYPE.XC_LAYOUT_PANEL: 115>, 'XC_LAYOUT_BOX': <XC_OBJECT_TYPE.XC_LAYOUT_BOX: 124>, 'XC_ANIMATION_SEQUENCE': <XC_OBJECT_TYPE.XC_ANIMATION_SEQUENCE: 131>, 'XC_ANIMATION_GROUP': <XC_OBJECT_TYPE.XC_ANIMATION_GROUP: 132>, 'XC_ANIMATION_ITEM': <XC_OBJECT_TYPE.XC_ANIMATION_ITEM: 133>}
     pass
 class XC_OBJECT_TYPE_EX():
@@ -1711,14 +1725,14 @@ class XC_OBJECT_TYPE_EX():
         :type: int
         """
     __members__: dict # value = {'xc_ex_error': <XC_OBJECT_TYPE_EX.xc_ex_error: -1>, 'button_type_default': <XC_OBJECT_TYPE_EX.button_type_default: 0>, 'button_type_radio': <XC_OBJECT_TYPE_EX.button_type_radio: 1>, 'button_type_check': <XC_OBJECT_TYPE_EX.button_type_check: 2>, 'button_type_close': <XC_OBJECT_TYPE_EX.button_type_close: 3>, 'button_type_min': <XC_OBJECT_TYPE_EX.button_type_min: 4>, 'button_type_max': <XC_OBJECT_TYPE_EX.button_type_max: 5>, 'element_type_layout': <XC_OBJECT_TYPE_EX.element_type_layout: 6>}
-    button_type_check: xcgui.XC_OBJECT_TYPE_EX # value = <XC_OBJECT_TYPE_EX.button_type_check: 2>
-    button_type_close: xcgui.XC_OBJECT_TYPE_EX # value = <XC_OBJECT_TYPE_EX.button_type_close: 3>
-    button_type_default: xcgui.XC_OBJECT_TYPE_EX # value = <XC_OBJECT_TYPE_EX.button_type_default: 0>
-    button_type_max: xcgui.XC_OBJECT_TYPE_EX # value = <XC_OBJECT_TYPE_EX.button_type_max: 5>
-    button_type_min: xcgui.XC_OBJECT_TYPE_EX # value = <XC_OBJECT_TYPE_EX.button_type_min: 4>
-    button_type_radio: xcgui.XC_OBJECT_TYPE_EX # value = <XC_OBJECT_TYPE_EX.button_type_radio: 1>
-    element_type_layout: xcgui.XC_OBJECT_TYPE_EX # value = <XC_OBJECT_TYPE_EX.element_type_layout: 6>
-    xc_ex_error: xcgui.XC_OBJECT_TYPE_EX # value = <XC_OBJECT_TYPE_EX.xc_ex_error: -1>
+    button_type_check: _xcgui.XC_OBJECT_TYPE_EX # value = <XC_OBJECT_TYPE_EX.button_type_check: 2>
+    button_type_close: _xcgui.XC_OBJECT_TYPE_EX # value = <XC_OBJECT_TYPE_EX.button_type_close: 3>
+    button_type_default: _xcgui.XC_OBJECT_TYPE_EX # value = <XC_OBJECT_TYPE_EX.button_type_default: 0>
+    button_type_max: _xcgui.XC_OBJECT_TYPE_EX # value = <XC_OBJECT_TYPE_EX.button_type_max: 5>
+    button_type_min: _xcgui.XC_OBJECT_TYPE_EX # value = <XC_OBJECT_TYPE_EX.button_type_min: 4>
+    button_type_radio: _xcgui.XC_OBJECT_TYPE_EX # value = <XC_OBJECT_TYPE_EX.button_type_radio: 1>
+    element_type_layout: _xcgui.XC_OBJECT_TYPE_EX # value = <XC_OBJECT_TYPE_EX.element_type_layout: 6>
+    xc_ex_error: _xcgui.XC_OBJECT_TYPE_EX # value = <XC_OBJECT_TYPE_EX.xc_ex_error: -1>
     pass
 class XCareInfo():
     @property
@@ -1790,6 +1804,7 @@ class XWidget(XObjectUI, XObject):
     def getWindow(self) -> XObject: ...
     def isLayoutControl(self) -> bool: ...
     def isShow(self) -> bool: ...
+    def isValid(self) -> bool: ...
     def layoutEnableFloat(self, float: bool) -> None: ...
     def layoutEnableSwap(self, swap: bool) -> None: ...
     def layoutEnableWrap(self, wrap: bool) -> None: ...
@@ -1798,7 +1813,7 @@ class XWidget(XObjectUI, XObject):
     def layoutGetWidth(self) -> XLayoutSize: ...
     def layoutSetAlign(self, align: layout_align_axis_) -> None: ...
     def layoutSetHeight(self, sizeType: layout_size_, size: int = 0) -> None: ...
-    def layoutSetMargin(self, margin: XRect) -> None: ...
+    def layoutSetMargin(self, left: int, top: int, right: int, bottom: int) -> None: ...
     def layoutSetMinSize(self, width: int, height: int) -> None: ...
     def layoutSetPosition(self, left: int, top: int, right: int, bottom: int) -> None: ...
     def layoutSetWidth(self, sizeType: layout_size_, size: int = 0) -> None: ...
@@ -1916,6 +1931,8 @@ class XDraw(XObject):
     def imageExF(self, image: XImage, x: float, y: float, width: float, height: float) -> None: ...
     def imageF(self, imageF: XImage, x: float, y: float) -> None: ...
     def imageMask(self, image: XImage, imageMask: XImage, rect: XRect, x2: int, y2: int) -> None: ...
+    def imageMaskEllipse(self, image: XImage, rect: XRect, rectMask: XRect) -> None: ...
+    def imageMaskRect(self, image: XImage, rect: XRect, rectMask: XRect, rectRoundAngle: XRect) -> None: ...
     def imageSuper(self, image: XImage, rect: XRect, clip: bool = False) -> None: ...
     def imageSuperEx(self, image: XImage, rectDest: XRect, rectSrc: XRect) -> None: ...
     def imageSuperExF(self, image: XImage, rectDest: XRectF, rectSrc: XRectF) -> None: ...
@@ -1923,6 +1940,7 @@ class XDraw(XObject):
     def imageSuperMask(self, image: XImage, imageMask: XImage, rect: XRect, rectMask: XRect, clip: bool) -> None: ...
     def imageTile(self, image: XImage, rect: XRect, flag: int = 0) -> None: ...
     def imageTileF(self, image: XImage, rect: XRectF, flag: int = 0) -> None: ...
+    def isValid(self) -> bool: ...
     def setBrushColor(self, color: int) -> None: ...
     def setClipRect(self, rect: XRect) -> None: ...
     def setD2dTextRenderingMode(self, mode: XC_DWRITE_RENDERING_MODE) -> None: ...
@@ -1966,15 +1984,15 @@ class XEase():
     pass
 class XElement(XWidget, XObjectUI, XObject):
     @typing.overload
-    def __init__(self) -> None: ...
+    def __init__(self, width: int, height: int, parent: XObjectUI = None) -> None: ...
     @typing.overload
-    def __init__(self, parent: XObjectUI, x: int, y: int, width: int, height: int) -> None: ...
+    def __init__(self, x: int, y: int, width: int, height: int, parent: XObjectUI = None) -> None: ...
     def addBkBorder(self, state: int, hColor: int, width: int) -> None: ...
     def addBkFill(self, state: int, hColor: int) -> None: ...
     def addBkImage(self, state: int, image: XImage) -> None: ...
     def addChild(self, child: XWidget) -> None: ...
-    def adjustLayout(self, adjustNo: int) -> None: ...
-    def adjustLayoutEx(self, flags: int, adjustNo: int) -> None: ...
+    def adjustLayout(self, adjustNo: int = 0) -> None: ...
+    def adjustLayoutEx(self, flags: int, adjustNo: int = 0) -> None: ...
     @staticmethod
     def cast(handle: int) -> XElement: ...
     def clearBkInfo(self) -> None: ...
@@ -2037,6 +2055,7 @@ class XElement(XWidget, XObjectUI, XObject):
     def isKeyTab(self) -> bool: ...
     def isMouseThrough(self) -> bool: ...
     def isSwitchFocus(self) -> bool: ...
+    def isValid(self) -> bool: ...
     def killXCTimer(self, eventId: int) -> bool: ...
     def pointClientToScreen(self, position_flag: position_flag_ = position_flag_.position_flag_leftBottom, xOffset: int = 0, yOffset: int = 0) -> XPoint: ...
     def pointClientToWndClient(self, point: XPoint) -> XPoint: ...
@@ -2101,7 +2120,9 @@ class XButton(XElement, XWidget, XObjectUI, XObject):
     def getText(self, enable: bool, loopPlay: bool = False) -> None: ...
     def getTextAlign(self) -> int: ...
     def isCheck(self) -> bool: ...
+    def isValid(self) -> bool: ...
     def setBindEle(self, ele: XWidget) -> None: ...
+    def setBtnTypeEx(self, nType: XC_OBJECT_TYPE_EX) -> None: ...
     def setCheck(self, checked: bool) -> bool: ...
     def setGroupId(self, groupId: int) -> None: ...
     def setIcon(self, image: XImage) -> None: ...
@@ -2113,7 +2134,6 @@ class XButton(XElement, XWidget, XObjectUI, XObject):
     def setState(self, state: common_state3_) -> None: ...
     def setText(self, text: str) -> None: ...
     def setTextAlign(self, flags: int) -> None: ...
-    def setTypeEx(self, nType: XC_OBJECT_TYPE_EX) -> None: ...
     pass
 class XEvent():
     @property
@@ -2157,11 +2177,16 @@ class XFont(XObject):
     def createFromName(name: str, size: int, style: int) -> XFont: ...
     @staticmethod
     def createFromRes(resId: int, typeName: str, size: int, style: int, hModule: int) -> XFont: ...
+    @staticmethod
+    def createFromZip(zipFileName: str, fileName: str, password: str, fontSize: int, style: int) -> XFont: ...
+    @staticmethod
+    def createFromZipMem(data: bytes, fileName: str, password: str, fontSize: int, style: int) -> XFont: ...
     def destroy(self) -> None: ...
     def enableAutoDestroy(self, enable: bool) -> None: ...
     def getFontInfo(self) -> XFontInfo: ...
     def getGdiFont(self) -> int: ...
     def getRefCount(self) -> int: ...
+    def isValid(self) -> bool: ...
     def release(self) -> None: ...
     pass
 class XFontInfo():
@@ -2200,6 +2225,7 @@ class XLayoutBox(XObject):
     def enableAutoWrap(self, enable: bool) -> None: ...
     def enableHorizon(self, enable: bool) -> None: ...
     def enableOverflowHide(self, enable: bool) -> None: ...
+    def isValid(self) -> bool: ...
     def setAlignBaseline(self, align: layout_align_axis_) -> None: ...
     def setAlignH(self, align: layout_align_) -> None: ...
     def setAlignV(self, align: layout_align_) -> None: ...
@@ -2222,6 +2248,7 @@ class XImage(XObject):
     def isCenter(self) -> bool: ...
     def isStretch(self) -> bool: ...
     def isTile(self) -> bool: ...
+    def isValid(self) -> bool: ...
     @staticmethod
     def loadFile(filename: str) -> XImage: ...
     @staticmethod
@@ -2264,6 +2291,7 @@ class XImage(XObject):
     def setDrawType(self, drawType: image_draw_type_) -> bool: ...
     def setDrawTypeAdaptive(self, leftSize: int, topSize: int, rightSize: int, bottomSize: int) -> bool: ...
     def setRotateAngle(self, angle: float) -> float: ...
+    def setScaleSize(self, width: int, height: int) -> None: ...
     def setSplitEqual(self, count: int, index: int) -> None: ...
     def setTranColor(self, color: int) -> None: ...
     def setTranColorEx(self, color: int, alpha: int) -> None: ...
@@ -2278,6 +2306,7 @@ class XImageSrc(XObject):
     def getHeight(self) -> int: ...
     def getRefCount(self) -> int: ...
     def getWidth(self) -> int: ...
+    def isValid(self) -> bool: ...
     @staticmethod
     def loadFile(filename: str) -> XImageSrc: ...
     @staticmethod
@@ -2397,6 +2426,7 @@ class XWindow(XObjectUI, XLayoutBox, XObject):
     def isDragCaption(self) -> bool: ...
     def isEnableLayout(self) -> bool: ...
     def isMaxWindow(self) -> bool: ...
+    def isValid(self) -> bool: ...
     def killTimer(self, eventId: int) -> bool: ...
     def killXCTimer(self, eventId: int) -> bool: ...
     def maxWindow(self, maximize: bool) -> None: ...
@@ -2409,8 +2439,8 @@ class XWindow(XObjectUI, XLayoutBox, XObject):
     def notifyMsgWindowPopup(self, position: position_flag_, title: str, text: str, icon: XImage, skin: notifyMsg_skin_) -> None: ...
     def notifyMsgWindowPopupEx(self, position: position_flag_, title: str, text: str, icon: XImage, skin: notifyMsg_skin_, btnClose: bool, autoClose: bool, width: int, height: int) -> None: ...
     def postMessage(self, msg: int, wParam: int, lParam: int) -> bool: ...
-    def redraw(self, immediate: bool) -> None: ...
-    def redrawRect(self, rect: XRect, immediate: bool) -> None: ...
+    def redraw(self, immediate: bool = False) -> None: ...
+    def redrawRect(self, rect: XRect, immediate: bool = False) -> None: ...
     def regEvent(self, eventType: int, callback: typing.Callable[[XEvent, object], bool], userdata: object = None) -> None: ...
     def sendMessage(self, msg: int, wParam: int, lParam: int) -> bool: ...
     def setBkInfo(self, text: str) -> int: ...
@@ -2462,6 +2492,7 @@ class XLayoutEle(XElement, XWidget, XObjectUI, XLayoutBox, XObject):
     def getHeightIn(self) -> int: ...
     def getWidthIn(self) -> int: ...
     def isEnableLayout(self) -> bool: ...
+    def isValid(self) -> bool: ...
     def showLayoutFrame(self, enable: bool) -> None: ...
     pass
 class XScrollView(XElement, XWidget, XObjectUI, XObject):
@@ -2481,6 +2512,7 @@ class XScrollView(XElement, XWidget, XObjectUI, XObject):
     def getViewPosV(self) -> int: ...
     def getViewRect(self) -> XRect: ...
     def getViewWidth(self) -> int: ...
+    def isValid(self) -> bool: ...
     def scrollBottom(self) -> bool: ...
     def scrollBottomLine(self) -> bool: ...
     def scrollLeft(self) -> bool: ...
@@ -2540,7 +2572,7 @@ class XList(XScrollView, XElement, XWidget, XObjectUI, XObject):
     def cancelSelectItem(self, row: int) -> bool: ...
     @staticmethod
     def cast(handle: int) -> XList: ...
-    def createAdapter(self) -> XObject: ...
+    def createAdapter(self, colExtendCount: int) -> XObject: ...
     def createAdapterHeader(self) -> XObject: ...
     def deleteColumn(self, row: int) -> bool: ...
     def deleteColumnAll(self) -> None: ...
@@ -2587,11 +2619,13 @@ class XList(XScrollView, XElement, XWidget, XObjectUI, XObject):
     def insertItemImageEx(self, row: int, name: str, image: XImage) -> int: ...
     def insertItemText(self, row: int, text: str) -> int: ...
     def insertItemTextEx(self, row: int, name: str, text: str) -> int: ...
+    def isValid(self) -> bool: ...
     def refreshData(self) -> None: ...
     def refreshItem(self, row: int) -> None: ...
     def setColumnMinWidth(self, row: int, width: int) -> None: ...
     def setColumnWidth(self, row: int, width: int) -> None: ...
     def setColumnWidthFixed(self, column: int, fixed: bool) -> None: ...
+    def setDragRectColor(self, color: int, width: int) -> None: ...
     def setDrawItemBkFlags(self, flags: int) -> None: ...
     def setHeaderHeight(self, height: int) -> None: ...
     def setItemData(self, row: int, column: int, userdata: object) -> None: ...
@@ -2671,9 +2705,11 @@ class XListBox(XScrollView, XElement, XWidget, XObjectUI, XObject):
     def insertItemImageEx(self, itemId: int, name: str, image: XImage) -> int: ...
     def insertItemText(self, itemId: int, text: str) -> int: ...
     def insertItemTextEx(self, itemId: int, name: str, text: str) -> int: ...
+    def isValid(self) -> bool: ...
     def refreshData(self) -> None: ...
     def refreshItem(self, itemId: int) -> None: ...
     def selectAll(self) -> bool: ...
+    def setDragRectColor(self, color: int, width: int) -> None: ...
     def setDrawItemBkFlags(self, flags: int) -> None: ...
     def setItemData(self, itemId: int, userdata: object) -> None: ...
     def setItemFloat(self, itemId: int, column: int, value: float) -> bool: ...
@@ -2746,6 +2782,7 @@ class XListView(XScrollView, XElement, XWidget, XObjectUI, XObject):
     def groupSetTextEx(self, group: int, name: str, text: str) -> bool: ...
     def hitTest(self, point: XPoint) -> listView_item_id_: ...
     def hitTestOffset(self, point: XPoint) -> listView_item_id_: ...
+    def isValid(self) -> bool: ...
     def itemAddColumn(self, name: str) -> int: ...
     def itemAddItemImage(self, group: int, image: XImage, pos: int = -1) -> int: ...
     def itemAddItemImageEx(self, group: int, name: str, image: XImage, pos: int = -1) -> int: ...
@@ -2764,6 +2801,7 @@ class XListView(XScrollView, XElement, XWidget, XObjectUI, XObject):
     def refreshData(self) -> None: ...
     def refreshItem(self, group: int, item: int) -> None: ...
     def setColumnSpace(self, space: int) -> None: ...
+    def setDragRectColor(self, color: int, width: int) -> None: ...
     def setDrawItemBkFlags(self, flags: int) -> None: ...
     def setGroupHeight(self, height: int) -> None: ...
     def setGroupUserData(self, group: int, userdata: object) -> None: ...
@@ -2849,6 +2887,7 @@ class XMenu(XObject):
     def insertItem(self, nId: int, text: str, flags: int, insertId: int) -> None: ...
     def insertItemIcon(self, nId: int, text: str, image: XImage, flags: int, insertId: int) -> None: ...
     def isItemCheck(self, nId: int) -> bool: ...
+    def isValid(self) -> bool: ...
     def popup(self, parentHWND: int, x: int, y: int, parentEle: XElement = None, position: menu_popup_position_ = menu_popup_position_.menu_popup_position_left_top) -> bool: ...
     def setAutoDestroy(self, enable: bool) -> None: ...
     def setBkImage(self, image: XImage) -> None: ...
@@ -2873,6 +2912,7 @@ class XMenuBar(XElement, XWidget, XObjectUI, XObject):
     def enableAutoWidth(self, enable: bool) -> None: ...
     def getButton(self, index: int) -> XButton: ...
     def getMenu(self, index: int) -> XMenu: ...
+    def isValid(self) -> bool: ...
     def setButtonHeight(self, height: int) -> None: ...
     pass
 class XModelWindow(XWindow, XObjectUI, XLayoutBox, XObject):
@@ -2891,6 +2931,7 @@ class XModelWindow(XWindow, XObjectUI, XLayoutBox, XObject):
     def enableAutoClose(self, enable: bool) -> None: ...
     def enableEscClose(self, enable: bool) -> None: ...
     def endModal(self, result: int) -> None: ...
+    def isValid(self) -> bool: ...
     pass
 class XMonthCal(XElement, XWidget, XObjectUI, XObject):
     def GetSelDate(self) -> XDateInfo: ...
@@ -2902,6 +2943,7 @@ class XMonthCal(XElement, XWidget, XObjectUI, XObject):
     def cast(handle: int) -> XMonthCal: ...
     def getButton(self, btnType: monthCal_button_type_) -> XButton: ...
     def getToday(self) -> XDateInfo: ...
+    def isValid(self) -> bool: ...
     def setTextColor(self, flag: int, color: int) -> None: ...
     def setToday(self, year: int, month: int, day: int) -> None: ...
     pass
@@ -2912,6 +2954,7 @@ class XMsgWindow(XModelWindow, XWindow, XObjectUI, XLayoutBox, XObject):
     def __init__(self, title: str, text: str, flags: int = 8193, hwndParent: int = 0, xcStyle: int = 1223) -> None: ...
     @staticmethod
     def cast(handle: int) -> XMsgWindow: ...
+    def isValid(self) -> bool: ...
     pass
 class XAdapterListView(XAdapter, XObject):
     def __init__(self) -> None: ...
@@ -2938,6 +2981,7 @@ class XAdapterListView(XAdapter, XObject):
     def groupSetImageEx(self, group: int, name: str, image: XImage) -> bool: ...
     def groupSetText(self, group: int, column: int, value: str) -> bool: ...
     def groupSetTextEx(self, group: int, name: str, value: str) -> bool: ...
+    def isValid(self) -> bool: ...
     def itemAddColumn(self, name: str) -> int: ...
     def itemAddItemImage(self, group: int, image: XImage, pos: int = -1) -> int: ...
     def itemAddItemImageEx(self, group: int, name: str, image: XImage, pos: int = -1) -> int: ...
@@ -2966,6 +3010,7 @@ class XDateTime(XElement, XWidget, XObjectUI, XObject):
     def getSelBkColor(self) -> int: ...
     def getStyle(self) -> int: ...
     def getTime(self) -> XTimeInfo: ...
+    def isValid(self) -> bool: ...
     def popup(self) -> None: ...
     def setDate(self, year: int, month: int, day: int) -> None: ...
     def setSelBkColor(self, color: int) -> None: ...
@@ -2986,6 +3031,7 @@ class XPane(XElement, XWidget, XObjectUI, XObject):
     def hidePane(self, groupDelay: bool = False) -> None: ...
     def isGroupActivate(self) -> bool: ...
     def isShowPane(self) -> bool: ...
+    def isValid(self) -> bool: ...
     def lockPane(self) -> None: ...
     def setCaptionHeight(self, height: int) -> None: ...
     def setSelect(self) -> bool: ...
@@ -3054,6 +3100,7 @@ class XProgressBar(XElement, XWidget, XObjectUI, XObject):
     def enableStretch(self, enable: bool) -> None: ...
     def getPos(self) -> int: ...
     def getRange(self) -> int: ...
+    def isValid(self) -> bool: ...
     def setImageLoad(self, image: XImage) -> None: ...
     def setPos(self, pos: int) -> None: ...
     def setRange(self, range: int) -> None: ...
@@ -3229,6 +3276,7 @@ class XScrollBar(XElement, XWidget, XObjectUI, XObject):
     def getButtonUp(self) -> XButton: ...
     def getRange(self) -> int: ...
     def getSliderMaxLength(self) -> int: ...
+    def isValid(self) -> bool: ...
     def scrollBottom(self) -> bool: ...
     def scrollDown(self) -> bool: ...
     def scrollPos(self, pos: int) -> bool: ...
@@ -3241,7 +3289,6 @@ class XScrollBar(XElement, XWidget, XObjectUI, XObject):
     def showButton(self, enable: bool) -> None: ...
     pass
 class XEdit(XScrollView, XElement, XWidget, XObjectUI, XObject):
-    def SetChatIndentation(self, indentation: int) -> None: ...
     @typing.overload
     def __init__(self, width: int, height: int, parent: XObjectUI = None) -> None: ...
     @typing.overload
@@ -3297,6 +3344,7 @@ class XEdit(XScrollView, XElement, XWidget, XObjectUI, XObject):
     def isMultiLine(self) -> bool: ...
     def isPassword(self) -> bool: ...
     def isReadOnly(self) -> bool: ...
+    def isValid(self) -> bool: ...
     def modifyStyle(self, style: int, font: XFont, color: int, enableColor: bool) -> bool: ...
     def moveEnd(self) -> None: ...
     def posToRowCol(self, pos: int) -> position_: ...
@@ -3308,6 +3356,7 @@ class XEdit(XScrollView, XElement, XWidget, XObjectUI, XObject):
     def setCaretColor(self, color: int) -> None: ...
     def setCaretWidth(self, width: int) -> None: ...
     def setCharSpaceSize(self, size: int, sizeZh: int) -> None: ...
+    def setChatIndentation(self, indentation: int) -> None: ...
     def setCurPos(self, pos: int) -> bool: ...
     def setCurPosEx(self, row: int, column: int) -> None: ...
     def setCurStyle(self, style: int) -> None: ...
@@ -3368,6 +3417,7 @@ class XShape(XWidget, XObjectUI, XObject):
     def getWidth(self) -> int: ...
     def getWndClientRect(self) -> XRect: ...
     def getZOrder(self) -> int: ...
+    def isValid(self) -> bool: ...
     def redraw(self) -> None: ...
     def removeShape(self) -> None: ...
     def setAlpha(self, alpha: int) -> None: ...
@@ -3385,6 +3435,7 @@ class XShapeEllipse(XShape, XWidget, XObjectUI, XObject):
     def cast(handle: int) -> XShapeEllipse: ...
     def enableBorder(self, enable: bool) -> None: ...
     def enableFill(self, enable: bool) -> None: ...
+    def isValid(self) -> bool: ...
     def setBorderColor(self, color: int) -> None: ...
     def setFillColor(self, color: int) -> None: ...
     pass
@@ -3396,6 +3447,7 @@ class XShapeGif(XShape, XWidget, XObjectUI, XObject):
     @staticmethod
     def cast(handle: int) -> XShapeGif: ...
     def getImage(self) -> XImage: ...
+    def isValid(self) -> bool: ...
     def setImage(self, image: XImage) -> None: ...
     pass
 class XShapeGroupBox(XShape, XWidget, XObjectUI, XObject):
@@ -3408,6 +3460,7 @@ class XShapeGroupBox(XShape, XWidget, XObjectUI, XObject):
     def enableRoundAngle(self, enable: bool) -> None: ...
     def getRoundAngle(self) -> XSize: ...
     def getTextOffset(self) -> XPoint: ...
+    def isValid(self) -> bool: ...
     def setBorderColor(self, color: int) -> None: ...
     def setFont(self, font: XFont) -> None: ...
     def setRoundAngle(self, width: int, height: int) -> None: ...
@@ -3422,6 +3475,7 @@ class XShapeLine(XShape, XWidget, XObjectUI, XObject):
     def __init__(self, x: int, y: int, width: int, height: int, parent: XObjectUI = None) -> None: ...
     @staticmethod
     def cast(handle: int) -> XShapeLine: ...
+    def isValid(self) -> bool: ...
     def setColor(self, color: int) -> None: ...
     def setPosition(self, x1: int, y1: int, x2: int, y2: int) -> None: ...
     pass
@@ -3433,6 +3487,7 @@ class XShapePicture(XShape, XWidget, XObjectUI, XObject):
     @staticmethod
     def cast(handle: int) -> XShapePicture: ...
     def getImage(self) -> XImage: ...
+    def isValid(self) -> bool: ...
     def setImage(self, image: XImage) -> None: ...
     pass
 class XShapeRect(XShape, XWidget, XObjectUI, XObject):
@@ -3446,6 +3501,7 @@ class XShapeRect(XShape, XWidget, XObjectUI, XObject):
     def enableFill(self, enable: bool) -> None: ...
     def enableRoundAngle(self, enable: bool) -> None: ...
     def getRoundAngle(self) -> XSize: ...
+    def isValid(self) -> bool: ...
     def setBorderColor(self, color: int) -> None: ...
     def setFillColor(self, color: int) -> None: ...
     def setRoundAngle(self, width: int, height: int) -> None: ...
@@ -3460,6 +3516,7 @@ class XShapeTable(XShape, XWidget, XObjectUI, XObject):
     def comboColumn(self, row: int, column: int, count: int) -> None: ...
     def comboRow(self, row: int, column: int, count: int) -> None: ...
     def getItemRect(self, row: int, column: int) -> XRect: ...
+    def isValid(self) -> bool: ...
     def reset(self, row: int, column: int) -> None: ...
     def setBorderColor(self, color: int) -> None: ...
     def setColumnWidth(self, column: int, width: int) -> None: ...
@@ -3486,6 +3543,7 @@ class XShapeText(XShape, XWidget, XObjectUI, XObject):
     def getText(self) -> str: ...
     def getTextColor(self) -> int: ...
     def getTextLength(self) -> int: ...
+    def isValid(self) -> bool: ...
     def setFont(self, font: XFont) -> None: ...
     def setOffset(self, x: int, y: int) -> None: ...
     def setText(self, text: str) -> None: ...
@@ -3527,6 +3585,7 @@ class XSliderBar(XElement, XWidget, XObjectUI, XObject):
     def getButton(self) -> XButton: ...
     def getPos(self) -> int: ...
     def getRange(self) -> int: ...
+    def isValid(self) -> bool: ...
     def setButtonHeight(self, length: int) -> None: ...
     def setButtonWidth(self, width: int) -> None: ...
     def setImageLoad(self, image: XImage) -> None: ...
@@ -3572,14 +3631,17 @@ class XSvg(XObject):
     def getUserStrokeColor(self) -> XStrokeInfo: ...
     def getViewBox(self) -> XRect: ...
     def getWidth(self) -> int: ...
+    def isValid(self) -> bool: ...
     @staticmethod
     def loadFile(filename: str) -> XSvg: ...
     @staticmethod
     def loadRes(resId: int, filename: str, hModule: int) -> XSvg: ...
     @staticmethod
-    def loadString(name: str) -> XSvg: ...
+    def loadString(text: str) -> XSvg: ...
     @staticmethod
     def loadZip(zipFileName: str, fileName: str, password: str) -> XSvg: ...
+    @staticmethod
+    def loadZipMem(data: bytes, fileName: str, password: str) -> XSvg: ...
     def release(self) -> None: ...
     def setAlpha(self, alpha: int) -> None: ...
     def setPosition(self, x: int, y: int) -> None: ...
@@ -3613,6 +3675,7 @@ class XTabBar(XElement, XWidget, XObjectUI, XObject):
     def getLabelSpacing(self) -> int: ...
     def getSelect(self) -> int: ...
     def insertLabel(self, index: int, name: str) -> int: ...
+    def isValid(self) -> bool: ...
     def moveLabel(self, src: int, dest: int) -> bool: ...
     def setCloseSize(self, size: XSize) -> None: ...
     def setDown(self) -> None: ...
@@ -3673,6 +3736,7 @@ class XTextLink(XButton, XElement, XWidget, XObjectUI, XObject):
     def cast(handle: int) -> XTextLink: ...
     def enableUnderlineLeave(self, enable: bool) -> None: ...
     def enableUnderlineStay(self, enable: bool) -> None: ...
+    def isValid(self) -> bool: ...
     def setTextColorStay(self, color: int) -> None: ...
     def setUnderlineColorLeave(self, color: int) -> None: ...
     def setUnderlineColorStay(self, color: int) -> None: ...
@@ -3723,6 +3787,7 @@ class XToolBar(XElement, XWidget, XObjectUI, XObject):
     def getEle(self, index: int) -> XObject: ...
     def insertEle(self, ele: XElement, index: int) -> None: ...
     def insertSeparator(self, index: int = -1, color: int = 4286611584) -> int: ...
+    def isValid(self) -> bool: ...
     def setSpace(self, size: int) -> None: ...
     pass
 class XTree(XScrollView, XElement, XWidget, XObjectUI, XObject):
@@ -3770,6 +3835,7 @@ class XTree(XScrollView, XElement, XWidget, XObjectUI, XObject):
     def insertItemText(self, text: str, parentId: int = 0, insertId: int = -3) -> int: ...
     def insertItemTextEx(self, name: str, text: str, parentId: int = 0, insertId: int = -3) -> int: ...
     def isExpand(self, itemId: int) -> bool: ...
+    def isValid(self) -> bool: ...
     def moveItem(self, srcItemId: int, destItemId: int, flag: int) -> bool: ...
     def refreshData(self) -> None: ...
     def refreshItem(self, itemId: int) -> None: ...
@@ -3809,6 +3875,7 @@ class XLayoutFrame(XScrollView, XElement, XWidget, XObjectUI, XLayoutBox, XObjec
     def getHeightIn(self) -> int: ...
     def getWidthIn(self) -> int: ...
     def isEnableLayout(self) -> bool: ...
+    def isValid(self) -> bool: ...
     def showLayoutFrame(self, enable: bool) -> None: ...
     pass
 class XFrameWindow(XWindow, XObjectUI, XLayoutBox, XObject):
@@ -3824,7 +3891,9 @@ class XFrameWindow(XWindow, XObjectUI, XLayoutBox, XObject):
     def attach(self, hwnd: int, style: int) -> bool: ...
     @staticmethod
     def cast(handle: int) -> XFrameWindow: ...
+    def getDragFloatWndTopFlag(self) -> frameWnd_cell_type_: ...
     def getLayoutAreaRect(self) -> None: ...
+    def isValid(self) -> bool: ...
     def loadLayoutFile(self, panelList: typing.List[XElement], filename: str) -> bool: ...
     def mergePane(self, panelDest: XElement, paneNew: XElement) -> bool: ...
     def saveLayoutToFile(self, filename: str) -> bool: ...
@@ -3877,11 +3946,11 @@ class adapter_date_type_():
         :type: int
         """
     __members__: dict # value = {'adapter_date_type_error': <adapter_date_type_.adapter_date_type_error: -1>, 'adapter_date_type_int': <adapter_date_type_.adapter_date_type_int: 0>, 'adapter_date_type_float': <adapter_date_type_.adapter_date_type_float: 1>, 'adapter_date_type_string': <adapter_date_type_.adapter_date_type_string: 2>, 'adapter_date_type_image': <adapter_date_type_.adapter_date_type_image: 3>}
-    adapter_date_type_error: xcgui.adapter_date_type_ # value = <adapter_date_type_.adapter_date_type_error: -1>
-    adapter_date_type_float: xcgui.adapter_date_type_ # value = <adapter_date_type_.adapter_date_type_float: 1>
-    adapter_date_type_image: xcgui.adapter_date_type_ # value = <adapter_date_type_.adapter_date_type_image: 3>
-    adapter_date_type_int: xcgui.adapter_date_type_ # value = <adapter_date_type_.adapter_date_type_int: 0>
-    adapter_date_type_string: xcgui.adapter_date_type_ # value = <adapter_date_type_.adapter_date_type_string: 2>
+    adapter_date_type_error: _xcgui.adapter_date_type_ # value = <adapter_date_type_.adapter_date_type_error: -1>
+    adapter_date_type_float: _xcgui.adapter_date_type_ # value = <adapter_date_type_.adapter_date_type_float: 1>
+    adapter_date_type_image: _xcgui.adapter_date_type_ # value = <adapter_date_type_.adapter_date_type_image: 3>
+    adapter_date_type_int: _xcgui.adapter_date_type_ # value = <adapter_date_type_.adapter_date_type_int: 0>
+    adapter_date_type_string: _xcgui.adapter_date_type_ # value = <adapter_date_type_.adapter_date_type_string: 2>
     pass
 class adjustLayout_():
     """
@@ -3924,9 +3993,9 @@ class adjustLayout_():
         :type: int
         """
     __members__: dict # value = {'adjustLayout_no': <adjustLayout_.adjustLayout_no: 0>, 'adjustLayout_all': <adjustLayout_.adjustLayout_all: 1>, 'adjustLayout_self': <adjustLayout_.adjustLayout_self: 2>}
-    adjustLayout_all: xcgui.adjustLayout_ # value = <adjustLayout_.adjustLayout_all: 1>
-    adjustLayout_no: xcgui.adjustLayout_ # value = <adjustLayout_.adjustLayout_no: 0>
-    adjustLayout_self: xcgui.adjustLayout_ # value = <adjustLayout_.adjustLayout_self: 2>
+    adjustLayout_all: _xcgui.adjustLayout_ # value = <adjustLayout_.adjustLayout_all: 1>
+    adjustLayout_no: _xcgui.adjustLayout_ # value = <adjustLayout_.adjustLayout_no: 0>
+    adjustLayout_self: _xcgui.adjustLayout_ # value = <adjustLayout_.adjustLayout_self: 2>
     pass
 class animation_move_():
     """
@@ -3967,8 +4036,8 @@ class animation_move_():
         :type: int
         """
     __members__: dict # value = {'animation_move_x': <animation_move_.animation_move_x: 1>, 'animation_move_y': <animation_move_.animation_move_y: 2>}
-    animation_move_x: xcgui.animation_move_ # value = <animation_move_.animation_move_x: 1>
-    animation_move_y: xcgui.animation_move_ # value = <animation_move_.animation_move_y: 2>
+    animation_move_x: _xcgui.animation_move_ # value = <animation_move_.animation_move_x: 1>
+    animation_move_y: _xcgui.animation_move_ # value = <animation_move_.animation_move_y: 2>
     pass
 class bkObject_align_flag_():
     """
@@ -4019,13 +4088,13 @@ class bkObject_align_flag_():
         :type: int
         """
     __members__: dict # value = {'bkObject_align_flag_no': <bkObject_align_flag_.bkObject_align_flag_no: 0>, 'bkObject_align_flag_left': <bkObject_align_flag_.bkObject_align_flag_left: 1>, 'bkObject_align_flag_top': <bkObject_align_flag_.bkObject_align_flag_top: 2>, 'bkObject_align_flag_right': <bkObject_align_flag_.bkObject_align_flag_right: 4>, 'bkObject_align_flag_bottom': <bkObject_align_flag_.bkObject_align_flag_bottom: 8>, 'bkObject_align_flag_center': <bkObject_align_flag_.bkObject_align_flag_center: 16>, 'bkObject_align_flag_center_v': <bkObject_align_flag_.bkObject_align_flag_center_v: 32>}
-    bkObject_align_flag_bottom: xcgui.bkObject_align_flag_ # value = <bkObject_align_flag_.bkObject_align_flag_bottom: 8>
-    bkObject_align_flag_center: xcgui.bkObject_align_flag_ # value = <bkObject_align_flag_.bkObject_align_flag_center: 16>
-    bkObject_align_flag_center_v: xcgui.bkObject_align_flag_ # value = <bkObject_align_flag_.bkObject_align_flag_center_v: 32>
-    bkObject_align_flag_left: xcgui.bkObject_align_flag_ # value = <bkObject_align_flag_.bkObject_align_flag_left: 1>
-    bkObject_align_flag_no: xcgui.bkObject_align_flag_ # value = <bkObject_align_flag_.bkObject_align_flag_no: 0>
-    bkObject_align_flag_right: xcgui.bkObject_align_flag_ # value = <bkObject_align_flag_.bkObject_align_flag_right: 4>
-    bkObject_align_flag_top: xcgui.bkObject_align_flag_ # value = <bkObject_align_flag_.bkObject_align_flag_top: 2>
+    bkObject_align_flag_bottom: _xcgui.bkObject_align_flag_ # value = <bkObject_align_flag_.bkObject_align_flag_bottom: 8>
+    bkObject_align_flag_center: _xcgui.bkObject_align_flag_ # value = <bkObject_align_flag_.bkObject_align_flag_center: 16>
+    bkObject_align_flag_center_v: _xcgui.bkObject_align_flag_ # value = <bkObject_align_flag_.bkObject_align_flag_center_v: 32>
+    bkObject_align_flag_left: _xcgui.bkObject_align_flag_ # value = <bkObject_align_flag_.bkObject_align_flag_left: 1>
+    bkObject_align_flag_no: _xcgui.bkObject_align_flag_ # value = <bkObject_align_flag_.bkObject_align_flag_no: 0>
+    bkObject_align_flag_right: _xcgui.bkObject_align_flag_ # value = <bkObject_align_flag_.bkObject_align_flag_right: 4>
+    bkObject_align_flag_top: _xcgui.bkObject_align_flag_ # value = <bkObject_align_flag_.bkObject_align_flag_top: 2>
     pass
 class borderSize_():
     def __init__(self) -> None: ...
@@ -4107,10 +4176,10 @@ class button_icon_align_():
         :type: int
         """
     __members__: dict # value = {'button_icon_align_left': <button_icon_align_.button_icon_align_left: 0>, 'button_icon_align_top': <button_icon_align_.button_icon_align_top: 1>, 'button_icon_align_right': <button_icon_align_.button_icon_align_right: 2>, 'button_icon_align_bottom': <button_icon_align_.button_icon_align_bottom: 3>}
-    button_icon_align_bottom: xcgui.button_icon_align_ # value = <button_icon_align_.button_icon_align_bottom: 3>
-    button_icon_align_left: xcgui.button_icon_align_ # value = <button_icon_align_.button_icon_align_left: 0>
-    button_icon_align_right: xcgui.button_icon_align_ # value = <button_icon_align_.button_icon_align_right: 2>
-    button_icon_align_top: xcgui.button_icon_align_ # value = <button_icon_align_.button_icon_align_top: 1>
+    button_icon_align_bottom: _xcgui.button_icon_align_ # value = <button_icon_align_.button_icon_align_bottom: 3>
+    button_icon_align_left: _xcgui.button_icon_align_ # value = <button_icon_align_.button_icon_align_left: 0>
+    button_icon_align_right: _xcgui.button_icon_align_ # value = <button_icon_align_.button_icon_align_right: 2>
+    button_icon_align_top: _xcgui.button_icon_align_ # value = <button_icon_align_.button_icon_align_top: 1>
     pass
 class button_state_():
     """
@@ -4157,11 +4226,11 @@ class button_state_():
         :type: int
         """
     __members__: dict # value = {'button_state_leave': <button_state_.button_state_leave: 0>, 'button_state_stay': <button_state_.button_state_stay: 1>, 'button_state_down': <button_state_.button_state_down: 2>, 'button_state_check': <button_state_.button_state_check: 3>, 'button_state_disable': <button_state_.button_state_disable: 4>}
-    button_state_check: xcgui.button_state_ # value = <button_state_.button_state_check: 3>
-    button_state_disable: xcgui.button_state_ # value = <button_state_.button_state_disable: 4>
-    button_state_down: xcgui.button_state_ # value = <button_state_.button_state_down: 2>
-    button_state_leave: xcgui.button_state_ # value = <button_state_.button_state_leave: 0>
-    button_state_stay: xcgui.button_state_ # value = <button_state_.button_state_stay: 1>
+    button_state_check: _xcgui.button_state_ # value = <button_state_.button_state_check: 3>
+    button_state_disable: _xcgui.button_state_ # value = <button_state_.button_state_disable: 4>
+    button_state_down: _xcgui.button_state_ # value = <button_state_.button_state_down: 2>
+    button_state_leave: _xcgui.button_state_ # value = <button_state_.button_state_leave: 0>
+    button_state_stay: _xcgui.button_state_ # value = <button_state_.button_state_stay: 1>
     pass
 class button_state_flag_():
     """
@@ -4212,13 +4281,13 @@ class button_state_flag_():
         :type: int
         """
     __members__: dict # value = {'button_state_flag_leave': <button_state_flag_.button_state_flag_leave: 16>, 'button_state_flag_stay': <button_state_flag_.button_state_flag_stay: 32>, 'button_state_flag_down': <button_state_flag_.button_state_flag_down: 64>, 'button_state_flag_check': <button_state_flag_.button_state_flag_check: 128>, 'button_state_flag_check_no': <button_state_flag_.button_state_flag_check_no: 256>, 'button_state_flag_WindowRestore': <button_state_flag_.button_state_flag_WindowRestore: 512>, 'button_state_flag_WindowMaximize': <button_state_flag_.button_state_flag_WindowMaximize: 1024>}
-    button_state_flag_WindowMaximize: xcgui.button_state_flag_ # value = <button_state_flag_.button_state_flag_WindowMaximize: 1024>
-    button_state_flag_WindowRestore: xcgui.button_state_flag_ # value = <button_state_flag_.button_state_flag_WindowRestore: 512>
-    button_state_flag_check: xcgui.button_state_flag_ # value = <button_state_flag_.button_state_flag_check: 128>
-    button_state_flag_check_no: xcgui.button_state_flag_ # value = <button_state_flag_.button_state_flag_check_no: 256>
-    button_state_flag_down: xcgui.button_state_flag_ # value = <button_state_flag_.button_state_flag_down: 64>
-    button_state_flag_leave: xcgui.button_state_flag_ # value = <button_state_flag_.button_state_flag_leave: 16>
-    button_state_flag_stay: xcgui.button_state_flag_ # value = <button_state_flag_.button_state_flag_stay: 32>
+    button_state_flag_WindowMaximize: _xcgui.button_state_flag_ # value = <button_state_flag_.button_state_flag_WindowMaximize: 1024>
+    button_state_flag_WindowRestore: _xcgui.button_state_flag_ # value = <button_state_flag_.button_state_flag_WindowRestore: 512>
+    button_state_flag_check: _xcgui.button_state_flag_ # value = <button_state_flag_.button_state_flag_check: 128>
+    button_state_flag_check_no: _xcgui.button_state_flag_ # value = <button_state_flag_.button_state_flag_check_no: 256>
+    button_state_flag_down: _xcgui.button_state_flag_ # value = <button_state_flag_.button_state_flag_down: 64>
+    button_state_flag_leave: _xcgui.button_state_flag_ # value = <button_state_flag_.button_state_flag_leave: 16>
+    button_state_flag_stay: _xcgui.button_state_flag_ # value = <button_state_flag_.button_state_flag_stay: 32>
     pass
 class chat_flag_():
     """
@@ -4263,10 +4332,10 @@ class chat_flag_():
         :type: int
         """
     __members__: dict # value = {'chat_flag_left': <chat_flag_.chat_flag_left: 1>, 'chat_flag_right': <chat_flag_.chat_flag_right: 2>, 'chat_flag_center': <chat_flag_.chat_flag_center: 4>, 'chat_flag_next_row_bubble': <chat_flag_.chat_flag_next_row_bubble: 8>}
-    chat_flag_center: xcgui.chat_flag_ # value = <chat_flag_.chat_flag_center: 4>
-    chat_flag_left: xcgui.chat_flag_ # value = <chat_flag_.chat_flag_left: 1>
-    chat_flag_next_row_bubble: xcgui.chat_flag_ # value = <chat_flag_.chat_flag_next_row_bubble: 8>
-    chat_flag_right: xcgui.chat_flag_ # value = <chat_flag_.chat_flag_right: 2>
+    chat_flag_center: _xcgui.chat_flag_ # value = <chat_flag_.chat_flag_center: 4>
+    chat_flag_left: _xcgui.chat_flag_ # value = <chat_flag_.chat_flag_left: 1>
+    chat_flag_next_row_bubble: _xcgui.chat_flag_ # value = <chat_flag_.chat_flag_next_row_bubble: 8>
+    chat_flag_right: _xcgui.chat_flag_ # value = <chat_flag_.chat_flag_right: 2>
     pass
 class comboBox_state_():
     """
@@ -4309,9 +4378,9 @@ class comboBox_state_():
         :type: int
         """
     __members__: dict # value = {'comboBox_state_leave': <comboBox_state_.comboBox_state_leave: 0>, 'comboBox_state_stay': <comboBox_state_.comboBox_state_stay: 1>, 'comboBox_state_down': <comboBox_state_.comboBox_state_down: 2>}
-    comboBox_state_down: xcgui.comboBox_state_ # value = <comboBox_state_.comboBox_state_down: 2>
-    comboBox_state_leave: xcgui.comboBox_state_ # value = <comboBox_state_.comboBox_state_leave: 0>
-    comboBox_state_stay: xcgui.comboBox_state_ # value = <comboBox_state_.comboBox_state_stay: 1>
+    comboBox_state_down: _xcgui.comboBox_state_ # value = <comboBox_state_.comboBox_state_down: 2>
+    comboBox_state_leave: _xcgui.comboBox_state_ # value = <comboBox_state_.comboBox_state_leave: 0>
+    comboBox_state_stay: _xcgui.comboBox_state_ # value = <comboBox_state_.comboBox_state_stay: 1>
     pass
 class comboBox_state_flag_():
     """
@@ -4354,9 +4423,9 @@ class comboBox_state_flag_():
         :type: int
         """
     __members__: dict # value = {'comboBox_state_flag_leave': <comboBox_state_flag_.comboBox_state_flag_leave: 16>, 'comboBox_state_flag_stay': <comboBox_state_flag_.comboBox_state_flag_stay: 32>, 'comboBox_state_flag_down': <comboBox_state_flag_.comboBox_state_flag_down: 64>}
-    comboBox_state_flag_down: xcgui.comboBox_state_flag_ # value = <comboBox_state_flag_.comboBox_state_flag_down: 64>
-    comboBox_state_flag_leave: xcgui.comboBox_state_flag_ # value = <comboBox_state_flag_.comboBox_state_flag_leave: 16>
-    comboBox_state_flag_stay: xcgui.comboBox_state_flag_ # value = <comboBox_state_flag_.comboBox_state_flag_stay: 32>
+    comboBox_state_flag_down: _xcgui.comboBox_state_flag_ # value = <comboBox_state_flag_.comboBox_state_flag_down: 64>
+    comboBox_state_flag_leave: _xcgui.comboBox_state_flag_ # value = <comboBox_state_flag_.comboBox_state_flag_leave: 16>
+    comboBox_state_flag_stay: _xcgui.comboBox_state_flag_ # value = <comboBox_state_flag_.comboBox_state_flag_stay: 32>
     pass
 class common_state3_():
     """
@@ -4399,9 +4468,9 @@ class common_state3_():
         :type: int
         """
     __members__: dict # value = {'common_state3_leave': <common_state3_.common_state3_leave: 0>, 'common_state3_stay': <common_state3_.common_state3_stay: 1>, 'common_state3_down': <common_state3_.common_state3_down: 2>}
-    common_state3_down: xcgui.common_state3_ # value = <common_state3_.common_state3_down: 2>
-    common_state3_leave: xcgui.common_state3_ # value = <common_state3_.common_state3_leave: 0>
-    common_state3_stay: xcgui.common_state3_ # value = <common_state3_.common_state3_stay: 1>
+    common_state3_down: _xcgui.common_state3_ # value = <common_state3_.common_state3_down: 2>
+    common_state3_leave: _xcgui.common_state3_ # value = <common_state3_.common_state3_leave: 0>
+    common_state3_stay: _xcgui.common_state3_ # value = <common_state3_.common_state3_stay: 1>
     pass
 class ease_flag_():
     """
@@ -4466,20 +4535,20 @@ class ease_flag_():
         :type: int
         """
     __members__: dict # value = {'ease_flag_linear': <ease_flag_.ease_flag_linear: 0>, 'ease_flag_quad': <ease_flag_.ease_flag_quad: 1>, 'ease_flag_cubic': <ease_flag_.ease_flag_cubic: 2>, 'ease_flag_quart': <ease_flag_.ease_flag_quart: 3>, 'ease_flag_quint': <ease_flag_.ease_flag_quint: 4>, 'ease_flag_sine': <ease_flag_.ease_flag_sine: 5>, 'ease_flag_expo': <ease_flag_.ease_flag_expo: 6>, 'ease_flag_circ': <ease_flag_.ease_flag_circ: 7>, 'ease_flag_elastic': <ease_flag_.ease_flag_elastic: 8>, 'ease_flag_back': <ease_flag_.ease_flag_back: 9>, 'ease_flag_bounce': <ease_flag_.ease_flag_bounce: 10>, 'ease_flag_in': <ease_flag_.ease_flag_in: 65536>, 'ease_flag_out': <ease_flag_.ease_flag_out: 131072>, 'ease_flag_inOut': <ease_flag_.ease_flag_inOut: 196608>}
-    ease_flag_back: xcgui.ease_flag_ # value = <ease_flag_.ease_flag_back: 9>
-    ease_flag_bounce: xcgui.ease_flag_ # value = <ease_flag_.ease_flag_bounce: 10>
-    ease_flag_circ: xcgui.ease_flag_ # value = <ease_flag_.ease_flag_circ: 7>
-    ease_flag_cubic: xcgui.ease_flag_ # value = <ease_flag_.ease_flag_cubic: 2>
-    ease_flag_elastic: xcgui.ease_flag_ # value = <ease_flag_.ease_flag_elastic: 8>
-    ease_flag_expo: xcgui.ease_flag_ # value = <ease_flag_.ease_flag_expo: 6>
-    ease_flag_in: xcgui.ease_flag_ # value = <ease_flag_.ease_flag_in: 65536>
-    ease_flag_inOut: xcgui.ease_flag_ # value = <ease_flag_.ease_flag_inOut: 196608>
-    ease_flag_linear: xcgui.ease_flag_ # value = <ease_flag_.ease_flag_linear: 0>
-    ease_flag_out: xcgui.ease_flag_ # value = <ease_flag_.ease_flag_out: 131072>
-    ease_flag_quad: xcgui.ease_flag_ # value = <ease_flag_.ease_flag_quad: 1>
-    ease_flag_quart: xcgui.ease_flag_ # value = <ease_flag_.ease_flag_quart: 3>
-    ease_flag_quint: xcgui.ease_flag_ # value = <ease_flag_.ease_flag_quint: 4>
-    ease_flag_sine: xcgui.ease_flag_ # value = <ease_flag_.ease_flag_sine: 5>
+    ease_flag_back: _xcgui.ease_flag_ # value = <ease_flag_.ease_flag_back: 9>
+    ease_flag_bounce: _xcgui.ease_flag_ # value = <ease_flag_.ease_flag_bounce: 10>
+    ease_flag_circ: _xcgui.ease_flag_ # value = <ease_flag_.ease_flag_circ: 7>
+    ease_flag_cubic: _xcgui.ease_flag_ # value = <ease_flag_.ease_flag_cubic: 2>
+    ease_flag_elastic: _xcgui.ease_flag_ # value = <ease_flag_.ease_flag_elastic: 8>
+    ease_flag_expo: _xcgui.ease_flag_ # value = <ease_flag_.ease_flag_expo: 6>
+    ease_flag_in: _xcgui.ease_flag_ # value = <ease_flag_.ease_flag_in: 65536>
+    ease_flag_inOut: _xcgui.ease_flag_ # value = <ease_flag_.ease_flag_inOut: 196608>
+    ease_flag_linear: _xcgui.ease_flag_ # value = <ease_flag_.ease_flag_linear: 0>
+    ease_flag_out: _xcgui.ease_flag_ # value = <ease_flag_.ease_flag_out: 131072>
+    ease_flag_quad: _xcgui.ease_flag_ # value = <ease_flag_.ease_flag_quad: 1>
+    ease_flag_quart: _xcgui.ease_flag_ # value = <ease_flag_.ease_flag_quart: 3>
+    ease_flag_quint: _xcgui.ease_flag_ # value = <ease_flag_.ease_flag_quint: 4>
+    ease_flag_sine: _xcgui.ease_flag_ # value = <ease_flag_.ease_flag_sine: 5>
     pass
 class ease_type_():
     """
@@ -4522,9 +4591,9 @@ class ease_type_():
         :type: int
         """
     __members__: dict # value = {'easeIn': <ease_type_.easeIn: 0>, 'easeOut': <ease_type_.easeOut: 1>, 'easeInOut': <ease_type_.easeInOut: 2>}
-    easeIn: xcgui.ease_type_ # value = <ease_type_.easeIn: 0>
-    easeInOut: xcgui.ease_type_ # value = <ease_type_.easeInOut: 2>
-    easeOut: xcgui.ease_type_ # value = <ease_type_.easeOut: 1>
+    easeIn: _xcgui.ease_type_ # value = <ease_type_.easeIn: 0>
+    easeInOut: _xcgui.ease_type_ # value = <ease_type_.easeInOut: 2>
+    easeOut: _xcgui.ease_type_ # value = <ease_type_.easeOut: 1>
     pass
 class edit_data_copy_():
     def __init__(self) -> None: ...
@@ -4678,9 +4747,9 @@ class edit_style_type_():
         :type: int
         """
     __members__: dict # value = {'edit_style_type_font_color': <edit_style_type_.edit_style_type_font_color: 1>, 'edit_style_type_image': <edit_style_type_.edit_style_type_image: 2>, 'edit_style_type_obj': <edit_style_type_.edit_style_type_obj: 3>}
-    edit_style_type_font_color: xcgui.edit_style_type_ # value = <edit_style_type_.edit_style_type_font_color: 1>
-    edit_style_type_image: xcgui.edit_style_type_ # value = <edit_style_type_.edit_style_type_image: 2>
-    edit_style_type_obj: xcgui.edit_style_type_ # value = <edit_style_type_.edit_style_type_obj: 3>
+    edit_style_type_font_color: _xcgui.edit_style_type_ # value = <edit_style_type_.edit_style_type_font_color: 1>
+    edit_style_type_image: _xcgui.edit_style_type_ # value = <edit_style_type_.edit_style_type_image: 2>
+    edit_style_type_obj: _xcgui.edit_style_type_ # value = <edit_style_type_.edit_style_type_obj: 3>
     pass
 class edit_textAlign_flag_():
     """
@@ -4729,12 +4798,12 @@ class edit_textAlign_flag_():
         :type: int
         """
     __members__: dict # value = {'edit_textAlign_flag_left': <edit_textAlign_flag_.edit_textAlign_flag_left: 0>, 'edit_textAlign_flag_right': <edit_textAlign_flag_.edit_textAlign_flag_right: 1>, 'edit_textAlign_flag_center': <edit_textAlign_flag_.edit_textAlign_flag_center: 2>, 'edit_textAlign_flag_top': <edit_textAlign_flag_.edit_textAlign_flag_left: 0>, 'edit_textAlign_flag_bottom': <edit_textAlign_flag_.edit_textAlign_flag_bottom: 4>, 'edit_textAlign_flag_center_v': <edit_textAlign_flag_.edit_textAlign_flag_center_v: 8>}
-    edit_textAlign_flag_bottom: xcgui.edit_textAlign_flag_ # value = <edit_textAlign_flag_.edit_textAlign_flag_bottom: 4>
-    edit_textAlign_flag_center: xcgui.edit_textAlign_flag_ # value = <edit_textAlign_flag_.edit_textAlign_flag_center: 2>
-    edit_textAlign_flag_center_v: xcgui.edit_textAlign_flag_ # value = <edit_textAlign_flag_.edit_textAlign_flag_center_v: 8>
-    edit_textAlign_flag_left: xcgui.edit_textAlign_flag_ # value = <edit_textAlign_flag_.edit_textAlign_flag_left: 0>
-    edit_textAlign_flag_right: xcgui.edit_textAlign_flag_ # value = <edit_textAlign_flag_.edit_textAlign_flag_right: 1>
-    edit_textAlign_flag_top: xcgui.edit_textAlign_flag_ # value = <edit_textAlign_flag_.edit_textAlign_flag_left: 0>
+    edit_textAlign_flag_bottom: _xcgui.edit_textAlign_flag_ # value = <edit_textAlign_flag_.edit_textAlign_flag_bottom: 4>
+    edit_textAlign_flag_center: _xcgui.edit_textAlign_flag_ # value = <edit_textAlign_flag_.edit_textAlign_flag_center: 2>
+    edit_textAlign_flag_center_v: _xcgui.edit_textAlign_flag_ # value = <edit_textAlign_flag_.edit_textAlign_flag_center_v: 8>
+    edit_textAlign_flag_left: _xcgui.edit_textAlign_flag_ # value = <edit_textAlign_flag_.edit_textAlign_flag_left: 0>
+    edit_textAlign_flag_right: _xcgui.edit_textAlign_flag_ # value = <edit_textAlign_flag_.edit_textAlign_flag_right: 1>
+    edit_textAlign_flag_top: _xcgui.edit_textAlign_flag_ # value = <edit_textAlign_flag_.edit_textAlign_flag_left: 0>
     pass
 class edit_type_():
     """
@@ -4781,11 +4850,11 @@ class edit_type_():
         :type: int
         """
     __members__: dict # value = {'edit_type_none': <edit_type_.edit_type_none: 0>, 'edit_type_editor': <edit_type_.edit_type_editor: 1>, 'edit_type_richedit': <edit_type_.edit_type_richedit: 2>, 'edit_type_chat': <edit_type_.edit_type_chat: 3>, 'edit_type_codeTable': <edit_type_.edit_type_codeTable: 4>}
-    edit_type_chat: xcgui.edit_type_ # value = <edit_type_.edit_type_chat: 3>
-    edit_type_codeTable: xcgui.edit_type_ # value = <edit_type_.edit_type_codeTable: 4>
-    edit_type_editor: xcgui.edit_type_ # value = <edit_type_.edit_type_editor: 1>
-    edit_type_none: xcgui.edit_type_ # value = <edit_type_.edit_type_none: 0>
-    edit_type_richedit: xcgui.edit_type_ # value = <edit_type_.edit_type_richedit: 2>
+    edit_type_chat: _xcgui.edit_type_ # value = <edit_type_.edit_type_chat: 3>
+    edit_type_codeTable: _xcgui.edit_type_ # value = <edit_type_.edit_type_codeTable: 4>
+    edit_type_editor: _xcgui.edit_type_ # value = <edit_type_.edit_type_editor: 1>
+    edit_type_none: _xcgui.edit_type_ # value = <edit_type_.edit_type_none: 0>
+    edit_type_richedit: _xcgui.edit_type_ # value = <edit_type_.edit_type_richedit: 2>
     pass
 class editor_color_():
     def __init__(self) -> None: ...
@@ -5037,11 +5106,11 @@ class element_position_():
         :type: int
         """
     __members__: dict # value = {'element_position_no': <element_position_.element_position_no: 0>, 'element_position_left': <element_position_.element_position_left: 1>, 'element_position_top': <element_position_.element_position_top: 2>, 'element_position_right': <element_position_.element_position_right: 4>, 'element_position_bottom': <element_position_.element_position_bottom: 8>}
-    element_position_bottom: xcgui.element_position_ # value = <element_position_.element_position_bottom: 8>
-    element_position_left: xcgui.element_position_ # value = <element_position_.element_position_left: 1>
-    element_position_no: xcgui.element_position_ # value = <element_position_.element_position_no: 0>
-    element_position_right: xcgui.element_position_ # value = <element_position_.element_position_right: 4>
-    element_position_top: xcgui.element_position_ # value = <element_position_.element_position_top: 2>
+    element_position_bottom: _xcgui.element_position_ # value = <element_position_.element_position_bottom: 8>
+    element_position_left: _xcgui.element_position_ # value = <element_position_.element_position_left: 1>
+    element_position_no: _xcgui.element_position_ # value = <element_position_.element_position_no: 0>
+    element_position_right: _xcgui.element_position_ # value = <element_position_.element_position_right: 4>
+    element_position_top: _xcgui.element_position_ # value = <element_position_.element_position_top: 2>
     pass
 class element_state_flag_():
     """
@@ -5100,17 +5169,17 @@ class element_state_flag_():
         :type: int
         """
     __members__: dict # value = {'element_state_flag_nothing': <element_state_flag_.element_state_flag_nothing: 0>, 'element_state_flag_enable': <element_state_flag_.element_state_flag_enable: 1>, 'element_state_flag_disable': <element_state_flag_.element_state_flag_disable: 2>, 'element_state_flag_focus': <element_state_flag_.element_state_flag_focus: 4>, 'element_state_flag_focus_no': <element_state_flag_.element_state_flag_focus_no: 8>, 'element_state_flag_focusEx': <element_state_flag_.element_state_flag_focusEx: 1073741824>, 'element_state_flag_focusEx_no': <element_state_flag_.element_state_flag_focusEx_no: -2147483648>, 'layout_state_flag_layout_body': <element_state_flag_.layout_state_flag_layout_body: 536870912>, 'element_state_flag_leave': <element_state_flag_.element_state_flag_leave: 16>, 'element_state_flag_stay': <element_state_flag_.element_state_flag_stay: 32>, 'element_state_flag_down': <element_state_flag_.element_state_flag_down: 64>}
-    element_state_flag_disable: xcgui.element_state_flag_ # value = <element_state_flag_.element_state_flag_disable: 2>
-    element_state_flag_down: xcgui.element_state_flag_ # value = <element_state_flag_.element_state_flag_down: 64>
-    element_state_flag_enable: xcgui.element_state_flag_ # value = <element_state_flag_.element_state_flag_enable: 1>
-    element_state_flag_focus: xcgui.element_state_flag_ # value = <element_state_flag_.element_state_flag_focus: 4>
-    element_state_flag_focusEx: xcgui.element_state_flag_ # value = <element_state_flag_.element_state_flag_focusEx: 1073741824>
-    element_state_flag_focusEx_no: xcgui.element_state_flag_ # value = <element_state_flag_.element_state_flag_focusEx_no: -2147483648>
-    element_state_flag_focus_no: xcgui.element_state_flag_ # value = <element_state_flag_.element_state_flag_focus_no: 8>
-    element_state_flag_leave: xcgui.element_state_flag_ # value = <element_state_flag_.element_state_flag_leave: 16>
-    element_state_flag_nothing: xcgui.element_state_flag_ # value = <element_state_flag_.element_state_flag_nothing: 0>
-    element_state_flag_stay: xcgui.element_state_flag_ # value = <element_state_flag_.element_state_flag_stay: 32>
-    layout_state_flag_layout_body: xcgui.element_state_flag_ # value = <element_state_flag_.layout_state_flag_layout_body: 536870912>
+    element_state_flag_disable: _xcgui.element_state_flag_ # value = <element_state_flag_.element_state_flag_disable: 2>
+    element_state_flag_down: _xcgui.element_state_flag_ # value = <element_state_flag_.element_state_flag_down: 64>
+    element_state_flag_enable: _xcgui.element_state_flag_ # value = <element_state_flag_.element_state_flag_enable: 1>
+    element_state_flag_focus: _xcgui.element_state_flag_ # value = <element_state_flag_.element_state_flag_focus: 4>
+    element_state_flag_focusEx: _xcgui.element_state_flag_ # value = <element_state_flag_.element_state_flag_focusEx: 1073741824>
+    element_state_flag_focusEx_no: _xcgui.element_state_flag_ # value = <element_state_flag_.element_state_flag_focusEx_no: -2147483648>
+    element_state_flag_focus_no: _xcgui.element_state_flag_ # value = <element_state_flag_.element_state_flag_focus_no: 8>
+    element_state_flag_leave: _xcgui.element_state_flag_ # value = <element_state_flag_.element_state_flag_leave: 16>
+    element_state_flag_nothing: _xcgui.element_state_flag_ # value = <element_state_flag_.element_state_flag_nothing: 0>
+    element_state_flag_stay: _xcgui.element_state_flag_ # value = <element_state_flag_.element_state_flag_stay: 32>
+    layout_state_flag_layout_body: _xcgui.element_state_flag_ # value = <element_state_flag_.layout_state_flag_layout_body: 536870912>
     pass
 class fontStyle_():
     """
@@ -5159,12 +5228,12 @@ class fontStyle_():
         :type: int
         """
     __members__: dict # value = {'fontStyle_regular': <fontStyle_.fontStyle_regular: 0>, 'fontStyle_bold': <fontStyle_.fontStyle_bold: 1>, 'fontStyle_italic': <fontStyle_.fontStyle_italic: 2>, 'fontStyle_boldItalic': <fontStyle_.fontStyle_boldItalic: 3>, 'fontStyle_underline': <fontStyle_.fontStyle_underline: 4>, 'fontStyle_strikeout': <fontStyle_.fontStyle_strikeout: 8>}
-    fontStyle_bold: xcgui.fontStyle_ # value = <fontStyle_.fontStyle_bold: 1>
-    fontStyle_boldItalic: xcgui.fontStyle_ # value = <fontStyle_.fontStyle_boldItalic: 3>
-    fontStyle_italic: xcgui.fontStyle_ # value = <fontStyle_.fontStyle_italic: 2>
-    fontStyle_regular: xcgui.fontStyle_ # value = <fontStyle_.fontStyle_regular: 0>
-    fontStyle_strikeout: xcgui.fontStyle_ # value = <fontStyle_.fontStyle_strikeout: 8>
-    fontStyle_underline: xcgui.fontStyle_ # value = <fontStyle_.fontStyle_underline: 4>
+    fontStyle_bold: _xcgui.fontStyle_ # value = <fontStyle_.fontStyle_bold: 1>
+    fontStyle_boldItalic: _xcgui.fontStyle_ # value = <fontStyle_.fontStyle_boldItalic: 3>
+    fontStyle_italic: _xcgui.fontStyle_ # value = <fontStyle_.fontStyle_italic: 2>
+    fontStyle_regular: _xcgui.fontStyle_ # value = <fontStyle_.fontStyle_regular: 0>
+    fontStyle_strikeout: _xcgui.fontStyle_ # value = <fontStyle_.fontStyle_strikeout: 8>
+    fontStyle_underline: _xcgui.fontStyle_ # value = <fontStyle_.fontStyle_underline: 4>
     pass
 class font_info_():
     def __init__(self) -> None: ...
@@ -5239,12 +5308,12 @@ class frameWnd_cell_type_():
         :type: int
         """
     __members__: dict # value = {'frameWnd_cell_type_no': <frameWnd_cell_type_.frameWnd_cell_type_no: 0>, 'frameWnd_cell_type_pane': <frameWnd_cell_type_.frameWnd_cell_type_pane: 1>, 'frameWnd_cell_type_group': <frameWnd_cell_type_.frameWnd_cell_type_group: 2>, 'frameWnd_cell_type_bodyView': <frameWnd_cell_type_.frameWnd_cell_type_bodyView: 3>, 'frameWnd_cell_type_top_bottom': <frameWnd_cell_type_.frameWnd_cell_type_top_bottom: 4>, 'frameWnd_cell_type_left_right': <frameWnd_cell_type_.frameWnd_cell_type_left_right: 5>}
-    frameWnd_cell_type_bodyView: xcgui.frameWnd_cell_type_ # value = <frameWnd_cell_type_.frameWnd_cell_type_bodyView: 3>
-    frameWnd_cell_type_group: xcgui.frameWnd_cell_type_ # value = <frameWnd_cell_type_.frameWnd_cell_type_group: 2>
-    frameWnd_cell_type_left_right: xcgui.frameWnd_cell_type_ # value = <frameWnd_cell_type_.frameWnd_cell_type_left_right: 5>
-    frameWnd_cell_type_no: xcgui.frameWnd_cell_type_ # value = <frameWnd_cell_type_.frameWnd_cell_type_no: 0>
-    frameWnd_cell_type_pane: xcgui.frameWnd_cell_type_ # value = <frameWnd_cell_type_.frameWnd_cell_type_pane: 1>
-    frameWnd_cell_type_top_bottom: xcgui.frameWnd_cell_type_ # value = <frameWnd_cell_type_.frameWnd_cell_type_top_bottom: 4>
+    frameWnd_cell_type_bodyView: _xcgui.frameWnd_cell_type_ # value = <frameWnd_cell_type_.frameWnd_cell_type_bodyView: 3>
+    frameWnd_cell_type_group: _xcgui.frameWnd_cell_type_ # value = <frameWnd_cell_type_.frameWnd_cell_type_group: 2>
+    frameWnd_cell_type_left_right: _xcgui.frameWnd_cell_type_ # value = <frameWnd_cell_type_.frameWnd_cell_type_left_right: 5>
+    frameWnd_cell_type_no: _xcgui.frameWnd_cell_type_ # value = <frameWnd_cell_type_.frameWnd_cell_type_no: 0>
+    frameWnd_cell_type_pane: _xcgui.frameWnd_cell_type_ # value = <frameWnd_cell_type_.frameWnd_cell_type_pane: 1>
+    frameWnd_cell_type_top_bottom: _xcgui.frameWnd_cell_type_ # value = <frameWnd_cell_type_.frameWnd_cell_type_top_bottom: 4>
     pass
 class image_draw_type_():
     """
@@ -5293,12 +5362,12 @@ class image_draw_type_():
         :type: int
         """
     __members__: dict # value = {'image_draw_type_default': <image_draw_type_.image_draw_type_default: 0>, 'image_draw_type_stretch': <image_draw_type_.image_draw_type_stretch: 1>, 'image_draw_type_adaptive': <image_draw_type_.image_draw_type_adaptive: 2>, 'image_draw_type_tile': <image_draw_type_.image_draw_type_tile: 3>, 'image_draw_type_fixed_ratio': <image_draw_type_.image_draw_type_fixed_ratio: 4>, 'image_draw_type_adaptive_border': <image_draw_type_.image_draw_type_adaptive_border: 5>}
-    image_draw_type_adaptive: xcgui.image_draw_type_ # value = <image_draw_type_.image_draw_type_adaptive: 2>
-    image_draw_type_adaptive_border: xcgui.image_draw_type_ # value = <image_draw_type_.image_draw_type_adaptive_border: 5>
-    image_draw_type_default: xcgui.image_draw_type_ # value = <image_draw_type_.image_draw_type_default: 0>
-    image_draw_type_fixed_ratio: xcgui.image_draw_type_ # value = <image_draw_type_.image_draw_type_fixed_ratio: 4>
-    image_draw_type_stretch: xcgui.image_draw_type_ # value = <image_draw_type_.image_draw_type_stretch: 1>
-    image_draw_type_tile: xcgui.image_draw_type_ # value = <image_draw_type_.image_draw_type_tile: 3>
+    image_draw_type_adaptive: _xcgui.image_draw_type_ # value = <image_draw_type_.image_draw_type_adaptive: 2>
+    image_draw_type_adaptive_border: _xcgui.image_draw_type_ # value = <image_draw_type_.image_draw_type_adaptive_border: 5>
+    image_draw_type_default: _xcgui.image_draw_type_ # value = <image_draw_type_.image_draw_type_default: 0>
+    image_draw_type_fixed_ratio: _xcgui.image_draw_type_ # value = <image_draw_type_.image_draw_type_fixed_ratio: 4>
+    image_draw_type_stretch: _xcgui.image_draw_type_ # value = <image_draw_type_.image_draw_type_stretch: 1>
+    image_draw_type_tile: _xcgui.image_draw_type_ # value = <image_draw_type_.image_draw_type_tile: 3>
     pass
 class layout_align_():
     """
@@ -5347,12 +5416,12 @@ class layout_align_():
         :type: int
         """
     __members__: dict # value = {'layout_align_left': <layout_align_.layout_align_left: 0>, 'layout_align_top': <layout_align_.layout_align_top: 1>, 'layout_align_right': <layout_align_.layout_align_right: 2>, 'layout_align_bottom': <layout_align_.layout_align_bottom: 3>, 'layout_align_center': <layout_align_.layout_align_center: 4>, 'layout_align_equidistant': <layout_align_.layout_align_equidistant: 5>}
-    layout_align_bottom: xcgui.layout_align_ # value = <layout_align_.layout_align_bottom: 3>
-    layout_align_center: xcgui.layout_align_ # value = <layout_align_.layout_align_center: 4>
-    layout_align_equidistant: xcgui.layout_align_ # value = <layout_align_.layout_align_equidistant: 5>
-    layout_align_left: xcgui.layout_align_ # value = <layout_align_.layout_align_left: 0>
-    layout_align_right: xcgui.layout_align_ # value = <layout_align_.layout_align_right: 2>
-    layout_align_top: xcgui.layout_align_ # value = <layout_align_.layout_align_top: 1>
+    layout_align_bottom: _xcgui.layout_align_ # value = <layout_align_.layout_align_bottom: 3>
+    layout_align_center: _xcgui.layout_align_ # value = <layout_align_.layout_align_center: 4>
+    layout_align_equidistant: _xcgui.layout_align_ # value = <layout_align_.layout_align_equidistant: 5>
+    layout_align_left: _xcgui.layout_align_ # value = <layout_align_.layout_align_left: 0>
+    layout_align_right: _xcgui.layout_align_ # value = <layout_align_.layout_align_right: 2>
+    layout_align_top: _xcgui.layout_align_ # value = <layout_align_.layout_align_top: 1>
     pass
 class layout_align_axis_():
     """
@@ -5397,10 +5466,10 @@ class layout_align_axis_():
         :type: int
         """
     __members__: dict # value = {'layout_align_axis_auto': <layout_align_axis_.layout_align_axis_auto: 0>, 'layout_align_axis_start': <layout_align_axis_.layout_align_axis_start: 1>, 'layout_align_axis_center': <layout_align_axis_.layout_align_axis_center: 2>, 'layout_align_axis_end': <layout_align_axis_.layout_align_axis_end: 3>}
-    layout_align_axis_auto: xcgui.layout_align_axis_ # value = <layout_align_axis_.layout_align_axis_auto: 0>
-    layout_align_axis_center: xcgui.layout_align_axis_ # value = <layout_align_axis_.layout_align_axis_center: 2>
-    layout_align_axis_end: xcgui.layout_align_axis_ # value = <layout_align_axis_.layout_align_axis_end: 3>
-    layout_align_axis_start: xcgui.layout_align_axis_ # value = <layout_align_axis_.layout_align_axis_start: 1>
+    layout_align_axis_auto: _xcgui.layout_align_axis_ # value = <layout_align_axis_.layout_align_axis_auto: 0>
+    layout_align_axis_center: _xcgui.layout_align_axis_ # value = <layout_align_axis_.layout_align_axis_center: 2>
+    layout_align_axis_end: _xcgui.layout_align_axis_ # value = <layout_align_axis_.layout_align_axis_end: 3>
+    layout_align_axis_start: _xcgui.layout_align_axis_ # value = <layout_align_axis_.layout_align_axis_start: 1>
     pass
 class layout_size_():
     """
@@ -5449,12 +5518,12 @@ class layout_size_():
         :type: int
         """
     __members__: dict # value = {'layout_size_fixed': <layout_size_.layout_size_fixed: 0>, 'layout_size_fill': <layout_size_.layout_size_fill: 1>, 'layout_size_auto': <layout_size_.layout_size_auto: 2>, 'layout_size_weight': <layout_size_.layout_size_weight: 3>, 'layout_size_percent': <layout_size_.layout_size_percent: 4>, 'layout_size_disable': <layout_size_.layout_size_disable: 5>}
-    layout_size_auto: xcgui.layout_size_ # value = <layout_size_.layout_size_auto: 2>
-    layout_size_disable: xcgui.layout_size_ # value = <layout_size_.layout_size_disable: 5>
-    layout_size_fill: xcgui.layout_size_ # value = <layout_size_.layout_size_fill: 1>
-    layout_size_fixed: xcgui.layout_size_ # value = <layout_size_.layout_size_fixed: 0>
-    layout_size_percent: xcgui.layout_size_ # value = <layout_size_.layout_size_percent: 4>
-    layout_size_weight: xcgui.layout_size_ # value = <layout_size_.layout_size_weight: 3>
+    layout_size_auto: _xcgui.layout_size_ # value = <layout_size_.layout_size_auto: 2>
+    layout_size_disable: _xcgui.layout_size_ # value = <layout_size_.layout_size_disable: 5>
+    layout_size_fill: _xcgui.layout_size_ # value = <layout_size_.layout_size_fill: 1>
+    layout_size_fixed: _xcgui.layout_size_ # value = <layout_size_.layout_size_fixed: 0>
+    layout_size_percent: _xcgui.layout_size_ # value = <layout_size_.layout_size_percent: 4>
+    layout_size_weight: _xcgui.layout_size_ # value = <layout_size_.layout_size_weight: 3>
     pass
 class layout_state_flag_():
     """
@@ -5497,9 +5566,9 @@ class layout_state_flag_():
         :type: int
         """
     __members__: dict # value = {'layout_state_flag_nothing': <layout_state_flag_.layout_state_flag_nothing: 0>, 'layout_state_flag_full': <layout_state_flag_.layout_state_flag_full: 1>, 'layout_state_flag_body': <layout_state_flag_.layout_state_flag_body: 2>}
-    layout_state_flag_body: xcgui.layout_state_flag_ # value = <layout_state_flag_.layout_state_flag_body: 2>
-    layout_state_flag_full: xcgui.layout_state_flag_ # value = <layout_state_flag_.layout_state_flag_full: 1>
-    layout_state_flag_nothing: xcgui.layout_state_flag_ # value = <layout_state_flag_.layout_state_flag_nothing: 0>
+    layout_state_flag_body: _xcgui.layout_state_flag_ # value = <layout_state_flag_.layout_state_flag_body: 2>
+    layout_state_flag_full: _xcgui.layout_state_flag_ # value = <layout_state_flag_.layout_state_flag_full: 1>
+    layout_state_flag_nothing: _xcgui.layout_state_flag_ # value = <layout_state_flag_.layout_state_flag_nothing: 0>
     pass
 class listBox_item_():
     def __init__(self) -> None: ...
@@ -5642,10 +5711,10 @@ class listBox_state_flag_():
         :type: int
         """
     __members__: dict # value = {'listBox_state_flag_item_leave': <listBox_state_flag_.listBox_state_flag_item_leave: 128>, 'listBox_state_flag_item_stay': <listBox_state_flag_.listBox_state_flag_item_stay: 256>, 'listBox_state_flag_item_select': <listBox_state_flag_.listBox_state_flag_item_select: 512>, 'listBox_state_flag_item_select_no': <listBox_state_flag_.listBox_state_flag_item_select_no: 1024>}
-    listBox_state_flag_item_leave: xcgui.listBox_state_flag_ # value = <listBox_state_flag_.listBox_state_flag_item_leave: 128>
-    listBox_state_flag_item_select: xcgui.listBox_state_flag_ # value = <listBox_state_flag_.listBox_state_flag_item_select: 512>
-    listBox_state_flag_item_select_no: xcgui.listBox_state_flag_ # value = <listBox_state_flag_.listBox_state_flag_item_select_no: 1024>
-    listBox_state_flag_item_stay: xcgui.listBox_state_flag_ # value = <listBox_state_flag_.listBox_state_flag_item_stay: 256>
+    listBox_state_flag_item_leave: _xcgui.listBox_state_flag_ # value = <listBox_state_flag_.listBox_state_flag_item_leave: 128>
+    listBox_state_flag_item_select: _xcgui.listBox_state_flag_ # value = <listBox_state_flag_.listBox_state_flag_item_select: 512>
+    listBox_state_flag_item_select_no: _xcgui.listBox_state_flag_ # value = <listBox_state_flag_.listBox_state_flag_item_select_no: 1024>
+    listBox_state_flag_item_stay: _xcgui.listBox_state_flag_ # value = <listBox_state_flag_.listBox_state_flag_item_stay: 256>
     pass
 class listHeader_state_flag_():
     """
@@ -5688,9 +5757,9 @@ class listHeader_state_flag_():
         :type: int
         """
     __members__: dict # value = {'listHeader_state_flag_item_leave': <listHeader_state_flag_.listHeader_state_flag_item_leave: 128>, 'listHeader_state_flag_item_stay': <listHeader_state_flag_.listHeader_state_flag_item_stay: 256>, 'listHeader_state_flag_item_down': <listHeader_state_flag_.listHeader_state_flag_item_down: 512>}
-    listHeader_state_flag_item_down: xcgui.listHeader_state_flag_ # value = <listHeader_state_flag_.listHeader_state_flag_item_down: 512>
-    listHeader_state_flag_item_leave: xcgui.listHeader_state_flag_ # value = <listHeader_state_flag_.listHeader_state_flag_item_leave: 128>
-    listHeader_state_flag_item_stay: xcgui.listHeader_state_flag_ # value = <listHeader_state_flag_.listHeader_state_flag_item_stay: 256>
+    listHeader_state_flag_item_down: _xcgui.listHeader_state_flag_ # value = <listHeader_state_flag_.listHeader_state_flag_item_down: 512>
+    listHeader_state_flag_item_leave: _xcgui.listHeader_state_flag_ # value = <listHeader_state_flag_.listHeader_state_flag_item_leave: 128>
+    listHeader_state_flag_item_stay: _xcgui.listHeader_state_flag_ # value = <listHeader_state_flag_.listHeader_state_flag_item_stay: 256>
     pass
 class listItemTemp_type_():
     """
@@ -5743,14 +5812,14 @@ class listItemTemp_type_():
         :type: int
         """
     __members__: dict # value = {'listItemTemp_type_tree': <listItemTemp_type_.listItemTemp_type_tree: 1>, 'listItemTemp_type_listBox': <listItemTemp_type_.listItemTemp_type_listBox: 2>, 'listItemTemp_type_list_head': <listItemTemp_type_.listItemTemp_type_list_head: 4>, 'listItemTemp_type_list_item': <listItemTemp_type_.listItemTemp_type_list_item: 8>, 'listItemTemp_type_listView_group': <listItemTemp_type_.listItemTemp_type_listView_group: 16>, 'listItemTemp_type_listView_item': <listItemTemp_type_.listItemTemp_type_listView_item: 32>, 'listItemTemp_type_list': <listItemTemp_type_.listItemTemp_type_list: 12>, 'listItemTemp_type_listView': <listItemTemp_type_.listItemTemp_type_listView: 48>}
-    listItemTemp_type_list: xcgui.listItemTemp_type_ # value = <listItemTemp_type_.listItemTemp_type_list: 12>
-    listItemTemp_type_listBox: xcgui.listItemTemp_type_ # value = <listItemTemp_type_.listItemTemp_type_listBox: 2>
-    listItemTemp_type_listView: xcgui.listItemTemp_type_ # value = <listItemTemp_type_.listItemTemp_type_listView: 48>
-    listItemTemp_type_listView_group: xcgui.listItemTemp_type_ # value = <listItemTemp_type_.listItemTemp_type_listView_group: 16>
-    listItemTemp_type_listView_item: xcgui.listItemTemp_type_ # value = <listItemTemp_type_.listItemTemp_type_listView_item: 32>
-    listItemTemp_type_list_head: xcgui.listItemTemp_type_ # value = <listItemTemp_type_.listItemTemp_type_list_head: 4>
-    listItemTemp_type_list_item: xcgui.listItemTemp_type_ # value = <listItemTemp_type_.listItemTemp_type_list_item: 8>
-    listItemTemp_type_tree: xcgui.listItemTemp_type_ # value = <listItemTemp_type_.listItemTemp_type_tree: 1>
+    listItemTemp_type_list: _xcgui.listItemTemp_type_ # value = <listItemTemp_type_.listItemTemp_type_list: 12>
+    listItemTemp_type_listBox: _xcgui.listItemTemp_type_ # value = <listItemTemp_type_.listItemTemp_type_listBox: 2>
+    listItemTemp_type_listView: _xcgui.listItemTemp_type_ # value = <listItemTemp_type_.listItemTemp_type_listView: 48>
+    listItemTemp_type_listView_group: _xcgui.listItemTemp_type_ # value = <listItemTemp_type_.listItemTemp_type_listView_group: 16>
+    listItemTemp_type_listView_item: _xcgui.listItemTemp_type_ # value = <listItemTemp_type_.listItemTemp_type_listView_item: 32>
+    listItemTemp_type_list_head: _xcgui.listItemTemp_type_ # value = <listItemTemp_type_.listItemTemp_type_list_head: 4>
+    listItemTemp_type_list_item: _xcgui.listItemTemp_type_ # value = <listItemTemp_type_.listItemTemp_type_list_item: 8>
+    listItemTemp_type_tree: _xcgui.listItemTemp_type_ # value = <listItemTemp_type_.listItemTemp_type_tree: 1>
     pass
 class listView_item_():
     def __init__(self) -> None: ...
@@ -5885,14 +5954,14 @@ class listView_state_flag_():
         :type: int
         """
     __members__: dict # value = {'listView_state_flag_item_leave': <listView_state_flag_.listView_state_flag_item_leave: 128>, 'listView_state_flag_item_stay': <listView_state_flag_.listView_state_flag_item_stay: 256>, 'listView_state_flag_item_select': <listView_state_flag_.listView_state_flag_item_select: 512>, 'listView_state_flag_item_select_no': <listView_state_flag_.listView_state_flag_item_select_no: 1024>, 'listView_state_flag_group_leave': <listView_state_flag_.listView_state_flag_group_leave: 2048>, 'listView_state_flag_group_stay': <listView_state_flag_.listView_state_flag_group_stay: 4096>, 'listView_state_flag_group_select': <listView_state_flag_.listView_state_flag_group_select: 8192>, 'listView_state_flag_group_select_no': <listView_state_flag_.listView_state_flag_group_select_no: 16384>}
-    listView_state_flag_group_leave: xcgui.listView_state_flag_ # value = <listView_state_flag_.listView_state_flag_group_leave: 2048>
-    listView_state_flag_group_select: xcgui.listView_state_flag_ # value = <listView_state_flag_.listView_state_flag_group_select: 8192>
-    listView_state_flag_group_select_no: xcgui.listView_state_flag_ # value = <listView_state_flag_.listView_state_flag_group_select_no: 16384>
-    listView_state_flag_group_stay: xcgui.listView_state_flag_ # value = <listView_state_flag_.listView_state_flag_group_stay: 4096>
-    listView_state_flag_item_leave: xcgui.listView_state_flag_ # value = <listView_state_flag_.listView_state_flag_item_leave: 128>
-    listView_state_flag_item_select: xcgui.listView_state_flag_ # value = <listView_state_flag_.listView_state_flag_item_select: 512>
-    listView_state_flag_item_select_no: xcgui.listView_state_flag_ # value = <listView_state_flag_.listView_state_flag_item_select_no: 1024>
-    listView_state_flag_item_stay: xcgui.listView_state_flag_ # value = <listView_state_flag_.listView_state_flag_item_stay: 256>
+    listView_state_flag_group_leave: _xcgui.listView_state_flag_ # value = <listView_state_flag_.listView_state_flag_group_leave: 2048>
+    listView_state_flag_group_select: _xcgui.listView_state_flag_ # value = <listView_state_flag_.listView_state_flag_group_select: 8192>
+    listView_state_flag_group_select_no: _xcgui.listView_state_flag_ # value = <listView_state_flag_.listView_state_flag_group_select_no: 16384>
+    listView_state_flag_group_stay: _xcgui.listView_state_flag_ # value = <listView_state_flag_.listView_state_flag_group_stay: 4096>
+    listView_state_flag_item_leave: _xcgui.listView_state_flag_ # value = <listView_state_flag_.listView_state_flag_item_leave: 128>
+    listView_state_flag_item_select: _xcgui.listView_state_flag_ # value = <listView_state_flag_.listView_state_flag_item_select: 512>
+    listView_state_flag_item_select_no: _xcgui.listView_state_flag_ # value = <listView_state_flag_.listView_state_flag_item_select_no: 1024>
+    listView_state_flag_item_stay: _xcgui.listView_state_flag_ # value = <listView_state_flag_.listView_state_flag_item_stay: 256>
     pass
 class list_drawItemBk_flag_():
     """
@@ -5945,14 +6014,14 @@ class list_drawItemBk_flag_():
         :type: int
         """
     __members__: dict # value = {'list_drawItemBk_flag_nothing': <list_drawItemBk_flag_.list_drawItemBk_flag_nothing: 0>, 'list_drawItemBk_flag_leave': <list_drawItemBk_flag_.list_drawItemBk_flag_leave: 1>, 'list_drawItemBk_flag_stay': <list_drawItemBk_flag_.list_drawItemBk_flag_stay: 2>, 'list_drawItemBk_flag_select': <list_drawItemBk_flag_.list_drawItemBk_flag_select: 4>, 'list_drawItemBk_flag_group_leave': <list_drawItemBk_flag_.list_drawItemBk_flag_group_leave: 8>, 'list_drawItemBk_flag_group_stay': <list_drawItemBk_flag_.list_drawItemBk_flag_group_stay: 16>, 'list_drawItemBk_flag_line': <list_drawItemBk_flag_.list_drawItemBk_flag_line: 32>, 'list_drawItemBk_flag_lineV': <list_drawItemBk_flag_.list_drawItemBk_flag_lineV: 64>}
-    list_drawItemBk_flag_group_leave: xcgui.list_drawItemBk_flag_ # value = <list_drawItemBk_flag_.list_drawItemBk_flag_group_leave: 8>
-    list_drawItemBk_flag_group_stay: xcgui.list_drawItemBk_flag_ # value = <list_drawItemBk_flag_.list_drawItemBk_flag_group_stay: 16>
-    list_drawItemBk_flag_leave: xcgui.list_drawItemBk_flag_ # value = <list_drawItemBk_flag_.list_drawItemBk_flag_leave: 1>
-    list_drawItemBk_flag_line: xcgui.list_drawItemBk_flag_ # value = <list_drawItemBk_flag_.list_drawItemBk_flag_line: 32>
-    list_drawItemBk_flag_lineV: xcgui.list_drawItemBk_flag_ # value = <list_drawItemBk_flag_.list_drawItemBk_flag_lineV: 64>
-    list_drawItemBk_flag_nothing: xcgui.list_drawItemBk_flag_ # value = <list_drawItemBk_flag_.list_drawItemBk_flag_nothing: 0>
-    list_drawItemBk_flag_select: xcgui.list_drawItemBk_flag_ # value = <list_drawItemBk_flag_.list_drawItemBk_flag_select: 4>
-    list_drawItemBk_flag_stay: xcgui.list_drawItemBk_flag_ # value = <list_drawItemBk_flag_.list_drawItemBk_flag_stay: 2>
+    list_drawItemBk_flag_group_leave: _xcgui.list_drawItemBk_flag_ # value = <list_drawItemBk_flag_.list_drawItemBk_flag_group_leave: 8>
+    list_drawItemBk_flag_group_stay: _xcgui.list_drawItemBk_flag_ # value = <list_drawItemBk_flag_.list_drawItemBk_flag_group_stay: 16>
+    list_drawItemBk_flag_leave: _xcgui.list_drawItemBk_flag_ # value = <list_drawItemBk_flag_.list_drawItemBk_flag_leave: 1>
+    list_drawItemBk_flag_line: _xcgui.list_drawItemBk_flag_ # value = <list_drawItemBk_flag_.list_drawItemBk_flag_line: 32>
+    list_drawItemBk_flag_lineV: _xcgui.list_drawItemBk_flag_ # value = <list_drawItemBk_flag_.list_drawItemBk_flag_lineV: 64>
+    list_drawItemBk_flag_nothing: _xcgui.list_drawItemBk_flag_ # value = <list_drawItemBk_flag_.list_drawItemBk_flag_nothing: 0>
+    list_drawItemBk_flag_select: _xcgui.list_drawItemBk_flag_ # value = <list_drawItemBk_flag_.list_drawItemBk_flag_select: 4>
+    list_drawItemBk_flag_stay: _xcgui.list_drawItemBk_flag_ # value = <list_drawItemBk_flag_.list_drawItemBk_flag_stay: 2>
     pass
 class list_header_item_():
     def __init__(self) -> None: ...
@@ -6135,10 +6204,10 @@ class list_item_state_():
         :type: int
         """
     __members__: dict # value = {'list_item_state_leave': <list_item_state_.list_item_state_leave: 0>, 'list_item_state_stay': <list_item_state_.list_item_state_stay: 1>, 'list_item_state_select': <list_item_state_.list_item_state_select: 2>, 'list_item_state_cache': <list_item_state_.list_item_state_cache: 3>}
-    list_item_state_cache: xcgui.list_item_state_ # value = <list_item_state_.list_item_state_cache: 3>
-    list_item_state_leave: xcgui.list_item_state_ # value = <list_item_state_.list_item_state_leave: 0>
-    list_item_state_select: xcgui.list_item_state_ # value = <list_item_state_.list_item_state_select: 2>
-    list_item_state_stay: xcgui.list_item_state_ # value = <list_item_state_.list_item_state_stay: 1>
+    list_item_state_cache: _xcgui.list_item_state_ # value = <list_item_state_.list_item_state_cache: 3>
+    list_item_state_leave: _xcgui.list_item_state_ # value = <list_item_state_.list_item_state_leave: 0>
+    list_item_state_select: _xcgui.list_item_state_ # value = <list_item_state_.list_item_state_select: 2>
+    list_item_state_stay: _xcgui.list_item_state_ # value = <list_item_state_.list_item_state_stay: 1>
     pass
 class list_state_flag_():
     """
@@ -6183,10 +6252,10 @@ class list_state_flag_():
         :type: int
         """
     __members__: dict # value = {'list_state_flag_item_leave': <list_state_flag_.list_state_flag_item_leave: 128>, 'list_state_flag_item_stay': <list_state_flag_.list_state_flag_item_stay: 256>, 'list_state_flag_item_select': <list_state_flag_.list_state_flag_item_select: 512>, 'list_state_flag_item_select_no': <list_state_flag_.list_state_flag_item_select_no: 1024>}
-    list_state_flag_item_leave: xcgui.list_state_flag_ # value = <list_state_flag_.list_state_flag_item_leave: 128>
-    list_state_flag_item_select: xcgui.list_state_flag_ # value = <list_state_flag_.list_state_flag_item_select: 512>
-    list_state_flag_item_select_no: xcgui.list_state_flag_ # value = <list_state_flag_.list_state_flag_item_select_no: 1024>
-    list_state_flag_item_stay: xcgui.list_state_flag_ # value = <list_state_flag_.list_state_flag_item_stay: 256>
+    list_state_flag_item_leave: _xcgui.list_state_flag_ # value = <list_state_flag_.list_state_flag_item_leave: 128>
+    list_state_flag_item_select: _xcgui.list_state_flag_ # value = <list_state_flag_.list_state_flag_item_select: 512>
+    list_state_flag_item_select_no: _xcgui.list_state_flag_ # value = <list_state_flag_.list_state_flag_item_select_no: 1024>
+    list_state_flag_item_stay: _xcgui.list_state_flag_ # value = <list_state_flag_.list_state_flag_item_stay: 256>
     pass
 class menu_drawBackground_():
     def __init__(self) -> None: ...
@@ -6327,13 +6396,13 @@ class menu_item_flag_():
         :type: int
         """
     __members__: dict # value = {'menu_item_flag_normal': <menu_item_flag_.menu_item_flag_normal: 0>, 'menu_item_flag_select': <menu_item_flag_.menu_item_flag_select: 1>, 'menu_item_flag_stay': <menu_item_flag_.menu_item_flag_select: 1>, 'menu_item_flag_check': <menu_item_flag_.menu_item_flag_check: 2>, 'menu_item_flag_popup': <menu_item_flag_.menu_item_flag_popup: 4>, 'menu_item_flag_separator': <menu_item_flag_.menu_item_flag_separator: 8>, 'menu_item_flag_disable': <menu_item_flag_.menu_item_flag_disable: 16>}
-    menu_item_flag_check: xcgui.menu_item_flag_ # value = <menu_item_flag_.menu_item_flag_check: 2>
-    menu_item_flag_disable: xcgui.menu_item_flag_ # value = <menu_item_flag_.menu_item_flag_disable: 16>
-    menu_item_flag_normal: xcgui.menu_item_flag_ # value = <menu_item_flag_.menu_item_flag_normal: 0>
-    menu_item_flag_popup: xcgui.menu_item_flag_ # value = <menu_item_flag_.menu_item_flag_popup: 4>
-    menu_item_flag_select: xcgui.menu_item_flag_ # value = <menu_item_flag_.menu_item_flag_select: 1>
-    menu_item_flag_separator: xcgui.menu_item_flag_ # value = <menu_item_flag_.menu_item_flag_separator: 8>
-    menu_item_flag_stay: xcgui.menu_item_flag_ # value = <menu_item_flag_.menu_item_flag_select: 1>
+    menu_item_flag_check: _xcgui.menu_item_flag_ # value = <menu_item_flag_.menu_item_flag_check: 2>
+    menu_item_flag_disable: _xcgui.menu_item_flag_ # value = <menu_item_flag_.menu_item_flag_disable: 16>
+    menu_item_flag_normal: _xcgui.menu_item_flag_ # value = <menu_item_flag_.menu_item_flag_normal: 0>
+    menu_item_flag_popup: _xcgui.menu_item_flag_ # value = <menu_item_flag_.menu_item_flag_popup: 4>
+    menu_item_flag_select: _xcgui.menu_item_flag_ # value = <menu_item_flag_.menu_item_flag_select: 1>
+    menu_item_flag_separator: _xcgui.menu_item_flag_ # value = <menu_item_flag_.menu_item_flag_separator: 8>
+    menu_item_flag_stay: _xcgui.menu_item_flag_ # value = <menu_item_flag_.menu_item_flag_select: 1>
     pass
 class menu_popupWnd_():
     def __init__(self) -> None: ...
@@ -6407,14 +6476,14 @@ class menu_popup_position_():
         :type: int
         """
     __members__: dict # value = {'menu_popup_position_left_top': <menu_popup_position_.menu_popup_position_left_top: 0>, 'menu_popup_position_left_bottom': <menu_popup_position_.menu_popup_position_left_bottom: 1>, 'menu_popup_position_right_top': <menu_popup_position_.menu_popup_position_right_top: 2>, 'menu_popup_position_right_bottom': <menu_popup_position_.menu_popup_position_right_bottom: 3>, 'menu_popup_position_center_left': <menu_popup_position_.menu_popup_position_center_left: 4>, 'menu_popup_position_center_top': <menu_popup_position_.menu_popup_position_center_top: 5>, 'menu_popup_position_center_right': <menu_popup_position_.menu_popup_position_center_right: 6>, 'menu_popup_position_center_bottom': <menu_popup_position_.menu_popup_position_center_bottom: 7>}
-    menu_popup_position_center_bottom: xcgui.menu_popup_position_ # value = <menu_popup_position_.menu_popup_position_center_bottom: 7>
-    menu_popup_position_center_left: xcgui.menu_popup_position_ # value = <menu_popup_position_.menu_popup_position_center_left: 4>
-    menu_popup_position_center_right: xcgui.menu_popup_position_ # value = <menu_popup_position_.menu_popup_position_center_right: 6>
-    menu_popup_position_center_top: xcgui.menu_popup_position_ # value = <menu_popup_position_.menu_popup_position_center_top: 5>
-    menu_popup_position_left_bottom: xcgui.menu_popup_position_ # value = <menu_popup_position_.menu_popup_position_left_bottom: 1>
-    menu_popup_position_left_top: xcgui.menu_popup_position_ # value = <menu_popup_position_.menu_popup_position_left_top: 0>
-    menu_popup_position_right_bottom: xcgui.menu_popup_position_ # value = <menu_popup_position_.menu_popup_position_right_bottom: 3>
-    menu_popup_position_right_top: xcgui.menu_popup_position_ # value = <menu_popup_position_.menu_popup_position_right_top: 2>
+    menu_popup_position_center_bottom: _xcgui.menu_popup_position_ # value = <menu_popup_position_.menu_popup_position_center_bottom: 7>
+    menu_popup_position_center_left: _xcgui.menu_popup_position_ # value = <menu_popup_position_.menu_popup_position_center_left: 4>
+    menu_popup_position_center_right: _xcgui.menu_popup_position_ # value = <menu_popup_position_.menu_popup_position_center_right: 6>
+    menu_popup_position_center_top: _xcgui.menu_popup_position_ # value = <menu_popup_position_.menu_popup_position_center_top: 5>
+    menu_popup_position_left_bottom: _xcgui.menu_popup_position_ # value = <menu_popup_position_.menu_popup_position_left_bottom: 1>
+    menu_popup_position_left_top: _xcgui.menu_popup_position_ # value = <menu_popup_position_.menu_popup_position_left_top: 0>
+    menu_popup_position_right_bottom: _xcgui.menu_popup_position_ # value = <menu_popup_position_.menu_popup_position_right_bottom: 3>
+    menu_popup_position_right_top: _xcgui.menu_popup_position_ # value = <menu_popup_position_.menu_popup_position_right_top: 2>
     pass
 class messageBox_flag_():
     """
@@ -6469,15 +6538,15 @@ class messageBox_flag_():
         :type: int
         """
     __members__: dict # value = {'messageBox_flag_other': <messageBox_flag_.messageBox_flag_other: 0>, 'messageBox_flag_ok': <messageBox_flag_.messageBox_flag_ok: 1>, 'messageBox_flag_cancel': <messageBox_flag_.messageBox_flag_cancel: 2>, 'messageBox_flag_icon_appicon': <messageBox_flag_.messageBox_flag_icon_appicon: 4096>, 'messageBox_flag_icon_info': <messageBox_flag_.messageBox_flag_icon_info: 8192>, 'messageBox_flag_icon_qustion': <messageBox_flag_.messageBox_flag_icon_qustion: 16384>, 'messageBox_flag_icon_error': <messageBox_flag_.messageBox_flag_icon_error: 32768>, 'messageBox_flag_icon_warning': <messageBox_flag_.messageBox_flag_icon_warning: 65536>, 'messageBox_flag_icon_shield': <messageBox_flag_.messageBox_flag_icon_shield: 131072>}
-    messageBox_flag_cancel: xcgui.messageBox_flag_ # value = <messageBox_flag_.messageBox_flag_cancel: 2>
-    messageBox_flag_icon_appicon: xcgui.messageBox_flag_ # value = <messageBox_flag_.messageBox_flag_icon_appicon: 4096>
-    messageBox_flag_icon_error: xcgui.messageBox_flag_ # value = <messageBox_flag_.messageBox_flag_icon_error: 32768>
-    messageBox_flag_icon_info: xcgui.messageBox_flag_ # value = <messageBox_flag_.messageBox_flag_icon_info: 8192>
-    messageBox_flag_icon_qustion: xcgui.messageBox_flag_ # value = <messageBox_flag_.messageBox_flag_icon_qustion: 16384>
-    messageBox_flag_icon_shield: xcgui.messageBox_flag_ # value = <messageBox_flag_.messageBox_flag_icon_shield: 131072>
-    messageBox_flag_icon_warning: xcgui.messageBox_flag_ # value = <messageBox_flag_.messageBox_flag_icon_warning: 65536>
-    messageBox_flag_ok: xcgui.messageBox_flag_ # value = <messageBox_flag_.messageBox_flag_ok: 1>
-    messageBox_flag_other: xcgui.messageBox_flag_ # value = <messageBox_flag_.messageBox_flag_other: 0>
+    messageBox_flag_cancel: _xcgui.messageBox_flag_ # value = <messageBox_flag_.messageBox_flag_cancel: 2>
+    messageBox_flag_icon_appicon: _xcgui.messageBox_flag_ # value = <messageBox_flag_.messageBox_flag_icon_appicon: 4096>
+    messageBox_flag_icon_error: _xcgui.messageBox_flag_ # value = <messageBox_flag_.messageBox_flag_icon_error: 32768>
+    messageBox_flag_icon_info: _xcgui.messageBox_flag_ # value = <messageBox_flag_.messageBox_flag_icon_info: 8192>
+    messageBox_flag_icon_qustion: _xcgui.messageBox_flag_ # value = <messageBox_flag_.messageBox_flag_icon_qustion: 16384>
+    messageBox_flag_icon_shield: _xcgui.messageBox_flag_ # value = <messageBox_flag_.messageBox_flag_icon_shield: 131072>
+    messageBox_flag_icon_warning: _xcgui.messageBox_flag_ # value = <messageBox_flag_.messageBox_flag_icon_warning: 65536>
+    messageBox_flag_ok: _xcgui.messageBox_flag_ # value = <messageBox_flag_.messageBox_flag_ok: 1>
+    messageBox_flag_other: _xcgui.messageBox_flag_ # value = <messageBox_flag_.messageBox_flag_other: 0>
     pass
 class monthCal_button_type_():
     """
@@ -6524,11 +6593,11 @@ class monthCal_button_type_():
         :type: int
         """
     __members__: dict # value = {'monthCal_button_type_today': <monthCal_button_type_.monthCal_button_type_today: 0>, 'monthCal_button_type_last_year': <monthCal_button_type_.monthCal_button_type_last_year: 1>, 'monthCal_button_type_next_year': <monthCal_button_type_.monthCal_button_type_next_year: 2>, 'monthCal_button_type_last_month': <monthCal_button_type_.monthCal_button_type_last_month: 3>, 'monthCal_button_type_next_month': <monthCal_button_type_.monthCal_button_type_next_month: 4>}
-    monthCal_button_type_last_month: xcgui.monthCal_button_type_ # value = <monthCal_button_type_.monthCal_button_type_last_month: 3>
-    monthCal_button_type_last_year: xcgui.monthCal_button_type_ # value = <monthCal_button_type_.monthCal_button_type_last_year: 1>
-    monthCal_button_type_next_month: xcgui.monthCal_button_type_ # value = <monthCal_button_type_.monthCal_button_type_next_month: 4>
-    monthCal_button_type_next_year: xcgui.monthCal_button_type_ # value = <monthCal_button_type_.monthCal_button_type_next_year: 2>
-    monthCal_button_type_today: xcgui.monthCal_button_type_ # value = <monthCal_button_type_.monthCal_button_type_today: 0>
+    monthCal_button_type_last_month: _xcgui.monthCal_button_type_ # value = <monthCal_button_type_.monthCal_button_type_last_month: 3>
+    monthCal_button_type_last_year: _xcgui.monthCal_button_type_ # value = <monthCal_button_type_.monthCal_button_type_last_year: 1>
+    monthCal_button_type_next_month: _xcgui.monthCal_button_type_ # value = <monthCal_button_type_.monthCal_button_type_next_month: 4>
+    monthCal_button_type_next_year: _xcgui.monthCal_button_type_ # value = <monthCal_button_type_.monthCal_button_type_next_year: 2>
+    monthCal_button_type_today: _xcgui.monthCal_button_type_ # value = <monthCal_button_type_.monthCal_button_type_today: 0>
     pass
 class monthCal_item_():
     def __init__(self) -> None: ...
@@ -6622,16 +6691,16 @@ class monthCal_state_flag_():
         :type: int
         """
     __members__: dict # value = {'monthCal_state_flag_leave': <monthCal_state_flag_.monthCal_state_flag_leave: 16>, 'monthCal_state_flag_item_leave': <monthCal_state_flag_.monthCal_state_flag_item_leave: 128>, 'monthCal_state_flag_item_stay': <monthCal_state_flag_.monthCal_state_flag_item_stay: 256>, 'monthCal_state_flag_item_down': <monthCal_state_flag_.monthCal_state_flag_item_down: 512>, 'monthCal_state_flag_item_select': <monthCal_state_flag_.monthCal_state_flag_item_select: 1024>, 'monthCal_state_flag_item_select_no': <monthCal_state_flag_.monthCal_state_flag_item_select_no: 2048>, 'monthCal_state_flag_item_today': <monthCal_state_flag_.monthCal_state_flag_item_today: 4096>, 'monthCal_state_flag_item_last_month': <monthCal_state_flag_.monthCal_state_flag_item_last_month: 8192>, 'monthCal_state_flag_item_cur_month': <monthCal_state_flag_.monthCal_state_flag_item_cur_month: 16384>, 'monthCal_state_flag_item_next_month': <monthCal_state_flag_.monthCal_state_flag_item_next_month: 32768>}
-    monthCal_state_flag_item_cur_month: xcgui.monthCal_state_flag_ # value = <monthCal_state_flag_.monthCal_state_flag_item_cur_month: 16384>
-    monthCal_state_flag_item_down: xcgui.monthCal_state_flag_ # value = <monthCal_state_flag_.monthCal_state_flag_item_down: 512>
-    monthCal_state_flag_item_last_month: xcgui.monthCal_state_flag_ # value = <monthCal_state_flag_.monthCal_state_flag_item_last_month: 8192>
-    monthCal_state_flag_item_leave: xcgui.monthCal_state_flag_ # value = <monthCal_state_flag_.monthCal_state_flag_item_leave: 128>
-    monthCal_state_flag_item_next_month: xcgui.monthCal_state_flag_ # value = <monthCal_state_flag_.monthCal_state_flag_item_next_month: 32768>
-    monthCal_state_flag_item_select: xcgui.monthCal_state_flag_ # value = <monthCal_state_flag_.monthCal_state_flag_item_select: 1024>
-    monthCal_state_flag_item_select_no: xcgui.monthCal_state_flag_ # value = <monthCal_state_flag_.monthCal_state_flag_item_select_no: 2048>
-    monthCal_state_flag_item_stay: xcgui.monthCal_state_flag_ # value = <monthCal_state_flag_.monthCal_state_flag_item_stay: 256>
-    monthCal_state_flag_item_today: xcgui.monthCal_state_flag_ # value = <monthCal_state_flag_.monthCal_state_flag_item_today: 4096>
-    monthCal_state_flag_leave: xcgui.monthCal_state_flag_ # value = <monthCal_state_flag_.monthCal_state_flag_leave: 16>
+    monthCal_state_flag_item_cur_month: _xcgui.monthCal_state_flag_ # value = <monthCal_state_flag_.monthCal_state_flag_item_cur_month: 16384>
+    monthCal_state_flag_item_down: _xcgui.monthCal_state_flag_ # value = <monthCal_state_flag_.monthCal_state_flag_item_down: 512>
+    monthCal_state_flag_item_last_month: _xcgui.monthCal_state_flag_ # value = <monthCal_state_flag_.monthCal_state_flag_item_last_month: 8192>
+    monthCal_state_flag_item_leave: _xcgui.monthCal_state_flag_ # value = <monthCal_state_flag_.monthCal_state_flag_item_leave: 128>
+    monthCal_state_flag_item_next_month: _xcgui.monthCal_state_flag_ # value = <monthCal_state_flag_.monthCal_state_flag_item_next_month: 32768>
+    monthCal_state_flag_item_select: _xcgui.monthCal_state_flag_ # value = <monthCal_state_flag_.monthCal_state_flag_item_select: 1024>
+    monthCal_state_flag_item_select_no: _xcgui.monthCal_state_flag_ # value = <monthCal_state_flag_.monthCal_state_flag_item_select_no: 2048>
+    monthCal_state_flag_item_stay: _xcgui.monthCal_state_flag_ # value = <monthCal_state_flag_.monthCal_state_flag_item_stay: 256>
+    monthCal_state_flag_item_today: _xcgui.monthCal_state_flag_ # value = <monthCal_state_flag_.monthCal_state_flag_item_today: 4096>
+    monthCal_state_flag_leave: _xcgui.monthCal_state_flag_ # value = <monthCal_state_flag_.monthCal_state_flag_leave: 16>
     pass
 class notifyMsg_skin_():
     """
@@ -6678,11 +6747,11 @@ class notifyMsg_skin_():
         :type: int
         """
     __members__: dict # value = {'notifyMsg_skin_no': <notifyMsg_skin_.notifyMsg_skin_no: 0>, 'notifyMsg_skin_success': <notifyMsg_skin_.notifyMsg_skin_success: 1>, 'notifyMsg_skin_warning': <notifyMsg_skin_.notifyMsg_skin_warning: 2>, 'notifyMsg_skin_message': <notifyMsg_skin_.notifyMsg_skin_message: 3>, 'notifyMsg_skin_error': <notifyMsg_skin_.notifyMsg_skin_error: 4>}
-    notifyMsg_skin_error: xcgui.notifyMsg_skin_ # value = <notifyMsg_skin_.notifyMsg_skin_error: 4>
-    notifyMsg_skin_message: xcgui.notifyMsg_skin_ # value = <notifyMsg_skin_.notifyMsg_skin_message: 3>
-    notifyMsg_skin_no: xcgui.notifyMsg_skin_ # value = <notifyMsg_skin_.notifyMsg_skin_no: 0>
-    notifyMsg_skin_success: xcgui.notifyMsg_skin_ # value = <notifyMsg_skin_.notifyMsg_skin_success: 1>
-    notifyMsg_skin_warning: xcgui.notifyMsg_skin_ # value = <notifyMsg_skin_.notifyMsg_skin_warning: 2>
+    notifyMsg_skin_error: _xcgui.notifyMsg_skin_ # value = <notifyMsg_skin_.notifyMsg_skin_error: 4>
+    notifyMsg_skin_message: _xcgui.notifyMsg_skin_ # value = <notifyMsg_skin_.notifyMsg_skin_message: 3>
+    notifyMsg_skin_no: _xcgui.notifyMsg_skin_ # value = <notifyMsg_skin_.notifyMsg_skin_no: 0>
+    notifyMsg_skin_success: _xcgui.notifyMsg_skin_ # value = <notifyMsg_skin_.notifyMsg_skin_success: 1>
+    notifyMsg_skin_warning: _xcgui.notifyMsg_skin_ # value = <notifyMsg_skin_.notifyMsg_skin_warning: 2>
     pass
 class pane_align_():
     """
@@ -6731,12 +6800,12 @@ class pane_align_():
         :type: int
         """
     __members__: dict # value = {'pane_align_error': <pane_align_.pane_align_error: -1>, 'pane_align_left': <pane_align_.pane_align_left: 0>, 'pane_align_top': <pane_align_.pane_align_top: 1>, 'pane_align_right': <pane_align_.pane_align_right: 2>, 'pane_align_bottom': <pane_align_.pane_align_bottom: 3>, 'pane_align_center': <pane_align_.pane_align_center: 4>}
-    pane_align_bottom: xcgui.pane_align_ # value = <pane_align_.pane_align_bottom: 3>
-    pane_align_center: xcgui.pane_align_ # value = <pane_align_.pane_align_center: 4>
-    pane_align_error: xcgui.pane_align_ # value = <pane_align_.pane_align_error: -1>
-    pane_align_left: xcgui.pane_align_ # value = <pane_align_.pane_align_left: 0>
-    pane_align_right: xcgui.pane_align_ # value = <pane_align_.pane_align_right: 2>
-    pane_align_top: xcgui.pane_align_ # value = <pane_align_.pane_align_top: 1>
+    pane_align_bottom: _xcgui.pane_align_ # value = <pane_align_.pane_align_bottom: 3>
+    pane_align_center: _xcgui.pane_align_ # value = <pane_align_.pane_align_center: 4>
+    pane_align_error: _xcgui.pane_align_ # value = <pane_align_.pane_align_error: -1>
+    pane_align_left: _xcgui.pane_align_ # value = <pane_align_.pane_align_left: 0>
+    pane_align_right: _xcgui.pane_align_ # value = <pane_align_.pane_align_right: 2>
+    pane_align_top: _xcgui.pane_align_ # value = <pane_align_.pane_align_top: 1>
     pass
 class pane_state_():
     """
@@ -6783,11 +6852,11 @@ class pane_state_():
         :type: int
         """
     __members__: dict # value = {'pane_state_error': <pane_state_.pane_state_error: -1>, 'pane_state_any': <pane_state_.pane_state_any: 0>, 'pane_state_lock': <pane_state_.pane_state_lock: 1>, 'pane_state_dock': <pane_state_.pane_state_dock: 2>, 'pane_state_float': <pane_state_.pane_state_float: 3>}
-    pane_state_any: xcgui.pane_state_ # value = <pane_state_.pane_state_any: 0>
-    pane_state_dock: xcgui.pane_state_ # value = <pane_state_.pane_state_dock: 2>
-    pane_state_error: xcgui.pane_state_ # value = <pane_state_.pane_state_error: -1>
-    pane_state_float: xcgui.pane_state_ # value = <pane_state_.pane_state_float: 3>
-    pane_state_lock: xcgui.pane_state_ # value = <pane_state_.pane_state_lock: 1>
+    pane_state_any: _xcgui.pane_state_ # value = <pane_state_.pane_state_any: 0>
+    pane_state_dock: _xcgui.pane_state_ # value = <pane_state_.pane_state_dock: 2>
+    pane_state_error: _xcgui.pane_state_ # value = <pane_state_.pane_state_error: -1>
+    pane_state_float: _xcgui.pane_state_ # value = <pane_state_.pane_state_float: 3>
+    pane_state_lock: _xcgui.pane_state_ # value = <pane_state_.pane_state_lock: 1>
     pass
 class pane_state_flag_():
     """
@@ -6832,10 +6901,10 @@ class pane_state_flag_():
         :type: int
         """
     __members__: dict # value = {'pane_state_flag_leave': <pane_state_flag_.pane_state_flag_leave: 16>, 'pane_state_flag_stay': <pane_state_flag_.pane_state_flag_stay: 32>, 'pane_state_flag_caption': <pane_state_flag_.pane_state_flag_caption: 128>, 'pane_state_flag_body': <pane_state_flag_.pane_state_flag_body: 256>}
-    pane_state_flag_body: xcgui.pane_state_flag_ # value = <pane_state_flag_.pane_state_flag_body: 256>
-    pane_state_flag_caption: xcgui.pane_state_flag_ # value = <pane_state_flag_.pane_state_flag_caption: 128>
-    pane_state_flag_leave: xcgui.pane_state_flag_ # value = <pane_state_flag_.pane_state_flag_leave: 16>
-    pane_state_flag_stay: xcgui.pane_state_flag_ # value = <pane_state_flag_.pane_state_flag_stay: 32>
+    pane_state_flag_body: _xcgui.pane_state_flag_ # value = <pane_state_flag_.pane_state_flag_body: 256>
+    pane_state_flag_caption: _xcgui.pane_state_flag_ # value = <pane_state_flag_.pane_state_flag_caption: 128>
+    pane_state_flag_leave: _xcgui.pane_state_flag_ # value = <pane_state_flag_.pane_state_flag_leave: 16>
+    pane_state_flag_stay: _xcgui.pane_state_flag_ # value = <pane_state_flag_.pane_state_flag_stay: 32>
     pass
 class position_():
     def __init__(self) -> None: ...
@@ -6911,15 +6980,15 @@ class position_flag_():
         :type: int
         """
     __members__: dict # value = {'position_flag_left': <position_flag_.position_flag_left: 0>, 'position_flag_top': <position_flag_.position_flag_top: 1>, 'position_flag_right': <position_flag_.position_flag_right: 2>, 'position_flag_bottom': <position_flag_.position_flag_bottom: 3>, 'position_flag_leftTop': <position_flag_.position_flag_leftTop: 4>, 'position_flag_leftBottom': <position_flag_.position_flag_leftBottom: 5>, 'position_flag_rightTop': <position_flag_.position_flag_rightTop: 6>, 'position_flag_rightBottom': <position_flag_.position_flag_rightBottom: 7>, 'position_flag_center': <position_flag_.position_flag_center: 8>}
-    position_flag_bottom: xcgui.position_flag_ # value = <position_flag_.position_flag_bottom: 3>
-    position_flag_center: xcgui.position_flag_ # value = <position_flag_.position_flag_center: 8>
-    position_flag_left: xcgui.position_flag_ # value = <position_flag_.position_flag_left: 0>
-    position_flag_leftBottom: xcgui.position_flag_ # value = <position_flag_.position_flag_leftBottom: 5>
-    position_flag_leftTop: xcgui.position_flag_ # value = <position_flag_.position_flag_leftTop: 4>
-    position_flag_right: xcgui.position_flag_ # value = <position_flag_.position_flag_right: 2>
-    position_flag_rightBottom: xcgui.position_flag_ # value = <position_flag_.position_flag_rightBottom: 7>
-    position_flag_rightTop: xcgui.position_flag_ # value = <position_flag_.position_flag_rightTop: 6>
-    position_flag_top: xcgui.position_flag_ # value = <position_flag_.position_flag_top: 1>
+    position_flag_bottom: _xcgui.position_flag_ # value = <position_flag_.position_flag_bottom: 3>
+    position_flag_center: _xcgui.position_flag_ # value = <position_flag_.position_flag_center: 8>
+    position_flag_left: _xcgui.position_flag_ # value = <position_flag_.position_flag_left: 0>
+    position_flag_leftBottom: _xcgui.position_flag_ # value = <position_flag_.position_flag_leftBottom: 5>
+    position_flag_leftTop: _xcgui.position_flag_ # value = <position_flag_.position_flag_leftTop: 4>
+    position_flag_right: _xcgui.position_flag_ # value = <position_flag_.position_flag_right: 2>
+    position_flag_rightBottom: _xcgui.position_flag_ # value = <position_flag_.position_flag_rightBottom: 7>
+    position_flag_rightTop: _xcgui.position_flag_ # value = <position_flag_.position_flag_rightTop: 6>
+    position_flag_top: _xcgui.position_flag_ # value = <position_flag_.position_flag_top: 1>
     pass
 class propertyGrid_item_():
     def __init__(self) -> None: ...
@@ -7049,14 +7118,14 @@ class propertyGrid_item_type_():
         :type: int
         """
     __members__: dict # value = {'propertyGrid_item_type_text': <propertyGrid_item_type_.propertyGrid_item_type_text: 0>, 'propertyGrid_item_type_edit': <propertyGrid_item_type_.propertyGrid_item_type_edit: 1>, 'propertyGrid_item_type_edit_color': <propertyGrid_item_type_.propertyGrid_item_type_edit_color: 2>, 'propertyGrid_item_type_edit_file': <propertyGrid_item_type_.propertyGrid_item_type_edit_file: 3>, 'propertyGrid_item_type_edit_set': <propertyGrid_item_type_.propertyGrid_item_type_edit_set: 4>, 'propertyGrid_item_type_comboBox': <propertyGrid_item_type_.propertyGrid_item_type_comboBox: 5>, 'propertyGrid_item_type_group': <propertyGrid_item_type_.propertyGrid_item_type_group: 6>, 'propertyGrid_item_type_panel': <propertyGrid_item_type_.propertyGrid_item_type_panel: 7>}
-    propertyGrid_item_type_comboBox: xcgui.propertyGrid_item_type_ # value = <propertyGrid_item_type_.propertyGrid_item_type_comboBox: 5>
-    propertyGrid_item_type_edit: xcgui.propertyGrid_item_type_ # value = <propertyGrid_item_type_.propertyGrid_item_type_edit: 1>
-    propertyGrid_item_type_edit_color: xcgui.propertyGrid_item_type_ # value = <propertyGrid_item_type_.propertyGrid_item_type_edit_color: 2>
-    propertyGrid_item_type_edit_file: xcgui.propertyGrid_item_type_ # value = <propertyGrid_item_type_.propertyGrid_item_type_edit_file: 3>
-    propertyGrid_item_type_edit_set: xcgui.propertyGrid_item_type_ # value = <propertyGrid_item_type_.propertyGrid_item_type_edit_set: 4>
-    propertyGrid_item_type_group: xcgui.propertyGrid_item_type_ # value = <propertyGrid_item_type_.propertyGrid_item_type_group: 6>
-    propertyGrid_item_type_panel: xcgui.propertyGrid_item_type_ # value = <propertyGrid_item_type_.propertyGrid_item_type_panel: 7>
-    propertyGrid_item_type_text: xcgui.propertyGrid_item_type_ # value = <propertyGrid_item_type_.propertyGrid_item_type_text: 0>
+    propertyGrid_item_type_comboBox: _xcgui.propertyGrid_item_type_ # value = <propertyGrid_item_type_.propertyGrid_item_type_comboBox: 5>
+    propertyGrid_item_type_edit: _xcgui.propertyGrid_item_type_ # value = <propertyGrid_item_type_.propertyGrid_item_type_edit: 1>
+    propertyGrid_item_type_edit_color: _xcgui.propertyGrid_item_type_ # value = <propertyGrid_item_type_.propertyGrid_item_type_edit_color: 2>
+    propertyGrid_item_type_edit_file: _xcgui.propertyGrid_item_type_ # value = <propertyGrid_item_type_.propertyGrid_item_type_edit_file: 3>
+    propertyGrid_item_type_edit_set: _xcgui.propertyGrid_item_type_ # value = <propertyGrid_item_type_.propertyGrid_item_type_edit_set: 4>
+    propertyGrid_item_type_group: _xcgui.propertyGrid_item_type_ # value = <propertyGrid_item_type_.propertyGrid_item_type_group: 6>
+    propertyGrid_item_type_panel: _xcgui.propertyGrid_item_type_ # value = <propertyGrid_item_type_.propertyGrid_item_type_panel: 7>
+    propertyGrid_item_type_text: _xcgui.propertyGrid_item_type_ # value = <propertyGrid_item_type_.propertyGrid_item_type_text: 0>
     pass
 class propertyGrid_state_flag_():
     """
@@ -7107,13 +7176,13 @@ class propertyGrid_state_flag_():
         :type: int
         """
     __members__: dict # value = {'propertyGrid_state_flag_item_leave': <propertyGrid_state_flag_.propertyGrid_state_flag_item_leave: 128>, 'propertyGrid_state_flag_item_stay': <propertyGrid_state_flag_.propertyGrid_state_flag_item_stay: 256>, 'propertyGrid_state_flag_item_select': <propertyGrid_state_flag_.propertyGrid_state_flag_item_select: 512>, 'propertyGrid_state_flag_item_select_no': <propertyGrid_state_flag_.propertyGrid_state_flag_item_select_no: 1024>, 'propertyGrid_state_flag_group_leave': <propertyGrid_state_flag_.propertyGrid_state_flag_group_leave: 2048>, 'propertyGrid_state_flag_group_expand': <propertyGrid_state_flag_.propertyGrid_state_flag_group_expand: 4096>, 'propertyGrid_state_flag_group_expand_no': <propertyGrid_state_flag_.propertyGrid_state_flag_group_expand_no: 8192>}
-    propertyGrid_state_flag_group_expand: xcgui.propertyGrid_state_flag_ # value = <propertyGrid_state_flag_.propertyGrid_state_flag_group_expand: 4096>
-    propertyGrid_state_flag_group_expand_no: xcgui.propertyGrid_state_flag_ # value = <propertyGrid_state_flag_.propertyGrid_state_flag_group_expand_no: 8192>
-    propertyGrid_state_flag_group_leave: xcgui.propertyGrid_state_flag_ # value = <propertyGrid_state_flag_.propertyGrid_state_flag_group_leave: 2048>
-    propertyGrid_state_flag_item_leave: xcgui.propertyGrid_state_flag_ # value = <propertyGrid_state_flag_.propertyGrid_state_flag_item_leave: 128>
-    propertyGrid_state_flag_item_select: xcgui.propertyGrid_state_flag_ # value = <propertyGrid_state_flag_.propertyGrid_state_flag_item_select: 512>
-    propertyGrid_state_flag_item_select_no: xcgui.propertyGrid_state_flag_ # value = <propertyGrid_state_flag_.propertyGrid_state_flag_item_select_no: 1024>
-    propertyGrid_state_flag_item_stay: xcgui.propertyGrid_state_flag_ # value = <propertyGrid_state_flag_.propertyGrid_state_flag_item_stay: 256>
+    propertyGrid_state_flag_group_expand: _xcgui.propertyGrid_state_flag_ # value = <propertyGrid_state_flag_.propertyGrid_state_flag_group_expand: 4096>
+    propertyGrid_state_flag_group_expand_no: _xcgui.propertyGrid_state_flag_ # value = <propertyGrid_state_flag_.propertyGrid_state_flag_group_expand_no: 8192>
+    propertyGrid_state_flag_group_leave: _xcgui.propertyGrid_state_flag_ # value = <propertyGrid_state_flag_.propertyGrid_state_flag_group_leave: 2048>
+    propertyGrid_state_flag_item_leave: _xcgui.propertyGrid_state_flag_ # value = <propertyGrid_state_flag_.propertyGrid_state_flag_item_leave: 128>
+    propertyGrid_state_flag_item_select: _xcgui.propertyGrid_state_flag_ # value = <propertyGrid_state_flag_.propertyGrid_state_flag_item_select: 512>
+    propertyGrid_state_flag_item_select_no: _xcgui.propertyGrid_state_flag_ # value = <propertyGrid_state_flag_.propertyGrid_state_flag_item_select_no: 1024>
+    propertyGrid_state_flag_item_stay: _xcgui.propertyGrid_state_flag_ # value = <propertyGrid_state_flag_.propertyGrid_state_flag_item_stay: 256>
     pass
 class table_flag_():
     """
@@ -7154,8 +7223,8 @@ class table_flag_():
         :type: int
         """
     __members__: dict # value = {'table_flag_full': <table_flag_.table_flag_full: 0>, 'table_flag_none': <table_flag_.table_flag_none: 1>}
-    table_flag_full: xcgui.table_flag_ # value = <table_flag_.table_flag_full: 0>
-    table_flag_none: xcgui.table_flag_ # value = <table_flag_.table_flag_none: 1>
+    table_flag_full: _xcgui.table_flag_ # value = <table_flag_.table_flag_full: 0>
+    table_flag_none: _xcgui.table_flag_ # value = <table_flag_.table_flag_none: 1>
     pass
 class table_line_flag_():
     """
@@ -7208,14 +7277,14 @@ class table_line_flag_():
         :type: int
         """
     __members__: dict # value = {'table_line_flag_left': <table_line_flag_.table_line_flag_left: 1>, 'table_line_flag_top': <table_line_flag_.table_line_flag_top: 2>, 'table_line_flag_right': <table_line_flag_.table_line_flag_right: 4>, 'table_line_flag_bottom': <table_line_flag_.table_line_flag_bottom: 8>, 'table_line_flag_left2': <table_line_flag_.table_line_flag_left2: 16>, 'table_line_flag_top2': <table_line_flag_.table_line_flag_top2: 32>, 'table_line_flag_right2': <table_line_flag_.table_line_flag_right2: 64>, 'table_line_flag_bottom2': <table_line_flag_.table_line_flag_bottom2: 128>}
-    table_line_flag_bottom: xcgui.table_line_flag_ # value = <table_line_flag_.table_line_flag_bottom: 8>
-    table_line_flag_bottom2: xcgui.table_line_flag_ # value = <table_line_flag_.table_line_flag_bottom2: 128>
-    table_line_flag_left: xcgui.table_line_flag_ # value = <table_line_flag_.table_line_flag_left: 1>
-    table_line_flag_left2: xcgui.table_line_flag_ # value = <table_line_flag_.table_line_flag_left2: 16>
-    table_line_flag_right: xcgui.table_line_flag_ # value = <table_line_flag_.table_line_flag_right: 4>
-    table_line_flag_right2: xcgui.table_line_flag_ # value = <table_line_flag_.table_line_flag_right2: 64>
-    table_line_flag_top: xcgui.table_line_flag_ # value = <table_line_flag_.table_line_flag_top: 2>
-    table_line_flag_top2: xcgui.table_line_flag_ # value = <table_line_flag_.table_line_flag_top2: 32>
+    table_line_flag_bottom: _xcgui.table_line_flag_ # value = <table_line_flag_.table_line_flag_bottom: 8>
+    table_line_flag_bottom2: _xcgui.table_line_flag_ # value = <table_line_flag_.table_line_flag_bottom2: 128>
+    table_line_flag_left: _xcgui.table_line_flag_ # value = <table_line_flag_.table_line_flag_left: 1>
+    table_line_flag_left2: _xcgui.table_line_flag_ # value = <table_line_flag_.table_line_flag_left2: 16>
+    table_line_flag_right: _xcgui.table_line_flag_ # value = <table_line_flag_.table_line_flag_right: 4>
+    table_line_flag_right2: _xcgui.table_line_flag_ # value = <table_line_flag_.table_line_flag_right2: 64>
+    table_line_flag_top: _xcgui.table_line_flag_ # value = <table_line_flag_.table_line_flag_top: 2>
+    table_line_flag_top2: _xcgui.table_line_flag_ # value = <table_line_flag_.table_line_flag_top2: 32>
     pass
 class textFormatFlag_():
     """
@@ -7296,28 +7365,28 @@ class textFormatFlag_():
         :type: int
         """
     __members__: dict # value = {'textAlignFlag_left': <textFormatFlag_.textAlignFlag_left: 0>, 'textAlignFlag_top': <textFormatFlag_.textAlignFlag_left: 0>, 'textAlignFlag_left_top': <textFormatFlag_.textAlignFlag_left_top: 16384>, 'textAlignFlag_center': <textFormatFlag_.textAlignFlag_center: 1>, 'textAlignFlag_right': <textFormatFlag_.textAlignFlag_right: 2>, 'textAlignFlag_vcenter': <textFormatFlag_.textAlignFlag_vcenter: 4>, 'textAlignFlag_bottom': <textFormatFlag_.textAlignFlag_bottom: 8>, 'textFormatFlag_DirectionRightToLeft': <textFormatFlag_.textFormatFlag_DirectionRightToLeft: 16>, 'textFormatFlag_NoWrap': <textFormatFlag_.textFormatFlag_NoWrap: 32>, 'textFormatFlag_DirectionVertical': <textFormatFlag_.textFormatFlag_DirectionVertical: 64>, 'textFormatFlag_NoFitBlackBox': <textFormatFlag_.textFormatFlag_NoFitBlackBox: 128>, 'textFormatFlag_DisplayFormatControl': <textFormatFlag_.textFormatFlag_DisplayFormatControl: 256>, 'textFormatFlag_NoFontFallback': <textFormatFlag_.textFormatFlag_NoFontFallback: 512>, 'textFormatFlag_MeasureTrailingSpaces': <textFormatFlag_.textFormatFlag_MeasureTrailingSpaces: 1024>, 'textFormatFlag_LineLimit': <textFormatFlag_.textFormatFlag_LineLimit: 2048>, 'textFormatFlag_NoClip': <textFormatFlag_.textFormatFlag_NoClip: 4096>, 'textTrimming_None': <textFormatFlag_.textAlignFlag_left: 0>, 'textTrimming_Character': <textFormatFlag_.textTrimming_Character: 262144>, 'textTrimming_Word': <textFormatFlag_.textTrimming_Word: 524288>, 'textTrimming_EllipsisCharacter': <textFormatFlag_.textTrimming_EllipsisCharacter: 32768>, 'textTrimming_EllipsisWord': <textFormatFlag_.textTrimming_EllipsisWord: 65536>, 'textTrimming_EllipsisPath': <textFormatFlag_.textTrimming_EllipsisPath: 131072>}
-    textAlignFlag_bottom: xcgui.textFormatFlag_ # value = <textFormatFlag_.textAlignFlag_bottom: 8>
-    textAlignFlag_center: xcgui.textFormatFlag_ # value = <textFormatFlag_.textAlignFlag_center: 1>
-    textAlignFlag_left: xcgui.textFormatFlag_ # value = <textFormatFlag_.textAlignFlag_left: 0>
-    textAlignFlag_left_top: xcgui.textFormatFlag_ # value = <textFormatFlag_.textAlignFlag_left_top: 16384>
-    textAlignFlag_right: xcgui.textFormatFlag_ # value = <textFormatFlag_.textAlignFlag_right: 2>
-    textAlignFlag_top: xcgui.textFormatFlag_ # value = <textFormatFlag_.textAlignFlag_left: 0>
-    textAlignFlag_vcenter: xcgui.textFormatFlag_ # value = <textFormatFlag_.textAlignFlag_vcenter: 4>
-    textFormatFlag_DirectionRightToLeft: xcgui.textFormatFlag_ # value = <textFormatFlag_.textFormatFlag_DirectionRightToLeft: 16>
-    textFormatFlag_DirectionVertical: xcgui.textFormatFlag_ # value = <textFormatFlag_.textFormatFlag_DirectionVertical: 64>
-    textFormatFlag_DisplayFormatControl: xcgui.textFormatFlag_ # value = <textFormatFlag_.textFormatFlag_DisplayFormatControl: 256>
-    textFormatFlag_LineLimit: xcgui.textFormatFlag_ # value = <textFormatFlag_.textFormatFlag_LineLimit: 2048>
-    textFormatFlag_MeasureTrailingSpaces: xcgui.textFormatFlag_ # value = <textFormatFlag_.textFormatFlag_MeasureTrailingSpaces: 1024>
-    textFormatFlag_NoClip: xcgui.textFormatFlag_ # value = <textFormatFlag_.textFormatFlag_NoClip: 4096>
-    textFormatFlag_NoFitBlackBox: xcgui.textFormatFlag_ # value = <textFormatFlag_.textFormatFlag_NoFitBlackBox: 128>
-    textFormatFlag_NoFontFallback: xcgui.textFormatFlag_ # value = <textFormatFlag_.textFormatFlag_NoFontFallback: 512>
-    textFormatFlag_NoWrap: xcgui.textFormatFlag_ # value = <textFormatFlag_.textFormatFlag_NoWrap: 32>
-    textTrimming_Character: xcgui.textFormatFlag_ # value = <textFormatFlag_.textTrimming_Character: 262144>
-    textTrimming_EllipsisCharacter: xcgui.textFormatFlag_ # value = <textFormatFlag_.textTrimming_EllipsisCharacter: 32768>
-    textTrimming_EllipsisPath: xcgui.textFormatFlag_ # value = <textFormatFlag_.textTrimming_EllipsisPath: 131072>
-    textTrimming_EllipsisWord: xcgui.textFormatFlag_ # value = <textFormatFlag_.textTrimming_EllipsisWord: 65536>
-    textTrimming_None: xcgui.textFormatFlag_ # value = <textFormatFlag_.textAlignFlag_left: 0>
-    textTrimming_Word: xcgui.textFormatFlag_ # value = <textFormatFlag_.textTrimming_Word: 524288>
+    textAlignFlag_bottom: _xcgui.textFormatFlag_ # value = <textFormatFlag_.textAlignFlag_bottom: 8>
+    textAlignFlag_center: _xcgui.textFormatFlag_ # value = <textFormatFlag_.textAlignFlag_center: 1>
+    textAlignFlag_left: _xcgui.textFormatFlag_ # value = <textFormatFlag_.textAlignFlag_left: 0>
+    textAlignFlag_left_top: _xcgui.textFormatFlag_ # value = <textFormatFlag_.textAlignFlag_left_top: 16384>
+    textAlignFlag_right: _xcgui.textFormatFlag_ # value = <textFormatFlag_.textAlignFlag_right: 2>
+    textAlignFlag_top: _xcgui.textFormatFlag_ # value = <textFormatFlag_.textAlignFlag_left: 0>
+    textAlignFlag_vcenter: _xcgui.textFormatFlag_ # value = <textFormatFlag_.textAlignFlag_vcenter: 4>
+    textFormatFlag_DirectionRightToLeft: _xcgui.textFormatFlag_ # value = <textFormatFlag_.textFormatFlag_DirectionRightToLeft: 16>
+    textFormatFlag_DirectionVertical: _xcgui.textFormatFlag_ # value = <textFormatFlag_.textFormatFlag_DirectionVertical: 64>
+    textFormatFlag_DisplayFormatControl: _xcgui.textFormatFlag_ # value = <textFormatFlag_.textFormatFlag_DisplayFormatControl: 256>
+    textFormatFlag_LineLimit: _xcgui.textFormatFlag_ # value = <textFormatFlag_.textFormatFlag_LineLimit: 2048>
+    textFormatFlag_MeasureTrailingSpaces: _xcgui.textFormatFlag_ # value = <textFormatFlag_.textFormatFlag_MeasureTrailingSpaces: 1024>
+    textFormatFlag_NoClip: _xcgui.textFormatFlag_ # value = <textFormatFlag_.textFormatFlag_NoClip: 4096>
+    textFormatFlag_NoFitBlackBox: _xcgui.textFormatFlag_ # value = <textFormatFlag_.textFormatFlag_NoFitBlackBox: 128>
+    textFormatFlag_NoFontFallback: _xcgui.textFormatFlag_ # value = <textFormatFlag_.textFormatFlag_NoFontFallback: 512>
+    textFormatFlag_NoWrap: _xcgui.textFormatFlag_ # value = <textFormatFlag_.textFormatFlag_NoWrap: 32>
+    textTrimming_Character: _xcgui.textFormatFlag_ # value = <textFormatFlag_.textTrimming_Character: 262144>
+    textTrimming_EllipsisCharacter: _xcgui.textFormatFlag_ # value = <textFormatFlag_.textTrimming_EllipsisCharacter: 32768>
+    textTrimming_EllipsisPath: _xcgui.textFormatFlag_ # value = <textFormatFlag_.textTrimming_EllipsisPath: 131072>
+    textTrimming_EllipsisWord: _xcgui.textFormatFlag_ # value = <textFormatFlag_.textTrimming_EllipsisWord: 65536>
+    textTrimming_None: _xcgui.textFormatFlag_ # value = <textFormatFlag_.textAlignFlag_left: 0>
+    textTrimming_Word: _xcgui.textFormatFlag_ # value = <textFormatFlag_.textTrimming_Word: 524288>
     pass
 class tree_drag_item_():
     def __init__(self) -> None: ...
@@ -7474,9 +7543,9 @@ class tree_item_state_():
         :type: int
         """
     __members__: dict # value = {'tree_item_state_leave': <tree_item_state_.tree_item_state_leave: 0>, 'tree_item_state_stay': <tree_item_state_.tree_item_state_stay: 1>, 'tree_item_state_select': <tree_item_state_.tree_item_state_select: 2>}
-    tree_item_state_leave: xcgui.tree_item_state_ # value = <tree_item_state_.tree_item_state_leave: 0>
-    tree_item_state_select: xcgui.tree_item_state_ # value = <tree_item_state_.tree_item_state_select: 2>
-    tree_item_state_stay: xcgui.tree_item_state_ # value = <tree_item_state_.tree_item_state_stay: 1>
+    tree_item_state_leave: _xcgui.tree_item_state_ # value = <tree_item_state_.tree_item_state_leave: 0>
+    tree_item_state_select: _xcgui.tree_item_state_ # value = <tree_item_state_.tree_item_state_select: 2>
+    tree_item_state_stay: _xcgui.tree_item_state_ # value = <tree_item_state_.tree_item_state_stay: 1>
     pass
 class tree_state_flag_():
     """
@@ -7525,12 +7594,12 @@ class tree_state_flag_():
         :type: int
         """
     __members__: dict # value = {'tree_state_flag_item_leave': <tree_state_flag_.tree_state_flag_item_leave: 128>, 'tree_state_flag_item_stay': <tree_state_flag_.tree_state_flag_item_stay: 256>, 'tree_state_flag_item_select': <tree_state_flag_.tree_state_flag_item_select: 512>, 'tree_state_flag_item_select_no': <tree_state_flag_.tree_state_flag_item_select_no: 1024>, 'tree_state_flag_group': <tree_state_flag_.tree_state_flag_group: 2048>, 'tree_state_flag_group_no': <tree_state_flag_.tree_state_flag_group_no: 4096>}
-    tree_state_flag_group: xcgui.tree_state_flag_ # value = <tree_state_flag_.tree_state_flag_group: 2048>
-    tree_state_flag_group_no: xcgui.tree_state_flag_ # value = <tree_state_flag_.tree_state_flag_group_no: 4096>
-    tree_state_flag_item_leave: xcgui.tree_state_flag_ # value = <tree_state_flag_.tree_state_flag_item_leave: 128>
-    tree_state_flag_item_select: xcgui.tree_state_flag_ # value = <tree_state_flag_.tree_state_flag_item_select: 512>
-    tree_state_flag_item_select_no: xcgui.tree_state_flag_ # value = <tree_state_flag_.tree_state_flag_item_select_no: 1024>
-    tree_state_flag_item_stay: xcgui.tree_state_flag_ # value = <tree_state_flag_.tree_state_flag_item_stay: 256>
+    tree_state_flag_group: _xcgui.tree_state_flag_ # value = <tree_state_flag_.tree_state_flag_group: 2048>
+    tree_state_flag_group_no: _xcgui.tree_state_flag_ # value = <tree_state_flag_.tree_state_flag_group_no: 4096>
+    tree_state_flag_item_leave: _xcgui.tree_state_flag_ # value = <tree_state_flag_.tree_state_flag_item_leave: 128>
+    tree_state_flag_item_select: _xcgui.tree_state_flag_ # value = <tree_state_flag_.tree_state_flag_item_select: 512>
+    tree_state_flag_item_select_no: _xcgui.tree_state_flag_ # value = <tree_state_flag_.tree_state_flag_item_select_no: 1024>
+    tree_state_flag_item_stay: _xcgui.tree_state_flag_ # value = <tree_state_flag_.tree_state_flag_item_stay: 256>
     pass
 class window_position_():
     """
@@ -7581,13 +7650,13 @@ class window_position_():
         :type: int
         """
     __members__: dict # value = {'window_position_error': <window_position_.window_position_error: -1>, 'window_position_top': <window_position_.window_position_top: 0>, 'window_position_bottom': <window_position_.window_position_bottom: 1>, 'window_position_left': <window_position_.window_position_left: 2>, 'window_position_right': <window_position_.window_position_right: 3>, 'window_position_body': <window_position_.window_position_body: 4>, 'window_position_window': <window_position_.window_position_window: 5>}
-    window_position_body: xcgui.window_position_ # value = <window_position_.window_position_body: 4>
-    window_position_bottom: xcgui.window_position_ # value = <window_position_.window_position_bottom: 1>
-    window_position_error: xcgui.window_position_ # value = <window_position_.window_position_error: -1>
-    window_position_left: xcgui.window_position_ # value = <window_position_.window_position_left: 2>
-    window_position_right: xcgui.window_position_ # value = <window_position_.window_position_right: 3>
-    window_position_top: xcgui.window_position_ # value = <window_position_.window_position_top: 0>
-    window_position_window: xcgui.window_position_ # value = <window_position_.window_position_window: 5>
+    window_position_body: _xcgui.window_position_ # value = <window_position_.window_position_body: 4>
+    window_position_bottom: _xcgui.window_position_ # value = <window_position_.window_position_bottom: 1>
+    window_position_error: _xcgui.window_position_ # value = <window_position_.window_position_error: -1>
+    window_position_left: _xcgui.window_position_ # value = <window_position_.window_position_left: 2>
+    window_position_right: _xcgui.window_position_ # value = <window_position_.window_position_right: 3>
+    window_position_top: _xcgui.window_position_ # value = <window_position_.window_position_top: 0>
+    window_position_window: _xcgui.window_position_ # value = <window_position_.window_position_window: 5>
     pass
 class window_state_flag_():
     """
@@ -7640,14 +7709,14 @@ class window_state_flag_():
         :type: int
         """
     __members__: dict # value = {'window_state_flag_nothing': <window_state_flag_.window_state_flag_nothing: 0>, 'window_state_flag_leave': <window_state_flag_.window_state_flag_leave: 1>, 'window_state_flag_body_leave': <window_state_flag_.window_state_flag_body_leave: 2>, 'window_state_flag_top_leave': <window_state_flag_.window_state_flag_top_leave: 4>, 'window_state_flag_bottom_leave': <window_state_flag_.window_state_flag_bottom_leave: 8>, 'window_state_flag_left_leave': <window_state_flag_.window_state_flag_left_leave: 16>, 'window_state_flag_right_leave': <window_state_flag_.window_state_flag_right_leave: 32>, 'window_state_flag_layout_body': <window_state_flag_.window_state_flag_layout_body: 536870912>}
-    window_state_flag_body_leave: xcgui.window_state_flag_ # value = <window_state_flag_.window_state_flag_body_leave: 2>
-    window_state_flag_bottom_leave: xcgui.window_state_flag_ # value = <window_state_flag_.window_state_flag_bottom_leave: 8>
-    window_state_flag_layout_body: xcgui.window_state_flag_ # value = <window_state_flag_.window_state_flag_layout_body: 536870912>
-    window_state_flag_leave: xcgui.window_state_flag_ # value = <window_state_flag_.window_state_flag_leave: 1>
-    window_state_flag_left_leave: xcgui.window_state_flag_ # value = <window_state_flag_.window_state_flag_left_leave: 16>
-    window_state_flag_nothing: xcgui.window_state_flag_ # value = <window_state_flag_.window_state_flag_nothing: 0>
-    window_state_flag_right_leave: xcgui.window_state_flag_ # value = <window_state_flag_.window_state_flag_right_leave: 32>
-    window_state_flag_top_leave: xcgui.window_state_flag_ # value = <window_state_flag_.window_state_flag_top_leave: 4>
+    window_state_flag_body_leave: _xcgui.window_state_flag_ # value = <window_state_flag_.window_state_flag_body_leave: 2>
+    window_state_flag_bottom_leave: _xcgui.window_state_flag_ # value = <window_state_flag_.window_state_flag_bottom_leave: 8>
+    window_state_flag_layout_body: _xcgui.window_state_flag_ # value = <window_state_flag_.window_state_flag_layout_body: 536870912>
+    window_state_flag_leave: _xcgui.window_state_flag_ # value = <window_state_flag_.window_state_flag_leave: 1>
+    window_state_flag_left_leave: _xcgui.window_state_flag_ # value = <window_state_flag_.window_state_flag_left_leave: 16>
+    window_state_flag_nothing: _xcgui.window_state_flag_ # value = <window_state_flag_.window_state_flag_nothing: 0>
+    window_state_flag_right_leave: _xcgui.window_state_flag_ # value = <window_state_flag_.window_state_flag_right_leave: 32>
+    window_state_flag_top_leave: _xcgui.window_state_flag_ # value = <window_state_flag_.window_state_flag_top_leave: 4>
     pass
 class window_style_():
     """
@@ -7718,23 +7787,23 @@ class window_style_():
         :type: int
         """
     __members__: dict # value = {'window_style_nothing': <window_style_.window_style_nothing: 0>, 'window_style_caption': <window_style_.window_style_caption: 1>, 'window_style_border': <window_style_.window_style_border: 2>, 'window_style_center': <window_style_.window_style_center: 4>, 'window_style_drag_border': <window_style_.window_style_drag_border: 8>, 'window_style_drag_window': <window_style_.window_style_drag_window: 16>, 'window_style_allow_maxWindow': <window_style_.window_style_allow_maxWindow: 32>, 'window_style_icon': <window_style_.window_style_icon: 64>, 'window_style_title': <window_style_.window_style_title: 128>, 'window_style_btn_min': <window_style_.window_style_btn_min: 256>, 'window_style_btn_max': <window_style_.window_style_btn_max: 512>, 'window_style_btn_close': <window_style_.window_style_btn_close: 1024>, 'window_style_default': <window_style_.window_style_default: 2031>, 'window_style_simple': <window_style_.window_style_simple: 47>, 'window_style_pop': <window_style_.window_style_pop: 1263>, 'window_style_modal': <window_style_.window_style_modal: 1223>, 'window_style_modal_simple': <window_style_.window_style_modal_simple: 7>}
-    window_style_allow_maxWindow: xcgui.window_style_ # value = <window_style_.window_style_allow_maxWindow: 32>
-    window_style_border: xcgui.window_style_ # value = <window_style_.window_style_border: 2>
-    window_style_btn_close: xcgui.window_style_ # value = <window_style_.window_style_btn_close: 1024>
-    window_style_btn_max: xcgui.window_style_ # value = <window_style_.window_style_btn_max: 512>
-    window_style_btn_min: xcgui.window_style_ # value = <window_style_.window_style_btn_min: 256>
-    window_style_caption: xcgui.window_style_ # value = <window_style_.window_style_caption: 1>
-    window_style_center: xcgui.window_style_ # value = <window_style_.window_style_center: 4>
-    window_style_default: xcgui.window_style_ # value = <window_style_.window_style_default: 2031>
-    window_style_drag_border: xcgui.window_style_ # value = <window_style_.window_style_drag_border: 8>
-    window_style_drag_window: xcgui.window_style_ # value = <window_style_.window_style_drag_window: 16>
-    window_style_icon: xcgui.window_style_ # value = <window_style_.window_style_icon: 64>
-    window_style_modal: xcgui.window_style_ # value = <window_style_.window_style_modal: 1223>
-    window_style_modal_simple: xcgui.window_style_ # value = <window_style_.window_style_modal_simple: 7>
-    window_style_nothing: xcgui.window_style_ # value = <window_style_.window_style_nothing: 0>
-    window_style_pop: xcgui.window_style_ # value = <window_style_.window_style_pop: 1263>
-    window_style_simple: xcgui.window_style_ # value = <window_style_.window_style_simple: 47>
-    window_style_title: xcgui.window_style_ # value = <window_style_.window_style_title: 128>
+    window_style_allow_maxWindow: _xcgui.window_style_ # value = <window_style_.window_style_allow_maxWindow: 32>
+    window_style_border: _xcgui.window_style_ # value = <window_style_.window_style_border: 2>
+    window_style_btn_close: _xcgui.window_style_ # value = <window_style_.window_style_btn_close: 1024>
+    window_style_btn_max: _xcgui.window_style_ # value = <window_style_.window_style_btn_max: 512>
+    window_style_btn_min: _xcgui.window_style_ # value = <window_style_.window_style_btn_min: 256>
+    window_style_caption: _xcgui.window_style_ # value = <window_style_.window_style_caption: 1>
+    window_style_center: _xcgui.window_style_ # value = <window_style_.window_style_center: 4>
+    window_style_default: _xcgui.window_style_ # value = <window_style_.window_style_default: 2031>
+    window_style_drag_border: _xcgui.window_style_ # value = <window_style_.window_style_drag_border: 8>
+    window_style_drag_window: _xcgui.window_style_ # value = <window_style_.window_style_drag_window: 16>
+    window_style_icon: _xcgui.window_style_ # value = <window_style_.window_style_icon: 64>
+    window_style_modal: _xcgui.window_style_ # value = <window_style_.window_style_modal: 1223>
+    window_style_modal_simple: _xcgui.window_style_ # value = <window_style_.window_style_modal_simple: 7>
+    window_style_nothing: _xcgui.window_style_ # value = <window_style_.window_style_nothing: 0>
+    window_style_pop: _xcgui.window_style_ # value = <window_style_.window_style_pop: 1263>
+    window_style_simple: _xcgui.window_style_ # value = <window_style_.window_style_simple: 47>
+    window_style_title: _xcgui.window_style_ # value = <window_style_.window_style_title: 128>
     pass
 class window_transparent_():
     """
@@ -7781,11 +7850,11 @@ class window_transparent_():
         :type: int
         """
     __members__: dict # value = {'window_transparent_false': <window_transparent_.window_transparent_false: 0>, 'window_transparent_shaped': <window_transparent_.window_transparent_shaped: 1>, 'window_transparent_shadow': <window_transparent_.window_transparent_shadow: 2>, 'window_transparent_simple': <window_transparent_.window_transparent_simple: 3>, 'window_transparent_win7': <window_transparent_.window_transparent_win7: 4>}
-    window_transparent_false: xcgui.window_transparent_ # value = <window_transparent_.window_transparent_false: 0>
-    window_transparent_shadow: xcgui.window_transparent_ # value = <window_transparent_.window_transparent_shadow: 2>
-    window_transparent_shaped: xcgui.window_transparent_ # value = <window_transparent_.window_transparent_shaped: 1>
-    window_transparent_simple: xcgui.window_transparent_ # value = <window_transparent_.window_transparent_simple: 3>
-    window_transparent_win7: xcgui.window_transparent_ # value = <window_transparent_.window_transparent_win7: 4>
+    window_transparent_false: _xcgui.window_transparent_ # value = <window_transparent_.window_transparent_false: 0>
+    window_transparent_shadow: _xcgui.window_transparent_ # value = <window_transparent_.window_transparent_shadow: 2>
+    window_transparent_shaped: _xcgui.window_transparent_ # value = <window_transparent_.window_transparent_shaped: 1>
+    window_transparent_simple: _xcgui.window_transparent_ # value = <window_transparent_.window_transparent_simple: 3>
+    window_transparent_win7: _xcgui.window_transparent_ # value = <window_transparent_.window_transparent_win7: 4>
     pass
 class zorder_():
     """
@@ -7830,10 +7899,10 @@ class zorder_():
         :type: int
         """
     __members__: dict # value = {'zorder_top': <zorder_.zorder_top: 0>, 'zorder_bottom': <zorder_.zorder_bottom: 1>, 'zorder_before': <zorder_.zorder_before: 2>, 'zorder_after': <zorder_.zorder_after: 3>}
-    zorder_after: xcgui.zorder_ # value = <zorder_.zorder_after: 3>
-    zorder_before: xcgui.zorder_ # value = <zorder_.zorder_before: 2>
-    zorder_bottom: xcgui.zorder_ # value = <zorder_.zorder_bottom: 1>
-    zorder_top: xcgui.zorder_ # value = <zorder_.zorder_top: 0>
+    zorder_after: _xcgui.zorder_ # value = <zorder_.zorder_after: 3>
+    zorder_before: _xcgui.zorder_ # value = <zorder_.zorder_before: 2>
+    zorder_bottom: _xcgui.zorder_ # value = <zorder_.zorder_bottom: 1>
+    zorder_top: _xcgui.zorder_ # value = <zorder_.zorder_top: 0>
     pass
 def Alert(title: str, text: str) -> None:
     pass
@@ -7850,6 +7919,14 @@ def FreeLibrary(hModule: int) -> bool:
 def GetDefaultFont() -> XFont:
     pass
 def GetProcAddress(hModule: int, procName: str) -> int:
+    pass
+def GetTextShowRect(text: str, font: XFont, textAlign: int, maxWidth: int) -> XSize:
+    pass
+def GetTextShowSize(text: str, font: XFont) -> XSize:
+    pass
+def GetTextShowSizeEx(text: str, font: XFont, textAlign: int) -> XSize:
+    pass
+def GetTextSize(text: str, font: XFont) -> XSize:
     pass
 def LoadDll(fileName: str) -> int:
     pass
@@ -7922,97 +7999,97 @@ WM_SETCURSOR = 32
 WM_SETFOCUS = 7
 WM_SIZE = 5
 WM_TIMER = 275
-XC_ADAPTER: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_ADAPTER: 102>
-XC_ADAPTER_LISTVIEW: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_ADAPTER_LISTVIEW: 105>
-XC_ADAPTER_MAP: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_ADAPTER_MAP: 106>
-XC_ADAPTER_TABLE: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_ADAPTER_TABLE: 103>
-XC_ADAPTER_TREE: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_ADAPTER_TREE: 104>
-XC_ANIMATION_GROUP: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_ANIMATION_GROUP: 132>
-XC_ANIMATION_ITEM: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_ANIMATION_ITEM: 133>
-XC_ANIMATION_SEQUENCE: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_ANIMATION_SEQUENCE: 131>
-XC_BKINFOM: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_BKINFOM: 116>
-XC_BUTTON: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_BUTTON: 22>
-XC_COMBOBOX: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_COMBOBOX: 24>
-XC_COMBOBOXWINDOW: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_COMBOBOXWINDOW: 11>
-XC_DATETIME: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_DATETIME: 36>
-XC_DWRITE_RENDERING_MODE_ALIASED: xcgui.XC_DWRITE_RENDERING_MODE # value = <XC_DWRITE_RENDERING_MODE.XC_DWRITE_RENDERING_MODE_ALIASED: 1>
-XC_DWRITE_RENDERING_MODE_CLEARTYPE_GDI_CLASSIC: xcgui.XC_DWRITE_RENDERING_MODE # value = <XC_DWRITE_RENDERING_MODE.XC_DWRITE_RENDERING_MODE_CLEARTYPE_GDI_CLASSIC: 2>
-XC_DWRITE_RENDERING_MODE_CLEARTYPE_GDI_NATURAL: xcgui.XC_DWRITE_RENDERING_MODE # value = <XC_DWRITE_RENDERING_MODE.XC_DWRITE_RENDERING_MODE_CLEARTYPE_GDI_NATURAL: 3>
-XC_DWRITE_RENDERING_MODE_CLEARTYPE_NATURAL: xcgui.XC_DWRITE_RENDERING_MODE # value = <XC_DWRITE_RENDERING_MODE.XC_DWRITE_RENDERING_MODE_CLEARTYPE_NATURAL: 4>
-XC_DWRITE_RENDERING_MODE_CLEARTYPE_NATURAL_SYMMETRIC: xcgui.XC_DWRITE_RENDERING_MODE # value = <XC_DWRITE_RENDERING_MODE.XC_DWRITE_RENDERING_MODE_CLEARTYPE_NATURAL_SYMMETRIC: 5>
-XC_DWRITE_RENDERING_MODE_DEFAULT: xcgui.XC_DWRITE_RENDERING_MODE # value = <XC_DWRITE_RENDERING_MODE.XC_DWRITE_RENDERING_MODE_DEFAULT: 0>
-XC_DWRITE_RENDERING_MODE_OUTLINE: xcgui.XC_DWRITE_RENDERING_MODE # value = <XC_DWRITE_RENDERING_MODE.XC_DWRITE_RENDERING_MODE_OUTLINE: 6>
-XC_EDIT: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_EDIT: 45>
-XC_EDITOR: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_EDITOR: 46>
-XC_EDIT_COLOR: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_EDIT_COLOR: 38>
-XC_EDIT_FILE: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_EDIT_FILE: 50>
-XC_EDIT_FOLDER: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_EDIT_FOLDER: 51>
-XC_EDIT_SET: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_EDIT_SET: 39>
-XC_ELE: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_ELE: 21>
-XC_ELE_LAYOUT: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_ELE_LAYOUT: 53>
-XC_ERROR: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_ERROR: -1>
-XC_FLOATWND: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_FLOATWND: 4>
-XC_FONT: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_FONT: 84>
-XC_FRAMEWND: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_FRAMEWND: 3>
-XC_HDRAW: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_HDRAW: 83>
+XC_ADAPTER: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_ADAPTER: 102>
+XC_ADAPTER_LISTVIEW: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_ADAPTER_LISTVIEW: 105>
+XC_ADAPTER_MAP: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_ADAPTER_MAP: 106>
+XC_ADAPTER_TABLE: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_ADAPTER_TABLE: 103>
+XC_ADAPTER_TREE: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_ADAPTER_TREE: 104>
+XC_ANIMATION_GROUP: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_ANIMATION_GROUP: 132>
+XC_ANIMATION_ITEM: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_ANIMATION_ITEM: 133>
+XC_ANIMATION_SEQUENCE: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_ANIMATION_SEQUENCE: 131>
+XC_BKINFOM: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_BKINFOM: 116>
+XC_BUTTON: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_BUTTON: 22>
+XC_COMBOBOX: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_COMBOBOX: 24>
+XC_COMBOBOXWINDOW: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_COMBOBOXWINDOW: 11>
+XC_DATETIME: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_DATETIME: 36>
+XC_DWRITE_RENDERING_MODE_ALIASED: _xcgui.XC_DWRITE_RENDERING_MODE # value = <XC_DWRITE_RENDERING_MODE.XC_DWRITE_RENDERING_MODE_ALIASED: 1>
+XC_DWRITE_RENDERING_MODE_CLEARTYPE_GDI_CLASSIC: _xcgui.XC_DWRITE_RENDERING_MODE # value = <XC_DWRITE_RENDERING_MODE.XC_DWRITE_RENDERING_MODE_CLEARTYPE_GDI_CLASSIC: 2>
+XC_DWRITE_RENDERING_MODE_CLEARTYPE_GDI_NATURAL: _xcgui.XC_DWRITE_RENDERING_MODE # value = <XC_DWRITE_RENDERING_MODE.XC_DWRITE_RENDERING_MODE_CLEARTYPE_GDI_NATURAL: 3>
+XC_DWRITE_RENDERING_MODE_CLEARTYPE_NATURAL: _xcgui.XC_DWRITE_RENDERING_MODE # value = <XC_DWRITE_RENDERING_MODE.XC_DWRITE_RENDERING_MODE_CLEARTYPE_NATURAL: 4>
+XC_DWRITE_RENDERING_MODE_CLEARTYPE_NATURAL_SYMMETRIC: _xcgui.XC_DWRITE_RENDERING_MODE # value = <XC_DWRITE_RENDERING_MODE.XC_DWRITE_RENDERING_MODE_CLEARTYPE_NATURAL_SYMMETRIC: 5>
+XC_DWRITE_RENDERING_MODE_DEFAULT: _xcgui.XC_DWRITE_RENDERING_MODE # value = <XC_DWRITE_RENDERING_MODE.XC_DWRITE_RENDERING_MODE_DEFAULT: 0>
+XC_DWRITE_RENDERING_MODE_OUTLINE: _xcgui.XC_DWRITE_RENDERING_MODE # value = <XC_DWRITE_RENDERING_MODE.XC_DWRITE_RENDERING_MODE_OUTLINE: 6>
+XC_EDIT: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_EDIT: 45>
+XC_EDITOR: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_EDITOR: 46>
+XC_EDIT_COLOR: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_EDIT_COLOR: 38>
+XC_EDIT_FILE: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_EDIT_FILE: 50>
+XC_EDIT_FOLDER: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_EDIT_FOLDER: 51>
+XC_EDIT_SET: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_EDIT_SET: 39>
+XC_ELE: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_ELE: 21>
+XC_ELE_LAYOUT: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_ELE_LAYOUT: 53>
+XC_ERROR: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_ERROR: -1>
+XC_FLOATWND: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_FLOATWND: 4>
+XC_FONT: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_FONT: 84>
+XC_FRAMEWND: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_FRAMEWND: 3>
+XC_HDRAW: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_HDRAW: 83>
 XC_ID_ERROR = -1
 XC_ID_FIRST = -2
 XC_ID_LAST = -3
 XC_ID_ROOT = 0
-XC_IMAGE: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_IMAGE: 82>
-XC_IMAGE_FRAME: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_IMAGE_FRAME: 88>
-XC_IMAGE_TEXTURE: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_IMAGE: 82>
-XC_LAYOUT_BOX: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LAYOUT_BOX: 124>
-XC_LAYOUT_FRAME: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LAYOUT_FRAME: 54>
-XC_LAYOUT_LIST: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LAYOUT_LIST: 112>
-XC_LAYOUT_LISTVIEW: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LAYOUT_LISTVIEW: 111>
-XC_LAYOUT_OBJECT: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LAYOUT_OBJECT: 101>
-XC_LAYOUT_OBJECT_GROUP: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LAYOUT_OBJECT_GROUP: 113>
-XC_LAYOUT_OBJECT_ITEM: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LAYOUT_OBJECT_ITEM: 114>
-XC_LAYOUT_PANEL: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LAYOUT_PANEL: 115>
-XC_LIST: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LIST: 27>
-XC_LISTBOX: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LISTBOX: 28>
-XC_LISTVIEW: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LISTVIEW: 29>
-XC_LIST_HEADER: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LIST_HEADER: 52>
-XC_MENU: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_MENU: 81>
-XC_MENUBAR: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_MENUBAR: 31>
-XC_MENUBAR_BUTTON: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_MENUBAR_BUTTON: 44>
-XC_MODALWINDOW: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_MODALWINDOW: 2>
-XC_MONTHCAL: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_MONTHCAL: 35>
+XC_IMAGE: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_IMAGE: 82>
+XC_IMAGE_FRAME: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_IMAGE_FRAME: 88>
+XC_IMAGE_TEXTURE: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_IMAGE: 82>
+XC_LAYOUT_BOX: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LAYOUT_BOX: 124>
+XC_LAYOUT_FRAME: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LAYOUT_FRAME: 54>
+XC_LAYOUT_LIST: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LAYOUT_LIST: 112>
+XC_LAYOUT_LISTVIEW: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LAYOUT_LISTVIEW: 111>
+XC_LAYOUT_OBJECT: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LAYOUT_OBJECT: 101>
+XC_LAYOUT_OBJECT_GROUP: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LAYOUT_OBJECT_GROUP: 113>
+XC_LAYOUT_OBJECT_ITEM: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LAYOUT_OBJECT_ITEM: 114>
+XC_LAYOUT_PANEL: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LAYOUT_PANEL: 115>
+XC_LIST: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LIST: 27>
+XC_LISTBOX: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LISTBOX: 28>
+XC_LISTVIEW: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LISTVIEW: 29>
+XC_LIST_HEADER: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_LIST_HEADER: 52>
+XC_MENU: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_MENU: 81>
+XC_MENUBAR: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_MENUBAR: 31>
+XC_MENUBAR_BUTTON: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_MENUBAR_BUTTON: 44>
+XC_MODALWINDOW: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_MODALWINDOW: 2>
+XC_MONTHCAL: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_MONTHCAL: 35>
 XC_NAME1 = 'name1'
 XC_NAME2 = 'name2'
 XC_NAME3 = 'name3'
 XC_NAME4 = 'name4'
 XC_NAME5 = 'name5'
 XC_NAME6 = 'name6'
-XC_NOTHING: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_NOTHING: 0>
-XC_OBJECT_UI: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_OBJECT_UI: 19>
-XC_PANE: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_PANE: 42>
-XC_PANE_SPLIT: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_PANE_SPLIT: 43>
-XC_POPUPMENUCHILDWINDOW: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_POPUPMENUCHILDWINDOW: 13>
-XC_POPUPMENUWINDOW: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_POPUPMENUWINDOW: 12>
-XC_PROGRESSBAR: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_PROGRESSBAR: 33>
-XC_PROPERTYGRID: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_PROPERTYGRID: 37>
-XC_RICHEDIT: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_RICHEDIT: 23>
-XC_SCROLLBAR: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SCROLLBAR: 25>
-XC_SCROLLVIEW: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SCROLLVIEW: 26>
-XC_SHAPE: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SHAPE: 61>
-XC_SHAPE_ELLIPSE: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SHAPE_ELLIPSE: 65>
-XC_SHAPE_GIF: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SHAPE_GIF: 68>
-XC_SHAPE_GROUPBOX: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SHAPE_GROUPBOX: 67>
-XC_SHAPE_LINE: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SHAPE_LINE: 66>
-XC_SHAPE_PICTURE: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SHAPE_PICTURE: 63>
-XC_SHAPE_RECT: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SHAPE_RECT: 64>
-XC_SHAPE_TABLE: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SHAPE_TABLE: 69>
-XC_SHAPE_TEXT: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SHAPE_TEXT: 62>
-XC_SLIDERBAR: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SLIDERBAR: 32>
-XC_SVG: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SVG: 89>
-XC_TABBAR: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_TABBAR: 40>
-XC_TEXTLINK: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_TEXTLINK: 41>
-XC_TOOLBAR: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_TOOLBAR: 34>
-XC_TREE: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_TREE: 30>
-XC_WIDGET_UI: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_WIDGET_UI: 20>
-XC_WINDOW: xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_WINDOW: 1>
+XC_NOTHING: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_NOTHING: 0>
+XC_OBJECT_UI: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_OBJECT_UI: 19>
+XC_PANE: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_PANE: 42>
+XC_PANE_SPLIT: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_PANE_SPLIT: 43>
+XC_POPUPMENUCHILDWINDOW: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_POPUPMENUCHILDWINDOW: 13>
+XC_POPUPMENUWINDOW: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_POPUPMENUWINDOW: 12>
+XC_PROGRESSBAR: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_PROGRESSBAR: 33>
+XC_PROPERTYGRID: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_PROPERTYGRID: 37>
+XC_RICHEDIT: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_RICHEDIT: 23>
+XC_SCROLLBAR: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SCROLLBAR: 25>
+XC_SCROLLVIEW: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SCROLLVIEW: 26>
+XC_SHAPE: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SHAPE: 61>
+XC_SHAPE_ELLIPSE: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SHAPE_ELLIPSE: 65>
+XC_SHAPE_GIF: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SHAPE_GIF: 68>
+XC_SHAPE_GROUPBOX: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SHAPE_GROUPBOX: 67>
+XC_SHAPE_LINE: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SHAPE_LINE: 66>
+XC_SHAPE_PICTURE: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SHAPE_PICTURE: 63>
+XC_SHAPE_RECT: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SHAPE_RECT: 64>
+XC_SHAPE_TABLE: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SHAPE_TABLE: 69>
+XC_SHAPE_TEXT: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SHAPE_TEXT: 62>
+XC_SLIDERBAR: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SLIDERBAR: 32>
+XC_SVG: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_SVG: 89>
+XC_TABBAR: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_TABBAR: 40>
+XC_TEXTLINK: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_TEXTLINK: 41>
+XC_TOOLBAR: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_TOOLBAR: 34>
+XC_TREE: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_TREE: 30>
+XC_WIDGET_UI: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_WIDGET_UI: 20>
+XC_WINDOW: _xcgui.XC_OBJECT_TYPE # value = <XC_OBJECT_TYPE.XC_WINDOW: 1>
 XE_ADJUSTLAYOUT = 17
 XE_ADJUSTLAYOUT_END = 18
 XE_BNCLICK = 34
@@ -8149,378 +8226,378 @@ XWM_REDRAW_ELE = 28673
 XWM_TIMER_T = 28676
 XWM_WINDPROC = 28674
 XWM_XC_TIMER = 28677
-adapter_date_type_error: xcgui.adapter_date_type_ # value = <adapter_date_type_.adapter_date_type_error: -1>
-adapter_date_type_float: xcgui.adapter_date_type_ # value = <adapter_date_type_.adapter_date_type_float: 1>
-adapter_date_type_image: xcgui.adapter_date_type_ # value = <adapter_date_type_.adapter_date_type_image: 3>
-adapter_date_type_int: xcgui.adapter_date_type_ # value = <adapter_date_type_.adapter_date_type_int: 0>
-adapter_date_type_string: xcgui.adapter_date_type_ # value = <adapter_date_type_.adapter_date_type_string: 2>
-adjustLayout_all: xcgui.adjustLayout_ # value = <adjustLayout_.adjustLayout_all: 1>
-adjustLayout_no: xcgui.adjustLayout_ # value = <adjustLayout_.adjustLayout_no: 0>
-adjustLayout_self: xcgui.adjustLayout_ # value = <adjustLayout_.adjustLayout_self: 2>
-animation_move_x: xcgui.animation_move_ # value = <animation_move_.animation_move_x: 1>
-animation_move_y: xcgui.animation_move_ # value = <animation_move_.animation_move_y: 2>
-bkObject_align_flag_bottom: xcgui.bkObject_align_flag_ # value = <bkObject_align_flag_.bkObject_align_flag_bottom: 8>
-bkObject_align_flag_center: xcgui.bkObject_align_flag_ # value = <bkObject_align_flag_.bkObject_align_flag_center: 16>
-bkObject_align_flag_center_v: xcgui.bkObject_align_flag_ # value = <bkObject_align_flag_.bkObject_align_flag_center_v: 32>
-bkObject_align_flag_left: xcgui.bkObject_align_flag_ # value = <bkObject_align_flag_.bkObject_align_flag_left: 1>
-bkObject_align_flag_no: xcgui.bkObject_align_flag_ # value = <bkObject_align_flag_.bkObject_align_flag_no: 0>
-bkObject_align_flag_right: xcgui.bkObject_align_flag_ # value = <bkObject_align_flag_.bkObject_align_flag_right: 4>
-bkObject_align_flag_top: xcgui.bkObject_align_flag_ # value = <bkObject_align_flag_.bkObject_align_flag_top: 2>
-button_icon_align_bottom: xcgui.button_icon_align_ # value = <button_icon_align_.button_icon_align_bottom: 3>
-button_icon_align_left: xcgui.button_icon_align_ # value = <button_icon_align_.button_icon_align_left: 0>
-button_icon_align_right: xcgui.button_icon_align_ # value = <button_icon_align_.button_icon_align_right: 2>
-button_icon_align_top: xcgui.button_icon_align_ # value = <button_icon_align_.button_icon_align_top: 1>
-button_state_check: xcgui.button_state_ # value = <button_state_.button_state_check: 3>
-button_state_disable: xcgui.button_state_ # value = <button_state_.button_state_disable: 4>
-button_state_down: xcgui.button_state_ # value = <button_state_.button_state_down: 2>
-button_state_flag_WindowMaximize: xcgui.button_state_flag_ # value = <button_state_flag_.button_state_flag_WindowMaximize: 1024>
-button_state_flag_WindowRestore: xcgui.button_state_flag_ # value = <button_state_flag_.button_state_flag_WindowRestore: 512>
-button_state_flag_check: xcgui.button_state_flag_ # value = <button_state_flag_.button_state_flag_check: 128>
-button_state_flag_check_no: xcgui.button_state_flag_ # value = <button_state_flag_.button_state_flag_check_no: 256>
-button_state_flag_down: xcgui.button_state_flag_ # value = <button_state_flag_.button_state_flag_down: 64>
-button_state_flag_leave: xcgui.button_state_flag_ # value = <button_state_flag_.button_state_flag_leave: 16>
-button_state_flag_stay: xcgui.button_state_flag_ # value = <button_state_flag_.button_state_flag_stay: 32>
-button_state_leave: xcgui.button_state_ # value = <button_state_.button_state_leave: 0>
-button_state_stay: xcgui.button_state_ # value = <button_state_.button_state_stay: 1>
-button_style_check: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_check: 2>
-button_style_close: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_close: 5>
-button_style_default: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.xc_style_default: 0>
-button_style_expand: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_expand: 4>
-button_style_icon: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_icon: 3>
-button_style_max: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_max: 6>
-button_style_min: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_min: 7>
-button_style_pane_close: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_pane_close: 19>
-button_style_pane_dock_bottom: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_pane_dock_bottom: 25>
-button_style_pane_dock_left: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_pane_dock_left: 22>
-button_style_pane_dock_right: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_pane_dock_right: 24>
-button_style_pane_dock_top: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_pane_dock_top: 23>
-button_style_pane_lock: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_pane_lock: 20>
-button_style_pane_menu: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_pane_menu: 21>
-button_style_radio: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_radio: 1>
-button_style_scrollbar_down: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_scrollbar_down: 11>
-button_style_scrollbar_left: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_scrollbar_left: 8>
-button_style_scrollbar_right: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_scrollbar_right: 9>
-button_style_scrollbar_slider_h: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_scrollbar_slider_h: 12>
-button_style_scrollbar_slider_v: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_scrollbar_slider_v: 13>
-button_style_scrollbar_up: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_scrollbar_up: 10>
-button_style_slider: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_slider: 15>
-button_style_tabBar: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_tabBar: 14>
-button_style_toolBar: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_toolBar: 16>
-button_style_toolBar_left: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_toolBar_left: 17>
-button_style_toolBar_right: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_toolBar_right: 18>
-button_type_check: xcgui.XC_OBJECT_TYPE_EX # value = <XC_OBJECT_TYPE_EX.button_type_check: 2>
-button_type_close: xcgui.XC_OBJECT_TYPE_EX # value = <XC_OBJECT_TYPE_EX.button_type_close: 3>
-button_type_default: xcgui.XC_OBJECT_TYPE_EX # value = <XC_OBJECT_TYPE_EX.button_type_default: 0>
-button_type_max: xcgui.XC_OBJECT_TYPE_EX # value = <XC_OBJECT_TYPE_EX.button_type_max: 5>
-button_type_min: xcgui.XC_OBJECT_TYPE_EX # value = <XC_OBJECT_TYPE_EX.button_type_min: 4>
-button_type_radio: xcgui.XC_OBJECT_TYPE_EX # value = <XC_OBJECT_TYPE_EX.button_type_radio: 1>
-chat_flag_center: xcgui.chat_flag_ # value = <chat_flag_.chat_flag_center: 4>
-chat_flag_left: xcgui.chat_flag_ # value = <chat_flag_.chat_flag_left: 1>
-chat_flag_next_row_bubble: xcgui.chat_flag_ # value = <chat_flag_.chat_flag_next_row_bubble: 8>
-chat_flag_right: xcgui.chat_flag_ # value = <chat_flag_.chat_flag_right: 2>
-comboBox_state_down: xcgui.comboBox_state_ # value = <comboBox_state_.comboBox_state_down: 2>
-comboBox_state_flag_down: xcgui.comboBox_state_flag_ # value = <comboBox_state_flag_.comboBox_state_flag_down: 64>
-comboBox_state_flag_leave: xcgui.comboBox_state_flag_ # value = <comboBox_state_flag_.comboBox_state_flag_leave: 16>
-comboBox_state_flag_stay: xcgui.comboBox_state_flag_ # value = <comboBox_state_flag_.comboBox_state_flag_stay: 32>
-comboBox_state_leave: xcgui.comboBox_state_ # value = <comboBox_state_.comboBox_state_leave: 0>
-comboBox_state_stay: xcgui.comboBox_state_ # value = <comboBox_state_.comboBox_state_stay: 1>
-common_state3_down: xcgui.common_state3_ # value = <common_state3_.common_state3_down: 2>
-common_state3_leave: xcgui.common_state3_ # value = <common_state3_.common_state3_leave: 0>
-common_state3_stay: xcgui.common_state3_ # value = <common_state3_.common_state3_stay: 1>
-easeIn: xcgui.ease_type_ # value = <ease_type_.easeIn: 0>
-easeInOut: xcgui.ease_type_ # value = <ease_type_.easeInOut: 2>
-easeOut: xcgui.ease_type_ # value = <ease_type_.easeOut: 1>
-ease_flag_back: xcgui.ease_flag_ # value = <ease_flag_.ease_flag_back: 9>
-ease_flag_bounce: xcgui.ease_flag_ # value = <ease_flag_.ease_flag_bounce: 10>
-ease_flag_circ: xcgui.ease_flag_ # value = <ease_flag_.ease_flag_circ: 7>
-ease_flag_cubic: xcgui.ease_flag_ # value = <ease_flag_.ease_flag_cubic: 2>
-ease_flag_elastic: xcgui.ease_flag_ # value = <ease_flag_.ease_flag_elastic: 8>
-ease_flag_expo: xcgui.ease_flag_ # value = <ease_flag_.ease_flag_expo: 6>
-ease_flag_in: xcgui.ease_flag_ # value = <ease_flag_.ease_flag_in: 65536>
-ease_flag_inOut: xcgui.ease_flag_ # value = <ease_flag_.ease_flag_inOut: 196608>
-ease_flag_linear: xcgui.ease_flag_ # value = <ease_flag_.ease_flag_linear: 0>
-ease_flag_out: xcgui.ease_flag_ # value = <ease_flag_.ease_flag_out: 131072>
-ease_flag_quad: xcgui.ease_flag_ # value = <ease_flag_.ease_flag_quad: 1>
-ease_flag_quart: xcgui.ease_flag_ # value = <ease_flag_.ease_flag_quart: 3>
-ease_flag_quint: xcgui.ease_flag_ # value = <ease_flag_.ease_flag_quint: 4>
-ease_flag_sine: xcgui.ease_flag_ # value = <ease_flag_.ease_flag_sine: 5>
-edit_style_type_font_color: xcgui.edit_style_type_ # value = <edit_style_type_.edit_style_type_font_color: 1>
-edit_style_type_image: xcgui.edit_style_type_ # value = <edit_style_type_.edit_style_type_image: 2>
-edit_style_type_obj: xcgui.edit_style_type_ # value = <edit_style_type_.edit_style_type_obj: 3>
-edit_textAlign_flag_bottom: xcgui.edit_textAlign_flag_ # value = <edit_textAlign_flag_.edit_textAlign_flag_bottom: 4>
-edit_textAlign_flag_center: xcgui.edit_textAlign_flag_ # value = <edit_textAlign_flag_.edit_textAlign_flag_center: 2>
-edit_textAlign_flag_center_v: xcgui.edit_textAlign_flag_ # value = <edit_textAlign_flag_.edit_textAlign_flag_center_v: 8>
-edit_textAlign_flag_left: xcgui.edit_textAlign_flag_ # value = <edit_textAlign_flag_.edit_textAlign_flag_left: 0>
-edit_textAlign_flag_right: xcgui.edit_textAlign_flag_ # value = <edit_textAlign_flag_.edit_textAlign_flag_right: 1>
-edit_textAlign_flag_top: xcgui.edit_textAlign_flag_ # value = <edit_textAlign_flag_.edit_textAlign_flag_left: 0>
-edit_type_chat: xcgui.edit_type_ # value = <edit_type_.edit_type_chat: 3>
-edit_type_codeTable: xcgui.edit_type_ # value = <edit_type_.edit_type_codeTable: 4>
-edit_type_editor: xcgui.edit_type_ # value = <edit_type_.edit_type_editor: 1>
-edit_type_none: xcgui.edit_type_ # value = <edit_type_.edit_type_none: 0>
-edit_type_richedit: xcgui.edit_type_ # value = <edit_type_.edit_type_richedit: 2>
-element_position_bottom: xcgui.element_position_ # value = <element_position_.element_position_bottom: 8>
-element_position_left: xcgui.element_position_ # value = <element_position_.element_position_left: 1>
-element_position_no: xcgui.element_position_ # value = <element_position_.element_position_no: 0>
-element_position_right: xcgui.element_position_ # value = <element_position_.element_position_right: 4>
-element_position_top: xcgui.element_position_ # value = <element_position_.element_position_top: 2>
-element_state_flag_disable: xcgui.element_state_flag_ # value = <element_state_flag_.element_state_flag_disable: 2>
-element_state_flag_down: xcgui.element_state_flag_ # value = <element_state_flag_.element_state_flag_down: 64>
-element_state_flag_enable: xcgui.element_state_flag_ # value = <element_state_flag_.element_state_flag_enable: 1>
-element_state_flag_focus: xcgui.element_state_flag_ # value = <element_state_flag_.element_state_flag_focus: 4>
-element_state_flag_focusEx: xcgui.element_state_flag_ # value = <element_state_flag_.element_state_flag_focusEx: 1073741824>
-element_state_flag_focusEx_no: xcgui.element_state_flag_ # value = <element_state_flag_.element_state_flag_focusEx_no: -2147483648>
-element_state_flag_focus_no: xcgui.element_state_flag_ # value = <element_state_flag_.element_state_flag_focus_no: 8>
-element_state_flag_leave: xcgui.element_state_flag_ # value = <element_state_flag_.element_state_flag_leave: 16>
-element_state_flag_nothing: xcgui.element_state_flag_ # value = <element_state_flag_.element_state_flag_nothing: 0>
-element_state_flag_stay: xcgui.element_state_flag_ # value = <element_state_flag_.element_state_flag_stay: 32>
-element_style_frameWnd_dock_bottom: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.element_style_frameWnd_dock_bottom: 29>
-element_style_frameWnd_dock_left: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.element_style_frameWnd_dock_left: 26>
-element_style_frameWnd_dock_right: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.element_style_frameWnd_dock_right: 28>
-element_style_frameWnd_dock_top: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.element_style_frameWnd_dock_top: 27>
-element_style_toolBar_separator: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.element_style_toolBar_separator: 30>
-element_type_layout: xcgui.XC_OBJECT_TYPE_EX # value = <XC_OBJECT_TYPE_EX.element_type_layout: 6>
-fontStyle_bold: xcgui.fontStyle_ # value = <fontStyle_.fontStyle_bold: 1>
-fontStyle_boldItalic: xcgui.fontStyle_ # value = <fontStyle_.fontStyle_boldItalic: 3>
-fontStyle_italic: xcgui.fontStyle_ # value = <fontStyle_.fontStyle_italic: 2>
-fontStyle_regular: xcgui.fontStyle_ # value = <fontStyle_.fontStyle_regular: 0>
-fontStyle_strikeout: xcgui.fontStyle_ # value = <fontStyle_.fontStyle_strikeout: 8>
-fontStyle_underline: xcgui.fontStyle_ # value = <fontStyle_.fontStyle_underline: 4>
-frameWnd_cell_type_bodyView: xcgui.frameWnd_cell_type_ # value = <frameWnd_cell_type_.frameWnd_cell_type_bodyView: 3>
-frameWnd_cell_type_group: xcgui.frameWnd_cell_type_ # value = <frameWnd_cell_type_.frameWnd_cell_type_group: 2>
-frameWnd_cell_type_left_right: xcgui.frameWnd_cell_type_ # value = <frameWnd_cell_type_.frameWnd_cell_type_left_right: 5>
-frameWnd_cell_type_no: xcgui.frameWnd_cell_type_ # value = <frameWnd_cell_type_.frameWnd_cell_type_no: 0>
-frameWnd_cell_type_pane: xcgui.frameWnd_cell_type_ # value = <frameWnd_cell_type_.frameWnd_cell_type_pane: 1>
-frameWnd_cell_type_top_bottom: xcgui.frameWnd_cell_type_ # value = <frameWnd_cell_type_.frameWnd_cell_type_top_bottom: 4>
-image_draw_type_adaptive: xcgui.image_draw_type_ # value = <image_draw_type_.image_draw_type_adaptive: 2>
-image_draw_type_adaptive_border: xcgui.image_draw_type_ # value = <image_draw_type_.image_draw_type_adaptive_border: 5>
-image_draw_type_default: xcgui.image_draw_type_ # value = <image_draw_type_.image_draw_type_default: 0>
-image_draw_type_fixed_ratio: xcgui.image_draw_type_ # value = <image_draw_type_.image_draw_type_fixed_ratio: 4>
-image_draw_type_stretch: xcgui.image_draw_type_ # value = <image_draw_type_.image_draw_type_stretch: 1>
-image_draw_type_tile: xcgui.image_draw_type_ # value = <image_draw_type_.image_draw_type_tile: 3>
-layout_align_axis_auto: xcgui.layout_align_axis_ # value = <layout_align_axis_.layout_align_axis_auto: 0>
-layout_align_axis_center: xcgui.layout_align_axis_ # value = <layout_align_axis_.layout_align_axis_center: 2>
-layout_align_axis_end: xcgui.layout_align_axis_ # value = <layout_align_axis_.layout_align_axis_end: 3>
-layout_align_axis_start: xcgui.layout_align_axis_ # value = <layout_align_axis_.layout_align_axis_start: 1>
-layout_align_bottom: xcgui.layout_align_ # value = <layout_align_.layout_align_bottom: 3>
-layout_align_center: xcgui.layout_align_ # value = <layout_align_.layout_align_center: 4>
-layout_align_equidistant: xcgui.layout_align_ # value = <layout_align_.layout_align_equidistant: 5>
-layout_align_left: xcgui.layout_align_ # value = <layout_align_.layout_align_left: 0>
-layout_align_right: xcgui.layout_align_ # value = <layout_align_.layout_align_right: 2>
-layout_align_top: xcgui.layout_align_ # value = <layout_align_.layout_align_top: 1>
-layout_size_auto: xcgui.layout_size_ # value = <layout_size_.layout_size_auto: 2>
-layout_size_disable: xcgui.layout_size_ # value = <layout_size_.layout_size_disable: 5>
-layout_size_fill: xcgui.layout_size_ # value = <layout_size_.layout_size_fill: 1>
-layout_size_fixed: xcgui.layout_size_ # value = <layout_size_.layout_size_fixed: 0>
-layout_size_percent: xcgui.layout_size_ # value = <layout_size_.layout_size_percent: 4>
-layout_size_weight: xcgui.layout_size_ # value = <layout_size_.layout_size_weight: 3>
-layout_state_flag_body: xcgui.layout_state_flag_ # value = <layout_state_flag_.layout_state_flag_body: 2>
-layout_state_flag_full: xcgui.layout_state_flag_ # value = <layout_state_flag_.layout_state_flag_full: 1>
-layout_state_flag_layout_body: xcgui.element_state_flag_ # value = <element_state_flag_.layout_state_flag_layout_body: 536870912>
-layout_state_flag_nothing: xcgui.layout_state_flag_ # value = <layout_state_flag_.layout_state_flag_nothing: 0>
-listBox_state_flag_item_leave: xcgui.listBox_state_flag_ # value = <listBox_state_flag_.listBox_state_flag_item_leave: 128>
-listBox_state_flag_item_select: xcgui.listBox_state_flag_ # value = <listBox_state_flag_.listBox_state_flag_item_select: 512>
-listBox_state_flag_item_select_no: xcgui.listBox_state_flag_ # value = <listBox_state_flag_.listBox_state_flag_item_select_no: 1024>
-listBox_state_flag_item_stay: xcgui.listBox_state_flag_ # value = <listBox_state_flag_.listBox_state_flag_item_stay: 256>
-listBox_style_comboBox: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.listBox_style_comboBox: 31>
-listHeader_state_flag_item_down: xcgui.listHeader_state_flag_ # value = <listHeader_state_flag_.listHeader_state_flag_item_down: 512>
-listHeader_state_flag_item_leave: xcgui.listHeader_state_flag_ # value = <listHeader_state_flag_.listHeader_state_flag_item_leave: 128>
-listHeader_state_flag_item_stay: xcgui.listHeader_state_flag_ # value = <listHeader_state_flag_.listHeader_state_flag_item_stay: 256>
-listItemTemp_type_list: xcgui.listItemTemp_type_ # value = <listItemTemp_type_.listItemTemp_type_list: 12>
-listItemTemp_type_listBox: xcgui.listItemTemp_type_ # value = <listItemTemp_type_.listItemTemp_type_listBox: 2>
-listItemTemp_type_listView: xcgui.listItemTemp_type_ # value = <listItemTemp_type_.listItemTemp_type_listView: 48>
-listItemTemp_type_listView_group: xcgui.listItemTemp_type_ # value = <listItemTemp_type_.listItemTemp_type_listView_group: 16>
-listItemTemp_type_listView_item: xcgui.listItemTemp_type_ # value = <listItemTemp_type_.listItemTemp_type_listView_item: 32>
-listItemTemp_type_list_head: xcgui.listItemTemp_type_ # value = <listItemTemp_type_.listItemTemp_type_list_head: 4>
-listItemTemp_type_list_item: xcgui.listItemTemp_type_ # value = <listItemTemp_type_.listItemTemp_type_list_item: 8>
-listItemTemp_type_tree: xcgui.listItemTemp_type_ # value = <listItemTemp_type_.listItemTemp_type_tree: 1>
-listView_state_flag_group_leave: xcgui.listView_state_flag_ # value = <listView_state_flag_.listView_state_flag_group_leave: 2048>
-listView_state_flag_group_select: xcgui.listView_state_flag_ # value = <listView_state_flag_.listView_state_flag_group_select: 8192>
-listView_state_flag_group_select_no: xcgui.listView_state_flag_ # value = <listView_state_flag_.listView_state_flag_group_select_no: 16384>
-listView_state_flag_group_stay: xcgui.listView_state_flag_ # value = <listView_state_flag_.listView_state_flag_group_stay: 4096>
-listView_state_flag_item_leave: xcgui.listView_state_flag_ # value = <listView_state_flag_.listView_state_flag_item_leave: 128>
-listView_state_flag_item_select: xcgui.listView_state_flag_ # value = <listView_state_flag_.listView_state_flag_item_select: 512>
-listView_state_flag_item_select_no: xcgui.listView_state_flag_ # value = <listView_state_flag_.listView_state_flag_item_select_no: 1024>
-listView_state_flag_item_stay: xcgui.listView_state_flag_ # value = <listView_state_flag_.listView_state_flag_item_stay: 256>
-list_drawItemBk_flag_group_leave: xcgui.list_drawItemBk_flag_ # value = <list_drawItemBk_flag_.list_drawItemBk_flag_group_leave: 8>
-list_drawItemBk_flag_group_stay: xcgui.list_drawItemBk_flag_ # value = <list_drawItemBk_flag_.list_drawItemBk_flag_group_stay: 16>
-list_drawItemBk_flag_leave: xcgui.list_drawItemBk_flag_ # value = <list_drawItemBk_flag_.list_drawItemBk_flag_leave: 1>
-list_drawItemBk_flag_line: xcgui.list_drawItemBk_flag_ # value = <list_drawItemBk_flag_.list_drawItemBk_flag_line: 32>
-list_drawItemBk_flag_lineV: xcgui.list_drawItemBk_flag_ # value = <list_drawItemBk_flag_.list_drawItemBk_flag_lineV: 64>
-list_drawItemBk_flag_nothing: xcgui.list_drawItemBk_flag_ # value = <list_drawItemBk_flag_.list_drawItemBk_flag_nothing: 0>
-list_drawItemBk_flag_select: xcgui.list_drawItemBk_flag_ # value = <list_drawItemBk_flag_.list_drawItemBk_flag_select: 4>
-list_drawItemBk_flag_stay: xcgui.list_drawItemBk_flag_ # value = <list_drawItemBk_flag_.list_drawItemBk_flag_stay: 2>
-list_item_state_cache: xcgui.list_item_state_ # value = <list_item_state_.list_item_state_cache: 3>
-list_item_state_leave: xcgui.list_item_state_ # value = <list_item_state_.list_item_state_leave: 0>
-list_item_state_select: xcgui.list_item_state_ # value = <list_item_state_.list_item_state_select: 2>
-list_item_state_stay: xcgui.list_item_state_ # value = <list_item_state_.list_item_state_stay: 1>
-list_state_flag_item_leave: xcgui.list_state_flag_ # value = <list_state_flag_.list_state_flag_item_leave: 128>
-list_state_flag_item_select: xcgui.list_state_flag_ # value = <list_state_flag_.list_state_flag_item_select: 512>
-list_state_flag_item_select_no: xcgui.list_state_flag_ # value = <list_state_flag_.list_state_flag_item_select_no: 1024>
-list_state_flag_item_stay: xcgui.list_state_flag_ # value = <list_state_flag_.list_state_flag_item_stay: 256>
-menu_item_flag_check: xcgui.menu_item_flag_ # value = <menu_item_flag_.menu_item_flag_check: 2>
-menu_item_flag_disable: xcgui.menu_item_flag_ # value = <menu_item_flag_.menu_item_flag_disable: 16>
-menu_item_flag_normal: xcgui.menu_item_flag_ # value = <menu_item_flag_.menu_item_flag_normal: 0>
-menu_item_flag_popup: xcgui.menu_item_flag_ # value = <menu_item_flag_.menu_item_flag_popup: 4>
-menu_item_flag_select: xcgui.menu_item_flag_ # value = <menu_item_flag_.menu_item_flag_select: 1>
-menu_item_flag_separator: xcgui.menu_item_flag_ # value = <menu_item_flag_.menu_item_flag_separator: 8>
-menu_item_flag_stay: xcgui.menu_item_flag_ # value = <menu_item_flag_.menu_item_flag_select: 1>
-menu_popup_position_center_bottom: xcgui.menu_popup_position_ # value = <menu_popup_position_.menu_popup_position_center_bottom: 7>
-menu_popup_position_center_left: xcgui.menu_popup_position_ # value = <menu_popup_position_.menu_popup_position_center_left: 4>
-menu_popup_position_center_right: xcgui.menu_popup_position_ # value = <menu_popup_position_.menu_popup_position_center_right: 6>
-menu_popup_position_center_top: xcgui.menu_popup_position_ # value = <menu_popup_position_.menu_popup_position_center_top: 5>
-menu_popup_position_left_bottom: xcgui.menu_popup_position_ # value = <menu_popup_position_.menu_popup_position_left_bottom: 1>
-menu_popup_position_left_top: xcgui.menu_popup_position_ # value = <menu_popup_position_.menu_popup_position_left_top: 0>
-menu_popup_position_right_bottom: xcgui.menu_popup_position_ # value = <menu_popup_position_.menu_popup_position_right_bottom: 3>
-menu_popup_position_right_top: xcgui.menu_popup_position_ # value = <menu_popup_position_.menu_popup_position_right_top: 2>
-messageBox_flag_cancel: xcgui.messageBox_flag_ # value = <messageBox_flag_.messageBox_flag_cancel: 2>
-messageBox_flag_icon_appicon: xcgui.messageBox_flag_ # value = <messageBox_flag_.messageBox_flag_icon_appicon: 4096>
-messageBox_flag_icon_error: xcgui.messageBox_flag_ # value = <messageBox_flag_.messageBox_flag_icon_error: 32768>
-messageBox_flag_icon_info: xcgui.messageBox_flag_ # value = <messageBox_flag_.messageBox_flag_icon_info: 8192>
-messageBox_flag_icon_qustion: xcgui.messageBox_flag_ # value = <messageBox_flag_.messageBox_flag_icon_qustion: 16384>
-messageBox_flag_icon_shield: xcgui.messageBox_flag_ # value = <messageBox_flag_.messageBox_flag_icon_shield: 131072>
-messageBox_flag_icon_warning: xcgui.messageBox_flag_ # value = <messageBox_flag_.messageBox_flag_icon_warning: 65536>
-messageBox_flag_ok: xcgui.messageBox_flag_ # value = <messageBox_flag_.messageBox_flag_ok: 1>
-messageBox_flag_other: xcgui.messageBox_flag_ # value = <messageBox_flag_.messageBox_flag_other: 0>
-monthCal_button_type_last_month: xcgui.monthCal_button_type_ # value = <monthCal_button_type_.monthCal_button_type_last_month: 3>
-monthCal_button_type_last_year: xcgui.monthCal_button_type_ # value = <monthCal_button_type_.monthCal_button_type_last_year: 1>
-monthCal_button_type_next_month: xcgui.monthCal_button_type_ # value = <monthCal_button_type_.monthCal_button_type_next_month: 4>
-monthCal_button_type_next_year: xcgui.monthCal_button_type_ # value = <monthCal_button_type_.monthCal_button_type_next_year: 2>
-monthCal_button_type_today: xcgui.monthCal_button_type_ # value = <monthCal_button_type_.monthCal_button_type_today: 0>
-monthCal_state_flag_item_cur_month: xcgui.monthCal_state_flag_ # value = <monthCal_state_flag_.monthCal_state_flag_item_cur_month: 16384>
-monthCal_state_flag_item_down: xcgui.monthCal_state_flag_ # value = <monthCal_state_flag_.monthCal_state_flag_item_down: 512>
-monthCal_state_flag_item_last_month: xcgui.monthCal_state_flag_ # value = <monthCal_state_flag_.monthCal_state_flag_item_last_month: 8192>
-monthCal_state_flag_item_leave: xcgui.monthCal_state_flag_ # value = <monthCal_state_flag_.monthCal_state_flag_item_leave: 128>
-monthCal_state_flag_item_next_month: xcgui.monthCal_state_flag_ # value = <monthCal_state_flag_.monthCal_state_flag_item_next_month: 32768>
-monthCal_state_flag_item_select: xcgui.monthCal_state_flag_ # value = <monthCal_state_flag_.monthCal_state_flag_item_select: 1024>
-monthCal_state_flag_item_select_no: xcgui.monthCal_state_flag_ # value = <monthCal_state_flag_.monthCal_state_flag_item_select_no: 2048>
-monthCal_state_flag_item_stay: xcgui.monthCal_state_flag_ # value = <monthCal_state_flag_.monthCal_state_flag_item_stay: 256>
-monthCal_state_flag_item_today: xcgui.monthCal_state_flag_ # value = <monthCal_state_flag_.monthCal_state_flag_item_today: 4096>
-monthCal_state_flag_leave: xcgui.monthCal_state_flag_ # value = <monthCal_state_flag_.monthCal_state_flag_leave: 16>
-notifyMsg_skin_error: xcgui.notifyMsg_skin_ # value = <notifyMsg_skin_.notifyMsg_skin_error: 4>
-notifyMsg_skin_message: xcgui.notifyMsg_skin_ # value = <notifyMsg_skin_.notifyMsg_skin_message: 3>
-notifyMsg_skin_no: xcgui.notifyMsg_skin_ # value = <notifyMsg_skin_.notifyMsg_skin_no: 0>
-notifyMsg_skin_success: xcgui.notifyMsg_skin_ # value = <notifyMsg_skin_.notifyMsg_skin_success: 1>
-notifyMsg_skin_warning: xcgui.notifyMsg_skin_ # value = <notifyMsg_skin_.notifyMsg_skin_warning: 2>
-pane_align_bottom: xcgui.pane_align_ # value = <pane_align_.pane_align_bottom: 3>
-pane_align_center: xcgui.pane_align_ # value = <pane_align_.pane_align_center: 4>
-pane_align_error: xcgui.pane_align_ # value = <pane_align_.pane_align_error: -1>
-pane_align_left: xcgui.pane_align_ # value = <pane_align_.pane_align_left: 0>
-pane_align_right: xcgui.pane_align_ # value = <pane_align_.pane_align_right: 2>
-pane_align_top: xcgui.pane_align_ # value = <pane_align_.pane_align_top: 1>
-pane_state_any: xcgui.pane_state_ # value = <pane_state_.pane_state_any: 0>
-pane_state_dock: xcgui.pane_state_ # value = <pane_state_.pane_state_dock: 2>
-pane_state_error: xcgui.pane_state_ # value = <pane_state_.pane_state_error: -1>
-pane_state_flag_body: xcgui.pane_state_flag_ # value = <pane_state_flag_.pane_state_flag_body: 256>
-pane_state_flag_caption: xcgui.pane_state_flag_ # value = <pane_state_flag_.pane_state_flag_caption: 128>
-pane_state_flag_leave: xcgui.pane_state_flag_ # value = <pane_state_flag_.pane_state_flag_leave: 16>
-pane_state_flag_stay: xcgui.pane_state_flag_ # value = <pane_state_flag_.pane_state_flag_stay: 32>
-pane_state_float: xcgui.pane_state_ # value = <pane_state_.pane_state_float: 3>
-pane_state_lock: xcgui.pane_state_ # value = <pane_state_.pane_state_lock: 1>
-position_flag_bottom: xcgui.position_flag_ # value = <position_flag_.position_flag_bottom: 3>
-position_flag_center: xcgui.position_flag_ # value = <position_flag_.position_flag_center: 8>
-position_flag_left: xcgui.position_flag_ # value = <position_flag_.position_flag_left: 0>
-position_flag_leftBottom: xcgui.position_flag_ # value = <position_flag_.position_flag_leftBottom: 5>
-position_flag_leftTop: xcgui.position_flag_ # value = <position_flag_.position_flag_leftTop: 4>
-position_flag_right: xcgui.position_flag_ # value = <position_flag_.position_flag_right: 2>
-position_flag_rightBottom: xcgui.position_flag_ # value = <position_flag_.position_flag_rightBottom: 7>
-position_flag_rightTop: xcgui.position_flag_ # value = <position_flag_.position_flag_rightTop: 6>
-position_flag_top: xcgui.position_flag_ # value = <position_flag_.position_flag_top: 1>
-propertyGrid_item_type_comboBox: xcgui.propertyGrid_item_type_ # value = <propertyGrid_item_type_.propertyGrid_item_type_comboBox: 5>
-propertyGrid_item_type_edit: xcgui.propertyGrid_item_type_ # value = <propertyGrid_item_type_.propertyGrid_item_type_edit: 1>
-propertyGrid_item_type_edit_color: xcgui.propertyGrid_item_type_ # value = <propertyGrid_item_type_.propertyGrid_item_type_edit_color: 2>
-propertyGrid_item_type_edit_file: xcgui.propertyGrid_item_type_ # value = <propertyGrid_item_type_.propertyGrid_item_type_edit_file: 3>
-propertyGrid_item_type_edit_set: xcgui.propertyGrid_item_type_ # value = <propertyGrid_item_type_.propertyGrid_item_type_edit_set: 4>
-propertyGrid_item_type_group: xcgui.propertyGrid_item_type_ # value = <propertyGrid_item_type_.propertyGrid_item_type_group: 6>
-propertyGrid_item_type_panel: xcgui.propertyGrid_item_type_ # value = <propertyGrid_item_type_.propertyGrid_item_type_panel: 7>
-propertyGrid_item_type_text: xcgui.propertyGrid_item_type_ # value = <propertyGrid_item_type_.propertyGrid_item_type_text: 0>
-propertyGrid_state_flag_group_expand: xcgui.propertyGrid_state_flag_ # value = <propertyGrid_state_flag_.propertyGrid_state_flag_group_expand: 4096>
-propertyGrid_state_flag_group_expand_no: xcgui.propertyGrid_state_flag_ # value = <propertyGrid_state_flag_.propertyGrid_state_flag_group_expand_no: 8192>
-propertyGrid_state_flag_group_leave: xcgui.propertyGrid_state_flag_ # value = <propertyGrid_state_flag_.propertyGrid_state_flag_group_leave: 2048>
-propertyGrid_state_flag_item_leave: xcgui.propertyGrid_state_flag_ # value = <propertyGrid_state_flag_.propertyGrid_state_flag_item_leave: 128>
-propertyGrid_state_flag_item_select: xcgui.propertyGrid_state_flag_ # value = <propertyGrid_state_flag_.propertyGrid_state_flag_item_select: 512>
-propertyGrid_state_flag_item_select_no: xcgui.propertyGrid_state_flag_ # value = <propertyGrid_state_flag_.propertyGrid_state_flag_item_select_no: 1024>
-propertyGrid_state_flag_item_stay: xcgui.propertyGrid_state_flag_ # value = <propertyGrid_state_flag_.propertyGrid_state_flag_item_stay: 256>
-table_flag_full: xcgui.table_flag_ # value = <table_flag_.table_flag_full: 0>
-table_flag_none: xcgui.table_flag_ # value = <table_flag_.table_flag_none: 1>
-table_line_flag_bottom: xcgui.table_line_flag_ # value = <table_line_flag_.table_line_flag_bottom: 8>
-table_line_flag_bottom2: xcgui.table_line_flag_ # value = <table_line_flag_.table_line_flag_bottom2: 128>
-table_line_flag_left: xcgui.table_line_flag_ # value = <table_line_flag_.table_line_flag_left: 1>
-table_line_flag_left2: xcgui.table_line_flag_ # value = <table_line_flag_.table_line_flag_left2: 16>
-table_line_flag_right: xcgui.table_line_flag_ # value = <table_line_flag_.table_line_flag_right: 4>
-table_line_flag_right2: xcgui.table_line_flag_ # value = <table_line_flag_.table_line_flag_right2: 64>
-table_line_flag_top: xcgui.table_line_flag_ # value = <table_line_flag_.table_line_flag_top: 2>
-table_line_flag_top2: xcgui.table_line_flag_ # value = <table_line_flag_.table_line_flag_top2: 32>
-textAlignFlag_bottom: xcgui.textFormatFlag_ # value = <textFormatFlag_.textAlignFlag_bottom: 8>
-textAlignFlag_center: xcgui.textFormatFlag_ # value = <textFormatFlag_.textAlignFlag_center: 1>
-textAlignFlag_left: xcgui.textFormatFlag_ # value = <textFormatFlag_.textAlignFlag_left: 0>
-textAlignFlag_left_top: xcgui.textFormatFlag_ # value = <textFormatFlag_.textAlignFlag_left_top: 16384>
-textAlignFlag_right: xcgui.textFormatFlag_ # value = <textFormatFlag_.textAlignFlag_right: 2>
-textAlignFlag_top: xcgui.textFormatFlag_ # value = <textFormatFlag_.textAlignFlag_left: 0>
-textAlignFlag_vcenter: xcgui.textFormatFlag_ # value = <textFormatFlag_.textAlignFlag_vcenter: 4>
-textFormatFlag_DirectionRightToLeft: xcgui.textFormatFlag_ # value = <textFormatFlag_.textFormatFlag_DirectionRightToLeft: 16>
-textFormatFlag_DirectionVertical: xcgui.textFormatFlag_ # value = <textFormatFlag_.textFormatFlag_DirectionVertical: 64>
-textFormatFlag_DisplayFormatControl: xcgui.textFormatFlag_ # value = <textFormatFlag_.textFormatFlag_DisplayFormatControl: 256>
-textFormatFlag_LineLimit: xcgui.textFormatFlag_ # value = <textFormatFlag_.textFormatFlag_LineLimit: 2048>
-textFormatFlag_MeasureTrailingSpaces: xcgui.textFormatFlag_ # value = <textFormatFlag_.textFormatFlag_MeasureTrailingSpaces: 1024>
-textFormatFlag_NoClip: xcgui.textFormatFlag_ # value = <textFormatFlag_.textFormatFlag_NoClip: 4096>
-textFormatFlag_NoFitBlackBox: xcgui.textFormatFlag_ # value = <textFormatFlag_.textFormatFlag_NoFitBlackBox: 128>
-textFormatFlag_NoFontFallback: xcgui.textFormatFlag_ # value = <textFormatFlag_.textFormatFlag_NoFontFallback: 512>
-textFormatFlag_NoWrap: xcgui.textFormatFlag_ # value = <textFormatFlag_.textFormatFlag_NoWrap: 32>
-textTrimming_Character: xcgui.textFormatFlag_ # value = <textFormatFlag_.textTrimming_Character: 262144>
-textTrimming_EllipsisCharacter: xcgui.textFormatFlag_ # value = <textFormatFlag_.textTrimming_EllipsisCharacter: 32768>
-textTrimming_EllipsisPath: xcgui.textFormatFlag_ # value = <textFormatFlag_.textTrimming_EllipsisPath: 131072>
-textTrimming_EllipsisWord: xcgui.textFormatFlag_ # value = <textFormatFlag_.textTrimming_EllipsisWord: 65536>
-textTrimming_None: xcgui.textFormatFlag_ # value = <textFormatFlag_.textAlignFlag_left: 0>
-textTrimming_Word: xcgui.textFormatFlag_ # value = <textFormatFlag_.textTrimming_Word: 524288>
-tree_item_state_leave: xcgui.tree_item_state_ # value = <tree_item_state_.tree_item_state_leave: 0>
-tree_item_state_select: xcgui.tree_item_state_ # value = <tree_item_state_.tree_item_state_select: 2>
-tree_item_state_stay: xcgui.tree_item_state_ # value = <tree_item_state_.tree_item_state_stay: 1>
-tree_state_flag_group: xcgui.tree_state_flag_ # value = <tree_state_flag_.tree_state_flag_group: 2048>
-tree_state_flag_group_no: xcgui.tree_state_flag_ # value = <tree_state_flag_.tree_state_flag_group_no: 4096>
-tree_state_flag_item_leave: xcgui.tree_state_flag_ # value = <tree_state_flag_.tree_state_flag_item_leave: 128>
-tree_state_flag_item_select: xcgui.tree_state_flag_ # value = <tree_state_flag_.tree_state_flag_item_select: 512>
-tree_state_flag_item_select_no: xcgui.tree_state_flag_ # value = <tree_state_flag_.tree_state_flag_item_select_no: 1024>
-tree_state_flag_item_stay: xcgui.tree_state_flag_ # value = <tree_state_flag_.tree_state_flag_item_stay: 256>
-window_position_body: xcgui.window_position_ # value = <window_position_.window_position_body: 4>
-window_position_bottom: xcgui.window_position_ # value = <window_position_.window_position_bottom: 1>
-window_position_error: xcgui.window_position_ # value = <window_position_.window_position_error: -1>
-window_position_left: xcgui.window_position_ # value = <window_position_.window_position_left: 2>
-window_position_right: xcgui.window_position_ # value = <window_position_.window_position_right: 3>
-window_position_top: xcgui.window_position_ # value = <window_position_.window_position_top: 0>
-window_position_window: xcgui.window_position_ # value = <window_position_.window_position_window: 5>
-window_state_flag_body_leave: xcgui.window_state_flag_ # value = <window_state_flag_.window_state_flag_body_leave: 2>
-window_state_flag_bottom_leave: xcgui.window_state_flag_ # value = <window_state_flag_.window_state_flag_bottom_leave: 8>
-window_state_flag_layout_body: xcgui.window_state_flag_ # value = <window_state_flag_.window_state_flag_layout_body: 536870912>
-window_state_flag_leave: xcgui.window_state_flag_ # value = <window_state_flag_.window_state_flag_leave: 1>
-window_state_flag_left_leave: xcgui.window_state_flag_ # value = <window_state_flag_.window_state_flag_left_leave: 16>
-window_state_flag_nothing: xcgui.window_state_flag_ # value = <window_state_flag_.window_state_flag_nothing: 0>
-window_state_flag_right_leave: xcgui.window_state_flag_ # value = <window_state_flag_.window_state_flag_right_leave: 32>
-window_state_flag_top_leave: xcgui.window_state_flag_ # value = <window_state_flag_.window_state_flag_top_leave: 4>
-window_style_allow_maxWindow: xcgui.window_style_ # value = <window_style_.window_style_allow_maxWindow: 32>
-window_style_border: xcgui.window_style_ # value = <window_style_.window_style_border: 2>
-window_style_btn_close: xcgui.window_style_ # value = <window_style_.window_style_btn_close: 1024>
-window_style_btn_max: xcgui.window_style_ # value = <window_style_.window_style_btn_max: 512>
-window_style_btn_min: xcgui.window_style_ # value = <window_style_.window_style_btn_min: 256>
-window_style_caption: xcgui.window_style_ # value = <window_style_.window_style_caption: 1>
-window_style_center: xcgui.window_style_ # value = <window_style_.window_style_center: 4>
-window_style_default: xcgui.window_style_ # value = <window_style_.window_style_default: 2031>
-window_style_drag_border: xcgui.window_style_ # value = <window_style_.window_style_drag_border: 8>
-window_style_drag_window: xcgui.window_style_ # value = <window_style_.window_style_drag_window: 16>
-window_style_icon: xcgui.window_style_ # value = <window_style_.window_style_icon: 64>
-window_style_modal: xcgui.window_style_ # value = <window_style_.window_style_modal: 1223>
-window_style_modal_simple: xcgui.window_style_ # value = <window_style_.window_style_modal_simple: 7>
-window_style_nothing: xcgui.window_style_ # value = <window_style_.window_style_nothing: 0>
-window_style_pop: xcgui.window_style_ # value = <window_style_.window_style_pop: 1263>
-window_style_simple: xcgui.window_style_ # value = <window_style_.window_style_simple: 47>
-window_style_title: xcgui.window_style_ # value = <window_style_.window_style_title: 128>
-window_transparent_false: xcgui.window_transparent_ # value = <window_transparent_.window_transparent_false: 0>
-window_transparent_shadow: xcgui.window_transparent_ # value = <window_transparent_.window_transparent_shadow: 2>
-window_transparent_shaped: xcgui.window_transparent_ # value = <window_transparent_.window_transparent_shaped: 1>
-window_transparent_simple: xcgui.window_transparent_ # value = <window_transparent_.window_transparent_simple: 3>
-window_transparent_win7: xcgui.window_transparent_ # value = <window_transparent_.window_transparent_win7: 4>
-xc_ex_error: xcgui.XC_OBJECT_TYPE_EX # value = <XC_OBJECT_TYPE_EX.xc_ex_error: -1>
-xc_style_default: xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.xc_style_default: 0>
-zorder_after: xcgui.zorder_ # value = <zorder_.zorder_after: 3>
-zorder_before: xcgui.zorder_ # value = <zorder_.zorder_before: 2>
-zorder_bottom: xcgui.zorder_ # value = <zorder_.zorder_bottom: 1>
-zorder_top: xcgui.zorder_ # value = <zorder_.zorder_top: 0>
+adapter_date_type_error: _xcgui.adapter_date_type_ # value = <adapter_date_type_.adapter_date_type_error: -1>
+adapter_date_type_float: _xcgui.adapter_date_type_ # value = <adapter_date_type_.adapter_date_type_float: 1>
+adapter_date_type_image: _xcgui.adapter_date_type_ # value = <adapter_date_type_.adapter_date_type_image: 3>
+adapter_date_type_int: _xcgui.adapter_date_type_ # value = <adapter_date_type_.adapter_date_type_int: 0>
+adapter_date_type_string: _xcgui.adapter_date_type_ # value = <adapter_date_type_.adapter_date_type_string: 2>
+adjustLayout_all: _xcgui.adjustLayout_ # value = <adjustLayout_.adjustLayout_all: 1>
+adjustLayout_no: _xcgui.adjustLayout_ # value = <adjustLayout_.adjustLayout_no: 0>
+adjustLayout_self: _xcgui.adjustLayout_ # value = <adjustLayout_.adjustLayout_self: 2>
+animation_move_x: _xcgui.animation_move_ # value = <animation_move_.animation_move_x: 1>
+animation_move_y: _xcgui.animation_move_ # value = <animation_move_.animation_move_y: 2>
+bkObject_align_flag_bottom: _xcgui.bkObject_align_flag_ # value = <bkObject_align_flag_.bkObject_align_flag_bottom: 8>
+bkObject_align_flag_center: _xcgui.bkObject_align_flag_ # value = <bkObject_align_flag_.bkObject_align_flag_center: 16>
+bkObject_align_flag_center_v: _xcgui.bkObject_align_flag_ # value = <bkObject_align_flag_.bkObject_align_flag_center_v: 32>
+bkObject_align_flag_left: _xcgui.bkObject_align_flag_ # value = <bkObject_align_flag_.bkObject_align_flag_left: 1>
+bkObject_align_flag_no: _xcgui.bkObject_align_flag_ # value = <bkObject_align_flag_.bkObject_align_flag_no: 0>
+bkObject_align_flag_right: _xcgui.bkObject_align_flag_ # value = <bkObject_align_flag_.bkObject_align_flag_right: 4>
+bkObject_align_flag_top: _xcgui.bkObject_align_flag_ # value = <bkObject_align_flag_.bkObject_align_flag_top: 2>
+button_icon_align_bottom: _xcgui.button_icon_align_ # value = <button_icon_align_.button_icon_align_bottom: 3>
+button_icon_align_left: _xcgui.button_icon_align_ # value = <button_icon_align_.button_icon_align_left: 0>
+button_icon_align_right: _xcgui.button_icon_align_ # value = <button_icon_align_.button_icon_align_right: 2>
+button_icon_align_top: _xcgui.button_icon_align_ # value = <button_icon_align_.button_icon_align_top: 1>
+button_state_check: _xcgui.button_state_ # value = <button_state_.button_state_check: 3>
+button_state_disable: _xcgui.button_state_ # value = <button_state_.button_state_disable: 4>
+button_state_down: _xcgui.button_state_ # value = <button_state_.button_state_down: 2>
+button_state_flag_WindowMaximize: _xcgui.button_state_flag_ # value = <button_state_flag_.button_state_flag_WindowMaximize: 1024>
+button_state_flag_WindowRestore: _xcgui.button_state_flag_ # value = <button_state_flag_.button_state_flag_WindowRestore: 512>
+button_state_flag_check: _xcgui.button_state_flag_ # value = <button_state_flag_.button_state_flag_check: 128>
+button_state_flag_check_no: _xcgui.button_state_flag_ # value = <button_state_flag_.button_state_flag_check_no: 256>
+button_state_flag_down: _xcgui.button_state_flag_ # value = <button_state_flag_.button_state_flag_down: 64>
+button_state_flag_leave: _xcgui.button_state_flag_ # value = <button_state_flag_.button_state_flag_leave: 16>
+button_state_flag_stay: _xcgui.button_state_flag_ # value = <button_state_flag_.button_state_flag_stay: 32>
+button_state_leave: _xcgui.button_state_ # value = <button_state_.button_state_leave: 0>
+button_state_stay: _xcgui.button_state_ # value = <button_state_.button_state_stay: 1>
+button_style_check: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_check: 2>
+button_style_close: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_close: 5>
+button_style_default: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.xc_style_default: 0>
+button_style_expand: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_expand: 4>
+button_style_icon: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_icon: 3>
+button_style_max: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_max: 6>
+button_style_min: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_min: 7>
+button_style_pane_close: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_pane_close: 19>
+button_style_pane_dock_bottom: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_pane_dock_bottom: 25>
+button_style_pane_dock_left: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_pane_dock_left: 22>
+button_style_pane_dock_right: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_pane_dock_right: 24>
+button_style_pane_dock_top: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_pane_dock_top: 23>
+button_style_pane_lock: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_pane_lock: 20>
+button_style_pane_menu: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_pane_menu: 21>
+button_style_radio: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_radio: 1>
+button_style_scrollbar_down: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_scrollbar_down: 11>
+button_style_scrollbar_left: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_scrollbar_left: 8>
+button_style_scrollbar_right: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_scrollbar_right: 9>
+button_style_scrollbar_slider_h: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_scrollbar_slider_h: 12>
+button_style_scrollbar_slider_v: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_scrollbar_slider_v: 13>
+button_style_scrollbar_up: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_scrollbar_up: 10>
+button_style_slider: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_slider: 15>
+button_style_tabBar: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_tabBar: 14>
+button_style_toolBar: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_toolBar: 16>
+button_style_toolBar_left: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_toolBar_left: 17>
+button_style_toolBar_right: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.button_style_toolBar_right: 18>
+button_type_check: _xcgui.XC_OBJECT_TYPE_EX # value = <XC_OBJECT_TYPE_EX.button_type_check: 2>
+button_type_close: _xcgui.XC_OBJECT_TYPE_EX # value = <XC_OBJECT_TYPE_EX.button_type_close: 3>
+button_type_default: _xcgui.XC_OBJECT_TYPE_EX # value = <XC_OBJECT_TYPE_EX.button_type_default: 0>
+button_type_max: _xcgui.XC_OBJECT_TYPE_EX # value = <XC_OBJECT_TYPE_EX.button_type_max: 5>
+button_type_min: _xcgui.XC_OBJECT_TYPE_EX # value = <XC_OBJECT_TYPE_EX.button_type_min: 4>
+button_type_radio: _xcgui.XC_OBJECT_TYPE_EX # value = <XC_OBJECT_TYPE_EX.button_type_radio: 1>
+chat_flag_center: _xcgui.chat_flag_ # value = <chat_flag_.chat_flag_center: 4>
+chat_flag_left: _xcgui.chat_flag_ # value = <chat_flag_.chat_flag_left: 1>
+chat_flag_next_row_bubble: _xcgui.chat_flag_ # value = <chat_flag_.chat_flag_next_row_bubble: 8>
+chat_flag_right: _xcgui.chat_flag_ # value = <chat_flag_.chat_flag_right: 2>
+comboBox_state_down: _xcgui.comboBox_state_ # value = <comboBox_state_.comboBox_state_down: 2>
+comboBox_state_flag_down: _xcgui.comboBox_state_flag_ # value = <comboBox_state_flag_.comboBox_state_flag_down: 64>
+comboBox_state_flag_leave: _xcgui.comboBox_state_flag_ # value = <comboBox_state_flag_.comboBox_state_flag_leave: 16>
+comboBox_state_flag_stay: _xcgui.comboBox_state_flag_ # value = <comboBox_state_flag_.comboBox_state_flag_stay: 32>
+comboBox_state_leave: _xcgui.comboBox_state_ # value = <comboBox_state_.comboBox_state_leave: 0>
+comboBox_state_stay: _xcgui.comboBox_state_ # value = <comboBox_state_.comboBox_state_stay: 1>
+common_state3_down: _xcgui.common_state3_ # value = <common_state3_.common_state3_down: 2>
+common_state3_leave: _xcgui.common_state3_ # value = <common_state3_.common_state3_leave: 0>
+common_state3_stay: _xcgui.common_state3_ # value = <common_state3_.common_state3_stay: 1>
+easeIn: _xcgui.ease_type_ # value = <ease_type_.easeIn: 0>
+easeInOut: _xcgui.ease_type_ # value = <ease_type_.easeInOut: 2>
+easeOut: _xcgui.ease_type_ # value = <ease_type_.easeOut: 1>
+ease_flag_back: _xcgui.ease_flag_ # value = <ease_flag_.ease_flag_back: 9>
+ease_flag_bounce: _xcgui.ease_flag_ # value = <ease_flag_.ease_flag_bounce: 10>
+ease_flag_circ: _xcgui.ease_flag_ # value = <ease_flag_.ease_flag_circ: 7>
+ease_flag_cubic: _xcgui.ease_flag_ # value = <ease_flag_.ease_flag_cubic: 2>
+ease_flag_elastic: _xcgui.ease_flag_ # value = <ease_flag_.ease_flag_elastic: 8>
+ease_flag_expo: _xcgui.ease_flag_ # value = <ease_flag_.ease_flag_expo: 6>
+ease_flag_in: _xcgui.ease_flag_ # value = <ease_flag_.ease_flag_in: 65536>
+ease_flag_inOut: _xcgui.ease_flag_ # value = <ease_flag_.ease_flag_inOut: 196608>
+ease_flag_linear: _xcgui.ease_flag_ # value = <ease_flag_.ease_flag_linear: 0>
+ease_flag_out: _xcgui.ease_flag_ # value = <ease_flag_.ease_flag_out: 131072>
+ease_flag_quad: _xcgui.ease_flag_ # value = <ease_flag_.ease_flag_quad: 1>
+ease_flag_quart: _xcgui.ease_flag_ # value = <ease_flag_.ease_flag_quart: 3>
+ease_flag_quint: _xcgui.ease_flag_ # value = <ease_flag_.ease_flag_quint: 4>
+ease_flag_sine: _xcgui.ease_flag_ # value = <ease_flag_.ease_flag_sine: 5>
+edit_style_type_font_color: _xcgui.edit_style_type_ # value = <edit_style_type_.edit_style_type_font_color: 1>
+edit_style_type_image: _xcgui.edit_style_type_ # value = <edit_style_type_.edit_style_type_image: 2>
+edit_style_type_obj: _xcgui.edit_style_type_ # value = <edit_style_type_.edit_style_type_obj: 3>
+edit_textAlign_flag_bottom: _xcgui.edit_textAlign_flag_ # value = <edit_textAlign_flag_.edit_textAlign_flag_bottom: 4>
+edit_textAlign_flag_center: _xcgui.edit_textAlign_flag_ # value = <edit_textAlign_flag_.edit_textAlign_flag_center: 2>
+edit_textAlign_flag_center_v: _xcgui.edit_textAlign_flag_ # value = <edit_textAlign_flag_.edit_textAlign_flag_center_v: 8>
+edit_textAlign_flag_left: _xcgui.edit_textAlign_flag_ # value = <edit_textAlign_flag_.edit_textAlign_flag_left: 0>
+edit_textAlign_flag_right: _xcgui.edit_textAlign_flag_ # value = <edit_textAlign_flag_.edit_textAlign_flag_right: 1>
+edit_textAlign_flag_top: _xcgui.edit_textAlign_flag_ # value = <edit_textAlign_flag_.edit_textAlign_flag_left: 0>
+edit_type_chat: _xcgui.edit_type_ # value = <edit_type_.edit_type_chat: 3>
+edit_type_codeTable: _xcgui.edit_type_ # value = <edit_type_.edit_type_codeTable: 4>
+edit_type_editor: _xcgui.edit_type_ # value = <edit_type_.edit_type_editor: 1>
+edit_type_none: _xcgui.edit_type_ # value = <edit_type_.edit_type_none: 0>
+edit_type_richedit: _xcgui.edit_type_ # value = <edit_type_.edit_type_richedit: 2>
+element_position_bottom: _xcgui.element_position_ # value = <element_position_.element_position_bottom: 8>
+element_position_left: _xcgui.element_position_ # value = <element_position_.element_position_left: 1>
+element_position_no: _xcgui.element_position_ # value = <element_position_.element_position_no: 0>
+element_position_right: _xcgui.element_position_ # value = <element_position_.element_position_right: 4>
+element_position_top: _xcgui.element_position_ # value = <element_position_.element_position_top: 2>
+element_state_flag_disable: _xcgui.element_state_flag_ # value = <element_state_flag_.element_state_flag_disable: 2>
+element_state_flag_down: _xcgui.element_state_flag_ # value = <element_state_flag_.element_state_flag_down: 64>
+element_state_flag_enable: _xcgui.element_state_flag_ # value = <element_state_flag_.element_state_flag_enable: 1>
+element_state_flag_focus: _xcgui.element_state_flag_ # value = <element_state_flag_.element_state_flag_focus: 4>
+element_state_flag_focusEx: _xcgui.element_state_flag_ # value = <element_state_flag_.element_state_flag_focusEx: 1073741824>
+element_state_flag_focusEx_no: _xcgui.element_state_flag_ # value = <element_state_flag_.element_state_flag_focusEx_no: -2147483648>
+element_state_flag_focus_no: _xcgui.element_state_flag_ # value = <element_state_flag_.element_state_flag_focus_no: 8>
+element_state_flag_leave: _xcgui.element_state_flag_ # value = <element_state_flag_.element_state_flag_leave: 16>
+element_state_flag_nothing: _xcgui.element_state_flag_ # value = <element_state_flag_.element_state_flag_nothing: 0>
+element_state_flag_stay: _xcgui.element_state_flag_ # value = <element_state_flag_.element_state_flag_stay: 32>
+element_style_frameWnd_dock_bottom: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.element_style_frameWnd_dock_bottom: 29>
+element_style_frameWnd_dock_left: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.element_style_frameWnd_dock_left: 26>
+element_style_frameWnd_dock_right: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.element_style_frameWnd_dock_right: 28>
+element_style_frameWnd_dock_top: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.element_style_frameWnd_dock_top: 27>
+element_style_toolBar_separator: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.element_style_toolBar_separator: 30>
+element_type_layout: _xcgui.XC_OBJECT_TYPE_EX # value = <XC_OBJECT_TYPE_EX.element_type_layout: 6>
+fontStyle_bold: _xcgui.fontStyle_ # value = <fontStyle_.fontStyle_bold: 1>
+fontStyle_boldItalic: _xcgui.fontStyle_ # value = <fontStyle_.fontStyle_boldItalic: 3>
+fontStyle_italic: _xcgui.fontStyle_ # value = <fontStyle_.fontStyle_italic: 2>
+fontStyle_regular: _xcgui.fontStyle_ # value = <fontStyle_.fontStyle_regular: 0>
+fontStyle_strikeout: _xcgui.fontStyle_ # value = <fontStyle_.fontStyle_strikeout: 8>
+fontStyle_underline: _xcgui.fontStyle_ # value = <fontStyle_.fontStyle_underline: 4>
+frameWnd_cell_type_bodyView: _xcgui.frameWnd_cell_type_ # value = <frameWnd_cell_type_.frameWnd_cell_type_bodyView: 3>
+frameWnd_cell_type_group: _xcgui.frameWnd_cell_type_ # value = <frameWnd_cell_type_.frameWnd_cell_type_group: 2>
+frameWnd_cell_type_left_right: _xcgui.frameWnd_cell_type_ # value = <frameWnd_cell_type_.frameWnd_cell_type_left_right: 5>
+frameWnd_cell_type_no: _xcgui.frameWnd_cell_type_ # value = <frameWnd_cell_type_.frameWnd_cell_type_no: 0>
+frameWnd_cell_type_pane: _xcgui.frameWnd_cell_type_ # value = <frameWnd_cell_type_.frameWnd_cell_type_pane: 1>
+frameWnd_cell_type_top_bottom: _xcgui.frameWnd_cell_type_ # value = <frameWnd_cell_type_.frameWnd_cell_type_top_bottom: 4>
+image_draw_type_adaptive: _xcgui.image_draw_type_ # value = <image_draw_type_.image_draw_type_adaptive: 2>
+image_draw_type_adaptive_border: _xcgui.image_draw_type_ # value = <image_draw_type_.image_draw_type_adaptive_border: 5>
+image_draw_type_default: _xcgui.image_draw_type_ # value = <image_draw_type_.image_draw_type_default: 0>
+image_draw_type_fixed_ratio: _xcgui.image_draw_type_ # value = <image_draw_type_.image_draw_type_fixed_ratio: 4>
+image_draw_type_stretch: _xcgui.image_draw_type_ # value = <image_draw_type_.image_draw_type_stretch: 1>
+image_draw_type_tile: _xcgui.image_draw_type_ # value = <image_draw_type_.image_draw_type_tile: 3>
+layout_align_axis_auto: _xcgui.layout_align_axis_ # value = <layout_align_axis_.layout_align_axis_auto: 0>
+layout_align_axis_center: _xcgui.layout_align_axis_ # value = <layout_align_axis_.layout_align_axis_center: 2>
+layout_align_axis_end: _xcgui.layout_align_axis_ # value = <layout_align_axis_.layout_align_axis_end: 3>
+layout_align_axis_start: _xcgui.layout_align_axis_ # value = <layout_align_axis_.layout_align_axis_start: 1>
+layout_align_bottom: _xcgui.layout_align_ # value = <layout_align_.layout_align_bottom: 3>
+layout_align_center: _xcgui.layout_align_ # value = <layout_align_.layout_align_center: 4>
+layout_align_equidistant: _xcgui.layout_align_ # value = <layout_align_.layout_align_equidistant: 5>
+layout_align_left: _xcgui.layout_align_ # value = <layout_align_.layout_align_left: 0>
+layout_align_right: _xcgui.layout_align_ # value = <layout_align_.layout_align_right: 2>
+layout_align_top: _xcgui.layout_align_ # value = <layout_align_.layout_align_top: 1>
+layout_size_auto: _xcgui.layout_size_ # value = <layout_size_.layout_size_auto: 2>
+layout_size_disable: _xcgui.layout_size_ # value = <layout_size_.layout_size_disable: 5>
+layout_size_fill: _xcgui.layout_size_ # value = <layout_size_.layout_size_fill: 1>
+layout_size_fixed: _xcgui.layout_size_ # value = <layout_size_.layout_size_fixed: 0>
+layout_size_percent: _xcgui.layout_size_ # value = <layout_size_.layout_size_percent: 4>
+layout_size_weight: _xcgui.layout_size_ # value = <layout_size_.layout_size_weight: 3>
+layout_state_flag_body: _xcgui.layout_state_flag_ # value = <layout_state_flag_.layout_state_flag_body: 2>
+layout_state_flag_full: _xcgui.layout_state_flag_ # value = <layout_state_flag_.layout_state_flag_full: 1>
+layout_state_flag_layout_body: _xcgui.element_state_flag_ # value = <element_state_flag_.layout_state_flag_layout_body: 536870912>
+layout_state_flag_nothing: _xcgui.layout_state_flag_ # value = <layout_state_flag_.layout_state_flag_nothing: 0>
+listBox_state_flag_item_leave: _xcgui.listBox_state_flag_ # value = <listBox_state_flag_.listBox_state_flag_item_leave: 128>
+listBox_state_flag_item_select: _xcgui.listBox_state_flag_ # value = <listBox_state_flag_.listBox_state_flag_item_select: 512>
+listBox_state_flag_item_select_no: _xcgui.listBox_state_flag_ # value = <listBox_state_flag_.listBox_state_flag_item_select_no: 1024>
+listBox_state_flag_item_stay: _xcgui.listBox_state_flag_ # value = <listBox_state_flag_.listBox_state_flag_item_stay: 256>
+listBox_style_comboBox: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.listBox_style_comboBox: 31>
+listHeader_state_flag_item_down: _xcgui.listHeader_state_flag_ # value = <listHeader_state_flag_.listHeader_state_flag_item_down: 512>
+listHeader_state_flag_item_leave: _xcgui.listHeader_state_flag_ # value = <listHeader_state_flag_.listHeader_state_flag_item_leave: 128>
+listHeader_state_flag_item_stay: _xcgui.listHeader_state_flag_ # value = <listHeader_state_flag_.listHeader_state_flag_item_stay: 256>
+listItemTemp_type_list: _xcgui.listItemTemp_type_ # value = <listItemTemp_type_.listItemTemp_type_list: 12>
+listItemTemp_type_listBox: _xcgui.listItemTemp_type_ # value = <listItemTemp_type_.listItemTemp_type_listBox: 2>
+listItemTemp_type_listView: _xcgui.listItemTemp_type_ # value = <listItemTemp_type_.listItemTemp_type_listView: 48>
+listItemTemp_type_listView_group: _xcgui.listItemTemp_type_ # value = <listItemTemp_type_.listItemTemp_type_listView_group: 16>
+listItemTemp_type_listView_item: _xcgui.listItemTemp_type_ # value = <listItemTemp_type_.listItemTemp_type_listView_item: 32>
+listItemTemp_type_list_head: _xcgui.listItemTemp_type_ # value = <listItemTemp_type_.listItemTemp_type_list_head: 4>
+listItemTemp_type_list_item: _xcgui.listItemTemp_type_ # value = <listItemTemp_type_.listItemTemp_type_list_item: 8>
+listItemTemp_type_tree: _xcgui.listItemTemp_type_ # value = <listItemTemp_type_.listItemTemp_type_tree: 1>
+listView_state_flag_group_leave: _xcgui.listView_state_flag_ # value = <listView_state_flag_.listView_state_flag_group_leave: 2048>
+listView_state_flag_group_select: _xcgui.listView_state_flag_ # value = <listView_state_flag_.listView_state_flag_group_select: 8192>
+listView_state_flag_group_select_no: _xcgui.listView_state_flag_ # value = <listView_state_flag_.listView_state_flag_group_select_no: 16384>
+listView_state_flag_group_stay: _xcgui.listView_state_flag_ # value = <listView_state_flag_.listView_state_flag_group_stay: 4096>
+listView_state_flag_item_leave: _xcgui.listView_state_flag_ # value = <listView_state_flag_.listView_state_flag_item_leave: 128>
+listView_state_flag_item_select: _xcgui.listView_state_flag_ # value = <listView_state_flag_.listView_state_flag_item_select: 512>
+listView_state_flag_item_select_no: _xcgui.listView_state_flag_ # value = <listView_state_flag_.listView_state_flag_item_select_no: 1024>
+listView_state_flag_item_stay: _xcgui.listView_state_flag_ # value = <listView_state_flag_.listView_state_flag_item_stay: 256>
+list_drawItemBk_flag_group_leave: _xcgui.list_drawItemBk_flag_ # value = <list_drawItemBk_flag_.list_drawItemBk_flag_group_leave: 8>
+list_drawItemBk_flag_group_stay: _xcgui.list_drawItemBk_flag_ # value = <list_drawItemBk_flag_.list_drawItemBk_flag_group_stay: 16>
+list_drawItemBk_flag_leave: _xcgui.list_drawItemBk_flag_ # value = <list_drawItemBk_flag_.list_drawItemBk_flag_leave: 1>
+list_drawItemBk_flag_line: _xcgui.list_drawItemBk_flag_ # value = <list_drawItemBk_flag_.list_drawItemBk_flag_line: 32>
+list_drawItemBk_flag_lineV: _xcgui.list_drawItemBk_flag_ # value = <list_drawItemBk_flag_.list_drawItemBk_flag_lineV: 64>
+list_drawItemBk_flag_nothing: _xcgui.list_drawItemBk_flag_ # value = <list_drawItemBk_flag_.list_drawItemBk_flag_nothing: 0>
+list_drawItemBk_flag_select: _xcgui.list_drawItemBk_flag_ # value = <list_drawItemBk_flag_.list_drawItemBk_flag_select: 4>
+list_drawItemBk_flag_stay: _xcgui.list_drawItemBk_flag_ # value = <list_drawItemBk_flag_.list_drawItemBk_flag_stay: 2>
+list_item_state_cache: _xcgui.list_item_state_ # value = <list_item_state_.list_item_state_cache: 3>
+list_item_state_leave: _xcgui.list_item_state_ # value = <list_item_state_.list_item_state_leave: 0>
+list_item_state_select: _xcgui.list_item_state_ # value = <list_item_state_.list_item_state_select: 2>
+list_item_state_stay: _xcgui.list_item_state_ # value = <list_item_state_.list_item_state_stay: 1>
+list_state_flag_item_leave: _xcgui.list_state_flag_ # value = <list_state_flag_.list_state_flag_item_leave: 128>
+list_state_flag_item_select: _xcgui.list_state_flag_ # value = <list_state_flag_.list_state_flag_item_select: 512>
+list_state_flag_item_select_no: _xcgui.list_state_flag_ # value = <list_state_flag_.list_state_flag_item_select_no: 1024>
+list_state_flag_item_stay: _xcgui.list_state_flag_ # value = <list_state_flag_.list_state_flag_item_stay: 256>
+menu_item_flag_check: _xcgui.menu_item_flag_ # value = <menu_item_flag_.menu_item_flag_check: 2>
+menu_item_flag_disable: _xcgui.menu_item_flag_ # value = <menu_item_flag_.menu_item_flag_disable: 16>
+menu_item_flag_normal: _xcgui.menu_item_flag_ # value = <menu_item_flag_.menu_item_flag_normal: 0>
+menu_item_flag_popup: _xcgui.menu_item_flag_ # value = <menu_item_flag_.menu_item_flag_popup: 4>
+menu_item_flag_select: _xcgui.menu_item_flag_ # value = <menu_item_flag_.menu_item_flag_select: 1>
+menu_item_flag_separator: _xcgui.menu_item_flag_ # value = <menu_item_flag_.menu_item_flag_separator: 8>
+menu_item_flag_stay: _xcgui.menu_item_flag_ # value = <menu_item_flag_.menu_item_flag_select: 1>
+menu_popup_position_center_bottom: _xcgui.menu_popup_position_ # value = <menu_popup_position_.menu_popup_position_center_bottom: 7>
+menu_popup_position_center_left: _xcgui.menu_popup_position_ # value = <menu_popup_position_.menu_popup_position_center_left: 4>
+menu_popup_position_center_right: _xcgui.menu_popup_position_ # value = <menu_popup_position_.menu_popup_position_center_right: 6>
+menu_popup_position_center_top: _xcgui.menu_popup_position_ # value = <menu_popup_position_.menu_popup_position_center_top: 5>
+menu_popup_position_left_bottom: _xcgui.menu_popup_position_ # value = <menu_popup_position_.menu_popup_position_left_bottom: 1>
+menu_popup_position_left_top: _xcgui.menu_popup_position_ # value = <menu_popup_position_.menu_popup_position_left_top: 0>
+menu_popup_position_right_bottom: _xcgui.menu_popup_position_ # value = <menu_popup_position_.menu_popup_position_right_bottom: 3>
+menu_popup_position_right_top: _xcgui.menu_popup_position_ # value = <menu_popup_position_.menu_popup_position_right_top: 2>
+messageBox_flag_cancel: _xcgui.messageBox_flag_ # value = <messageBox_flag_.messageBox_flag_cancel: 2>
+messageBox_flag_icon_appicon: _xcgui.messageBox_flag_ # value = <messageBox_flag_.messageBox_flag_icon_appicon: 4096>
+messageBox_flag_icon_error: _xcgui.messageBox_flag_ # value = <messageBox_flag_.messageBox_flag_icon_error: 32768>
+messageBox_flag_icon_info: _xcgui.messageBox_flag_ # value = <messageBox_flag_.messageBox_flag_icon_info: 8192>
+messageBox_flag_icon_qustion: _xcgui.messageBox_flag_ # value = <messageBox_flag_.messageBox_flag_icon_qustion: 16384>
+messageBox_flag_icon_shield: _xcgui.messageBox_flag_ # value = <messageBox_flag_.messageBox_flag_icon_shield: 131072>
+messageBox_flag_icon_warning: _xcgui.messageBox_flag_ # value = <messageBox_flag_.messageBox_flag_icon_warning: 65536>
+messageBox_flag_ok: _xcgui.messageBox_flag_ # value = <messageBox_flag_.messageBox_flag_ok: 1>
+messageBox_flag_other: _xcgui.messageBox_flag_ # value = <messageBox_flag_.messageBox_flag_other: 0>
+monthCal_button_type_last_month: _xcgui.monthCal_button_type_ # value = <monthCal_button_type_.monthCal_button_type_last_month: 3>
+monthCal_button_type_last_year: _xcgui.monthCal_button_type_ # value = <monthCal_button_type_.monthCal_button_type_last_year: 1>
+monthCal_button_type_next_month: _xcgui.monthCal_button_type_ # value = <monthCal_button_type_.monthCal_button_type_next_month: 4>
+monthCal_button_type_next_year: _xcgui.monthCal_button_type_ # value = <monthCal_button_type_.monthCal_button_type_next_year: 2>
+monthCal_button_type_today: _xcgui.monthCal_button_type_ # value = <monthCal_button_type_.monthCal_button_type_today: 0>
+monthCal_state_flag_item_cur_month: _xcgui.monthCal_state_flag_ # value = <monthCal_state_flag_.monthCal_state_flag_item_cur_month: 16384>
+monthCal_state_flag_item_down: _xcgui.monthCal_state_flag_ # value = <monthCal_state_flag_.monthCal_state_flag_item_down: 512>
+monthCal_state_flag_item_last_month: _xcgui.monthCal_state_flag_ # value = <monthCal_state_flag_.monthCal_state_flag_item_last_month: 8192>
+monthCal_state_flag_item_leave: _xcgui.monthCal_state_flag_ # value = <monthCal_state_flag_.monthCal_state_flag_item_leave: 128>
+monthCal_state_flag_item_next_month: _xcgui.monthCal_state_flag_ # value = <monthCal_state_flag_.monthCal_state_flag_item_next_month: 32768>
+monthCal_state_flag_item_select: _xcgui.monthCal_state_flag_ # value = <monthCal_state_flag_.monthCal_state_flag_item_select: 1024>
+monthCal_state_flag_item_select_no: _xcgui.monthCal_state_flag_ # value = <monthCal_state_flag_.monthCal_state_flag_item_select_no: 2048>
+monthCal_state_flag_item_stay: _xcgui.monthCal_state_flag_ # value = <monthCal_state_flag_.monthCal_state_flag_item_stay: 256>
+monthCal_state_flag_item_today: _xcgui.monthCal_state_flag_ # value = <monthCal_state_flag_.monthCal_state_flag_item_today: 4096>
+monthCal_state_flag_leave: _xcgui.monthCal_state_flag_ # value = <monthCal_state_flag_.monthCal_state_flag_leave: 16>
+notifyMsg_skin_error: _xcgui.notifyMsg_skin_ # value = <notifyMsg_skin_.notifyMsg_skin_error: 4>
+notifyMsg_skin_message: _xcgui.notifyMsg_skin_ # value = <notifyMsg_skin_.notifyMsg_skin_message: 3>
+notifyMsg_skin_no: _xcgui.notifyMsg_skin_ # value = <notifyMsg_skin_.notifyMsg_skin_no: 0>
+notifyMsg_skin_success: _xcgui.notifyMsg_skin_ # value = <notifyMsg_skin_.notifyMsg_skin_success: 1>
+notifyMsg_skin_warning: _xcgui.notifyMsg_skin_ # value = <notifyMsg_skin_.notifyMsg_skin_warning: 2>
+pane_align_bottom: _xcgui.pane_align_ # value = <pane_align_.pane_align_bottom: 3>
+pane_align_center: _xcgui.pane_align_ # value = <pane_align_.pane_align_center: 4>
+pane_align_error: _xcgui.pane_align_ # value = <pane_align_.pane_align_error: -1>
+pane_align_left: _xcgui.pane_align_ # value = <pane_align_.pane_align_left: 0>
+pane_align_right: _xcgui.pane_align_ # value = <pane_align_.pane_align_right: 2>
+pane_align_top: _xcgui.pane_align_ # value = <pane_align_.pane_align_top: 1>
+pane_state_any: _xcgui.pane_state_ # value = <pane_state_.pane_state_any: 0>
+pane_state_dock: _xcgui.pane_state_ # value = <pane_state_.pane_state_dock: 2>
+pane_state_error: _xcgui.pane_state_ # value = <pane_state_.pane_state_error: -1>
+pane_state_flag_body: _xcgui.pane_state_flag_ # value = <pane_state_flag_.pane_state_flag_body: 256>
+pane_state_flag_caption: _xcgui.pane_state_flag_ # value = <pane_state_flag_.pane_state_flag_caption: 128>
+pane_state_flag_leave: _xcgui.pane_state_flag_ # value = <pane_state_flag_.pane_state_flag_leave: 16>
+pane_state_flag_stay: _xcgui.pane_state_flag_ # value = <pane_state_flag_.pane_state_flag_stay: 32>
+pane_state_float: _xcgui.pane_state_ # value = <pane_state_.pane_state_float: 3>
+pane_state_lock: _xcgui.pane_state_ # value = <pane_state_.pane_state_lock: 1>
+position_flag_bottom: _xcgui.position_flag_ # value = <position_flag_.position_flag_bottom: 3>
+position_flag_center: _xcgui.position_flag_ # value = <position_flag_.position_flag_center: 8>
+position_flag_left: _xcgui.position_flag_ # value = <position_flag_.position_flag_left: 0>
+position_flag_leftBottom: _xcgui.position_flag_ # value = <position_flag_.position_flag_leftBottom: 5>
+position_flag_leftTop: _xcgui.position_flag_ # value = <position_flag_.position_flag_leftTop: 4>
+position_flag_right: _xcgui.position_flag_ # value = <position_flag_.position_flag_right: 2>
+position_flag_rightBottom: _xcgui.position_flag_ # value = <position_flag_.position_flag_rightBottom: 7>
+position_flag_rightTop: _xcgui.position_flag_ # value = <position_flag_.position_flag_rightTop: 6>
+position_flag_top: _xcgui.position_flag_ # value = <position_flag_.position_flag_top: 1>
+propertyGrid_item_type_comboBox: _xcgui.propertyGrid_item_type_ # value = <propertyGrid_item_type_.propertyGrid_item_type_comboBox: 5>
+propertyGrid_item_type_edit: _xcgui.propertyGrid_item_type_ # value = <propertyGrid_item_type_.propertyGrid_item_type_edit: 1>
+propertyGrid_item_type_edit_color: _xcgui.propertyGrid_item_type_ # value = <propertyGrid_item_type_.propertyGrid_item_type_edit_color: 2>
+propertyGrid_item_type_edit_file: _xcgui.propertyGrid_item_type_ # value = <propertyGrid_item_type_.propertyGrid_item_type_edit_file: 3>
+propertyGrid_item_type_edit_set: _xcgui.propertyGrid_item_type_ # value = <propertyGrid_item_type_.propertyGrid_item_type_edit_set: 4>
+propertyGrid_item_type_group: _xcgui.propertyGrid_item_type_ # value = <propertyGrid_item_type_.propertyGrid_item_type_group: 6>
+propertyGrid_item_type_panel: _xcgui.propertyGrid_item_type_ # value = <propertyGrid_item_type_.propertyGrid_item_type_panel: 7>
+propertyGrid_item_type_text: _xcgui.propertyGrid_item_type_ # value = <propertyGrid_item_type_.propertyGrid_item_type_text: 0>
+propertyGrid_state_flag_group_expand: _xcgui.propertyGrid_state_flag_ # value = <propertyGrid_state_flag_.propertyGrid_state_flag_group_expand: 4096>
+propertyGrid_state_flag_group_expand_no: _xcgui.propertyGrid_state_flag_ # value = <propertyGrid_state_flag_.propertyGrid_state_flag_group_expand_no: 8192>
+propertyGrid_state_flag_group_leave: _xcgui.propertyGrid_state_flag_ # value = <propertyGrid_state_flag_.propertyGrid_state_flag_group_leave: 2048>
+propertyGrid_state_flag_item_leave: _xcgui.propertyGrid_state_flag_ # value = <propertyGrid_state_flag_.propertyGrid_state_flag_item_leave: 128>
+propertyGrid_state_flag_item_select: _xcgui.propertyGrid_state_flag_ # value = <propertyGrid_state_flag_.propertyGrid_state_flag_item_select: 512>
+propertyGrid_state_flag_item_select_no: _xcgui.propertyGrid_state_flag_ # value = <propertyGrid_state_flag_.propertyGrid_state_flag_item_select_no: 1024>
+propertyGrid_state_flag_item_stay: _xcgui.propertyGrid_state_flag_ # value = <propertyGrid_state_flag_.propertyGrid_state_flag_item_stay: 256>
+table_flag_full: _xcgui.table_flag_ # value = <table_flag_.table_flag_full: 0>
+table_flag_none: _xcgui.table_flag_ # value = <table_flag_.table_flag_none: 1>
+table_line_flag_bottom: _xcgui.table_line_flag_ # value = <table_line_flag_.table_line_flag_bottom: 8>
+table_line_flag_bottom2: _xcgui.table_line_flag_ # value = <table_line_flag_.table_line_flag_bottom2: 128>
+table_line_flag_left: _xcgui.table_line_flag_ # value = <table_line_flag_.table_line_flag_left: 1>
+table_line_flag_left2: _xcgui.table_line_flag_ # value = <table_line_flag_.table_line_flag_left2: 16>
+table_line_flag_right: _xcgui.table_line_flag_ # value = <table_line_flag_.table_line_flag_right: 4>
+table_line_flag_right2: _xcgui.table_line_flag_ # value = <table_line_flag_.table_line_flag_right2: 64>
+table_line_flag_top: _xcgui.table_line_flag_ # value = <table_line_flag_.table_line_flag_top: 2>
+table_line_flag_top2: _xcgui.table_line_flag_ # value = <table_line_flag_.table_line_flag_top2: 32>
+textAlignFlag_bottom: _xcgui.textFormatFlag_ # value = <textFormatFlag_.textAlignFlag_bottom: 8>
+textAlignFlag_center: _xcgui.textFormatFlag_ # value = <textFormatFlag_.textAlignFlag_center: 1>
+textAlignFlag_left: _xcgui.textFormatFlag_ # value = <textFormatFlag_.textAlignFlag_left: 0>
+textAlignFlag_left_top: _xcgui.textFormatFlag_ # value = <textFormatFlag_.textAlignFlag_left_top: 16384>
+textAlignFlag_right: _xcgui.textFormatFlag_ # value = <textFormatFlag_.textAlignFlag_right: 2>
+textAlignFlag_top: _xcgui.textFormatFlag_ # value = <textFormatFlag_.textAlignFlag_left: 0>
+textAlignFlag_vcenter: _xcgui.textFormatFlag_ # value = <textFormatFlag_.textAlignFlag_vcenter: 4>
+textFormatFlag_DirectionRightToLeft: _xcgui.textFormatFlag_ # value = <textFormatFlag_.textFormatFlag_DirectionRightToLeft: 16>
+textFormatFlag_DirectionVertical: _xcgui.textFormatFlag_ # value = <textFormatFlag_.textFormatFlag_DirectionVertical: 64>
+textFormatFlag_DisplayFormatControl: _xcgui.textFormatFlag_ # value = <textFormatFlag_.textFormatFlag_DisplayFormatControl: 256>
+textFormatFlag_LineLimit: _xcgui.textFormatFlag_ # value = <textFormatFlag_.textFormatFlag_LineLimit: 2048>
+textFormatFlag_MeasureTrailingSpaces: _xcgui.textFormatFlag_ # value = <textFormatFlag_.textFormatFlag_MeasureTrailingSpaces: 1024>
+textFormatFlag_NoClip: _xcgui.textFormatFlag_ # value = <textFormatFlag_.textFormatFlag_NoClip: 4096>
+textFormatFlag_NoFitBlackBox: _xcgui.textFormatFlag_ # value = <textFormatFlag_.textFormatFlag_NoFitBlackBox: 128>
+textFormatFlag_NoFontFallback: _xcgui.textFormatFlag_ # value = <textFormatFlag_.textFormatFlag_NoFontFallback: 512>
+textFormatFlag_NoWrap: _xcgui.textFormatFlag_ # value = <textFormatFlag_.textFormatFlag_NoWrap: 32>
+textTrimming_Character: _xcgui.textFormatFlag_ # value = <textFormatFlag_.textTrimming_Character: 262144>
+textTrimming_EllipsisCharacter: _xcgui.textFormatFlag_ # value = <textFormatFlag_.textTrimming_EllipsisCharacter: 32768>
+textTrimming_EllipsisPath: _xcgui.textFormatFlag_ # value = <textFormatFlag_.textTrimming_EllipsisPath: 131072>
+textTrimming_EllipsisWord: _xcgui.textFormatFlag_ # value = <textFormatFlag_.textTrimming_EllipsisWord: 65536>
+textTrimming_None: _xcgui.textFormatFlag_ # value = <textFormatFlag_.textAlignFlag_left: 0>
+textTrimming_Word: _xcgui.textFormatFlag_ # value = <textFormatFlag_.textTrimming_Word: 524288>
+tree_item_state_leave: _xcgui.tree_item_state_ # value = <tree_item_state_.tree_item_state_leave: 0>
+tree_item_state_select: _xcgui.tree_item_state_ # value = <tree_item_state_.tree_item_state_select: 2>
+tree_item_state_stay: _xcgui.tree_item_state_ # value = <tree_item_state_.tree_item_state_stay: 1>
+tree_state_flag_group: _xcgui.tree_state_flag_ # value = <tree_state_flag_.tree_state_flag_group: 2048>
+tree_state_flag_group_no: _xcgui.tree_state_flag_ # value = <tree_state_flag_.tree_state_flag_group_no: 4096>
+tree_state_flag_item_leave: _xcgui.tree_state_flag_ # value = <tree_state_flag_.tree_state_flag_item_leave: 128>
+tree_state_flag_item_select: _xcgui.tree_state_flag_ # value = <tree_state_flag_.tree_state_flag_item_select: 512>
+tree_state_flag_item_select_no: _xcgui.tree_state_flag_ # value = <tree_state_flag_.tree_state_flag_item_select_no: 1024>
+tree_state_flag_item_stay: _xcgui.tree_state_flag_ # value = <tree_state_flag_.tree_state_flag_item_stay: 256>
+window_position_body: _xcgui.window_position_ # value = <window_position_.window_position_body: 4>
+window_position_bottom: _xcgui.window_position_ # value = <window_position_.window_position_bottom: 1>
+window_position_error: _xcgui.window_position_ # value = <window_position_.window_position_error: -1>
+window_position_left: _xcgui.window_position_ # value = <window_position_.window_position_left: 2>
+window_position_right: _xcgui.window_position_ # value = <window_position_.window_position_right: 3>
+window_position_top: _xcgui.window_position_ # value = <window_position_.window_position_top: 0>
+window_position_window: _xcgui.window_position_ # value = <window_position_.window_position_window: 5>
+window_state_flag_body_leave: _xcgui.window_state_flag_ # value = <window_state_flag_.window_state_flag_body_leave: 2>
+window_state_flag_bottom_leave: _xcgui.window_state_flag_ # value = <window_state_flag_.window_state_flag_bottom_leave: 8>
+window_state_flag_layout_body: _xcgui.window_state_flag_ # value = <window_state_flag_.window_state_flag_layout_body: 536870912>
+window_state_flag_leave: _xcgui.window_state_flag_ # value = <window_state_flag_.window_state_flag_leave: 1>
+window_state_flag_left_leave: _xcgui.window_state_flag_ # value = <window_state_flag_.window_state_flag_left_leave: 16>
+window_state_flag_nothing: _xcgui.window_state_flag_ # value = <window_state_flag_.window_state_flag_nothing: 0>
+window_state_flag_right_leave: _xcgui.window_state_flag_ # value = <window_state_flag_.window_state_flag_right_leave: 32>
+window_state_flag_top_leave: _xcgui.window_state_flag_ # value = <window_state_flag_.window_state_flag_top_leave: 4>
+window_style_allow_maxWindow: _xcgui.window_style_ # value = <window_style_.window_style_allow_maxWindow: 32>
+window_style_border: _xcgui.window_style_ # value = <window_style_.window_style_border: 2>
+window_style_btn_close: _xcgui.window_style_ # value = <window_style_.window_style_btn_close: 1024>
+window_style_btn_max: _xcgui.window_style_ # value = <window_style_.window_style_btn_max: 512>
+window_style_btn_min: _xcgui.window_style_ # value = <window_style_.window_style_btn_min: 256>
+window_style_caption: _xcgui.window_style_ # value = <window_style_.window_style_caption: 1>
+window_style_center: _xcgui.window_style_ # value = <window_style_.window_style_center: 4>
+window_style_default: _xcgui.window_style_ # value = <window_style_.window_style_default: 2031>
+window_style_drag_border: _xcgui.window_style_ # value = <window_style_.window_style_drag_border: 8>
+window_style_drag_window: _xcgui.window_style_ # value = <window_style_.window_style_drag_window: 16>
+window_style_icon: _xcgui.window_style_ # value = <window_style_.window_style_icon: 64>
+window_style_modal: _xcgui.window_style_ # value = <window_style_.window_style_modal: 1223>
+window_style_modal_simple: _xcgui.window_style_ # value = <window_style_.window_style_modal_simple: 7>
+window_style_nothing: _xcgui.window_style_ # value = <window_style_.window_style_nothing: 0>
+window_style_pop: _xcgui.window_style_ # value = <window_style_.window_style_pop: 1263>
+window_style_simple: _xcgui.window_style_ # value = <window_style_.window_style_simple: 47>
+window_style_title: _xcgui.window_style_ # value = <window_style_.window_style_title: 128>
+window_transparent_false: _xcgui.window_transparent_ # value = <window_transparent_.window_transparent_false: 0>
+window_transparent_shadow: _xcgui.window_transparent_ # value = <window_transparent_.window_transparent_shadow: 2>
+window_transparent_shaped: _xcgui.window_transparent_ # value = <window_transparent_.window_transparent_shaped: 1>
+window_transparent_simple: _xcgui.window_transparent_ # value = <window_transparent_.window_transparent_simple: 3>
+window_transparent_win7: _xcgui.window_transparent_ # value = <window_transparent_.window_transparent_win7: 4>
+xc_ex_error: _xcgui.XC_OBJECT_TYPE_EX # value = <XC_OBJECT_TYPE_EX.xc_ex_error: -1>
+xc_style_default: _xcgui.XC_OBJECT_STYLE # value = <XC_OBJECT_STYLE.xc_style_default: 0>
+zorder_after: _xcgui.zorder_ # value = <zorder_.zorder_after: 3>
+zorder_before: _xcgui.zorder_ # value = <zorder_.zorder_before: 2>
+zorder_bottom: _xcgui.zorder_ # value = <zorder_.zorder_bottom: 1>
+zorder_top: _xcgui.zorder_ # value = <zorder_.zorder_top: 0>

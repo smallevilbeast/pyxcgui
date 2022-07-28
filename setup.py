@@ -198,7 +198,7 @@ extension.extra_compile_cpp_args = extra_compile_cpp_args[target_os]
 
 setup(
     name='xcgui',
-    version='0.1.4',
+    version='0.1.5',
     description='xcgui - bundled xcgui for python',
     long_description="",
     long_description_content_type='text/markdown',
