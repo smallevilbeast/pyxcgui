@@ -28,7 +28,7 @@ pip install xcgui
 ```
 国内源安装
 ```bash
-pip install -i https://pypi.tuna.tsinghua.edu.cn/simple xcgui
+pip install -i https://mirrors.huaweicloud.com/repository/pypi/simple xcgui
 ```
 
 ## 可视化UI设计器
