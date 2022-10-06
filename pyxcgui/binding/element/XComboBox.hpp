@@ -29,7 +29,10 @@ namespace xcgui {
 			}), "width"_a, "height"_a, "parent"_a=nullptr)
 
 			.def("setSelItem", &XCComboBox::SetSelItem, "index"_a)
-			.def("createAdapter", &XCComboBox::CreateAdapter)
+			.def("createAdapter", [](XCComboBox& self) -> XCObject* {
+				auto handle = self.CreateAdapter();
+				return XCastManager::GetInstance()->CastObject(handle);
+			}, py::return_value_policy::take_ownership)
 			.def("bindAdapter", [](XCComboBox& self, const XCAdapter& adapter) {
 				self.BindAdapter(adapter.GetHandle());
 			}, "adapter"_a)
