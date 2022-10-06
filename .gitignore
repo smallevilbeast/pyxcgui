@@ -346,4 +346,4 @@ wheelhouse/
 *.egg-info/
 cmake-build-debug/
 venv
-
+upload.bat
