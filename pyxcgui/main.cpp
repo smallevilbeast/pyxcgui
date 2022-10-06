@@ -49,6 +49,7 @@
 #include "binding/element/XListBox.hpp"
 #include "binding/element/XList.hpp"
 #include "binding/element/XListView.hpp"
+#include "binding/element/XComboBox.hpp"
 #include "binding/element/XTree.hpp"
 #include "binding/ease/XEase.hpp"
 #include "binding/shape/XShape.hpp"
@@ -227,6 +228,9 @@ namespace xcgui {
 
 		// tree
 		declareTree(m);
+
+		// ComboBox
+		declareComboBox(m);
 
 		// ease 
 		declareEase(m);

@@ -283,6 +283,7 @@
     <ClInclude Include="binding\bkmanager\XBkObject.hpp" />
     <ClInclude Include="binding\ease\XEase.hpp" />
     <ClInclude Include="binding\element\XButton.hpp" />
+    <ClInclude Include="binding\element\XComboBox.hpp" />
     <ClInclude Include="binding\element\XDateTime.hpp" />
     <ClInclude Include="binding\element\XEdit.hpp" />
     <ClInclude Include="binding\element\XLayoutEle.hpp" />

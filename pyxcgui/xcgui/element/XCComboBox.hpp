@@ -286,16 +286,20 @@ namespace xcgui {
 		//@参数 iColumn 列索引
 		//@返回 返回文本内容
 		//@别名  取项文本()
-		const wchar_t* GetItemText(int iItem, int iColumn) {
-			return XComboBox_GetItemText(getEleHandle(), iItem, iColumn);
+		std::wstring GetItemText(int iItem, int iColumn) {
+			auto pText = XComboBox_GetItemText(getEleHandle(), iItem, iColumn);
+			if (!pText) return L"";
+			return pText;
 		}
 
 		//@参数 iItem 项索引
 		//@参数 name.c_str() 字段名
 		//@返回 返回文本内容
 		//@别名  取项文本扩展()
-		const wchar_t* GetItemTextEx(int iItem, const std::wstring& name) {
-			return XComboBox_GetItemTextEx(getEleHandle(), iItem, name.c_str());
+		std::wstring GetItemTextEx(int iItem, const std::wstring& name) {
+			auto pText = XComboBox_GetItemTextEx(getEleHandle(), iItem, name.c_str());
+			if (!pText) return L"";
+			return pText;
 		}
 
 		//@参数 iItem 项索引
