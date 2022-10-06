@@ -13,9 +13,6 @@ namespace xcgui {
 			.def("getHandle", [](XCObject& self) -> uintptr_t {
 				return (uintptr_t)self.GetHandle();
 			})
-			.def("getHandle", [](XCObject& self) -> uintptr_t {
-				return (uintptr_t)self.GetHandle();
-			})
 			.def("releaseAnimation", [](XCObject& self, bool end=false) {
 				self.ReleaseAnimation(end);
 			}, "end"_a=false)
