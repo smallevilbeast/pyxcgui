@@ -23,54 +23,54 @@ namespace xcgui {
 			return m_handle;
 		}
 
-		//@±¸×¢ ÉèÖÃ±ß¿òÑÕÉ«.  
-		//@²ÎÊı color ÑÕÉ«Öµ, ÇëÊ¹ÓÃºê: RGBA()
-		//@±ğÃû  ÖÃ±ß¿òÉ«()
+		//@å¤‡æ³¨ è®¾ç½®è¾¹æ¡†é¢œè‰².  
+		//@å‚æ•° color é¢œè‰²å€¼, è¯·ä½¿ç”¨å®: RGBA()
+		//@åˆ«å  ç½®è¾¹æ¡†è‰²()
 		void SetBorderColor(COLORREF color) {
 			XShapeRect_SetBorderColor(m_handle, color);
 		}
 
-		//@±¸×¢ ÉèÖÃÌî³äÑÕÉ«.  
-		//@²ÎÊı color ÑÕÉ«Öµ, ÇëÊ¹ÓÃºê: RGBA()
-		//@±ğÃû  ÖÃÌî³äÉ«()
+		//@å¤‡æ³¨ è®¾ç½®å¡«å……é¢œè‰².  
+		//@å‚æ•° color é¢œè‰²å€¼, è¯·ä½¿ç”¨å®: RGBA()
+		//@åˆ«å  ç½®å¡«å……è‰²()
 		void SetFillColor(COLORREF color) {
 			XShapeRect_SetFillColor(m_handle, color);
 		}
 
-		//@±¸×¢ ÉèÖÃÔ²½Ç´óĞ¡.  
-		//@²ÎÊı nWidth Ô²½Ç¿í¶È.
-		//@²ÎÊı nHeight Ô²½Ç¸ß¶È.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÖÃÔ²½Ç´óĞ¡()
+		//@å¤‡æ³¨ è®¾ç½®åœ†è§’å¤§å°.  
+		//@å‚æ•° nWidth åœ†è§’å®½åº¦.
+		//@å‚æ•° nHeight åœ†è§’é«˜åº¦.
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  ç½®åœ†è§’å¤§å°()
 		void SetRoundAngle(int nWidth, int nHeight) {
 			XShapeRect_SetRoundAngle(m_handle, nWidth, nHeight);
 		}
 
-		//@±¸×¢ »ñÈ¡Ô²½Ç´óĞ¡.  
-		//@²ÎÊı pWidth Ô²½Ç¿í¶È.
-		//@²ÎÊı pHeight Ô²½Ç¸ß¶È.
-		//@±ğÃû  È¡Ô²½Ç´óĞ¡()
+		//@å¤‡æ³¨ è·å–åœ†è§’å¤§å°.  
+		//@å‚æ•° pWidth åœ†è§’å®½åº¦.
+		//@å‚æ•° pHeight åœ†è§’é«˜åº¦.
+		//@åˆ«å  å–åœ†è§’å¤§å°()
 		void GetRoundAngle(int* pWidth, int* pHeight) {
 			XShapeRect_GetRoundAngle(m_handle, pWidth, pHeight);
 		}
 
-		//@±¸×¢ ÆôÓÃ»æÖÆ¾ØĞÎ±ß¿ò.  
-		//@²ÎÊı bEnable ÊÇ·ñÆôÓÃ.
-		//@±ğÃû  ÆôÓÃ±ß¿ò()
+		//@å¤‡æ³¨ å¯ç”¨ç»˜åˆ¶çŸ©å½¢è¾¹æ¡†.  
+		//@å‚æ•° bEnable æ˜¯å¦å¯ç”¨.
+		//@åˆ«å  å¯ç”¨è¾¹æ¡†()
 		void EnableBorder(bool bEnable) {
 			XShapeRect_EnableBorder(m_handle, bEnable);
 		}
 
-		//@±¸×¢ ÆôÓÃÌî³ä¾ØĞÎ.  
-		//@²ÎÊı bEnable ÊÇ·ñÆôÓÃ.
-		//@±ğÃû  ÆôÓÃÌî³ä()
+		//@å¤‡æ³¨ å¯ç”¨å¡«å……çŸ©å½¢.  
+		//@å‚æ•° bEnable æ˜¯å¦å¯ç”¨.
+		//@åˆ«å  å¯ç”¨å¡«å……()
 		void EnableFill(bool bEnable) {
 			XShapeRect_EnableFill(m_handle, bEnable);
 		}
 
-		//@±¸×¢ ÆôÓÃÔ²½Ç.  
-		//@²ÎÊı bEnable ÊÇ·ñÆôÓÃ.
-		//@±ğÃû  ÆôÓÃÔ²½Ç()
+		//@å¤‡æ³¨ å¯ç”¨åœ†è§’.  
+		//@å‚æ•° bEnable æ˜¯å¦å¯ç”¨.
+		//@åˆ«å  å¯ç”¨åœ†è§’()
 		void EnableRoundAngle(bool bEnable) {
 			XShapeRect_EnableRoundAngle(m_handle, bEnable);
 		}

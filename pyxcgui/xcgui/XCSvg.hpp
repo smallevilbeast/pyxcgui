@@ -47,13 +47,13 @@ namespace xcgui {
 			return (HSVG)m_handle;
 		}
 
-		// ¼ÓÔØÍ¼Æ¬´ÓZIPÑ¹Ëõ°ü
+		// åŠ è½½å›¾ç‰‡ä»ZIPå‹ç¼©åŒ…
 		HSVG LoadZip(const std::wstring& zipFileName, const std::wstring& fileName, const std::wstring& password) {
 			m_handle = XSvg_LoadZip(zipFileName.c_str(), fileName.c_str(), password.c_str());
 			return (HSVG)m_handle;
 		}
 
-		// ¼ÓÔØ´ÓÄÚ´æZIP
+		// åŠ è½½ä»å†…å­˜ZIP
 		HIMAGE LoadZipMem(const std::string& data, const std::wstring& fileName, const std::wstring& password) {
 			m_handle = XSvg_LoadZipMem((void*)data.c_str(), data.size(), fileName.c_str(), password.c_str());
 			return (HIMAGE)m_handle;
@@ -131,27 +131,27 @@ namespace xcgui {
 			XSvg_SetUserStrokeColor((HSVG)m_handle, color, strokeWidth, bEnable);
 		}
 
-		// ÆôÓÃ»ò¹Ø±Õ×Ô¶¯Ïú»Ù,µ±ÓëUIÔªËØ¹ØÁªÊ±ÓĞĞ§
+		// å¯ç”¨æˆ–å…³é—­è‡ªåŠ¨é”€æ¯,å½“ä¸UIå…ƒç´ å…³è”æ—¶æœ‰æ•ˆ
 		void EnableAutoDestroy(bool bEnable) {
 			XSvg_EnableAutoDestroy((HSVG)m_handle, bEnable);
 		}
 
-		// Ôö¼ÓÒıÓÃ¼ÆÊı
+		// å¢åŠ å¼•ç”¨è®¡æ•°
 		void AddRef() {
 			XSvg_AddRef((HSVG)m_handle);
 		}
 
-		// ÊÍ·ÅÒıÓÃ¼ÆÊı,µ±ÒıÓÃ¼ÆÊıÎª0Ê±,×Ô¶¯Ïú»Ù
+		// é‡Šæ”¾å¼•ç”¨è®¡æ•°,å½“å¼•ç”¨è®¡æ•°ä¸º0æ—¶,è‡ªåŠ¨é”€æ¯
 		void Release() {
 			XSvg_Release((HSVG)m_handle);
 		}
 
-		// »ñÈ¡ÒıÓÃ¼ÆÊı
+		// è·å–å¼•ç”¨è®¡æ•°
 		int GetRefCount() {
 			return XSvg_GetRefCount((HSVG)m_handle);
 		}
 
-		// Ç¿ÖÆÏú»ÙÍ¼Æ¬
+		// å¼ºåˆ¶é”€æ¯å›¾ç‰‡
 		void Destroy() {
 			XSvg_Destroy((HSVG)m_handle);
 		}

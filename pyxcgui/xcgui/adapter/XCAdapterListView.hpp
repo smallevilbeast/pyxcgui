@@ -16,376 +16,376 @@ namespace xcgui {
 			m_handle = XAdListView_Create();
 		}
 
-		//@±¸×¢ ×é²Ù×÷,Ìí¼ÓÊı¾İÁĞ.  
-		//@²ÎÊı hAdapter Êı¾İÊÊÅäÆ÷¾ä±ú.
-		//@²ÎÊı pName ×Ö¶ÎÃû³Æ.
-		//@·µ»Ø ·µ»ØÁĞË÷Òı.
-		//@±ğÃû Êı¾İÊÊÅäÆ÷ÁĞ±íÊÓ_×éÌí¼ÓÁĞ()
+		//@å¤‡æ³¨ ç»„æ“ä½œ,æ·»åŠ æ•°æ®åˆ—.  
+		//@å‚æ•° hAdapter æ•°æ®é€‚é…å™¨å¥æŸ„.
+		//@å‚æ•° pName å­—æ®µåç§°.
+		//@è¿”å› è¿”å›åˆ—ç´¢å¼•.
+		//@åˆ«å æ•°æ®é€‚é…å™¨åˆ—è¡¨è§†_ç»„æ·»åŠ åˆ—()
 		int GroupAddColumn(const std::wstring& name) {
 			return XAdListView_Group_AddColumn(m_handle, name.c_str());
 		}
 
-		//@±¸×¢ ×é²Ù×÷,Ìí¼Ó×é,Êı¾İÄ¬ÈÏÌî³äµ½µÚÒ»ÁĞ.  
-		//@²ÎÊı hAdapter Êı¾İÊÊÅäÆ÷¾ä±ú.
-		//@²ÎÊı pValue Öµ.
-		//@²ÎÊı iPos ²åÈëÎ»ÖÃ, -1Ìí¼Óµ½Ä©Î²
-		//@·µ»Ø ·µ»Ø×éË÷Òı.
-		//@±ğÃû Êı¾İÊÊÅäÆ÷ÁĞ±íÊÓ_Ìí¼Ó×éÎÄ±¾()
+		//@å¤‡æ³¨ ç»„æ“ä½œ,æ·»åŠ ç»„,æ•°æ®é»˜è®¤å¡«å……åˆ°ç¬¬ä¸€åˆ—.  
+		//@å‚æ•° hAdapter æ•°æ®é€‚é…å™¨å¥æŸ„.
+		//@å‚æ•° pValue å€¼.
+		//@å‚æ•° iPos æ’å…¥ä½ç½®, -1æ·»åŠ åˆ°æœ«å°¾
+		//@è¿”å› è¿”å›ç»„ç´¢å¼•.
+		//@åˆ«å æ•°æ®é€‚é…å™¨åˆ—è¡¨è§†_æ·»åŠ ç»„æ–‡æœ¬()
 		int GroupAddItemText(const std::wstring& value, int iPos = -1) {
 			return XAdListView_Group_AddItemText(m_handle, value.c_str(), iPos);
 		}
 
-		//@±¸×¢ ×é²Ù×÷,Ìí¼Ó×é,Êı¾İÌî³äÖ¸¶¨ÁĞ.  
-		//@²ÎÊı hAdapter Êı¾İÊÊÅäÆ÷¾ä±ú.
-		//@²ÎÊı pName ×Ö¶ÎÃû³Æ.
-		//@²ÎÊı pValue Öµ.
-		//@²ÎÊı iPos ²åÈëÎ»ÖÃ, -1Ìí¼Óµ½Ä©Î²
-		//@·µ»Ø ·µ»Ø×éË÷Òı.
-		//@±ğÃû Êı¾İÊÊÅäÆ÷ÁĞ±íÊÓ_Ìí¼Ó×éÎÄ±¾À©Õ¹()
+		//@å¤‡æ³¨ ç»„æ“ä½œ,æ·»åŠ ç»„,æ•°æ®å¡«å……æŒ‡å®šåˆ—.  
+		//@å‚æ•° hAdapter æ•°æ®é€‚é…å™¨å¥æŸ„.
+		//@å‚æ•° pName å­—æ®µåç§°.
+		//@å‚æ•° pValue å€¼.
+		//@å‚æ•° iPos æ’å…¥ä½ç½®, -1æ·»åŠ åˆ°æœ«å°¾
+		//@è¿”å› è¿”å›ç»„ç´¢å¼•.
+		//@åˆ«å æ•°æ®é€‚é…å™¨åˆ—è¡¨è§†_æ·»åŠ ç»„æ–‡æœ¬æ‰©å±•()
 		int GroupAddItemTextEx(const std::wstring& name, const std::wstring& value, int iPos = -1) {
 			return XAdListView_Group_AddItemTextEx(m_handle, name.c_str(), value.c_str(), iPos);
 		}
 
-		//@±¸×¢ ×é²Ù×÷,Ìí¼Ó×é,Êı¾İÄ¬ÈÏÌî³äµÚÒ»ÁĞ.  
-		//@²ÎÊı hAdapter Êı¾İÊÊÅäÆ÷¾ä±ú.
-		//@²ÎÊı hImage Í¼Æ¬¾ä±ú.
-		//@²ÎÊı iPos ²åÈëÎ»ÖÃ, -1Ìí¼Óµ½Ä©Î²
-		//@·µ»Ø ·µ»Ø×éË÷Òı.
-		//@±ğÃû Êı¾İÊÊÅäÆ÷ÁĞ±íÊÓ_Ìí¼Ó×éÍ¼Æ¬()
+		//@å¤‡æ³¨ ç»„æ“ä½œ,æ·»åŠ ç»„,æ•°æ®é»˜è®¤å¡«å……ç¬¬ä¸€åˆ—.  
+		//@å‚æ•° hAdapter æ•°æ®é€‚é…å™¨å¥æŸ„.
+		//@å‚æ•° hImage å›¾ç‰‡å¥æŸ„.
+		//@å‚æ•° iPos æ’å…¥ä½ç½®, -1æ·»åŠ åˆ°æœ«å°¾
+		//@è¿”å› è¿”å›ç»„ç´¢å¼•.
+		//@åˆ«å æ•°æ®é€‚é…å™¨åˆ—è¡¨è§†_æ·»åŠ ç»„å›¾ç‰‡()
 		int GroupAddItemImage(HIMAGE hImage, int iPos = -1) {
 			return XAdListView_Group_AddItemImage(m_handle, hImage, iPos);
 		}
 
-		//@±¸×¢ ×é²Ù×÷,Ìí¼Ó×é,Êı¾İÌî³äÖ¸¶¨ÁĞ.  
-		//@²ÎÊı hAdapter Êı¾İÊÊÅäÆ÷¾ä±ú.
-		//@²ÎÊı pName ×Ö¶ÎÃû³Æ.
-		//@²ÎÊı hImage Í¼Æ¬¾ä±ú.
-		//@²ÎÊı iPos ²åÈëÎ»ÖÃ, -1Ìí¼Óµ½Ä©Î²
-		//@·µ»Ø ·µ»Ø×éË÷Òı.
-		//@±ğÃû Êı¾İÊÊÅäÆ÷ÁĞ±íÊÓ_Ìí¼Ó×éÍ¼Æ¬À©Õ¹()
+		//@å¤‡æ³¨ ç»„æ“ä½œ,æ·»åŠ ç»„,æ•°æ®å¡«å……æŒ‡å®šåˆ—.  
+		//@å‚æ•° hAdapter æ•°æ®é€‚é…å™¨å¥æŸ„.
+		//@å‚æ•° pName å­—æ®µåç§°.
+		//@å‚æ•° hImage å›¾ç‰‡å¥æŸ„.
+		//@å‚æ•° iPos æ’å…¥ä½ç½®, -1æ·»åŠ åˆ°æœ«å°¾
+		//@è¿”å› è¿”å›ç»„ç´¢å¼•.
+		//@åˆ«å æ•°æ®é€‚é…å™¨åˆ—è¡¨è§†_æ·»åŠ ç»„å›¾ç‰‡æ‰©å±•()
 		int GroupAddItemImageEx(const std::wstring& name, HIMAGE hImage, int iPos = -1)
 		{
 			return 	XAdListView_Group_AddItemImageEx(m_handle, name.c_str(), hImage, iPos);
 		}
 		
-		//@±¸×¢ ×é²Ù×÷,ÉèÖÃÖ¸¶¨ÏîÊı¾İ.  
-		//@²ÎÊı hAdapter Êı¾İÊÊÅäÆ÷¾ä±ú.
-		//@²ÎÊı iGroup ×éË÷Òı.
-		//@²ÎÊı iColumn ÁĞË÷Òı.
-		//@²ÎÊı pValue Öµ.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû Êı¾İÊÊÅäÆ÷ÁĞ±íÊÓ_×éÉèÖÃÎÄ±¾()
+		//@å¤‡æ³¨ ç»„æ“ä½œ,è®¾ç½®æŒ‡å®šé¡¹æ•°æ®.  
+		//@å‚æ•° hAdapter æ•°æ®é€‚é…å™¨å¥æŸ„.
+		//@å‚æ•° iGroup ç»„ç´¢å¼•.
+		//@å‚æ•° iColumn åˆ—ç´¢å¼•.
+		//@å‚æ•° pValue å€¼.
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å æ•°æ®é€‚é…å™¨åˆ—è¡¨è§†_ç»„è®¾ç½®æ–‡æœ¬()
 		bool GroupSetText(int iGroup, int iColumn, const std::wstring& value) {
 			return XAdListView_Group_SetText(m_handle, iGroup, iColumn, value.c_str());
 		}
 		
-		//@±¸×¢ ×é²Ù×÷,ÉèÖÃÖ¸¶¨ÏîÊı¾İ.  
-		//@²ÎÊı hAdapter Êı¾İÊÊÅäÆ÷¾ä±ú.
-		//@²ÎÊı iGroup ×éË÷Òı.
-		//@²ÎÊı pName ×Ö¶ÎÃû.
-		//@²ÎÊı pValue Öµ.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû Êı¾İÊÊÅäÆ÷ÁĞ±íÊÓ_×éÉèÖÃÎÄ±¾À©Õ¹()
+		//@å¤‡æ³¨ ç»„æ“ä½œ,è®¾ç½®æŒ‡å®šé¡¹æ•°æ®.  
+		//@å‚æ•° hAdapter æ•°æ®é€‚é…å™¨å¥æŸ„.
+		//@å‚æ•° iGroup ç»„ç´¢å¼•.
+		//@å‚æ•° pName å­—æ®µå.
+		//@å‚æ•° pValue å€¼.
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å æ•°æ®é€‚é…å™¨åˆ—è¡¨è§†_ç»„è®¾ç½®æ–‡æœ¬æ‰©å±•()
 		bool GroupSetTextEx(int iGroup, const std::wstring& name, const std::wstring& value) {
 			return XAdListView_Group_SetTextEx(m_handle, iGroup, name.c_str(), value.c_str());
 		}
 
-		//@±¸×¢ ×é²Ù×÷,ÉèÖÃÖ¸¶¨ÏîÊı¾İ.  
-		//@²ÎÊı hAdapter Êı¾İÊÊÅäÆ÷¾ä±ú.
-		//@²ÎÊı iGroup ×éË÷Òı.
-		//@²ÎÊı iColumn ÁĞË÷Òı.
-		//@²ÎÊı hImage Í¼Æ¬¾ä±ú.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû Êı¾İÊÊÅäÆ÷ÁĞ±íÊÓ_×éÉèÖÃÍ¼Æ¬()
+		//@å¤‡æ³¨ ç»„æ“ä½œ,è®¾ç½®æŒ‡å®šé¡¹æ•°æ®.  
+		//@å‚æ•° hAdapter æ•°æ®é€‚é…å™¨å¥æŸ„.
+		//@å‚æ•° iGroup ç»„ç´¢å¼•.
+		//@å‚æ•° iColumn åˆ—ç´¢å¼•.
+		//@å‚æ•° hImage å›¾ç‰‡å¥æŸ„.
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å æ•°æ®é€‚é…å™¨åˆ—è¡¨è§†_ç»„è®¾ç½®å›¾ç‰‡()
 		bool GroupSetImage(int iGroup, int iColumn, HIMAGE hImage) {
 			return XAdListView_Group_SetImage(m_handle, iGroup, iColumn, hImage);
 		}
 
-		//@±¸×¢ ×é²Ù×÷,ÉèÖÃÖ¸¶¨ÏîÊı¾İ.  
-		//@²ÎÊı hAdapter Êı¾İÊÊÅäÆ÷¾ä±ú.
-		//@²ÎÊı iGroup ×éË÷Òı.
-		//@²ÎÊı pName ×Ö¶ÎÃû.
-		//@²ÎÊı hImage Í¼Æ¬¾ä±ú.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû Êı¾İÊÊÅäÆ÷ÁĞ±íÊÓ_×éÉèÖÃÍ¼Æ¬À©Õ¹()
+		//@å¤‡æ³¨ ç»„æ“ä½œ,è®¾ç½®æŒ‡å®šé¡¹æ•°æ®.  
+		//@å‚æ•° hAdapter æ•°æ®é€‚é…å™¨å¥æŸ„.
+		//@å‚æ•° iGroup ç»„ç´¢å¼•.
+		//@å‚æ•° pName å­—æ®µå.
+		//@å‚æ•° hImage å›¾ç‰‡å¥æŸ„.
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å æ•°æ®é€‚é…å™¨åˆ—è¡¨è§†_ç»„è®¾ç½®å›¾ç‰‡æ‰©å±•()
 		bool GroupSetImageEx(int iGroup, const std::wstring& name, HIMAGE hImage) {
 			return XAdListView_Group_SetImageEx(m_handle, iGroup, name.c_str(), hImage);
 		}
 
-		//@²ÎÊı hAdapter Êı¾İÊÊÅäÆ÷¾ä±ú
-		//@²ÎÊı iGroup ×éË÷Òı
-		//@²ÎÊı iColumn ÁĞË÷Òı
-		//@·µ»Ø ·µ»ØÎÄ±¾ÄÚÈİ
-		//@±ğÃû Êı¾İÊÊÅäÆ÷ÁĞ±íÊÓ_×éÈ¡ÎÄ±¾()
+		//@å‚æ•° hAdapter æ•°æ®é€‚é…å™¨å¥æŸ„
+		//@å‚æ•° iGroup ç»„ç´¢å¼•
+		//@å‚æ•° iColumn åˆ—ç´¢å¼•
+		//@è¿”å› è¿”å›æ–‡æœ¬å†…å®¹
+		//@åˆ«å æ•°æ®é€‚é…å™¨åˆ—è¡¨è§†_ç»„å–æ–‡æœ¬()
 		std::wstring GroupGetText(int iGroup, int iColumn) {
 			auto pText = XAdListView_Group_GetText(m_handle, iGroup, iColumn);
 			if (!pText) return L"";
 			return pText;
 		}
 		
-		//@²ÎÊı hAdapter Êı¾İÊÊÅäÆ÷¾ä±ú
-		//@²ÎÊı iGroup ×éË÷Òı
-		//@²ÎÊı pName ×Ö¶ÎÃû³Æ
-		//@·µ»Ø ·µ»ØÎÄ±¾ÄÚÈİ
-		//@±ğÃû Êı¾İÊÊÅäÆ÷ÁĞ±íÊÓ_×éÈ¡ÎÄ±¾À©Õ¹()
+		//@å‚æ•° hAdapter æ•°æ®é€‚é…å™¨å¥æŸ„
+		//@å‚æ•° iGroup ç»„ç´¢å¼•
+		//@å‚æ•° pName å­—æ®µåç§°
+		//@è¿”å› è¿”å›æ–‡æœ¬å†…å®¹
+		//@åˆ«å æ•°æ®é€‚é…å™¨åˆ—è¡¨è§†_ç»„å–æ–‡æœ¬æ‰©å±•()
 		std::wstring GroupGetTextEx(int iGroup, const std::wstring& name) {
 			return XAdListView_Group_GetTextEx(m_handle, iGroup, name.c_str());
 		}
 		
-		//@²ÎÊı hAdapter Êı¾İÊÊÅäÆ÷¾ä±ú
-		//@²ÎÊı iGroup ×éË÷Òı
-		//@²ÎÊı iColumn ÁĞË÷Òı
-		//@·µ»Ø ·µ»ØÍ¼Æ¬¾ä±ú
-		//@±ğÃû Êı¾İÊÊÅäÆ÷ÁĞ±íÊÓ_×éÈ¡Í¼Æ¬()
+		//@å‚æ•° hAdapter æ•°æ®é€‚é…å™¨å¥æŸ„
+		//@å‚æ•° iGroup ç»„ç´¢å¼•
+		//@å‚æ•° iColumn åˆ—ç´¢å¼•
+		//@è¿”å› è¿”å›å›¾ç‰‡å¥æŸ„
+		//@åˆ«å æ•°æ®é€‚é…å™¨åˆ—è¡¨è§†_ç»„å–å›¾ç‰‡()
 		HIMAGE GroupGetImage(int iGroup, int iColumn) {
 			return XAdListView_Group_GetImage(m_handle, iGroup, iColumn);
 		}
 
 
-		//@²ÎÊı hAdapter Êı¾İÊÊÅäÆ÷¾ä±ú
-		//@²ÎÊı iGroup ×éË÷Òı
-		//@²ÎÊı pName ×Ö¶ÎÃû³Æ
-		//@·µ»Ø ·µ»ØÍ¼Æ¬¾ä±ú
-		//@±ğÃû Êı¾İÊÊÅäÆ÷ÁĞ±íÊÓ_×éÈ¡Í¼Æ¬À©Õ¹()
+		//@å‚æ•° hAdapter æ•°æ®é€‚é…å™¨å¥æŸ„
+		//@å‚æ•° iGroup ç»„ç´¢å¼•
+		//@å‚æ•° pName å­—æ®µåç§°
+		//@è¿”å› è¿”å›å›¾ç‰‡å¥æŸ„
+		//@åˆ«å æ•°æ®é€‚é…å™¨åˆ—è¡¨è§†_ç»„å–å›¾ç‰‡æ‰©å±•()
 		HIMAGE GroupGetImageEx(int iGroup, const std::wstring& name) {
 			return XAdListView_Group_GetImageEx(m_handle, iGroup, name.c_str());
 		}
 
-		//@±¸×¢ Ïî²Ù×÷,Ìí¼ÓÁĞ.  
-		//@²ÎÊı hAdapter Êı¾İÊÊÅäÆ÷¾ä±ú.
-		//@²ÎÊı pName ×Ö¶ÎÃû³Æ.
-		//@·µ»Ø ·µ»ØÁĞË÷Òı.
-		//@±ğÃû Êı¾İÊÊÅäÆ÷ÁĞ±íÊÓ_ÏîÌí¼ÓÁĞ()
+		//@å¤‡æ³¨ é¡¹æ“ä½œ,æ·»åŠ åˆ—.  
+		//@å‚æ•° hAdapter æ•°æ®é€‚é…å™¨å¥æŸ„.
+		//@å‚æ•° pName å­—æ®µåç§°.
+		//@è¿”å› è¿”å›åˆ—ç´¢å¼•.
+		//@åˆ«å æ•°æ®é€‚é…å™¨åˆ—è¡¨è§†_é¡¹æ·»åŠ åˆ—()
 		int ItemAddColumn(const std::wstring& name) {
 			return XAdListView_Item_AddColumn(m_handle, name.c_str());
 		}
 
 
-		//@±¸×¢ ×é²Ù×÷,»ñÈ¡×éÊıÁ¿.  
-		//@²ÎÊı hAdapter Êı¾İÊÊÅäÆ÷¾ä±ú.
-		//@·µ»Ø ·µ»Ø×éÊıÁ¿.
-		//@±ğÃû Êı¾İÊÊÅäÆ÷ÁĞ±íÊÓ_È¡×éÊıÁ¿()
+		//@å¤‡æ³¨ ç»„æ“ä½œ,è·å–ç»„æ•°é‡.  
+		//@å‚æ•° hAdapter æ•°æ®é€‚é…å™¨å¥æŸ„.
+		//@è¿”å› è¿”å›ç»„æ•°é‡.
+		//@åˆ«å æ•°æ®é€‚é…å™¨åˆ—è¡¨è§†_å–ç»„æ•°é‡()
 		int GroupGetCount() {
 			return XAdListView_Group_GetCount(m_handle);
 		 }
 		
-		//@±¸×¢ Ïî²Ù×÷,»ñÈ¡Ö¸¶¨×éÖĞÏîÊıÁ¿.  
-		//@²ÎÊı hAdapter Êı¾İÊÊÅäÆ÷¾ä±ú.
-		//@²ÎÊı iGroup ×éË÷Òı.
-		//@·µ»Ø ³É¹¦·µ»ØÏîÊıÁ¿,·ñÔò·µ»Ø @ref XC_ID_ERROR.
-		//@±ğÃû Êı¾İÊÊÅäÆ÷ÁĞ±íÊÓ_È¡×éÖĞÏîÊıÁ¿()
+		//@å¤‡æ³¨ é¡¹æ“ä½œ,è·å–æŒ‡å®šç»„ä¸­é¡¹æ•°é‡.  
+		//@å‚æ•° hAdapter æ•°æ®é€‚é…å™¨å¥æŸ„.
+		//@å‚æ•° iGroup ç»„ç´¢å¼•.
+		//@è¿”å› æˆåŠŸè¿”å›é¡¹æ•°é‡,å¦åˆ™è¿”å› @ref XC_ID_ERROR.
+		//@åˆ«å æ•°æ®é€‚é…å™¨åˆ—è¡¨è§†_å–ç»„ä¸­é¡¹æ•°é‡()
 		int ItemGetCount(int iGroup) {
 			return XAdListView_Item_GetCount(m_handle, iGroup);
 		}
 
 
-		//@±¸×¢ Ïî²Ù×÷,Ìí¼ÓÏî.  
-		//@²ÎÊı hAdapter Êı¾İÊÊÅäÆ÷¾ä±ú.
-		//@²ÎÊı iGroup ×éË÷Òı.
-		//@²ÎÊı pValue Öµ.
-		//@²ÎÊı iPos ²åÈëÎ»ÖÃ, -1Ìí¼Óµ½Ä©Î²
-		//@·µ»Ø ·µ»ØÏîË÷Òı.
-		//@±ğÃû Êı¾İÊÊÅäÆ÷ÁĞ±íÊÓ_Ìí¼ÓÏîÎÄ±¾()
+		//@å¤‡æ³¨ é¡¹æ“ä½œ,æ·»åŠ é¡¹.  
+		//@å‚æ•° hAdapter æ•°æ®é€‚é…å™¨å¥æŸ„.
+		//@å‚æ•° iGroup ç»„ç´¢å¼•.
+		//@å‚æ•° pValue å€¼.
+		//@å‚æ•° iPos æ’å…¥ä½ç½®, -1æ·»åŠ åˆ°æœ«å°¾
+		//@è¿”å› è¿”å›é¡¹ç´¢å¼•.
+		//@åˆ«å æ•°æ®é€‚é…å™¨åˆ—è¡¨è§†_æ·»åŠ é¡¹æ–‡æœ¬()
 		int ItemAddItemText(int iGroup, const std::wstring& value, int iPos = -1) {
 			return XAdListView_Item_AddItemText(m_handle, iGroup, value.c_str(), iPos);
 		}
 
-		//@±¸×¢ Ïî²Ù×÷,Ìí¼ÓÏî,Êı¾İÌî³äÖ¸¶¨ÁĞ.  
-		//@²ÎÊı hAdapter Êı¾İÊÊÅäÆ÷¾ä±ú.
-		//@²ÎÊı iGroup ×éË÷Òı.
-		//@²ÎÊı pName ×Ö¶ÎÃû³Æ.
-		//@²ÎÊı pValue Öµ.
-		//@²ÎÊı iPos ²åÈëÎ»ÖÃ, -1Ìí¼Óµ½Ä©Î²
-		//@·µ»Ø ·µ»ØÏîË÷Òı.
-		//@±ğÃû Êı¾İÊÊÅäÆ÷ÁĞ±íÊÓ_Ìí¼ÓÏîÎÄ±¾À©Õ¹()
+		//@å¤‡æ³¨ é¡¹æ“ä½œ,æ·»åŠ é¡¹,æ•°æ®å¡«å……æŒ‡å®šåˆ—.  
+		//@å‚æ•° hAdapter æ•°æ®é€‚é…å™¨å¥æŸ„.
+		//@å‚æ•° iGroup ç»„ç´¢å¼•.
+		//@å‚æ•° pName å­—æ®µåç§°.
+		//@å‚æ•° pValue å€¼.
+		//@å‚æ•° iPos æ’å…¥ä½ç½®, -1æ·»åŠ åˆ°æœ«å°¾
+		//@è¿”å› è¿”å›é¡¹ç´¢å¼•.
+		//@åˆ«å æ•°æ®é€‚é…å™¨åˆ—è¡¨è§†_æ·»åŠ é¡¹æ–‡æœ¬æ‰©å±•()
 		int ItemAddItemTextEx(int iGroup, const std::wstring& name, const std::wstring& value, int iPos = -1) {
 			return XAdListView_Item_AddItemTextEx(m_handle, iGroup, name.c_str(), value.c_str(), iPos);
 		}
 
 		
-		//@±¸×¢ Ïî²Ù×÷,Ìí¼ÓÏî.  
-		//@²ÎÊı hAdapter Êı¾İÊÊÅäÆ÷¾ä±ú.
-		//@²ÎÊı iGroup ×éË÷Òı.
-		//@²ÎÊı hImage Í¼Æ¬¾ä±ú.
-		//@²ÎÊı iPos ²åÈëÎ»ÖÃ, -1Ìí¼Óµ½Ä©Î²
-		//@·µ»Ø ·µ»ØÏîË÷Òı.
-		//@±ğÃû Êı¾İÊÊÅäÆ÷ÁĞ±íÊÓ_Ìí¼ÓÏîÍ¼Æ¬()
+		//@å¤‡æ³¨ é¡¹æ“ä½œ,æ·»åŠ é¡¹.  
+		//@å‚æ•° hAdapter æ•°æ®é€‚é…å™¨å¥æŸ„.
+		//@å‚æ•° iGroup ç»„ç´¢å¼•.
+		//@å‚æ•° hImage å›¾ç‰‡å¥æŸ„.
+		//@å‚æ•° iPos æ’å…¥ä½ç½®, -1æ·»åŠ åˆ°æœ«å°¾
+		//@è¿”å› è¿”å›é¡¹ç´¢å¼•.
+		//@åˆ«å æ•°æ®é€‚é…å™¨åˆ—è¡¨è§†_æ·»åŠ é¡¹å›¾ç‰‡()
 		int ItemAddItemImage(int iGroup, HIMAGE hImage, int iPos = -1) {
 			return XAdListView_Item_AddItemImage(m_handle, iGroup, hImage, iPos);
 		}
 
 
-		//@±¸×¢ Ïî²Ù×÷,Ìí¼ÓÏî,Ìî³äÖ¸¶¨ÁĞÊı¾İ.  
-		//@²ÎÊı hAdapter Êı¾İÊÊÅäÆ÷¾ä±ú.
-		//@²ÎÊı iGroup ×éË÷Òı.
-		//@²ÎÊı pName ×Ö¶ÎÃû³Æ.
-		//@²ÎÊı hImage Í¼Æ¬¾ä±ú.
-		//@²ÎÊı iPos ²åÈëÎ»ÖÃ, -1Ìí¼Óµ½Ä©Î²
-		//@·µ»Ø ·µ»ØÏîË÷Òı.
-		//@±ğÃû Êı¾İÊÊÅäÆ÷ÁĞ±íÊÓ_Ìí¼ÓÏîÍ¼Æ¬À©Õ¹()
+		//@å¤‡æ³¨ é¡¹æ“ä½œ,æ·»åŠ é¡¹,å¡«å……æŒ‡å®šåˆ—æ•°æ®.  
+		//@å‚æ•° hAdapter æ•°æ®é€‚é…å™¨å¥æŸ„.
+		//@å‚æ•° iGroup ç»„ç´¢å¼•.
+		//@å‚æ•° pName å­—æ®µåç§°.
+		//@å‚æ•° hImage å›¾ç‰‡å¥æŸ„.
+		//@å‚æ•° iPos æ’å…¥ä½ç½®, -1æ·»åŠ åˆ°æœ«å°¾
+		//@è¿”å› è¿”å›é¡¹ç´¢å¼•.
+		//@åˆ«å æ•°æ®é€‚é…å™¨åˆ—è¡¨è§†_æ·»åŠ é¡¹å›¾ç‰‡æ‰©å±•()
 		int ItemAddItemImageEx(int iGroup, const std::wstring& name, HIMAGE hImage, int iPos = -1) {
 			return 	XAdListView_Item_AddItemImageEx(m_handle, iGroup, name.c_str(), hImage, iPos);
 		}
 
-		//@±¸×¢ É¾³ı×é,×Ô¶¯É¾³ı×ÓÏî.  
-		//@²ÎÊı hAdapter Êı¾İÊÊÅäÆ÷¾ä±ú.
-		//@²ÎÊı iGroup ×éË÷Òı.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû Êı¾İÊÊÅäÆ÷ÁĞ±íÊÓ_×éÉ¾³ıÏî()
+		//@å¤‡æ³¨ åˆ é™¤ç»„,è‡ªåŠ¨åˆ é™¤å­é¡¹.  
+		//@å‚æ•° hAdapter æ•°æ®é€‚é…å™¨å¥æŸ„.
+		//@å‚æ•° iGroup ç»„ç´¢å¼•.
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å æ•°æ®é€‚é…å™¨åˆ—è¡¨è§†_ç»„åˆ é™¤é¡¹()
 		bool GroupDeleteItem(int iGroup) {
 			return 	XAdListView_Group_DeleteItem(m_handle, iGroup);
 		}
 		
-		//@±¸×¢ É¾³ıÖ¸¶¨×éµÄËùÓĞ×ÓÏî.  
-		//@²ÎÊı hAdapter Êı¾İÊÊÅäÆ÷¾ä±ú.
-		//@²ÎÊı iGroup ×éË÷Òı.
-		//@±ğÃû Êı¾İÊÊÅäÆ÷ÁĞ±íÊÓ_É¾³ıÈ«²¿×ÓÏî()
+		//@å¤‡æ³¨ åˆ é™¤æŒ‡å®šç»„çš„æ‰€æœ‰å­é¡¹.  
+		//@å‚æ•° hAdapter æ•°æ®é€‚é…å™¨å¥æŸ„.
+		//@å‚æ•° iGroup ç»„ç´¢å¼•.
+		//@åˆ«å æ•°æ®é€‚é…å™¨åˆ—è¡¨è§†_åˆ é™¤å…¨éƒ¨å­é¡¹()
 		void GroupDeleteAllChildItem(int iGroup) {
 			XAdListView_Group_DeleteAllChildItem(m_handle, iGroup);
 		}
 
-		//@±¸×¢ É¾³ıÏî.  
-		//@²ÎÊı hAdapter Êı¾İÊÊÅäÆ÷¾ä±ú.
-		//@²ÎÊı iGroup ×éË÷Òı.
-		//@²ÎÊı iItem ÏîË÷Òı.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû Êı¾İÊÊÅäÆ÷ÁĞ±íÊÓ_É¾³ıÏî()
+		//@å¤‡æ³¨ åˆ é™¤é¡¹.  
+		//@å‚æ•° hAdapter æ•°æ®é€‚é…å™¨å¥æŸ„.
+		//@å‚æ•° iGroup ç»„ç´¢å¼•.
+		//@å‚æ•° iItem é¡¹ç´¢å¼•.
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å æ•°æ®é€‚é…å™¨åˆ—è¡¨è§†_åˆ é™¤é¡¹()
 		bool ItemDeleteItem(int iGroup, int iItem) {
 			return 	XAdListView_Item_DeleteItem(m_handle, iGroup, iItem);
 		}
 
 
-		//@±¸×¢ É¾³ıËùÓĞ(×é,Ïî,ÁĞ).  
-		//@²ÎÊı hAdapter Êı¾İÊÊÅäÆ÷¾ä±ú.
-		//@±ğÃû Êı¾İÊÊÅäÆ÷ÁĞ±íÊÓ_É¾³ıÈ«²¿()
+		//@å¤‡æ³¨ åˆ é™¤æ‰€æœ‰(ç»„,é¡¹,åˆ—).  
+		//@å‚æ•° hAdapter æ•°æ®é€‚é…å™¨å¥æŸ„.
+		//@åˆ«å æ•°æ®é€‚é…å™¨åˆ—è¡¨è§†_åˆ é™¤å…¨éƒ¨()
 		void DeleteAll() {
 			XAdListView_DeleteAll(m_handle);
 		}
 
-		//@±¸×¢ É¾³ıËùÓĞµÄ×é.  
-		//@²ÎÊı hAdapter Êı¾İÊÊÅäÆ÷¾ä±ú.
-		//@±ğÃû Êı¾İÊÊÅäÆ÷ÁĞ±íÊÓ_É¾³ıÈ«²¿×é()
+		//@å¤‡æ³¨ åˆ é™¤æ‰€æœ‰çš„ç»„.  
+		//@å‚æ•° hAdapter æ•°æ®é€‚é…å™¨å¥æŸ„.
+		//@åˆ«å æ•°æ®é€‚é…å™¨åˆ—è¡¨è§†_åˆ é™¤å…¨éƒ¨ç»„()
 		void DeleteAllGroup() {
 			return XAdListView_DeleteAllGroup(m_handle);
 		}
 
-		//@±¸×¢ É¾³ıËùÓĞµÄÏî.  
-		//@²ÎÊı hAdapter Êı¾İÊÊÅäÆ÷¾ä±ú.
-		//@±ğÃû Êı¾İÊÊÅäÆ÷ÁĞ±íÊÓ_É¾³ıÈ«²¿Ïî()
+		//@å¤‡æ³¨ åˆ é™¤æ‰€æœ‰çš„é¡¹.  
+		//@å‚æ•° hAdapter æ•°æ®é€‚é…å™¨å¥æŸ„.
+		//@åˆ«å æ•°æ®é€‚é…å™¨åˆ—è¡¨è§†_åˆ é™¤å…¨éƒ¨é¡¹()
 		void DeleteAllItem() {
 			return XAdListView_DeleteAllItem(m_handle);
 		}
 
 
-		//@±¸×¢ É¾³ı×éµÄÁĞ.  
-		//@²ÎÊı hAdapter Êı¾İÊÊÅäÆ÷¾ä±ú.
-		//@²ÎÊı iColumn ÁĞË÷Òı.
-		//@±ğÃû Êı¾İÊÊÅäÆ÷ÁĞ±íÊÓ_×éÉ¾³ıÁĞ()
+		//@å¤‡æ³¨ åˆ é™¤ç»„çš„åˆ—.  
+		//@å‚æ•° hAdapter æ•°æ®é€‚é…å™¨å¥æŸ„.
+		//@å‚æ•° iColumn åˆ—ç´¢å¼•.
+		//@åˆ«å æ•°æ®é€‚é…å™¨åˆ—è¡¨è§†_ç»„åˆ é™¤åˆ—()
 		void DeleteColumnGroup(int iColumn) {
 			XAdListView_DeleteColumnGroup(m_handle, iColumn);
 		}
 
-		//@±¸×¢ É¾³ıÏîµÄÁĞ.  
-		//@²ÎÊı hAdapter Êı¾İÊÊÅäÆ÷¾ä±ú.
-		//@²ÎÊı iColumn ÁĞË÷Òı.
-		//@±ğÃû Êı¾İÊÊÅäÆ÷ÁĞ±íÊÓ_ÏîÉ¾³ıÁĞ()
+		//@å¤‡æ³¨ åˆ é™¤é¡¹çš„åˆ—.  
+		//@å‚æ•° hAdapter æ•°æ®é€‚é…å™¨å¥æŸ„.
+		//@å‚æ•° iColumn åˆ—ç´¢å¼•.
+		//@åˆ«å æ•°æ®é€‚é…å™¨åˆ—è¡¨è§†_é¡¹åˆ é™¤åˆ—()
 		void DeleteColumnItem(int iColumn) {
 			XAdListView_DeleteColumnItem(m_handle, iColumn);
 		}
 
-		//@±¸×¢ Ïî²Ù×÷,»ñÈ¡ÏîÎÄ±¾ÄÚÈİ.  
-		//@²ÎÊı hAdapter Êı¾İÊÊÅäÆ÷¾ä±ú.
-		//@²ÎÊı iGroup ×éË÷Òı.
-		//@²ÎÊı iItem ÏîË÷Òı.
-		//@²ÎÊı iColumn ÁĞË÷Òı.
-		//@·µ»Ø ·µ»ØÎÄ±¾ÄÚÈİ
-		//@±ğÃû Êı¾İÊÊÅäÆ÷ÁĞ±íÊÓ_ÏîÈ¡ÎÄ±¾()
+		//@å¤‡æ³¨ é¡¹æ“ä½œ,è·å–é¡¹æ–‡æœ¬å†…å®¹.  
+		//@å‚æ•° hAdapter æ•°æ®é€‚é…å™¨å¥æŸ„.
+		//@å‚æ•° iGroup ç»„ç´¢å¼•.
+		//@å‚æ•° iItem é¡¹ç´¢å¼•.
+		//@å‚æ•° iColumn åˆ—ç´¢å¼•.
+		//@è¿”å› è¿”å›æ–‡æœ¬å†…å®¹
+		//@åˆ«å æ•°æ®é€‚é…å™¨åˆ—è¡¨è§†_é¡¹å–æ–‡æœ¬()
 		std::wstring ItemGetText(int iGroup, int iItem, int iColumn) {
 			auto pText = XAdListView_Item_GetText(m_handle, iGroup, iItem, iColumn);
 			if (!pText) return L"";
 			return pText;
 		}
 
-		//@±¸×¢ Ïî²Ù×÷,»ñÈ¡ÏîÎÄ±¾ÄÚÈİ.  
-		//@²ÎÊı hAdapter Êı¾İÊÊÅäÆ÷¾ä±ú.
-		//@²ÎÊı iGroup ×éË÷Òı.
-		//@²ÎÊı iItem ÏîË÷Òı.
-		//@²ÎÊı pName ×Ö¶ÎÃû³Æ.
-		//@·µ»Ø ·µ»ØÎÄ±¾ÄÚÈİ
-		//@±ğÃû Êı¾İÊÊÅäÆ÷ÁĞ±íÊÓ_ÏîÈ¡ÎÄ±¾À©Õ¹()
+		//@å¤‡æ³¨ é¡¹æ“ä½œ,è·å–é¡¹æ–‡æœ¬å†…å®¹.  
+		//@å‚æ•° hAdapter æ•°æ®é€‚é…å™¨å¥æŸ„.
+		//@å‚æ•° iGroup ç»„ç´¢å¼•.
+		//@å‚æ•° iItem é¡¹ç´¢å¼•.
+		//@å‚æ•° pName å­—æ®µåç§°.
+		//@è¿”å› è¿”å›æ–‡æœ¬å†…å®¹
+		//@åˆ«å æ•°æ®é€‚é…å™¨åˆ—è¡¨è§†_é¡¹å–æ–‡æœ¬æ‰©å±•()
 		std::wstring ItemGetTextEx(int iGroup, int iItem, const std::wstring& name) {
 			auto pText = XAdListView_Item_GetTextEx(m_handle, iGroup, iItem, name.c_str());
 			if (!pText) return L"";
 			return pText;
 		}
 
-		//@±¸×¢ Ïî²Ù×÷,»ñÈ¡ÏîÍ¼Æ¬¾ä±ú.  
-		//@²ÎÊı hAdapter Êı¾İÊÊÅäÆ÷¾ä±ú.
-		//@²ÎÊı iGroup ×éË÷Òı.
-		//@²ÎÊı iItem ÏîË÷Òı.
-		//@²ÎÊı iColumn ÁĞË÷Òı.
-		//@·µ»Ø ·µ»ØÍ¼Æ¬¾ä±ú.
-		//@±ğÃû Êı¾İÊÊÅäÆ÷ÁĞ±íÊÓ_ÏîÈ¡Í¼Æ¬()
+		//@å¤‡æ³¨ é¡¹æ“ä½œ,è·å–é¡¹å›¾ç‰‡å¥æŸ„.  
+		//@å‚æ•° hAdapter æ•°æ®é€‚é…å™¨å¥æŸ„.
+		//@å‚æ•° iGroup ç»„ç´¢å¼•.
+		//@å‚æ•° iItem é¡¹ç´¢å¼•.
+		//@å‚æ•° iColumn åˆ—ç´¢å¼•.
+		//@è¿”å› è¿”å›å›¾ç‰‡å¥æŸ„.
+		//@åˆ«å æ•°æ®é€‚é…å™¨åˆ—è¡¨è§†_é¡¹å–å›¾ç‰‡()
 		HIMAGE ItemGetImage(int iGroup, int iItem, int iColumn) {
 			return XAdListView_Item_GetImage(m_handle, iGroup, iItem, iColumn);
 		}
 
-		//@±¸×¢ Ïî²Ù×÷,»ñÈ¡ÏîÍ¼Æ¬¾ä±ú.  
-		//@²ÎÊı hAdapter Êı¾İÊÊÅäÆ÷¾ä±ú.
-		//@²ÎÊı iGroup ×éË÷Òı.
-		//@²ÎÊı iItem ÏîË÷Òı.
-		//@²ÎÊı pName ×Ö¶Î³Æ.
-		//@·µ»Ø ·µ»ØÍ¼Æ¬¾ä±ú.
-		//@±ğÃû Êı¾İÊÊÅäÆ÷ÁĞ±íÊÓ_ÏîÈ¡Í¼Æ¬À©Õ¹()
+		//@å¤‡æ³¨ é¡¹æ“ä½œ,è·å–é¡¹å›¾ç‰‡å¥æŸ„.  
+		//@å‚æ•° hAdapter æ•°æ®é€‚é…å™¨å¥æŸ„.
+		//@å‚æ•° iGroup ç»„ç´¢å¼•.
+		//@å‚æ•° iItem é¡¹ç´¢å¼•.
+		//@å‚æ•° pName å­—æ®µç§°.
+		//@è¿”å› è¿”å›å›¾ç‰‡å¥æŸ„.
+		//@åˆ«å æ•°æ®é€‚é…å™¨åˆ—è¡¨è§†_é¡¹å–å›¾ç‰‡æ‰©å±•()
 		HIMAGE ItemGetImageEx(int iGroup, int iItem, const std::wstring& name) {
 			return 	XAdListView_Item_GetImageEx(m_handle, iGroup, iItem, name.c_str());
 		}
 
 
-		//@±¸×¢ Ïî²Ù×÷,Êı¾İÌî³äÖ¸¶¨ÁĞ.  
-		//@²ÎÊı hAdapter Êı¾İÊÊÅäÆ÷¾ä±ú.
-		//@²ÎÊı iGroup ×éË÷Òı.
-		//@²ÎÊı iItem ÏîË÷Òı.
-		//@²ÎÊı iColumn ÁĞË÷Òı.
-		//@²ÎÊı pValue Öµ.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû Êı¾İÊÊÅäÆ÷ÁĞ±íÊÓ_ÏîÖÃÎÄ±¾()
+		//@å¤‡æ³¨ é¡¹æ“ä½œ,æ•°æ®å¡«å……æŒ‡å®šåˆ—.  
+		//@å‚æ•° hAdapter æ•°æ®é€‚é…å™¨å¥æŸ„.
+		//@å‚æ•° iGroup ç»„ç´¢å¼•.
+		//@å‚æ•° iItem é¡¹ç´¢å¼•.
+		//@å‚æ•° iColumn åˆ—ç´¢å¼•.
+		//@å‚æ•° pValue å€¼.
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å æ•°æ®é€‚é…å™¨åˆ—è¡¨è§†_é¡¹ç½®æ–‡æœ¬()
 		bool ItemSetText(int iGroup, int iItem, int iColumn, const std::wstring& value) {
 			return XAdListView_Item_SetText(m_handle, iGroup, iItem, iColumn, value.c_str());
 		}
 
-		//@±¸×¢ Ïî²Ù×÷,Êı¾İÌî³äÖ¸¶¨ÁĞ.  
-		//@²ÎÊı hAdapter Êı¾İÊÊÅäÆ÷¾ä±ú.
-		//@²ÎÊı iGroup ×éË÷Òı.
-		//@²ÎÊı iItem ÏîË÷Òı.
-		//@²ÎÊı pName ×Ö¶Î³Æ.
-		//@²ÎÊı pValue Öµ.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû Êı¾İÊÊÅäÆ÷ÁĞ±íÊÓ_ÏîÖÃÎÄ±¾À©Õ¹()
+		//@å¤‡æ³¨ é¡¹æ“ä½œ,æ•°æ®å¡«å……æŒ‡å®šåˆ—.  
+		//@å‚æ•° hAdapter æ•°æ®é€‚é…å™¨å¥æŸ„.
+		//@å‚æ•° iGroup ç»„ç´¢å¼•.
+		//@å‚æ•° iItem é¡¹ç´¢å¼•.
+		//@å‚æ•° pName å­—æ®µç§°.
+		//@å‚æ•° pValue å€¼.
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å æ•°æ®é€‚é…å™¨åˆ—è¡¨è§†_é¡¹ç½®æ–‡æœ¬æ‰©å±•()
 		bool ItemSetTextEx(int iGroup, int iItem, const std::wstring& name, const std::wstring& value) {
 			return XAdListView_Item_SetTextEx(m_handle, iGroup, iItem, name.c_str(), value.c_str());
 		}
 
-		//@±¸×¢ Ïî²Ù×÷,Êı¾İÌî³äÖ¸¶¨ÁĞ.  
-		//@²ÎÊı hAdapter Êı¾İÊÊÅäÆ÷¾ä±ú.
-		//@²ÎÊı iGroup ×éË÷Òı.
-		//@²ÎÊı iItem ÏîË÷Òı.
-		//@²ÎÊı iColumn ÁĞË÷Òı.
-		//@²ÎÊı hImage Í¼Æ¬¾ä±ú.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû Êı¾İÊÊÅäÆ÷ÁĞ±íÊÓ_ÏîÖÃÍ¼Æ¬()
+		//@å¤‡æ³¨ é¡¹æ“ä½œ,æ•°æ®å¡«å……æŒ‡å®šåˆ—.  
+		//@å‚æ•° hAdapter æ•°æ®é€‚é…å™¨å¥æŸ„.
+		//@å‚æ•° iGroup ç»„ç´¢å¼•.
+		//@å‚æ•° iItem é¡¹ç´¢å¼•.
+		//@å‚æ•° iColumn åˆ—ç´¢å¼•.
+		//@å‚æ•° hImage å›¾ç‰‡å¥æŸ„.
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å æ•°æ®é€‚é…å™¨åˆ—è¡¨è§†_é¡¹ç½®å›¾ç‰‡()
 		bool ItemSetImage(int iGroup, int iItem, int iColumn, HIMAGE hImage) {
 			return XAdListView_Item_SetImage(m_handle, iGroup, iItem, iColumn, hImage);
 		}
 
-		//@±¸×¢ Ïî²Ù×÷,Êı¾İÌî³äÖ¸¶¨ÁĞ.  
-		//@²ÎÊı hAdapter Êı¾İÊÊÅäÆ÷¾ä±ú.
-		//@²ÎÊı iGroup ×éË÷Òı.
-		//@²ÎÊı iItem ÏîË÷Òı.
-		//@²ÎÊı pName ×Ö¶Î³Æ.
-		//@²ÎÊı hImage Í¼Æ¬¾ä±ú.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû Êı¾İÊÊÅäÆ÷ÁĞ±íÊÓ_ÏîÖÃÍ¼Æ¬À©Õ¹()
+		//@å¤‡æ³¨ é¡¹æ“ä½œ,æ•°æ®å¡«å……æŒ‡å®šåˆ—.  
+		//@å‚æ•° hAdapter æ•°æ®é€‚é…å™¨å¥æŸ„.
+		//@å‚æ•° iGroup ç»„ç´¢å¼•.
+		//@å‚æ•° iItem é¡¹ç´¢å¼•.
+		//@å‚æ•° pName å­—æ®µç§°.
+		//@å‚æ•° hImage å›¾ç‰‡å¥æŸ„.
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å æ•°æ®é€‚é…å™¨åˆ—è¡¨è§†_é¡¹ç½®å›¾ç‰‡æ‰©å±•()
 		bool ItemSetImageEx(int iGroup, int iItem, const std::wstring& name, HIMAGE hImage) {
 			return XAdListView_Item_SetImageEx(m_handle, iGroup, iItem, name.c_str(), hImage);
 		}

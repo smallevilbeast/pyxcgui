@@ -23,250 +23,250 @@ namespace xcgui {
 			return (HIMAGE)m_handle;
 		}
 
-		// ¼ÓÔØ´ÓÍ¼Æ¬Ô´
+		// åŠ è½½ä»å›¾ç‰‡æº
 		HIMAGE loadSrc(HIMAGE hImageSrc) {
 			m_handle = XImage_LoadSrc(hImageSrc);
 			return (HIMAGE)m_handle;
 		}
 
-		// ¼ÓÔØ´ÓÎÄ¼ş
+		// åŠ è½½ä»æ–‡ä»¶
 		HIMAGE LoadFile(const std::wstring& fileName) { 
 			m_handle = XImage_LoadFile(fileName.c_str()); 
 			return (HIMAGE)m_handle;
 		}
 
-		// ¼ÓÔØÍ¼Æ¬´ÓÎÄ¼ş,×ÔÊÊÓ¦Í¼Æ¬
+		// åŠ è½½å›¾ç‰‡ä»æ–‡ä»¶,è‡ªé€‚åº”å›¾ç‰‡
 		HIMAGE LoadFileAdaptive(const std::wstring& fileName, int leftSize, int topSize, int rightSize, int bottomSize) {
 			m_handle = XImage_LoadFileAdaptive(fileName.c_str(), leftSize, topSize, rightSize, bottomSize);
 			return (HIMAGE)m_handle;
 		}
 
-		// ¼ÓÔØÍ¼Æ¬,Ö¸¶¨ÇøÎ»ÖÃ¼°´óĞ¡
+		// åŠ è½½å›¾ç‰‡,æŒ‡å®šåŒºä½ç½®åŠå¤§å°
 		HIMAGE LoadFileRect(const std::wstring& fileName, int x, int y, int cx, int cy) {
 			m_handle = XImage_LoadFileRect(fileName.c_str(), x, y, cx, cy);
 			return (HIMAGE)m_handle;
 		}
 
-		// ¼ÓÔØÍ¼Æ¬´Ó×ÊÔ´,×ÔÊÊÓ¦Í¼Æ¬
+		// åŠ è½½å›¾ç‰‡ä»èµ„æº,è‡ªé€‚åº”å›¾ç‰‡
 		HIMAGE LoadResAdaptive(int id, const std::wstring& typeName, int leftSize, int topSize, int rightSize, int bottomSize, HMODULE hModule = NULL) { 
 			m_handle = XImage_LoadResAdaptive(id, typeName.c_str(), leftSize, topSize, rightSize, bottomSize, hModule);
 			return (HIMAGE)m_handle;
 		}
 
-		// ¼ÓÔØÍ¼Æ¬´Ó×ÊÔ´
+		// åŠ è½½å›¾ç‰‡ä»èµ„æº
 		HIMAGE LoadRes(int id, const std::wstring& typeName, HMODULE hModule = NULL) { 
 			m_handle = XImage_LoadRes(id, typeName.c_str(), hModule);
 			return (HIMAGE)m_handle;
 		}
 
 
-		// ¼ÓÔØÍ¼Æ¬´ÓZIPÑ¹Ëõ°ü
+		// åŠ è½½å›¾ç‰‡ä»ZIPå‹ç¼©åŒ…
 		HIMAGE LoadZip(const std::wstring& zipFileName, const std::wstring& fileName, const std::wstring& password) {
 			m_handle = XImage_LoadZip(zipFileName.c_str(), fileName.c_str(), password.c_str());
 			return (HIMAGE)m_handle;
 		}
 
-		//	¼ÓÔØÍ¼Æ¬´ÓZIPÑ¹Ëõ°ü,×ÔÊÊÓ¦Í¼Æ¬
+		//	åŠ è½½å›¾ç‰‡ä»ZIPå‹ç¼©åŒ…,è‡ªé€‚åº”å›¾ç‰‡
 		HIMAGE LoadZipAdaptive(const std::wstring& zipFileName, const std::wstring& fileName, const std::wstring& password, int x1, int x2, int y1, int y2) {
 			m_handle = XImage_LoadZipAdaptive(zipFileName.c_str(), fileName.c_str(), password.c_str(), x1, x2, y1, y2);
 			return (HIMAGE)m_handle;
 		}
 
-		// ¼ÓÔØZIPÍ¼Æ¬,Ö¸¶¨ÇøÎ»ÖÃ¼°´óĞ¡
+		// åŠ è½½ZIPå›¾ç‰‡,æŒ‡å®šåŒºä½ç½®åŠå¤§å°
 		HIMAGE LoadZipRect(const std::wstring& zipFileName, const std::wstring& fileName, const std::wstring& password, int x, int y, int cx, int cy) {
 			m_handle = XImage_LoadZipRect(zipFileName.c_str(), fileName.c_str(), password.c_str(), x, y, cx, cy);
 			return (HIMAGE)m_handle;
 		}
 
-		// ¼ÓÔØ´ÓÄÚ´æZIP
+		// åŠ è½½ä»å†…å­˜ZIP
 		HIMAGE LoadZipMem(const std::string& data, const std::wstring& fileName, const std::wstring& password) {
 			m_handle = XImage_LoadZipMem((void*)data.c_str(), data.size(), fileName.c_str(), password.c_str());
 			return (HIMAGE)m_handle;
 		}
 
-		// ¼ÓÔØÁ÷Í¼Æ¬,Ö¸¶¨ÇøÎ»ÖÃ¼°´óĞ¡
+		// åŠ è½½æµå›¾ç‰‡,æŒ‡å®šåŒºä½ç½®åŠå¤§å°
 		HIMAGE LoadMemory(const std::string& data) {
 			m_handle = XImage_LoadMemory((void*)data.c_str(), data.size());
 			return (HIMAGE)m_handle;
 		}
 
-		// ¼ÓÔØÁ÷Í¼Æ¬,Ö¸¶¨ÇøÎ»ÖÃ¼°´óĞ¡
+		// åŠ è½½æµå›¾ç‰‡,æŒ‡å®šåŒºä½ç½®åŠå¤§å°
 		HIMAGE LoadMemoryRect(const std::string& data, int x, int y, int cx, int cy) {
 			m_handle = XImage_LoadMemoryRect((void*)data.c_str(), data.size(), x, y, cx, cy);
 			return (HIMAGE)m_handle;
 		}
 
-		// ¼ÓÔØÁ÷Í¼Æ¬Ñ¹Ëõ°ü,×ÔÊÊÓ¦Í¼Æ¬(¾Å¹¬¸ñ)
+		// åŠ è½½æµå›¾ç‰‡å‹ç¼©åŒ…,è‡ªé€‚åº”å›¾ç‰‡(ä¹å®«æ ¼)
 		HIMAGE LoadMemoryAdaptive(const std::string& data, int leftSize, int topSize, int rightSize, int bottomSize) { 
 			m_handle = XImage_LoadMemoryAdaptive((void*)data.c_str(), data.size(), leftSize, topSize, rightSize, bottomSize);
 			return (HIMAGE)m_handle;
 		}
 
-		// ¼ÓÔØÍ¼Æ¬´ÓGDI+µÄImage¶ÔÏó
+		// åŠ è½½å›¾ç‰‡ä»GDI+çš„Imageå¯¹è±¡
 		HIMAGE LoadFromImage(void* pImage) { 
 			m_handle = XImage_LoadFromImage(pImage);
 			return (HIMAGE)m_handle;
 		}
 
-		// ¼ÓÔØÎÄ¼şÍ¼±ê,´ÓÒ»¸öEXEÎÄ¼ş»òDLLÎÄ¼ş»òÍ¼±êÎÄ¼ş;ÀıÈç:*.exeÎÄ¼şµÄÍ¼±ê
+		// åŠ è½½æ–‡ä»¶å›¾æ ‡,ä»ä¸€ä¸ªEXEæ–‡ä»¶æˆ–DLLæ–‡ä»¶æˆ–å›¾æ ‡æ–‡ä»¶;ä¾‹å¦‚:*.exeæ–‡ä»¶çš„å›¾æ ‡
 		HIMAGE LoadFromExtractIcon(const std::wstring& fileName) { 
 			m_handle = XImage_LoadFromExtractIcon(fileName.c_str());
 			return (HIMAGE)m_handle;
 		}
 
-		// ´´½¨Ò»¸öìÅ²ÊÍ¼Æ¬¾ä±ú,´ÓÒ»¸öÏÖÓĞµÄÍ¼±ê¾ä±úHICON.
+		// åˆ›å»ºä¸€ä¸ªç‚«å½©å›¾ç‰‡å¥æŸ„,ä»ä¸€ä¸ªç°æœ‰çš„å›¾æ ‡å¥æŸ„HICON.
 		HIMAGE LoadFromHICON(HICON hIcon) { 
 			m_handle = XImage_LoadFromHICON(hIcon);
 			return (HIMAGE)m_handle;
 		}
 
-		//  ´´½¨Ò»¸öìÅ²ÊÍ¼Æ¬¾ä±ú,´ÓÒ»¸öÏÖÓĞµÄÎ»Í¼¾ä±úHBITMAP
+		//  åˆ›å»ºä¸€ä¸ªç‚«å½©å›¾ç‰‡å¥æŸ„,ä»ä¸€ä¸ªç°æœ‰çš„ä½å›¾å¥æŸ„HBITMAP
 		HIMAGE LoadFromHBITMAP(HBITMAP hBitmap) { 
 			m_handle = XImage_LoadFromHBITMAP(hBitmap);
 			return (HIMAGE)m_handle;
 		}
 
-		// 	hSvg SVG¾ä±ú
+		// 	hSvg SVGå¥æŸ„
 		HIMAGE LoadSvg(HSVG hSvg) {
 			m_handle = XImage_LoadSvg(hSvg);
 			return (HIMAGE)m_handle;
 		}
 
-		// ¼ÓÔØ´ÓSVGÎÄ¼ş
+		// åŠ è½½ä»SVGæ–‡ä»¶
 		HIMAGE LoadSvgFile(const std::wstring& fileName) {
 			m_handle = XImage_LoadSvgFile(fileName.c_str());
 			return (HIMAGE)m_handle;
 		}
 
-		//  ¶à×Ö½Ú×Ö·û´®ANSI
+		//  å¤šå­—èŠ‚å­—ç¬¦ä¸²ANSI
 		HIMAGE LoadSvgString(const std::string& data) {
 			m_handle = XImage_LoadSvgString(data.c_str());
 			return (HIMAGE)m_handle;
 		}
 
-		// UNICODE×Ö·û´®
+		// UNICODEå­—ç¬¦ä¸²
 		HIMAGE LoadSvgStringW(const std::wstring& data) {
 			m_handle = XImage_LoadSvgStringW(data.c_str());
 			return (HIMAGE)m_handle;
 		}
 
-		//  ¼ÓÔØ´ÓSVG×Ö·û´®UTF8
+		//  åŠ è½½ä»SVGå­—ç¬¦ä¸²UTF8
 		HIMAGE LoadSvgStringUtf8(const std::string& data) {
 			m_handle = XImage_LoadSvgStringUtf8(data.c_str());
 			return (HIMAGE)m_handle;
 		}
 
-		// ÊÇ·ñÎªÀ­ÉìÍ¼Æ¬¾ä±ú
+		// æ˜¯å¦ä¸ºæ‹‰ä¼¸å›¾ç‰‡å¥æŸ„
 		bool IsStretch() { 
 			return XImage_IsStretch((HIMAGE)m_handle);
 		}
 
-		//	ÊÇ·ñÎªÆ½ÆÌÍ¼Æ¬
+		//	æ˜¯å¦ä¸ºå¹³é“ºå›¾ç‰‡
 		bool IsTile() { 
 			return XImage_IsTile((HIMAGE)m_handle);
 		}
 
 
-		// SVG¾ä±ú
+		// SVGå¥æŸ„
 		HSVG GetSvg() { 
 			return XImage_GetSvg((HIMAGE)m_handle);
 		}
 
-		// ÉèÖÃÍ¼Æ¬»æÖÆÀàĞÍ
+		// è®¾ç½®å›¾ç‰‡ç»˜åˆ¶ç±»å‹
 		bool SetDrawType(image_draw_type_ nType) { 
 			return XImage_SetDrawType((HIMAGE)m_handle, nType);
 		}
 
-		// ÉèÖÃÍ¼Æ¬×ÔÊÊÓ¦(¾Å¹¬¸ñ)
+		// è®¾ç½®å›¾ç‰‡è‡ªé€‚åº”(ä¹å®«æ ¼)
 		bool SetDrawTypeAdaptive(int leftSize, int topSize, int rightSize, int bottomSize) { 
 			return XImage_SetDrawTypeAdaptive((HIMAGE)m_handle, leftSize, topSize, rightSize, bottomSize);
 		}
 
-		// Ö¸¶¨Í¼Æ¬Í¸Ã÷ÑÕÉ«
+		// æŒ‡å®šå›¾ç‰‡é€æ˜é¢œè‰²
 		void SetTranColor(COLORREF color) { 
 			XImage_SetTranColor((HIMAGE)m_handle, color);
 		}
 
-		// Ö¸¶¨Í¼Æ¬Í¸Ã÷ÑÕÉ«¼°Í¸Ã÷¶È
+		// æŒ‡å®šå›¾ç‰‡é€æ˜é¢œè‰²åŠé€æ˜åº¦
 		void SetTranColorEx(COLORREF color, BYTE tranColor) { 
 			XImage_SetTranColorEx((HIMAGE)m_handle, color, tranColor);
 		}
 
-		// ÉèÖÃĞı×ª½Ç¶È
+		// è®¾ç½®æ—‹è½¬è§’åº¦
 		float SetRotateAngle(float fAngle) { 
 			return XImage_SetRotateAngle((HIMAGE)m_handle, fAngle);
 		}
 
-		// ÖÃµÈ·Ö()
+		// ç½®ç­‰åˆ†()
 		void SetSplitEqual(int nCount, int iIndex) { 
 			XImage_SetSplitEqual((HIMAGE)m_handle, nCount, iIndex);
 		}
 		
 
-		// ÆôÓÃ»ò¹Ø±ÕÍ¼Æ¬Í¸Ã÷É«
+		// å¯ç”¨æˆ–å…³é—­å›¾ç‰‡é€æ˜è‰²
 		void EnableTranColor(bool bEnable) {
 			XImage_EnableTranColor((HIMAGE)m_handle, bEnable);
 		}
 
-		// ÆôÓÃ»ò¹Ø±Õ×Ô¶¯Ïú»Ù,µ±ÓëUIÔªËØ¹ØÁªÊ±ÓĞĞ§
+		// å¯ç”¨æˆ–å…³é—­è‡ªåŠ¨é”€æ¯,å½“ä¸UIå…ƒç´ å…³è”æ—¶æœ‰æ•ˆ
 		void EnableAutoDestroy(bool bEnable) {
 			XImage_EnableAutoDestroy((HIMAGE)m_handle, bEnable);
 		}
 
 
-		// ÆôÓÃ»ò¹Ø±ÕÍ¼Æ¬¾ÓÖĞÏÔÊ¾£¬Ä¬ÈÏÊôĞÔÍ¼Æ¬ÓĞĞ§
+		// å¯ç”¨æˆ–å…³é—­å›¾ç‰‡å±…ä¸­æ˜¾ç¤ºï¼Œé»˜è®¤å±æ€§å›¾ç‰‡æœ‰æ•ˆ
 		void EnableCenter(bool bCenter) { 
 			XImage_EnableCenter((HIMAGE)m_handle, bCenter);
 		}
 
-		// ÅĞ¶ÏÍ¼Æ¬ÊÇ·ñ¾ÓÖĞÏÔÊ¾  
+		// åˆ¤æ–­å›¾ç‰‡æ˜¯å¦å±…ä¸­æ˜¾ç¤º  
 		bool IsCenter() { 
 			return XImage_IsCenter((HIMAGE)m_handle);
 		}
 		
 
-		// »ñÈ¡Í¼Æ¬»æÖÆÀàĞÍ
+		// è·å–å›¾ç‰‡ç»˜åˆ¶ç±»å‹
 		image_draw_type_ GetDrawType() { 
 			return XImage_GetDrawType((HIMAGE)m_handle);
 		}
 		
-		// »ñÈ¡Í¼Æ¬¿í¶È
+		// è·å–å›¾ç‰‡å®½åº¦
 		int GetWidth() { 
 			return XImage_GetWidth((HIMAGE)m_handle); 
 		}
 		
-		// »ñÈ¡Í¼Æ¬¸ß¶È.
+		// è·å–å›¾ç‰‡é«˜åº¦.
 		int GetHeight() { 
 			return XImage_GetHeight((HIMAGE)m_handle);
 		}
 
-		// ·µ»ØÍ¼Æ¬Ô´¾ä±ú
+		// è¿”å›å›¾ç‰‡æºå¥æŸ„
 		HIMAGE GetImageSrc() { 
 			return XImage_GetImageSrc((HIMAGE)m_handle);
 		}
 		
-		// Ôö¼ÓÒıÓÃ¼ÆÊı
+		// å¢åŠ å¼•ç”¨è®¡æ•°
 		void AddRef() { 
 			XImage_AddRef((HIMAGE)m_handle);
 		}
 		
-		// ÊÍ·ÅÒıÓÃ¼ÆÊı,µ±ÒıÓÃ¼ÆÊıÎª0Ê±,×Ô¶¯Ïú»Ù
+		// é‡Šæ”¾å¼•ç”¨è®¡æ•°,å½“å¼•ç”¨è®¡æ•°ä¸º0æ—¶,è‡ªåŠ¨é”€æ¯
 		void Release() { 
 			XImage_Release((HIMAGE)m_handle);
 		}
 		
-		// »ñÈ¡ÒıÓÃ¼ÆÊı
+		// è·å–å¼•ç”¨è®¡æ•°
 		int GetRefCount() { 
 			return XImage_GetRefCount((HIMAGE)m_handle);
 		}
 		
-		// Ç¿ÖÆÏú»ÙÍ¼Æ¬
+		// å¼ºåˆ¶é”€æ¯å›¾ç‰‡
 		void Destroy() { 
 			XImage_Destroy((HIMAGE)m_handle);
 		}
 
-		// 3.3.5 ĞÂÔö
-		// ÖÃËõ·Å´óĞ¡ ÆôÓÃËõ·ÅÊôĞÔºóÓĞĞ§,Öµ´óÓÚ0ÓĞĞ§
+		// 3.3.5 æ–°å¢
+		// ç½®ç¼©æ”¾å¤§å° å¯ç”¨ç¼©æ”¾å±æ€§åæœ‰æ•ˆ,å€¼å¤§äº0æœ‰æ•ˆ
 		void SetScaleSize(int width, int height) {
 			XImage_SetScaleSize((HIMAGE)m_handle, width, height);
 		}

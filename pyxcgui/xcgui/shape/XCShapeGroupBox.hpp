@@ -23,70 +23,70 @@ namespace xcgui {
 			return m_handle;
 		}
 
-		//@±¸×¢ ÉèÖÃ±ß¿òÑÕÉ«.  
-		//@²ÎÊı color ÑÕÉ«Öµ, ÇëÊ¹ÓÃºê: RGBA()
-		//@±ğÃû  ÖÃ±ß¿òÑÕÉ«()
+		//@å¤‡æ³¨ è®¾ç½®è¾¹æ¡†é¢œè‰².  
+		//@å‚æ•° color é¢œè‰²å€¼, è¯·ä½¿ç”¨å®: RGBA()
+		//@åˆ«å  ç½®è¾¹æ¡†é¢œè‰²()
 		void SetBorderColor(COLORREF color) {
 			XShapeGroupBox_SetBorderColor(m_handle, color);
 		}
 
-		//@±¸×¢ ÉèÖÃÎÄ±¾ÑÕÉ«.  
-		//@²ÎÊı color ÑÕÉ«Öµ, ÇëÊ¹ÓÃºê: RGBA()
-		//@±ğÃû  ÖÃÎÄ±¾ÑÕÉ«()
+		//@å¤‡æ³¨ è®¾ç½®æ–‡æœ¬é¢œè‰².  
+		//@å‚æ•° color é¢œè‰²å€¼, è¯·ä½¿ç”¨å®: RGBA()
+		//@åˆ«å  ç½®æ–‡æœ¬é¢œè‰²()
 		void SetTextColor(COLORREF color) {
 			XShapeGroupBox_SetTextColor(m_handle, color);
 		}
 
-		//@±¸×¢ ÉèÖÃ×ÖÌå.  
-		//@²ÎÊı hFontX ìÅ²Ê×ÖÌå.
-		//@±ğÃû  ÖÃ×ÖÌå()
+		//@å¤‡æ³¨ è®¾ç½®å­—ä½“.  
+		//@å‚æ•° hFontX ç‚«å½©å­—ä½“.
+		//@åˆ«å  ç½®å­—ä½“()
 		void SetFontX(HFONTX hFontX) {
 			XShapeGroupBox_SetFontX(m_handle, hFontX);
 		}
 
-		//@±¸×¢ ÉèÖÃÎÄ±¾Æ«ÒÆÁ¿.  
-		//@²ÎÊı offsetX Ë®Æ½Æ«ÒÆ.
-		//@²ÎÊı offsetY ´¹Ö±Æ«ÒÆ.
-		//@±ğÃû  ÖÃÎÄ±¾Æ«ÒÆ()
+		//@å¤‡æ³¨ è®¾ç½®æ–‡æœ¬åç§»é‡.  
+		//@å‚æ•° offsetX æ°´å¹³åç§».
+		//@å‚æ•° offsetY å‚ç›´åç§».
+		//@åˆ«å  ç½®æ–‡æœ¬åç§»()
 		void SetTextOffset(int offsetX, int offsetY) {
 			XShapeGroupBox_SetTextOffset(m_handle, offsetX, offsetY);
 		}
 
-		//@±¸×¢ ÉèÖÃÔ²½Ç´óĞ¡.  
-		//@²ÎÊı nWidth Ô²½Ç¿í¶È.
-		//@²ÎÊı nHeight Ô²½Ç¸ß¶È.
-		//@±ğÃû  ÖÃÔ²½Ç´óĞ¡()
+		//@å¤‡æ³¨ è®¾ç½®åœ†è§’å¤§å°.  
+		//@å‚æ•° nWidth åœ†è§’å®½åº¦.
+		//@å‚æ•° nHeight åœ†è§’é«˜åº¦.
+		//@åˆ«å  ç½®åœ†è§’å¤§å°()
 		void SetRoundAngle(int nWidth, int nHeight) {
 			XShapeGroupBox_SetRoundAngle(m_handle, nWidth, nHeight);
 		}
 
-		//@±¸×¢ ÉèÖÃÎÄ±¾ÄÚÈİ.  
-		//@²ÎÊı pText ÎÄ±¾ÄÚÈİ.
-		//@±ğÃû  ÖÃÎÄ±¾()
+		//@å¤‡æ³¨ è®¾ç½®æ–‡æœ¬å†…å®¹.  
+		//@å‚æ•° pText æ–‡æœ¬å†…å®¹.
+		//@åˆ«å  ç½®æ–‡æœ¬()
 		void SetText(const std::wstring& text) {
 			XShapeGroupBox_SetText(m_handle, text.c_str());
 		}
 
-		//@±¸×¢ »ñÈ¡ÎÄ±¾Æ«ÒÆÁ¿.  
-		//@²ÎÊı pOffsetX X×ø±êÆ«ÒÆÁ¿.
-		//@²ÎÊı pOffsetY Y×ø±êÆ«ÒÆÁ¿.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  È¡ÎÄ±¾Æ«ÒÆ()
+		//@å¤‡æ³¨ è·å–æ–‡æœ¬åç§»é‡.  
+		//@å‚æ•° pOffsetX Xåæ ‡åç§»é‡.
+		//@å‚æ•° pOffsetY Yåæ ‡åç§»é‡.
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  å–æ–‡æœ¬åç§»()
 		void GetTextOffset(int* pOffsetX, int* pOffsetY) {
 			XShapeGroupBox_GetTextOffset(m_handle, pOffsetX, pOffsetY);
 		}
 
-		//@±¸×¢ »ñÈ¡Ô²½Ç´óĞ¡.  
-		//@²ÎÊı pWidth ·µ»ØÔ²½Ç¿í¶È.
-		//@²ÎÊı pHeight ·µ»ØÔ²½Ç¸ß¶È.
-		//@±ğÃû  È¡Ô²½Ç´óĞ¡()
+		//@å¤‡æ³¨ è·å–åœ†è§’å¤§å°.  
+		//@å‚æ•° pWidth è¿”å›åœ†è§’å®½åº¦.
+		//@å‚æ•° pHeight è¿”å›åœ†è§’é«˜åº¦.
+		//@åˆ«å  å–åœ†è§’å¤§å°()
 		void GetRoundAngle(int* pWidth, int* pHeight) {
 			XShapeGroupBox_GetRoundAngle(m_handle, pWidth, pHeight);
 		}
 
-		//@±¸×¢ ÆôÓÃÔ²½Ç.  
-		//@²ÎÊı bEnable ÊÇ·ñÆôÓÃ.
-		//@±ğÃû  ÆôÓÃÔ²½Ç()
+		//@å¤‡æ³¨ å¯ç”¨åœ†è§’.  
+		//@å‚æ•° bEnable æ˜¯å¦å¯ç”¨.
+		//@åˆ«å  å¯ç”¨åœ†è§’()
 		void EnableRoundAngle(bool bEnable) {
 			XShapeGroupBox_EnableRoundAngle(m_handle, bEnable);
 		}

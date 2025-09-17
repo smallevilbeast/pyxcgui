@@ -23,36 +23,36 @@ namespace xcgui {
 			return XMonthCal_GetButton(getEleHandle(), nType);
 		}
 
-		//@±¸×¢ ÉèÖÃÔÂÀúµ±Ç°ÄêÔÂÈÕ.  
-		//@²ÎÊı nYear Äê.
-		//@²ÎÊı nMonth ÔÂ.
-		//@²ÎÊı nDay ÈÕ.
-		//@±ğÃû  ÖÃµ±Ç°ÈÕÆÚ()
+		//@å¤‡æ³¨ è®¾ç½®æœˆå†å½“å‰å¹´æœˆæ—¥.  
+		//@å‚æ•° nYear å¹´.
+		//@å‚æ•° nMonth æœˆ.
+		//@å‚æ•° nDay æ—¥.
+		//@åˆ«å  ç½®å½“å‰æ—¥æœŸ()
 		void SetToday(int nYear, int nMonth, int nDay) {
 			XMonthCal_SetToday(getEleHandle(), nYear, nMonth, nDay);
 		}
 
-		//@±¸×¢ »ñÈ¡ÔÂÀúµ±Ç°ÄêÔÂÈÕ.  
-		//@²ÎÊı pnYear Äê.[INT,OUT]
-		//@²ÎÊı pnMonth ÔÂ.[INT,OUT]
-		//@²ÎÊı pnDay ÈÕ.[INT,OUT]
-		//@±ğÃû  È¡µ±Ç°ÈÕÆÚ()
+		//@å¤‡æ³¨ è·å–æœˆå†å½“å‰å¹´æœˆæ—¥.  
+		//@å‚æ•° pnYear å¹´.[INT,OUT]
+		//@å‚æ•° pnMonth æœˆ.[INT,OUT]
+		//@å‚æ•° pnDay æ—¥.[INT,OUT]
+		//@åˆ«å  å–å½“å‰æ—¥æœŸ()
 		void GetToday(int* pnYear, int* pnMonth, int* pnDay) {
 			XMonthCal_GetToday(getEleHandle(), pnYear, pnMonth, pnDay);
 		}
 
-		//@±¸×¢ »ñÈ¡ÔÂÀúÑ¡ÖĞµÄÄêÔÂÈÕ.  
-		//@²ÎÊı pnYear Äê.[INT,OUT]
-		//@²ÎÊı pnMonth ÔÂ.[INT,OUT]
-		//@²ÎÊı pnDay ÈÕ.[INT,OUT]
-		//@±ğÃû  È¡Ñ¡ÔñÈÕÆÚ()
+		//@å¤‡æ³¨ è·å–æœˆå†é€‰ä¸­çš„å¹´æœˆæ—¥.  
+		//@å‚æ•° pnYear å¹´.[INT,OUT]
+		//@å‚æ•° pnMonth æœˆ.[INT,OUT]
+		//@å‚æ•° pnDay æ—¥.[INT,OUT]
+		//@åˆ«å  å–é€‰æ‹©æ—¥æœŸ()
 		void GetSelDate(int* pnYear, int* pnMonth, int* pnDay) {
 			XMonthCal_GetSelDate(getEleHandle(), pnYear, pnMonth, pnDay);
 		}
 
-		//@²ÎÊı nFlag 1:ÖÜÁù,ÖÜÈÕÎÄ×ÖÑÕÉ«, 2:ÈÕÆÚÎÄ×ÖµÄÑÕÉ«;  ÆäËüÖÜÎÄ×ÖÑÕÉ«, Ê¹ÓÃÔªËØ×ÔÉíÑÕÉ«
-		//@²ÎÊı color ÑÕÉ«Öµ
-		//@±ğÃû  ÖÃÎÄ±¾ÑÕÉ«()
+		//@å‚æ•° nFlag 1:å‘¨å…­,å‘¨æ—¥æ–‡å­—é¢œè‰², 2:æ—¥æœŸæ–‡å­—çš„é¢œè‰²;  å…¶å®ƒå‘¨æ–‡å­—é¢œè‰², ä½¿ç”¨å…ƒç´ è‡ªèº«é¢œè‰²
+		//@å‚æ•° color é¢œè‰²å€¼
+		//@åˆ«å  ç½®æ–‡æœ¬é¢œè‰²()
 		void SetTextColor(int nFlag, COLORREF color) {
 			XMonthCal_SetTextColor(getEleHandle(), nFlag, color);
 		}

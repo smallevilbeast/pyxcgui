@@ -82,7 +82,7 @@ namespace xcgui {
 		// define
 		declareDefine(m);
 
-		// ËùÓĞÃ¶¾ÙÀàĞÍ
+		// æ‰€æœ‰æšä¸¾ç±»å‹
 		declareEnum(m);
 
 		// base
@@ -94,7 +94,7 @@ namespace xcgui {
 		// layoutBox
 		declareLayoutBox(m);
 
-		// ËùÓĞstruct
+		// æ‰€æœ‰struct
 		declareStruct(m);
 
 		// auto struct

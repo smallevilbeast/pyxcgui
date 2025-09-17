@@ -21,725 +21,725 @@ namespace xcgui {
 			m_handle = XList_Create(x, y, width, height, parent);
 		}
 
-		//@±¸×¢ Ôö¼ÓÁĞ.  
-		//@²ÎÊı width ÁĞ¿í¶È.
-		//@·µ»Ø ·µ»ØÎ»ÖÃË÷Òı.
-		//@±ğÃû  Ôö¼ÓÁĞ()
+		//@å¤‡æ³¨ å¢åŠ åˆ—.  
+		//@å‚æ•° width åˆ—å®½åº¦.
+		//@è¿”å› è¿”å›ä½ç½®ç´¢å¼•.
+		//@åˆ«å  å¢åŠ åˆ—()
 		int AddColumn(int width) {
 			return XList_AddColumn(getEleHandle(), width);
 		}
 
-		//@±¸×¢ ²åÈëÁĞ.  
-		//@²ÎÊı width ÁĞ¿í¶È.
-		//@²ÎÊı iRow ²åÈëÎ»ÖÃË÷Òı.
-		//@·µ»Ø ·µ»Ø²åÈëÎ»ÖÃË÷Òı.
-		//@±ğÃû  ²åÈëÁĞ()
+		//@å¤‡æ³¨ æ’å…¥åˆ—.  
+		//@å‚æ•° width åˆ—å®½åº¦.
+		//@å‚æ•° iRow æ’å…¥ä½ç½®ç´¢å¼•.
+		//@è¿”å› è¿”å›æ’å…¥ä½ç½®ç´¢å¼•.
+		//@åˆ«å  æ’å…¥åˆ—()
 		int InsertColumn(int width, int iRow) {
 			return XList_InsertColumn(getEleHandle(), width, iRow);
 		}
 
-		//@±¸×¢ ÆôÓÃ»ò¹Ø±Õ¶àÑ¡¹¦ÄÜ.  
-		//@²ÎÊı bEnable ÊÇ·ñÆôÓÃ.
-		//@±ğÃû  ÆôÓÃ¶àÑ¡()
+		//@å¤‡æ³¨ å¯ç”¨æˆ–å…³é—­å¤šé€‰åŠŸèƒ½.  
+		//@å‚æ•° bEnable æ˜¯å¦å¯ç”¨.
+		//@åˆ«å  å¯ç”¨å¤šé€‰()
 		void EnableMultiSel(bool bEnable) {
 			XList_EnableMultiSel(getEleHandle(), bEnable);
 		}
 
-		//@±¸×¢ ÆôÓÃÍÏ¶¯¸Ä±äÁĞ¿í¶È.  
-		//@²ÎÊı bEnable ÊÇ·ñÆôÓÃ.
-		//@±ğÃû  ÆôÓÃÍÏ¶¯¸ü¸ÄÁĞ¿í()
+		//@å¤‡æ³¨ å¯ç”¨æ‹–åŠ¨æ”¹å˜åˆ—å®½åº¦.  
+		//@å‚æ•° bEnable æ˜¯å¦å¯ç”¨.
+		//@åˆ«å  å¯ç”¨æ‹–åŠ¨æ›´æ”¹åˆ—å®½()
 		void EnableDragChangeColumnWidth(bool bEnable) {
 			XList_EnableDragChangeColumnWidth(getEleHandle(), bEnable);
 		}
 
-		//@±¸×¢ ÆôÓÃ´¹Ö±¹ö¶¯Ìõ¶¥²¿¶ÔÆë.  
-		//@²ÎÊı bTop ÊÇ·ñÆôÓÃ.
-		//@±ğÃû  ÆôÓÃ´¹Ö±¹ö¶¯Ìõ¶¥²¿¶ÔÆë()
+		//@å¤‡æ³¨ å¯ç”¨å‚ç›´æ»šåŠ¨æ¡é¡¶éƒ¨å¯¹é½.  
+		//@å‚æ•° bTop æ˜¯å¦å¯ç”¨.
+		//@åˆ«å  å¯ç”¨å‚ç›´æ»šåŠ¨æ¡é¡¶éƒ¨å¯¹é½()
 		void EnableVScrollBarTop(bool bTop) {
 			XList_EnableVScrollBarTop(getEleHandle(), bTop);
 		}
 
-		//@±¸×¢ ÆôÓÃÏî±³¾°È«ĞĞÌî³äÄ£Ê½.  
-		//@²ÎÊı bFull ÊÇ·ñÆôÓÃ.
-		//@±ğÃû  ÆôÓÃÏî±³¾°È«ĞĞÄ£Ê½()
+		//@å¤‡æ³¨ å¯ç”¨é¡¹èƒŒæ™¯å…¨è¡Œå¡«å……æ¨¡å¼.  
+		//@å‚æ•° bFull æ˜¯å¦å¯ç”¨.
+		//@åˆ«å  å¯ç”¨é¡¹èƒŒæ™¯å…¨è¡Œæ¨¡å¼()
 		void EnableItemBkFullRow(bool bFull) {
 			XList_EnableItemBkFullRow(getEleHandle(), bFull);
 		}
 
-		//@²ÎÊı bEnable ÊÇ·ñÆôÓÃ
-		//@±ğÃû  ÆôÓÃ¹Ì¶¨ĞĞ¸ß()
+		//@å‚æ•° bEnable æ˜¯å¦å¯ç”¨
+		//@åˆ«å  å¯ç”¨å›ºå®šè¡Œé«˜()
 		void EnableFixedRowHeight(bool bEnable) {
 			XList_EnableFixedRowHeight(getEleHandle(), bEnable);
 		}
 
-		//@²ÎÊı bEnable ÊÇ·ñÆôÓÃ
-		//@±ğÃû  ÆôÓÃÄ£°å¸´ÓÃ()
+		//@å‚æ•° bEnable æ˜¯å¦å¯ç”¨
+		//@åˆ«å  å¯ç”¨æ¨¡æ¿å¤ç”¨()
 		void EnablemTemplateReuse(bool bEnable) {
 			XList_EnablemTemplateReuse(getEleHandle(), bEnable);
 		}
 
-		//@²ÎÊı bEnable ÊÇ·ñÆôÓÃ
-		//@±ğÃû  ÆôÓÃĞé±í()
+		//@å‚æ•° bEnable æ˜¯å¦å¯ç”¨
+		//@åˆ«å  å¯ç”¨è™šè¡¨()
 		void EnableVirtualTable(bool bEnable) {
 			XList_EnableVirtualTable(getEleHandle(), bEnable);
 		}
 
-		//@²ÎÊı nRowCount ĞĞÊı
-		//@±ğÃû  ÖÃĞé±íĞĞÊı()
+		//@å‚æ•° nRowCount è¡Œæ•°
+		//@åˆ«å  ç½®è™šè¡¨è¡Œæ•°()
 		void SetVirtualRowCount(int nRowCount) {
 			XList_SetVirtualRowCount(getEleHandle(), nRowCount);
 		}
 
-		//@±¸×¢ ÉèÖÃÅÅĞòÊôĞÔ.  
-		//@²ÎÊı iColumn ÁĞË÷Òı.
-		//@²ÎÊı iColumnAdapter ĞèÒªÅÅĞòµÄÊı¾İÔÚÊı¾İÊÊÅäÆ÷ÖĞµÄÁĞË÷Òı.
-		//@²ÎÊı bEnable ÊÇ·ñÆôÓÃÅÅĞò¹¦ÄÜ.
-		//@±ğÃû  ÖÃÅÅĞò()
+		//@å¤‡æ³¨ è®¾ç½®æ’åºå±æ€§.  
+		//@å‚æ•° iColumn åˆ—ç´¢å¼•.
+		//@å‚æ•° iColumnAdapter éœ€è¦æ’åºçš„æ•°æ®åœ¨æ•°æ®é€‚é…å™¨ä¸­çš„åˆ—ç´¢å¼•.
+		//@å‚æ•° bEnable æ˜¯å¦å¯ç”¨æ’åºåŠŸèƒ½.
+		//@åˆ«å  ç½®æ’åº()
 		void SetSort(int iColumn, int iColumnAdapter, bool bEnable) {
 			XList_SetSort(getEleHandle(), iColumn, iColumnAdapter, bEnable);
 		}
 
-		//@±¸×¢ ÉèÖÃÊÇ·ñ»æÖÆÖ¸¶¨×´Ì¬ÏÂÏîµÄ±³¾°.  
-		//@²ÎÊı nFlags ±êÖ¾Î» @ref list_drawItemBk_flag_.
-		//@±ğÃû  ÖÃ»æÖÆÏî±³¾°±êÖ¾()
+		//@å¤‡æ³¨ è®¾ç½®æ˜¯å¦ç»˜åˆ¶æŒ‡å®šçŠ¶æ€ä¸‹é¡¹çš„èƒŒæ™¯.  
+		//@å‚æ•° nFlags æ ‡å¿—ä½ @ref list_drawItemBk_flag_.
+		//@åˆ«å  ç½®ç»˜åˆ¶é¡¹èƒŒæ™¯æ ‡å¿—()
 		void SetDrawItemBkFlags(int style) {
 			XList_SetDrawItemBkFlags(getEleHandle(), style);
 		}
 
-		//@²ÎÊı color ÑÕÉ«Öµ, ÇëÊ¹ÓÃºê: RGBA()
-		//@±ğÃû  ÖÃ·Ö¸îÏßÑÕÉ«()
+		//@å‚æ•° color é¢œè‰²å€¼, è¯·ä½¿ç”¨å®: RGBA()
+		//@åˆ«å  ç½®åˆ†å‰²çº¿é¢œè‰²()
 		void SetSplitLineColor(COLORREF color) {
 			XList_SetSplitLineColor(getEleHandle(), color);
 		}
 
-		//@±¸×¢ ÉèÖÃÁĞ¿í¶È.  
-		//@²ÎÊı iRow ÁĞË÷Òı.
-		//@²ÎÊı width ¿í¶È.
-		//@±ğÃû  ÖÃÁĞ¿í()
+		//@å¤‡æ³¨ è®¾ç½®åˆ—å®½åº¦.  
+		//@å‚æ•° iRow åˆ—ç´¢å¼•.
+		//@å‚æ•° width å®½åº¦.
+		//@åˆ«å  ç½®åˆ—å®½()
 		void SetColumnWidth(int iRow, int width) {
 			XList_SetColumnWidth(getEleHandle(), iRow, width);
 		}
 
-		//@±¸×¢ ÉèÖÃÁĞ×îĞ¡¿í¶È.  
-		//@²ÎÊı iRow ÁĞË÷Òı.
-		//@²ÎÊı width ¿í¶È.
-		//@±ğÃû  ÖÃÁĞ×îĞ¡¿í¶È()
+		//@å¤‡æ³¨ è®¾ç½®åˆ—æœ€å°å®½åº¦.  
+		//@å‚æ•° iRow åˆ—ç´¢å¼•.
+		//@å‚æ•° width å®½åº¦.
+		//@åˆ«å  ç½®åˆ—æœ€å°å®½åº¦()
 		void SetColumnMinWidth(int iRow, int width) {
 			XList_SetColumnMinWidth(getEleHandle(), iRow, width);
 		}
 
-		//@±¸×¢ ÉèÖÃÖ¸¶¨ÁĞ¿í¶È¹Ì¶¨.  
-		//@²ÎÊı iColumn ÁĞË÷Òı.
-		//@²ÎÊı bFixed ÊÇ·ñ¹Ì¶¨¿í¶È.
-		//@±ğÃû  ÖÃÁĞ¿í¶È¹Ì¶¨()
+		//@å¤‡æ³¨ è®¾ç½®æŒ‡å®šåˆ—å®½åº¦å›ºå®š.  
+		//@å‚æ•° iColumn åˆ—ç´¢å¼•.
+		//@å‚æ•° bFixed æ˜¯å¦å›ºå®šå®½åº¦.
+		//@åˆ«å  ç½®åˆ—å®½åº¦å›ºå®š()
 		void SetColumnWidthFixed(int iColumn, bool bFixed) {
 			XList_SetColumnWidthFixed(getEleHandle(), iColumn, bFixed);
 		}
 
-		//@±¸×¢ »ñÈ¡Ö¸¶¨ÁĞ¿í¶È.  
-		//@²ÎÊı iColumn ÁĞË÷Òı.
-		//@·µ»Ø ·µ»ØÖ¸¶¨ÁĞ¿í¶È.
-		//@±ğÃû  È¡ÁĞ¿í¶È()
+		//@å¤‡æ³¨ è·å–æŒ‡å®šåˆ—å®½åº¦.  
+		//@å‚æ•° iColumn åˆ—ç´¢å¼•.
+		//@è¿”å› è¿”å›æŒ‡å®šåˆ—å®½åº¦.
+		//@åˆ«å  å–åˆ—å®½åº¦()
 		int GetColumnWidth(int iColumn) {
 			return XList_GetColumnWidth(getEleHandle(), iColumn);
 		}
 
-		//@±¸×¢ »ñÈ¡ÁĞÊıÁ¿.  
-		//@·µ»Ø ·µ»ØÁĞÊıÁ¿.
-		//@±ğÃû  È¡ÁĞÊıÁ¿()
+		//@å¤‡æ³¨ è·å–åˆ—æ•°é‡.  
+		//@è¿”å› è¿”å›åˆ—æ•°é‡.
+		//@åˆ«å  å–åˆ—æ•°é‡()
 		int GetColumnCount() {
 			return XList_GetColumnCount(getEleHandle());
 		}
 
-		//@±¸×¢ ÉèÖÃÏîÓÃ»§Êı¾İ.  
-		//@²ÎÊı iRow ĞĞË÷Òı.
-		//@²ÎÊı iColumn ÁĞË÷Òı.
-		//@²ÎÊı data ÓÃ»§Êı¾İ.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÖÃÏîÊı¾İ()
+		//@å¤‡æ³¨ è®¾ç½®é¡¹ç”¨æˆ·æ•°æ®.  
+		//@å‚æ•° iRow è¡Œç´¢å¼•.
+		//@å‚æ•° iColumn åˆ—ç´¢å¼•.
+		//@å‚æ•° data ç”¨æˆ·æ•°æ®.
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  ç½®é¡¹æ•°æ®()
 		bool SetItemData(int iRow, int iColumn, int data) {
 			return XList_SetItemData(getEleHandle(), iRow, iColumn, data);
 		}
 
-		//@±¸×¢ »ñÈ¡ÏîÓÃ»§Êı¾İ.  
-		//@²ÎÊı iRow ĞĞË÷Òı.
-		//@²ÎÊı iColumn ÁĞË÷Òı.
-		//@·µ»Ø ·µ»ØÓÃ»§Êı¾İ.
-		//@±ğÃû  È¡ÏîÊı¾İ()
+		//@å¤‡æ³¨ è·å–é¡¹ç”¨æˆ·æ•°æ®.  
+		//@å‚æ•° iRow è¡Œç´¢å¼•.
+		//@å‚æ•° iColumn åˆ—ç´¢å¼•.
+		//@è¿”å› è¿”å›ç”¨æˆ·æ•°æ®.
+		//@åˆ«å  å–é¡¹æ•°æ®()
 		int GetItemData(int iRow, int iColumn) {
 			return XList_GetItemData(getEleHandle(), iRow, iColumn);
 		}
 
-		//@±¸×¢ ÉèÖÃÑ¡ÔñÏî.  
-		//@²ÎÊı iRow ĞĞË÷Òı.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÖÃÑ¡ÔñÏî()
+		//@å¤‡æ³¨ è®¾ç½®é€‰æ‹©é¡¹.  
+		//@å‚æ•° iRow è¡Œç´¢å¼•.
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  ç½®é€‰æ‹©é¡¹()
 		bool SetSelectItem(int iRow) {
 			return XList_SetSelectItem(getEleHandle(), iRow);
 		}
 
-		//@±¸×¢ »ñÈ¡Ñ¡ÔñÏî.  
-		//@·µ»Ø ĞĞË÷Òı.
-		//@±ğÃû  È¡Ñ¡ÔñÏî()
+		//@å¤‡æ³¨ è·å–é€‰æ‹©é¡¹.  
+		//@è¿”å› è¡Œç´¢å¼•.
+		//@åˆ«å  å–é€‰æ‹©é¡¹()
 		int GetSelectItem() {
 			return XList_GetSelectItem(getEleHandle());
 		}
 
-		//@±¸×¢ »ñÈ¡Ñ¡ÔñÏîÊıÁ¿.  
-		//@·µ»Ø ·µ»ØÑ¡ÔñÏîÊıÁ¿.
-		//@±ğÃû  È¡Ñ¡ÔñÏîÊıÁ¿()
+		//@å¤‡æ³¨ è·å–é€‰æ‹©é¡¹æ•°é‡.  
+		//@è¿”å› è¿”å›é€‰æ‹©é¡¹æ•°é‡.
+		//@åˆ«å  å–é€‰æ‹©é¡¹æ•°é‡()
 		int GetSelectItemCount() {
 			return XList_GetSelectItemCount(getEleHandle());
 		}
 
-		//@²ÎÊı iRow ĞĞË÷Òı
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  Ìí¼ÓÑ¡ÔñÏî()
+		//@å‚æ•° iRow è¡Œç´¢å¼•
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  æ·»åŠ é€‰æ‹©é¡¹()
 		bool AddSelectItem(int iRow) {
 			return XList_AddSelectItem(getEleHandle(), iRow);
 		}
 
-		//@±¸×¢ Ñ¡ÔñÈ«²¿ĞĞ.  
-		//@±ğÃû  ÖÃÑ¡ÔñÈ«²¿()
+		//@å¤‡æ³¨ é€‰æ‹©å…¨éƒ¨è¡Œ.  
+		//@åˆ«å  ç½®é€‰æ‹©å…¨éƒ¨()
 		void SetSelectAll() {
 			XList_SetSelectAll(getEleHandle());
 		}
 
-		//@±¸×¢ »ñÈ¡È«²¿Ñ¡ÔñµÄĞĞ.  
-		//@²ÎÊı pArray ½ÓÊÕĞĞË÷ÒıÊı×é.
-		//@²ÎÊı nArraySize Êı×é´óĞ¡.
-		//@·µ»Ø ·µ»ØĞĞÊıÁ¿.
-		//@±ğÃû  È¡È«²¿Ñ¡Ôñ()
+		//@å¤‡æ³¨ è·å–å…¨éƒ¨é€‰æ‹©çš„è¡Œ.  
+		//@å‚æ•° pArray æ¥æ”¶è¡Œç´¢å¼•æ•°ç»„.
+		//@å‚æ•° nArraySize æ•°ç»„å¤§å°.
+		//@è¿”å› è¿”å›è¡Œæ•°é‡.
+		//@åˆ«å  å–å…¨éƒ¨é€‰æ‹©()
 		int GetSelectAll(int* pArray, int nArraySize) {
 			return XList_GetSelectAll(getEleHandle(), pArray, nArraySize);
 		}
 
-		//@±¸×¢ ¹ö¶¯ÊÓÍ¼ÈÃÖ¸¶¨Ïî¿É¼û  
-		//@²ÎÊı iRow ĞĞË÷Òı.
-		//@±ğÃû  ÏÔÊ¾Ö¸¶¨Ïî()
+		//@å¤‡æ³¨ æ»šåŠ¨è§†å›¾è®©æŒ‡å®šé¡¹å¯è§  
+		//@å‚æ•° iRow è¡Œç´¢å¼•.
+		//@åˆ«å  æ˜¾ç¤ºæŒ‡å®šé¡¹()
 		void VisibleItem(int iRow) {
 			XList_VisibleItem(getEleHandle(), iRow);
 		}
 
-		//@±¸×¢ È¡ÏûÑ¡ÔñÖ¸¶¨Ïî(ÕâÀïµÄÏî¿ÉÒÔÀí½âÎªĞĞ).  
-		//@²ÎÊı iRow ĞĞË÷Òı.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  È¡ÏûÑ¡ÔñÏî()
+		//@å¤‡æ³¨ å–æ¶ˆé€‰æ‹©æŒ‡å®šé¡¹(è¿™é‡Œçš„é¡¹å¯ä»¥ç†è§£ä¸ºè¡Œ).  
+		//@å‚æ•° iRow è¡Œç´¢å¼•.
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  å–æ¶ˆé€‰æ‹©é¡¹()
 		bool CancelSelectItem(int iRow) {
 			return XList_CancelSelectItem(getEleHandle(), iRow);
 		}
 
-		//@±¸×¢ È¡ÏûÑ¡ÔñËùÓĞÏî(ÕâÀïµÄÏî¿ÉÒÔÀí½âÎªĞĞ).  
-		//@±ğÃû  È¡ÏûÈ«²¿Ñ¡ÔñÏî()
+		//@å¤‡æ³¨ å–æ¶ˆé€‰æ‹©æ‰€æœ‰é¡¹(è¿™é‡Œçš„é¡¹å¯ä»¥ç†è§£ä¸ºè¡Œ).  
+		//@åˆ«å  å–æ¶ˆå…¨éƒ¨é€‰æ‹©é¡¹()
 		void CancelSelectAll() {
 			XList_CancelSelectAll(getEleHandle());
 		}
 
-		//@±¸×¢ »ñÈ¡ÁĞ±íÍ·ÔªËØ.  
-		//@·µ»Ø ·µ»ØÁĞ±íÍ·ÔªËØ¾ä±ú.
-		//@±ğÃû  È¡ÁĞ±íÍ·()
+		//@å¤‡æ³¨ è·å–åˆ—è¡¨å¤´å…ƒç´ .  
+		//@è¿”å› è¿”å›åˆ—è¡¨å¤´å…ƒç´ å¥æŸ„.
+		//@åˆ«å  å–åˆ—è¡¨å¤´()
 		HELE GetHeaderHELE() {
 			return XList_GetHeaderHELE(getEleHandle());
 		}
 
-		//@±¸×¢ É¾³ıÁĞ.  
-		//@²ÎÊı iRow ĞĞË÷Òı.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  É¾³ıÁĞ()
+		//@å¤‡æ³¨ åˆ é™¤åˆ—.  
+		//@å‚æ•° iRow è¡Œç´¢å¼•.
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  åˆ é™¤åˆ—()
 		bool DeleteColumn(int iRow) {
 			return XList_DeleteColumn(getEleHandle(), iRow);
 		}
 
-		//@±¸×¢ É¾³ıËùÓĞµÄÁĞ,½öÉ¾³ıListµÄ, Êı¾İÊÊÅäÆ÷µÄÁĞ²»±ä.   
-		//@±ğÃû  É¾³ıÈ«²¿ÁĞ()
+		//@å¤‡æ³¨ åˆ é™¤æ‰€æœ‰çš„åˆ—,ä»…åˆ é™¤Listçš„, æ•°æ®é€‚é…å™¨çš„åˆ—ä¸å˜.   
+		//@åˆ«å  åˆ é™¤å…¨éƒ¨åˆ—()
 		void DeleteColumnAll() {
 			XList_DeleteColumnAll(getEleHandle());
 		}
 
-		//@±¸×¢ °ó¶¨Êı¾İÊÊÅäÆ÷.  
-		//@²ÎÊı hAdapter Êı¾İÊÊÅäÆ÷¾ä±ú XAdTable.
-		//@±ğÃû  °ó¶¨Êı¾İÊÊÅäÆ÷()
+		//@å¤‡æ³¨ ç»‘å®šæ•°æ®é€‚é…å™¨.  
+		//@å‚æ•° hAdapter æ•°æ®é€‚é…å™¨å¥æŸ„ XAdTable.
+		//@åˆ«å  ç»‘å®šæ•°æ®é€‚é…å™¨()
 		void BindAdapter(HXCGUI hAdapter) {
 			XList_BindAdapter(getEleHandle(), hAdapter);
 		}
 
-		//@±¸×¢ ÁĞ±íÍ·°ó¶¨Êı¾İÊÊÅäÆ÷.  
-		//@²ÎÊı hAdapter Êı¾İÊÊÅäÆ÷¾ä±ú XAdMap.
-		//@±ğÃû  ÁĞ±íÍ·°ó¶¨Êı¾İÊÊÅäÆ÷()
+		//@å¤‡æ³¨ åˆ—è¡¨å¤´ç»‘å®šæ•°æ®é€‚é…å™¨.  
+		//@å‚æ•° hAdapter æ•°æ®é€‚é…å™¨å¥æŸ„ XAdMap.
+		//@åˆ«å  åˆ—è¡¨å¤´ç»‘å®šæ•°æ®é€‚é…å™¨()
 		void BindAdapterHeader(HXCGUI hAdapter) {
 			XList_BindAdapterHeader(getEleHandle(), hAdapter);
 		}
 
-		//@±¸×¢ ´´½¨Êı¾İÊÊÅäÆ÷£¬¸ù¾İ°ó¶¨µÄÏîÄ£°å³õÊ¼»¯Êı¾İÊÊÅäÆ÷µÄÁĞ.  
-		//@·µ»Ø ·µ»ØÊÊÅäÆ÷¾ä±ú.
-		//@±ğÃû  ´´½¨Êı¾İÊÊÅäÆ÷()
+		//@å¤‡æ³¨ åˆ›å»ºæ•°æ®é€‚é…å™¨ï¼Œæ ¹æ®ç»‘å®šçš„é¡¹æ¨¡æ¿åˆå§‹åŒ–æ•°æ®é€‚é…å™¨çš„åˆ—.  
+		//@è¿”å› è¿”å›é€‚é…å™¨å¥æŸ„.
+		//@åˆ«å  åˆ›å»ºæ•°æ®é€‚é…å™¨()
 		HXCGUI CreateAdapter(int colExtendCount=0) {
 			return XList_CreateAdapter(getEleHandle(), colExtendCount);
 		}
 
-		//@±¸×¢ ´´½¨Êı¾İÊÊÅäÆ÷£¬¸ù¾İ°ó¶¨µÄÏîÄ£°å³õÊ¼»¯Êı¾İÊÊÅäÆ÷µÄÁĞ.  
-		//@·µ»Ø ·µ»ØÊÊÅäÆ÷¾ä±ú.
-		//@±ğÃû  ÁĞ±íÍ·´´½¨Êı¾İÊÊÅäÆ÷()
+		//@å¤‡æ³¨ åˆ›å»ºæ•°æ®é€‚é…å™¨ï¼Œæ ¹æ®ç»‘å®šçš„é¡¹æ¨¡æ¿åˆå§‹åŒ–æ•°æ®é€‚é…å™¨çš„åˆ—.  
+		//@è¿”å› è¿”å›é€‚é…å™¨å¥æŸ„.
+		//@åˆ«å  åˆ—è¡¨å¤´åˆ›å»ºæ•°æ®é€‚é…å™¨()
 		HXCGUI CreateAdapterHeader() {
 			return XList_CreateAdapterHeader(getEleHandle());
 		}
 
-		//@±¸×¢ »ñÈ¡Êı¾İÊÊÅäÆ÷.  
-		//@·µ»Ø Êı¾İÊÊÅäÆ÷¾ä±ú.
-		//@±ğÃû  È¡Êı¾İÊÊÅäÆ÷()
+		//@å¤‡æ³¨ è·å–æ•°æ®é€‚é…å™¨.  
+		//@è¿”å› æ•°æ®é€‚é…å™¨å¥æŸ„.
+		//@åˆ«å  å–æ•°æ®é€‚é…å™¨()
 		HXCGUI GetAdapter() {
 			return XList_GetAdapter(getEleHandle());
 		}
 
-		//@±¸×¢ »ñÈ¡ÁĞ±íÍ·Êı¾İÊÊÅäÆ÷.  
-		//@·µ»Ø ·µ»ØÊı¾İÊÊÅäÆ÷¾ä±ú.
-		//@±ğÃû  ÁĞ±íÍ·»ñÈ¡Êı¾İÊÊÅäÆ÷()
+		//@å¤‡æ³¨ è·å–åˆ—è¡¨å¤´æ•°æ®é€‚é…å™¨.  
+		//@è¿”å› è¿”å›æ•°æ®é€‚é…å™¨å¥æŸ„.
+		//@åˆ«å  åˆ—è¡¨å¤´è·å–æ•°æ®é€‚é…å™¨()
 		HXCGUI GetAdapterHeader() {
 			return XList_GetAdapterHeader(getEleHandle());
 		}
 
-		//@±¸×¢ ÉèÖÃÏî²¼¾ÖÄ£°åÎÄ¼ş.  
-		//@²ÎÊı pXmlFile ÎÄ¼şÃû.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÖÃÏîÄ£°åÎÄ¼ş()
+		//@å¤‡æ³¨ è®¾ç½®é¡¹å¸ƒå±€æ¨¡æ¿æ–‡ä»¶.  
+		//@å‚æ•° pXmlFile æ–‡ä»¶å.
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  ç½®é¡¹æ¨¡æ¿æ–‡ä»¶()
 		bool SetItemTemplateXML(const std::wstring& xmlFile) {
 			return XList_SetItemTemplateXML(getEleHandle(), xmlFile.c_str());
 		}
 
-		//@±¸×¢ ÉèÖÃÏî²¼¾ÖÄ£°åÎÄ¼ş.  
-		//@²ÎÊı pStringXML ×Ö·û´®Ö¸Õë.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÖÃÏîÄ£°å´Ó×Ö·û´®()
+		//@å¤‡æ³¨ è®¾ç½®é¡¹å¸ƒå±€æ¨¡æ¿æ–‡ä»¶.  
+		//@å‚æ•° pStringXML å­—ç¬¦ä¸²æŒ‡é’ˆ.
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  ç½®é¡¹æ¨¡æ¿ä»å­—ç¬¦ä¸²()
 		bool SetItemTemplateXMLFromString(const std::string& xmlData) {
 			return XList_SetItemTemplateXMLFromString(getEleHandle(), xmlData.c_str());
 		}
 
-		//@±¸×¢ ÉèÖÃÁĞ±íÏîÄ£°å.  
-		//@²ÎÊı hTemp Ä£°å¾ä±ú.
-		//@·µ»Ø Èç¹û³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÖÃÏîÄ£°å()
+		//@å¤‡æ³¨ è®¾ç½®åˆ—è¡¨é¡¹æ¨¡æ¿.  
+		//@å‚æ•° hTemp æ¨¡æ¿å¥æŸ„.
+		//@è¿”å› å¦‚æœæˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  ç½®é¡¹æ¨¡æ¿()
 		bool SetItemTemplate(HTEMP hTemp) {
 			return XList_SetItemTemplate(getEleHandle(), hTemp);
 		}
 
-		//@±¸×¢ Í¨¹ıÄ£°åÏîID,»ñÈ¡ÊµÀı»¯Ä£°åÏîID¶ÔÓ¦µÄ¶ÔÏó¾ä±ú.  
-		//@²ÎÊı iRow ĞĞË÷Òı.
-		//@²ÎÊı iColumn ÁĞË÷Òı.
-		//@²ÎÊı nTempItemID Ä£°åÏîitemID.
-		//@·µ»Ø ³É¹¦·µ»Ø¶ÔÏó¾ä±ú,·ñÔò·µ»ØNULL.
-		//@±ğÃû  È¡ÏîÄ£°å¶ÔÏó()
+		//@å¤‡æ³¨ é€šè¿‡æ¨¡æ¿é¡¹ID,è·å–å®ä¾‹åŒ–æ¨¡æ¿é¡¹IDå¯¹åº”çš„å¯¹è±¡å¥æŸ„.  
+		//@å‚æ•° iRow è¡Œç´¢å¼•.
+		//@å‚æ•° iColumn åˆ—ç´¢å¼•.
+		//@å‚æ•° nTempItemID æ¨¡æ¿é¡¹itemID.
+		//@è¿”å› æˆåŠŸè¿”å›å¯¹è±¡å¥æŸ„,å¦åˆ™è¿”å›NULL.
+		//@åˆ«å  å–é¡¹æ¨¡æ¿å¯¹è±¡()
 		HXCGUI GetTemplateObject(int iRow, int iColumn, int nTempItemID) {
 			return XList_GetTemplateObject(getEleHandle(), iRow, iColumn, nTempItemID);
 		}
 
-		//@±¸×¢ »ñÈ¡µ±Ç°¶ÔÏóËùÔÚÄ£°åÊµÀı,ÊôÓÚÁĞ±íÖĞÄÄÒ»¸öÏî.  
-		//@²ÎÊı hXCGUI ¶ÔÏó¾ä±ú, UIÔªËØ¾ä±ú»òĞÎ×´¶ÔÏó¾ä±ú.
-		//@·µ»Ø ³É¹¦·µ»ØĞĞË÷Òı, ·ñÔò·µ»Ø@ref XC_ID_ERROR.
-		//@±ğÃû  È¡¶ÔÏóËùÔÚĞĞ()
+		//@å¤‡æ³¨ è·å–å½“å‰å¯¹è±¡æ‰€åœ¨æ¨¡æ¿å®ä¾‹,å±äºåˆ—è¡¨ä¸­å“ªä¸€ä¸ªé¡¹.  
+		//@å‚æ•° hXCGUI å¯¹è±¡å¥æŸ„, UIå…ƒç´ å¥æŸ„æˆ–å½¢çŠ¶å¯¹è±¡å¥æŸ„.
+		//@è¿”å› æˆåŠŸè¿”å›è¡Œç´¢å¼•, å¦åˆ™è¿”å›@ref XC_ID_ERROR.
+		//@åˆ«å  å–å¯¹è±¡æ‰€åœ¨è¡Œ()
 		int GetItemIndexFromHXCGUI(HXCGUI hXCGUI) {
 			return XList_GetItemIndexFromHXCGUI(getEleHandle(), hXCGUI);
 		}
 
-		//@±¸×¢ ÁĞ±íÍ·,Í¨¹ıÄ£°åÏîID,»ñÈ¡ÊµÀı»¯Ä£°åÏîID¶ÔÓ¦µÄ¶ÔÏó¾ä±ú.  
-		//@²ÎÊı iColumn ÁĞ±íÍ· ÁĞË÷Òı.
-		//@²ÎÊı nTempItemID Ä£°åÏîID.
-		//@·µ»Ø ³É¹¦·µ»Ø¶ÔÏó¾ä±ú,·ñÔò·µ»ØNULL.
-		//@±ğÃû  È¡ÁĞ±íÍ·Ä£°å¶ÔÏó()
+		//@å¤‡æ³¨ åˆ—è¡¨å¤´,é€šè¿‡æ¨¡æ¿é¡¹ID,è·å–å®ä¾‹åŒ–æ¨¡æ¿é¡¹IDå¯¹åº”çš„å¯¹è±¡å¥æŸ„.  
+		//@å‚æ•° iColumn åˆ—è¡¨å¤´ åˆ—ç´¢å¼•.
+		//@å‚æ•° nTempItemID æ¨¡æ¿é¡¹ID.
+		//@è¿”å› æˆåŠŸè¿”å›å¯¹è±¡å¥æŸ„,å¦åˆ™è¿”å›NULL.
+		//@åˆ«å  å–åˆ—è¡¨å¤´æ¨¡æ¿å¯¹è±¡()
 		HXCGUI GetHeaderTemplateObject(int iColumn, int nTempItemID) {
 			return XList_GetHeaderTemplateObject(getEleHandle(), iColumn, nTempItemID);
 		}
 
-		//@±¸×¢ ÁĞ±íÍ·,»ñÈ¡µ±Ç°¶ÔÏóËùÔÚÄ£°åÊµÀı,ÊôÓÚÁĞ±íÍ·ÖĞÄÄÒ»¸öÏî.  
-		//@²ÎÊı hXCGUI ¶ÔÏó¾ä±ú.
-		//@·µ»Ø ³É¹¦·µ»ØĞĞË÷Òı, ·ñÔò·µ»Ø@ref XC_ID_ERROR.
-		//@±ğÃû  È¡ÁĞ±íÍ·¶ÔÏóËùÔÚĞĞ()
+		//@å¤‡æ³¨ åˆ—è¡¨å¤´,è·å–å½“å‰å¯¹è±¡æ‰€åœ¨æ¨¡æ¿å®ä¾‹,å±äºåˆ—è¡¨å¤´ä¸­å“ªä¸€ä¸ªé¡¹.  
+		//@å‚æ•° hXCGUI å¯¹è±¡å¥æŸ„.
+		//@è¿”å› æˆåŠŸè¿”å›è¡Œç´¢å¼•, å¦åˆ™è¿”å›@ref XC_ID_ERROR.
+		//@åˆ«å  å–åˆ—è¡¨å¤´å¯¹è±¡æ‰€åœ¨è¡Œ()
 		int GetHeaderItemIndexFromHXCGUI(HXCGUI hXCGUI) {
 			return XList_GetHeaderItemIndexFromHXCGUI(getEleHandle(), hXCGUI);
 		}
 
-		//@±¸×¢ ÉèÖÃÁĞ±íÍ·¸ß¶È.  
-		//@²ÎÊı height ¸ß¶È.
-		//@±ğÃû  ÖÃÁĞ±íÍ·¸ß¶È()
+		//@å¤‡æ³¨ è®¾ç½®åˆ—è¡¨å¤´é«˜åº¦.  
+		//@å‚æ•° height é«˜åº¦.
+		//@åˆ«å  ç½®åˆ—è¡¨å¤´é«˜åº¦()
 		void SetHeaderHeight(int height) {
 			XList_SetHeaderHeight(getEleHandle(), height);
 		}
 
-		//@±¸×¢ »ñÈ¡ÁĞ±íÍ·¸ß¶È.  
-		//@·µ»Ø ·µ»ØÁĞ±íÍ·¸ß¶È.
-		//@±ğÃû  È¡ÁĞ±íÍ·¸ß¶È()
+		//@å¤‡æ³¨ è·å–åˆ—è¡¨å¤´é«˜åº¦.  
+		//@è¿”å› è¿”å›åˆ—è¡¨å¤´é«˜åº¦.
+		//@åˆ«å  å–åˆ—è¡¨å¤´é«˜åº¦()
 		int GetHeaderHeight() {
 			return XList_GetHeaderHeight(getEleHandle());
 		}
 
-		//@±¸×¢ »ñÈ¡µ±Ç°¿É¼ûĞĞ·¶Î§.  
-		//@²ÎÊı piStart ¿ªÊ¼ĞĞË÷Òı.
-		//@²ÎÊı piEnd ½áÊøĞĞË÷Òı.
-		//@±ğÃû  È¡¿ÉÊÓĞĞ·¶Î§()
+		//@å¤‡æ³¨ è·å–å½“å‰å¯è§è¡ŒèŒƒå›´.  
+		//@å‚æ•° piStart å¼€å§‹è¡Œç´¢å¼•.
+		//@å‚æ•° piEnd ç»“æŸè¡Œç´¢å¼•.
+		//@åˆ«å  å–å¯è§†è¡ŒèŒƒå›´()
 		void GetVisibleRowRange(int* piStart, int* piEnd) {
 			XList_GetVisibleRowRange(getEleHandle(), piStart, piEnd);
 		}
 
-		//@±¸×¢ ÉèÖÃÏîÄ¬ÈÏ¸ß¶È.  
-		//@²ÎÊı nHeight ¸ß¶È.
-		//@²ÎÊı nSelHeight Ñ¡ÖĞÊ±¸ß¶È.
-		//@±ğÃû  ÖÃÏîÄ¬ÈÏ¸ß¶È()
+		//@å¤‡æ³¨ è®¾ç½®é¡¹é»˜è®¤é«˜åº¦.  
+		//@å‚æ•° nHeight é«˜åº¦.
+		//@å‚æ•° nSelHeight é€‰ä¸­æ—¶é«˜åº¦.
+		//@åˆ«å  ç½®é¡¹é»˜è®¤é«˜åº¦()
 		void SetItemHeightDefault(int nHeight, int nSelHeight) {
 			XList_SetItemHeightDefault(getEleHandle(), nHeight, nSelHeight);
 		}
 
-		//@±¸×¢ »ñÈ¡ÏîÄ¬ÈÏ¸ß¶È.  
-		//@²ÎÊı pHeight ¸ß¶È.
-		//@²ÎÊı pSelHeight Ñ¡ÖĞÊ±¸ß¶È.
-		//@±ğÃû  È¡ÏîÄ¬ÈÏ¸ß¶È()
+		//@å¤‡æ³¨ è·å–é¡¹é»˜è®¤é«˜åº¦.  
+		//@å‚æ•° pHeight é«˜åº¦.
+		//@å‚æ•° pSelHeight é€‰ä¸­æ—¶é«˜åº¦.
+		//@åˆ«å  å–é¡¹é»˜è®¤é«˜åº¦()
 		void GetItemHeightDefault(int* pHeight, int* pSelHeight) {
 			XList_GetItemHeightDefault(getEleHandle(), pHeight, pSelHeight);
 		}
 
-		//@±¸×¢ ÉèÖÃÏî¸ß¶È.  
-		//@²ÎÊı iRow ĞĞË÷Òı
-		//@²ÎÊı nHeight ¸ß¶È.
-		//@²ÎÊı nSelHeight Ñ¡ÖĞÊ±¸ß¶È.
-		//@±ğÃû  ÖÃÏî¸ß¶È()
+		//@å¤‡æ³¨ è®¾ç½®é¡¹é«˜åº¦.  
+		//@å‚æ•° iRow è¡Œç´¢å¼•
+		//@å‚æ•° nHeight é«˜åº¦.
+		//@å‚æ•° nSelHeight é€‰ä¸­æ—¶é«˜åº¦.
+		//@åˆ«å  ç½®é¡¹é«˜åº¦()
 		void SetItemHeight(int iRow, int nHeight, int nSelHeight) {
 			XList_SetItemHeight(getEleHandle(), iRow, nHeight, nSelHeight);
 		}
 
-		//@±¸×¢ »ñÈ¡Ïî¸ß¶È.  
-		//@²ÎÊı iRow ĞĞË÷Òı
-		//@²ÎÊı pHeight ¸ß¶È.
-		//@²ÎÊı pSelHeight Ñ¡ÖĞÊ±¸ß¶È.
-		//@±ğÃû  È¡Ïî¸ß¶È()
+		//@å¤‡æ³¨ è·å–é¡¹é«˜åº¦.  
+		//@å‚æ•° iRow è¡Œç´¢å¼•
+		//@å‚æ•° pHeight é«˜åº¦.
+		//@å‚æ•° pSelHeight é€‰ä¸­æ—¶é«˜åº¦.
+		//@åˆ«å  å–é¡¹é«˜åº¦()
 		void GetItemHeight(int iRow, int* pHeight, int* pSelHeight) {
 			XList_GetItemHeight(getEleHandle(), iRow, pHeight, pSelHeight);
 		}
 
-		//@±¸×¢ ÉèÖÃĞĞ¼ä¾à.  
-		//@²ÎÊı nSpace ĞĞ¼ä¾à´óĞ¡.
-		//@±ğÃû  ÖÃĞĞ¼ä¾à()
+		//@å¤‡æ³¨ è®¾ç½®è¡Œé—´è·.  
+		//@å‚æ•° nSpace è¡Œé—´è·å¤§å°.
+		//@åˆ«å  ç½®è¡Œé—´è·()
 		void SetRowSpace(int nSpace) {
 			XList_SetRowSpace(getEleHandle(), nSpace);
 		}
 
-		//@±¸×¢ »ñÈ¡ĞĞ¼ä¾à´óĞ¡.  
-		//@·µ»Ø ·µ»ØĞĞ¼ä¾à´óĞ¡.
-		//@±ğÃû  È¡ĞĞ¼ä¾à()
+		//@å¤‡æ³¨ è·å–è¡Œé—´è·å¤§å°.  
+		//@è¿”å› è¿”å›è¡Œé—´è·å¤§å°.
+		//@åˆ«å  å–è¡Œé—´è·()
 		int GetRowSpace() {
 			return XList_GetRowSpace(getEleHandle());
 		}
 
-		//@±¸×¢ Ëø¶¨ÁĞ,ÉèÖÃ×ó²àËø¶¨ÁĞ·Ö½çÁĞË÷Òı.  
-		//@²ÎÊı iColumn ÁĞË÷Òı,-1´ú±í²»Ëø¶¨.
-		//@±ğÃû  ÖÃËø¶¨ÁĞ×ó²à()
+		//@å¤‡æ³¨ é”å®šåˆ—,è®¾ç½®å·¦ä¾§é”å®šåˆ—åˆ†ç•Œåˆ—ç´¢å¼•.  
+		//@å‚æ•° iColumn åˆ—ç´¢å¼•,-1ä»£è¡¨ä¸é”å®š.
+		//@åˆ«å  ç½®é”å®šåˆ—å·¦ä¾§()
 		void SetLockColumnLeft(int iColumn) {
 			XList_SetLockColumnLeft(getEleHandle(), iColumn);
 		}
 
-		//@±¸×¢ Ëø¶¨ÁĞ,ÉèÖÃÓÒ²àËø¶¨ÁĞ·Ö½çÁĞË÷Òı  
-		//@²ÎÊı iColumn ÁĞË÷Òı, -1´ú±í²»Ëø¶¨. ÔİÊ±Ö»Ö§³ÖËø¶¨Ä©Î²ÁĞ 
-		//@±ğÃû  ÖÃËø¶¨ÁĞÓÒ²à()
+		//@å¤‡æ³¨ é”å®šåˆ—,è®¾ç½®å³ä¾§é”å®šåˆ—åˆ†ç•Œåˆ—ç´¢å¼•  
+		//@å‚æ•° iColumn åˆ—ç´¢å¼•, -1ä»£è¡¨ä¸é”å®š. æš‚æ—¶åªæ”¯æŒé”å®šæœ«å°¾åˆ— 
+		//@åˆ«å  ç½®é”å®šåˆ—å³ä¾§()
 		void SetLockColumnRight(int iColumn) {
 			XList_SetLockColumnRight(getEleHandle(), iColumn);
 		}
 
-		//@±¸×¢ ÉèÖÃÊÇ·ñËø¶¨Ä©Î²ĞĞ.  
-		//@²ÎÊı bLock ÊÇ·ñËø¶¨.
-		//@±ğÃû  ÖÃËø¶¨ĞĞµ×²¿()
+		//@å¤‡æ³¨ è®¾ç½®æ˜¯å¦é”å®šæœ«å°¾è¡Œ.  
+		//@å‚æ•° bLock æ˜¯å¦é”å®š.
+		//@åˆ«å  ç½®é”å®šè¡Œåº•éƒ¨()
 		void SetLockRowBottom(bool bLock) {
 			XList_SetLockRowBottom(getEleHandle(), bLock);
 		}
 
-		//@²ÎÊı bOverlap ÊÇ·ñÖØµş
-		//@±ğÃû  ÖÃËø¶¨ĞĞµ×²¿ÖØµş()
+		//@å‚æ•° bOverlap æ˜¯å¦é‡å 
+		//@åˆ«å  ç½®é”å®šè¡Œåº•éƒ¨é‡å ()
 		void SetLockRowBottomOverlap(bool bOverlap) {
 			XList_SetLockRowBottomOverlap(getEleHandle(), bOverlap);
 		}
 
-		//@±¸×¢ ¼ì²â×ø±êµãËùÔÚÏî.  
-		//@²ÎÊı pPt ×ø±êµã.
-		//@²ÎÊı piRow ĞĞË÷Òı.
-		//@²ÎÊı piColumn ÁĞË÷Òı.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ²âÊÔµã»÷Ïî()
+		//@å¤‡æ³¨ æ£€æµ‹åæ ‡ç‚¹æ‰€åœ¨é¡¹.  
+		//@å‚æ•° pPt åæ ‡ç‚¹.
+		//@å‚æ•° piRow è¡Œç´¢å¼•.
+		//@å‚æ•° piColumn åˆ—ç´¢å¼•.
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  æµ‹è¯•ç‚¹å‡»é¡¹()
 		bool HitTest(POINT* pPt, int* piRow, int* piColumn) {
 			return XList_HitTest(getEleHandle(), pPt, piRow, piColumn);
 		}
 
-		//@±¸×¢ ¼ì²é×ø±êµãËùÔÚÏî,×Ô¶¯Ìí¼Ó¹ö¶¯ÊÓÍ¼Æ«ÒÆÁ¿.  
-		//@²ÎÊı pPt ×ø±êµã.
-		//@²ÎÊı piRow ĞĞË÷Òı.
-		//@²ÎÊı piColumn ÁĞË÷Òı.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ²âÊÔµã»÷ÏîÀ©Õ¹()
+		//@å¤‡æ³¨ æ£€æŸ¥åæ ‡ç‚¹æ‰€åœ¨é¡¹,è‡ªåŠ¨æ·»åŠ æ»šåŠ¨è§†å›¾åç§»é‡.  
+		//@å‚æ•° pPt åæ ‡ç‚¹.
+		//@å‚æ•° piRow è¡Œç´¢å¼•.
+		//@å‚æ•° piColumn åˆ—ç´¢å¼•.
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  æµ‹è¯•ç‚¹å‡»é¡¹æ‰©å±•()
 		bool HitTestOffset(POINT* pPt, int* piRow, int* piColumn) {
 			return XList_HitTestOffset(getEleHandle(), pPt, piRow, piColumn);
 		}
 
-		//@±¸×¢ ĞŞ¸ÄÊı¾İºó,Ë¢ĞÂËùÓĞÏîÄ£°å,ÒÔ±ã¸üĞÂÊı¾İµ½Ä£°å(Èç¹ûÏî¿É¼û).  
-		//@±ğÃû  Ë¢ĞÂÏîÊı¾İ()
+		//@å¤‡æ³¨ ä¿®æ”¹æ•°æ®å,åˆ·æ–°æ‰€æœ‰é¡¹æ¨¡æ¿,ä»¥ä¾¿æ›´æ–°æ•°æ®åˆ°æ¨¡æ¿(å¦‚æœé¡¹å¯è§).  
+		//@åˆ«å  åˆ·æ–°é¡¹æ•°æ®()
 		void RefreshData() {
 			XList_RefreshData(getEleHandle());
 		}
 
-		//@±¸×¢ ĞŞ¸ÄÊı¾İºó,Ë¢ĞÂÖ¸¶¨ÏîÄ£°å,ÒÔ±ã¸üĞÂÊı¾İµ½Ä£°å(Èç¹ûµ±Ç°Ïî¿É¼û).  
-		//@²ÎÊı iRow ĞĞË÷Òı.
-		//@±ğÃû  Ë¢ĞÂÖ¸¶¨Ïî()
+		//@å¤‡æ³¨ ä¿®æ”¹æ•°æ®å,åˆ·æ–°æŒ‡å®šé¡¹æ¨¡æ¿,ä»¥ä¾¿æ›´æ–°æ•°æ®åˆ°æ¨¡æ¿(å¦‚æœå½“å‰é¡¹å¯è§).  
+		//@å‚æ•° iRow è¡Œç´¢å¼•.
+		//@åˆ«å  åˆ·æ–°æŒ‡å®šé¡¹()
 		void RefreshItem(int iRow) {
 			XList_RefreshItem(getEleHandle(), iRow);
 		}
 
-		//@²ÎÊı nWidth 
-		//@²ÎÊı name.c_str() 
-		//@²ÎÊı text.c_str() 
-		//@·µ»Ø ÁĞË÷Òı
-		//@±ğÃû  Ìí¼ÓÁĞÎÄ±¾()
+		//@å‚æ•° nWidth 
+		//@å‚æ•° name.c_str() 
+		//@å‚æ•° text.c_str() 
+		//@è¿”å› åˆ—ç´¢å¼•
+		//@åˆ«å  æ·»åŠ åˆ—æ–‡æœ¬()
 		int AddColumnText(int nWidth, const std::wstring& name, const std::wstring& text) {
 			return XList_AddColumnText(getEleHandle(), nWidth, name.c_str(), text.c_str());
 		}
 
-		//@²ÎÊı nWidth 
-		//@²ÎÊı name.c_str() 
-		//@²ÎÊı hImage 
-		//@·µ»Ø ÁĞË÷Òı
-		//@±ğÃû  Ìí¼ÓÁĞÍ¼Æ¬()
+		//@å‚æ•° nWidth 
+		//@å‚æ•° name.c_str() 
+		//@å‚æ•° hImage 
+		//@è¿”å› åˆ—ç´¢å¼•
+		//@åˆ«å  æ·»åŠ åˆ—å›¾ç‰‡()
 		int AddColumnImage(int nWidth, const std::wstring& name, HIMAGE hImage) {
 			return XList_AddColumnImage(getEleHandle(), nWidth, name.c_str(), hImage);
 		}
 
-		//@²ÎÊı text.c_str() 
-		//@±ğÃû  Ìí¼ÓÏîÎÄ±¾()
+		//@å‚æ•° text.c_str() 
+		//@åˆ«å  æ·»åŠ é¡¹æ–‡æœ¬()
 		int AddItemText(const std::wstring& text) {
 			return XList_AddItemText(getEleHandle(), text.c_str());
 		}
 
-		//@²ÎÊı name.c_str() 
-		//@²ÎÊı text.c_str() 
-		//@±ğÃû  Ìí¼ÓÏîÎÄ±¾À©Õ¹()
+		//@å‚æ•° name.c_str() 
+		//@å‚æ•° text.c_str() 
+		//@åˆ«å  æ·»åŠ é¡¹æ–‡æœ¬æ‰©å±•()
 		int AddItemTextEx(const std::wstring& name, const std::wstring& text) {
 			return XList_AddItemTextEx(getEleHandle(), name.c_str(), text.c_str());
 		}
 
-		//@²ÎÊı hImage 
-		//@±ğÃû  Ìí¼ÓÏîÍ¼Æ¬()
+		//@å‚æ•° hImage 
+		//@åˆ«å  æ·»åŠ é¡¹å›¾ç‰‡()
 		int AddItemImage(HIMAGE hImage) {
 			return XList_AddItemImage(getEleHandle(), hImage);
 		}
 
-		//@²ÎÊı name.c_str() 
-		//@²ÎÊı hImage 
-		//@±ğÃû  Ìí¼ÓÏîÍ¼Æ¬À©Õ¹()
+		//@å‚æ•° name.c_str() 
+		//@å‚æ•° hImage 
+		//@åˆ«å  æ·»åŠ é¡¹å›¾ç‰‡æ‰©å±•()
 		int AddItemImageEx(const std::wstring& name, HIMAGE hImage) {
 			return XList_AddItemImageEx(getEleHandle(), name.c_str(), hImage);
 		}
 
-		//@²ÎÊı iRow 
-		//@²ÎÊı value.c_str() 
-		//@±ğÃû  ²åÈëÏîÎÄ±¾()
+		//@å‚æ•° iRow 
+		//@å‚æ•° value.c_str() 
+		//@åˆ«å  æ’å…¥é¡¹æ–‡æœ¬()
 		int InsertItemText(int iRow, const std::wstring& value) {
 			return XList_InsertItemText(getEleHandle(), iRow, value.c_str());
 		}
 
-		//@²ÎÊı iRow 
-		//@²ÎÊı name.c_str() 
-		//@²ÎÊı value.c_str() 
-		//@±ğÃû  ²åÈëÏîÎÄ±¾À©Õ¹()
+		//@å‚æ•° iRow 
+		//@å‚æ•° name.c_str() 
+		//@å‚æ•° value.c_str() 
+		//@åˆ«å  æ’å…¥é¡¹æ–‡æœ¬æ‰©å±•()
 		int InsertItemTextEx(int iRow, const std::wstring& name, const std::wstring& value) {
 			return XList_InsertItemTextEx(getEleHandle(), iRow, name.c_str(), value.c_str());
 		}
 
-		//@²ÎÊı iRow 
-		//@²ÎÊı hImage 
-		//@±ğÃû  ²åÈëÏîÍ¼Æ¬()
+		//@å‚æ•° iRow 
+		//@å‚æ•° hImage 
+		//@åˆ«å  æ’å…¥é¡¹å›¾ç‰‡()
 		int InsertItemImage(int iRow, HIMAGE hImage) {
 			return XList_InsertItemImage(getEleHandle(), iRow, hImage);
 		}
 
-		//@²ÎÊı iRow 
-		//@²ÎÊı name.c_str() 
-		//@²ÎÊı hImage 
-		//@±ğÃû  ²åÈëÏîÍ¼Æ¬À©Õ¹()
+		//@å‚æ•° iRow 
+		//@å‚æ•° name.c_str() 
+		//@å‚æ•° hImage 
+		//@åˆ«å  æ’å…¥é¡¹å›¾ç‰‡æ‰©å±•()
 		int InsertItemImageEx(int iRow, const std::wstring& name, HIMAGE hImage) {
 			return XList_InsertItemImageEx(getEleHandle(), iRow, name.c_str(), hImage);
 		}
 
-		//@²ÎÊı iRow 
-		//@²ÎÊı iColumn 
-		//@²ÎÊı text.c_str() 
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  ÖÃÏîÎÄ±¾()
+		//@å‚æ•° iRow 
+		//@å‚æ•° iColumn 
+		//@å‚æ•° text.c_str() 
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  ç½®é¡¹æ–‡æœ¬()
 		bool SetItemText(int iRow, int iColumn, const std::wstring& text) {
 			return XList_SetItemText(getEleHandle(), iRow, iColumn, text.c_str());
 		}
 
-		//@²ÎÊı iRow 
-		//@²ÎÊı name.c_str() 
-		//@²ÎÊı text.c_str() 
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  ÖÃÏîÎÄ±¾À©Õ¹()
+		//@å‚æ•° iRow 
+		//@å‚æ•° name.c_str() 
+		//@å‚æ•° text.c_str() 
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  ç½®é¡¹æ–‡æœ¬æ‰©å±•()
 		bool SetItemTextEx(int iRow, const std::wstring& name, const std::wstring& text) {
 			return XList_SetItemTextEx(getEleHandle(), iRow, name.c_str(), text.c_str());
 		}
 
-		//@²ÎÊı iRow 
-		//@²ÎÊı iColumn 
-		//@²ÎÊı hImage 
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  ÖÃÏîÍ¼Æ¬()
+		//@å‚æ•° iRow 
+		//@å‚æ•° iColumn 
+		//@å‚æ•° hImage 
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  ç½®é¡¹å›¾ç‰‡()
 		bool SetItemImage(int iRow, int iColumn, HIMAGE hImage) {
 			return XList_SetItemImage(getEleHandle(), iRow, iColumn, hImage);
 		}
 
-		//@²ÎÊı iRow 
-		//@²ÎÊı name.c_str() 
-		//@²ÎÊı hImage 
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  ÖÃÏîÍ¼Æ¬À©Õ¹()
+		//@å‚æ•° iRow 
+		//@å‚æ•° name.c_str() 
+		//@å‚æ•° hImage 
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  ç½®é¡¹å›¾ç‰‡æ‰©å±•()
 		bool SetItemImageEx(int iRow, const std::wstring& name, HIMAGE hImage) {
 			return XList_SetItemImageEx(getEleHandle(), iRow, name.c_str(), hImage);
 		}
 
-		//@²ÎÊı iRow 
-		//@²ÎÊı iColumn 
-		//@²ÎÊı nValue 
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  ÖÃÏîÖ¸ÊıÖµ()
+		//@å‚æ•° iRow 
+		//@å‚æ•° iColumn 
+		//@å‚æ•° nValue 
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  ç½®é¡¹æŒ‡æ•°å€¼()
 		bool SetItemInt(int iRow, int iColumn, int nValue) {
 			return XList_SetItemInt(getEleHandle(), iRow, iColumn, nValue);
 		}
 
-		//@²ÎÊı iRow 
-		//@²ÎÊı name.c_str() 
-		//@²ÎÊı nValue 
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  ÖÃÏîÕûÊıÖµÀ©Õ¹()
+		//@å‚æ•° iRow 
+		//@å‚æ•° name.c_str() 
+		//@å‚æ•° nValue 
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  ç½®é¡¹æ•´æ•°å€¼æ‰©å±•()
 		bool SetItemIntEx(int iRow, const std::wstring& name, int nValue) {
 			return XList_SetItemIntEx(getEleHandle(), iRow, name.c_str(), nValue);
 		}
 
-		//@²ÎÊı iRow 
-		//@²ÎÊı iColumn 
-		//@²ÎÊı fFloat 
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  ÖÃÏî¸¡µãÖµ()
+		//@å‚æ•° iRow 
+		//@å‚æ•° iColumn 
+		//@å‚æ•° fFloat 
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  ç½®é¡¹æµ®ç‚¹å€¼()
 		bool SetItemFloat(int iRow, int iColumn, float fFloat) {
 			return XList_SetItemFloat(getEleHandle(), iRow, iColumn, fFloat);
 		}
 
-		//@²ÎÊı iRow 
-		//@²ÎÊı name.c_str() 
-		//@²ÎÊı fFloat 
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  ÖÃÏî¸¡µãÖµÀ©Õ¹()
+		//@å‚æ•° iRow 
+		//@å‚æ•° name.c_str() 
+		//@å‚æ•° fFloat 
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  ç½®é¡¹æµ®ç‚¹å€¼æ‰©å±•()
 		bool SetItemFloatEx(int iRow, const std::wstring& name, float fFloat) {
 			return XList_SetItemFloatEx(getEleHandle(), iRow, name.c_str(), fFloat);
 		}
 
-		//@²ÎÊı iRow 
-		//@²ÎÊı iColumn 
-		//@·µ»Ø ·µ»ØÎÄ±¾ÄÚÈİ
-		//@±ğÃû  È¡ÏîÎÄ±¾()
+		//@å‚æ•° iRow 
+		//@å‚æ•° iColumn 
+		//@è¿”å› è¿”å›æ–‡æœ¬å†…å®¹
+		//@åˆ«å  å–é¡¹æ–‡æœ¬()
 		std::wstring GetItemText(int iRow, int iColumn) {
 			auto pText = XList_GetItemText(getEleHandle(), iRow, iColumn);
 			if (!pText) return L"";
 			return pText;
 		}
 
-		//@²ÎÊı iRow 
-		//@²ÎÊı name.c_str() 
-		//@·µ»Ø ·µ»ØÎÄ±¾ÄÚÈİ
-		//@±ğÃû  È¡ÏîÎÄ±¾À©Õ¹()
+		//@å‚æ•° iRow 
+		//@å‚æ•° name.c_str() 
+		//@è¿”å› è¿”å›æ–‡æœ¬å†…å®¹
+		//@åˆ«å  å–é¡¹æ–‡æœ¬æ‰©å±•()
 		std::wstring GetItemTextEx(int iRow, const std::wstring& name) {
 			auto pText =  XList_GetItemTextEx(getEleHandle(), iRow, name.c_str());
 			if (!pText) return L"";
 			return pText;
 		}
 
-		//@²ÎÊı iRow 
-		//@²ÎÊı iColumn 
-		//@±ğÃû  È¡ÏîÍ¼Æ¬()
+		//@å‚æ•° iRow 
+		//@å‚æ•° iColumn 
+		//@åˆ«å  å–é¡¹å›¾ç‰‡()
 		HIMAGE GetItemImage(int iRow, int iColumn) {
 			return XList_GetItemImage(getEleHandle(), iRow, iColumn);
 		}
 
-		//@²ÎÊı iRow 
-		//@²ÎÊı name.c_str() 
-		//@±ğÃû  È¡ÏîÍ¼Æ¬À©Õ¹()
+		//@å‚æ•° iRow 
+		//@å‚æ•° name.c_str() 
+		//@åˆ«å  å–é¡¹å›¾ç‰‡æ‰©å±•()
 		HIMAGE GetItemImageEx(int iRow, const std::wstring& name) {
 			return XList_GetItemImageEx(getEleHandle(), iRow, name.c_str());
 		}
 
-		//@²ÎÊı iRow 
-		//@²ÎÊı iColumn 
-		//@²ÎÊı pOutValue 
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  È¡ÏîÕûÊıÖµ()
+		//@å‚æ•° iRow 
+		//@å‚æ•° iColumn 
+		//@å‚æ•° pOutValue 
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  å–é¡¹æ•´æ•°å€¼()
 		bool GetItemInt(int iRow, int iColumn, int* pOutValue) {
 			return XList_GetItemInt(getEleHandle(), iRow, iColumn, pOutValue);
 		}
 
-		//@²ÎÊı iRow 
-		//@²ÎÊı name.c_str() 
-		//@²ÎÊı pOutValue 
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  È¡ÏîÕûÊıÖµÀ©Õ¹()
+		//@å‚æ•° iRow 
+		//@å‚æ•° name.c_str() 
+		//@å‚æ•° pOutValue 
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  å–é¡¹æ•´æ•°å€¼æ‰©å±•()
 		bool GetItemIntEx(int iRow, const std::wstring& name, int* pOutValue) {
 			return XList_GetItemIntEx(getEleHandle(), iRow, name.c_str(), pOutValue);
 		}
 
-		//@²ÎÊı iRow 
-		//@²ÎÊı iColumn 
-		//@²ÎÊı pOutValue 
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  È¡Ïî¸¡µãÖµ()
+		//@å‚æ•° iRow 
+		//@å‚æ•° iColumn 
+		//@å‚æ•° pOutValue 
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  å–é¡¹æµ®ç‚¹å€¼()
 		bool GetItemFloat(int iRow, int iColumn, float* pOutValue) {
 			return XList_GetItemFloat(getEleHandle(), iRow, iColumn, pOutValue);
 		}
 
-		//@²ÎÊı iRow 
-		//@²ÎÊı name.c_str() 
-		//@²ÎÊı pOutValue 
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  È¡Ïî¸¡µãÖµÀ©Õ¹()
+		//@å‚æ•° iRow 
+		//@å‚æ•° name.c_str() 
+		//@å‚æ•° pOutValue 
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  å–é¡¹æµ®ç‚¹å€¼æ‰©å±•()
 		bool GetItemFloatEx(int iRow, const std::wstring& name, float* pOutValue) {
 			return XList_GetItemFloatEx(getEleHandle(), iRow, name.c_str(), pOutValue);
 		}
 
-		//@²ÎÊı iRow 
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  É¾³ıÏî()
+		//@å‚æ•° iRow 
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  åˆ é™¤é¡¹()
 		bool DeleteItem(int iRow) {
 			return XList_DeleteItem(getEleHandle(), iRow);
 		}
 
-		//@²ÎÊı iRow 
-		//@²ÎÊı nCount 
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  É¾³ıÏîÀ©Õ¹()
+		//@å‚æ•° iRow 
+		//@å‚æ•° nCount 
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  åˆ é™¤é¡¹æ‰©å±•()
 		bool DeleteItemEx(int iRow, int nCount) {
 			return XList_DeleteItemEx(getEleHandle(), iRow, nCount);
 		}
 
-		//@±ğÃû  É¾³ıÏîÈ«²¿()
+		//@åˆ«å  åˆ é™¤é¡¹å…¨éƒ¨()
 		void DeleteItemAll() {
 			XList_DeleteItemAll(getEleHandle());
 		}
 
-		//@±ğÃû  É¾³ıÁĞÈ«²¿AD()
+		//@åˆ«å  åˆ é™¤åˆ—å…¨éƒ¨AD()
 		void DeleteColumnAll_AD() {
 			XList_DeleteColumnAll_AD(getEleHandle());
 		}
 
-		//@±ğÃû  È¡ÏîÊıÁ¿AD()
+		//@åˆ«å  å–é¡¹æ•°é‡AD()
 		int GetCount_AD() {
 			return XList_GetCount_AD(getEleHandle());
 		}
 
-		//@±ğÃû  È¡ÁĞÊıÁ¿AD()
+		//@åˆ«å  å–åˆ—æ•°é‡AD()
 		int GetCountColumn_AD() {
 			return XList_GetCountColumn_AD(getEleHandle());
 		}
 
 
-		// ÁĞ±íÊÓ_ÖÃÍÏ¶¯¾ØĞÎÑÕÉ«
+		// åˆ—è¡¨è§†_ç½®æ‹–åŠ¨çŸ©å½¢é¢œè‰²
 		void SetDragRectColor(COLORREF color, int width) {
 			return XList_SetDragRectColor(getEleHandle(), color, width);
 		}

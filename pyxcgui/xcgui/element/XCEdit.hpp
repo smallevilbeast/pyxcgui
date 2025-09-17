@@ -24,180 +24,180 @@ namespace xcgui {
 			m_handle = XEdit_CreateEx(x, y, width, height, editType, parent);
 		}
 
-		//@±¸×¢ ÆôÓÃ×Ô¶¯»»ĞĞ  
-		//@²ÎÊı bEnable ÊÇ·ñÆôÓÃ
-		//@±ğÃû  ÆôÓÃ×Ô¶¯»»ĞĞ()
+		//@å¤‡æ³¨ å¯ç”¨è‡ªåŠ¨æ¢è¡Œ  
+		//@å‚æ•° bEnable æ˜¯å¦å¯ç”¨
+		//@åˆ«å  å¯ç”¨è‡ªåŠ¨æ¢è¡Œ()
 		void EnableAutoWrap(bool bEnable) {
 			XEdit_EnableAutoWrap(getEleHandle(), bEnable);
 		}
 
-		//@²ÎÊı bEnable ÊÇ·ñÆôÓÃ
-		//@±ğÃû  ÆôÓÃÖ»¶Á()
+		//@å‚æ•° bEnable æ˜¯å¦å¯ç”¨
+		//@åˆ«å  å¯ç”¨åªè¯»()
 		void EnableReadOnly(bool bEnable) {
 			XEdit_EnableReadOnly(getEleHandle(), bEnable);
 		}
 
-		//@²ÎÊı bEnable 
-		//@±ğÃû  ÆôÓÃ¶àĞĞ()
+		//@å‚æ•° bEnable 
+		//@åˆ«å  å¯ç”¨å¤šè¡Œ()
 		void EnableMultiLine(bool bEnable) {
 			XEdit_EnableMultiLine(getEleHandle(), bEnable);
 		}
 
-		//@±¸×¢ ÆôÓÃÃÜÂëÄ£Ê½(Ö»Ö§³ÖÄ¬ÈÏÀàĞÍ±à¼­¿ò
-		//@²ÎÊı bEnable ÊÇ·ñÆôÓÃ
-		//@±ğÃû  ÆôÓÃÃÜÂë()
+		//@å¤‡æ³¨ å¯ç”¨å¯†ç æ¨¡å¼(åªæ”¯æŒé»˜è®¤ç±»å‹ç¼–è¾‘æ¡†
+		//@å‚æ•° bEnable æ˜¯å¦å¯ç”¨
+		//@åˆ«å  å¯ç”¨å¯†ç ()
 		void EnablePassword(bool bEnable) {
 			XEdit_EnablePassword(getEleHandle(), bEnable);
 		}
 
-		//@±¸×¢ µ±»ñµÃ½¹µãÊ±,×Ô¶¯Ñ¡ÔñËùÓĞÄÚÈİ
-		//@²ÎÊı bEnable ÊÇ·ñÆôÓÃ
-		//@±ğÃû  ÆôÓÃ×Ô¶¯Ñ¡Ôñ()
+		//@å¤‡æ³¨ å½“è·å¾—ç„¦ç‚¹æ—¶,è‡ªåŠ¨é€‰æ‹©æ‰€æœ‰å†…å®¹
+		//@å‚æ•° bEnable æ˜¯å¦å¯ç”¨
+		//@åˆ«å  å¯ç”¨è‡ªåŠ¨é€‰æ‹©()
 		void EnableAutoSelAll(bool bEnable) {
 			XEdit_EnableAutoSelAll(getEleHandle(), bEnable);
 		}
 
-		//@±¸×¢ µ±Ê§È¥½¹µãÊ±×Ô¶¯È¡ÏûÑ¡Ôñ
-		//@²ÎÊı bEnable ÊÇ·ñÆôÓÃ
-		//@±ğÃû  ÆôÓÃ×Ô¶¯È¡ÏûÑ¡Ôñ()
+		//@å¤‡æ³¨ å½“å¤±å»ç„¦ç‚¹æ—¶è‡ªåŠ¨å–æ¶ˆé€‰æ‹©
+		//@å‚æ•° bEnable æ˜¯å¦å¯ç”¨
+		//@åˆ«å  å¯ç”¨è‡ªåŠ¨å–æ¶ˆé€‰æ‹©()
 		void EnableAutoCancelSel(bool bEnable) {
 			XEdit_EnableAutoCancelSel(getEleHandle(), bEnable);
 		}
 
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  ÊÇ·ñÖ»¶Á()
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  æ˜¯å¦åªè¯»()
 		bool IsReadOnly() {
 			return XEdit_IsReadOnly(getEleHandle());
 		}
 
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  ÊÇ·ñ¶àĞĞ()
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  æ˜¯å¦å¤šè¡Œ()
 		bool IsMultiLine() {
 			return XEdit_IsMultiLine(getEleHandle());
 		}
 
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  ÊÇ·ñÃÜÂë()
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  æ˜¯å¦å¯†ç ()
 		bool IsPassword() {
 			return XEdit_IsPassword(getEleHandle());
 		}
 
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  ÊÇ·ñ×Ô¶¯»»ĞĞ()
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  æ˜¯å¦è‡ªåŠ¨æ¢è¡Œ()
 		bool IsAutoWrap() {
 			return XEdit_IsAutoWrap(getEleHandle());
 		}
 
-		//@·µ»Ø Èç¹ûÎª¿Õ·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÊÇ·ñÎª¿Õ()
+		//@è¿”å› å¦‚æœä¸ºç©ºè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  æ˜¯å¦ä¸ºç©º()
 		bool IsEmpty() {
 			return XEdit_IsEmpty(getEleHandle());
 		}
 
-		//@²ÎÊı iRow ĞĞË÷Òı
-		//@²ÎÊı iCol ÁĞË÷Òı
-		//@·µ»Ø Èç¹ûÔÚÑ¡ÔñÇøÓòÄÚ·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  ÊÇ·ñÔÚÑ¡ÔñÇøÓò()
+		//@å‚æ•° iRow è¡Œç´¢å¼•
+		//@å‚æ•° iCol åˆ—ç´¢å¼•
+		//@è¿”å› å¦‚æœåœ¨é€‰æ‹©åŒºåŸŸå†…è¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  æ˜¯å¦åœ¨é€‰æ‹©åŒºåŸŸ()
 		bool IsInSelect(int iRow, int iCol) {
 			return XEdit_IsInSelect(getEleHandle(), iRow, iCol);
 		}
 
-		//@·µ»Ø ·µ»Ø´ÓĞĞÊı
-		//@±ğÃû  È¡×ÜĞĞÊı()
+		//@è¿”å› è¿”å›ä»è¡Œæ•°
+		//@åˆ«å  å–æ€»è¡Œæ•°()
 		int GetRowCount() {
 			return XEdit_GetRowCount(getEleHandle());
 		}
 
-		//@±¸×¢ °üº¬ÎÄ±¾»ò·ÇÎÄ±¾ÄÚÈİ
-		//@·µ»Ø ·µ»ØÊı¾İ½á¹¹
-		//@±ğÃû  È¡Êı¾İ()
+		//@å¤‡æ³¨ åŒ…å«æ–‡æœ¬æˆ–éæ–‡æœ¬å†…å®¹
+		//@è¿”å› è¿”å›æ•°æ®ç»“æ„
+		//@åˆ«å  å–æ•°æ®()
 		edit_data_copy_* GetData() {
 			return XEdit_GetData(getEleHandle());
 		}
 
-		//@²ÎÊı pData Êı¾İ½á¹¹
-		//@²ÎÊı styleTable ÑùÊ½±í
-		//@²ÎÊı nStyleCount ÑùÊ½ÊıÁ¿
-		//@±ğÃû  Ìí¼ÓÊı¾İ()
+		//@å‚æ•° pData æ•°æ®ç»“æ„
+		//@å‚æ•° styleTable æ ·å¼è¡¨
+		//@å‚æ•° nStyleCount æ ·å¼æ•°é‡
+		//@åˆ«å  æ·»åŠ æ•°æ®()
 		void AddData(edit_data_copy_* pData, USHORT* styleTable, int nStyleCount) {
 			XEdit_AddData(getEleHandle(), pData, styleTable, nStyleCount);
 		}
 
-		//@±ğÃû  ÊÍ·ÅÊı¾İ()
-		//@²ÎÊı pData Êı¾İ½á¹¹
+		//@åˆ«å  é‡Šæ”¾æ•°æ®()
+		//@å‚æ•° pData æ•°æ®ç»“æ„
 		void FreeData(edit_data_copy_* pData) {
 			XEdit_FreeData(pData);
 		}
 
-		//@±¸×¢ µ±ÄÚÈİÎª¿ÕÊ±,ÏÔÊ¾Ä¬ÈÏÎÄ±¾
-		//@²ÎÊı pString ÎÄ±¾ÄÚÈİ
-		//@±ğÃû  ÖÃÄ¬ÈÏÎÄ±¾()
+		//@å¤‡æ³¨ å½“å†…å®¹ä¸ºç©ºæ—¶,æ˜¾ç¤ºé»˜è®¤æ–‡æœ¬
+		//@å‚æ•° pString æ–‡æœ¬å†…å®¹
+		//@åˆ«å  ç½®é»˜è®¤æ–‡æœ¬()
 		void SetDefaultText(const std::wstring& text) {
 			XEdit_SetDefaultText(getEleHandle(), text.c_str());
 		}
 
-		//@²ÎÊı color ÑÕÉ«Öµ, ÇëÊ¹ÓÃºê: RGBA()
-		//@±ğÃû  ÖÃÄ¬ÈÏÎÄ±¾ÑÕÉ«()
+		//@å‚æ•° color é¢œè‰²å€¼, è¯·ä½¿ç”¨å®: RGBA()
+		//@åˆ«å  ç½®é»˜è®¤æ–‡æœ¬é¢œè‰²()
 		void SetDefaultTextColor(COLORREF color) {
 			XEdit_SetDefaultTextColor(getEleHandle(), color);
 		}
 
-		//@²ÎÊı ch ×Ö·û
-		//@±ğÃû  ÖÃÃÜÂë×Ö·û()
+		//@å‚æ•° ch å­—ç¬¦
+		//@åˆ«å  ç½®å¯†ç å­—ç¬¦()
 		void SetPasswordCharacter(wchar_t ch) {
 			XEdit_SetPasswordCharacter(getEleHandle(), ch);
 		}
 
-		//@±¸×¢ µ¥ĞĞÄ£Ê½ÏÂÓĞĞ§
-		//@²ÎÊı align ¶ÔÆë·½Ê½ @ref edit_textAlign_flag_
-		//@±ğÃû  ÖÃÎÄ±¾¶ÔÆë()
+		//@å¤‡æ³¨ å•è¡Œæ¨¡å¼ä¸‹æœ‰æ•ˆ
+		//@å‚æ•° align å¯¹é½æ–¹å¼ @ref edit_textAlign_flag_
+		//@åˆ«å  ç½®æ–‡æœ¬å¯¹é½()
 		void SetTextAlign(int align) {
 			XEdit_SetTextAlign(getEleHandle(), align);
 		}
 
-		//@²ÎÊı nSpace ¿Õ¸ñÊıÁ¿
-		//@±ğÃû  ÖÃTAB¿Õ¸ñ()
+		//@å‚æ•° nSpace ç©ºæ ¼æ•°é‡
+		//@åˆ«å  ç½®TABç©ºæ ¼()
 		void SetTabSpace(int nSpace) {
 			XEdit_SetTabSpace(getEleHandle(), nSpace);
 		}
 
-		//@±¸×¢ ÖÃÖĞÎÄ×ÖÌå;  Èç¹ûÒÑÉèÖÃ, µ±Óöµ½ÖĞÎÄ×Ö·ûÊ±Ê¹ÓÃºó±¸×ÖÌå, ½â¾ö²»Ö§³ÖÖĞÎÄµÄ×ÖÌåÎÊÌâ
-		//@²ÎÊı hFont ×ÖÌå
-		//@±ğÃû  ÖÃºó±¸×ÖÌå()
+		//@å¤‡æ³¨ ç½®ä¸­æ–‡å­—ä½“;  å¦‚æœå·²è®¾ç½®, å½“é‡åˆ°ä¸­æ–‡å­—ç¬¦æ—¶ä½¿ç”¨åå¤‡å­—ä½“, è§£å†³ä¸æ”¯æŒä¸­æ–‡çš„å­—ä½“é—®é¢˜
+		//@å‚æ•° hFont å­—ä½“
+		//@åˆ«å  ç½®åå¤‡å­—ä½“()
 		void SetBackFont(HFONTX hFont) {
 			XEdit_SetBackFont(getEleHandle(), hFont);
 		}
 
-		//@²ÎÊı size ¿Õ¸ñ´óĞ¡
-		//@±ğÃû  ÖÃ¿Õ¸ñ´óĞ¡()
+		//@å‚æ•° size ç©ºæ ¼å¤§å°
+		//@åˆ«å  ç½®ç©ºæ ¼å¤§å°()
 		void SetSpaceSize(int size) {
 			XEdit_SetSpaceSize(getEleHandle(), size);
 		}
 
-		//@²ÎÊı size Ó¢ÎÄ×Ö·û¼ä¾à´óĞ¡
-		//@²ÎÊı sizeZh ÖĞÎÄ×Ö·û¼ä¾à´óĞ¡
-		//@±ğÃû  ÖÃ×Ö·û¼ä¾à()
+		//@å‚æ•° size è‹±æ–‡å­—ç¬¦é—´è·å¤§å°
+		//@å‚æ•° sizeZh ä¸­æ–‡å­—ç¬¦é—´è·å¤§å°
+		//@åˆ«å  ç½®å­—ç¬¦é—´è·()
 		void SetCharSpaceSize(int size, int sizeZh) {
 			XEdit_SetCharSpaceSize(getEleHandle(), size, sizeZh);
 		}
 
-		//@²ÎÊı pString ×Ö·û´®
-		//@±ğÃû  ÖÃÎÄ±¾()
+		//@å‚æ•° pString å­—ç¬¦ä¸²
+		//@åˆ«å  ç½®æ–‡æœ¬()
 		void SetText(const std::wstring& text) {
 			XEdit_SetText(getEleHandle(), text.c_str());
 		}
 
-		//@²ÎÊı nValue ÕûÊıÖµ
-		//@±ğÃû  ÖÃÎÄ±¾ÕûÊı()
+		//@å‚æ•° nValue æ•´æ•°å€¼
+		//@åˆ«å  ç½®æ–‡æœ¬æ•´æ•°()
 		void SetTextInt(int nValue) {
 			XEdit_SetTextInt(getEleHandle(), nValue);
 		}
 
-		//@±¸×¢ ²»°üº¬·ÇÎÄ±¾ÄÚÈİ
-		//@²ÎÊı pOut ½ÓÊÕÎÄ±¾ÄÚ´æÖ¸Õë
-		//@²ÎÊı nOutlen ÄÚ´æ´óĞ¡, ×Ö·ûÎªµ¥Î»
-		//@·µ»Ø ·µ»ØÊµ¼Ê½ÓÊÕÎÄ±¾³¤¶È
-		//@±ğÃû  È¡ÎÄ±¾()
+		//@å¤‡æ³¨ ä¸åŒ…å«éæ–‡æœ¬å†…å®¹
+		//@å‚æ•° pOut æ¥æ”¶æ–‡æœ¬å†…å­˜æŒ‡é’ˆ
+		//@å‚æ•° nOutlen å†…å­˜å¤§å°, å­—ç¬¦ä¸ºå•ä½
+		//@è¿”å› è¿”å›å®é™…æ¥æ”¶æ–‡æœ¬é•¿åº¦
+		//@åˆ«å  å–æ–‡æœ¬()
 		std::wstring GetText(int maxSize=-1) {
 			if (maxSize == -1) {
 				maxSize = this->GetLength();
@@ -209,12 +209,12 @@ namespace xcgui {
 			return out.substr(0, realLen);
 		}
 
-		//@±¸×¢ »ñÈ¡Ö¸¶¨ĞĞÎÄ±¾ÄÚÈİ
-		//@²ÎÊı iRow ĞĞË÷Òı
-		//@²ÎÊı pOut ½ÓÊÕÎÄ±¾ÄÚ´æÖ¸Õë
-		//@²ÎÊı nOutlen ½ÓÊÕÎÄ±¾ÄÚ´æ¿é³¤¶È,×Ö·ûÎªµ¥Î»
-		//@·µ»Ø ·µ»ØÊµ¼Ê½ÓÊÕÎÄ±¾³¤¶È
-		//@±ğÃû  È¡ÎÄ±¾ĞĞ()
+		//@å¤‡æ³¨ è·å–æŒ‡å®šè¡Œæ–‡æœ¬å†…å®¹
+		//@å‚æ•° iRow è¡Œç´¢å¼•
+		//@å‚æ•° pOut æ¥æ”¶æ–‡æœ¬å†…å­˜æŒ‡é’ˆ
+		//@å‚æ•° nOutlen æ¥æ”¶æ–‡æœ¬å†…å­˜å—é•¿åº¦,å­—ç¬¦ä¸ºå•ä½
+		//@è¿”å› è¿”å›å®é™…æ¥æ”¶æ–‡æœ¬é•¿åº¦
+		//@åˆ«å  å–æ–‡æœ¬è¡Œ()
 		std::wstring GetTextRow(int iRow, int maxSize=-1) {
 			if (maxSize == -1) {
 				maxSize = GetLengthRow(iRow);
@@ -226,285 +226,285 @@ namespace xcgui {
 			return out.substr(0, realLen);
 		}
 
-		//@±¸×¢ °üº¬·ÇÎÄ±¾ÄÚÈİ
-		//@·µ»Ø ·µ»ØÄÚÈİ³¤¶È
-		//@±ğÃû  È¡ÄÚÈİ³¤¶È()
+		//@å¤‡æ³¨ åŒ…å«éæ–‡æœ¬å†…å®¹
+		//@è¿”å› è¿”å›å†…å®¹é•¿åº¦
+		//@åˆ«å  å–å†…å®¹é•¿åº¦()
 		int GetLength() {
 			return XEdit_GetLength(getEleHandle());
 		}
 
-		//@±¸×¢ °üº¬·ÇÎÄ±¾ÄÚÈİ
-		//@²ÎÊı iRow ĞĞË÷Òı
-		//@·µ»Ø ·µ»ØÄÚÈİ³¤¶È
-		//@±ğÃû  È¡ÄÚÈİ³¤¶ÈĞĞ()
+		//@å¤‡æ³¨ åŒ…å«éæ–‡æœ¬å†…å®¹
+		//@å‚æ•° iRow è¡Œç´¢å¼•
+		//@è¿”å› è¿”å›å†…å®¹é•¿åº¦
+		//@åˆ«å  å–å†…å®¹é•¿åº¦è¡Œ()
 		int GetLengthRow(int iRow) {
 			return XEdit_GetLengthRow(getEleHandle(), iRow);
 		}
 
-		//@²ÎÊı iRow ĞĞË÷Òı
-		//@²ÎÊı iCol ÁĞË÷Òı
-		//@·µ»Ø ·µ»ØÖ¸¶¨Î»ÖÃ×Ö·û
-		//@±ğÃû  È¡×Ö·û()
+		//@å‚æ•° iRow è¡Œç´¢å¼•
+		//@å‚æ•° iCol åˆ—ç´¢å¼•
+		//@è¿”å› è¿”å›æŒ‡å®šä½ç½®å­—ç¬¦
+		//@åˆ«å  å–å­—ç¬¦()
 		wchar_t GetAt(int iRow, int iCol) {
 			return XEdit_GetAt(getEleHandle(), iRow, iCol);
 		}
 
-		//@²ÎÊı iRow ĞĞË÷Òı
-		//@²ÎÊı iCol ÁĞË÷Òı
-		//@²ÎÊı pString ×Ö·û´®
-		//@±ğÃû  ²åÈëÎÄ±¾()
+		//@å‚æ•° iRow è¡Œç´¢å¼•
+		//@å‚æ•° iCol åˆ—ç´¢å¼•
+		//@å‚æ•° pString å­—ç¬¦ä¸²
+		//@åˆ«å  æ’å…¥æ–‡æœ¬()
 		void InsertText(int iRow, int iCol, const std::wstring& text) {
 			XEdit_InsertText(getEleHandle(), iRow, iCol, text.c_str());
 		}
 
-		//@²ÎÊı pString ×Ö·û´®
-		//@±ğÃû  Ìí¼ÓÎÄ±¾()
+		//@å‚æ•° pString å­—ç¬¦ä¸²
+		//@åˆ«å  æ·»åŠ æ–‡æœ¬()
 		void AddText(const std::wstring& text) {
 			XEdit_AddText(getEleHandle(), text.c_str());
 		}
 
-		//@±¸×¢ ×Ô¶¯Ë¢ĞÂUI, Ö§³Ö³·Ïú/»Ö¸´
-		//@²ÎÊı pString ×Ö·û´®
-		//@±ğÃû  Ìí¼ÓÎÄ±¾Ä£ÄâÓÃ»§²Ù×÷()
+		//@å¤‡æ³¨ è‡ªåŠ¨åˆ·æ–°UI, æ”¯æŒæ’¤é”€/æ¢å¤
+		//@å‚æ•° pString å­—ç¬¦ä¸²
+		//@åˆ«å  æ·»åŠ æ–‡æœ¬æ¨¡æ‹Ÿç”¨æˆ·æ“ä½œ()
 		void AddTextUser(const std::wstring& text) {
 			XEdit_AddTextUser(getEleHandle(), text.c_str());
 		}
 
-		//@²ÎÊı pString ×Ö·û´®
-		//@²ÎÊı iStyle ÑùÊ½Ë÷Òı
-		//@±ğÃû  Ìí¼ÓÎÄ±¾À©Õ¹()
+		//@å‚æ•° pString å­—ç¬¦ä¸²
+		//@å‚æ•° iStyle æ ·å¼ç´¢å¼•
+		//@åˆ«å  æ·»åŠ æ–‡æœ¬æ‰©å±•()
 		void AddTextEx(const std::wstring& text, int iStyle) {
 			XEdit_AddTextEx(getEleHandle(), text.c_str(), iStyle);
 		}
 
-		//@±¸×¢ ÀıÈç: ×ÖÌå, Í¼Æ¬, UI¶ÔÏó
-		//@²ÎÊı hObj ¶ÔÏó¾ä±ú
-		//@·µ»Ø ·µ»ØÑùÊ½Ë÷Òı
-		//@±ğÃû  Ìí¼Ó¶ÔÏó()
+		//@å¤‡æ³¨ ä¾‹å¦‚: å­—ä½“, å›¾ç‰‡, UIå¯¹è±¡
+		//@å‚æ•° hObj å¯¹è±¡å¥æŸ„
+		//@è¿”å› è¿”å›æ ·å¼ç´¢å¼•
+		//@åˆ«å  æ·»åŠ å¯¹è±¡()
 		int AddObject(HXCGUI hObj) {
 			return XEdit_AddObject(getEleHandle(), hObj);
 		}
 
-		//@±¸×¢ µ±ÑùÊ½ÎªÍ¼Æ¬Ê±ÓĞĞ§
-		//@²ÎÊı iStyle ÑùÊ½Ë÷Òı
-		//@±ğÃû  Ìí¼Ó¶ÔÏó´ÓÑùÊ½()
+		//@å¤‡æ³¨ å½“æ ·å¼ä¸ºå›¾ç‰‡æ—¶æœ‰æ•ˆ
+		//@å‚æ•° iStyle æ ·å¼ç´¢å¼•
+		//@åˆ«å  æ·»åŠ å¯¹è±¡ä»æ ·å¼()
 		void AddByStyle(int iStyle) {
 			XEdit_AddByStyle(getEleHandle(), iStyle);
 		}
 
-		//@²ÎÊı hFont_image_Obj ×ÖÌå,Í¼Æ¬»òUI¶ÔÏó
-		//@²ÎÊı color ÑÕÉ«
-		//@²ÎÊı bColor ÊÇ·ñÊ¹ÓÃÑÕÉ«
-		//@·µ»Ø ·µ»ØÑùÊ½Ë÷Òı
-		//@±ğÃû  Ìí¼ÓÑùÊ½()
+		//@å‚æ•° hFont_image_Obj å­—ä½“,å›¾ç‰‡æˆ–UIå¯¹è±¡
+		//@å‚æ•° color é¢œè‰²
+		//@å‚æ•° bColor æ˜¯å¦ä½¿ç”¨é¢œè‰²
+		//@è¿”å› è¿”å›æ ·å¼ç´¢å¼•
+		//@åˆ«å  æ·»åŠ æ ·å¼()
 		int AddStyle(HXCGUI hFont_image_Obj, COLORREF color, bool bColor) {
 			return XEdit_AddStyle(getEleHandle(), hFont_image_Obj, color, bColor);
 		}
 
-		//@²ÎÊı fontName ×ÖÌåÃû³Æ
-		//@²ÎÊı fontSize ×ÖÌå´óĞ¡
-		//@²ÎÊı fontStyle ×ÖÌåÑùÊ½ @ref fontStyle_
-		//@²ÎÊı color ÑÕÉ«
-		//@²ÎÊı bColor ÊÇ·ñÊ¹ÓÃÑÕÉ«
-		//@·µ»Ø ·µ»ØÑùÊ½Ë÷Òı
-		//@±ğÃû  Ìí¼ÓÑùÊ½À©Õ¹()
+		//@å‚æ•° fontName å­—ä½“åç§°
+		//@å‚æ•° fontSize å­—ä½“å¤§å°
+		//@å‚æ•° fontStyle å­—ä½“æ ·å¼ @ref fontStyle_
+		//@å‚æ•° color é¢œè‰²
+		//@å‚æ•° bColor æ˜¯å¦ä½¿ç”¨é¢œè‰²
+		//@è¿”å› è¿”å›æ ·å¼ç´¢å¼•
+		//@åˆ«å  æ·»åŠ æ ·å¼æ‰©å±•()
 		int AddStyleEx(const std::wstring& fontName, int fontSize, int fontStyle, COLORREF color, bool bColor) {
 			return XEdit_AddStyleEx(getEleHandle(), fontName.c_str(), fontSize, fontStyle, color, bColor);
 		}
 
-		//@²ÎÊı iStyle ÑùÊ½Ë÷Òı
-		//@²ÎÊı hFont ×ÖÌå¾ä±ú
-		//@²ÎÊı color ÑÕÉ«
-		//@²ÎÊı bColor ÊÇ·ñÊ¹ÓÃÑÕÉ«
-		//@·µ»Ø Èç¹û³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  ĞŞ¸ÄÑùÊ½()
+		//@å‚æ•° iStyle æ ·å¼ç´¢å¼•
+		//@å‚æ•° hFont å­—ä½“å¥æŸ„
+		//@å‚æ•° color é¢œè‰²
+		//@å‚æ•° bColor æ˜¯å¦ä½¿ç”¨é¢œè‰²
+		//@è¿”å› å¦‚æœæˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  ä¿®æ”¹æ ·å¼()
 		bool ModifyStyle(int iStyle, HFONTX hFont, COLORREF color, bool bColor) {
 			return XEdit_ModifyStyle(getEleHandle(), iStyle, hFont, color, bColor);
 		}
 
-		//@²ÎÊı iStyle ÑùÊ½
-		//@·µ»Ø Èç¹û³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE 
-		//@±ğÃû  ÊÍ·ÅÑùÊ½()
+		//@å‚æ•° iStyle æ ·å¼
+		//@è¿”å› å¦‚æœæˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE 
+		//@åˆ«å  é‡Šæ”¾æ ·å¼()
 		bool ReleaseStyle(int iStyle) {
 			return XEdit_ReleaseStyle(getEleHandle(), iStyle);
 		}
 
-		//@²ÎÊı iStyle ÑùÊ½Ë÷Òı
-		//@²ÎÊı info ·µ»ØÑùÊ½ĞÅÏ¢
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  È¡ÑùÊ½ĞÅÏ¢()
+		//@å‚æ•° iStyle æ ·å¼ç´¢å¼•
+		//@å‚æ•° info è¿”å›æ ·å¼ä¿¡æ¯
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  å–æ ·å¼ä¿¡æ¯()
 		bool GetStyleInfo(int iStyle, edit_style_info_* info) {
 			return XEdit_GetStyleInfo(getEleHandle(), iStyle, info);
 		}
 
-		//@²ÎÊı iStyle ÑùÊ½Ë÷Òı
-		//@±ğÃû  ÖÃµ±Ç°ÑùÊ½()
+		//@å‚æ•° iStyle æ ·å¼ç´¢å¼•
+		//@åˆ«å  ç½®å½“å‰æ ·å¼()
 		void SetCurStyle(int iStyle) {
 			XEdit_SetCurStyle(getEleHandle(), iStyle);
 		}
 
-		//@²ÎÊı iStyle ÑùÊ½Ë÷Òı
-		//@±ğÃû  ÖÃÑ¡ÔñÎÄ±¾ÑùÊ½()
+		//@å‚æ•° iStyle æ ·å¼ç´¢å¼•
+		//@åˆ«å  ç½®é€‰æ‹©æ–‡æœ¬æ ·å¼()
 		void SetSelectTextStyle(int iStyle) {
 			XEdit_SetSelectTextStyle(getEleHandle(), iStyle);
 		}
 
-		//@²ÎÊı color ÑÕÉ«
-		//@±ğÃû  ÖÃ²åÈë·ûÑÕÉ«()
+		//@å‚æ•° color é¢œè‰²
+		//@åˆ«å  ç½®æ’å…¥ç¬¦é¢œè‰²()
 		void SetCaretColor(COLORREF color) {
 			XEdit_SetCaretColor(getEleHandle(), color);
 		}
 
-		//@²ÎÊı nWidth ¿í¶È
-		//@±ğÃû  ÖÃ²åÈë·û¿í¶È()
+		//@å‚æ•° nWidth å®½åº¦
+		//@åˆ«å  ç½®æ’å…¥ç¬¦å®½åº¦()
 		void SetCaretWidth(int nWidth) {
 			XEdit_SetCaretWidth(getEleHandle(), nWidth);
 		}
 
-		//@²ÎÊı color ÑÕÉ«Öµ, ÇëÊ¹ÓÃºê: RGBA()
-		//@±ğÃû  ÖÃÑ¡Ôñ±³¾°ÑÕÉ«()
+		//@å‚æ•° color é¢œè‰²å€¼, è¯·ä½¿ç”¨å®: RGBA()
+		//@åˆ«å  ç½®é€‰æ‹©èƒŒæ™¯é¢œè‰²()
 		void SetSelectBkColor(COLORREF color) {
 			XEdit_SetSelectBkColor(getEleHandle(), color);
 		}
 
-		//@²ÎÊı nHeight ĞĞ¸ß
-		//@±ğÃû  ÖÃÄ¬ÈÏĞĞ¸ß()
+		//@å‚æ•° nHeight è¡Œé«˜
+		//@åˆ«å  ç½®é»˜è®¤è¡Œé«˜()
 		void SetRowHeight(int nHeight) {
 			XEdit_SetRowHeight(getEleHandle(), nHeight);
 		}
 
-		//@±¸×¢ µ±ÀàĞÍÎª edit_type_richedit Ö§³ÖÖ¸¶¨²»Í¬ĞĞ¸ß
-		//@²ÎÊı iRow ĞĞË÷Òı
-		//@²ÎÊı nHeight ¸ß¶È
-		//@±ğÃû  ÖÃÖ¸¶¨ĞĞ¸ß¶È()
+		//@å¤‡æ³¨ å½“ç±»å‹ä¸º edit_type_richedit æ”¯æŒæŒ‡å®šä¸åŒè¡Œé«˜
+		//@å‚æ•° iRow è¡Œç´¢å¼•
+		//@å‚æ•° nHeight é«˜åº¦
+		//@åˆ«å  ç½®æŒ‡å®šè¡Œé«˜åº¦()
 		void SetRowHeightEx(int iRow, int nHeight) {
 			XEdit_SetRowHeightEx(getEleHandle(), iRow, nHeight);
 		}
 
-		//@±¸×¢ ÉèÖÃĞĞ¼ä¸ô´óĞ¡,¶àĞĞÄ£Ê½ÓĞĞ§
-		//@²ÎÊı nSpace ĞĞ¼ä¸ô´óĞ¡
-		//@±ğÃû  ÖÃĞĞ¼ä¸ô()
+		//@å¤‡æ³¨ è®¾ç½®è¡Œé—´éš”å¤§å°,å¤šè¡Œæ¨¡å¼æœ‰æ•ˆ
+		//@å‚æ•° nSpace è¡Œé—´éš”å¤§å°
+		//@åˆ«å  ç½®è¡Œé—´éš”()
 		void SetRowSpace(int nSpace) {
 			XEdit_SetRowSpace(getEleHandle(), nSpace);
 		}
 
-		//@²ÎÊı pos Î»ÖÃ
-		//@·µ»Ø Èç¹û³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  ÖÃµ±Ç°Î»ÖÃ()
+		//@å‚æ•° pos ä½ç½®
+		//@è¿”å› å¦‚æœæˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  ç½®å½“å‰ä½ç½®()
 		bool SetCurPos(int pos) {
 			return XEdit_SetCurPos(getEleHandle(), pos);
 		}
 
-		//@·µ»Ø ·µ»ØÎ»ÖÃ
-		//@±ğÃû  È¡µ±Ç°Î»ÖÃ()
+		//@è¿”å› è¿”å›ä½ç½®
+		//@åˆ«å  å–å½“å‰ä½ç½®()
 		int GetCurPos() {
 			return XEdit_GetCurPos(getEleHandle());
 		}
 
-		//@²ÎÊı iRow ĞĞË÷Òı
-		//@²ÎÊı iCol ÁĞË÷Òı
-		//@±ğÃû  ÖÃµ±Ç°Î»ÖÃÀ©Õ¹()
+		//@å‚æ•° iRow è¡Œç´¢å¼•
+		//@å‚æ•° iCol åˆ—ç´¢å¼•
+		//@åˆ«å  ç½®å½“å‰ä½ç½®æ‰©å±•()
 		void SetCurPosEx(int iRow, int iCol) {
 			XEdit_SetCurPosEx(getEleHandle(), iRow, iCol);
 		}
 
-		//@²ÎÊı iRow ·µ»ØĞĞË÷Òı
-		//@²ÎÊı iCol ·µ»ØÁĞË÷Òı
-		//@±ğÃû  È¡µ±Ç°Î»ÖÃÀ©Õ¹()
+		//@å‚æ•° iRow è¿”å›è¡Œç´¢å¼•
+		//@å‚æ•° iCol è¿”å›åˆ—ç´¢å¼•
+		//@åˆ«å  å–å½“å‰ä½ç½®æ‰©å±•()
 		void GetCurPosEx(int* iRow, int* iCol) {
 			XEdit_GetCurPosEx(getEleHandle(), iRow, iCol);
 		}
 
-		//@·µ»Ø ·µ»ØĞĞË÷Òı
-		//@±ğÃû  È¡µ±Ç°ĞĞ()
+		//@è¿”å› è¿”å›è¡Œç´¢å¼•
+		//@åˆ«å  å–å½“å‰è¡Œ()
 		int GetCurRow() {
 			return XEdit_GetCurRow(getEleHandle());
 		}
 
-		//@·µ»Ø ·µ»ØÁĞË÷Òı
-		//@±ğÃû  È¡µ±Ç°ÁĞ()
+		//@è¿”å› è¿”å›åˆ—ç´¢å¼•
+		//@åˆ«å  å–å½“å‰åˆ—()
 		int GetCurCol() {
 			return XEdit_GetCurCol(getEleHandle());
 		}
 
-		//@±ğÃû  ÒÆ¶¯µ½Ä©Î²()
+		//@åˆ«å  ç§»åŠ¨åˆ°æœ«å°¾()
 		void MoveEnd() {
 			XEdit_MoveEnd(getEleHandle());
 		}
 
-		//@²ÎÊı iRow ĞĞË÷Òı
-		//@²ÎÊı iCol ÁĞË÷Òı
-		//@²ÎÊı pOut ½ÓÊÕ·µ»Ø×ø±êµã
-		//@±ğÃû  È¡×ø±êµã()
+		//@å‚æ•° iRow è¡Œç´¢å¼•
+		//@å‚æ•° iCol åˆ—ç´¢å¼•
+		//@å‚æ•° pOut æ¥æ”¶è¿”å›åæ ‡ç‚¹
+		//@åˆ«å  å–åæ ‡ç‚¹()
 		void GetPoint(int iRow, int iCol, POINT* pOut) {
 			XEdit_GetPoint(getEleHandle(), iRow, iCol, pOut);
 		}
 
-		//@±¸×¢ ÊÓÍ¼×Ô¶¯¹ö¶¯µ½µ±Ç°²åÈë·ûÎ»ÖÃ
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  ×Ô¶¯¹ö¶¯()
+		//@å¤‡æ³¨ è§†å›¾è‡ªåŠ¨æ»šåŠ¨åˆ°å½“å‰æ’å…¥ç¬¦ä½ç½®
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  è‡ªåŠ¨æ»šåŠ¨()
 		bool AutoScroll() {
 			return XEdit_AutoScroll(getEleHandle());
 		}
 
-		//@±¸×¢ ÊÓÍ¼×Ô¶¯¹ö¶¯µ½Ö¸¶¨Î»ÖÃ
-		//@²ÎÊı iRow ĞĞË÷Òı
-		//@²ÎÊı iCol ÁĞË÷Òı
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  ×Ô¶¯¹ö¶¯À©Õ¹()
+		//@å¤‡æ³¨ è§†å›¾è‡ªåŠ¨æ»šåŠ¨åˆ°æŒ‡å®šä½ç½®
+		//@å‚æ•° iRow è¡Œç´¢å¼•
+		//@å‚æ•° iCol åˆ—ç´¢å¼•
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  è‡ªåŠ¨æ»šåŠ¨æ‰©å±•()
 		bool AutoScrollEx(int iRow, int iCol) {
 			return XEdit_AutoScrollEx(getEleHandle(), iRow, iCol);
 		}
 
-		//@±¸×¢ ×ª»»Î»ÖÃµãµ½ĞĞÁĞ
-		//@²ÎÊı iPos Î»ÖÃµã
-		//@²ÎÊı pInfo ĞĞÁĞ
-		//@±ğÃû  Î»ÖÃµ½ĞĞÁĞ()
+		//@å¤‡æ³¨ è½¬æ¢ä½ç½®ç‚¹åˆ°è¡Œåˆ—
+		//@å‚æ•° iPos ä½ç½®ç‚¹
+		//@å‚æ•° pInfo è¡Œåˆ—
+		//@åˆ«å  ä½ç½®åˆ°è¡Œåˆ—()
 		void PosToRowCol(int iPos, position_* pInfo) {
 			XEdit_PosToRowCol(getEleHandle(), iPos, pInfo);
 		}
 
-		//@²ÎÊı iRow ĞĞË÷Òı
-		//@²ÎÊı iCol ÁĞË÷Òı
-		//@·µ»Ø Î»ÖÃµã
-		//@±ğÃû  ĞĞÁĞµ½Î»ÖÃ()
+		//@å‚æ•° iRow è¡Œç´¢å¼•
+		//@å‚æ•° iCol åˆ—ç´¢å¼•
+		//@è¿”å› ä½ç½®ç‚¹
+		//@åˆ«å  è¡Œåˆ—åˆ°ä½ç½®()
 		int RowColToPos(int iRow, int iCol) {
 			return XEdit_RowColToPos(getEleHandle(), iRow, iCol);
 		}
 
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  Ñ¡ÔñÈ«²¿()
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  é€‰æ‹©å…¨éƒ¨()
 		bool SelectAll() {
 			return XEdit_SelectAll(getEleHandle());
 		}
 
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  È¡ÏûÑ¡Ôñ()
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  å–æ¶ˆé€‰æ‹©()
 		bool CancelSelect() {
 			return XEdit_CancelSelect(getEleHandle());
 		}
 
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  É¾³ıÑ¡ÔñÄÚÈİ()
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  åˆ é™¤é€‰æ‹©å†…å®¹()
 		bool DeleteSelect() {
 			return XEdit_DeleteSelect(getEleHandle());
 		}
 
-		//@²ÎÊı iStartRow ÆğÊ¼ĞĞË÷Òı
-		//@²ÎÊı iStartCol ÆğÊ¼ĞĞÁĞË÷Òı
-		//@²ÎÊı iEndRow ½áÊøĞĞË÷Òı
-		//@²ÎÊı iEndCol ½áÊøĞĞÁĞË÷Òı
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  ÖÃÑ¡Ôñ()
+		//@å‚æ•° iStartRow èµ·å§‹è¡Œç´¢å¼•
+		//@å‚æ•° iStartCol èµ·å§‹è¡Œåˆ—ç´¢å¼•
+		//@å‚æ•° iEndRow ç»“æŸè¡Œç´¢å¼•
+		//@å‚æ•° iEndCol ç»“æŸè¡Œåˆ—ç´¢å¼•
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  ç½®é€‰æ‹©()
 		bool SetSelect(int iStartRow, int iStartCol, int iEndRow, int iEndCol) {
 			return XEdit_SetSelect(getEleHandle(), iStartRow, iStartCol, iEndRow, iEndCol);
 		}
 
-		//@±¸×¢ ²»°üÀ¨·ÇÎÄ±¾ÄÚÈİ
-		//@²ÎÊı pOut ½ÓÊÕ·µ»ØÎÄ±¾ÄÚÈİ
-		//@²ÎÊı nOutLen ½ÓÊÕÄÚ´æ´óĞ¡,×Ö·ûÎªµ¥Î»
-		//@·µ»Ø ·µ»Ø½ÓÊÕÎÄ±¾ÄÚÈİÊµ¼Ê³¤¶È
-		//@±ğÃû  È¡Ñ¡ÔñÎÄ±¾()
+		//@å¤‡æ³¨ ä¸åŒ…æ‹¬éæ–‡æœ¬å†…å®¹
+		//@å‚æ•° pOut æ¥æ”¶è¿”å›æ–‡æœ¬å†…å®¹
+		//@å‚æ•° nOutLen æ¥æ”¶å†…å­˜å¤§å°,å­—ç¬¦ä¸ºå•ä½
+		//@è¿”å› è¿”å›æ¥æ”¶æ–‡æœ¬å†…å®¹å®é™…é•¿åº¦
+		//@åˆ«å  å–é€‰æ‹©æ–‡æœ¬()
 		std::wstring GetSelectText(int maxSize=-1) {
 			std::wstring out;
 			if (maxSize == -1) {
@@ -516,95 +516,95 @@ namespace xcgui {
 			return out.substr(0, realLen);
 		}
 
-		//@±¸×¢ ²»°üÀ¨·ÇÎÄ±¾ÄÚÈİ
-		//@·µ»Ø ·µ»ØÎÄ±¾ÄÚÈİ³¤¶È
-		//@±ğÃû  È¡Ñ¡ÔñÎÄ±¾³¤¶È()
+		//@å¤‡æ³¨ ä¸åŒ…æ‹¬éæ–‡æœ¬å†…å®¹
+		//@è¿”å› è¿”å›æ–‡æœ¬å†…å®¹é•¿åº¦
+		//@åˆ«å  å–é€‰æ‹©æ–‡æœ¬é•¿åº¦()
 		int GetSelectTextLength() {
 			return XEdit_GetSelectTextLength(getEleHandle());
 		}
 
-		//@²ÎÊı pBegin ÆğÊ¼Î»ÖÃ
-		//@²ÎÊı pEnd ½áÊøÎ»ÖÃ
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  È¡Ñ¡ÔñÄÚÈİ·¶Î§()
+		//@å‚æ•° pBegin èµ·å§‹ä½ç½®
+		//@å‚æ•° pEnd ç»“æŸä½ç½®
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  å–é€‰æ‹©å†…å®¹èŒƒå›´()
 		bool GetSelectRange(position_* pBegin, position_* pEnd) {
 			return XEdit_GetSelectRange(getEleHandle(), pBegin, pEnd);
 		}
 
-		//@²ÎÊı piStart ÆğÊ¼ĞĞË÷Òı
-		//@²ÎÊı piEnd ½áÊøĞĞË÷Òı
-		//@±ğÃû  È¡¿ÉÊÓĞĞ·¶Î§()
+		//@å‚æ•° piStart èµ·å§‹è¡Œç´¢å¼•
+		//@å‚æ•° piEnd ç»“æŸè¡Œç´¢å¼•
+		//@åˆ«å  å–å¯è§†è¡ŒèŒƒå›´()
 		void GetVisibleRowRange(int* piStart, int* piEnd) {
 			XEdit_GetVisibleRowRange(getEleHandle(), piStart, piEnd);
 		}
 
-		//@±¸×¢ É¾³ıÖ¸¶¨·¶Î§ÄÚÈİ; É¾³ıÈ«²¿ÇëÊ¹ÓÃ XEdit_SetText(hEdit,L"")
-		//@²ÎÊı iStartRow ÆğÊ¼ĞĞË÷Òı
-		//@²ÎÊı iStartCol ÆğÊ¼ĞĞÁĞË÷Òı
-		//@²ÎÊı iEndRow ½áÊøĞĞË÷Òı
-		//@²ÎÊı iEndCol ½áÊøĞĞÁĞË÷Òı
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  É¾³ı()
+		//@å¤‡æ³¨ åˆ é™¤æŒ‡å®šèŒƒå›´å†…å®¹; åˆ é™¤å…¨éƒ¨è¯·ä½¿ç”¨ XEdit_SetText(hEdit,L"")
+		//@å‚æ•° iStartRow èµ·å§‹è¡Œç´¢å¼•
+		//@å‚æ•° iStartCol èµ·å§‹è¡Œåˆ—ç´¢å¼•
+		//@å‚æ•° iEndRow ç»“æŸè¡Œç´¢å¼•
+		//@å‚æ•° iEndCol ç»“æŸè¡Œåˆ—ç´¢å¼•
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  åˆ é™¤()
 		bool Delete(int iStartRow, int iStartCol, int iEndRow, int iEndCol) {
 			return XEdit_Delete(getEleHandle(), iStartRow, iStartCol, iEndRow, iEndCol);
 		}
 
-		//@²ÎÊı iRow ĞĞË÷Òı
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  É¾³ıĞĞ()
+		//@å‚æ•° iRow è¡Œç´¢å¼•
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  åˆ é™¤è¡Œ()
 		bool DeleteRow(int iRow) {
 			return XEdit_DeleteRow(getEleHandle(), iRow);
 		}
 
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  ¼ôÌù°å¼ôÇĞ()
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  å‰ªè´´æ¿å‰ªåˆ‡()
 		bool ClipboardCut() {
 			return XEdit_ClipboardCut(getEleHandle());
 		}
 
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  ¼ôÌù°å¸´ÖÆ()
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  å‰ªè´´æ¿å¤åˆ¶()
 		bool ClipboardCopy() {
 			return XEdit_ClipboardCopy(getEleHandle());
 		}
 
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  ¼ôÌù°åÕ³Ìù()
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  å‰ªè´´æ¿ç²˜è´´()
 		bool ClipboardPaste() {
 			return XEdit_ClipboardPaste(getEleHandle());
 		}
 
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  ³·Ïú()
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  æ’¤é”€()
 		bool Undo() {
 			return XEdit_Undo(getEleHandle());
 		}
 
-		//@±¸×¢ »Ö¸´/ÖØ×ö
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  »Ö¸´()
+		//@å¤‡æ³¨ æ¢å¤/é‡åš
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  æ¢å¤()
 		bool Redo() {
 			return XEdit_Redo(getEleHandle());
 		}
 
-		//@±¸×¢ µ±Ç°ĞĞ¿ªÊ¼
-		//@²ÎÊı hImageAvatar Í·Ïñ
-		//@²ÎÊı hImageBubble ÆøÅİ±³¾°
-		//@²ÎÊı nFlag ±êÖ¾ @ref chat_flag_
-		//@±ğÃû  Ìí¼ÓÆøÅİ¿ªÊ¼()
+		//@å¤‡æ³¨ å½“å‰è¡Œå¼€å§‹
+		//@å‚æ•° hImageAvatar å¤´åƒ
+		//@å‚æ•° hImageBubble æ°”æ³¡èƒŒæ™¯
+		//@å‚æ•° nFlag æ ‡å¿— @ref chat_flag_
+		//@åˆ«å  æ·»åŠ æ°”æ³¡å¼€å§‹()
 		void AddChatBegin(HIMAGE hImageAvatar, HIMAGE hImageBubble, int nFlag) {
 			XEdit_AddChatBegin(getEleHandle(), hImageAvatar, hImageBubble, nFlag);
 		}
 
-		//@±¸×¢ µ±Ç°ĞĞ½áÊø
-		//@±ğÃû  Ìí¼ÓÆøÅİ½áÊø()
+		//@å¤‡æ³¨ å½“å‰è¡Œç»“æŸ
+		//@åˆ«å  æ·»åŠ æ°”æ³¡ç»“æŸ()
 		void AddChatEnd() {
 			XEdit_AddChatEnd(getEleHandle());
 		}
 
-		//@±¸×¢ ÉèÖÃÁÄÌìÆøÅİÄÚÈİËõ½ø
-		//@²ÎÊı nIndentation Ëõ½øÖµ
-		//@±ğÃû  ÖÃÆøÅİËõ½ø()
+		//@å¤‡æ³¨ è®¾ç½®èŠå¤©æ°”æ³¡å†…å®¹ç¼©è¿›
+		//@å‚æ•° nIndentation ç¼©è¿›å€¼
+		//@åˆ«å  ç½®æ°”æ³¡ç¼©è¿›()
 		void SetChatIndentation(int nIndentation) {
 			XEdit_SetChatIndentation(getEleHandle(), nIndentation);
 		}

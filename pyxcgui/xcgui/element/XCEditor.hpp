@@ -18,174 +18,174 @@ namespace xcgui {
 			m_handle = XEditor_Create(x, y, width, height, parent);
 		}
 
-		//@²ÎÊý hEle ÔªËØ¾ä±ú
-		//@²ÎÊý iRow ÐÐË÷Òý
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ðÃû ´úÂë±à¼­¿ò_ÊÇ·ñ¶Ïµã()
+		//@å‚æ•° hEle å…ƒç´ å¥æŸ„
+		//@å‚æ•° iRow è¡Œç´¢å¼•
+		//@è¿”å›ž æˆåŠŸè¿”å›žTRUE,å¦åˆ™è¿”å›žFALSE
+		//@åˆ«å ä»£ç ç¼–è¾‘æ¡†_æ˜¯å¦æ–­ç‚¹()
 		bool IsBreakpoint(int iRow) {
 			return XEditor_IsBreakpoint(getEleHandle(), iRow);
 		}
 
-		//@²ÎÊý hEle ÔªËØ¾ä±ú
-		//@²ÎÊý iRow ÐÐË÷Òý
-		//@²ÎÊý bActivate ÊÇ·ñ¼¤»î
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ðÃû ´úÂë±à¼­¿ò_ÖÃ¶Ïµã()
+		//@å‚æ•° hEle å…ƒç´ å¥æŸ„
+		//@å‚æ•° iRow è¡Œç´¢å¼•
+		//@å‚æ•° bActivate æ˜¯å¦æ¿€æ´»
+		//@è¿”å›ž æˆåŠŸè¿”å›žTRUE,å¦åˆ™è¿”å›žFALSE
+		//@åˆ«å ä»£ç ç¼–è¾‘æ¡†_ç½®æ–­ç‚¹()
 		bool SetBreakpoint(int iRow, bool bActivate = true) {
 			return XEditor_SetBreakpoint(getEleHandle(), iRow, bActivate);
 		}
 
-		//@²ÎÊý hEle ÔªËØ¾ä±ú
-		//@²ÎÊý iRow ÐÐË÷Òý
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ðÃû ´úÂë±à¼­¿ò_ÒÆ³ý¶Ïµã()
+		//@å‚æ•° hEle å…ƒç´ å¥æŸ„
+		//@å‚æ•° iRow è¡Œç´¢å¼•
+		//@è¿”å›ž æˆåŠŸè¿”å›žTRUE,å¦åˆ™è¿”å›žFALSE
+		//@åˆ«å ä»£ç ç¼–è¾‘æ¡†_ç§»é™¤æ–­ç‚¹()
 		bool RemoveBreakpoint(int iRow) {
 			return XEditor_RemoveBreakpoint(getEleHandle(), iRow);
 		}
 
-		//@²ÎÊý hEle ÔªËØ¾ä±ú
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ðÃû ´úÂë±à¼­¿ò_Çå¿Õ¶Ïµã()
+		//@å‚æ•° hEle å…ƒç´ å¥æŸ„
+		//@è¿”å›ž æˆåŠŸè¿”å›žTRUE,å¦åˆ™è¿”å›žFALSE
+		//@åˆ«å ä»£ç ç¼–è¾‘æ¡†_æ¸…ç©ºæ–­ç‚¹()
 		void ClearBreakpoint() {
 			XEditor_ClearBreakpoint(getEleHandle());
 		}
 
 
-		//@²ÎÊý hEle ÔªËØ¾ä±ú
-		//@²ÎÊý iRow ÐÐË÷Òý
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ðÃû ´úÂë±à¼­¿ò_ÖÃµ±Ç°ÔËÐÐ()
+		//@å‚æ•° hEle å…ƒç´ å¥æŸ„
+		//@å‚æ•° iRow è¡Œç´¢å¼•
+		//@è¿”å›ž æˆåŠŸè¿”å›žTRUE,å¦åˆ™è¿”å›žFALSE
+		//@åˆ«å ä»£ç ç¼–è¾‘æ¡†_ç½®å½“å‰è¿è¡Œ()
 		bool SetRunRow(int iRow) {
 			return XEditor_SetRunRow(getEleHandle(), iRow);
 		}
 
-		//@²ÎÊý hEle ÔªËØ¾ä±ú
-		//@²ÎÊý pInfo ÑÕÉ«ÐÅÏ¢½á¹¹ÌåÖ¸Õë
-		//@±ðÃû ´úÂë±à¼­¿ò_È¡ÑÕÉ«ÐÅÏ¢()
+		//@å‚æ•° hEle å…ƒç´ å¥æŸ„
+		//@å‚æ•° pInfo é¢œè‰²ä¿¡æ¯ç»“æž„ä½“æŒ‡é’ˆ
+		//@åˆ«å ä»£ç ç¼–è¾‘æ¡†_å–é¢œè‰²ä¿¡æ¯()
 		void GetColor(editor_color_* pInfo) {
 			XEditor_GetColor(getEleHandle(), pInfo);
 		}
 
-		//@²ÎÊý hEle ÔªËØ¾ä±ú
-		//@²ÎÊý pInfo ÑÕÉ«ÐÅÏ¢½á¹¹ÌåÖ¸Õë
-		//@±ðÃû ´úÂë±à¼­¿ò_ÖÃÑÕÉ«()
+		//@å‚æ•° hEle å…ƒç´ å¥æŸ„
+		//@å‚æ•° pInfo é¢œè‰²ä¿¡æ¯ç»“æž„ä½“æŒ‡é’ˆ
+		//@åˆ«å ä»£ç ç¼–è¾‘æ¡†_ç½®é¢œè‰²()
 		void SetColor(editor_color_* pInfo) {
 			XEditor_SetColor(getEleHandle(), pInfo);
 		}
 
 
-		//@²ÎÊý hEle ÔªËØ¾ä±ú
-		//@·µ»Ø ·µ»Ø¶ÏµãÊýÁ¿
-		//@±ðÃû ´úÂë±à¼­¿ò_È¡¶ÏµãÊýÁ¿()
+		//@å‚æ•° hEle å…ƒç´ å¥æŸ„
+		//@è¿”å›ž è¿”å›žæ–­ç‚¹æ•°é‡
+		//@åˆ«å ä»£ç ç¼–è¾‘æ¡†_å–æ–­ç‚¹æ•°é‡()
 		int GetBreakpointCount() {
 			return XEditor_GetBreakpointCount(getEleHandle());
 		}
 
-		//@²ÎÊý hEle ÔªËØ¾ä±ú
-		//@²ÎÊý nDelay ÑÓ³ÙÖµºÁÃë
-		//@±ðÃû ´úÂë±à¼­¿ò_ÖÃÌáÊ¾ÐÅÏ¢ÑÓ³Ù()
+		//@å‚æ•° hEle å…ƒç´ å¥æŸ„
+		//@å‚æ•° nDelay å»¶è¿Ÿå€¼æ¯«ç§’
+		//@åˆ«å ä»£ç ç¼–è¾‘æ¡†_ç½®æç¤ºä¿¡æ¯å»¶è¿Ÿ()
 		void SetTipsDelay(int nDelay) {
 			return XEditor_SetTipsDelay(getEleHandle(), nDelay);
 		}
 
-		//@²ÎÊý hEle ÔªËØ¾ä±ú
-		//@²ÎÊý model 0:»Ø³µÑ¡Ôñ, 1:¿Õ¸ñÑ¡Ôñ, 3:tab¼üÑ¡Ôñ
-		//@±ðÃû ´úÂë±à¼­¿ò_ÖÃ×Ô¶¯Æ¥ÅäÑ¡ÔñÄ£Ê½()
+		//@å‚æ•° hEle å…ƒç´ å¥æŸ„
+		//@å‚æ•° model 0:å›žè½¦é€‰æ‹©, 1:ç©ºæ ¼é€‰æ‹©, 3:tabé”®é€‰æ‹©
+		//@åˆ«å ä»£ç ç¼–è¾‘æ¡†_ç½®è‡ªåŠ¨åŒ¹é…é€‰æ‹©æ¨¡å¼()
 		void SetAutoMatchSelectModel( int model) {
 			XEditor_SetAutoMatchSelectModel(getEleHandle(), model);
 		}
 
 
-		//@²ÎÊý hEle ÔªËØ¾ä±ú
-		//@²ÎÊý aPoints ½ÓÊÕ¶ÏµãÊý×é
-		//@²ÎÊý nCount Êý×é´óÐ¡
-		//@·µ»Ø ·µ»ØÊµ¼Ê»ñÈ¡¶ÏµãÊýÁ¿
-		//@±ðÃû ´úÂë±à¼­¿ò_È¡È«²¿¶Ïµã()
+		//@å‚æ•° hEle å…ƒç´ å¥æŸ„
+		//@å‚æ•° aPoints æŽ¥æ”¶æ–­ç‚¹æ•°ç»„
+		//@å‚æ•° nCount æ•°ç»„å¤§å°
+		//@è¿”å›ž è¿”å›žå®žé™…èŽ·å–æ–­ç‚¹æ•°é‡
+		//@åˆ«å ä»£ç ç¼–è¾‘æ¡†_å–å…¨éƒ¨æ–­ç‚¹()
 		int GetBreakpoints(int* aPoints, int nCount) {
 			return XEditor_GetBreakpoints(getEleHandle(), aPoints, nCount);
 		}
 
-		//@±¸×¢ Ìø¹ýÊÕËõÐÐ
-		//@²ÎÊý hEle ÔªËØ¾ä±ú
-		//@²ÎÊý iRow ÐÐË÷Òý
-		//@±ðÃû ´úÂë±à¼­¿ò_ÉèÖÃµ±Ç°ÐÐ()
+		//@å¤‡æ³¨ è·³è¿‡æ”¶ç¼©è¡Œ
+		//@å‚æ•° hEle å…ƒç´ å¥æŸ„
+		//@å‚æ•° iRow è¡Œç´¢å¼•
+		//@åˆ«å ä»£ç ç¼–è¾‘æ¡†_è®¾ç½®å½“å‰è¡Œ()
 		void SetCurRow(int iRow) {
 			XEditor_SetCurRow(getEleHandle(), iRow);
 		}
 
-		//@²ÎÊý hEle ÔªËØ¾ä±ú
-		//@²ÎÊý iRow ÐÐË÷Òý
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ðÃû ´úÂë±à¼­¿ò_»ñÈ¡Éî¶È()
+		//@å‚æ•° hEle å…ƒç´ å¥æŸ„
+		//@å‚æ•° iRow è¡Œç´¢å¼•
+		//@è¿”å›ž æˆåŠŸè¿”å›žTRUE,å¦åˆ™è¿”å›žFALSE
+		//@åˆ«å ä»£ç ç¼–è¾‘æ¡†_èŽ·å–æ·±åº¦()
 		int GetDepth(int iRow) {
 			return XEditor_GetDepth(getEleHandle(), iRow);
 		}
 
-		//@±¸×¢ Ìø¹ýÊÕËõÐÐ
-		//@²ÎÊý hEle ÔªËØ¾ä±ú
-		//@²ÎÊý iRow ÐÐË÷Òý
-		//@·µ»Ø ·µ»ØÕ¹¿ªÐÐË÷Òý
-		//@±ðÃû ´úÂë±à¼­¿ò_×ª»»µ½Õ¹¿ªÐÐ()
+		//@å¤‡æ³¨ è·³è¿‡æ”¶ç¼©è¡Œ
+		//@å‚æ•° hEle å…ƒç´ å¥æŸ„
+		//@å‚æ•° iRow è¡Œç´¢å¼•
+		//@è¿”å›ž è¿”å›žå±•å¼€è¡Œç´¢å¼•
+		//@åˆ«å ä»£ç ç¼–è¾‘æ¡†_è½¬æ¢åˆ°å±•å¼€è¡Œ()
 		int ToExpandRow(int iRow) {
 			return XEditor_ToExpandRow(getEleHandle(), iRow);
 		}
 
-		//@±¸×¢ ÍêÈ«Õ¹¿ªÖ¸¶¨ÐÐ,ÀýÈç:ÐÐ°üº¬ÔÚÕÛµþÄÚÈÝÖÐ,½«ÆäÕ¹¿ª
-		//@²ÎÊý hEle ÔªËØ¾ä±ú
-		//@²ÎÊý iRow ÐÐË÷Òý
-		//@±ðÃû ´úÂë±à¼­¿ò_Õ¹¿ªÀ©Õ¹()
+		//@å¤‡æ³¨ å®Œå…¨å±•å¼€æŒ‡å®šè¡Œ,ä¾‹å¦‚:è¡ŒåŒ…å«åœ¨æŠ˜å å†…å®¹ä¸­,å°†å…¶å±•å¼€
+		//@å‚æ•° hEle å…ƒç´ å¥æŸ„
+		//@å‚æ•° iRow è¡Œç´¢å¼•
+		//@åˆ«å ä»£ç ç¼–è¾‘æ¡†_å±•å¼€æ‰©å±•()
 		void ExpandEx(int iRow) {
 			XEditor_ExpandEx(getEleHandle(), iRow);
 		}
 
-		//@²ÎÊý hEle ÔªËØ¾ä±ú
-		//@²ÎÊý bExpand ÊÇ·ñÕ¹¿ª
-		//@±ðÃû ´úÂë±à¼­¿ò_Õ¹¿ªÈ«²¿()
+		//@å‚æ•° hEle å…ƒç´ å¥æŸ„
+		//@å‚æ•° bExpand æ˜¯å¦å±•å¼€
+		//@åˆ«å ä»£ç ç¼–è¾‘æ¡†_å±•å¼€å…¨éƒ¨()
 		void ExpandAll(bool bExpand) {
 			XEditor_ExpandAll(getEleHandle(), bExpand);
 		}
 
-		//@²ÎÊý hEle ÔªËØ¾ä±ú
-		//@²ÎÊý iRow ÐÐË÷Òý
-		//@²ÎÊý bExpand ÊÇ·ñÕ¹¿ª
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ðÃû ´úÂë±à¼­¿ò_Õ¹¿ªÖ¸¶¨ÐÐ()
+		//@å‚æ•° hEle å…ƒç´ å¥æŸ„
+		//@å‚æ•° iRow è¡Œç´¢å¼•
+		//@å‚æ•° bExpand æ˜¯å¦å±•å¼€
+		//@è¿”å›ž æˆåŠŸè¿”å›žTRUE,å¦åˆ™è¿”å›žFALSE
+		//@åˆ«å ä»£ç ç¼–è¾‘æ¡†_å±•å¼€æŒ‡å®šè¡Œ()
 		void Expand(int iRow, bool bExpand) {
 			XEditor_Expand(getEleHandle(), iRow, bExpand);
 		}
 
-		//@±¸×¢ Èç¹ûÒÑ´æÔÚ,ÄÇÃ´½ö¸üÐÂÑùÊ½
-		//@²ÎÊý hEle ÔªËØ¾ä±ú
-		//@²ÎÊý pKey ×Ö·û´®
-		//@²ÎÊý iStyle ÑùÊ½
-		//@±ðÃû ´úÂë±à¼­¿ò_Ìí¼Ó¹Ø¼ü×Ö()
+		//@å¤‡æ³¨ å¦‚æžœå·²å­˜åœ¨,é‚£ä¹ˆä»…æ›´æ–°æ ·å¼
+		//@å‚æ•° hEle å…ƒç´ å¥æŸ„
+		//@å‚æ•° pKey å­—ç¬¦ä¸²
+		//@å‚æ•° iStyle æ ·å¼
+		//@åˆ«å ä»£ç ç¼–è¾‘æ¡†_æ·»åŠ å…³é”®å­—()
 		void AddKeyword(const std::wstring& key, int iStyle) {
 			XEditor_AddKeyword(getEleHandle(), key.c_str(), iStyle);
 		}
 
-		//@²ÎÊý hEle ÔªËØ¾ä±ú
-		//@²ÎÊý pKey ×Ö·û´®
-		//@±ðÃû ´úÂë±à¼­¿ò_Ìí¼Ó×Ô¶¯Æ¥Åä×Ö·û´®()
+		//@å‚æ•° hEle å…ƒç´ å¥æŸ„
+		//@å‚æ•° pKey å­—ç¬¦ä¸²
+		//@åˆ«å ä»£ç ç¼–è¾‘æ¡†_æ·»åŠ è‡ªåŠ¨åŒ¹é…å­—ç¬¦ä¸²()
 		void AddConst(const std::wstring& key) {
 			XEditor_AddConst(getEleHandle(), key.c_str());
 		}
 
-		//@²ÎÊý hEle ÔªËØ¾ä±ú
-		//@²ÎÊý pKey ×Ö·û´®
-		//@±ðÃû ´úÂë±à¼­¿ò_Ìí¼Ó×Ô¶¯Æ¥Åäº¯Êý()
+		//@å‚æ•° hEle å…ƒç´ å¥æŸ„
+		//@å‚æ•° pKey å­—ç¬¦ä¸²
+		//@åˆ«å ä»£ç ç¼–è¾‘æ¡†_æ·»åŠ è‡ªåŠ¨åŒ¹é…å‡½æ•°()
 		void AddFunction(const std::wstring& key) {
 			XEditor_AddFunction(getEleHandle(), key.c_str());
 		}
 
-		//@±¸×¢ ÅÅ³ý¶¨Òå±äÁ¿µÄ¹Ø¼ü×Ö, ÓÃÓÚÅÅ³ý¶¨Òå±äÁ¿, ÒòÎª¶¨Òå±äÁ¿½ûÓÃ×Ô¶¯Æ¥Åä;
-		//@²ÎÊý hEle ÔªËØ¾ä±ú
-		//@²ÎÊý pKeyword ×Ö·û´®
-		//@±ðÃû ´úÂë±à¼­¿ò_Ìí¼ÓÅÅ³ý¶¨Òå±äÁ¿¹Ø¼ü×Ö()
+		//@å¤‡æ³¨ æŽ’é™¤å®šä¹‰å˜é‡çš„å…³é”®å­—, ç”¨äºŽæŽ’é™¤å®šä¹‰å˜é‡, å› ä¸ºå®šä¹‰å˜é‡ç¦ç”¨è‡ªåŠ¨åŒ¹é…;
+		//@å‚æ•° hEle å…ƒç´ å¥æŸ„
+		//@å‚æ•° pKeyword å­—ç¬¦ä¸²
+		//@åˆ«å ä»£ç ç¼–è¾‘æ¡†_æ·»åŠ æŽ’é™¤å®šä¹‰å˜é‡å…³é”®å­—()
 		void AddExcludeDefVarKeyword(const std::wstring& keyword) {
 			return XEditor_AddExcludeDefVarKeyword(getEleHandle(), keyword.c_str());
 		}
 
-		// ´úÂë±à¼­¿ò_ÖÃ×Ô¶¯Æ¥Åä½á¹ûÏÔÊ¾Ä£Ê½  	0:ÖÐÓ¢ÎÄ, 1:Ó¢ÎÄ, 3:ÖÐÎÄ
+		// ä»£ç ç¼–è¾‘æ¡†_ç½®è‡ªåŠ¨åŒ¹é…ç»“æžœæ˜¾ç¤ºæ¨¡å¼  	0:ä¸­è‹±æ–‡, 1:è‹±æ–‡, 3:ä¸­æ–‡
 		void SetAutoMatchMode(int mode) {
 			XEditor_SetAutoMatchMode(getEleHandle(), mode);
 		}

@@ -21,227 +21,227 @@ namespace xcgui {
 			m_handle = XAnima_Create(objectHandle, nLoopCount);
 		}
 
-		//@±¸×¢ ÒÆ¶¯µ½Ä¿±êÎ»ÖÃ, Ä¬ÈÏÒÔUI¶ÔÏóÖĞĞÄµãÎª²Ù×÷·½Ê½,±ÜÃâ³öÏÖ×ø±ê´íÎ»
-		//@²ÎÊı hSequence ¶¯»­ĞòÁĞ¾ä±ú
-		//@²ÎÊı duration ³ÖĞøÊ±¼ä
-		//@²ÎÊı x ÖÕµãÎ»ÖÃX(¶ÔÏó×óÉÏ½Ç×ø±ê)
-		//@²ÎÊı y ÖÕµãÎ»ÖÃY(¶ÔÏó×óÉÏ½Ç×ø±ê)
-		//@²ÎÊı nLoopCount ¶¯»­Ñ­»·´ÎÊı, 0:ÎŞÏŞÑ­»·
-		//@²ÎÊı ease_flag »º¶¯±êÊ¶ @ref ease_flag_
-		//@²ÎÊı bGoBack ÊÇ·ñ·µ»Ø; µ±ÆôÓÃºó:Íù·µµ½Æğµã,  Æğµã->ÖÕµã->Æğµã
-		//@·µ»Ø ·µ»Ø¶¯»­Ïî¾ä±ú
-		//@±ğÃû ¶¯»­_ÒÆ¶¯()
+		//@å¤‡æ³¨ ç§»åŠ¨åˆ°ç›®æ ‡ä½ç½®, é»˜è®¤ä»¥UIå¯¹è±¡ä¸­å¿ƒç‚¹ä¸ºæ“ä½œæ–¹å¼,é¿å…å‡ºç°åæ ‡é”™ä½
+		//@å‚æ•° hSequence åŠ¨ç”»åºåˆ—å¥æŸ„
+		//@å‚æ•° duration æŒç»­æ—¶é—´
+		//@å‚æ•° x ç»ˆç‚¹ä½ç½®X(å¯¹è±¡å·¦ä¸Šè§’åæ ‡)
+		//@å‚æ•° y ç»ˆç‚¹ä½ç½®Y(å¯¹è±¡å·¦ä¸Šè§’åæ ‡)
+		//@å‚æ•° nLoopCount åŠ¨ç”»å¾ªç¯æ¬¡æ•°, 0:æ— é™å¾ªç¯
+		//@å‚æ•° ease_flag ç¼“åŠ¨æ ‡è¯† @ref ease_flag_
+		//@å‚æ•° bGoBack æ˜¯å¦è¿”å›; å½“å¯ç”¨å:å¾€è¿”åˆ°èµ·ç‚¹,  èµ·ç‚¹->ç»ˆç‚¹->èµ·ç‚¹
+		//@è¿”å› è¿”å›åŠ¨ç”»é¡¹å¥æŸ„
+		//@åˆ«å åŠ¨ç”»_ç§»åŠ¨()
 		HXCGUI Move(UINT duration, float x, float y, int nLoopCount = 1, int ease_flag = 0, bool bGoBack = false) {
 			return XAnima_Move(m_handle, duration, x, y, nLoopCount, ease_flag, bGoBack);
 		}
 
 
-		//@±¸×¢ ´ÓÖ¸¶¨Î»ÖÃÒÆ¶¯µ½Ä¿±êÎ»ÖÃ, Ä¬ÈÏÒÔUI¶ÔÏóÖĞĞÄµãÎª²Ù×÷·½Ê½,±ÜÃâ³öÏÖ×ø±ê´íÎ»
-		//@²ÎÊı hSequence ¶¯»­ĞòÁĞ¾ä±ú
-		//@²ÎÊı duration ³ÖĞøÊ±¼ä
-		//@²ÎÊı from_x ÆğµãÎ»ÖÃX(¶ÔÏó×óÉÏ½Ç×ø±ê)
-		//@²ÎÊı from_y ÆğµãÎ»ÖÃY(¶ÔÏó×óÉÏ½Ç×ø±ê)
-		//@²ÎÊı to_x ÖÕµãÎ»ÖÃX(¶ÔÏó×óÉÏ½Ç×ø±ê)
-		//@²ÎÊı to_y ÖÕµãÎ»ÖÃY(¶ÔÏó×óÉÏ½Ç×ø±ê)
-		//@²ÎÊı nLoopCount ¶¯»­Ñ­»·´ÎÊı, 0:ÎŞÏŞÑ­»·
-		//@²ÎÊı ease_flag »º¶¯±êÊ¶ @ref ease_flag_
-		//@²ÎÊı bGoBack ÊÇ·ñ·µ»Ø; µ±ÆôÓÃºó:Íù·µµ½Æğµã,  Æğµã->ÖÕµã->Æğµã
-		//@·µ»Ø ·µ»Ø¶¯»­Ïî¾ä±ú
-		//@±ğÃû ¶¯»­_ÒÆ¶¯À©Õ¹()
+		//@å¤‡æ³¨ ä»æŒ‡å®šä½ç½®ç§»åŠ¨åˆ°ç›®æ ‡ä½ç½®, é»˜è®¤ä»¥UIå¯¹è±¡ä¸­å¿ƒç‚¹ä¸ºæ“ä½œæ–¹å¼,é¿å…å‡ºç°åæ ‡é”™ä½
+		//@å‚æ•° hSequence åŠ¨ç”»åºåˆ—å¥æŸ„
+		//@å‚æ•° duration æŒç»­æ—¶é—´
+		//@å‚æ•° from_x èµ·ç‚¹ä½ç½®X(å¯¹è±¡å·¦ä¸Šè§’åæ ‡)
+		//@å‚æ•° from_y èµ·ç‚¹ä½ç½®Y(å¯¹è±¡å·¦ä¸Šè§’åæ ‡)
+		//@å‚æ•° to_x ç»ˆç‚¹ä½ç½®X(å¯¹è±¡å·¦ä¸Šè§’åæ ‡)
+		//@å‚æ•° to_y ç»ˆç‚¹ä½ç½®Y(å¯¹è±¡å·¦ä¸Šè§’åæ ‡)
+		//@å‚æ•° nLoopCount åŠ¨ç”»å¾ªç¯æ¬¡æ•°, 0:æ— é™å¾ªç¯
+		//@å‚æ•° ease_flag ç¼“åŠ¨æ ‡è¯† @ref ease_flag_
+		//@å‚æ•° bGoBack æ˜¯å¦è¿”å›; å½“å¯ç”¨å:å¾€è¿”åˆ°èµ·ç‚¹,  èµ·ç‚¹->ç»ˆç‚¹->èµ·ç‚¹
+		//@è¿”å› è¿”å›åŠ¨ç”»é¡¹å¥æŸ„
+		//@åˆ«å åŠ¨ç”»_ç§»åŠ¨æ‰©å±•()
 		HXCGUI MoveEx(UINT duration, float from_x, float from_y, float to_x, float to_y, int nLoopCount = 1, int ease_flag = 0, bool bGoBack = false) {
 			return XAnima_MoveEx(m_handle, duration, from_x, from_y, to_x, to_y, nLoopCount, ease_flag, bGoBack);
 		}
 
-		//@±¸×¢ Ğı×ª½Ç¶ÈÖ§³Ö¸ºÊıÖµ, ÒòÎª¸ºÊı¿ÉÒÔ¿ØÖÆ·´ÏòĞı×ª
-		//@²ÎÊı hSequence ¶¯»­ĞòÁĞ¾ä±ú
-		//@²ÎÊı duration ³ÖĞøÊ±¼ä
-		//@²ÎÊı angle ½Ç¶È
-		//@²ÎÊı nLoopCount ¶¯»­Ñ­»·´ÎÊı, 0:ÎŞÏŞÑ­»·
-		//@²ÎÊı ease_flag »º¶¯±êÊ¶ @ref ease_flag_
-		//@²ÎÊı bGoBack ÊÇ·ñ·µ»Ø; µ±ÆôÓÃºó:Íù·µµ½Æğµã,  Æğµã->ÖÕµã->Æğµã
-		//@·µ»Ø ·µ»Ø¶¯»­Ïî¾ä±ú
-		//@±ğÃû ¶¯»­_Ğı×ª()
+		//@å¤‡æ³¨ æ—‹è½¬è§’åº¦æ”¯æŒè´Ÿæ•°å€¼, å› ä¸ºè´Ÿæ•°å¯ä»¥æ§åˆ¶åå‘æ—‹è½¬
+		//@å‚æ•° hSequence åŠ¨ç”»åºåˆ—å¥æŸ„
+		//@å‚æ•° duration æŒç»­æ—¶é—´
+		//@å‚æ•° angle è§’åº¦
+		//@å‚æ•° nLoopCount åŠ¨ç”»å¾ªç¯æ¬¡æ•°, 0:æ— é™å¾ªç¯
+		//@å‚æ•° ease_flag ç¼“åŠ¨æ ‡è¯† @ref ease_flag_
+		//@å‚æ•° bGoBack æ˜¯å¦è¿”å›; å½“å¯ç”¨å:å¾€è¿”åˆ°èµ·ç‚¹,  èµ·ç‚¹->ç»ˆç‚¹->èµ·ç‚¹
+		//@è¿”å› è¿”å›åŠ¨ç”»é¡¹å¥æŸ„
+		//@åˆ«å åŠ¨ç”»_æ—‹è½¬()
 		HXCGUI Rotate(UINT duration, float angle, int nLoopCount = 1, int ease_flag = 0, bool bGoBack = false) {
 			return XAnima_Rotate(m_handle, duration, angle, nLoopCount, ease_flag, bGoBack);
 		}
 
-		//@±¸×¢ Ö¸¶¨ÆğµãºÍÖÕµã
-		//@²ÎÊı hSequence ¶¯»­ĞòÁĞ¾ä±ú
-		//@²ÎÊı duration ³ÖĞøÊ±¼ä
-		//@²ÎÊı from Æğµã½Ç¶È
-		//@²ÎÊı to ÖÕµã½Ç¶È
-		//@²ÎÊı nLoopCount ¶¯»­Ñ­»·´ÎÊı, 0:ÎŞÏŞÑ­»·
-		//@²ÎÊı ease_flag »º¶¯±êÊ¶ @ref ease_flag_
-		//@²ÎÊı bGoBack ÊÇ·ñ·µ»Ø; µ±ÆôÓÃºó:Íù·µµ½Æğµã,  Æğµã->ÖÕµã->Æğµã
-		//@·µ»Ø ·µ»Ø¶¯»­Ïî¾ä±ú
-		//@±ğÃû ¶¯»­_Ğı×ªÀ©Õ¹()
+		//@å¤‡æ³¨ æŒ‡å®šèµ·ç‚¹å’Œç»ˆç‚¹
+		//@å‚æ•° hSequence åŠ¨ç”»åºåˆ—å¥æŸ„
+		//@å‚æ•° duration æŒç»­æ—¶é—´
+		//@å‚æ•° from èµ·ç‚¹è§’åº¦
+		//@å‚æ•° to ç»ˆç‚¹è§’åº¦
+		//@å‚æ•° nLoopCount åŠ¨ç”»å¾ªç¯æ¬¡æ•°, 0:æ— é™å¾ªç¯
+		//@å‚æ•° ease_flag ç¼“åŠ¨æ ‡è¯† @ref ease_flag_
+		//@å‚æ•° bGoBack æ˜¯å¦è¿”å›; å½“å¯ç”¨å:å¾€è¿”åˆ°èµ·ç‚¹,  èµ·ç‚¹->ç»ˆç‚¹->èµ·ç‚¹
+		//@è¿”å› è¿”å›åŠ¨ç”»é¡¹å¥æŸ„
+		//@åˆ«å åŠ¨ç”»_æ—‹è½¬æ‰©å±•()
 		HXCGUI RotateEx(UINT duration, float from, float to, int nLoopCount = 1, int ease_flag = 0, bool bGoBack = false) {
 			return XAnima_RotateEx(m_handle, duration, from, to, nLoopCount, ease_flag, bGoBack);
 		}
 
-		//@±¸×¢ Ëõ·Å¶ÔÏó   Ä¬ÈÏÒÔ×ÔÉíÎªÖĞĞÄËõ·Å
-		//@²ÎÊı hSequence ¶¯»­ĞòÁĞ¾ä±ú
-		//@²ÎÊı duration ³ÖĞøÊ±¼ä
-		//@²ÎÊı scaleX XÖáËõ·Å±ÈÀı
-		//@²ÎÊı scaleY YÖáËõ·Å±ÈÀı
-		//@²ÎÊı nLoopCount ¶¯»­Ñ­»·´ÎÊı, 0:ÎŞÏŞÑ­»·
-		//@²ÎÊı ease_flag »º¶¯±êÊ¶  @ref ease_flag_
-		//@²ÎÊı bGoBack ÊÇ·ñ·µ»Ø; µ±ÆôÓÃºó:Íù·µµ½Æğµã,  Æğµã->ÖÕµã->Æğµã
-		//@·µ»Ø ·µ»Ø¶¯»­Ïî¾ä±ú
-		//@±ğÃû ¶¯»­_Ëõ·Å()
+		//@å¤‡æ³¨ ç¼©æ”¾å¯¹è±¡   é»˜è®¤ä»¥è‡ªèº«ä¸ºä¸­å¿ƒç¼©æ”¾
+		//@å‚æ•° hSequence åŠ¨ç”»åºåˆ—å¥æŸ„
+		//@å‚æ•° duration æŒç»­æ—¶é—´
+		//@å‚æ•° scaleX Xè½´ç¼©æ”¾æ¯”ä¾‹
+		//@å‚æ•° scaleY Yè½´ç¼©æ”¾æ¯”ä¾‹
+		//@å‚æ•° nLoopCount åŠ¨ç”»å¾ªç¯æ¬¡æ•°, 0:æ— é™å¾ªç¯
+		//@å‚æ•° ease_flag ç¼“åŠ¨æ ‡è¯†  @ref ease_flag_
+		//@å‚æ•° bGoBack æ˜¯å¦è¿”å›; å½“å¯ç”¨å:å¾€è¿”åˆ°èµ·ç‚¹,  èµ·ç‚¹->ç»ˆç‚¹->èµ·ç‚¹
+		//@è¿”å› è¿”å›åŠ¨ç”»é¡¹å¥æŸ„
+		//@åˆ«å åŠ¨ç”»_ç¼©æ”¾()
 		HXCGUI Scale(UINT duration, float scaleX, float scaleY, int nLoopCount = 0, int ease_flag = 0, bool bGoBack = true) {
 			return XAnima_Scale(m_handle, duration, scaleX, scaleY, nLoopCount, ease_flag, bGoBack);
 		}
 
-		//@±¸×¢ ĞŞ¸ÄUI¶ÔÏó´óĞ¡,Ä¬ÈÏÏòÓÒÑÓÉì
-		//@²ÎÊı hSequence ¶¯»­ĞòÁĞ¾ä±ú
-		//@²ÎÊı duration ³ÖĞøÊ±¼ä
-		//@²ÎÊı width ¿í¶È
-		//@²ÎÊı height ¸ß¶È
-		//@²ÎÊı nLoopCount ¶¯»­Ñ­»·´ÎÊı, 0:ÎŞÏŞÑ­»·
-		//@²ÎÊı ease_flag »º¶¯±êÊ¶ @ref ease_flag_
-		//@²ÎÊı bGoBack ÊÇ·ñ·µ»Ø; µ±ÆôÓÃºó:Íù·µµ½Æğµã,  Æğµã->ÖÕµã->Æğµã
-		//@·µ»Ø ·µ»Ø¶¯»­Ïî¾ä±ú
-		//@±ğÃû ¶¯»­_Ëõ·Å´óĞ¡()
+		//@å¤‡æ³¨ ä¿®æ”¹UIå¯¹è±¡å¤§å°,é»˜è®¤å‘å³å»¶ä¼¸
+		//@å‚æ•° hSequence åŠ¨ç”»åºåˆ—å¥æŸ„
+		//@å‚æ•° duration æŒç»­æ—¶é—´
+		//@å‚æ•° width å®½åº¦
+		//@å‚æ•° height é«˜åº¦
+		//@å‚æ•° nLoopCount åŠ¨ç”»å¾ªç¯æ¬¡æ•°, 0:æ— é™å¾ªç¯
+		//@å‚æ•° ease_flag ç¼“åŠ¨æ ‡è¯† @ref ease_flag_
+		//@å‚æ•° bGoBack æ˜¯å¦è¿”å›; å½“å¯ç”¨å:å¾€è¿”åˆ°èµ·ç‚¹,  èµ·ç‚¹->ç»ˆç‚¹->èµ·ç‚¹
+		//@è¿”å› è¿”å›åŠ¨ç”»é¡¹å¥æŸ„
+		//@åˆ«å åŠ¨ç”»_ç¼©æ”¾å¤§å°()
 		HXCGUI ScaleSize(UINT duration, float width, float height, int nLoopCount = 1, int ease_flag = 0, bool bGoBack = false) {
 			return XAnima_ScaleSize(m_handle, duration, width, height, nLoopCount, ease_flag, bGoBack);
 		}
 
-		//@²ÎÊı hSequence ¶¯»­ĞòÁĞ¾ä±ú
-		//@²ÎÊı duration ³ÖĞøÊ±¼ä
-		//@²ÎÊı alpha Í¸Ã÷¶È
-		//@²ÎÊı nLoopCount ¶¯»­Ñ­»·´ÎÊı, 0:ÎŞÏŞÑ­»·
-		//@²ÎÊı ease_flag »º¶¯±êÊ¶ @ref ease_flag_
-		//@²ÎÊı bGoBack ÊÇ·ñ·µ»Ø; µ±ÆôÓÃºó:Íù·µµ½Æğµã,  Æğµã->ÖÕµã->Æğµã
-		//@·µ»Ø ·µ»Ø¶¯»­Ïî¾ä±ú
-		//@±ğÃû ¶¯»­_Í¸Ã÷¶È()
+		//@å‚æ•° hSequence åŠ¨ç”»åºåˆ—å¥æŸ„
+		//@å‚æ•° duration æŒç»­æ—¶é—´
+		//@å‚æ•° alpha é€æ˜åº¦
+		//@å‚æ•° nLoopCount åŠ¨ç”»å¾ªç¯æ¬¡æ•°, 0:æ— é™å¾ªç¯
+		//@å‚æ•° ease_flag ç¼“åŠ¨æ ‡è¯† @ref ease_flag_
+		//@å‚æ•° bGoBack æ˜¯å¦è¿”å›; å½“å¯ç”¨å:å¾€è¿”åˆ°èµ·ç‚¹,  èµ·ç‚¹->ç»ˆç‚¹->èµ·ç‚¹
+		//@è¿”å› è¿”å›åŠ¨ç”»é¡¹å¥æŸ„
+		//@åˆ«å åŠ¨ç”»_é€æ˜åº¦()
 		HXCGUI Alpha(UINT duration, BYTE alpha, int nLoopCount = 0, int ease_flag = 0, bool bGoBack = false) {
 			return XAnima_Alpha(m_handle, duration, alpha, nLoopCount, ease_flag, bGoBack);
 		}
 
-		//@±¸×¢ ´ÓÖ¸¶¨Í¸Ã÷¶Èµ½Ä¿±êÍ¸Ã÷¶È
-		//@²ÎÊı hSequence ¶¯»­ĞòÁĞ¾ä±ú
-		//@²ÎÊı duration ³ÖĞøÊ±¼ä
-		//@²ÎÊı from_alpha ÆğÊ¼Í¸Ã÷¶È
-		//@²ÎÊı to_alpha ÖÕÖ¹Í¸Ã÷¶È
-		//@²ÎÊı nLoopCount ¶¯»­Ñ­»·´ÎÊı, 0:ÎŞÏŞÑ­»·
-		//@²ÎÊı ease_flag »º¶¯±êÊ¶  @ref ease_flag_
-		//@²ÎÊı bGoBack ÊÇ·ñ·µ»Ø; µ±ÆôÓÃºó:Íù·µµ½Æğµã,  Æğµã->ÖÕµã->Æğµã
-		//@·µ»Ø ·µ»Ø¶¯»­Ïî¾ä±ú
-		//@±ğÃû ¶¯»­_Í¸Ã÷¶ÈÀ©Õ¹()
+		//@å¤‡æ³¨ ä»æŒ‡å®šé€æ˜åº¦åˆ°ç›®æ ‡é€æ˜åº¦
+		//@å‚æ•° hSequence åŠ¨ç”»åºåˆ—å¥æŸ„
+		//@å‚æ•° duration æŒç»­æ—¶é—´
+		//@å‚æ•° from_alpha èµ·å§‹é€æ˜åº¦
+		//@å‚æ•° to_alpha ç»ˆæ­¢é€æ˜åº¦
+		//@å‚æ•° nLoopCount åŠ¨ç”»å¾ªç¯æ¬¡æ•°, 0:æ— é™å¾ªç¯
+		//@å‚æ•° ease_flag ç¼“åŠ¨æ ‡è¯†  @ref ease_flag_
+		//@å‚æ•° bGoBack æ˜¯å¦è¿”å›; å½“å¯ç”¨å:å¾€è¿”åˆ°èµ·ç‚¹,  èµ·ç‚¹->ç»ˆç‚¹->èµ·ç‚¹
+		//@è¿”å› è¿”å›åŠ¨ç”»é¡¹å¥æŸ„
+		//@åˆ«å åŠ¨ç”»_é€æ˜åº¦æ‰©å±•()
 		HXCGUI AlphaEx(UINT duration, BYTE from_alpha, BYTE to_alpha, int nLoopCount = 0, int ease_flag = 0, bool bGoBack = false) {
 			return XAnima_AlphaEx(m_handle, duration, from_alpha, to_alpha, nLoopCount, ease_flag, bGoBack);
 		}
 
-		//@²ÎÊı hSequence ¶¯»­ĞòÁĞ¾ä±ú
-		//@²ÎÊı duration ³ÖĞøÊ±¼ä
-		//@²ÎÊı color ÑÕÉ«
-		//@²ÎÊı nLoopCount ¶¯»­Ñ­»·´ÎÊı, 0:ÎŞÏŞÑ­»·
-		//@²ÎÊı ease_flag »º¶¯±êÊ¶ @ref ease_flag_
-		//@²ÎÊı bGoBack ÊÇ·ñ·µ»Ø; µ±ÆôÓÃºó:Íù·µµ½Æğµã,  Æğµã->ÖÕµã->Æğµã
-		//@·µ»Ø ·µ»Ø¶¯»­Ïî¾ä±ú
-		//@±ğÃû ¶¯»­_ÑÕÉ«()
+		//@å‚æ•° hSequence åŠ¨ç”»åºåˆ—å¥æŸ„
+		//@å‚æ•° duration æŒç»­æ—¶é—´
+		//@å‚æ•° color é¢œè‰²
+		//@å‚æ•° nLoopCount åŠ¨ç”»å¾ªç¯æ¬¡æ•°, 0:æ— é™å¾ªç¯
+		//@å‚æ•° ease_flag ç¼“åŠ¨æ ‡è¯† @ref ease_flag_
+		//@å‚æ•° bGoBack æ˜¯å¦è¿”å›; å½“å¯ç”¨å:å¾€è¿”åˆ°èµ·ç‚¹,  èµ·ç‚¹->ç»ˆç‚¹->èµ·ç‚¹
+		//@è¿”å› è¿”å›åŠ¨ç”»é¡¹å¥æŸ„
+		//@åˆ«å åŠ¨ç”»_é¢œè‰²()
 		HXCGUI Color(UINT duration, COLORREF color, int nLoopCount = 0, int ease_flag = 0, bool bGoBack = false) {
 			return XAnima_Color(m_handle, duration, color, nLoopCount, ease_flag, bGoBack);
 		}
 
-		//@±¸×¢ ´ÓÖ¸¶¨ÑÕÉ«µ½Ä¿±êÑÕÉ«
-		//@²ÎÊı hSequence ¶¯»­ĞòÁĞ¾ä±ú
-		//@²ÎÊı duration ³ÖĞøÊ±¼ä
-		//@²ÎÊı from ÆğµãÑÕÉ«
-		//@²ÎÊı to ÖÕµãÑÕÉ«
-		//@²ÎÊı nLoopCount ¶¯»­Ñ­»·´ÎÊı, 0:ÎŞÏŞÑ­»·
-		//@²ÎÊı ease_flag »º¶¯±êÊ¶ @ref ease_flag_
-		//@²ÎÊı bGoBack ÊÇ·ñ·µ»Ø; µ±ÆôÓÃºó:Íù·µµ½Æğµã,  Æğµã->ÖÕµã->Æğµã
-		//@·µ»Ø ·µ»Ø¶¯»­Ïî¾ä±ú
-		//@±ğÃû ¶¯»­_ÑÕÉ«À©Õ¹()
+		//@å¤‡æ³¨ ä»æŒ‡å®šé¢œè‰²åˆ°ç›®æ ‡é¢œè‰²
+		//@å‚æ•° hSequence åŠ¨ç”»åºåˆ—å¥æŸ„
+		//@å‚æ•° duration æŒç»­æ—¶é—´
+		//@å‚æ•° from èµ·ç‚¹é¢œè‰²
+		//@å‚æ•° to ç»ˆç‚¹é¢œè‰²
+		//@å‚æ•° nLoopCount åŠ¨ç”»å¾ªç¯æ¬¡æ•°, 0:æ— é™å¾ªç¯
+		//@å‚æ•° ease_flag ç¼“åŠ¨æ ‡è¯† @ref ease_flag_
+		//@å‚æ•° bGoBack æ˜¯å¦è¿”å›; å½“å¯ç”¨å:å¾€è¿”åˆ°èµ·ç‚¹,  èµ·ç‚¹->ç»ˆç‚¹->èµ·ç‚¹
+		//@è¿”å› è¿”å›åŠ¨ç”»é¡¹å¥æŸ„
+		//@åˆ«å åŠ¨ç”»_é¢œè‰²æ‰©å±•()
 		HXCGUI ColorEx(UINT duration, COLORREF from, COLORREF to, int nLoopCount = 0, int ease_flag = 0, bool bGoBack = false) {
 			return XAnima_ColorEx(m_handle, duration, from, to, nLoopCount, ease_flag, bGoBack);
 		}
 
 
-		//@±¸×¢ ĞŞ¸Ä²¼¾Ö¿í¶ÈÊôĞÔ
-		//@²ÎÊı hSequence ¶¯»­ĞòÁĞ¾ä±ú
-		//@²ÎÊı duration ³ÖĞøÊ±¼ä
-		//@²ÎÊı nType ²¼¾Ö¿í¶ÈÀàĞÍ
-		//@²ÎÊı width ²¼¾Ö¿í¶È
-		//@²ÎÊı nLoopCount ¶¯»­Ñ­»·´ÎÊı, 0:ÎŞÏŞÑ­»·
-		//@²ÎÊı ease_flag »º¶¯±êÊ¶  @ref ease_flag_
-		//@²ÎÊı bGoBack ÊÇ·ñ·µ»Ø; µ±ÆôÓÃºó:Íù·µµ½Æğµã,  Æğµã->ÖÕµã->Æğµã
-		//@·µ»Ø ·µ»Ø¶¯»­Ïî¾ä±ú
-		//@±ğÃû ¶¯»­_²¼¾Ö¿í¶È()
+		//@å¤‡æ³¨ ä¿®æ”¹å¸ƒå±€å®½åº¦å±æ€§
+		//@å‚æ•° hSequence åŠ¨ç”»åºåˆ—å¥æŸ„
+		//@å‚æ•° duration æŒç»­æ—¶é—´
+		//@å‚æ•° nType å¸ƒå±€å®½åº¦ç±»å‹
+		//@å‚æ•° width å¸ƒå±€å®½åº¦
+		//@å‚æ•° nLoopCount åŠ¨ç”»å¾ªç¯æ¬¡æ•°, 0:æ— é™å¾ªç¯
+		//@å‚æ•° ease_flag ç¼“åŠ¨æ ‡è¯†  @ref ease_flag_
+		//@å‚æ•° bGoBack æ˜¯å¦è¿”å›; å½“å¯ç”¨å:å¾€è¿”åˆ°èµ·ç‚¹,  èµ·ç‚¹->ç»ˆç‚¹->èµ·ç‚¹
+		//@è¿”å› è¿”å›åŠ¨ç”»é¡¹å¥æŸ„
+		//@åˆ«å åŠ¨ç”»_å¸ƒå±€å®½åº¦()
 		HXCGUI LayoutWidth(UINT duration, layout_size_ nType, float width, int nLoopCount = 1, int ease_flag = 0, bool bGoBack = false) {
 			return XAnima_LayoutWidth(m_handle, duration, nType, width, nLoopCount, ease_flag, bGoBack);
 		}
 
-		//@±¸×¢ ĞŞ¸Ä²¼¾Ö¸ß¶ÈÊôĞÔ
-		//@²ÎÊı hSequence ¶¯»­ĞòÁĞ¾ä±ú
-		//@²ÎÊı duration ³ÖĞøÊ±¼ä
-		//@²ÎÊı nType ²¼¾Ö¸ß¶ÈÀàĞÍ
-		//@²ÎÊı height ²¼¾Ö¸ß¶È
-		//@²ÎÊı nLoopCount ¶¯»­Ñ­»·´ÎÊı, 0:ÎŞÏŞÑ­»·
-		//@²ÎÊı ease_flag »º¶¯±êÊ¶  @ref ease_flag_
-		//@²ÎÊı bGoBack ÊÇ·ñ·µ»Ø; µ±ÆôÓÃºó:Íù·µµ½Æğµã,  Æğµã->ÖÕµã->Æğµã
-		//@·µ»Ø ·µ»Ø¶¯»­Ïî¾ä±ú
-		//@±ğÃû ¶¯»­_²¼¾Ö¸ß¶È()
+		//@å¤‡æ³¨ ä¿®æ”¹å¸ƒå±€é«˜åº¦å±æ€§
+		//@å‚æ•° hSequence åŠ¨ç”»åºåˆ—å¥æŸ„
+		//@å‚æ•° duration æŒç»­æ—¶é—´
+		//@å‚æ•° nType å¸ƒå±€é«˜åº¦ç±»å‹
+		//@å‚æ•° height å¸ƒå±€é«˜åº¦
+		//@å‚æ•° nLoopCount åŠ¨ç”»å¾ªç¯æ¬¡æ•°, 0:æ— é™å¾ªç¯
+		//@å‚æ•° ease_flag ç¼“åŠ¨æ ‡è¯†  @ref ease_flag_
+		//@å‚æ•° bGoBack æ˜¯å¦è¿”å›; å½“å¯ç”¨å:å¾€è¿”åˆ°èµ·ç‚¹,  èµ·ç‚¹->ç»ˆç‚¹->èµ·ç‚¹
+		//@è¿”å› è¿”å›åŠ¨ç”»é¡¹å¥æŸ„
+		//@åˆ«å åŠ¨ç”»_å¸ƒå±€é«˜åº¦()
 		HXCGUI LayoutHeight(UINT duration, layout_size_ nType, float height, int nLoopCount = 1, int ease_flag = 0, bool bGoBack = false) {
 			return XAnima_LayoutHeight(m_handle, duration, nType, height, nLoopCount, ease_flag, bGoBack);
 		}
 
 
-		//@±¸×¢ ĞŞ¸Ä²¼¾Ö¿í¶ÈºÍ¸ß¶È
-		//@²ÎÊı hSequence ¶¯»­ĞòÁĞ¾ä±ú
-		//@²ÎÊı duration ³ÖĞøÊ±¼ä
-		//@²ÎÊı nWidthType ²¼¾Ö¿í¶ÈÀàĞÍ, @ref layout_size_disable : ½ûÓÃ¿í¶È¶¯»­
-		//@²ÎÊı width ²¼¾Ö¿í¶È
-		//@²ÎÊı nHeightType ²¼¾Ö¸ß¶ÈÀàĞÍ, @ref layout_size_disable : ½ûÓÃ¸ß¶È¶¯»­
-		//@²ÎÊı height ²¼¾Ö¸ß¶È
-		//@²ÎÊı nLoopCount ¶¯»­Ñ­»·´ÎÊı, 0:ÎŞÏŞÑ­»·
-		//@²ÎÊı ease_flag »º¶¯±êÊ¶  @ref ease_flag_
-		//@²ÎÊı bGoBack ÊÇ·ñ·µ»Ø; µ±ÆôÓÃºó:Íù·µµ½Æğµã,  Æğµã->ÖÕµã->Æğµã
-		//@·µ»Ø ·µ»Ø¶¯»­Ïî¾ä±ú
-		//@±ğÃû ¶¯»­_²¼¾Ö´óĞ¡()
+		//@å¤‡æ³¨ ä¿®æ”¹å¸ƒå±€å®½åº¦å’Œé«˜åº¦
+		//@å‚æ•° hSequence åŠ¨ç”»åºåˆ—å¥æŸ„
+		//@å‚æ•° duration æŒç»­æ—¶é—´
+		//@å‚æ•° nWidthType å¸ƒå±€å®½åº¦ç±»å‹, @ref layout_size_disable : ç¦ç”¨å®½åº¦åŠ¨ç”»
+		//@å‚æ•° width å¸ƒå±€å®½åº¦
+		//@å‚æ•° nHeightType å¸ƒå±€é«˜åº¦ç±»å‹, @ref layout_size_disable : ç¦ç”¨é«˜åº¦åŠ¨ç”»
+		//@å‚æ•° height å¸ƒå±€é«˜åº¦
+		//@å‚æ•° nLoopCount åŠ¨ç”»å¾ªç¯æ¬¡æ•°, 0:æ— é™å¾ªç¯
+		//@å‚æ•° ease_flag ç¼“åŠ¨æ ‡è¯†  @ref ease_flag_
+		//@å‚æ•° bGoBack æ˜¯å¦è¿”å›; å½“å¯ç”¨å:å¾€è¿”åˆ°èµ·ç‚¹,  èµ·ç‚¹->ç»ˆç‚¹->èµ·ç‚¹
+		//@è¿”å› è¿”å›åŠ¨ç”»é¡¹å¥æŸ„
+		//@åˆ«å åŠ¨ç”»_å¸ƒå±€å¤§å°()
 		HXCGUI LayoutSize(UINT duration, layout_size_ nWidthType, float width, layout_size_ nHeightType, float height, int nLoopCount = 0, int ease_flag = 0, bool bGoBack = true) {
 			return XAnima_LayoutSize(m_handle, duration, nWidthType, width, nHeightType, height, nLoopCount, ease_flag, bGoBack);
 		}
 
 
-		//@²ÎÊı hSequence ¶¯»­ĞòÁĞ¾ä±ú
-		//@²ÎÊı duration ³ÖĞøÊ±¼ä
-		//@·µ»Ø ·µ»Ø¶¯»­Ïî¾ä±ú
-		//@±ğÃû ¶¯»­_ÑÓ³Ù()
+		//@å‚æ•° hSequence åŠ¨ç”»åºåˆ—å¥æŸ„
+		//@å‚æ•° duration æŒç»­æ—¶é—´
+		//@è¿”å› è¿”å›åŠ¨ç”»é¡¹å¥æŸ„
+		//@åˆ«å åŠ¨ç”»_å»¶è¿Ÿ()
 		HXCGUI Delay(float duration) {
 			return XAnima_Delay(m_handle, duration);
 		}
 
 
-		//@±¸×¢ ¿ÉÒÔ×÷ÎªÒ»¸ö¿Õ¶¯»­, È»ºóÔÚ»Øµ÷Àï´¦Àí×Ô¼ºµÄËã·¨
-		//@²ÎÊı hSequence ¶¯»­ĞòÁĞ¾ä±ú
-		//@²ÎÊı duration ³ÖĞøÊ±¼ä
-		//@²ÎÊı nLoopCount ¶¯»­Ñ­»·´ÎÊı, 0:ÎŞÏŞÑ­»·
-		//@²ÎÊı ease_flag »º¶¯±êÊ¶  @ref ease_flag_
-		//@²ÎÊı bGoBack ÊÇ·ñ·µ»Ø; µ±ÆôÓÃºó:Íù·µµ½Æğµã,  Æğµã->ÖÕµã->Æğµã
-		//@·µ»Ø ·µ»Ø¶¯»­Ïî¾ä±ú
-		//@±ğÃû ¶¯»­_ÑÓ³ÙÀ©Õ¹()
+		//@å¤‡æ³¨ å¯ä»¥ä½œä¸ºä¸€ä¸ªç©ºåŠ¨ç”», ç„¶ååœ¨å›è°ƒé‡Œå¤„ç†è‡ªå·±çš„ç®—æ³•
+		//@å‚æ•° hSequence åŠ¨ç”»åºåˆ—å¥æŸ„
+		//@å‚æ•° duration æŒç»­æ—¶é—´
+		//@å‚æ•° nLoopCount åŠ¨ç”»å¾ªç¯æ¬¡æ•°, 0:æ— é™å¾ªç¯
+		//@å‚æ•° ease_flag ç¼“åŠ¨æ ‡è¯†  @ref ease_flag_
+		//@å‚æ•° bGoBack æ˜¯å¦è¿”å›; å½“å¯ç”¨å:å¾€è¿”åˆ°èµ·ç‚¹,  èµ·ç‚¹->ç»ˆç‚¹->èµ·ç‚¹
+		//@è¿”å› è¿”å›åŠ¨ç”»é¡¹å¥æŸ„
+		//@åˆ«å åŠ¨ç”»_å»¶è¿Ÿæ‰©å±•()
 		HXCGUI DelayEx(float duration, int nLoopCount = 1, int ease_flag = 0, bool bGoBack = false) {
 			return XAnima_DelayEx(m_handle, duration, nLoopCount, ease_flag, bGoBack);
 		}
 
-		//@±¸×¢ ÏÔÊ¾»òÒş²ØUI¶ÔÏó
-		//@²ÎÊı hSequence ¶¯»­ĞòÁĞ¾ä±ú
-		//@²ÎÊı duration ³ÖĞøÊ±¼ä
-		//@²ÎÊı bShow ÏÔÊ¾»òÒş²Ø
-		//@·µ»Ø ·µ»Ø¶¯»­Ïî¾ä±ú
-		//@±ğÃû ¶¯»­_ÏÔÊ¾()
+		//@å¤‡æ³¨ æ˜¾ç¤ºæˆ–éšè—UIå¯¹è±¡
+		//@å‚æ•° hSequence åŠ¨ç”»åºåˆ—å¥æŸ„
+		//@å‚æ•° duration æŒç»­æ—¶é—´
+		//@å‚æ•° bShow æ˜¾ç¤ºæˆ–éšè—
+		//@è¿”å› è¿”å›åŠ¨ç”»é¡¹å¥æŸ„
+		//@åˆ«å åŠ¨ç”»_æ˜¾ç¤º()
 		HXCGUI Show(float duration, bool bShow) {
 			return XAnima_Show(m_handle, duration, bShow);
 		}
 
 
-		//@²ÎÊı hSequence ¶¯»­ĞòÁĞ¾ä±ú
-		//@²ÎÊı duration ³ÖĞøÊ±¼ä
-		//@·µ»Ø ·µ»Ø¶¯»­Ïî¾ä±ú
-		//@±ğÃû ¶¯»­_Ïú»ÙUI¶ÔÏó()
+		//@å‚æ•° hSequence åŠ¨ç”»åºåˆ—å¥æŸ„
+		//@å‚æ•° duration æŒç»­æ—¶é—´
+		//@è¿”å› è¿”å›åŠ¨ç”»é¡¹å¥æŸ„
+		//@åˆ«å åŠ¨ç”»_é”€æ¯UIå¯¹è±¡()
 		HXCGUI DestroyObjectUI(float duration) {
 			return XAnima_DestroyObjectUI(m_handle, duration);
 		}

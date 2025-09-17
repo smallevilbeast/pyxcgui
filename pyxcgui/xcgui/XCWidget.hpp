@@ -33,31 +33,31 @@ namespace xcgui {
 		{
 			m_handle = handle;
 		}
-		// ÊÇ·ñÏÔÊ¾
+		// æ˜¯å¦æ˜¾ç¤º
 		bool IsShow() 
 		{
 			return XWidget_IsShow(m_handle);
 		}
 
-		// ÏÔÊ¾
+		// æ˜¾ç¤º
 		void Show(bool bShow)
 		{
 			XWidget_Show(m_handle, bShow);
 		}
 
-		// ÆôÓÃ²¼¾Ö¿ØÖÆ
+		// å¯ç”¨å¸ƒå±€æ§åˆ¶
 		void EnableLayoutControl(bool bEnable)
 		{
 			XWidget_EnableLayoutControl(m_handle, bEnable);
 		}
 
-		// ÊÇ·ñ²¼¾Ö¿ØÖÆ
+		// æ˜¯å¦å¸ƒå±€æ§åˆ¶
 		bool IsLayoutControl()
 		{
 			return XWidget_IsLayoutControl(m_handle);
 		}
 
-		// todo È¡¸¸ÔªËØ
+		// todo å–çˆ¶å…ƒç´ 
 		HELE GetParentEle()	const 
 		{
 			if (!m_handle)
@@ -67,7 +67,7 @@ namespace xcgui {
 			return eleHandle;
 		}
 
-		// todo »ñÈ¡¸¸¶ÔÏó,¸¸¿ÉÄÜÊÇÔªËØ»ò´°¿Ú,Í¨¹ı´Ëº¯Êı¿ÉÒÔ¼ì²éÊÇ·ñÓĞ¸¸
+		// todo è·å–çˆ¶å¯¹è±¡,çˆ¶å¯èƒ½æ˜¯å…ƒç´ æˆ–çª—å£,é€šè¿‡æ­¤å‡½æ•°å¯ä»¥æ£€æŸ¥æ˜¯å¦æœ‰çˆ¶
 		HXCGUI getParent() const 
 		{
 			if (!m_handle)
@@ -77,13 +77,13 @@ namespace xcgui {
 		}
 
 
-		// È¡´°¿Ú¾ä±úÏµÍ³
+		// å–çª—å£å¥æŸ„ç³»ç»Ÿ
 		uintptr_t GetHWND()
 		{
 			return (uintptr_t)XWidget_GetHWND(m_handle);
 		}
 
-		// È¡´°¿Ú
+		// å–çª—å£
 		HWINDOW GetWindow() const 
 		{
 			if (!m_handle)
@@ -92,39 +92,39 @@ namespace xcgui {
 			return XWidget_GetHWINDOW(m_handle);
 		}
 
-		// ÉèÖÃÔªËØID
+		// è®¾ç½®å…ƒç´ ID
 		void SetID(int nID)
 		{
 			XWidget_SetID(m_handle, nID);
 		}
 
 
-		// »ñÈ¡ÔªËØID
+		// è·å–å…ƒç´ ID
 		int GetID()
 		{
 			return XWidget_GetID(m_handle);
 		}
 
-		// ÉèÖÃÔªËØUID, È«¾ÖÎ¨Ò»±êÊ¶·û
+		// è®¾ç½®å…ƒç´ UID, å…¨å±€å”¯ä¸€æ ‡è¯†ç¬¦
 		void SetUID(int nUID)
 		{
 			XWidget_SetUID(m_handle, nUID);
 		}
 
-		// »ñÈ¡ÔªËØUID,È«¾ÖÎ¨Ò»±êÊ¶·û
+		// è·å–å…ƒç´ UID,å…¨å±€å”¯ä¸€æ ‡è¯†ç¬¦
 		int GetUID()
 		{
 			return XWidget_GetUID(m_handle);
 		}
 
-		// ÉèÖÃÔªËØname
+		// è®¾ç½®å…ƒç´ name
 		void SetName(const std::wstring& name)
 		{
 			XWidget_SetName(m_handle, name.c_str());
 		}
 
 
-		// »ñÈ¡ÔªËØname
+		// è·å–å…ƒç´ name
 		std::wstring GetName()
 		{
 			auto pName = XWidget_GetName(m_handle);
@@ -133,39 +133,39 @@ namespace xcgui {
 			}
 			return pName;
 		}
-		// Ç¿ÖÆ»»ĞĞ
+		// å¼ºåˆ¶æ¢è¡Œ
 		void LayoutEnableWrap(bool bWrap)
 		{
 			XWidget_LayoutItem_EnableWrap(m_handle, bWrap);
 		}
 
-		// ¸ù¾İË®Æ½´¹Ö±²¼¾Ö±ä»», ½»»»ÊôĞÔ(¿í¶È,¸ß¶È,×îĞ¡¿í¶È,×îĞ¡¸ß¶È)
+		// æ ¹æ®æ°´å¹³å‚ç›´å¸ƒå±€å˜æ¢, äº¤æ¢å±æ€§(å®½åº¦,é«˜åº¦,æœ€å°å®½åº¦,æœ€å°é«˜åº¦)
 		void LayoutEnableSwap(bool bEnable)
 		{
 			XWidget_LayoutItem_EnableSwap(m_handle, bEnable);
 		}
 
 
-		// Ïò·´·½Ïò¶ÔÆë
+		// å‘åæ–¹å‘å¯¹é½
 		void LayoutEnableFloat(bool bFloat)
 		{
 			XWidget_LayoutItem_EnableFloat(m_handle, bFloat);
 		}
 
-		// ÉèÖÃ¿í¶È
+		// è®¾ç½®å®½åº¦
 		void LayoutSetWidth(layout_size_ sizeType, int size=0)
 		{
 			XWidget_LayoutItem_SetWidth(m_handle, sizeType, size);
 		}
 
 
-		// ÉèÖÃ¸ß¶È
+		// è®¾ç½®é«˜åº¦
 		void LayoutSetHeight(layout_size_ sizeType, int size = 0)
 		{
 			XWidget_LayoutItem_SetHeight(m_handle, sizeType, size);
 		}
 
-		// È¡¿í¶È
+		// å–å®½åº¦
 		XCLayoutSize LayoutGetWidth()
 		{
 			XCLayoutSize layoutSize;
@@ -173,7 +173,7 @@ namespace xcgui {
 			return layoutSize;
 		}
 
-		// È¡¸ß¶ÈĞÅÏ¢
+		// å–é«˜åº¦ä¿¡æ¯
 		XCLayoutSize LayoutGetHeight()
 		{
 			XCLayoutSize layoutSize;
@@ -181,19 +181,19 @@ namespace xcgui {
 			return layoutSize;
 		}
 
-		// ¸ù¾İË®Æ½´¹Ö±Öá±ä»¯¶ÔÆë
+		// æ ¹æ®æ°´å¹³å‚ç›´è½´å˜åŒ–å¯¹é½
 		void LayoutSetAlign(layout_align_axis_ nAlign)
 		{
 			XWidget_LayoutItem_SetAlign(m_handle, nAlign);
 		}
 
-		// ²¼¾ÖÏî_ÖÃÍâ¼ä¾à
+		// å¸ƒå±€é¡¹_ç½®å¤–é—´è·
 		void LayoutSetMargin(int left, int top, int right, int bottom)
 		{
 			XWidget_LayoutItem_SetMargin(m_handle, left, top, right, bottom);
 		}
 
-		// ²¼¾ÖÏî_È¡Íâ¼ä¾à
+		// å¸ƒå±€é¡¹_å–å¤–é—´è·
 		XCRect LayoutGetMargin()
 		{
 			XCRect margin;
@@ -201,13 +201,13 @@ namespace xcgui {
 			return margin;
 		}
 
-		// ÏŞÖÆ´óĞ¡½öÕë¶ÔËõ·ÅÓĞĞ§(×Ô¶¯, Ìî³ä¸¸, ±ÈÀı, °Ù·Ö±È)
+		// é™åˆ¶å¤§å°ä»…é’ˆå¯¹ç¼©æ”¾æœ‰æ•ˆ(è‡ªåŠ¨, å¡«å……çˆ¶, æ¯”ä¾‹, ç™¾åˆ†æ¯”)
 		void LayoutSetMinSize(int width, int height)
 		{
 			XWidget_LayoutItem_SetMinSize(m_handle, width, height);
 		}
 
-		// Ïà¶ÔÎ»ÖÃ, Öµ´óÓÚµÈÓÚ0ÓĞĞ§
+		// ç›¸å¯¹ä½ç½®, å€¼å¤§äºç­‰äº0æœ‰æ•ˆ
 		void LayoutSetPosition(int left, int top, int right, int bottom)
 		{
 			XWidget_LayoutItem_SetPosition(m_handle, left, top, right, bottom);

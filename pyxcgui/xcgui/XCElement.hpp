@@ -25,7 +25,7 @@ namespace xcgui {
 		}
 
 
-		// ´´½¨»ù´¡ÔªËØ
+		// åˆ›å»ºåŸºç¡€å…ƒç´ 
 		XCElement(int x, int y, int cx, int cy, HXCGUI hParent = NULL) 
 		:XCWidget()
 		{
@@ -39,82 +39,82 @@ namespace xcgui {
 		}
 
 
-		// ·¢ËÍÊÂ¼ş.  
+		// å‘é€äº‹ä»¶.  
 		int SendEvent(int nEvent, WPARAM wParam, LPARAM lParam) {
 			return XEle_SendEvent((HELE)m_handle, nEvent, wParam, lParam);
 		}
 
 
-		// POSTÊÂ¼ş.  
+		// POSTäº‹ä»¶.  
 		bool PostEvent(int nEvent, WPARAM wParam, LPARAM lParam) {
 			return XEle_PostEvent((HELE)m_handle, nEvent, wParam, lParam);
 		}
 
 
-		// »ñÈ¡ÔªËØ×ø±ê.  
+		// è·å–å…ƒç´ åæ ‡.  
 		void GetRect(RECT* pRect) {
 			XEle_GetRect((HELE)m_handle, pRect);
 		}
 
 
-		// »ñÈ¡ÔªËØ×ø±ê,Âß¼­×ø±ê,°üº¬¹ö¶¯ÊÓÍ¼Æ«ÒÆ.  
+		// è·å–å…ƒç´ åæ ‡,é€»è¾‘åæ ‡,åŒ…å«æ»šåŠ¨è§†å›¾åç§».  
 		void GetRectLogic(RECT* pRect) {
 			XEle_GetRectLogic((HELE)m_handle, pRect);
 		}
 
 
-		// »ñÈ¡ÔªËØ¿Í»§Çø×ø±ê. 
+		// è·å–å…ƒç´ å®¢æˆ·åŒºåæ ‡. 
 		void GetClientRect(RECT* pRect) {
 			XEle_GetClientRect((HELE)m_handle, pRect);
 		}
 
 
-		// ÉèÖÃ¿í¶È  
+		// è®¾ç½®å®½åº¦  
 		void SetWidth(int nWidth) {
 			XEle_SetWidth((HELE)m_handle, nWidth);
 		}
 
 
-		// ÉèÖÃ¸ß¶È   
+		// è®¾ç½®é«˜åº¦   
 		void SetHeight(int nHeight) {
 			XEle_SetHeight((HELE)m_handle, nHeight);
 		}
 
 
-		// »ñÈ¡ÔªËØ¿í¶È.  
+		// è·å–å…ƒç´ å®½åº¦.  
 		int GetWidth() {
 			return XEle_GetWidth((HELE)m_handle);
 		}
 
 
-		// »ñÈ¡ÔªËØ¸ß¶È.  
+		// è·å–å…ƒç´ é«˜åº¦.  
 		int GetHeight() {
 			return XEle_GetHeight((HELE)m_handle);
 		}
 
 
-		// ´°¿Ú¿Í»§Çø×ø±ê×ª»»µ½ÔªËØ¿Í»§Çø×ø±ê.  
+		// çª—å£å®¢æˆ·åŒºåæ ‡è½¬æ¢åˆ°å…ƒç´ å®¢æˆ·åŒºåæ ‡.  
 		void RectWndClientToEleClient(RECT* pRect) {
 			XEle_RectWndClientToEleClient((HELE)m_handle, pRect);
 		}
 
 
-		// ´°¿Ú¿Í»§Çø×ø±ê×ª»»µ½ÔªËØ¿Í»§Çø×ø±ê.  
+		// çª—å£å®¢æˆ·åŒºåæ ‡è½¬æ¢åˆ°å…ƒç´ å®¢æˆ·åŒºåæ ‡.  
 		void PointWndClientToEleClient(POINT* pPt) {
 			XEle_PointWndClientToEleClient((HELE)m_handle, pPt);
 		}
 
 
-		// ÔªËØ¿Í»§Çø×ø±ê×ª»»µ½´°¿Ú¿Í»§Çø×ø±ê.  
-		//@²ÎÊı pRect ×ø±ê.
-		//@±ğÃû  ¿Í»§Çø×ø±êµ½´°¿Ú¿Í»§Çø()
+		// å…ƒç´ å®¢æˆ·åŒºåæ ‡è½¬æ¢åˆ°çª—å£å®¢æˆ·åŒºåæ ‡.  
+		//@å‚æ•° pRect åæ ‡.
+		//@åˆ«å  å®¢æˆ·åŒºåæ ‡åˆ°çª—å£å®¢æˆ·åŒº()
 		void RectClientToWndClient(RECT* pRect) {
 			XEle_RectClientToWndClient((HELE)m_handle, pRect);
 		}
 
-		// ÔªËØ¿Í»§Çø×ø±ê×ª»»µ½´°¿Ú¿Í»§Çø×ø±ê.  
-		//@²ÎÊı pPt ×ø±ê.
-		//@±ğÃû  ¿Í»§Çøµãµ½´°¿Ú¿Í»§Çø()
+		// å…ƒç´ å®¢æˆ·åŒºåæ ‡è½¬æ¢åˆ°çª—å£å®¢æˆ·åŒºåæ ‡.  
+		//@å‚æ•° pPt åæ ‡.
+		//@åˆ«å  å®¢æˆ·åŒºç‚¹åˆ°çª—å£å®¢æˆ·åŒº()
 		void PointClientToWndClient(POINT* pPt) {
 			XEle_PointClientToWndClient((HELE)m_handle, pPt);
 		}		  
@@ -167,692 +167,692 @@ namespace xcgui {
 			return ::ClientToScreen((HWND)GetHWND(), pPt);
 		}
 
-		// ÔªËØ»ùÓÚ´°¿Ú¿Í»§Çø×ø±ê.  
-		//@²ÎÊı pRect ×ø±ê.
-		//@±ğÃû  »ùÓÚ´°¿Ú¿Í»§Çø×ø±ê()
+		// å…ƒç´ åŸºäºçª—å£å®¢æˆ·åŒºåæ ‡.  
+		//@å‚æ•° pRect åæ ‡.
+		//@åˆ«å  åŸºäºçª—å£å®¢æˆ·åŒºåæ ‡()
 		void GetWndClientRect(RECT* pRect) {
 			XEle_GetWndClientRect((HELE)m_handle, pRect);
 		}
 
-		// »ñÈ¡ÔªËØÊó±ê¹â±ê.  
-		//@·µ»Ø ·µ»Ø¹â±ê¾ä±ú.
-		//@±ğÃû  È¡¹â±ê()
+		// è·å–å…ƒç´ é¼ æ ‡å…‰æ ‡.  
+		//@è¿”å› è¿”å›å…‰æ ‡å¥æŸ„.
+		//@åˆ«å  å–å…‰æ ‡()
 		HCURSOR GetCursor() {
 			return XEle_GetCursor((HELE)m_handle);
 		}
 
-		// ÉèÖÃÔªËØÊó±ê¹â±ê.  
-		//@²ÎÊı hCursor ¹â±ê¾ä±ú.
-		//@±ğÃû  ÖÃ¹â±ê()
+		// è®¾ç½®å…ƒç´ é¼ æ ‡å…‰æ ‡.  
+		//@å‚æ•° hCursor å…‰æ ‡å¥æŸ„.
+		//@åˆ«å  ç½®å…‰æ ‡()
 		void SetCursor(HCURSOR hCursor) {
 			XEle_SetCursor((HELE)m_handle, hCursor);
 		}
 
-		// Ìí¼Ó×Ó¶ÔÏó. 
-		//@²ÎÊı hChild ÒªÌí¼ÓµÄ×ÓÔªËØ¾ä±ú»òĞÎ×´¶ÔÏó¾ä±ú.
-		//@·µ»Ø Èç¹û³É¹¦·µ»ØTRUE,·ñÔòÏà·´.
-		//@±ğÃû  Ìí¼Ó×Ó¶ÔÏó()
+		// æ·»åŠ å­å¯¹è±¡. 
+		//@å‚æ•° hChild è¦æ·»åŠ çš„å­å…ƒç´ å¥æŸ„æˆ–å½¢çŠ¶å¯¹è±¡å¥æŸ„.
+		//@è¿”å› å¦‚æœæˆåŠŸè¿”å›TRUE,å¦åˆ™ç›¸å.
+		//@åˆ«å  æ·»åŠ å­å¯¹è±¡()
 		bool AddChild(HXCGUI hChild) {
 			return XEle_AddChild((HELE)m_handle, hChild);
 		}
 
-		// ²åÈë×Ó¶ÔÏóµ½Ö¸¶¨Î»ÖÃ.  
-		//@²ÎÊı hChild Òª²åÈëµÄÔªËØ¾ä±ú»òĞÎ×´¶ÔÏó¾ä±ú.
-		//@²ÎÊı index ²åÈëÎ»ÖÃË÷Òı.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ²åÈë×Ó¶ÔÏó()
+		// æ’å…¥å­å¯¹è±¡åˆ°æŒ‡å®šä½ç½®.  
+		//@å‚æ•° hChild è¦æ’å…¥çš„å…ƒç´ å¥æŸ„æˆ–å½¢çŠ¶å¯¹è±¡å¥æŸ„.
+		//@å‚æ•° index æ’å…¥ä½ç½®ç´¢å¼•.
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  æ’å…¥å­å¯¹è±¡()
 		bool InsertChild(HXCGUI hChild, int index) {
 			return XEle_InsertChild((HELE)m_handle, hChild, index);
 		}
 
-		// ÉèÖÃÔªËØ×ø±ê.  
-		//@²ÎÊı pRect ×ø±ê.
-		//@²ÎÊı bRedraw ÊÇ·ñÖØ»æ.
-		//@²ÎÊı nFlags µ÷Õû²¼¾Ö±êÊ¶Î», @ref adjustLayout_
-		//@²ÎÊı nAdjustNo µ÷Õû²¼¾ÖÁ÷Ë®ºÅ
-		//@·µ»Ø Èç¹û·µ»Ø0×ø±êÃ»ÓĞ¸Ä±ä,Èç¹û´óĞ¡¸Ä±ä·µ»Ø2(´¥·¢XE_SIZE), ·ñÔò·µ»Ø1(½ö¸Ä±äleft,top,Ã»ÓĞ¸Ä±ä´óĞ¡).
-		//@±ğÃû  ÖÃ×ø±ê()
+		// è®¾ç½®å…ƒç´ åæ ‡.  
+		//@å‚æ•° pRect åæ ‡.
+		//@å‚æ•° bRedraw æ˜¯å¦é‡ç»˜.
+		//@å‚æ•° nFlags è°ƒæ•´å¸ƒå±€æ ‡è¯†ä½, @ref adjustLayout_
+		//@å‚æ•° nAdjustNo è°ƒæ•´å¸ƒå±€æµæ°´å·
+		//@è¿”å› å¦‚æœè¿”å›0åæ ‡æ²¡æœ‰æ”¹å˜,å¦‚æœå¤§å°æ”¹å˜è¿”å›2(è§¦å‘XE_SIZE), å¦åˆ™è¿”å›1(ä»…æ”¹å˜left,top,æ²¡æœ‰æ”¹å˜å¤§å°).
+		//@åˆ«å  ç½®åæ ‡()
 		int SetRect(const XCRect& rect, bool bRedraw = false, int nFlags = adjustLayout_all, UINT nAdjustNo = 0) {
 			return XEle_SetRect((HELE)m_handle, (RECT*)&rect, bRedraw, nFlags, nAdjustNo);
 		}
 
-		// ÉèÖÃÔªËØ×ø±ê.  
-		//@²ÎÊı x X×ø±ê.
-		//@²ÎÊı y Y×ø±ê.
-		//@²ÎÊı cx ¿í¶È.
-		//@²ÎÊı cy ¸ß¶È.
-		//@²ÎÊı bRedraw ÊÇ·ñÖØ»æ.
-		//@²ÎÊı nFlags µ÷Õû²¼¾Ö±êÊ¶Î», @ref adjustLayout_
-		//@²ÎÊı nAdjustNo µ÷Õû²¼¾ÖÁ÷Ë®ºÅ
-		//@·µ»Ø Èç¹û×ø±êÎ´¸Ä±ä·µ»Ø0,Èç¹û´óĞ¡¸Ä±ä·µ»Ø2(´¥·¢XE_SIZE), ·ñÔò·µ»Ø1.
-		//@±ğÃû  ÖÃ×ø±êÀ©Õ¹()
+		// è®¾ç½®å…ƒç´ åæ ‡.  
+		//@å‚æ•° x Xåæ ‡.
+		//@å‚æ•° y Yåæ ‡.
+		//@å‚æ•° cx å®½åº¦.
+		//@å‚æ•° cy é«˜åº¦.
+		//@å‚æ•° bRedraw æ˜¯å¦é‡ç»˜.
+		//@å‚æ•° nFlags è°ƒæ•´å¸ƒå±€æ ‡è¯†ä½, @ref adjustLayout_
+		//@å‚æ•° nAdjustNo è°ƒæ•´å¸ƒå±€æµæ°´å·
+		//@è¿”å› å¦‚æœåæ ‡æœªæ”¹å˜è¿”å›0,å¦‚æœå¤§å°æ”¹å˜è¿”å›2(è§¦å‘XE_SIZE), å¦åˆ™è¿”å›1.
+		//@åˆ«å  ç½®åæ ‡æ‰©å±•()
 		int SetRectEx(int x, int y, int cx, int cy, bool bRedraw = false, int nFlags = adjustLayout_all, UINT nAdjustNo = 0) {
 			return XEle_SetRectEx((HELE)m_handle, x, y, cx, cy, bRedraw, nFlags, nAdjustNo);
 		}
 
-		// ÉèÖÃÔªËØ×ø±ê,Âß¼­×ø±ê,°üº¬¹ö¶¯ÊÓÍ¼Æ«ÒÆ.  
-		//@²ÎÊı pRect ×ø±ê.
-		//@²ÎÊı bRedraw ÊÇ·ñÖØ»æ.
-		//@²ÎÊı nFlags ²ÎÊı½«±»´øÈë XE_SIZE ,XE_ADJUSTLAYOUT ÊÂ¼ş»Øµ÷.@ref adjustLayout_
-		//@²ÎÊı nAdjustNo µ÷Õû²¼¾ÖÁ÷Ë®ºÅ
-		//@·µ»Ø Èç¹û×ø±êÎ´¸Ä±ä·µ»Ø0,Èç¹û´óĞ¡¸Ä±ä·µ»Ø2(´¥·¢XE_SIZE), ·ñÔò·µ»Ø1.
-		//@±ğÃû  ÖÃÂß¼­×ø±ê()
+		// è®¾ç½®å…ƒç´ åæ ‡,é€»è¾‘åæ ‡,åŒ…å«æ»šåŠ¨è§†å›¾åç§».  
+		//@å‚æ•° pRect åæ ‡.
+		//@å‚æ•° bRedraw æ˜¯å¦é‡ç»˜.
+		//@å‚æ•° nFlags å‚æ•°å°†è¢«å¸¦å…¥ XE_SIZE ,XE_ADJUSTLAYOUT äº‹ä»¶å›è°ƒ.@ref adjustLayout_
+		//@å‚æ•° nAdjustNo è°ƒæ•´å¸ƒå±€æµæ°´å·
+		//@è¿”å› å¦‚æœåæ ‡æœªæ”¹å˜è¿”å›0,å¦‚æœå¤§å°æ”¹å˜è¿”å›2(è§¦å‘XE_SIZE), å¦åˆ™è¿”å›1.
+		//@åˆ«å  ç½®é€»è¾‘åæ ‡()
 		int SetRectLogic(const XCRect& rect, bool bRedraw = false, int nFlags = adjustLayout_all, UINT nAdjustNo = 0) {
 			return XEle_SetRectLogic((HELE)m_handle, (RECT*)&rect, bRedraw, nFlags, nAdjustNo);
 		}
 
-		// ÒÆ¶¯ÔªËØ×ø±ê
-		//@²ÎÊı x X×ø±ê.
-		//@²ÎÊı y Y×ø±ê.
-		//@²ÎÊı bRedraw ÊÇ·ñÖØ»æ.
-		//@²ÎÊı nFlags µ÷Õû²¼¾Ö±êÊ¶Î», @ref adjustLayout_
-		//@²ÎÊı nAdjustNo µ÷Õû²¼¾ÖÁ÷Ë®ºÅ
-		//@·µ»Ø Èç¹û×ø±êÎ´¸Ä±ä·µ»Ø0,Èç¹û´óĞ¡¸Ä±ä·µ»Ø2(´¥·¢XE_SIZE), ·ñÔò·µ»Ø1.
-		//@±ğÃû  ÖÃÎ»ÖÃ()
+		// ç§»åŠ¨å…ƒç´ åæ ‡
+		//@å‚æ•° x Xåæ ‡.
+		//@å‚æ•° y Yåæ ‡.
+		//@å‚æ•° bRedraw æ˜¯å¦é‡ç»˜.
+		//@å‚æ•° nFlags è°ƒæ•´å¸ƒå±€æ ‡è¯†ä½, @ref adjustLayout_
+		//@å‚æ•° nAdjustNo è°ƒæ•´å¸ƒå±€æµæ°´å·
+		//@è¿”å› å¦‚æœåæ ‡æœªæ”¹å˜è¿”å›0,å¦‚æœå¤§å°æ”¹å˜è¿”å›2(è§¦å‘XE_SIZE), å¦åˆ™è¿”å›1.
+		//@åˆ«å  ç½®ä½ç½®()
 		int SetPosition(int x, int y, bool bRedraw = false, int nFlags = adjustLayout_all, UINT nAdjustNo = 0) {
 			return XEle_SetPosition((HELE)m_handle, x, y, bRedraw, nFlags, nAdjustNo);
 		}
 
-		// ÒÆ¶¯ÔªËØ×ø±ê;  Âß¼­×ø±ê,°üº¬¹ö¶¯ÊÓÍ¼Æ«ÒÆ
-		//@²ÎÊı x X×ø±ê.
-		//@²ÎÊı y Y×ø±ê.
-		//@²ÎÊı bRedraw ÊÇ·ñÖØ»æ.
-		//@²ÎÊı nFlags µ÷Õû²¼¾Ö±êÊ¶Î», @ref adjustLayout_
-		//@²ÎÊı nAdjustNo µ÷Õû²¼¾ÖÁ÷Ë®ºÅ
-		//@·µ»Ø Èç¹û×ø±êÎ´¸Ä±ä·µ»Ø0,Èç¹û´óĞ¡¸Ä±ä·µ»Ø2(´¥·¢XE_SIZE), ·ñÔò·µ»Ø1.
-		//@±ğÃû  ÖÃÎ»ÖÃÂß¼­()
+		// ç§»åŠ¨å…ƒç´ åæ ‡;  é€»è¾‘åæ ‡,åŒ…å«æ»šåŠ¨è§†å›¾åç§»
+		//@å‚æ•° x Xåæ ‡.
+		//@å‚æ•° y Yåæ ‡.
+		//@å‚æ•° bRedraw æ˜¯å¦é‡ç»˜.
+		//@å‚æ•° nFlags è°ƒæ•´å¸ƒå±€æ ‡è¯†ä½, @ref adjustLayout_
+		//@å‚æ•° nAdjustNo è°ƒæ•´å¸ƒå±€æµæ°´å·
+		//@è¿”å› å¦‚æœåæ ‡æœªæ”¹å˜è¿”å›0,å¦‚æœå¤§å°æ”¹å˜è¿”å›2(è§¦å‘XE_SIZE), å¦åˆ™è¿”å›1.
+		//@åˆ«å  ç½®ä½ç½®é€»è¾‘()
 		int SetPositionLogic(int x, int y, bool bRedraw = false, int nFlags = adjustLayout_all, UINT nAdjustNo = 0) {
 			return XEle_SetPositionLogic((HELE)m_handle, x, y, bRedraw, nFlags, nAdjustNo);
 		}
 
-		//@²ÎÊı pOutX ·µ»ØX×ø±ê
-		//@²ÎÊı pOutY ·µ»ØY×ø±ê
-		//@±ğÃû  È¡Î»ÖÃ()
+		//@å‚æ•° pOutX è¿”å›Xåæ ‡
+		//@å‚æ•° pOutY è¿”å›Yåæ ‡
+		//@åˆ«å  å–ä½ç½®()
 		void GetPosition(int* pOutX, int* pOutY) {
 			XEle_GetPosition((HELE)m_handle, pOutX, pOutY);
 		}
 
-		//@²ÎÊı nWidth ¿í¶È
-		//@²ÎÊı nHeight ¸ß¶È
-		//@²ÎÊı bRedraw ÊÇ·ñÖØ»æ
-		//@²ÎÊı nFlags µ÷Õû²¼¾Ö±êÊ¶Î», @ref adjustLayout_
-		//@²ÎÊı nAdjustNo µ÷Õû²¼¾ÖÁ÷Ë®ºÅ
-		//@±ğÃû  ÖÃ´óĞ¡()
+		//@å‚æ•° nWidth å®½åº¦
+		//@å‚æ•° nHeight é«˜åº¦
+		//@å‚æ•° bRedraw æ˜¯å¦é‡ç»˜
+		//@å‚æ•° nFlags è°ƒæ•´å¸ƒå±€æ ‡è¯†ä½, @ref adjustLayout_
+		//@å‚æ•° nAdjustNo è°ƒæ•´å¸ƒå±€æµæ°´å·
+		//@åˆ«å  ç½®å¤§å°()
 		int SetSize(int nWidth, int nHeight, bool bRedraw = false, int nFlags = adjustLayout_all, UINT nAdjustNo = 0) {
 			return XEle_SetSize((HELE)m_handle, nWidth, nHeight, bRedraw, nFlags, nAdjustNo);
 		}
 
-		//@²ÎÊı pOutWidth ·µ»Ø¿í¶È
-		//@²ÎÊı pOutHeight ·µ»Ø¸ß¶È
-		//@±ğÃû  È¡´óĞ¡()
+		//@å‚æ•° pOutWidth è¿”å›å®½åº¦
+		//@å‚æ•° pOutHeight è¿”å›é«˜åº¦
+		//@åˆ«å  å–å¤§å°()
 		void GetSize(int* pOutWidth, int* pOutHeight) {
 			XEle_GetSize((HELE)m_handle, pOutWidth, pOutHeight);
 		}
 
-		// ÔªËØÊÇ·ñ»æÖÆ½¹µã.  
-		//@·µ»Ø Èç¹û»æÖÆ½¹µã·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÊÇ·ñ»æÖÆ½¹µã()
+		// å…ƒç´ æ˜¯å¦ç»˜åˆ¶ç„¦ç‚¹.  
+		//@è¿”å› å¦‚æœç»˜åˆ¶ç„¦ç‚¹è¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  æ˜¯å¦ç»˜åˆ¶ç„¦ç‚¹()
 		bool IsDrawFocus() {
 			return XEle_IsDrawFocus((HELE)m_handle);
 		}
 
-		// ÔªËØÊÇ·ñÎªÆôÓÃ×´Ì¬.  
-		//@·µ»Ø Èç¹ûÆôÓÃ×´Ì¬·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÊÇ·ñÆôÓÃ()
+		// å…ƒç´ æ˜¯å¦ä¸ºå¯ç”¨çŠ¶æ€.  
+		//@è¿”å› å¦‚æœå¯ç”¨çŠ¶æ€è¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  æ˜¯å¦å¯ç”¨()
 		bool IsEnable() {
 			return XEle_IsEnable((HELE)m_handle);
 		}
 
-		// ÔªËØÊÇ·ñÆôÓÃ½¹µã.  
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÊÇ·ñÆôÓÃ½¹µã()
+		// å…ƒç´ æ˜¯å¦å¯ç”¨ç„¦ç‚¹.  
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  æ˜¯å¦å¯ç”¨ç„¦ç‚¹()
 		bool IsEnableFocus() {
 			return XEle_IsEnableFocus((HELE)m_handle);
 		}
 
-		// ÔªËØÊÇ·ñÆôÓÃÊó±ê´©Í¸.  
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÊÇ·ñÊó±ê´©Í¸()
+		// å…ƒç´ æ˜¯å¦å¯ç”¨é¼ æ ‡ç©¿é€.  
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  æ˜¯å¦é¼ æ ‡ç©¿é€()
 		bool IsMouseThrough() {
 			return XEle_IsMouseThrough((HELE)m_handle);
 		}
 
-		// ¼ì²â×ø±êµãËùÔÚÔªËØ,°üº¬×ÓÔªËØµÄ×ÓÔªËØ.  
-		//@²ÎÊı pPt ×ø±êµã.
-		//@·µ»Ø ³É¹¦·µ»ØÔªËØ¾ä±ú,·ñÔò·µ»ØNULL.
-		//@±ğÃû  ²âÊÔµã»÷ÔªËØ()
+		// æ£€æµ‹åæ ‡ç‚¹æ‰€åœ¨å…ƒç´ ,åŒ…å«å­å…ƒç´ çš„å­å…ƒç´ .  
+		//@å‚æ•° pPt åæ ‡ç‚¹.
+		//@è¿”å› æˆåŠŸè¿”å›å…ƒç´ å¥æŸ„,å¦åˆ™è¿”å›NULL.
+		//@åˆ«å  æµ‹è¯•ç‚¹å‡»å…ƒç´ ()
 		HELE HitChildEle(POINT* pPt) {
 			return XEle_HitChildEle((HELE)m_handle, pPt);
 		}
 
-		// ÊÇ·ñ±³¾°Í¸Ã÷. 
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÊÇ·ñ±³¾°Í¸Ã÷()
+		// æ˜¯å¦èƒŒæ™¯é€æ˜. 
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  æ˜¯å¦èƒŒæ™¯é€æ˜()
 		bool IsBkTransparent() {
 			return XEle_IsBkTransparent((HELE)m_handle);
 		}
 
-		// ÊÇ·ñÆôXE_PAINT_ENDÓÃÊÂ¼ş.  
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÊÇ·ñÆôÓÃÊÂ¼ş_XE_PAINT_END()
+		// æ˜¯å¦å¯XE_PAINT_ENDç”¨äº‹ä»¶.  
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  æ˜¯å¦å¯ç”¨äº‹ä»¶_XE_PAINT_END()
 		bool IsEnableEvent_XE_PAINT_END() {
 			return XEle_IsEnableEvent_XE_PAINT_END((HELE)m_handle);
 		}
 
-		// ÊÇ·ñ½ÓÊÜTab¼üÊäÈë; ÀıÈç: XRichEdit, XEdit  
-		//@·µ»Ø ÊÇ·µ»ØTRUE·ñÔò·µ»ØFALSE
-		//@±ğÃû  ÊÇ·ñ½ÓÊÜTAB()
+		// æ˜¯å¦æ¥å—Tabé”®è¾“å…¥; ä¾‹å¦‚: XRichEdit, XEdit  
+		//@è¿”å› æ˜¯è¿”å›TRUEå¦åˆ™è¿”å›FALSE
+		//@åˆ«å  æ˜¯å¦æ¥å—TAB()
 		bool IsKeyTab() {
 			return XEle_IsKeyTab((HELE)m_handle);
 		}
 
-		// ÊÇ·ñ½ÓÊÜÍ¨¹ı¼üÅÌÇĞ»»½¹µã(·½Ïò¼ü,TAB¼ü).  
-		//@·µ»Ø ÊÇ·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÊÇ·ñ½ÓÊÜÇĞ»»½¹µã()
+		// æ˜¯å¦æ¥å—é€šè¿‡é”®ç›˜åˆ‡æ¢ç„¦ç‚¹(æ–¹å‘é”®,TABé”®).  
+		//@è¿”å› æ˜¯è¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  æ˜¯å¦æ¥å—åˆ‡æ¢ç„¦ç‚¹()
 		bool IsSwitchFocus() {
 			return XEle_IsSwitchFocus((HELE)m_handle);
 		}
 
-		// ÅĞ¶ÏÊÇ·ñÆôÓÃÊó±ê¹ö¶¯ÊÂ¼ş,Èç¹û½ûÓÃÄÇÃ´ÊÂ¼ş»á·¢ËÍ¸øËûµÄ¸¸ÔªËØ.  
-		//@·µ»Ø ÊÇ·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÊÇ·ñÆôÓÃ_XE_MOUSEWHEEL()
+		// åˆ¤æ–­æ˜¯å¦å¯ç”¨é¼ æ ‡æ»šåŠ¨äº‹ä»¶,å¦‚æœç¦ç”¨é‚£ä¹ˆäº‹ä»¶ä¼šå‘é€ç»™ä»–çš„çˆ¶å…ƒç´ .  
+		//@è¿”å› æ˜¯è¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  æ˜¯å¦å¯ç”¨_XE_MOUSEWHEEL()
 		bool IsEnable_XE_MOUSEWHEEL() {
 			return XEle_IsEnable_XE_MOUSEWHEEL((HELE)m_handle);
 		}
 
-		// ÅĞ¶ÏhChildEleÊÇ·ñÎªhEleµÄ×ÓÔªËØ,   
-		//@²ÎÊı hChildEle ×ÓÔªËØ¾ä±ú
-		//@·µ»Ø ÊÇ·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÊÇ·ñÎª×ÓÔªËØ()
+		// åˆ¤æ–­hChildEleæ˜¯å¦ä¸ºhEleçš„å­å…ƒç´ ,   
+		//@å‚æ•° hChildEle å­å…ƒç´ å¥æŸ„
+		//@è¿”å› æ˜¯è¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  æ˜¯å¦ä¸ºå­å…ƒç´ ()
 		bool IsChildEle(HELE hChildEle) {
 			return XEle_IsChildEle((HELE)m_handle, hChildEle);
 		}
 
-		// ÅĞ¶ÏÊÇ·ñÆôÓÃ»­²¼,  
-		//@·µ»Ø ÊÇ·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÊÇ·ñÆôÓÃ»­²¼()
+		// åˆ¤æ–­æ˜¯å¦å¯ç”¨ç”»å¸ƒ,  
+		//@è¿”å› æ˜¯è¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  æ˜¯å¦å¯ç”¨ç”»å¸ƒ()
 		bool IsEnableCanvas() {
 			return XEle_IsEnableCanvas((HELE)m_handle);
 		}
 
-		// ÅĞ¶ÏÊÇ·ñÓµÓĞ½¹µã.  
-		//@·µ»Ø Èç¹ûÓµÓĞ½¹µã·µ»ØTRUE,·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÊÇ·ñ½¹µã()
+		// åˆ¤æ–­æ˜¯å¦æ‹¥æœ‰ç„¦ç‚¹.  
+		//@è¿”å› å¦‚æœæ‹¥æœ‰ç„¦ç‚¹è¿”å›TRUE,å¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  æ˜¯å¦ç„¦ç‚¹()
 		bool IsFocus() {
 			return XEle_IsFocus((HELE)m_handle);
 		}
 
-		// ÅĞ¶Ï¸ÃÔªËØ»ò¸ÃÔªËØµÄ×ÓÔªËØÊÇ·ñÓµÓĞ½¹µã  
-		//@·µ»Ø Èç¹ûÓµÓĞ½¹µã·µ»ØTRUE,·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÊÇ·ñ½¹µãÀ©Õ¹()
+		// åˆ¤æ–­è¯¥å…ƒç´ æˆ–è¯¥å…ƒç´ çš„å­å…ƒç´ æ˜¯å¦æ‹¥æœ‰ç„¦ç‚¹  
+		//@è¿”å› å¦‚æœæ‹¥æœ‰ç„¦ç‚¹è¿”å›TRUE,å¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  æ˜¯å¦ç„¦ç‚¹æ‰©å±•()
 		bool IsFocusEx() {
 			return XEle_IsFocusEx((HELE)m_handle);
 		}
 
-		// ÆôÓÃ»ò½ûÓÃÔªËØ.  
-		//@²ÎÊı bEnable ÆôÓÃ»ò½ûÓÃ.
-		//@±ğÃû  ÆôÓÃ()
+		// å¯ç”¨æˆ–ç¦ç”¨å…ƒç´ .  
+		//@å‚æ•° bEnable å¯ç”¨æˆ–ç¦ç”¨.
+		//@åˆ«å  å¯ç”¨()
 		void Enable(bool bEnable) {
 			XEle_Enable((HELE)m_handle, bEnable);
 		}
 
-		// ÆôÓÃ½¹µã.  
-		//@²ÎÊı bEnable ÊÇ·ñÆôÓÃ.
-		//@±ğÃû  ÆôÓÃ½¹µã()
+		// å¯ç”¨ç„¦ç‚¹.  
+		//@å‚æ•° bEnable æ˜¯å¦å¯ç”¨.
+		//@åˆ«å  å¯ç”¨ç„¦ç‚¹()
 		void EnableFocus(bool bEnable) {
 			XEle_EnableFocus((HELE)m_handle, bEnable);
 		}
 
-		// ÆôÓÃ»æÖÆ½¹µã.  
-		//@²ÎÊı bEnable ÊÇ·ñÆôÓÃ.
-		//@±ğÃû  ÆôÓÃ»æÖÆ½¹µã()
+		// å¯ç”¨ç»˜åˆ¶ç„¦ç‚¹.  
+		//@å‚æ•° bEnable æ˜¯å¦å¯ç”¨.
+		//@åˆ«å  å¯ç”¨ç»˜åˆ¶ç„¦ç‚¹()
 		void EnableDrawFocus(bool bEnable) {
 			XEle_EnableDrawFocus((HELE)m_handle, bEnable);
 		}
 
-		// ÆôÓÃ»ò½ûÓÃ»æÖÆÄ¬ÈÏ±ß¿ò.  
-		//@²ÎÊı bEnable ÊÇ·ñÆôÓÃ.
-		//@±ğÃû  ÆôÓÃ»æÖÆ±ß¿ò()
+		// å¯ç”¨æˆ–ç¦ç”¨ç»˜åˆ¶é»˜è®¤è¾¹æ¡†.  
+		//@å‚æ•° bEnable æ˜¯å¦å¯ç”¨.
+		//@åˆ«å  å¯ç”¨ç»˜åˆ¶è¾¹æ¡†()
 		void EnableDrawBorder(bool bEnable) {
 			XEle_EnableDrawBorder((HELE)m_handle, bEnable);
 		}
 
-		// ÆôÓÃ»ò½ûÓÃ±³¾°»­²¼;Èç¹û½ûÓÃÄÇÃ´½«»æÖÆÔÚ¸¸µÄ»­²¼Ö®ÉÏ,Ò²¾ÍÊÇËµËûÃ»ÓĞ×Ô¼ºµÄ»­²¼.  
-		//@²ÎÊı bEnable ÊÇ·ñÆôÓÃ.
-		//@±ğÃû  ÆôÓÃ»­²¼()
+		// å¯ç”¨æˆ–ç¦ç”¨èƒŒæ™¯ç”»å¸ƒ;å¦‚æœç¦ç”¨é‚£ä¹ˆå°†ç»˜åˆ¶åœ¨çˆ¶çš„ç”»å¸ƒä¹‹ä¸Š,ä¹Ÿå°±æ˜¯è¯´ä»–æ²¡æœ‰è‡ªå·±çš„ç”»å¸ƒ.  
+		//@å‚æ•° bEnable æ˜¯å¦å¯ç”¨.
+		//@åˆ«å  å¯ç”¨ç”»å¸ƒ()
 		void EnableCanvas(bool bEnable) {
 			XEle_EnableCanvas((HELE)m_handle, bEnable);
 		}
 
-		// ÆôÓÃXE_PAINT_ENDÊÂ¼ş.  
-		//@²ÎÊı bEnable ÊÇ·ñÆôÓÃ.
-		//@±ğÃû  ÆôÓÃÊÂ¼ş_XE_PAINT_END()
+		// å¯ç”¨XE_PAINT_ENDäº‹ä»¶.  
+		//@å‚æ•° bEnable æ˜¯å¦å¯ç”¨.
+		//@åˆ«å  å¯ç”¨äº‹ä»¶_XE_PAINT_END()
 		void EnableEvent_XE_PAINT_END(bool bEnable) {
 			XEle_EnableEvent_XE_PAINT_END((HELE)m_handle, bEnable);
 		}
 
-		// ÆôÓÃ±³¾°Í¸Ã÷.  
-		//@²ÎÊı bEnable ÊÇ·ñÆôÓÃ.
-		//@±ğÃû  ÆôÓÃ±³¾°Í¸Ã÷()
+		// å¯ç”¨èƒŒæ™¯é€æ˜.  
+		//@å‚æ•° bEnable æ˜¯å¦å¯ç”¨.
+		//@åˆ«å  å¯ç”¨èƒŒæ™¯é€æ˜()
 		void EnableBkTransparent(bool bEnable) {
 			XEle_EnableBkTransparent((HELE)m_handle, bEnable);
 		}
 
-		// ÆôÓÃÊó±ê´©Í¸, Èç¹ûÆôÓÃ,ÄÇÃ´¸ÃÔªËØ²»ÄÜ½ÓÊÕµ½Êó±êÊÂ¼ş,µ«ÊÇËûµÄ×ÓÔªËØ²»ÊÜÓ°Ïì,ÈÎÈ»¿ÉÒÔ½ÓÊÕÊó±êÊÂ¼ş.  
-		//@²ÎÊı bEnable ÊÇ·ñÆôÓÃ.
-		//@±ğÃû  ÆôÓÃÊó±ê´©Í¸()
+		// å¯ç”¨é¼ æ ‡ç©¿é€, å¦‚æœå¯ç”¨,é‚£ä¹ˆè¯¥å…ƒç´ ä¸èƒ½æ¥æ”¶åˆ°é¼ æ ‡äº‹ä»¶,ä½†æ˜¯ä»–çš„å­å…ƒç´ ä¸å—å½±å“,ä»»ç„¶å¯ä»¥æ¥æ”¶é¼ æ ‡äº‹ä»¶.  
+		//@å‚æ•° bEnable æ˜¯å¦å¯ç”¨.
+		//@åˆ«å  å¯ç”¨é¼ æ ‡ç©¿é€()
 		void EnableMouseThrough(bool bEnable) {
 			XEle_EnableMouseThrough((HELE)m_handle, bEnable);
 		}
 
-		// ÆôÓÃ½ÓÊÕTabÊäÈë.  
-		//@²ÎÊı bEnable ÊÇ·ñÆôÓÃ.
-		//@±ğÃû  ÆôÓÃ½ÓÊÕTAB()
+		// å¯ç”¨æ¥æ”¶Tabè¾“å…¥.  
+		//@å‚æ•° bEnable æ˜¯å¦å¯ç”¨.
+		//@åˆ«å  å¯ç”¨æ¥æ”¶TAB()
 		void EnableKeyTab(bool bEnable) {
 			XEle_EnableKeyTab((HELE)m_handle, bEnable);
 		}
 
-		// ÆôÓÃ½ÓÊÜÍ¨¹ı¼üÅÌÇĞ»»½¹µã.  
-		//@²ÎÊı bEnable ÊÇ·ñÆôÓÃ.
-		//@±ğÃû  ÆôÓÃÇĞ»»½¹µã()
+		// å¯ç”¨æ¥å—é€šè¿‡é”®ç›˜åˆ‡æ¢ç„¦ç‚¹.  
+		//@å‚æ•° bEnable æ˜¯å¦å¯ç”¨.
+		//@åˆ«å  å¯ç”¨åˆ‡æ¢ç„¦ç‚¹()
 		void EnableSwitchFocus(bool bEnable) {
 			XEle_EnableSwitchFocus((HELE)m_handle, bEnable);
 		}
 
-		// ÆôÓÃ½ÓÊÕÊó±ê¹ö¶¯ÊÂ¼ş,Èç¹û½ûÓÃÄÇÃ´ÊÂ¼ş»á´«µİ¸ø¸¸ÔªËØ.  
-		//@²ÎÊı bEnable ÊÇ·ñÆôÓÃ.
-		//@±ğÃû  ÆôÓÃÊÂ¼ş_XE_MOUSEWHEEL()
+		// å¯ç”¨æ¥æ”¶é¼ æ ‡æ»šåŠ¨äº‹ä»¶,å¦‚æœç¦ç”¨é‚£ä¹ˆäº‹ä»¶ä¼šä¼ é€’ç»™çˆ¶å…ƒç´ .  
+		//@å‚æ•° bEnable æ˜¯å¦å¯ç”¨.
+		//@åˆ«å  å¯ç”¨äº‹ä»¶_XE_MOUSEWHEEL()
 		void EnableEvent_XE_MOUSEWHEEL(bool bEnable) {
 			XEle_EnableEvent_XE_MOUSEWHEEL((HELE)m_handle, bEnable);
 		}
 
-		// ÒÆ³ıÔªËØ,µ«²»Ïú»Ù.  
-		//@±ğÃû  ÒÆ³ı()
+		// ç§»é™¤å…ƒç´ ,ä½†ä¸é”€æ¯.  
+		//@åˆ«å  ç§»é™¤()
 		void Remove() {
 			XEle_Remove((HELE)m_handle);
 		}
 
-		// ÉèÖÃÔªËØZĞò.  
-		//@²ÎÊı index Î»ÖÃË÷Òı.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÖÃZĞò()
+		// è®¾ç½®å…ƒç´ Zåº.  
+		//@å‚æ•° index ä½ç½®ç´¢å¼•.
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  ç½®Zåº()
 		bool SetZOrder(int index) {
 			return XEle_SetZOrder((HELE)m_handle, index);
 		}
 
-		// ÉèÖÃÔªËØZĞò.  
-		//@²ÎÊı hDestEle Ä¿±êÔªËØ.
-		//@²ÎÊı nType ÀàĞÍ.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÖÃZĞòÀ©Õ¹()
+		// è®¾ç½®å…ƒç´ Zåº.  
+		//@å‚æ•° hDestEle ç›®æ ‡å…ƒç´ .
+		//@å‚æ•° nType ç±»å‹.
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  ç½®Zåºæ‰©å±•()
 		bool SetZOrderEx(HELE hDestEle, zorder_ nType) {
 			return XEle_SetZOrderEx((HELE)m_handle, hDestEle, nType);
 		}
 
-		// »ñÈ¡ÔªËØZĞòË÷Òı, Î»ÖÃË÷Òı.  
-		//@·µ»Ø ³É¹¦·µ»ØË÷ÒıÖµ,·ñÔò·µ»Ø XC_ID_ERROR.
-		//@±ğÃû  È¡ZĞò()
+		// è·å–å…ƒç´ Zåºç´¢å¼•, ä½ç½®ç´¢å¼•.  
+		//@è¿”å› æˆåŠŸè¿”å›ç´¢å¼•å€¼,å¦åˆ™è¿”å› XC_ID_ERROR.
+		//@åˆ«å  å–Zåº()
 		int GetZOrder() {
 			return XEle_GetZOrder((HELE)m_handle);
 		}
 
-		// ÉèÖÃÔªËØÖÃ¶¥.  
-		//@²ÎÊı bTopmost ÊÇ·ñÖÃ¶¥ÏÔÊ¾
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÆôÓÃÖÃ¶¥()
+		// è®¾ç½®å…ƒç´ ç½®é¡¶.  
+		//@å‚æ•° bTopmost æ˜¯å¦ç½®é¡¶æ˜¾ç¤º
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  å¯ç”¨ç½®é¡¶()
 		bool EnableTopmost(bool bTopmost) {
 			return XEle_EnableTopmost((HELE)m_handle, bTopmost);
 		}
 
-		// ÖØ»æÔªËØ.  
-		//@²ÎÊı bImmediate ÊÇ·ñÁ¢¼´ÖØ»æ,Ä¬ÈÏÎª·ñ.
-		//@±ğÃû  ÖØ»æ()
+		// é‡ç»˜å…ƒç´ .  
+		//@å‚æ•° bImmediate æ˜¯å¦ç«‹å³é‡ç»˜,é»˜è®¤ä¸ºå¦.
+		//@åˆ«å  é‡ç»˜()
 		void Redraw(bool bImmediate = false) {
 			XEle_Redraw((HELE)m_handle, bImmediate);
 		}
 
-		// ÖØ»æÔªËØÖ¸¶¨ÇøÓò.  
-		//@²ÎÊı pRect Ïà¶ÔÓÚÔªËØ¿Í»§Çø×ø±ê.
-		//@²ÎÊı bImmediate ÊÇ·ñÁ¢¼´ÖØ»æ,Ä¬ÈÏÎª·ñ.
-		//@±ğÃû  ÖØ»æÖ¸¶¨ÇøÓò()
+		// é‡ç»˜å…ƒç´ æŒ‡å®šåŒºåŸŸ.  
+		//@å‚æ•° pRect ç›¸å¯¹äºå…ƒç´ å®¢æˆ·åŒºåæ ‡.
+		//@å‚æ•° bImmediate æ˜¯å¦ç«‹å³é‡ç»˜,é»˜è®¤ä¸ºå¦.
+		//@åˆ«å  é‡ç»˜æŒ‡å®šåŒºåŸŸ()
 		void RedrawRect(RECT* pRect, bool bImmediate = false) {
 			XEle_RedrawRect((HELE)m_handle, pRect, bImmediate);
 		}
 
-		// »ñÈ¡×Ó¶ÔÏó(UIÔªËØºÍĞÎ×´¶ÔÏó)ÊıÁ¿,Ö»¼ì²âµ±Ç°²ã×Ó¶ÔÏó.  
-		//@·µ»Ø ×ÓÔªËØÊıÁ¿.
-		//@±ğÃû  È¡×Ó¶ÔÏóÊıÁ¿()
+		// è·å–å­å¯¹è±¡(UIå…ƒç´ å’Œå½¢çŠ¶å¯¹è±¡)æ•°é‡,åªæ£€æµ‹å½“å‰å±‚å­å¯¹è±¡.  
+		//@è¿”å› å­å…ƒç´ æ•°é‡.
+		//@åˆ«å  å–å­å¯¹è±¡æ•°é‡()
 		int GetChildCount() {
 			return XEle_GetChildCount((HELE)m_handle);
 		}
 
-		// »ñÈ¡×Ó¶ÔÏóÍ¨¹ıË÷Òı,Ö»¼ì²âµ±Ç°²ã×Ó¶ÔÏó.  
-		//@²ÎÊı index Ë÷Òı.
-		//@·µ»Ø ¶ÔÏó¾ä±ú.
-		//@±ğÃû  È¡×Ó¶ÔÏó´ÓË÷Òı()
+		// è·å–å­å¯¹è±¡é€šè¿‡ç´¢å¼•,åªæ£€æµ‹å½“å‰å±‚å­å¯¹è±¡.  
+		//@å‚æ•° index ç´¢å¼•.
+		//@è¿”å› å¯¹è±¡å¥æŸ„.
+		//@åˆ«å  å–å­å¯¹è±¡ä»ç´¢å¼•()
 		HXCGUI GetChildByIndex(int index) {
 			return XEle_GetChildByIndex((HELE)m_handle, index);
 		}
 
-		// »ñÈ¡×Ó¶ÔÏóÍ¨¹ıID,Ö»¼ì²âµ±Ç°²ã×Ó¶ÔÏó.  
-		//@²ÎÊı nID ÔªËØID.
-		//@·µ»Ø ¶ÔÏó¾ä±ú.
-		//@±ğÃû  È¡×Ó¶ÔÏó´ÓID()
+		// è·å–å­å¯¹è±¡é€šè¿‡ID,åªæ£€æµ‹å½“å‰å±‚å­å¯¹è±¡.  
+		//@å‚æ•° nID å…ƒç´ ID.
+		//@è¿”å› å¯¹è±¡å¥æŸ„.
+		//@åˆ«å  å–å­å¯¹è±¡ä»ID()
 		HXCGUI GetChildByID(int nID) {
 			return XEle_GetChildByID((HELE)m_handle, nID);
 		}
 
-		// ÉèÖÃ±ß¿ò´óĞ¡.  
-		//@²ÎÊı left ×ó±ß´óĞ¡.
-		//@²ÎÊı top ÉÏ±ß´óĞ¡.
-		//@²ÎÊı right ÓÒ±ß´óĞ¡.
-		//@²ÎÊı bottom ÏÂ±ß´óĞ¡.
-		//@±ğÃû  ÖÃ±ß¿ò´óĞ¡()
+		// è®¾ç½®è¾¹æ¡†å¤§å°.  
+		//@å‚æ•° left å·¦è¾¹å¤§å°.
+		//@å‚æ•° top ä¸Šè¾¹å¤§å°.
+		//@å‚æ•° right å³è¾¹å¤§å°.
+		//@å‚æ•° bottom ä¸‹è¾¹å¤§å°.
+		//@åˆ«å  ç½®è¾¹æ¡†å¤§å°()
 		void SetBorderSize(int left, int top, int right, int bottom) {
 			XEle_SetBorderSize((HELE)m_handle, left, top, right, bottom);
 		}
 
-		// »ñÈ¡±ß¿ò´óĞ¡.  
-		//@²ÎÊı pBorder ´óĞ¡.
-		//@±ğÃû  È¡±ß¿ò´óĞ¡()
+		// è·å–è¾¹æ¡†å¤§å°.  
+		//@å‚æ•° pBorder å¤§å°.
+		//@åˆ«å  å–è¾¹æ¡†å¤§å°()
 		void GetBorderSize(borderSize_* pBorder) {
 			XEle_GetBorderSize((HELE)m_handle, pBorder);
 		}
 
-		// ÉèÖÃ±»Ìî³ä´óĞ¡.  
-		//@²ÎÊı left ×ó±ß´óĞ¡.
-		//@²ÎÊı top ÉÏ±ß´óĞ¡.
-		//@²ÎÊı right ÓÒ±ß´óĞ¡.
-		//@²ÎÊı bottom ÏÂ±ß´óĞ¡.
-		//@±ğÃû  ÖÃÄÚÌî³ä´óĞ¡()
+		// è®¾ç½®è¢«å¡«å……å¤§å°.  
+		//@å‚æ•° left å·¦è¾¹å¤§å°.
+		//@å‚æ•° top ä¸Šè¾¹å¤§å°.
+		//@å‚æ•° right å³è¾¹å¤§å°.
+		//@å‚æ•° bottom ä¸‹è¾¹å¤§å°.
+		//@åˆ«å  ç½®å†…å¡«å……å¤§å°()
 		void SetPadding(int left, int top, int right, int bottom) {
 			XEle_SetPadding((HELE)m_handle, left, top, right, bottom);
 		}
 
-		// »ñÈ¡ÄÚÌî³ä´óĞ¡.  
-		//@²ÎÊı pPadding ´óĞ¡.
-		//@±ğÃû  È¡ÄÚÌî³ä´óĞ¡()
+		// è·å–å†…å¡«å……å¤§å°.  
+		//@å‚æ•° pPadding å¤§å°.
+		//@åˆ«å  å–å†…å¡«å……å¤§å°()
 		void GetPadding(paddingSize_* pPadding) {
 			XEle_GetPadding((HELE)m_handle, pPadding);
 		}
 
-		// ÉèÖÃÍÏ¶¯±ß¿ò.  
-		//@²ÎÊı nFlags ±ß¿òÎ»ÖÃ×éºÏ. element_position_
-		//@±ğÃû  ÖÃÍÏ¶¯±ß¿ò()
+		// è®¾ç½®æ‹–åŠ¨è¾¹æ¡†.  
+		//@å‚æ•° nFlags è¾¹æ¡†ä½ç½®ç»„åˆ. element_position_
+		//@åˆ«å  ç½®æ‹–åŠ¨è¾¹æ¡†()
 		void SetDragBorder(int nFlags) {
 			XEle_SetDragBorder((HELE)m_handle, nFlags);
 		}
 
-		// ÉèÖÃÍÏ¶¯±ß¿ò°ó¶¨ÔªËØ,µ±ÍÏ¶¯±ß¿òÊ±, ×Ô¶¯µ÷Õû°ó¶¨ÔªËØµÄ´óĞ¡.  
-		//@²ÎÊı nFlags ±ß¿òÎ»ÖÃ±êÊ¶,²»¿É×éºÏ.  element_position_
-		//@²ÎÊı hBindEle °ó¶¨ÔªËØ.
-		//@²ÎÊı nSpace ÔªËØ¼ä¸ô´óĞ¡
-		//@±ğÃû  ÖÃÍÏ¶¯±ß¿ò°ó¶¨ÔªËØ()
+		// è®¾ç½®æ‹–åŠ¨è¾¹æ¡†ç»‘å®šå…ƒç´ ,å½“æ‹–åŠ¨è¾¹æ¡†æ—¶, è‡ªåŠ¨è°ƒæ•´ç»‘å®šå…ƒç´ çš„å¤§å°.  
+		//@å‚æ•° nFlags è¾¹æ¡†ä½ç½®æ ‡è¯†,ä¸å¯ç»„åˆ.  element_position_
+		//@å‚æ•° hBindEle ç»‘å®šå…ƒç´ .
+		//@å‚æ•° nSpace å…ƒç´ é—´éš”å¤§å°
+		//@åˆ«å  ç½®æ‹–åŠ¨è¾¹æ¡†ç»‘å®šå…ƒç´ ()
 		void SetDragBorderBindEle(int nFlags, HELE hBindEle, int nSpace) {
 			XEle_SetDragBorderBindEle((HELE)m_handle, nFlags, hBindEle, nSpace);
 		}
 
-		// ÉèÖÃÔªËØ×îĞ¡´óĞ¡  
-		//@²ÎÊı nWidth ×îĞ¡¿í¶È
-		//@²ÎÊı nHeight ×îĞ¡¸ß¶È.
-		//@±ğÃû  ÖÃ×îĞ¡´óĞ¡()
+		// è®¾ç½®å…ƒç´ æœ€å°å¤§å°  
+		//@å‚æ•° nWidth æœ€å°å®½åº¦
+		//@å‚æ•° nHeight æœ€å°é«˜åº¦.
+		//@åˆ«å  ç½®æœ€å°å¤§å°()
 		void SetMinSize(int nWidth, int nHeight) {
 			XEle_SetMinSize((HELE)m_handle, nWidth, nHeight);
 		}
 
-		// ÉèÖÃÔªËØ×î´ó´óĞ¡.  
-		//@²ÎÊı nWidth ×î´ó¿í¶È.
-		//@²ÎÊı nHeight ×î´ó¸ß¶È.
-		//@±ğÃû  ÖÃ×î´ó´óĞ¡()
+		// è®¾ç½®å…ƒç´ æœ€å¤§å¤§å°.  
+		//@å‚æ•° nWidth æœ€å¤§å®½åº¦.
+		//@å‚æ•° nHeight æœ€å¤§é«˜åº¦.
+		//@åˆ«å  ç½®æœ€å¤§å¤§å°()
 		void SetMaxSize(int nWidth, int nHeight) {
 			XEle_SetMaxSize((HELE)m_handle, nWidth, nHeight);
 		}
 
-		// ÉèÖÃËø¶¨ÔªËØÔÚ¹ö¶¯ÊÓÍ¼ÖĞ¸úËæ¹ö¶¯,Èç¹ûÉèÖÃTRUE½«²»¸úËæ¹ö¶¯.  
-		//@²ÎÊı bHorizon ÊÇ·ñËø¶¨Ë®Æ½¹ö¶¯.
-		//@²ÎÊı bVertical ÊÇ·ñËø¶¨´¹Ö±¹ö¶¯.
-		//@±ğÃû  ÖÃËø¶¨¹ö¶¯()
+		// è®¾ç½®é”å®šå…ƒç´ åœ¨æ»šåŠ¨è§†å›¾ä¸­è·Ÿéšæ»šåŠ¨,å¦‚æœè®¾ç½®TRUEå°†ä¸è·Ÿéšæ»šåŠ¨.  
+		//@å‚æ•° bHorizon æ˜¯å¦é”å®šæ°´å¹³æ»šåŠ¨.
+		//@å‚æ•° bVertical æ˜¯å¦é”å®šå‚ç›´æ»šåŠ¨.
+		//@åˆ«å  ç½®é”å®šæ»šåŠ¨()
 		void SetLockScroll(bool bHorizon, bool bVertical) {
 			XEle_SetLockScroll((HELE)m_handle, bHorizon, bVertical);
 		}
 
-		// ÉèÖÃÎÄ±¾ÑÕÉ«.  
-		//@²ÎÊı color ÑÕÉ«Öµ, ÇëÊ¹ÓÃºê: RGBA()
-		//@±ğÃû  ÖÃÎÄ±¾ÑÕÉ«()
+		// è®¾ç½®æ–‡æœ¬é¢œè‰².  
+		//@å‚æ•° color é¢œè‰²å€¼, è¯·ä½¿ç”¨å®: RGBA()
+		//@åˆ«å  ç½®æ–‡æœ¬é¢œè‰²()
 		void SetTextColor(COLORREF color) {
 			XEle_SetTextColor((HELE)m_handle, color);
 		}
 
-		// »ñÈ¡ÎÄ±¾ÑÕÉ«.  
-		//@·µ»Ø ÎÄ±¾ÑÕÉ«Öµ.
-		//@±ğÃû  È¡ÎÄ±¾ÑÕÉ«()
+		// è·å–æ–‡æœ¬é¢œè‰².  
+		//@è¿”å› æ–‡æœ¬é¢œè‰²å€¼.
+		//@åˆ«å  å–æ–‡æœ¬é¢œè‰²()
 		COLORREF GetTextColor() {
 			return XEle_GetTextColor((HELE)m_handle);
 		}
 
-		// »ñÈ¡ÎÄ±¾ÑÕÉ«,ÓÅÏÈ´Ó×ÊÔ´ÖĞ»ñÈ¡.  
-		//@·µ»Ø ÎÄ±¾ÑÕÉ«Öµ.
-		//@±ğÃû  È¡ÎÄ±¾ÑÕÉ«À©Õ¹()
+		// è·å–æ–‡æœ¬é¢œè‰²,ä¼˜å…ˆä»èµ„æºä¸­è·å–.  
+		//@è¿”å› æ–‡æœ¬é¢œè‰²å€¼.
+		//@åˆ«å  å–æ–‡æœ¬é¢œè‰²æ‰©å±•()
 		COLORREF GetTextColorEx() {
 			return XEle_GetTextColorEx((HELE)m_handle);
 		}
 
-		// ÉèÖÃ½¹µã±ß¿òÑÕÉ«.  
-		//@²ÎÊı color ÑÕÉ«Öµ, ÇëÊ¹ÓÃºê: RGBA()
-		//@±ğÃû  ÖÃ½¹µã±ß¿òÑÕÉ«()
+		// è®¾ç½®ç„¦ç‚¹è¾¹æ¡†é¢œè‰².  
+		//@å‚æ•° color é¢œè‰²å€¼, è¯·ä½¿ç”¨å®: RGBA()
+		//@åˆ«å  ç½®ç„¦ç‚¹è¾¹æ¡†é¢œè‰²()
 		void SetFocusBorderColor(COLORREF color) {
 			XEle_SetFocusBorderColor((HELE)m_handle, color);
 		}
 
-		// »ñÈ¡½¹µã±ß¿òÑÕÉ«.  
-		//@·µ»Ø ·µ»ØÑÕÉ«Öµ
-		//@±ğÃû  È¡½¹µã±ß¿òÑÕÉ«()
+		// è·å–ç„¦ç‚¹è¾¹æ¡†é¢œè‰².  
+		//@è¿”å› è¿”å›é¢œè‰²å€¼
+		//@åˆ«å  å–ç„¦ç‚¹è¾¹æ¡†é¢œè‰²()
 		COLORREF GetFocusBorderColor() {
 			return XEle_GetFocusBorderColor((HELE)m_handle);
 		}
 
-		// ÉèÖÃÔªËØ×ÖÌå.  
-		//@²ÎÊı hFontx ìÅ²Ê×ÖÌå.
-		//@±ğÃû  ÖÃ×ÖÌå()
+		// è®¾ç½®å…ƒç´ å­—ä½“.  
+		//@å‚æ•° hFontx ç‚«å½©å­—ä½“.
+		//@åˆ«å  ç½®å­—ä½“()
 		void SetFont(HFONTX hFontx) {
 			XEle_SetFont((HELE)m_handle, hFontx);
 		}
 
-		// »ñÈ¡ÔªËØ×ÖÌå.  
-		//@·µ»Ø ·µ»ØìÅ²Ê×ÖÌå¾ä±ú.
-		//@±ğÃû  È¡×ÖÌå()
+		// è·å–å…ƒç´ å­—ä½“.  
+		//@è¿”å› è¿”å›ç‚«å½©å­—ä½“å¥æŸ„.
+		//@åˆ«å  å–å­—ä½“()
 		HFONTX GetFont() {
 			return XEle_GetFont((HELE)m_handle);
 		}
 
-		// »ñÈ¡ÔªËØ×ÖÌå,ÓÅÏÈ´Ó×ÊÔ´ÖĞ»ñÈ¡.  
-		//@·µ»Ø ·µ»ØìÅ²Ê×ÖÌå¾ä±ú.
-		//@±ğÃû  È¡×ÖÌåÀ©Õ¹()
+		// è·å–å…ƒç´ å­—ä½“,ä¼˜å…ˆä»èµ„æºä¸­è·å–.  
+		//@è¿”å› è¿”å›ç‚«å½©å­—ä½“å¥æŸ„.
+		//@åˆ«å  å–å­—ä½“æ‰©å±•()
 		HFONTX GetFontEx() {
 			return XEle_GetFontEx((HELE)m_handle);
 		}
 
-		// ÉèÖÃÔªËØÍ¸Ã÷¶È.  
-		//@²ÎÊı alpha Í¸Ã÷¶È.
-		//@±ğÃû  ÖÃÍ¸Ã÷¶È()
+		// è®¾ç½®å…ƒç´ é€æ˜åº¦.  
+		//@å‚æ•° alpha é€æ˜åº¦.
+		//@åˆ«å  ç½®é€æ˜åº¦()
 		void SetAlpha(BYTE alpha) {
 			XEle_SetAlpha((HELE)m_handle, alpha);
 		}
 
-		//@·µ»Ø ·µ»ØÍ¸Ã÷¶È
-		//@±ğÃû  È¡Í¸Ã÷¶È()
+		//@è¿”å› è¿”å›é€æ˜åº¦
+		//@åˆ«å  å–é€æ˜åº¦()
 		BYTE GetAlpha() {
 			return XEle_GetAlpha((HELE)m_handle);
 		}
 
-		// Ïú»ÙÔªËØ.  
-		//@±ğÃû  Ïú»Ù()
+		// é”€æ¯å…ƒç´ .  
+		//@åˆ«å  é”€æ¯()
 		void Destroy() {
 			XEle_Destroy((HELE)m_handle);
 		}
 
-		// Ìí¼Ó±³¾°ÄÚÈİ±ß¿ò.  
-		//@²ÎÊı nState ×éºÏ×´Ì¬
-		//@²ÎÊı color ÑÕÉ«.
-		//@²ÎÊı width Ïß¿í.
-		//@±ğÃû  Ìí¼Ó±³¾°±ß¿ò()
+		// æ·»åŠ èƒŒæ™¯å†…å®¹è¾¹æ¡†.  
+		//@å‚æ•° nState ç»„åˆçŠ¶æ€
+		//@å‚æ•° color é¢œè‰².
+		//@å‚æ•° width çº¿å®½.
+		//@åˆ«å  æ·»åŠ èƒŒæ™¯è¾¹æ¡†()
 		void AddBkBorder(int nState, COLORREF color, int width) {
 			XEle_AddBkBorder((HELE)m_handle, nState, color, width);
 		}
 
-		// Ìí¼Ó±³¾°ÄÚÈİÌî³ä.  
-		//@²ÎÊı nState ×éºÏ×´Ì¬
-		//@²ÎÊı color ÑÕÉ«.
-		//@±ğÃû  Ìí¼Ó±³¾°Ìî³ä()
+		// æ·»åŠ èƒŒæ™¯å†…å®¹å¡«å…….  
+		//@å‚æ•° nState ç»„åˆçŠ¶æ€
+		//@å‚æ•° color é¢œè‰².
+		//@åˆ«å  æ·»åŠ èƒŒæ™¯å¡«å……()
 		void AddBkFill(int nState, COLORREF color) {
 			XEle_AddBkFill((HELE)m_handle, nState, color);
 		}
 
-		// Ìí¼Ó±³¾°ÄÚÈİÍ¼Æ¬.  
-		//@²ÎÊı nState ×éºÏ×´Ì¬
-		//@²ÎÊı hImage Í¼Æ¬¾ä±ú.
-		//@±ğÃû  Ìí¼Ó±³¾°Í¼Æ¬()
+		// æ·»åŠ èƒŒæ™¯å†…å®¹å›¾ç‰‡.  
+		//@å‚æ•° nState ç»„åˆçŠ¶æ€
+		//@å‚æ•° hImage å›¾ç‰‡å¥æŸ„.
+		//@åˆ«å  æ·»åŠ èƒŒæ™¯å›¾ç‰‡()
 		void AddBkImage(int nState, HIMAGE hImage) {
 			XEle_AddBkImage((HELE)m_handle, nState, hImage);
 		}
 
-		// ÉèÖÃ±³¾°ÄÚÈİ
-		//@²ÎÊı pText ±³¾°ÄÚÈİ×Ö·û´®
-		//@·µ»Ø ·µ»ØÉèÖÃµÄ±³¾°¶ÔÏóÊıÁ¿
-		//@±ğÃû  ÖÃ±³¾°()
+		// è®¾ç½®èƒŒæ™¯å†…å®¹
+		//@å‚æ•° pText èƒŒæ™¯å†…å®¹å­—ç¬¦ä¸²
+		//@è¿”å› è¿”å›è®¾ç½®çš„èƒŒæ™¯å¯¹è±¡æ•°é‡
+		//@åˆ«å  ç½®èƒŒæ™¯()
 		int SetBkInfo(const std::wstring& text) {
 			return XEle_SetBkInfo((HELE)m_handle, text.c_str());
 		}
 
-		// »ñÈ¡±³¾°ÄÚÈİÊıÁ¿.  
-		//@·µ»Ø ·µ»Ø±³¾°ÄÚÈİÊıÁ¿.
-		//@±ğÃû  È¡±³¾°¶ÔÏóÊıÁ¿()
+		// è·å–èƒŒæ™¯å†…å®¹æ•°é‡.  
+		//@è¿”å› è¿”å›èƒŒæ™¯å†…å®¹æ•°é‡.
+		//@åˆ«å  å–èƒŒæ™¯å¯¹è±¡æ•°é‡()
 		int GetBkInfoCount() {
 			return XEle_GetBkInfoCount((HELE)m_handle);
 		}
 
-		// Çå¿Õ±³¾°ÄÚÈİ; Èç¹û±³¾°Ã»ÓĞÄÚÈİ,½«Ê¹ÓÃÏµÍ³Ä¬ÈÏÄÚÈİ,ÒÔ±ã±£Ö¤±³¾°ÕıÈ·.  
-		//@±ğÃû  Çå¿Õ±³¾°¶ÔÏó()
+		// æ¸…ç©ºèƒŒæ™¯å†…å®¹; å¦‚æœèƒŒæ™¯æ²¡æœ‰å†…å®¹,å°†ä½¿ç”¨ç³»ç»Ÿé»˜è®¤å†…å®¹,ä»¥ä¾¿ä¿è¯èƒŒæ™¯æ­£ç¡®.  
+		//@åˆ«å  æ¸…ç©ºèƒŒæ™¯å¯¹è±¡()
 		void ClearBkInfo() {
 			XEle_ClearBkInfo((HELE)m_handle);
 		}
 
-		// »ñÈ¡ÔªËØ±³¾°¹ÜÀíÆ÷.  
-		//@·µ»Ø ±³¾°¹ÜÀíÆ÷.
-		//@±ğÃû  È¡±³¾°¹ÜÀíÆ÷()
+		// è·å–å…ƒç´ èƒŒæ™¯ç®¡ç†å™¨.  
+		//@è¿”å› èƒŒæ™¯ç®¡ç†å™¨.
+		//@åˆ«å  å–èƒŒæ™¯ç®¡ç†å™¨()
 		HBKM GetBkManager() {
 			return XEle_GetBkManager((HELE)m_handle);
 		}
 
-		// »ñÈ¡ÔªËØ±³¾°¹ÜÀíÆ÷,ÓÅÏÈ´Ó×ÊÔ´ÖĞ»ñÈ¡.  
-		//@·µ»Ø ±³¾°¹ÜÀíÆ÷.
-		//@±ğÃû  È¡±³¾°¹ÜÀíÆ÷À©Õ¹()
+		// è·å–å…ƒç´ èƒŒæ™¯ç®¡ç†å™¨,ä¼˜å…ˆä»èµ„æºä¸­è·å–.  
+		//@è¿”å› èƒŒæ™¯ç®¡ç†å™¨.
+		//@åˆ«å  å–èƒŒæ™¯ç®¡ç†å™¨æ‰©å±•()
 		HBKM GetBkManagerEx() {
 			return XEle_GetBkManagerEx((HELE)m_handle);
 		}
 
-		//@²ÎÊı hBkInfoM ±³¾°¹ÜÀíÆ÷
-		//@±ğÃû  ÖÃ±³¾°¹ÜÀíÆ÷()
+		//@å‚æ•° hBkInfoM èƒŒæ™¯ç®¡ç†å™¨
+		//@åˆ«å  ç½®èƒŒæ™¯ç®¡ç†å™¨()
 		void SetBkManager(HBKM hBkInfoM) {
 			XEle_SetBkManager((HELE)m_handle, hBkInfoM);
 		}
 
-		// »ñÈ¡×éºÏ×´Ì¬.  
-		//@·µ»Ø ·µ»Ø×éºÏ×´Ì¬.
-		//@±ğÃû  È¡×´Ì¬()
+		// è·å–ç»„åˆçŠ¶æ€.  
+		//@è¿”å› è¿”å›ç»„åˆçŠ¶æ€.
+		//@åˆ«å  å–çŠ¶æ€()
 		int GetStateFlags() {
 			return XEle_GetStateFlags((HELE)m_handle);
 		}
 
-		// »æÖÆÔªËØ½¹µã.  
-		//@²ÎÊı hDraw Í¼ĞÎ»æÖÆ¾ä±ú.
-		//@²ÎÊı pRect ÇøÓò×ø±ê.
-		//@·µ»Ø »æÖÆ³É¹¦·µ»ØTRUE,Èç¹û²»ĞèÒª»æÖÆ½¹µã·µ»ØFALSE.
-		//@±ğÃû  »æÖÆ½¹µã()
+		// ç»˜åˆ¶å…ƒç´ ç„¦ç‚¹.  
+		//@å‚æ•° hDraw å›¾å½¢ç»˜åˆ¶å¥æŸ„.
+		//@å‚æ•° pRect åŒºåŸŸåæ ‡.
+		//@è¿”å› ç»˜åˆ¶æˆåŠŸè¿”å›TRUE,å¦‚æœä¸éœ€è¦ç»˜åˆ¶ç„¦ç‚¹è¿”å›FALSE.
+		//@åˆ«å  ç»˜åˆ¶ç„¦ç‚¹()
 		bool DrawFocus(HDRAW hDraw, RECT* pRect) {
 			return XEle_DrawFocus((HELE)m_handle, hDraw, pRect);
 		}
 
-		// ÔÚ×Ô»æÊÂ¼şº¯ÊıÖĞ,ÓÃ»§ÊÖ¶¯µ÷ÓÃ»æÖÆÔªËØ,ÒÔ±ã¿ØÖÆ»æÖÆË³Ğò.  
-		//@²ÎÊı hDraw Í¼ĞÎ»æÖÆ¾ä±ú.
-		//@±ğÃû  »æÖÆ()
+		// åœ¨è‡ªç»˜äº‹ä»¶å‡½æ•°ä¸­,ç”¨æˆ·æ‰‹åŠ¨è°ƒç”¨ç»˜åˆ¶å…ƒç´ ,ä»¥ä¾¿æ§åˆ¶ç»˜åˆ¶é¡ºåº.  
+		//@å‚æ•° hDraw å›¾å½¢ç»˜åˆ¶å¥æŸ„.
+		//@åˆ«å  ç»˜åˆ¶()
 		void DrawEle(HDRAW hDraw) {
 			XEle_DrawEle((HELE)m_handle, hDraw);
 		}
 
-		// ÉèÖÃÓÃ»§Êı¾İ.  
-		//@²ÎÊı nData ÓÃ»§Êı¾İ.
-		//@±ğÃû  ÖÃÓÃ»§Êı¾İ()
+		// è®¾ç½®ç”¨æˆ·æ•°æ®.  
+		//@å‚æ•° nData ç”¨æˆ·æ•°æ®.
+		//@åˆ«å  ç½®ç”¨æˆ·æ•°æ®()
 		void SetUserData(vint nData) {
 			XEle_SetUserData((HELE)m_handle, nData);
 		}
 
-		// »ñÈ¡ÓÃ»§Êı¾İ.  
-		//@·µ»Ø ÓÃ»§Êı¾İ.
-		//@±ğÃû  È¡ÓÃ»§Êı¾İ()
+		// è·å–ç”¨æˆ·æ•°æ®.  
+		//@è¿”å› ç”¨æˆ·æ•°æ®.
+		//@åˆ«å  å–ç”¨æˆ·æ•°æ®()
 		vint GetUserData() {
 			return XEle_GetUserData((HELE)m_handle);
 		}
 
-		// »ñÈ¡ÄÚÈİ´óĞ¡.  
-		//@²ÎÊı bHorizon Ë®Æ½»ò´¹Ö±,  ²¼¾ÖÊôĞÔ½»»»ÒÀÀµ
-		//@²ÎÊı cx ¿í¶È
-		//@²ÎÊı cy ¸ß¶È
-		//@²ÎÊı pSize ·µ»Ø´óĞ¡.
-		//@±ğÃû  È¡ÄÚÈİ´óĞ¡()
+		// è·å–å†…å®¹å¤§å°.  
+		//@å‚æ•° bHorizon æ°´å¹³æˆ–å‚ç›´,  å¸ƒå±€å±æ€§äº¤æ¢ä¾èµ–
+		//@å‚æ•° cx å®½åº¦
+		//@å‚æ•° cy é«˜åº¦
+		//@å‚æ•° pSize è¿”å›å¤§å°.
+		//@åˆ«å  å–å†…å®¹å¤§å°()
 		void GetContentSize(bool bHorizon, int cx, int cy, SIZE* pSize) {
 			XEle_GetContentSize((HELE)m_handle, bHorizon, cx, cy, pSize);
 		}
 
-		// ÉèÖÃÊó±ê²¶»ñ.  
-		//@²ÎÊı b TRUEÉèÖÃ,FALSEÈ¡Ïû.
-		//@±ğÃû  ÖÃÊó±ê²¶»ñ()
+		// è®¾ç½®é¼ æ ‡æ•è·.  
+		//@å‚æ•° b TRUEè®¾ç½®,FALSEå–æ¶ˆ.
+		//@åˆ«å  ç½®é¼ æ ‡æ•è·()
 		void SetCapture(bool b) {
 			XEle_SetCapture((HELE)m_handle, b);
 		}
 
-		// ÆôÓÃ»ò¹Ø±ÕÔªËØÍ¸Ã÷Í¨µÀ,Èç¹ûÆôÓÃ,½«Ç¿ÖÆÉèÖÃÔªËØ±³¾°²»Í¸Ã÷,Ä¬ÈÏÎªÆôÓÃ,´Ë¹¦ÄÜÊÇÎªÁË¼æÈİGDI²»Ö§³ÖÍ¸Ã÷Í¨µÀÎÊÌâ.  
-		//@²ÎÊı bEnable ÆôÓÃ»ò¹Ø±Õ.
-		//@±ğÃû  ÆôÓÃÍ¸Ã÷Í¨µÀ()
+		// å¯ç”¨æˆ–å…³é—­å…ƒç´ é€æ˜é€šé“,å¦‚æœå¯ç”¨,å°†å¼ºåˆ¶è®¾ç½®å…ƒç´ èƒŒæ™¯ä¸é€æ˜,é»˜è®¤ä¸ºå¯ç”¨,æ­¤åŠŸèƒ½æ˜¯ä¸ºäº†å…¼å®¹GDIä¸æ”¯æŒé€æ˜é€šé“é—®é¢˜.  
+		//@å‚æ•° bEnable å¯ç”¨æˆ–å…³é—­.
+		//@åˆ«å  å¯ç”¨é€æ˜é€šé“()
 		void EnableTransparentChannel(bool bEnable) {
 			XEle_EnableTransparentChannel((HELE)m_handle, bEnable);
 		}
 
-		// ÉèÖÃÔªËØ¶¨Ê±Æ÷.  
-		//@²ÎÊı nIDEvent ÊÂ¼şID.
-		//@²ÎÊı uElapse ÑÓÊ±ºÁÃë.
-		//@·µ»Ø Èç¹û³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÖÃìÅ²Ê¶¨Ê±Æ÷()
+		// è®¾ç½®å…ƒç´ å®šæ—¶å™¨.  
+		//@å‚æ•° nIDEvent äº‹ä»¶ID.
+		//@å‚æ•° uElapse å»¶æ—¶æ¯«ç§’.
+		//@è¿”å› å¦‚æœæˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  ç½®ç‚«å½©å®šæ—¶å™¨()
 		bool SetXCTimer(UINT nIDEvent, UINT uElapse) {
 			return XEle_SetXCTimer((HELE)m_handle, nIDEvent, uElapse);
 		}
 
-		// ¹Ø±ÕÔªËØ¶¨Ê±Æ÷.  
-		//@²ÎÊı nIDEvent ÊÂ¼şID.
-		//@·µ»Ø Èç¹û³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ¹Ø±ÕìÅ²Ê¶¨Ê±Æ÷()
+		// å…³é—­å…ƒç´ å®šæ—¶å™¨.  
+		//@å‚æ•° nIDEvent äº‹ä»¶ID.
+		//@è¿”å› å¦‚æœæˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  å…³é—­ç‚«å½©å®šæ—¶å™¨()
 		bool KillXCTimer(UINT nIDEvent) {
 			return XEle_KillXCTimer((HELE)m_handle, nIDEvent);
 		}
 
-		// ÉèÖÃ¹¤¾ßÌáÊ¾ÄÚÈİ.  
-		//@²ÎÊı pText ¹¤¾ßÌáÊ¾ÄÚÈİ.
-		//@±ğÃû  ÖÃ¹¤¾ßÌáÊ¾()
+		// è®¾ç½®å·¥å…·æç¤ºå†…å®¹.  
+		//@å‚æ•° pText å·¥å…·æç¤ºå†…å®¹.
+		//@åˆ«å  ç½®å·¥å…·æç¤º()
 		void SetToolTip(const std::wstring& text) {
 			XEle_SetToolTip((HELE)m_handle, text.c_str());
 		}
 
-		// ÉèÖÃ¹¤¾ßÌáÊ¾ÄÚÈİ.  
-		//@²ÎÊı pText ¹¤¾ßÌáÊ¾ÄÚÈİ.
-		//@²ÎÊı nTextAlign ÎÄ±¾¶ÔÆë·½Ê½ @ref textFormatFlag_
-		//@±ğÃû  ÖÃ¹¤¾ßÌáÊ¾À©Õ¹()
+		// è®¾ç½®å·¥å…·æç¤ºå†…å®¹.  
+		//@å‚æ•° pText å·¥å…·æç¤ºå†…å®¹.
+		//@å‚æ•° nTextAlign æ–‡æœ¬å¯¹é½æ–¹å¼ @ref textFormatFlag_
+		//@åˆ«å  ç½®å·¥å…·æç¤ºæ‰©å±•()
 		void SetToolTipEx(const std::wstring& text, int nTextAlign) {
 			XEle_SetToolTipEx((HELE)m_handle, text.c_str(), nTextAlign);
 		}
 
-		// »ñÈ¡¹¤¾ßÌáÊ¾ÄÚÈİ.  
-		//@·µ»Ø ·µ»ØÎÄ±¾ÄÚÈİ
-		//@±ğÃû  È¡¹¤¾ßÌáÊ¾()
+		// è·å–å·¥å…·æç¤ºå†…å®¹.  
+		//@è¿”å› è¿”å›æ–‡æœ¬å†…å®¹
+		//@åˆ«å  å–å·¥å…·æç¤º()
 		std::wstring GetToolTip() {
 			auto pTip = XEle_GetToolTip((HELE)m_handle);
 			if (!pTip)
@@ -860,25 +860,25 @@ namespace xcgui {
 			return pTip;
 		}
 
-		// µ¯³ö¹¤¾ßÌáÊ¾.  
-		//@²ÎÊı x X×ø±ê.
-		//@²ÎÊı y Y×ø±ê.
-		//@±ğÃû  µ¯³ö¹¤¾ßÌáÊ¾()
+		// å¼¹å‡ºå·¥å…·æç¤º.  
+		//@å‚æ•° x Xåæ ‡.
+		//@å‚æ•° y Yåæ ‡.
+		//@åˆ«å  å¼¹å‡ºå·¥å…·æç¤º()
 		void PopupToolTip(int x, int y) {
 			XEle_PopupToolTip((HELE)m_handle, x, y);
 		}
 
-		// µ÷Õû²¼¾Ö.  
-		//@²ÎÊı nAdjustNo µ÷Õû²¼¾ÖÁ÷Ë®ºÅ
-		//@±ğÃû  µ÷Õû²¼¾Ö()
+		// è°ƒæ•´å¸ƒå±€.  
+		//@å‚æ•° nAdjustNo è°ƒæ•´å¸ƒå±€æµæ°´å·
+		//@åˆ«å  è°ƒæ•´å¸ƒå±€()
 		void AdjustLayout(UINT nAdjustNo = 0) {
 			XEle_AdjustLayout((HELE)m_handle, nAdjustNo);
 		}
 
-		// µ÷Õû²¼¾Ö.    
-		//@²ÎÊı nFlags µ÷Õû±êÊ¶,  adjustLayout_
-		//@²ÎÊı nAdjustNo µ÷Õû²¼¾ÖÁ÷Ë®ºÅ
-		//@±ğÃû  µ÷Õû²¼¾ÖÀ©Õ¹()
+		// è°ƒæ•´å¸ƒå±€.    
+		//@å‚æ•° nFlags è°ƒæ•´æ ‡è¯†,  adjustLayout_
+		//@å‚æ•° nAdjustNo è°ƒæ•´å¸ƒå±€æµæ°´å·
+		//@åˆ«å  è°ƒæ•´å¸ƒå±€æ‰©å±•()
 		void AdjustLayoutEx(int nFlags = adjustLayout_self, UINT nAdjustNo = 0) {
 			XEle_AdjustLayoutEx((HELE)m_handle, nFlags, nAdjustNo);
 		}

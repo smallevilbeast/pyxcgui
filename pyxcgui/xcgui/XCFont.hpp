@@ -25,109 +25,109 @@ namespace xcgui {
 			return (HFONTX)m_handle;
 		}
 
-		// ´´½¨ìÅ²Ê×ÖÌå,µ±×ÖÌå¾ä±úÓëÔªËØ¹ØÁªºó,»á×Ô¶¯ÊÍ·Å. 
+		// åˆ›å»ºç‚«å½©å­—ä½“,å½“å­—ä½“å¥æŸ„ä¸å…ƒç´ å…³è”å,ä¼šè‡ªåŠ¨é‡Šæ”¾. 
 		XCFont(int size) { 
 			m_handle = XFont_Create(size); 
 		}
 
-		// ´´½¨ìÅ²Ê×ÖÌå,µ±×ÖÌå¾ä±úÓëÔªËØ¹ØÁªºó,»á×Ô¶¯ÊÍ·Å.  
+		// åˆ›å»ºç‚«å½©å­—ä½“,å½“å­—ä½“å¥æŸ„ä¸å…ƒç´ å…³è”å,ä¼šè‡ªåŠ¨é‡Šæ”¾.  
 		HFONTX Create(int size) { 
 			m_handle = XFont_Create(size);
 			return (HFONTX)m_handle;
 		}
 
-		// ´´½¨ìÅ²Ê×ÖÌå
-		HFONTX CreateEx(const std::wstring& name = L"ËÎÌå", int size = 12, int style = fontStyle_regular) {
+		// åˆ›å»ºç‚«å½©å­—ä½“
+		HFONTX CreateEx(const std::wstring& name = L"å®‹ä½“", int size = 12, int style = fontStyle_regular) {
 			m_handle = XFont_CreateEx(name.c_str(), size, style);
 			return (HFONTX)m_handle;
 		}
 
-		// ´´½¨ìÅ²Ê×ÖÌå D2D²»Ö§³Ö´Ë½Ó¿Ú
+		// åˆ›å»ºç‚«å½©å­—ä½“ D2Dä¸æ”¯æŒæ­¤æ¥å£
 		HFONTX CreateFromLOGFONTW(LOGFONTW* pFontInfo) { 
 			m_handle = XFont_CreateFromLOGFONTW(pFontInfo);
 			return (HFONTX)m_handle;
 		}
 
-		// ´´½¨ìÅ²Ê×ÖÌå´ÓÏÖÓĞHFONT×ÖÌå,  D2D²»Ö§³Ö´Ë½Ó¿Ú 
+		// åˆ›å»ºç‚«å½©å­—ä½“ä»ç°æœ‰HFONTå­—ä½“,  D2Dä¸æ”¯æŒæ­¤æ¥å£ 
 		HFONTX CreateFromHFONT(HFONT hFont) { 
 			m_handle = XFont_CreateFromHFONT(hFont);
 			return (HFONTX)m_handle;
 		}
 		
-		// ´´½¨ìÅ²Ê×ÖÌå´ÓGDI+×ÖÌå(Font), D2D²»Ö§³Ö´Ë½Ó¿Ú
+		// åˆ›å»ºç‚«å½©å­—ä½“ä»GDI+å­—ä½“(Font), D2Dä¸æ”¯æŒæ­¤æ¥å£
 		HFONTX CreateFromFont(void* pFont) { 
 			m_handle = XFont_CreateFromFont(pFont);
 			return (HFONTX)m_handle;
 		}
 
-		//  ´´½¨×ÖÌå´ÓÎÄ¼ş
+		//  åˆ›å»ºå­—ä½“ä»æ–‡ä»¶
 		HFONTX CreateFromFile(const std::wstring& fontFile, int size = 12, int style = fontStyle_regular) { 
 			m_handle = XFont_CreateFromFile(fontFile.c_str(), size, style);
 			return (HFONTX)m_handle;
 		}
 		
 
-		// ´´½¨´ÓÄÚ´æ
+		// åˆ›å»ºä»å†…å­˜
 		HFONTX CreateFromMem(const std::string& data, int fontSize = 12, int style = fontStyle_regular) { 
 			m_handle = XFont_CreateFromMem((void*)data.c_str(), data.size(), fontSize, style);
 			return (HFONTX)m_handle;
 		}
 
-		// ´´½¨´Ó×ÊÔ´
+		// åˆ›å»ºä»èµ„æº
 		HFONTX CreateFromRes(int id, const std::wstring& typeName, int fontSize, int style, HMODULE hModule = NULL) { 
 			m_handle = XFont_CreateFromRes(id, typeName.c_str(), fontSize, style, hModule);
 			return (HFONTX)m_handle;
 		}
 
-		//×ÖÌå_´´½¨´ÓZIP
+		//å­—ä½“_åˆ›å»ºä»ZIP
 		HFONTX CreateFromZip(const std::wstring& zipFileName, const std::wstring& fileName, const std::wstring& password, int fontSize, int style = fontStyle_regular) {
 			m_handle = XFont_CreateFromZip(zipFileName.c_str(), fileName.c_str(), password.c_str(), fontSize, style);
 			return (HFONTX)m_handle;
 		}
 
-		// ¼ÓÔØ´ÓÄÚ´æZIP
+		// åŠ è½½ä»å†…å­˜ZIP
 		HFONTX  CreateFromZipMem(const std::string& data, const std::wstring& fileName, const std::wstring& password, int fontStyle, int style) {
 			m_handle = XFont_CreateFromZipMem((void*)data.c_str(), data.size(), fileName.c_str(), password.c_str(), fontStyle, style);
 			return (HFONTX)m_handle;
 		}
 
-		// ÊÇ·ñ×Ô¶¯Ïú»Ù
+		// æ˜¯å¦è‡ªåŠ¨é”€æ¯
 		void EnableAutoDestroy(bool bEnable) { 
 			XFont_EnableAutoDestroy((HFONTX)m_handle, bEnable);
 		}
 
 		
-		// »ñÈ¡×ÖÌå,·µ»ØGDI+ FontÖ¸Õë
+		// è·å–å­—ä½“,è¿”å›GDI+ FontæŒ‡é’ˆ
 		void* GetFont() { 
 			return XFont_GetFont((HFONTX)m_handle); 
 		}
 
-		// »ñÈ¡×ÖÌåĞÅÏ¢.  
+		// è·å–å­—ä½“ä¿¡æ¯.  
 		void GetFontInfo(font_info_* pInfo) { 
 			XFont_GetFontInfo((HFONTX)m_handle, pInfo); 
 		}
 
-		// »ñÈ¡×ÖÌåLOGFONTW  
+		// è·å–å­—ä½“LOGFONTW  
 		bool GetLOGFONTW(HDC hdc, LOGFONTW* pOut) { 
 			return XFont_GetLOGFONTW((HFONTX)m_handle, hdc, pOut);
 		}
 
-		// Ç¿ÖÆÏú»ÙìÅ²Ê×ÖÌå,½÷É÷Ê¹ÓÃ, ½¨ÒéÊ¹ÓÃ 
+		// å¼ºåˆ¶é”€æ¯ç‚«å½©å­—ä½“,è°¨æ…ä½¿ç”¨, å»ºè®®ä½¿ç”¨ 
 		void Destroy() { 
 			XFont_Destroy((HFONTX)m_handle);
 		}
 
-		// Ôö¼ÓÒıÓÃ¼ÆÊı.  
+		// å¢åŠ å¼•ç”¨è®¡æ•°.  
 		void AddRef() { 
 			XFont_AddRef((HFONTX)m_handle); 
 		}
 
-		// »ñÈ¡ÒıÓÃ¼ÆÊı.  
+		// è·å–å¼•ç”¨è®¡æ•°.  
 		int GetRefCount() { 
 			return XFont_GetRefCount((HFONTX)m_handle);
 		}
 
-		// ÊÍ·ÅÒıÓÃ¼ÆÊı,µ±ÒıÓÃ¼ÆÊıÎª0Ê±,×Ô¶¯Ïú»Ù.  
+		// é‡Šæ”¾å¼•ç”¨è®¡æ•°,å½“å¼•ç”¨è®¡æ•°ä¸º0æ—¶,è‡ªåŠ¨é”€æ¯.  
 		void Release() { 
 			XFont_Release((HFONTX)m_handle); 
 		}

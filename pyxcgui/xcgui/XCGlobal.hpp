@@ -7,12 +7,12 @@ namespace xcgui {
 	class XCGlobal {
 	public:
 
-		// µ¯³öÌáÊ¾¿ò
+		// å¼¹å‡ºæç¤ºæ¡†
 		static void Alert(const std::wstring& title, const std::wstring& text) {
 			XC_Alert(title.c_str(), text.c_str());
 		}
 
-		// ÏûÏ¢¿ò
+		// æ¶ˆæ¯æ¡†
 		static int MessageBox(const std::wstring& title, const std::wstring& text, int flags, HWND hWndParent, int XCStyle) {
 			return XC_MessageBox(title.c_str(), text.c_str(), flags, hWndParent, XCStyle);
 		}
@@ -33,7 +33,7 @@ namespace xcgui {
 			return XC_RegisterWindowClassName(className.c_str());
 		}
 
-		// ¼¤»îµ±Ç°½ø³Ì×îÉÏ²ã´°¿Ú
+		// æ¿€æ´»å½“å‰è¿›ç¨‹æœ€ä¸Šå±‚çª—å£
 		static bool SetActivateTopWindow() {
 			return XC_SetActivateTopWindow();
 		}

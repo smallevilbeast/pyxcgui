@@ -13,102 +13,102 @@ namespace xcgui {
 
 		XCButton() = default;
 
-		// ´´½¨°´Å¥ÔªËØ  
+		// åˆ›å»ºæŒ‰é’®å…ƒç´   
 		HELE Create(int x, int y, int cx, int cy, const std::wstring& name, HXCGUI hParent = NULL) {
 			m_handle = XBtn_Create(x, y, cx, cy, name.c_str(), hParent); return (HELE)m_handle;
 		}
 
-		// ´´½¨°´Å¥ÔªËØ  
+		// åˆ›å»ºæŒ‰é’®å…ƒç´   
 		XCButton(int x, int y, int cx, int cy, const std::wstring& name, HXCGUI hParent = NULL) {
 			m_handle = XBtn_Create(x, y, cx, cy, name.c_str(), hParent);
 		}
 
-		// ÊÇ·ñÑ¡ÖĞ×´Ì¬.  
+		// æ˜¯å¦é€‰ä¸­çŠ¶æ€.  
 		bool IsCheck() {
 			return XBtn_IsCheck((HELE)m_handle);
 		}
 
-		// ÉèÖÃÑ¡ÖĞ×´Ì¬.  
+		// è®¾ç½®é€‰ä¸­çŠ¶æ€.  
 		bool SetCheck(bool bCheck) {
 			return XBtn_SetCheck((HELE)m_handle, bCheck);
 		}
 
-		// ÉèÖÃ°´Å¥×´Ì¬.  
+		// è®¾ç½®æŒ‰é’®çŠ¶æ€.  
 		void SetState(common_state3_ nState) {
 			XBtn_SetState((HELE)m_handle, nState);
 		}
 
-		// »ñÈ¡°´Å¥×´Ì¬
+		// è·å–æŒ‰é’®çŠ¶æ€
 		common_state3_ GetState() {
 			return XBtn_GetState((HELE)m_handle);
 		}
 
-		// »ñÈ¡°´Å¥×´Ì¬
+		// è·å–æŒ‰é’®çŠ¶æ€
 		button_state_ GetStateEx() {
 			return XBtn_GetStateEx((HELE)m_handle);
 		}
 
-		// ÉèÖÃ°´Å¥ÀàĞÍ²¢×Ô¶¯ĞŞ¸ÄÑùÊ½ºÍÎÄ±¾¶ÔÆë·½Ê½.  
+		// è®¾ç½®æŒ‰é’®ç±»å‹å¹¶è‡ªåŠ¨ä¿®æ”¹æ ·å¼å’Œæ–‡æœ¬å¯¹é½æ–¹å¼.  
 		void SetBtnTypeEx(XC_OBJECT_TYPE_EX nType) {
 			XBtn_SetTypeEx((HELE)m_handle, nType);
 		}
 
-		// ÉèÖÃ×éID.  
+		// è®¾ç½®ç»„ID.  
 		void SetGroupID(int nID) {
 			XBtn_SetGroupID((HELE)m_handle, nID);
 		}
 
-		// »ñÈ¡×éID.  
+		// è·å–ç»„ID.  
 		int GetGroupID() {
 			return XBtn_GetGroupID((HELE)m_handle);
 		}
 
-		// ÉèÖÃ°ó¶¨ÔªËØ.  
+		// è®¾ç½®ç»‘å®šå…ƒç´ .  
 		void SetBindEle(HELE hBindEle) {
 			XBtn_SetBindEle((HELE)m_handle, hBindEle);
 		}
 
-		// »ñÈ¡°ó¶¨µÄÔªËØ.  
+		// è·å–ç»‘å®šçš„å…ƒç´ .  
 		HELE GetBindEle() {
 			return XBtn_GetBindEle((HELE)m_handle);
 		}
 
-		// ÉèÖÃÎÄ±¾¶ÔÆë·½Ê½.  
+		// è®¾ç½®æ–‡æœ¬å¯¹é½æ–¹å¼.  
 		void SetTextAlign(int nFlags) {
 			XBtn_SetTextAlign((HELE)m_handle, nFlags);
 		}
 
-		// »ñÈ¡ÎÄ±¾¶ÔÆë·½Ê½.  
+		// è·å–æ–‡æœ¬å¯¹é½æ–¹å¼.  
 		int GetTextAlign() {
 			return XBtn_GetTextAlign((HELE)m_handle);
 		}
 
-		// ÉèÖÃÍ¼±ê¶ÔÆë.  
+		// è®¾ç½®å›¾æ ‡å¯¹é½.  
 		void SetIconAlign(button_icon_align_ align) {
 			XBtn_SetIconAlign((HELE)m_handle, align);
 		}
 
-		// ÉèÖÃ°´Å¥ÎÄ±¾×ø±êÆ«ÒÆÁ¿.  
+		// è®¾ç½®æŒ‰é’®æ–‡æœ¬åæ ‡åç§»é‡.  
 		void SetOffset(int x, int y) {
 			XBtn_SetOffset((HELE)m_handle, x, y);
 		}
 
-		// ÉèÖÃ°´Å¥Í¼±ê×ø±êÆ«ÒÆÁ¿.  )
+		// è®¾ç½®æŒ‰é’®å›¾æ ‡åæ ‡åç§»é‡.  )
 		void SetOffsetIcon(int x, int y) {
 			XBtn_SetOffsetIcon((HELE)m_handle, x, y);
 		}
 
-		// ÉèÖÃÍ¼±êÓëÎÄ±¾¼ä¸ô´óĞ¡.  
+		// è®¾ç½®å›¾æ ‡ä¸æ–‡æœ¬é—´éš”å¤§å°.  
 		void SetIconSpace(int size) {
 			XBtn_SetIconSpace((HELE)m_handle, size);
 		}
 
-		// ÉèÖÃÎÄ±¾ÄÚÈİ.  
+		// è®¾ç½®æ–‡æœ¬å†…å®¹.  
 		void SetText(const std::wstring& name) {
 			XBtn_SetText((HELE)m_handle, name.c_str());
 		}
 
-		// »ñÈ¡ÎÄ±¾ÄÚÈİ.  
+		// è·å–æ–‡æœ¬å†…å®¹.  
 		std::wstring GetText() {
 			auto pText = XBtn_GetText((HELE)m_handle);
 			if (!pText) {
@@ -117,27 +117,27 @@ namespace xcgui {
 			return pText;
 		}
 
-		// ÉèÖÃÍ¼±ê.  
+		// è®¾ç½®å›¾æ ‡.  
 		void SetIcon(HIMAGE hImage) {
 			XBtn_SetIcon((HELE)m_handle, hImage);
 		}
 
-		// ÉèÖÃÍ¼±ê½ûÓÃ×´Ì¬
+		// è®¾ç½®å›¾æ ‡ç¦ç”¨çŠ¶æ€
 		void SetIconDisable(HIMAGE hImage) {
 			XBtn_SetIconDisable((HELE)m_handle, hImage);
 		}
 
-		// »ñÈ¡ÓÃ»§ÉèÖÃµÄÍ¼±ê.  
+		// è·å–ç”¨æˆ·è®¾ç½®çš„å›¾æ ‡.  
 		HIMAGE GetIcon(int nType) {
 			return XBtn_GetIcon((HELE)m_handle, nType);
 		}
 
-		// Ìí¼Ó¶¯»­Ö¡.  
+		// æ·»åŠ åŠ¨ç”»å¸§.  
 		void AddAnimationFrame(HIMAGE hImage, UINT uElapse) {
 			XBtn_AddAnimationFrame((HELE)m_handle, hImage, uElapse);
 		}
 
-		// ¿ªÊ¼»ò¹Ø±ÕÍ¼Æ¬¶¯»­µÄ²¥·Å.  
+		// å¼€å§‹æˆ–å…³é—­å›¾ç‰‡åŠ¨ç”»çš„æ’­æ”¾.  
 		void EnableAnimation(bool bEnable, bool bLoopPlay = false) {
 			XBtn_EnableAnimation((HELE)m_handle, bEnable, bLoopPlay);
 		}

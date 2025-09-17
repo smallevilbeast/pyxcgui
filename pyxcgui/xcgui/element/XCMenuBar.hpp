@@ -18,47 +18,47 @@ namespace xcgui {
 			m_handle = XMenuBar_Create(x, y, width, height, parent);
 		}
 
-		//@±¸×¢ Ìí¼Óµ¯³ö²Ëµ¥°´Å¥.  
-		 //@²ÎÊı pText ÎÄ±¾ÄÚÈİ.
-		 //@·µ»Ø ·µ»Ø²Ëµ¥°´Å¥Ë÷Òı.
-		 //@±ğÃû  Ìí¼Ó°´Å¥()
+		//@å¤‡æ³¨ æ·»åŠ å¼¹å‡ºèœå•æŒ‰é’®.  
+		 //@å‚æ•° pText æ–‡æœ¬å†…å®¹.
+		 //@è¿”å› è¿”å›èœå•æŒ‰é’®ç´¢å¼•.
+		 //@åˆ«å  æ·»åŠ æŒ‰é’®()
 		int AddButton(const std::wstring& text) {
 			return XMenuBar_AddButton(getEleHandle(), text.c_str());
 		}
 
-		//@±¸×¢ ÉèÖÃ²Ëµ¥°´Å¥¸ß¶È.  
-		//@²ÎÊı height ¸ß¶È.
-		//@±ğÃû  ÖÃ°´Å¥¸ß¶È()
+		//@å¤‡æ³¨ è®¾ç½®èœå•æŒ‰é’®é«˜åº¦.  
+		//@å‚æ•° height é«˜åº¦.
+		//@åˆ«å  ç½®æŒ‰é’®é«˜åº¦()
 		void SetButtonHeight(int height) {
 			XMenuBar_SetButtonHeight(getEleHandle(), height);
 		}
 
-		//@±¸×¢ »ñÈ¡²Ëµ¥.  
-		//@²ÎÊı nIndex ²Ëµ¥ÌõÉÏ²Ëµ¥°´Å¥µÄË÷Òı.
-		//@·µ»Ø ·µ»Ø²Ëµ¥¾ä±ú.
-		//@±ğÃû  È¡²Ëµ¥()
+		//@å¤‡æ³¨ è·å–èœå•.  
+		//@å‚æ•° nIndex èœå•æ¡ä¸Šèœå•æŒ‰é’®çš„ç´¢å¼•.
+		//@è¿”å› è¿”å›èœå•å¥æŸ„.
+		//@åˆ«å  å–èœå•()
 		HMENUX GetMenu(int nIndex) {
 			return XMenuBar_GetMenu(getEleHandle(), nIndex);
 		}
 
-		//@²ÎÊı nIndex ²Ëµ¥ÌõÉÏ²Ëµ¥°´Å¥µÄË÷Òı
-		//@·µ»Ø ·µ»Ø°´Å¥¾ä±ú
-		//@±ğÃû  È¡²Ëµ¥°´Å¥()
+		//@å‚æ•° nIndex èœå•æ¡ä¸Šèœå•æŒ‰é’®çš„ç´¢å¼•
+		//@è¿”å› è¿”å›æŒ‰é’®å¥æŸ„
+		//@åˆ«å  å–èœå•æŒ‰é’®()
 		HELE GetButton(int nIndex) {
 			return XMenuBar_GetButton(getEleHandle(), nIndex);
 		}
 
-		//@±¸×¢ É¾³ı²Ëµ¥ÌõÉÏµÄ²Ëµ¥°´Å¥,Í¬Ê±¸Ã°´Å¥ÏÂµÄµ¯³ö²Ëµ¥Ò²±»Ïú»Ù.  
-		//@²ÎÊı nIndex ²Ëµ¥Ìõ°´Å¥Ë÷Òı.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  É¾³ı°´Å¥()
+		//@å¤‡æ³¨ åˆ é™¤èœå•æ¡ä¸Šçš„èœå•æŒ‰é’®,åŒæ—¶è¯¥æŒ‰é’®ä¸‹çš„å¼¹å‡ºèœå•ä¹Ÿè¢«é”€æ¯.  
+		//@å‚æ•° nIndex èœå•æ¡æŒ‰é’®ç´¢å¼•.
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  åˆ é™¤æŒ‰é’®()
 		bool DeleteButton(int nIndex) {
 			return XMenuBar_DeleteButton(getEleHandle(), nIndex);
 		}
 
-		//@±¸×¢ ¸ù¾İÄÚÈİ×Ô¶¯µ÷Õû¿í¶È
-		//@²ÎÊı bEnable ÊÇ·ñÆôÓÃ.
-		//@±ğÃû  ÆôÓÃ×Ô¶¯¿í¶È()
+		//@å¤‡æ³¨ æ ¹æ®å†…å®¹è‡ªåŠ¨è°ƒæ•´å®½åº¦
+		//@å‚æ•° bEnable æ˜¯å¦å¯ç”¨.
+		//@åˆ«å  å¯ç”¨è‡ªåŠ¨å®½åº¦()
 		void EnableAutoWidth(bool bEnable) {
 			XMenuBar_EnableAutoWidth(getEleHandle(), bEnable);
 		}

@@ -18,193 +18,193 @@ namespace xcgui {
 			m_handle = XTabBar_Create(x, y, width, height, parent);
 		}
 
-		//@±¸×¢ Ìí¼ÓÒ»¸ö±êÇ©.  
-		//@²ÎÊı name.c_str() ±êÇ©ÎÄ±¾ÄÚÈİ.
-		//@·µ»Ø ±êÇ©Ë÷Òı.
-		//@±ğÃû  Ìí¼Ó±êÇ©()
+		//@å¤‡æ³¨ æ·»åŠ ä¸€ä¸ªæ ‡ç­¾.  
+		//@å‚æ•° name.c_str() æ ‡ç­¾æ–‡æœ¬å†…å®¹.
+		//@è¿”å› æ ‡ç­¾ç´¢å¼•.
+		//@åˆ«å  æ·»åŠ æ ‡ç­¾()
 		int AddLabel(const std::wstring& name) {
 			return XTabBar_AddLabel(getEleHandle(), name.c_str());
 		}
 
-		//@±¸×¢ ²åÈëÒ»¸ö±êÇ©.  
-		//@²ÎÊı index ²åÈëÎ»ÖÃ.
-		//@²ÎÊı name.c_str() ±êÇ©ÎÄ±¾ÄÚÈİ.
-		//@·µ»Ø ±êÇ©Ë÷Òı.
-		//@±ğÃû  ±êÇ©()
+		//@å¤‡æ³¨ æ’å…¥ä¸€ä¸ªæ ‡ç­¾.  
+		//@å‚æ•° index æ’å…¥ä½ç½®.
+		//@å‚æ•° name.c_str() æ ‡ç­¾æ–‡æœ¬å†…å®¹.
+		//@è¿”å› æ ‡ç­¾ç´¢å¼•.
+		//@åˆ«å  æ ‡ç­¾()
 		int InsertLabel(int index, const std::wstring& name) {
 			return XTabBar_InsertLabel(getEleHandle(), index, name.c_str());
 		}
 
-		//@²ÎÊı iSrc Ô´Î»ÖÃË÷Òı
-		//@²ÎÊı iDest Ä¿±êÎ»ÖÃË÷Òı
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔòFALSE.
-		//@±ğÃû  ÒÆ¶¯±êÇ©()
+		//@å‚æ•° iSrc æºä½ç½®ç´¢å¼•
+		//@å‚æ•° iDest ç›®æ ‡ä½ç½®ç´¢å¼•
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™FALSE.
+		//@åˆ«å  ç§»åŠ¨æ ‡ç­¾()
 		bool MoveLabel(int iSrc, int iDest) {
 			return XTabBar_MoveLabel(getEleHandle(), iSrc, iDest);
 		}
 
-		//@±¸×¢ É¾³ıÒ»¸ö±êÇ©.  
-		//@²ÎÊı index Î»ÖÃË÷Òı.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔòFALSE.
-		//@±ğÃû  É¾³ı±êÇ©()
+		//@å¤‡æ³¨ åˆ é™¤ä¸€ä¸ªæ ‡ç­¾.  
+		//@å‚æ•° index ä½ç½®ç´¢å¼•.
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™FALSE.
+		//@åˆ«å  åˆ é™¤æ ‡ç­¾()
 		bool DeleteLabel(int index) {
 			return XTabBar_DeleteLabel(getEleHandle(), index);
 		}
 
-		//@±¸×¢ É¾³ıËùÓĞ±êÇ©.  
-		//@±ğÃû  É¾³ıÈ«²¿()
+		//@å¤‡æ³¨ åˆ é™¤æ‰€æœ‰æ ‡ç­¾.  
+		//@åˆ«å  åˆ é™¤å…¨éƒ¨()
 		void DeleteLabelAll() {
 			XTabBar_DeleteLabelAll(getEleHandle());
 		}
 
-		//@±¸×¢ »ñÈ¡±êÇ©°´Å¥Button.  
-		//@²ÎÊı index Î»ÖÃË÷Òı.
-		//@·µ»Ø °´Å¥¾ä±ú.
-		//@±ğÃû  È¡±êÇ©()
+		//@å¤‡æ³¨ è·å–æ ‡ç­¾æŒ‰é’®Button.  
+		//@å‚æ•° index ä½ç½®ç´¢å¼•.
+		//@è¿”å› æŒ‰é’®å¥æŸ„.
+		//@åˆ«å  å–æ ‡ç­¾()
 		HELE GetLabel(int index) {
 			return XTabBar_GetLabel(getEleHandle(), index);
 		}
 
-		//@±¸×¢ »ñÈ¡±êÇ©ÉÏ¹Ø±Õ°´Å¥.  
-		//@²ÎÊı index Î»ÖÃË÷Òı.
-		//@·µ»Ø °´Å¥¾ä±ú.
-		//@±ğÃû  È¡±êÇ©ÉÏµÄ¹Ø±Õ°´Å¥()
+		//@å¤‡æ³¨ è·å–æ ‡ç­¾ä¸Šå…³é—­æŒ‰é’®.  
+		//@å‚æ•° index ä½ç½®ç´¢å¼•.
+		//@è¿”å› æŒ‰é’®å¥æŸ„.
+		//@åˆ«å  å–æ ‡ç­¾ä¸Šçš„å…³é—­æŒ‰é’®()
 		HELE GetLabelClose(int index) {
 			return XTabBar_GetLabelClose(getEleHandle(), index);
 		}
 
-		//@±¸×¢ »ñÈ¡×ó¹ö¶¯°´Å¥.  
-		//@·µ»Ø ·µ»Ø°´Å¥¾ä±ú.
-		//@±ğÃû  È¡×ó¹ö¶¯°´Å¥()
+		//@å¤‡æ³¨ è·å–å·¦æ»šåŠ¨æŒ‰é’®.  
+		//@è¿”å› è¿”å›æŒ‰é’®å¥æŸ„.
+		//@åˆ«å  å–å·¦æ»šåŠ¨æŒ‰é’®()
 		HELE GetButtonLeft() {
 			return XTabBar_GetButtonLeft(getEleHandle());
 		}
 
-		//@±¸×¢ »ñÈ¡ÓÒ¹ö¶¯°´Å¥.  
-		//@·µ»Ø ·µ»Ø°´Å¥¾ä±ú.
-		//@±ğÃû  È¡ÓÒ¹ö¶¯°´Å¥()
+		//@å¤‡æ³¨ è·å–å³æ»šåŠ¨æŒ‰é’®.  
+		//@è¿”å› è¿”å›æŒ‰é’®å¥æŸ„.
+		//@åˆ«å  å–å³æ»šåŠ¨æŒ‰é’®()
 		HELE GetButtonRight() {
 			return XTabBar_GetButtonRight(getEleHandle());
 		}
 
-		//@·µ»Ø ·µ»Ø°´Å¥¾ä±ú.
-		//@±ğÃû  È¡ÏÂÀ­²Ëµ¥°´Å¥¾ä±ú()
+		//@è¿”å› è¿”å›æŒ‰é’®å¥æŸ„.
+		//@åˆ«å  å–ä¸‹æ‹‰èœå•æŒ‰é’®å¥æŸ„()
 		HELE GetButtonDropMenu() {
 			return XTabBar_GetButtonDropMenu(getEleHandle());
 		}
 
-		//@±¸×¢ »ñÈ¡Ñ¡ÔñµÄ±êÇ©Ë÷Òı.  
-		//@·µ»Ø ±êÇ©Î»ÖÃË÷Òı.
-		//@±ğÃû  È¡µ±Ç°Ñ¡Ôñ()
+		//@å¤‡æ³¨ è·å–é€‰æ‹©çš„æ ‡ç­¾ç´¢å¼•.  
+		//@è¿”å› æ ‡ç­¾ä½ç½®ç´¢å¼•.
+		//@åˆ«å  å–å½“å‰é€‰æ‹©()
 		int GetSelect() {
 			return XTabBar_GetSelect(getEleHandle());
 		}
 
-		//@±¸×¢ »ñÈ¡±êÇ©¼ä¾à, 0Ã»ÓĞ¼ä¾à.  
-		//@·µ»Ø ±êÇ©¼ä¸ô´óĞ¡.
-		//@±ğÃû  È¡¼ä¸ô()
+		//@å¤‡æ³¨ è·å–æ ‡ç­¾é—´è·, 0æ²¡æœ‰é—´è·.  
+		//@è¿”å› æ ‡ç­¾é—´éš”å¤§å°.
+		//@åˆ«å  å–é—´éš”()
 		int GetLabelSpacing() {
 			return XTabBar_GetLabelSpacing(getEleHandle());
 		}
 
-		//@±¸×¢ »ñÈ¡±êÇ©ÏîÊıÁ¿.  
-		//@·µ»Ø ±êÇ©ÏîÊıÁ¿.
-		//@±ğÃû  È¡±êÇ©ÊıÁ¿()
+		//@å¤‡æ³¨ è·å–æ ‡ç­¾é¡¹æ•°é‡.  
+		//@è¿”å› æ ‡ç­¾é¡¹æ•°é‡.
+		//@åˆ«å  å–æ ‡ç­¾æ•°é‡()
 		int GetLabelCount() {
 			return XTabBar_GetLabelCount(getEleHandle());
 		}
 
-		//@±¸×¢ »ñÈ¡±êÇ©°´Å¥Î»ÖÃË÷Òı.  
-		//@²ÎÊı hLabel ±êÇ©°´Å¥¾ä±ú.
-		//@·µ»Ø ³É¹¦·µ»ØË÷ÒıÖµ,·ñÔò·µ»Ø @ref XC_ID_ERROR.
-		//@±ğÃû  È¡±êÇ©Î»ÖÃË÷Òı()
+		//@å¤‡æ³¨ è·å–æ ‡ç­¾æŒ‰é’®ä½ç½®ç´¢å¼•.  
+		//@å‚æ•° hLabel æ ‡ç­¾æŒ‰é’®å¥æŸ„.
+		//@è¿”å› æˆåŠŸè¿”å›ç´¢å¼•å€¼,å¦åˆ™è¿”å› @ref XC_ID_ERROR.
+		//@åˆ«å  å–æ ‡ç­¾ä½ç½®ç´¢å¼•()
 		int GetIndexByEle(HELE hLabel) {
 			return XTabBar_GetindexByEle(getEleHandle(), hLabel);
 		}
 
-		//@±¸×¢ ÉèÖÃ±êÇ©¼ä¾à, 0Ã»ÓĞ¼ä¾à.  
-		//@²ÎÊı spacing ±êÇ©¼ä¸ô´óĞ¡.
-		//@±ğÃû  ÖÃ¼ä¸ô()
+		//@å¤‡æ³¨ è®¾ç½®æ ‡ç­¾é—´è·, 0æ²¡æœ‰é—´è·.  
+		//@å‚æ•° spacing æ ‡ç­¾é—´éš”å¤§å°.
+		//@åˆ«å  ç½®é—´éš”()
 		void SetLabelSpacing(int spacing) {
 			XTabBar_SetLabelSpacing(getEleHandle(), spacing);
 		}
 
-		//@±¸×¢ ÉèÖÃÄÚÈİÓë±ß¿òµÄ¼ä¸ô´óĞ¡.  
-		//@²ÎÊı left ×ó±ß¼ä¸ô´óĞ¡.
-		//@²ÎÊı top ÉÏ±ß¼ä¸ô´óĞ¡.
-		//@²ÎÊı right ÓÒ±ß¼ä¸ô´óĞ¡.
-		//@²ÎÊı bottom ÏÂ±ß¼ä¸ô´óĞ¡.
-		//@±ğÃû  ÖÃ±ß¾à()
+		//@å¤‡æ³¨ è®¾ç½®å†…å®¹ä¸è¾¹æ¡†çš„é—´éš”å¤§å°.  
+		//@å‚æ•° left å·¦è¾¹é—´éš”å¤§å°.
+		//@å‚æ•° top ä¸Šè¾¹é—´éš”å¤§å°.
+		//@å‚æ•° right å³è¾¹é—´éš”å¤§å°.
+		//@å‚æ•° bottom ä¸‹è¾¹é—´éš”å¤§å°.
+		//@åˆ«å  ç½®è¾¹è·()
 		void SetPadding(int left, int top, int right, int bottom) {
 			XTabBar_SetPadding(getEleHandle(), left, top, right, bottom);
 		}
 
-		//@±¸×¢ ÉèÖÃÑ¡Ôñ±êÇ©.  
-		//@²ÎÊı index ±êÇ©Î»ÖÃË÷Òı.
-		//@±ğÃû  ÖÃÑ¡Ôñ()
+		//@å¤‡æ³¨ è®¾ç½®é€‰æ‹©æ ‡ç­¾.  
+		//@å‚æ•° index æ ‡ç­¾ä½ç½®ç´¢å¼•.
+		//@åˆ«å  ç½®é€‰æ‹©()
 		void SetSelect(int index) {
 			XTabBar_SetSelect(getEleHandle(), index);
 		}
 
-		//@±¸×¢ ×ó°´Å¥¹ö¶¯.  
-		//@±ğÃû  ×ó¹ö¶¯()
+		//@å¤‡æ³¨ å·¦æŒ‰é’®æ»šåŠ¨.  
+		//@åˆ«å  å·¦æ»šåŠ¨()
 		void SetUp() {
 			XTabBar_SetUp(getEleHandle());
 		}
 
-		//@±¸×¢ ÓÒ°´Å¥¹ö¶¯.  
-		//@±ğÃû  ÓÒ¹ö¶¯()
+		//@å¤‡æ³¨ å³æŒ‰é’®æ»šåŠ¨.  
+		//@åˆ«å  å³æ»šåŠ¨()
 		void SetDown() {
 			XTabBar_SetDown(getEleHandle());
 		}
 
-		//@±¸×¢ Æ½ÆÌ±êÇ©,Ã¿¸ö±êÇ©ÏÔÊ¾ÏàÍ¬´óĞ¡.  
-		//@²ÎÊı bTile ÊÇ·ñÆôÓÃ.
-		//@±ğÃû  ÆôÓÃÆ½ÆÌ()
+		//@å¤‡æ³¨ å¹³é“ºæ ‡ç­¾,æ¯ä¸ªæ ‡ç­¾æ˜¾ç¤ºç›¸åŒå¤§å°.  
+		//@å‚æ•° bTile æ˜¯å¦å¯ç”¨.
+		//@åˆ«å  å¯ç”¨å¹³é“º()
 		void EnableTile(bool bTile) {
 			XTabBar_EnableTile(getEleHandle(), bTile);
 		}
 
-		//@²ÎÊı bEnable ÊÇ·ñÆôÓÃ.
-		//@±ğÃû  ÆôÓÃÏÂÀ­²Ëµ¥°´Å¥()
+		//@å‚æ•° bEnable æ˜¯å¦å¯ç”¨.
+		//@åˆ«å  å¯ç”¨ä¸‹æ‹‰èœå•æŒ‰é’®()
 		void EnableDropMenu(bool bEnable) {
 			XTabBar_EnableDropMenu(getEleHandle(), bEnable);
 		}
 
-		//@±¸×¢ ÆôÓÃ¹Ø±Õ±êÇ©¹¦ÄÜ.  
-		//@²ÎÊı bEnable ÊÇ·ñÆôÓÃ.
-		//@±ğÃû  ÆôÓÃ±êÇ©´ø¹Ø±Õ°´Å¥()
+		//@å¤‡æ³¨ å¯ç”¨å…³é—­æ ‡ç­¾åŠŸèƒ½.  
+		//@å‚æ•° bEnable æ˜¯å¦å¯ç”¨.
+		//@åˆ«å  å¯ç”¨æ ‡ç­¾å¸¦å…³é—­æŒ‰é’®()
 		void EnableClose(bool bEnable) {
 			XTabBar_EnableClose(getEleHandle(), bEnable);
 		}
 
-		//@±¸×¢ ÉèÖÃ¹Ø±Õ°´Å¥´óĞ¡.  
-		//@²ÎÊı pSize ´óĞ¡Öµ, ¿í¶ÈºÍ¸ß¶È¿ÉÒÔÎª-1,-1´ú±íÄ¬ÈÏÖµ.
-		//@±ğÃû  ÖÃ¹Ø±Õ°´Å¥´óĞ¡()
+		//@å¤‡æ³¨ è®¾ç½®å…³é—­æŒ‰é’®å¤§å°.  
+		//@å‚æ•° pSize å¤§å°å€¼, å®½åº¦å’Œé«˜åº¦å¯ä»¥ä¸º-1,-1ä»£è¡¨é»˜è®¤å€¼.
+		//@åˆ«å  ç½®å…³é—­æŒ‰é’®å¤§å°()
 		void SetCloseSize(SIZE* pSize) {
 			XTabBar_SetCloseSize(getEleHandle(), pSize);
 		}
 
-		//@±¸×¢ ÉèÖÃ·­¹ö°´Å¥´óĞ¡.  
-		//@²ÎÊı pSize ´óĞ¡Öµ, ¿í¶ÈºÍ¸ß¶È¿ÉÒÔÎª-1,-1´ú±íÄ¬ÈÏÖµ.
-		//@±ğÃû  ÖÃ¹ö¶¯°´Å¥´óĞ¡()
+		//@å¤‡æ³¨ è®¾ç½®ç¿»æ»šæŒ‰é’®å¤§å°.  
+		//@å‚æ•° pSize å¤§å°å€¼, å®½åº¦å’Œé«˜åº¦å¯ä»¥ä¸º-1,-1ä»£è¡¨é»˜è®¤å€¼.
+		//@åˆ«å  ç½®æ»šåŠ¨æŒ‰é’®å¤§å°()
 		void SetTurnButtonSize(SIZE* pSize) {
 			XTabBar_SetTurnButtonSize(getEleHandle(), pSize);
 		}
 
-		//@±¸×¢ ÉèÖÃÖ¸¶¨±êÇ©Îª¹Ì¶¨¿í¶È.  
-		//@²ÎÊı index Ë÷Òı.
-		//@²ÎÊı nWidth ¿í¶È, Èç¹ûÖµÎª-1,ÄÇÃ´×Ô¶¯¼ÆËã¿í¶È.
-		//@±ğÃû  ÖÃÖ¸¶¨±êÇ©¹Ì¶¨¿í¶È()
+		//@å¤‡æ³¨ è®¾ç½®æŒ‡å®šæ ‡ç­¾ä¸ºå›ºå®šå®½åº¦.  
+		//@å‚æ•° index ç´¢å¼•.
+		//@å‚æ•° nWidth å®½åº¦, å¦‚æœå€¼ä¸º-1,é‚£ä¹ˆè‡ªåŠ¨è®¡ç®—å®½åº¦.
+		//@åˆ«å  ç½®æŒ‡å®šæ ‡ç­¾å›ºå®šå®½åº¦()
 		void SetLabelWidth(int index, int nWidth) {
 			XTabBar_SetLabelWidth(getEleHandle(), index, nWidth);
 		}
 
-		//@±¸×¢ ÏÔÊ¾»òÒş²ØÖ¸¶¨±êÇ©.  
-		//@²ÎÊı index ±êÇ©Ë÷Òı.
-		//@²ÎÊı bShow ÊÇ·ñÏÔÊ¾.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÏÔÊ¾±êÇ©()
+		//@å¤‡æ³¨ æ˜¾ç¤ºæˆ–éšè—æŒ‡å®šæ ‡ç­¾.  
+		//@å‚æ•° index æ ‡ç­¾ç´¢å¼•.
+		//@å‚æ•° bShow æ˜¯å¦æ˜¾ç¤º.
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  æ˜¾ç¤ºæ ‡ç­¾()
 		bool ShowLabel(int index, bool bShow) {
 			return XTabBar_ShowLabel(getEleHandle(), index, bShow);
 		}

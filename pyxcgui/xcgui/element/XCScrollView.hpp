@@ -18,199 +18,199 @@ namespace xcgui {
 			m_handle = XSView_Create(x, y, width, height, parent);
 		}
 
-		//@±¸×¢ ÉèÖÃÄÚÈÝ´óÐ¡.  
-		//@²ÎÊý cx ¿í¶È.
-		//@²ÎÊý cy ¸ß¶È.
-		//@·µ»Ø Èç¹ûÄÚÈÝ¸Ä±ä·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ðÃû  ÖÃÊÓÍ¼´óÐ¡()
+		//@å¤‡æ³¨ è®¾ç½®å†…å®¹å¤§å°.  
+		//@å‚æ•° cx å®½åº¦.
+		//@å‚æ•° cy é«˜åº¦.
+		//@è¿”å›ž å¦‚æžœå†…å®¹æ”¹å˜è¿”å›žTRUEå¦åˆ™è¿”å›žFALSE.
+		//@åˆ«å  ç½®è§†å›¾å¤§å°()
 		bool SetTotalSize(int cx, int cy) {
 			return XSView_SetTotalSize(getEleHandle(), cx, cy);
 		}
 
-		//@±¸×¢ »ñÈ¡ÄÚÈÝ×Ü´óÐ¡.  
-		//@²ÎÊý pSize ´óÐ¡.
-		//@±ðÃû  È¡ÊÓÍ¼´óÐ¡()
+		//@å¤‡æ³¨ èŽ·å–å†…å®¹æ€»å¤§å°.  
+		//@å‚æ•° pSize å¤§å°.
+		//@åˆ«å  å–è§†å›¾å¤§å°()
 		void GetTotalSize(SIZE* pSize) {
 			XSView_GetTotalSize(getEleHandle(), pSize);
 		}
 
-		//@±¸×¢ ÉèÖÃ¹ö¶¯µ¥Î»´óÐ¡.  
-		//@²ÎÊý nWidth ¿í¶È.
-		//@²ÎÊý nHeight ¸ß¶È.
-		//@·µ»Ø Èç¹ûÄÚÈÝ¸Ä±ä·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ðÃû  ÖÃ¹ö¶¯µ¥Î»´óÐ¡()
+		//@å¤‡æ³¨ è®¾ç½®æ»šåŠ¨å•ä½å¤§å°.  
+		//@å‚æ•° nWidth å®½åº¦.
+		//@å‚æ•° nHeight é«˜åº¦.
+		//@è¿”å›ž å¦‚æžœå†…å®¹æ”¹å˜è¿”å›žTRUEå¦åˆ™è¿”å›žFALSE.
+		//@åˆ«å  ç½®æ»šåŠ¨å•ä½å¤§å°()
 		bool SetLineSize(int nWidth, int nHeight) {
 			return XSView_SetLineSize(getEleHandle(), nWidth, nHeight);
 		}
 
-		//@±¸×¢ »ñÈ¡¹ö¶¯µ¥Î»´óÐ¡.  
-		//@²ÎÊý pSize ·µ»Ø´óÐ¡.
-		//@±ðÃû  È¡¹ö¶¯µ¥Î»´óÐ¡()
+		//@å¤‡æ³¨ èŽ·å–æ»šåŠ¨å•ä½å¤§å°.  
+		//@å‚æ•° pSize è¿”å›žå¤§å°.
+		//@åˆ«å  å–æ»šåŠ¨å•ä½å¤§å°()
 		void GetLineSize(SIZE* pSize) {
 			XSView_GetLineSize(getEleHandle(), pSize);
 		}
 
-		//@±¸×¢ ÉèÖÃ¹ö¶¯Ìõ´óÐ¡.  
-		//@²ÎÊý size ¹ö¶¯Ìõ´óÐ¡.
-		//@±ðÃû  ÖÃ¹ö¶¯Ìõ´óÐ¡()
+		//@å¤‡æ³¨ è®¾ç½®æ»šåŠ¨æ¡å¤§å°.  
+		//@å‚æ•° size æ»šåŠ¨æ¡å¤§å°.
+		//@åˆ«å  ç½®æ»šåŠ¨æ¡å¤§å°()
 		void SetScrollBarSize(int size) {
 			XSView_SetScrollBarSize(getEleHandle(), size);
 		}
 
-		//@±¸×¢ »ñÈ¡ÊÓ¿ÚÔ­µãX×ø±ê.  
-		//@·µ»Ø ÊÓ¿ÚÔ­µãX×ø±ê.
-		//@±ðÃû  È¡ÊÓ¿ÚÔ­µãX()
+		//@å¤‡æ³¨ èŽ·å–è§†å£åŽŸç‚¹Xåæ ‡.  
+		//@è¿”å›ž è§†å£åŽŸç‚¹Xåæ ‡.
+		//@åˆ«å  å–è§†å£åŽŸç‚¹X()
 		int GetViewPosH() {
 			return XSView_GetViewPosH(getEleHandle());
 		}
 
-		//@±¸×¢ »ñÈ¡ÊÓ¿ÚÔ­µãY×ø±ê.  
-		//@·µ»Ø ÊÓ¿ÚÔ­µãY×ø±ê.
-		//@±ðÃû  È¡ÊÓ¿ÚÔ­µãY()
+		//@å¤‡æ³¨ èŽ·å–è§†å£åŽŸç‚¹Yåæ ‡.  
+		//@è¿”å›ž è§†å£åŽŸç‚¹Yåæ ‡.
+		//@åˆ«å  å–è§†å£åŽŸç‚¹Y()
 		int GetViewPosV() {
 			return XSView_GetViewPosV(getEleHandle());
 		}
 
-		//@±¸×¢ »ñÈ¡ÊÓ¿Ú¿í¶È.  
-		//@·µ»Ø ·µ»ØÊÓ¿Ú¿í¶È.
-		//@±ðÃû  È¡ÊÓ¿Ú¿í¶È()
+		//@å¤‡æ³¨ èŽ·å–è§†å£å®½åº¦.  
+		//@è¿”å›ž è¿”å›žè§†å£å®½åº¦.
+		//@åˆ«å  å–è§†å£å®½åº¦()
 		int GetViewWidth() {
 			return XSView_GetViewWidth(getEleHandle());
 		}
 
-		//@±¸×¢ »ñÈ¡ÊÓ¿Ú¸ß¶È.  
-		//@·µ»Ø ·µ»ØÊÓ¿Ú¸ß¶È.
-		//@±ðÃû  È¡ÊÓ¿Ú¸ß¶È()
+		//@å¤‡æ³¨ èŽ·å–è§†å£é«˜åº¦.  
+		//@è¿”å›ž è¿”å›žè§†å£é«˜åº¦.
+		//@åˆ«å  å–è§†å£é«˜åº¦()
 		int GetViewHeight() {
 			return XSView_GetViewHeight(getEleHandle());
 		}
 
-		//@±¸×¢ »ñÈ¡ÊÓ¿Ú×ø±ê.  
-		//@²ÎÊý pRect ×ø±ê.
-		//@±ðÃû  È¡ÊÓ¿Ú×ø±ê()
+		//@å¤‡æ³¨ èŽ·å–è§†å£åæ ‡.  
+		//@å‚æ•° pRect åæ ‡.
+		//@åˆ«å  å–è§†å£åæ ‡()
 		void GetViewRect(RECT* pRect) {
 			XSView_GetViewRect(getEleHandle(), pRect);
 		}
 
-		//@±¸×¢ »ñÈ¡Ë®Æ½¹ö¶¯Ìõ.  
-		//@·µ»Ø ¹ö¶¯Ìõ¾ä±ú.
-		//@±ðÃû  È¡Ë®Æ½¹ö¶¯Ìõ()
+		//@å¤‡æ³¨ èŽ·å–æ°´å¹³æ»šåŠ¨æ¡.  
+		//@è¿”å›ž æ»šåŠ¨æ¡å¥æŸ„.
+		//@åˆ«å  å–æ°´å¹³æ»šåŠ¨æ¡()
 		HELE GetScrollBarH() {
 			return XSView_GetScrollBarH(getEleHandle());
 		}
 
-		//@±¸×¢ »ñÈ¡´¹Ö±¹ö¶¯Ìõ.  
-		//@·µ»Ø ´¹Ö±¹ö¶¯Ìõ¾ä±ú.
-		//@±ðÃû  È¡´¹Ö±¹ö¶¯Ìõ()
+		//@å¤‡æ³¨ èŽ·å–åž‚ç›´æ»šåŠ¨æ¡.  
+		//@è¿”å›ž åž‚ç›´æ»šåŠ¨æ¡å¥æŸ„.
+		//@åˆ«å  å–åž‚ç›´æ»šåŠ¨æ¡()
 		HELE GetScrollBarV() {
 			return XSView_GetScrollBarV(getEleHandle());
 		}
 
-		//@±¸×¢ Ë®Æ½¹ö¶¯Ìõ,¹ö¶¯µ½Ö¸¶¨Î»ÖÃµã.  
-		//@²ÎÊý pos Î»ÖÃµã.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ðÃû  Ë®Æ½¹ö¶¯()
+		//@å¤‡æ³¨ æ°´å¹³æ»šåŠ¨æ¡,æ»šåŠ¨åˆ°æŒ‡å®šä½ç½®ç‚¹.  
+		//@å‚æ•° pos ä½ç½®ç‚¹.
+		//@è¿”å›ž æˆåŠŸè¿”å›žTRUEå¦åˆ™è¿”å›žFALSE.
+		//@åˆ«å  æ°´å¹³æ»šåŠ¨()
 		bool ScrollPosH(int pos) {
 			return XSView_ScrollPosH(getEleHandle(), pos);
 		}
 
-		//@±¸×¢ ´¹Ö±¹ö¶¯Ìõ,¹ö¶¯µ½Ö¸¶¨Î»ÖÃµã.  
-		//@²ÎÊý pos Î»ÖÃµã.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ðÃû  ´¹Ö±¹ö¶¯()
+		//@å¤‡æ³¨ åž‚ç›´æ»šåŠ¨æ¡,æ»šåŠ¨åˆ°æŒ‡å®šä½ç½®ç‚¹.  
+		//@å‚æ•° pos ä½ç½®ç‚¹.
+		//@è¿”å›ž æˆåŠŸè¿”å›žTRUEå¦åˆ™è¿”å›žFALSE.
+		//@åˆ«å  åž‚ç›´æ»šåŠ¨()
 		bool ScrollPosV(int pos) {
 			return XSView_ScrollPosV(getEleHandle(), pos);
 		}
 
-		//@±¸×¢ Ë®Æ½¹ö¶¯Ìõ,¹ö¶¯µ½Ö¸¶¨×ø±ê.  
-		//@²ÎÊý posX X×ø±ê.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ðÃû  Ë®Æ½¹ö¶¯µ½X()
+		//@å¤‡æ³¨ æ°´å¹³æ»šåŠ¨æ¡,æ»šåŠ¨åˆ°æŒ‡å®šåæ ‡.  
+		//@å‚æ•° posX Xåæ ‡.
+		//@è¿”å›ž æˆåŠŸè¿”å›žTRUEå¦åˆ™è¿”å›žFALSE.
+		//@åˆ«å  æ°´å¹³æ»šåŠ¨åˆ°X()
 		bool ScrollPosXH(int posX) {
 			return XSView_ScrollPosXH(getEleHandle(), posX);
 		}
 
-		//@±¸×¢ ´¹Ö±¹ö¶¯Ìõ,¹ö¶¯µ½Ö¸¶¨×ø±ê.  
-		//@²ÎÊý posY Y×ø±ê.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ðÃû  ´¹Ö±¹ö¶¯µ½Y()
+		//@å¤‡æ³¨ åž‚ç›´æ»šåŠ¨æ¡,æ»šåŠ¨åˆ°æŒ‡å®šåæ ‡.  
+		//@å‚æ•° posY Yåæ ‡.
+		//@è¿”å›ž æˆåŠŸè¿”å›žTRUEå¦åˆ™è¿”å›žFALSE.
+		//@åˆ«å  åž‚ç›´æ»šåŠ¨åˆ°Y()
 		bool ScrollPosYV(int posY) {
 			return XSView_ScrollPosYV(getEleHandle(), posY);
 		}
 
-		//@±¸×¢ ÏÔÊ¾Ë®Æ½¹ö¶¯Ìõ.  
-		//@²ÎÊý bShow ÊÇ·ñÏÔÊ¾.
-		//@±ðÃû  ÏÔÊ¾Ë®Æ½¹ö¶¯Ìõ()
+		//@å¤‡æ³¨ æ˜¾ç¤ºæ°´å¹³æ»šåŠ¨æ¡.  
+		//@å‚æ•° bShow æ˜¯å¦æ˜¾ç¤º.
+		//@åˆ«å  æ˜¾ç¤ºæ°´å¹³æ»šåŠ¨æ¡()
 		void ShowSBarH(bool bShow) {
 			XSView_ShowSBarH(getEleHandle(), bShow);
 		}
 
-		//@±¸×¢ ÏÔÊ¾´¹Ö±¹ö¶¯Ìõ.  
-		//@²ÎÊý bShow ÊÇ·ñÏÔÊ¾.
-		//@±ðÃû  ÏÔÊ¾´¹Ö±¹ö¶¯Ìõ()
+		//@å¤‡æ³¨ æ˜¾ç¤ºåž‚ç›´æ»šåŠ¨æ¡.  
+		//@å‚æ•° bShow æ˜¯å¦æ˜¾ç¤º.
+		//@åˆ«å  æ˜¾ç¤ºåž‚ç›´æ»šåŠ¨æ¡()
 		void ShowSBarV(bool bShow) {
 			XSView_ShowSBarV(getEleHandle(), bShow);
 		}
 
-		//@±¸×¢ ÆôÓÃ×Ô¶¯ÏÔÊ¾¹ö¶¯Ìõ.  
-		//@²ÎÊý bEnable ÊÇ·ñÆôÓÃ.
-		//@±ðÃû  ÆôÓÃ×Ô¶¯ÏÔÊ¾¹ö¶¯Ìõ()
+		//@å¤‡æ³¨ å¯ç”¨è‡ªåŠ¨æ˜¾ç¤ºæ»šåŠ¨æ¡.  
+		//@å‚æ•° bEnable æ˜¯å¦å¯ç”¨.
+		//@åˆ«å  å¯ç”¨è‡ªåŠ¨æ˜¾ç¤ºæ»šåŠ¨æ¡()
 		void EnableAutoShowScrollBar(bool bEnable) {
 			XSView_EnableAutoShowScrollBar(getEleHandle(), bEnable);
 		}
 
-		//@±¸×¢ Ïò×ó¹ö¶¯.  
-		//@·µ»Ø Èç¹û³É¹¦·µ»ØTRUE,·ñÔòÏà·´.
-		//@±ðÃû  Ïò×ó¹ö¶¯()
+		//@å¤‡æ³¨ å‘å·¦æ»šåŠ¨.  
+		//@è¿”å›ž å¦‚æžœæˆåŠŸè¿”å›žTRUE,å¦åˆ™ç›¸å.
+		//@åˆ«å  å‘å·¦æ»šåŠ¨()
 		bool ScrollLeftLine() {
 			return XSView_ScrollLeftLine(getEleHandle());
 		}
 
-		//@±¸×¢ ÏòÓÒ¹ö¶¯.  
-		//@·µ»Ø Èç¹û³É¹¦·µ»ØTRUE,·ñÔòÏà·´.
-		//@±ðÃû  ÏòÓÒ¹ö¶¯()
+		//@å¤‡æ³¨ å‘å³æ»šåŠ¨.  
+		//@è¿”å›ž å¦‚æžœæˆåŠŸè¿”å›žTRUE,å¦åˆ™ç›¸å.
+		//@åˆ«å  å‘å³æ»šåŠ¨()
 		bool ScrollRightLine() {
 			return XSView_ScrollRightLine(getEleHandle());
 		}
 
-		//@±¸×¢ ÏòÉÏ¹ö¶¯.  
-		//@·µ»Ø Èç¹û³É¹¦·µ»ØTRUE,·ñÔòÏà·´.
-		//@±ðÃû  ÏòÉÏ¹ö¶¯()
+		//@å¤‡æ³¨ å‘ä¸Šæ»šåŠ¨.  
+		//@è¿”å›ž å¦‚æžœæˆåŠŸè¿”å›žTRUE,å¦åˆ™ç›¸å.
+		//@åˆ«å  å‘ä¸Šæ»šåŠ¨()
 		bool ScrollTopLine() {
 			return XSView_ScrollTopLine(getEleHandle());
 		}
 
-		//@±¸×¢ ÏòÏÂ¹ö¶¯.  
-		//@·µ»Ø Èç¹û³É¹¦·µ»ØTRUE,·ñÔòÏà·´.
-		//@±ðÃû  ÏòÏÂ¹ö¶¯()
+		//@å¤‡æ³¨ å‘ä¸‹æ»šåŠ¨.  
+		//@è¿”å›ž å¦‚æžœæˆåŠŸè¿”å›žTRUE,å¦åˆ™ç›¸å.
+		//@åˆ«å  å‘ä¸‹æ»šåŠ¨()
 		bool ScrollBottomLine() {
 			return XSView_ScrollBottomLine(getEleHandle());
 		}
 
-		//@±¸×¢ Ë®Æ½¹ö¶¯µ½×ó²à.  
-		//@·µ»Ø Èç¹û³É¹¦·µ»ØTRUE,·ñÔòÏà·´.
-		//@±ðÃû  ¹ö¶¯µ½×ó²à()
+		//@å¤‡æ³¨ æ°´å¹³æ»šåŠ¨åˆ°å·¦ä¾§.  
+		//@è¿”å›ž å¦‚æžœæˆåŠŸè¿”å›žTRUE,å¦åˆ™ç›¸å.
+		//@åˆ«å  æ»šåŠ¨åˆ°å·¦ä¾§()
 		bool ScrollLeft() {
 			return XSView_ScrollLeft(getEleHandle());
 		}
 
-		//@±¸×¢ Ë®Æ½¹ö¶¯µ½ÓÒ²à.  
-		//@·µ»Ø Èç¹û³É¹¦·µ»ØTRUE,·ñÔòÏà·´.
-		//@±ðÃû  ¹ö¶¯µ½ÓÒ²à()
+		//@å¤‡æ³¨ æ°´å¹³æ»šåŠ¨åˆ°å³ä¾§.  
+		//@è¿”å›ž å¦‚æžœæˆåŠŸè¿”å›žTRUE,å¦åˆ™ç›¸å.
+		//@åˆ«å  æ»šåŠ¨åˆ°å³ä¾§()
 		bool ScrollRight() {
 			return XSView_ScrollRight(getEleHandle());
 		}
 
-		//@±¸×¢ ´¹Ö±¹ö¶¯µ½¶¥²¿.  
-		//@·µ»Ø Èç¹û³É¹¦·µ»ØTRUE,·ñÔòÏà·´.
-		//@±ðÃû  ¹ö¶¯µ½¶¥²¿()
+		//@å¤‡æ³¨ åž‚ç›´æ»šåŠ¨åˆ°é¡¶éƒ¨.  
+		//@è¿”å›ž å¦‚æžœæˆåŠŸè¿”å›žTRUE,å¦åˆ™ç›¸å.
+		//@åˆ«å  æ»šåŠ¨åˆ°é¡¶éƒ¨()
 		bool ScrollTop() {
 			return XSView_ScrollTop(getEleHandle());
 		}
 
-		//@±¸×¢ ´¹Ö±¹ö¶¯µ½µ×²¿.  
-		//@·µ»Ø Èç¹û³É¹¦·µ»ØTRUE,·ñÔòÏà·´.
-		//@±ðÃû  ¹ö¶¯µ½µ×²¿()
+		//@å¤‡æ³¨ åž‚ç›´æ»šåŠ¨åˆ°åº•éƒ¨.  
+		//@è¿”å›ž å¦‚æžœæˆåŠŸè¿”å›žTRUE,å¦åˆ™ç›¸å.
+		//@åˆ«å  æ»šåŠ¨åˆ°åº•éƒ¨()
 		bool ScrollBottom() {
 			return XSView_ScrollBottom(getEleHandle());
 		}

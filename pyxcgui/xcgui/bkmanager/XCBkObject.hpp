@@ -25,123 +25,123 @@ namespace xcgui {
 		
 		virtual ~XCBkObject() = default;
 
-		// ±³¾°¶ÔÏó_ÖÃÍâ¼ä¾à
+		// èƒŒæ™¯å¯¹è±¡_ç½®å¤–é—´è·
 		void SetMargin(int left, int top, int right, int bottom) {
 			XBkObj_SetMargin(m_handle, left, top, right, bottom);
 		}
 
-		// ±³¾°¶ÔÏó_ÖÃ¶ÔÆë  ¶ÔÆë·½Ê½ @ref bkObject_align_flag_
+		// èƒŒæ™¯å¯¹è±¡_ç½®å¯¹é½  å¯¹é½æ–¹å¼ @ref bkObject_align_flag_
 		void SetAlign(int nFlags) {
 			XBkObj_SetAlign(m_handle, nFlags);
 		}
 
-		// ±³¾°¶ÔÏó_ÖÃÍ¼Æ¬
+		// èƒŒæ™¯å¯¹è±¡_ç½®å›¾ç‰‡
 		void SetImage(const XCImage& image) {
 			XBkObj_SetImage(m_handle, image.getImageHandle());
 		}
 
-		// ±³¾°¶ÔÏó_ÖÃĞı×ª
+		// èƒŒæ™¯å¯¹è±¡_ç½®æ—‹è½¬
 		void SetRotate(float angle) {
 			XBkObj_SetRotate(m_handle, angle);
 		}
 
-		// ±³¾°¶ÔÏó_ÖÃÌî³äÑÕÉ«
+		// èƒŒæ™¯å¯¹è±¡_ç½®å¡«å……é¢œè‰²
 		void SetFillColor(COLORREF color)
 		{
 			XBkObj_SetFillColor(m_handle, color);
 		}
 
-		// ±³¾°¶ÔÏó_ÖÃ±ß¿ò¿í¶È
+		// èƒŒæ™¯å¯¹è±¡_ç½®è¾¹æ¡†å®½åº¦
 		void SetBorderWidth(int width) {
 			XBkObj_SetBorderWidth(m_handle, width);
 		}
 
-		// ±³¾°¶ÔÏó_ÖÃ±ß¿òÑÕÉ«
+		// èƒŒæ™¯å¯¹è±¡_ç½®è¾¹æ¡†é¢œè‰²
 		void SetBorderColor(COLORREF color) {
 			XBkObj_SetBorderColor(m_handle, color);
 		}
 
-		// ±³¾°¶ÔÏó_ÖÃ¾ØĞÎÔ²½Ç
+		// èƒŒæ™¯å¯¹è±¡_ç½®çŸ©å½¢åœ†è§’
 		void SetRectRoundAngle(int leftTop, int leftBottom, int rightTop, int rightBottom) {
 			XBkObj_SetRectRoundAngle(m_handle, leftTop, leftBottom, rightTop, rightBottom);
 		}
 
-		// ±³¾°¶ÔÏó_ÆôÓÃÌî³ä
+		// èƒŒæ™¯å¯¹è±¡_å¯ç”¨å¡«å……
 		void EnableFill(bool bEnable) {
 			XBkObj_EnableFill(m_handle, bEnable);
 		}
 
-		// ±³¾°¶ÔÏó_ÆôÓÃ±ß¿ò
+		// èƒŒæ™¯å¯¹è±¡_å¯ç”¨è¾¹æ¡†
 		void EnableBorder(bool bEnable) {
 			XBkObj_EnableBorder(m_handle, bEnable);
 		}
 
-		// ±³¾°¶ÔÏó_ÖÃÎÄ±¾
+		// èƒŒæ™¯å¯¹è±¡_ç½®æ–‡æœ¬
 		void SetText(const std::wstring& text) {
 			XBkObj_SetText(m_handle, text.c_str());
 		}
 
-		// ±³¾°¶ÔÏó_ÖÃ×ÖÌå
+		// èƒŒæ™¯å¯¹è±¡_ç½®å­—ä½“
 		void SetFont(HFONTX hFont) {
 			XBkObj_SetFont(m_handle, hFont);
 		}
 
-		// ±³¾°¶ÔÏó_ÖÃÎÄ±¾¶ÔÆë
+		// èƒŒæ™¯å¯¹è±¡_ç½®æ–‡æœ¬å¯¹é½
 		void SetTextAlign(int align) {
 			XBkObj_SetTextAlign(m_handle, align);
 		}
 
-		// ±³¾°¶ÔÏó_È¡Íâ¼ä¾à
+		// èƒŒæ™¯å¯¹è±¡_å–å¤–é—´è·
 		void GetMargin(marginSize_* pMargin) {
 			XBkObj_GetMargin(m_handle, pMargin);
 		}
 
-		// ±³¾°¶ÔÏó_È¡¶ÔÆë ·µ»Ø¶ÔÆë±êÊ¶ @ref bkObject_align_flag_
+		// èƒŒæ™¯å¯¹è±¡_å–å¯¹é½ è¿”å›å¯¹é½æ ‡è¯† @ref bkObject_align_flag_
 		int GetAlign() {
 			return XBkObj_GetAlign(m_handle);
 		}
 
-		// ±³¾°¶ÔÏó_È¡Í¼Æ¬
+		// èƒŒæ™¯å¯¹è±¡_å–å›¾ç‰‡
 		HIMAGE GetImage() {
 			return XBkObj_GetImage(m_handle);
 		}
 
-		// ±³¾°¶ÔÏó_È¡Ğı×ª½Ç¶È
+		// èƒŒæ™¯å¯¹è±¡_å–æ—‹è½¬è§’åº¦
 		int GetRotate() {
 			return XBkObj_GetRotate(m_handle);
 		}
 
-		// ±³¾°¶ÔÏó_È¡Ìî³äÉ«
+		// èƒŒæ™¯å¯¹è±¡_å–å¡«å……è‰²
 		COLORREF GetFillColor() {
 			return XBkObj_GetFillColor(m_handle);
 		}
 
-		// ±³¾°¶ÔÏó_È¡±ß¿òÉ«
+		// èƒŒæ™¯å¯¹è±¡_å–è¾¹æ¡†è‰²
 		COLORREF GetBorderColor() {
 			return XBkObj_GetBorderColor(m_handle);
 		}
 
-		// ±³¾°¶ÔÏó_È¡±ß¿ò¿í¶È
+		// èƒŒæ™¯å¯¹è±¡_å–è¾¹æ¡†å®½åº¦
 		int GetBorderWidth() {
 			return XBkObj_GetBorderWidth(m_handle);
 		}
 
-		//±³¾°¶ÔÏó_È¡¾ØĞÎÔ²½Ç
+		//èƒŒæ™¯å¯¹è±¡_å–çŸ©å½¢åœ†è§’
 		void GetRectRoundAngle(RECT* pRect) {
 			XBkObj_GetRectRoundAngle(m_handle, pRect);
 		}
 
-		// ±³¾°¶ÔÏó_ÊÇ·ñÌî³ä
+		// èƒŒæ™¯å¯¹è±¡_æ˜¯å¦å¡«å……
 		bool IsFill() {
 			return XBkObj_IsFill(m_handle);
 		}
 
-		// ±³¾°¶ÔÏó_ÊÇ·ñ±ß¿ò
+		// èƒŒæ™¯å¯¹è±¡_æ˜¯å¦è¾¹æ¡†
 		bool IsBorder() {
 			return XBkObj_IsBorder(m_handle);
 		}
 
-		// ±³¾°¶ÔÏó_È¡ÎÄ±¾
+		// èƒŒæ™¯å¯¹è±¡_å–æ–‡æœ¬
 		std::wstring GetText() {
 			auto pText = XBkObj_GetText(m_handle);
 			if (!pText) {
@@ -150,12 +150,12 @@ namespace xcgui {
 			return pText;
 		}
 
-		// ±³¾°¶ÔÏó_È¡×ÖÌå
+		// èƒŒæ™¯å¯¹è±¡_å–å­—ä½“
 		HFONTX GetFont() {
 			return XBkObj_GetFont(m_handle);
 		}
 
-		// ±³¾°¶ÔÏó_È¡ÎÄ±¾¶ÔÆë, ·µ»ØÎÄ±¾¶ÔÆë·½Ê½ @ref textFormatFlag_ 
+		// èƒŒæ™¯å¯¹è±¡_å–æ–‡æœ¬å¯¹é½, è¿”å›æ–‡æœ¬å¯¹é½æ–¹å¼ @ref textFormatFlag_ 
 		int GetTextAlign() {
 			return XBkObj_GetTextAlign(m_handle);
 		}

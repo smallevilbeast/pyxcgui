@@ -75,7 +75,7 @@ namespace xcgui {
 		}
 
 
-		// ¶¯»­Ïî
+		// åŠ¨ç”»é¡¹
 		static void WINAPI OnAnimationItemCallback(HXCGUI hAnimationItem, float pos) {
 			XCallbackManager::GetInstance()->ExecAnimationItemCallback(hAnimationItem, pos);
 		}
@@ -96,7 +96,7 @@ namespace xcgui {
 			}
 		}
 
-		// ¶¯»­
+		// åŠ¨ç”»
 		static void WINAPI OnAnimationCallback(HXCGUI hAnimation, int flag) {
 			XCallbackManager::GetInstance()->ExecAnimationCallback(hAnimation, flag);
 		}

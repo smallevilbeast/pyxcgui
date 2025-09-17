@@ -14,139 +14,139 @@ namespace xcgui {
 
 		XCShape() = default;
 
-		//@±¸×¢ ´Ó¸¸UIÔªËØ»ò´°¿Ú,ºÍ¸¸²¼¾Ö¶ÔÏóÖĞÒÆ³ı.  
-		//@±ğÃû  ÒÆ³ı()
+		//@å¤‡æ³¨ ä»çˆ¶UIå…ƒç´ æˆ–çª—å£,å’Œçˆ¶å¸ƒå±€å¯¹è±¡ä¸­ç§»é™¤.  
+		//@åˆ«å  ç§»é™¤()
 		void RemoveShape() {
 			XShape_RemoveShape(m_handle);
 		}
 
-		//@±¸×¢ »ñÈ¡ĞÎ×´¶ÔÏóZĞò.  
-		//@·µ»Ø ³É¹¦·µ»ØË÷ÒıÖµ,·ñÔò·µ»Ø XC_ID_ERROR.
-		//@±ğÃû  È¡ZĞò()
+		//@å¤‡æ³¨ è·å–å½¢çŠ¶å¯¹è±¡Zåº.  
+		//@è¿”å› æˆåŠŸè¿”å›ç´¢å¼•å€¼,å¦åˆ™è¿”å› XC_ID_ERROR.
+		//@åˆ«å  å–Zåº()
 		int GetZOrder() {
 			return XShape_GetZOrder(m_handle);
 		}
 
-		//@±¸×¢ ÖØ»æĞÎ×´¶ÔÏó.  
-		//@±ğÃû  ÖØ»æ()
+		//@å¤‡æ³¨ é‡ç»˜å½¢çŠ¶å¯¹è±¡.  
+		//@åˆ«å  é‡ç»˜()
 		void Redraw() {
 			XShape_Redraw(m_handle);
 		}
 
-		//@±¸×¢ »ñÈ¡ÄÚÈİ¿í¶È.  
-		//@·µ»Ø ·µ»ØÄÚÈİ¿í¶È.
-		//@±ğÃû  È¡¿í¶È()
+		//@å¤‡æ³¨ è·å–å†…å®¹å®½åº¦.  
+		//@è¿”å› è¿”å›å†…å®¹å®½åº¦.
+		//@åˆ«å  å–å®½åº¦()
 		int GetWidth() {
 			return XShape_GetWidth(m_handle);
 		}
 
-		//@±¸×¢ »ñÈ¡ÄÚÈİ¸ß¶È.  
-		//@·µ»Ø ·µ»ØÄÚÈİ¸ß¶È.
-		//@±ğÃû  È¡¸ß¶È()
+		//@å¤‡æ³¨ è·å–å†…å®¹é«˜åº¦.  
+		//@è¿”å› è¿”å›å†…å®¹é«˜åº¦.
+		//@åˆ«å  å–é«˜åº¦()
 		int GetHeight() {
 			return XShape_GetHeight(m_handle);
 		}
 
-		//@±¸×¢ ÒÆ¶¯Î»ÖÃ
-		//@²ÎÊı x x×ø±ê
-		//@²ÎÊı y y×ø±ê
-		//@±ğÃû  ÖÃÎ»ÖÃ()
+		//@å¤‡æ³¨ ç§»åŠ¨ä½ç½®
+		//@å‚æ•° x xåæ ‡
+		//@å‚æ•° y yåæ ‡
+		//@åˆ«å  ç½®ä½ç½®()
 		void SetPosition(int x, int y) {
 			XShape_SetPosition(m_handle, x, y);
 		}
 
-		//@²ÎÊı pOutX ·µ»ØX×ø±ê
-		//@²ÎÊı pOutY ·µ»ØY×ø±ê
-		//@±ğÃû  È¡Î»ÖÃ()
+		//@å‚æ•° pOutX è¿”å›Xåæ ‡
+		//@å‚æ•° pOutY è¿”å›Yåæ ‡
+		//@åˆ«å  å–ä½ç½®()
 		void GetPosition(int* pOutX, int* pOutY) {
 			XShape_GetPosition(m_handle, pOutX, pOutY);
 		}
 
-		//@²ÎÊı nWidth ¿í¶È
-		//@²ÎÊı nHeight ¸ß¶È
-		//@±ğÃû  ÖÃ´óĞ¡()
+		//@å‚æ•° nWidth å®½åº¦
+		//@å‚æ•° nHeight é«˜åº¦
+		//@åˆ«å  ç½®å¤§å°()
 		void SetSize(int nWidth, int nHeight) {
 			XShape_SetSize(m_handle, nWidth, nHeight);
 		}
 
-		//@²ÎÊı pOutWidth ·µ»Ø¿í¶È
-		//@²ÎÊı pOutHeight ·µ»Ø¸ß¶È
-		//@±ğÃû  È¡´óĞ¡()
+		//@å‚æ•° pOutWidth è¿”å›å®½åº¦
+		//@å‚æ•° pOutHeight è¿”å›é«˜åº¦
+		//@åˆ«å  å–å¤§å°()
 		void GetSize(int* pOutWidth, int* pOutHeight) {
 			XShape_GetSize(m_handle, pOutWidth, pOutHeight);
 		}
 
-		//@²ÎÊı alpha Í¸Ã÷¶È
-		//@±ğÃû  ÖÃÍ¸Ã÷¶È()
+		//@å‚æ•° alpha é€æ˜åº¦
+		//@åˆ«å  ç½®é€æ˜åº¦()
 		void SetAlpha(BYTE alpha) {
 			XShape_SetAlpha(m_handle, alpha);
 		}
 
-		//@·µ»Ø ·µ»ØÍ¸Ã÷¶È
-		//@±ğÃû  È¡Í¸Ã÷¶È()
+		//@è¿”å› è¿”å›é€æ˜åº¦
+		//@åˆ«å  å–é€æ˜åº¦()
 		BYTE GetAlpha() {
 			return XShape_GetAlpha(m_handle);
 		}
 
-		//@±¸×¢ »ñÈ¡×ø±ê.  
-		//@²ÎÊı pRect ½ÓÊÕ·µ»Ø×ø±ê.
-		//@±ğÃû  È¡×ø±ê()
+		//@å¤‡æ³¨ è·å–åæ ‡.  
+		//@å‚æ•° pRect æ¥æ”¶è¿”å›åæ ‡.
+		//@åˆ«å  å–åæ ‡()
 		void GetRect(RECT* pRect) {
 			XShape_GetRect(m_handle, pRect);
 		}
 
-		//@±¸×¢ ÉèÖÃ×ø±ê.  
-		//@²ÎÊı pRect ×ø±ê.
-		//@±ğÃû  ÖÃ×ø±ê()
+		//@å¤‡æ³¨ è®¾ç½®åæ ‡.  
+		//@å‚æ•° pRect åæ ‡.
+		//@åˆ«å  ç½®åæ ‡()
 		void SetRect(RECT* pRect) {
 			XShape_SetRect(m_handle, pRect);
 		}
 
-		//@±¸×¢ ÉèÖÃÔªËØ×ø±ê,Âß¼­×ø±ê,°üº¬¹ö¶¯ÊÓÍ¼Æ«ÒÆ.  
-		//@²ÎÊı pRect ×ø±ê.
-		//@²ÎÊı bRedraw ÊÇ·ñÖØ»æ.
-		//@·µ»Ø Èç¹û³É¹¦·µ»ØTRUE, ·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÖÃÂß¼­×ø±ê()
+		//@å¤‡æ³¨ è®¾ç½®å…ƒç´ åæ ‡,é€»è¾‘åæ ‡,åŒ…å«æ»šåŠ¨è§†å›¾åç§».  
+		//@å‚æ•° pRect åæ ‡.
+		//@å‚æ•° bRedraw æ˜¯å¦é‡ç»˜.
+		//@è¿”å› å¦‚æœæˆåŠŸè¿”å›TRUE, å¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  ç½®é€»è¾‘åæ ‡()
 		bool SetRectLogic(RECT* pRect, bool bRedraw) {
 			return XShape_SetRectLogic(m_handle, pRect, bRedraw);
 		}
 
-		//@±¸×¢ »ñÈ¡ÔªËØ×ø±ê,Âß¼­×ø±ê,°üº¬¹ö¶¯ÊÓÍ¼Æ«ÒÆ.  
-		//@²ÎÊı pRect ×ø±ê.
-		//@±ğÃû  È¡Âß¼­×ø±ê()
+		//@å¤‡æ³¨ è·å–å…ƒç´ åæ ‡,é€»è¾‘åæ ‡,åŒ…å«æ»šåŠ¨è§†å›¾åç§».  
+		//@å‚æ•° pRect åæ ‡.
+		//@åˆ«å  å–é€»è¾‘åæ ‡()
 		void GetRectLogic(RECT* pRect) {
 			XShape_GetRectLogic(m_handle, pRect);
 		}
 
-		//@±¸×¢ »ùÓÚ´°¿Ú¿Í»§Çø×ø±ê.  
-		//@²ÎÊı pRect ×ø±ê.
-		//@±ğÃû  È¡»ùÓÚ´°¿Ú¿Í»§Çø×ø±ê()
+		//@å¤‡æ³¨ åŸºäºçª—å£å®¢æˆ·åŒºåæ ‡.  
+		//@å‚æ•° pRect åæ ‡.
+		//@åˆ«å  å–åŸºäºçª—å£å®¢æˆ·åŒºåæ ‡()
 		void GetWndClientRect(RECT* pRect) {
 			XShape_GetWndClientRect(m_handle, pRect);
 		}
 
-		//@±¸×¢ ½ö¼ÆËãÓĞĞ§ÄÚÈİ, Ìî³ä¸¸, È¨ÖØÒÀÀµ¸¸¼¶ËùÒÔÎŞ·¨¼ÆËã.  
-		//@²ÎÊı pSize ½ÓÊÕ·µ»ØÄÚÈİ´óĞ¡Öµ.
-		//@±ğÃû  È¡ÄÚÈİ´óĞ¡()
+		//@å¤‡æ³¨ ä»…è®¡ç®—æœ‰æ•ˆå†…å®¹, å¡«å……çˆ¶, æƒé‡ä¾èµ–çˆ¶çº§æ‰€ä»¥æ— æ³•è®¡ç®—.  
+		//@å‚æ•° pSize æ¥æ”¶è¿”å›å†…å®¹å¤§å°å€¼.
+		//@åˆ«å  å–å†…å®¹å¤§å°()
 		void GetContentSize(SIZE* pSize) {
 			XShape_GetContentSize(m_handle, pSize);
 		}
 
-		//@±¸×¢ ÊÇ·ñÏÔÊ¾²¼¾Ö±ß½ç.  
-		//@²ÎÊı bShow ÊÇ·ñÏÔÊ¾.
-		//@±ğÃû  ÏÔÊ¾²¼¾Ö±ß½ç()
+		//@å¤‡æ³¨ æ˜¯å¦æ˜¾ç¤ºå¸ƒå±€è¾¹ç•Œ.  
+		//@å‚æ•° bShow æ˜¯å¦æ˜¾ç¤º.
+		//@åˆ«å  æ˜¾ç¤ºå¸ƒå±€è¾¹ç•Œ()
 		void ShowLayout(bool bShow) {
 			XShape_ShowLayout(m_handle, bShow);
 		}
 
-		//@±¸×¢ µ÷Õû²¼¾Ö.  
-		//@±ğÃû  µ÷Õû²¼¾Ö()
+		//@å¤‡æ³¨ è°ƒæ•´å¸ƒå±€.  
+		//@åˆ«å  è°ƒæ•´å¸ƒå±€()
 		void AdjustLayout() {
 			XShape_AdjustLayout(m_handle);
 		}
 
-		//@±¸×¢ Ïú»ÙĞÎ×´¶ÔÏó.  
-		//@±ğÃû  Ïú»Ù()
+		//@å¤‡æ³¨ é”€æ¯å½¢çŠ¶å¯¹è±¡.  
+		//@åˆ«å  é”€æ¯()
 		void Destroy() {
 			XShape_Destroy(m_handle);
 		}

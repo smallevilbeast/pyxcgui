@@ -22,153 +22,153 @@ namespace xcgui {
 			return (HMENUX)m_handle;
 		}
 
-		//@±¸×¢ Ìí¼Ó²Ëµ¥Ïî.  
-		//@²ÎÊı nID ÏîID.
-		//@²ÎÊı text ÎÄ±¾ÄÚÈİ.
-		//@²ÎÊı nParentID ¸¸ÏîID.
-		//@²ÎÊı nFlags ±êÊ¶²Î¼ûºê¶¨Òå @ref menu_item_flag_.
-		//@±ğÃû  Ìí¼ÓÏî()
+		//@å¤‡æ³¨ æ·»åŠ èœå•é¡¹.  
+		//@å‚æ•° nID é¡¹ID.
+		//@å‚æ•° text æ–‡æœ¬å†…å®¹.
+		//@å‚æ•° nParentID çˆ¶é¡¹ID.
+		//@å‚æ•° nFlags æ ‡è¯†å‚è§å®å®šä¹‰ @ref menu_item_flag_.
+		//@åˆ«å  æ·»åŠ é¡¹()
 		void AddItem(int nID, const std::wstring& text, int parentId = XC_ID_ROOT, int nFlags = 0) {
 			XMenu_AddItem((HMENUX)m_handle, nID, text.c_str(), parentId, nFlags);
 		}
 
-		//@±¸×¢ Ìí¼Ó²Ëµ¥Ïî.  
-		//@²ÎÊı nID ÏîID.
-		//@²ÎÊı text ÎÄ±¾ÄÚÈİ.
-		//@²ÎÊı nParentID ¸¸ÏîID.
-		//@²ÎÊı hIcon ²Ëµ¥ÏîÍ¼±ê¾ä±ú.
-		//@²ÎÊı nFlags ±êÊ¶²Î¼ûºê¶¨Òå @ref menu_item_flag_.
-		//@±ğÃû  Ìí¼ÓÏîÍ¼±ê()
+		//@å¤‡æ³¨ æ·»åŠ èœå•é¡¹.  
+		//@å‚æ•° nID é¡¹ID.
+		//@å‚æ•° text æ–‡æœ¬å†…å®¹.
+		//@å‚æ•° nParentID çˆ¶é¡¹ID.
+		//@å‚æ•° hIcon èœå•é¡¹å›¾æ ‡å¥æŸ„.
+		//@å‚æ•° nFlags æ ‡è¯†å‚è§å®å®šä¹‰ @ref menu_item_flag_.
+		//@åˆ«å  æ·»åŠ é¡¹å›¾æ ‡()
 		void AddItemIcon(int nID, const std::wstring& text, int nParentID, HIMAGE hImage, int nFlags = 0) {
 			XMenu_AddItemIcon((HMENUX)m_handle, nID, text.c_str(), nParentID, hImage, nFlags);
 		}
 
-		//@±¸×¢ ²åÈë²Ëµ¥Ïî.  
-		//@²ÎÊı nID ÏîID.
-		//@²ÎÊı text ÎÄ±¾ÄÚÈİ.
-		//@²ÎÊı nFlags ±êÊ¶²Î¼ûºê¶¨Òå @ref menu_item_flag_.
-		//@²ÎÊı insertID ²åÈëÎ»ÖÃID.
-		//@±ğÃû  ²åÈëÏî()
+		//@å¤‡æ³¨ æ’å…¥èœå•é¡¹.  
+		//@å‚æ•° nID é¡¹ID.
+		//@å‚æ•° text æ–‡æœ¬å†…å®¹.
+		//@å‚æ•° nFlags æ ‡è¯†å‚è§å®å®šä¹‰ @ref menu_item_flag_.
+		//@å‚æ•° insertID æ’å…¥ä½ç½®ID.
+		//@åˆ«å  æ’å…¥é¡¹()
 		void InsertItem(int nID, const std::wstring& text, int nFlags, int insertID) {
 			XMenu_InsertItem((HMENUX)m_handle, nID, text.c_str(), nFlags, insertID);
 		}
 
-		//@±¸×¢ ²åÈë²Ëµ¥Ïî.  
-		//@²ÎÊı nID ÏîID.
-		//@²ÎÊı text ÎÄ±¾ÄÚÈİ.
-		//@²ÎÊı hIcon ²Ëµ¥ÏîÍ¼±ê¾ä±ú.
-		//@²ÎÊı nFlags ±êÊ¶²Î¼ûºê¶¨Òå @ref menu_item_flag_.
-		//@²ÎÊı insertID ²åÈëÎ»ÖÃID.
-		//@±ğÃû  ²åÈëÏîÍ¼±ê()
+		//@å¤‡æ³¨ æ’å…¥èœå•é¡¹.  
+		//@å‚æ•° nID é¡¹ID.
+		//@å‚æ•° text æ–‡æœ¬å†…å®¹.
+		//@å‚æ•° hIcon èœå•é¡¹å›¾æ ‡å¥æŸ„.
+		//@å‚æ•° nFlags æ ‡è¯†å‚è§å®å®šä¹‰ @ref menu_item_flag_.
+		//@å‚æ•° insertID æ’å…¥ä½ç½®ID.
+		//@åˆ«å  æ’å…¥é¡¹å›¾æ ‡()
 		void InsertItemIcon(int nID, const std::wstring& text, HIMAGE hIcon, int nFlags, int insertID) {
 			XMenu_InsertItemIcon((HMENUX)m_handle, nID, text.c_str(), hIcon, nFlags, insertID);
 		}
 
-		//@±¸×¢ »ñÈ¡µÚÒ»¸ö×ÓÏî.  
-		//@²ÎÊı nID ÏîID.
-		//@·µ»Ø ·µ»ØÏîID.
-		//@±ğÃû  È¡µÚÒ»¸ö×ÓÏî()
+		//@å¤‡æ³¨ è·å–ç¬¬ä¸€ä¸ªå­é¡¹.  
+		//@å‚æ•° nID é¡¹ID.
+		//@è¿”å› è¿”å›é¡¹ID.
+		//@åˆ«å  å–ç¬¬ä¸€ä¸ªå­é¡¹()
 		int GetFirstChildItem(int nID) {
 			return XMenu_GetFirstChildItem((HMENUX)m_handle, nID);
 		}
 
-		//@±¸×¢ »ñÈ¡Ä©Î²×ÓÏî.  
-		//@²ÎÊı nID ÏîID.
-		//@·µ»Ø ·µ»ØÏîID.
-		//@±ğÃû  È¡Ä©Î²×ÓÏî()
+		//@å¤‡æ³¨ è·å–æœ«å°¾å­é¡¹.  
+		//@å‚æ•° nID é¡¹ID.
+		//@è¿”å› è¿”å›é¡¹ID.
+		//@åˆ«å  å–æœ«å°¾å­é¡¹()
 		int GetEndChildItem(int nID) {
 			return XMenu_GetEndChildItem((HMENUX)m_handle, nID);
 		}
 
-		//@±¸×¢ »ñÈ¡ÉÏÒ»¸öĞÖµÜÏî.  
-		//@²ÎÊı nID ÏîID.
-		//@·µ»Ø ·µ»ØÏîID.
-		//@±ğÃû  È¡ÉÏÒ»¸öĞÖµÜÏî()
+		//@å¤‡æ³¨ è·å–ä¸Šä¸€ä¸ªå…„å¼Ÿé¡¹.  
+		//@å‚æ•° nID é¡¹ID.
+		//@è¿”å› è¿”å›é¡¹ID.
+		//@åˆ«å  å–ä¸Šä¸€ä¸ªå…„å¼Ÿé¡¹()
 		int GetPrevSiblingItem(int nID) {
 			return XMenu_GetPrevSiblingItem((HMENUX)m_handle, nID);
 		}
 
-		//@±¸×¢ »ñÈ¡ÏÂÒ»¸öĞÖµÜÏî.  
-		//@²ÎÊı nID ÏîID.
-		//@·µ»Ø ·µ»ØÏîID.
-		//@±ğÃû  È¡ÏÂÒ»¸öĞÖµÜÏî()
+		//@å¤‡æ³¨ è·å–ä¸‹ä¸€ä¸ªå…„å¼Ÿé¡¹.  
+		//@å‚æ•° nID é¡¹ID.
+		//@è¿”å› è¿”å›é¡¹ID.
+		//@åˆ«å  å–ä¸‹ä¸€ä¸ªå…„å¼Ÿé¡¹()
 		int GetNextSiblingItem(int nID) {
 			return XMenu_GetNextSiblingItem((HMENUX)m_handle, nID);
 		}
 
-		//@±¸×¢ »ñÈ¡¸¸Ïî.  
-		//@²ÎÊı nID ÏîID.
-		//@·µ»Ø ·µ»ØÏîID.
-		//@±ğÃû  È¡¸¸Ïî()
+		//@å¤‡æ³¨ è·å–çˆ¶é¡¹.  
+		//@å‚æ•° nID é¡¹ID.
+		//@è¿”å› è¿”å›é¡¹ID.
+		//@åˆ«å  å–çˆ¶é¡¹()
 		int GetParentItem(int nID) {
 			return XMenu_GetParentItem((HMENUX)m_handle, nID);
 		}
 
-		//@±¸×¢ ÉèÖÃÊÇ·ñ×Ô¶¯Ïú»Ù²Ëµ¥.  
-		//@²ÎÊı bAuto ÊÇ·ñ×Ô¶¯Ïú»Ù.
-		//@±ğÃû  ÖÃ×Ô¶¯Ïú»Ù()
+		//@å¤‡æ³¨ è®¾ç½®æ˜¯å¦è‡ªåŠ¨é”€æ¯èœå•.  
+		//@å‚æ•° bAuto æ˜¯å¦è‡ªåŠ¨é”€æ¯.
+		//@åˆ«å  ç½®è‡ªåŠ¨é”€æ¯()
 		void SetAutoDestroy(bool bAuto) {
 			XMenu_SetAutoDestroy((HMENUX)m_handle, bAuto);
 		}
 
-		//@±¸×¢ ÊÇ·ñÓĞÓÃ»§»æÖÆ²Ëµ¥±³¾°,Èç¹ûÆôÓÃXWM_MENU_DRAW_BACKGROUNDºÍXE_MENU_DRAW_BACKGROUNDÊÂ¼şÓĞĞ§.  
-		//@²ÎÊı bEnable ÊÇ·ñÆôÓÃ.
-		//@±ğÃû  ÆôÓÃÓÃ»§»æÖÆ±³¾°()
+		//@å¤‡æ³¨ æ˜¯å¦æœ‰ç”¨æˆ·ç»˜åˆ¶èœå•èƒŒæ™¯,å¦‚æœå¯ç”¨XWM_MENU_DRAW_BACKGROUNDå’ŒXE_MENU_DRAW_BACKGROUNDäº‹ä»¶æœ‰æ•ˆ.  
+		//@å‚æ•° bEnable æ˜¯å¦å¯ç”¨.
+		//@åˆ«å  å¯ç”¨ç”¨æˆ·ç»˜åˆ¶èƒŒæ™¯()
 		void EnableDrawBackground(bool bEnable) {
 			XMenu_EnableDrawBackground((HMENUX)m_handle, bEnable);
 		}
 
-		//@±¸×¢ ÊÇ·ñÓĞÓÃ»§»æÖÆ²Ëµ¥Ïî,Èç¹ûÆôÓÃXWM_MENU_DRAWITEMºÍXE_MENU_DRAWITEMÊÂ¼şÓĞĞ§.  
-		//@²ÎÊı bEnable ÊÇ·ñÆôÓÃ.
-		//@±ğÃû  ÆôÓÃÓÃ»§»æÖÆÏî()
+		//@å¤‡æ³¨ æ˜¯å¦æœ‰ç”¨æˆ·ç»˜åˆ¶èœå•é¡¹,å¦‚æœå¯ç”¨XWM_MENU_DRAWITEMå’ŒXE_MENU_DRAWITEMäº‹ä»¶æœ‰æ•ˆ.  
+		//@å‚æ•° bEnable æ˜¯å¦å¯ç”¨.
+		//@åˆ«å  å¯ç”¨ç”¨æˆ·ç»˜åˆ¶é¡¹()
 		void EnableDrawItem(bool bEnable) {
 			XMenu_EnableDrawItem((HMENUX)m_handle, bEnable);
 		}
 
-		//@±¸×¢ µ¯³ö²Ëµ¥.  
-		//@²ÎÊı hParentWnd ¸¸´°¿Ú¾ä±ú.
-		//@²ÎÊı x x×ø±ê.
-		//@²ÎÊı y y×ø±ê.
-		//@²ÎÊı hParentEle ¸¸ÔªËØ¾ä±ú,Èç¹û¸ÃÖµ²»ÎªNULL,hParentEleÔªËØ½«½ÓÊÕ²Ëµ¥ÏûÏ¢ÊÂ¼ş,
-		//@²ÎÊı nPosition µ¯³öÎ»ÖÃ,²Î¼ûºê¶¨Òå.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  µ¯³ö()
+		//@å¤‡æ³¨ å¼¹å‡ºèœå•.  
+		//@å‚æ•° hParentWnd çˆ¶çª—å£å¥æŸ„.
+		//@å‚æ•° x xåæ ‡.
+		//@å‚æ•° y yåæ ‡.
+		//@å‚æ•° hParentEle çˆ¶å…ƒç´ å¥æŸ„,å¦‚æœè¯¥å€¼ä¸ä¸ºNULL,hParentEleå…ƒç´ å°†æ¥æ”¶èœå•æ¶ˆæ¯äº‹ä»¶,
+		//@å‚æ•° nPosition å¼¹å‡ºä½ç½®,å‚è§å®å®šä¹‰.
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  å¼¹å‡º()
 		bool Popup(HWND hParentWnd, int x, int y, HELE hParentEle = NULL, menu_popup_position_ nPosition = menu_popup_position_left_top) {
 			return XMenu_Popup((HMENUX)m_handle, hParentWnd, x, y, hParentEle, nPosition);
 		}
 
-		//@±¸×¢ Ïú»Ù²Ëµ¥.  
-		//@±ğÃû  Ïú»Ù()
+		//@å¤‡æ³¨ é”€æ¯èœå•.  
+		//@åˆ«å  é”€æ¯()
 		void DestroyMenu() {
 			XMenu_DestroyMenu((HMENUX)m_handle);
 		}
 
-		//@±¸×¢ ¹Ø±Õ²Ëµ¥.  
-		//@±ğÃû  ¹Ø±Õ()
+		//@å¤‡æ³¨ å…³é—­èœå•.  
+		//@åˆ«å  å…³é—­()
 		void CloseMenu() {
 			XMenu_CloseMenu((HMENUX)m_handle);
 		}
 
-		//@±¸×¢ ÉèÖÃ²Ëµ¥±³¾°Í¼Æ¬.  
-		//@²ÎÊı hImage Í¼Æ¬¾ä±ú.
-		//@±ğÃû  ÖÃ±³¾°Í¼Æ¬()
+		//@å¤‡æ³¨ è®¾ç½®èœå•èƒŒæ™¯å›¾ç‰‡.  
+		//@å‚æ•° hImage å›¾ç‰‡å¥æŸ„.
+		//@åˆ«å  ç½®èƒŒæ™¯å›¾ç‰‡()
 		void SetBkImage(HIMAGE hImage) {
 			XMenu_SetBkImage((HMENUX)m_handle, hImage);
 		}
 
-		//@±¸×¢ ÉèÖÃÏîÎÄ±¾.  
-		//@²ÎÊı nID ÏîID.
-		//@²ÎÊı text ÎÄ±¾ÄÚÈİ.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÖÃÏîÎÄ±¾()
+		//@å¤‡æ³¨ è®¾ç½®é¡¹æ–‡æœ¬.  
+		//@å‚æ•° nID é¡¹ID.
+		//@å‚æ•° text æ–‡æœ¬å†…å®¹.
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  ç½®é¡¹æ–‡æœ¬()
 		bool SetItemText(int nID, const std::wstring& text) {
 			return XMenu_SetItemText((HMENUX)m_handle, nID, text.c_str());
 		}
 
-		//@±¸×¢ »ñÈ¡ÏîÎÄ±¾.  
-		//@²ÎÊı nID ÏîID.
-		//@·µ»Ø ·µ»ØÎÄ±¾ÄÚÈİ
-		//@±ğÃû  È¡ÏîÎÄ±¾()
+		//@å¤‡æ³¨ è·å–é¡¹æ–‡æœ¬.  
+		//@å‚æ•° nID é¡¹ID.
+		//@è¿”å› è¿”å›æ–‡æœ¬å†…å®¹
+		//@åˆ«å  å–é¡¹æ–‡æœ¬()
 		std::wstring GetItemText(int nID) {
 			 auto pText = XMenu_GetItemText((HMENUX)m_handle, nID);
 			 if (!pText)
@@ -176,106 +176,106 @@ namespace xcgui {
 			 return pText;
 		}
 
-		//@±¸×¢ »ñÈ¡ÏîÎÄ±¾³¤¶È,²»°üº¬×Ö·û´®¿ÕÖÕÖ¹·û.  
-		//@²ÎÊı nID ÏîID.
-		//@·µ»Ø ³¤¶È,×Ö·ûÎªµ¥Î».
-		//@±ğÃû  È¡ÏîÎÄ±¾³¤¶È()
+		//@å¤‡æ³¨ è·å–é¡¹æ–‡æœ¬é•¿åº¦,ä¸åŒ…å«å­—ç¬¦ä¸²ç©ºç»ˆæ­¢ç¬¦.  
+		//@å‚æ•° nID é¡¹ID.
+		//@è¿”å› é•¿åº¦,å­—ç¬¦ä¸ºå•ä½.
+		//@åˆ«å  å–é¡¹æ–‡æœ¬é•¿åº¦()
 		int GetItemTextLength(int nID) {
 			return XMenu_GetItemTextLength((HMENUX)m_handle, nID);
 		}
 
-		//@±¸×¢ ÉèÖÃ²Ëµ¥ÏîÍ¼±ê.  
-		//@²ÎÊı nID ÏîID.
-		//@²ÎÊı hIcon ²Ëµ¥ÏîÍ¼±ê¾ä±ú.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÖÃÏîÍ¼±ê()
+		//@å¤‡æ³¨ è®¾ç½®èœå•é¡¹å›¾æ ‡.  
+		//@å‚æ•° nID é¡¹ID.
+		//@å‚æ•° hIcon èœå•é¡¹å›¾æ ‡å¥æŸ„.
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  ç½®é¡¹å›¾æ ‡()
 		bool SetItemIcon(int nID, HIMAGE hIcon) {
 			return XMenu_SetItemIcon((HMENUX)m_handle, nID, hIcon);
 		}
 
-		//@±¸×¢ ÉèÖÃÏî±êÊ¶.  
-		//@²ÎÊı nID ÏîID.
-		//@²ÎÊı uFlags ±êÊ¶²Î¼ûºê¶¨Òå @ref menu_item_flag_.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÖÃÏî±êÖ¾()
+		//@å¤‡æ³¨ è®¾ç½®é¡¹æ ‡è¯†.  
+		//@å‚æ•° nID é¡¹ID.
+		//@å‚æ•° uFlags æ ‡è¯†å‚è§å®å®šä¹‰ @ref menu_item_flag_.
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  ç½®é¡¹æ ‡å¿—()
 		bool SetItemFlags(int nID, int uFlags) {
 			return XMenu_SetItemFlags((HMENUX)m_handle, nID, uFlags);
 		}
 
-		//@±¸×¢ ÉèÖÃÏî¸ß¶È.  
-		//@²ÎÊı height ¸ß¶È.
-		//@±ğÃû  ÖÃÏî¸ß¶È()
+		//@å¤‡æ³¨ è®¾ç½®é¡¹é«˜åº¦.  
+		//@å‚æ•° height é«˜åº¦.
+		//@åˆ«å  ç½®é¡¹é«˜åº¦()
 		void SetItemHeight(int height) {
 			XMenu_SetItemHeight((HMENUX)m_handle, height);
 		}
 
-		//@±¸×¢ »ñÈ¡Ïî¸ß¶È.  
-		//@·µ»Ø ·µ»ØÏî¸ß¶È.
-		//@±ğÃû  È¡Ïî¸ß¶È()
+		//@å¤‡æ³¨ è·å–é¡¹é«˜åº¦.  
+		//@è¿”å› è¿”å›é¡¹é«˜åº¦.
+		//@åˆ«å  å–é¡¹é«˜åº¦()
 		int GetItemHeight() {
 			return XMenu_GetItemHeight((HMENUX)m_handle);
 		}
 
-		//@±¸×¢ ´Ë¿í¶ÈÎªÎÄ±¾ÏÔÊ¾ÇøÓò¿í¶È, ²»°üº¬²à±ßÌõºÍÓëÎÄ±¾¼ä¸ô
-		//@²ÎÊı nID ÏîID
-		//@²ÎÊı nWidth Ö¸¶¨ÎÄ±¾ÇøÓò¿í¶È
-		//@·µ»Ø Èç¹û³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  ÖÃÏî¿í¶È()
+		//@å¤‡æ³¨ æ­¤å®½åº¦ä¸ºæ–‡æœ¬æ˜¾ç¤ºåŒºåŸŸå®½åº¦, ä¸åŒ…å«ä¾§è¾¹æ¡å’Œä¸æ–‡æœ¬é—´éš”
+		//@å‚æ•° nID é¡¹ID
+		//@å‚æ•° nWidth æŒ‡å®šæ–‡æœ¬åŒºåŸŸå®½åº¦
+		//@è¿”å› å¦‚æœæˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  ç½®é¡¹å®½åº¦()
 		bool SetItemWidth(int nID, int nWidth) {
 			return XMenu_SetItemWidth((HMENUX)m_handle, nID, nWidth);
 		}
 
-		//@±¸×¢ ÉèÖÃ²Ëµ¥±ß¿òÑÕÉ«.  
-		//@²ÎÊı crColor ÑÕÉ«Öµ, ÇëÊ¹ÓÃºê: RGBA()
-		//@±ğÃû  ÖÃ±ß¿òÑÕÉ«()
+		//@å¤‡æ³¨ è®¾ç½®èœå•è¾¹æ¡†é¢œè‰².  
+		//@å‚æ•° crColor é¢œè‰²å€¼, è¯·ä½¿ç”¨å®: RGBA()
+		//@åˆ«å  ç½®è¾¹æ¡†é¢œè‰²()
 		void SetBorderColor(COLORREF crColor) {
 			XMenu_SetBorderColor((HMENUX)m_handle, crColor);
 		}
 
-		//@±¸×¢ ÉèÖÃµ¯³ö²Ëµ¥´°¿Ú±ß¿ò´óĞ¡.  
-		//@²ÎÊı nLeft ±ß´óĞ¡.
-		//@²ÎÊı nTop ±ß´óĞ¡.
-		//@²ÎÊı nRight ±ß´óĞ¡.
-		//@²ÎÊı nBottom ±ß´óĞ¡.
-		//@±ğÃû  ÖÃ±ß¿ò´óĞ¡()
+		//@å¤‡æ³¨ è®¾ç½®å¼¹å‡ºèœå•çª—å£è¾¹æ¡†å¤§å°.  
+		//@å‚æ•° nLeft è¾¹å¤§å°.
+		//@å‚æ•° nTop è¾¹å¤§å°.
+		//@å‚æ•° nRight è¾¹å¤§å°.
+		//@å‚æ•° nBottom è¾¹å¤§å°.
+		//@åˆ«å  ç½®è¾¹æ¡†å¤§å°()
 		void SetBorderSize(int nLeft, int nTop, int nRight, int nBottom) {
 			XMenu_SetBorderSize((HMENUX)m_handle, nLeft, nTop, nRight, nBottom);
 		}
 
-		//@±¸×¢ »ñÈ¡×ó²àÇøÓò¿í¶È.  
-		//@·µ»Ø ·µ»Ø×ó²àÇøÓò¿í¶È.
-		//@±ğÃû  È¡×ó²à¿í¶È()
+		//@å¤‡æ³¨ è·å–å·¦ä¾§åŒºåŸŸå®½åº¦.  
+		//@è¿”å› è¿”å›å·¦ä¾§åŒºåŸŸå®½åº¦.
+		//@åˆ«å  å–å·¦ä¾§å®½åº¦()
 		int GetLeftWidth() {
 			return XMenu_GetLeftWidth((HMENUX)m_handle);
 		}
 
-		//@±¸×¢ »ñÈ¡²Ëµ¥ÏîÎÄ±¾×ó¼ä¸ô.  
-		//@·µ»Ø ·µ»Ø²Ëµ¥ÏîÎÄ¼ş×ó¼ä¸ô´óĞ¡.
-		//@±ğÃû  È¡×ó²àÎÄ±¾¼ä¸ô()
+		//@å¤‡æ³¨ è·å–èœå•é¡¹æ–‡æœ¬å·¦é—´éš”.  
+		//@è¿”å› è¿”å›èœå•é¡¹æ–‡ä»¶å·¦é—´éš”å¤§å°.
+		//@åˆ«å  å–å·¦ä¾§æ–‡æœ¬é—´éš”()
 		int GetLeftSpaceText() {
 			return XMenu_GetLeftSpaceText((HMENUX)m_handle);
 		}
 
-		//@±¸×¢ »ñÈ¡²Ëµ¥ÏîÊıÁ¿,°üº¬×Ó²Ëµ¥Ïî.  
-		//@·µ»Ø ²Ëµ¥ÏîÊıÁ¿.
-		//@±ğÃû  È¡ÏîÊıÁ¿()
+		//@å¤‡æ³¨ è·å–èœå•é¡¹æ•°é‡,åŒ…å«å­èœå•é¡¹.  
+		//@è¿”å› èœå•é¡¹æ•°é‡.
+		//@åˆ«å  å–é¡¹æ•°é‡()
 		int GetItemCount() {
 			return XMenu_GetItemCount((HMENUX)m_handle);
 		}
 
-		//@±¸×¢ ÉèÖÃ²Ëµ¥Ïî¹´Ñ¡×´Ì¬.  
-		//@²ÎÊı nID ²Ëµ¥ÏîID
-		//@²ÎÊı bCheck ¹´Ñ¡TRUE,·Ç¹´Ñ¡FALSE
-		//@·µ»Ø Èç¹û¹´Ñ¡·µ»ØTRUE,·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÖÃÏî¹´Ñ¡()
+		//@å¤‡æ³¨ è®¾ç½®èœå•é¡¹å‹¾é€‰çŠ¶æ€.  
+		//@å‚æ•° nID èœå•é¡¹ID
+		//@å‚æ•° bCheck å‹¾é€‰TRUE,éå‹¾é€‰FALSE
+		//@è¿”å› å¦‚æœå‹¾é€‰è¿”å›TRUE,å¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  ç½®é¡¹å‹¾é€‰()
 		bool SetItemCheck(int nID, bool bCheck) {
 			return XMenu_SetItemCheck((HMENUX)m_handle, nID, bCheck);
 		}
 
-		//@±¸×¢ ÅĞ¶Ï²Ëµ¥ÏîÊÇ·ñ¹´Ñ¡.  
-		//@²ÎÊı nID ²Ëµ¥ÏîID
-		//@·µ»Ø Èç¹û¹´Ñ¡·µ»ØTRUE,·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÊÇ·ñÏî¹´Ñ¡()
+		//@å¤‡æ³¨ åˆ¤æ–­èœå•é¡¹æ˜¯å¦å‹¾é€‰.  
+		//@å‚æ•° nID èœå•é¡¹ID
+		//@è¿”å› å¦‚æœå‹¾é€‰è¿”å›TRUE,å¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  æ˜¯å¦é¡¹å‹¾é€‰()
 		bool IsItemCheck(int nID) {
 			return XMenu_IsItemCheck((HMENUX)m_handle, nID);
 		}

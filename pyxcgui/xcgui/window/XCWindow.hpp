@@ -43,44 +43,44 @@ namespace xcgui {
 		}
 
 
-		// hWnd Òª¸½¼ÓµÄÍâ²¿´°¿Ú¾ä±ú
+		// hWnd è¦é™„åŠ çš„å¤–éƒ¨çª—å£å¥æŸ„
 		virtual bool Attach(uintptr_t hWnd, int style)
 		{
 			m_handle = XWnd_Attach((HWND)hWnd, style);
 			return m_handle;
 		}
 
-		// 	Ìí¼Ó×Ó¶ÔÏóµ½´°¿Ú 
+		// 	æ·»åŠ å­å¯¹è±¡åˆ°çª—å£ 
 		bool AddChild(const XCObjectUI& child) 
 		{
 			return XWnd_AddChild(GetWindowHandle(), child.GetHandle());
 		}
 
-		// 	²åÈë×Ó¶ÔÏóµ½Ö¸¶¨Î»ÖÃ
+		// 	æ’å…¥å­å¯¹è±¡åˆ°æŒ‡å®šä½ç½®
 		bool InsertChild(const XCObjectUI& child, int index)
 		{
 			return XWnd_InsertChild(GetWindowHandle(), child.GetHandle(), index);
 		}
 
-		// ÖØ»æ´°¿Ú
+		// é‡ç»˜çª—å£
 		void Redraw(bool bImmediate = false)
 		{
 			XWnd_Redraw(GetWindowHandle(), bImmediate);
 		}
 
-		// ÖØ»æ´°¿ÚÖ¸¶¨ÇøÓò
+		// é‡ç»˜çª—å£æŒ‡å®šåŒºåŸŸ
 		void RedrawRect(const XCRect& rect, bool bImmediate = false)
 		{
 			return XWnd_RedrawRect(GetWindowHandle(), (RECT*)&rect, bImmediate);
 		}
 
-		// ÉèÖÃ½¹µãÔªËØ
+		// è®¾ç½®ç„¦ç‚¹å…ƒç´ 
 		void SetFoucsEle(const XCObjectUI& ele) 
 		{
 			XWnd_SetFocusEle(GetWindowHandle(), (HELE)ele.GetHandle());
 		}
 
-		// »ñµÃÓµÓĞÊäÈë½¹µãµÄÔªËØ
+		// è·å¾—æ‹¥æœ‰è¾“å…¥ç„¦ç‚¹çš„å…ƒç´ 
 		HELE GetFocusEle() const
 		{
 			auto winHandle = GetWindowHandle();
@@ -90,7 +90,7 @@ namespace xcgui {
 			return XWnd_GetFocusEle(winHandle);
 		}
 
-		// »ñÈ¡µ±Ç°Êó±êËùÍ£ÁôÔªËØ
+		// è·å–å½“å‰é¼ æ ‡æ‰€åœç•™å…ƒç´ 
 		HELE GetStayEle() const 
 		{
 			auto winHandle = GetWindowHandle();
@@ -99,181 +99,181 @@ namespace xcgui {
 			return XWnd_GetStayEle(GetWindowHandle());
 		}
 
-		//  ÔÚ×Ô»æÊÂ¼şº¯ÊıÖĞ,ÓÃ»§ÊÖ¶¯µ÷ÓÃ»æÖÆ´°¿Ú,ÒÔ±ã¿ØÖÆ»æÖÆË³Ğò
+		//  åœ¨è‡ªç»˜äº‹ä»¶å‡½æ•°ä¸­,ç”¨æˆ·æ‰‹åŠ¨è°ƒç”¨ç»˜åˆ¶çª—å£,ä»¥ä¾¿æ§åˆ¶ç»˜åˆ¶é¡ºåº
 		void DrawWindow(HDRAW hDraw) 
 		{
 			XWnd_DrawWindow(GetWindowHandle(), hDraw);
 		}
 
-		// ¾ÓÖĞ´°¿Ú
+		// å±…ä¸­çª—å£
 		void Center() {
 			XWnd_Center(GetWindowHandle());
 		}
 
-		// ¾ÓÖĞÀ©Õ¹
+		// å±…ä¸­æ‰©å±•
 		void CenterEx(int width, int height) {
 			XWnd_CenterEx(GetWindowHandle(), width, height);
 		}
 
 
-		// ÉèÖÃ´°¿ÚÊó±ê¹â±ê
+		// è®¾ç½®çª—å£é¼ æ ‡å…‰æ ‡
 		void SetCursor(HCURSOR hCursor) {
 			XWnd_SetCursor(GetWindowHandle(), hCursor);
 		}
 
 
-		// »ñÈ¡´°¿ÚµÄÊó±ê¹â±ê
+		// è·å–çª—å£çš„é¼ æ ‡å…‰æ ‡
 		HCURSOR GetCursor() { 
 			return XWnd_GetCursor(GetWindowHandle());
 		}
 
-		// »ñÈ¡HWND¾ä±ú
+		// è·å–HWNDå¥æŸ„
 		HWND GetHWND() { 
 			return XWnd_GetHWND(GetWindowHandle());
 		}
 
-		// ÆôÓÃÍÏ¶¯´°¿Ú±ß¿ò
+		// å¯ç”¨æ‹–åŠ¨çª—å£è¾¹æ¡†
 		void EnableDragBorder(bool bEnable) { 
 			XWnd_EnableDragBorder(GetWindowHandle(), bEnable);
 		}
 
-		// ÆôÓÃÍÏ¶¯´°¿Ú
+		// å¯ç”¨æ‹–åŠ¨çª—å£
 		void EnableDragWindow(bool bEnable) { 
 			XWnd_EnableDragWindow(GetWindowHandle(), bEnable); 
 		}
 
-		// ÆôÓÃÍÏ¶¯´°¿Ú±êÌâÀ¸
+		// å¯ç”¨æ‹–åŠ¨çª—å£æ ‡é¢˜æ 
 		void EnableDragCaption(bool bEnable) { 
 			XWnd_EnableDragCaption(GetWindowHandle(), bEnable);
 		}
 
-		// ÊÇ·ñ»æÖÆ´°¿Ú±³¾°
+		// æ˜¯å¦ç»˜åˆ¶çª—å£èƒŒæ™¯
 		void EnableDrawBk(bool bEnable) {
 			XWnd_EnableDrawBk(GetWindowHandle(), bEnable); 
 		}
 
-		// ÆôÓÃ×Ô¶¯½¹µã(µ±Êó±ê×ó¼ü°´ÏÂÊÇ·ñ»ñµÃ½¹µã.)
+		// å¯ç”¨è‡ªåŠ¨ç„¦ç‚¹(å½“é¼ æ ‡å·¦é”®æŒ‰ä¸‹æ˜¯å¦è·å¾—ç„¦ç‚¹.)
 		void EnableAutoFocus(bool bEnable) { 
 			XWnd_EnableAutoFocus(GetWindowHandle(), bEnable);
 		}
 
-		// ÔÊĞí´°¿Ú×î´ó»¯
+		// å…è®¸çª—å£æœ€å¤§åŒ–
 		void EnableMaxWindow(bool bEnable) { 
 			XWnd_EnableMaxWindow(GetWindowHandle(), bEnable);
 		}
 
-		// ÏŞÖÆ´°¿Ú×îĞ¡ºÍ×î´ó³ß´ç
+		// é™åˆ¶çª—å£æœ€å°å’Œæœ€å¤§å°ºå¯¸
 		void EnablemLimitWindowSize(bool bEnable) { 
 			XWnd_EnablemLimitWindowSize(GetWindowHandle(), bEnable); 
 		}
 
-		// ÆôÓÃÍÏ·ÅÎÄ¼ş
+		// å¯ç”¨æ‹–æ”¾æ–‡ä»¶
 		void EnableDragFiles(bool bEnable) { 
 			XWnd_EnableDragFiles(GetWindowHandle(), bEnable);
 		}
 
-		// ÆôÓÃ²¼¾Ö¹¦ÄÜ
+		// å¯ç”¨å¸ƒå±€åŠŸèƒ½
 		void EnableLayout(bool bEnable) {
 			XWnd_EnableLayout(GetWindowHandle(), bEnable);
 		}
 
-		// ÆôÓÃ²¼¾Ö¸²¸Ç±ß¿ò
+		// å¯ç”¨å¸ƒå±€è¦†ç›–è¾¹æ¡†
 		void EnableLayoutOverlayBorder(bool bEnable) { 
 			XWnd_EnableLayoutOverlayBorder(GetWindowHandle(), bEnable);
 		}
 
-		// ÏÔÊ¾²¼¾Ö±ß½ç
+		// æ˜¾ç¤ºå¸ƒå±€è¾¹ç•Œ
 		void ShowLayoutFrame(bool bEnable) { 
 			XWnd_ShowLayoutFrame(GetWindowHandle(), bEnable);
 		}
 
-		// ÅĞ¶ÏÊÇ·ñÆôÓÃ²¼¾Ö
+		// åˆ¤æ–­æ˜¯å¦å¯ç”¨å¸ƒå±€
 		bool IsEnableLayout() { 
 			return XWnd_IsEnableLayout(GetWindowHandle());
 		}
 
-		// ÊÇ·ñ×î´ó»¯
+		// æ˜¯å¦æœ€å¤§åŒ–
 		bool IsMaxWindow() { 
 			return XWnd_IsMaxWindow(GetWindowHandle()); 
 		}
 
-		// ÊÇ·ñ¿ÉÍÏ¶¯±ß¿ò
+		// æ˜¯å¦å¯æ‹–åŠ¨è¾¹æ¡†
 		bool IsDragBorder() { 
 			return XWnd_IsDragBorder(GetWindowHandle());
 		}
 
-		// ÊÇ·ñ¿ÉÍÏ¶¯±êÌâÀ¸
+		// æ˜¯å¦å¯æ‹–åŠ¨æ ‡é¢˜æ 
 		bool IsDragCaption() { 
 			return XWnd_IsDragCaption(GetWindowHandle());
 		}
 
-		// ÉèÖÃÊó±ê²¶»ñÔªËØ
+		// è®¾ç½®é¼ æ ‡æ•è·å…ƒç´ 
 		void SetCaptureEle(HELE hEle) { 
 			XWnd_SetCaptureEle(GetWindowHandle(), hEle);
 		}
 
-		// »ñÈ¡µ±Ç°Êó±ê²¶»ñÔªËØ
+		// è·å–å½“å‰é¼ æ ‡æ•è·å…ƒç´ 
 		HELE GetCaptureEle() { 
 			return XWnd_GetCaptureEle(GetWindowHandle());
 		}
 
-		// »ñÈ¡ÖØ»æÇøÓò
+		// è·å–é‡ç»˜åŒºåŸŸ
 		void GetDrawRect(RECT* pRcPaint) { 
 			XWnd_GetDrawRect(GetWindowHandle(), pRcPaint);
 		}
 
-		// 	ÏÔÊ¾Òş²Ø´°¿Ú
+		// 	æ˜¾ç¤ºéšè—çª—å£
 		void Show(bool bShow) { 
 			XWnd_Show(GetWindowHandle(), bShow); 
 		}
 
-		// ÏÔÊ¾Òş²Ø¼°¿ØÖÆ´°¿Ú×î´ó»¯»¹Ô­µÈ
+		// æ˜¾ç¤ºéšè—åŠæ§åˆ¶çª—å£æœ€å¤§åŒ–è¿˜åŸç­‰
 		bool ShowWindow(int showType = SW_SHOW)
 		{
 			return XWnd_ShowWindow(GetWindowHandle(), showType);
 		}
 
-		// ÏµÍ³º¯Êı,ÉèÖÃ´°¿ÚÀà¹â±ê¾ä±ú
+		// ç³»ç»Ÿå‡½æ•°,è®¾ç½®çª—å£ç±»å…‰æ ‡å¥æŸ„
 		HCURSOR SetCursorSys(HCURSOR hCursor) { 
 			return XWnd_SetCursorSys(GetWindowHandle(), hCursor);
 		}
 
-		// ÉèÖÃ´°¿Ú×ÖÌå
+		// è®¾ç½®çª—å£å­—ä½“
 		void SetFont(HFONTX hFontx) { 
 			XWnd_SetFont(GetWindowHandle(), hFontx); 
 		}
 
-		// ÉèÖÃÎÄ±¾ÑÕÉ«
+		// è®¾ç½®æ–‡æœ¬é¢œè‰²
 		void SetTextColor(COLORREF color) { 
 			XWnd_SetTextColor(GetWindowHandle(), color); 
 		}
 
-		// »ñÈ¡ÎÄ±¾ÑÕÉ«
+		// è·å–æ–‡æœ¬é¢œè‰²
 		COLORREF GetTextColor() { 
 			return XWnd_GetTextColor(GetWindowHandle());
 		}
 
-		// »ñÈ¡ÎÄ±¾ÑÕÉ«,ÓÅÏÈ´Ó×ÊÔ´ÖĞ»ñÈ¡
+		// è·å–æ–‡æœ¬é¢œè‰²,ä¼˜å…ˆä»èµ„æºä¸­è·å–
 		COLORREF GetTextColorEx() { 
 			return XWnd_GetTextColorEx(GetWindowHandle()); 
 		}
 
-		// ÉèÖÃ´°¿ÚID
+		// è®¾ç½®çª—å£ID
 		void SetID(int nID) { 
 			XWnd_SetID(GetWindowHandle(), nID);
 		}
 
-		// »ñÈ¡´°¿ÚID
+		// è·å–çª—å£ID
 		int GetID() { 
 			return XWnd_GetID(GetWindowHandle());
 		}
 
-		// ÉèÖÃ´°¿Úname
+		// è®¾ç½®çª—å£name
 		void SetName(const std::wstring& name) { 
 			XWnd_SetName(GetWindowHandle(), name.c_str());
 		}
 
-		// »ñÈ¡´°¿Úname
+		// è·å–çª—å£name
 		std::wstring GetName() { 
 			auto pName = XWnd_GetName(GetWindowHandle());
 			if (!pName) {
@@ -282,62 +282,62 @@ namespace xcgui {
 			return pName;
 		}
 
-		// ÉèÖÃ±ß´óĞ¡
+		// è®¾ç½®è¾¹å¤§å°
 		void SetBorderSize(int left, int top, int right, int bottom) { 
 			XWnd_SetBorderSize(GetWindowHandle(), left, top, right, bottom); 
 		}
 
-		// »ñÈ¡±ß´óĞ¡
+		// è·å–è¾¹å¤§å°
 		void GetBorderSize(borderSize_* pBorder) { 
 			XWnd_GetBorderSize(GetWindowHandle(), pBorder);
 		}
 
-		// ÖÃÄÚÌî³ä´óĞ¡
+		// ç½®å†…å¡«å……å¤§å°
 		void SetPadding(int left, int top, int right, int bottom) { 
 			XWnd_SetPadding(GetWindowHandle(), left, top, right, bottom);
 		}
 
-		// ÉèÖÃ´°¿ÚÍÏ¶¯±ß¿ò´óĞ¡
+		// è®¾ç½®çª—å£æ‹–åŠ¨è¾¹æ¡†å¤§å°
 		void SetDragBorderSize(int left, int top, int right, int bottom) { 
 			XWnd_SetDragBorderSize(GetWindowHandle(), left, top, right, bottom);
 		}
 
-		// »ñÈ¡´°¿ÚÍÏ¶¯±ß¿ò´óĞ¡
+		// è·å–çª—å£æ‹–åŠ¨è¾¹æ¡†å¤§å°
 		void GetDragBorderSize(borderSize_* pSize) { 
 			XWnd_GetDragBorderSize(GetWindowHandle(), pSize); 
 		}
 
-		//  ÖÃ±êÌâÍâ¼ä¾à
+		//  ç½®æ ‡é¢˜å¤–é—´è·
 		void SetCaptionMargin(int left, int top, int right, int bottom) { 
 			XWnd_SetCaptionMargin(GetWindowHandle(), left, top, right, bottom);
 		}
 
-		// ÉèÖÃ´°¿ÚµÄ×îĞ¡¿í¶ÈºÍ¸ß¶È
+		// è®¾ç½®çª—å£çš„æœ€å°å®½åº¦å’Œé«˜åº¦
 		void SetMinimumSize(int width, int height) { 
 			XWnd_SetMinimumSize(GetWindowHandle(), width, height); 
 		}
 
-		// ¼ì²âËùÔÚÔªËØ
+		// æ£€æµ‹æ‰€åœ¨å…ƒç´ 
 		HELE HitChildEle(POINT* pPt) { 
 			return XWnd_HitChildEle(GetWindowHandle(), pPt);
 		}
 
-		// »ñÈ¡µ±Ç°²ã×Ó¶ÔÏóÊıÁ¿,²»°üº¬×ÓÔªËØµÄ×ÓÔªËØ
+		// è·å–å½“å‰å±‚å­å¯¹è±¡æ•°é‡,ä¸åŒ…å«å­å…ƒç´ çš„å­å…ƒç´ 
 		int GetChildCount() { 
 			return XWnd_GetChildCount(GetWindowHandle());
 		}
 
-		// »ñÈ¡µ±Ç°²ã×ÓÔªËØÍ¨¹ıË÷Òı
+		// è·å–å½“å‰å±‚å­å…ƒç´ é€šè¿‡ç´¢å¼•
 		HXCGUI GetChildByIndex(int index) { 
 			return XWnd_GetChildByIndex(GetWindowHandle(), index);
 		}
 
-		// »ñÈ¡µ±Ç°²ã×Ó¶ÔÏóÍ¨¹ı¶ÔÏóID
+		// è·å–å½“å‰å±‚å­å¯¹è±¡é€šè¿‡å¯¹è±¡ID
 		HXCGUI GetChildByID(int nID) { 
 			return XWnd_GetChildByID(GetWindowHandle(), nID); 
 		}
 
-		// »ñÈ¡×Ó¶ÔÏóÍ¨¹ı¶ÔÏóID,Èç¹û¶ÔÏó²»ÔÚ¸Ã´°¿ÚÉÏÎŞĞ§
+		// è·å–å­å¯¹è±¡é€šè¿‡å¯¹è±¡ID,å¦‚æœå¯¹è±¡ä¸åœ¨è¯¥çª—å£ä¸Šæ— æ•ˆ
 		HXCGUI FindChildByID(int nID) { 
 			return XWnd_GetChild(GetWindowHandle(), nID); 
 		}
@@ -346,32 +346,32 @@ namespace xcgui {
 			return XC_GetObjectByIDName(GetWindowHandle(), name.c_str());
 		}
 		
-		// ÖÃÍ¼±ê
+		// ç½®å›¾æ ‡
 		void SetIcon(HIMAGE hImage) { 
 			XWnd_SetIcon(GetWindowHandle(), hImage);
 		}
 
-		// ÖÃ±êÌâ
+		// ç½®æ ‡é¢˜
 		void SetTitle(const std::wstring& title) { 
 			XWnd_SetTitle(GetWindowHandle(), title.c_str());
 		}
 
-		// ÖÃ±êÌâÑÕÉ«
+		// ç½®æ ‡é¢˜é¢œè‰²
 		void SetTitleColor(COLORREF color) { 
 			XWnd_SetTitleColor(GetWindowHandle(), color);
 		}
 
-		// È¡¿ØÖÆ°´Å¥ nFlag ¿ÉÓÃÖµ: @ref window_style_btn_min , @ref window_style_btn_max , @ref window_style_btn_close
+		// å–æ§åˆ¶æŒ‰é’® nFlag å¯ç”¨å€¼: @ref window_style_btn_min , @ref window_style_btn_max , @ref window_style_btn_close
 		HELE GetButton(int nFlag) { 
 			return XWnd_GetButton(GetWindowHandle(), nFlag);
 		}
 
-		// ·µ»ØÍ¼±ê¾ä±ú
+		// è¿”å›å›¾æ ‡å¥æŸ„
 		HIMAGE GetIcon() { 
 			return XWnd_GetIcon(GetWindowHandle());
 		}
 
-		// È¡±êÌâ
+		// å–æ ‡é¢˜
 		std::wstring GetTitle() { 
 			auto pTitle = XWnd_GetTitle(GetWindowHandle()); 
 			if (!pTitle) {
@@ -380,148 +380,148 @@ namespace xcgui {
 			return pTitle;
 		}
 
-		// È¡±êÌâÑÕÉ«
+		// å–æ ‡é¢˜é¢œè‰²
 		COLORREF GetTitleColor() { 
 			return XWnd_GetTitleColor(GetWindowHandle());
 		}
 
-		// ¹Ø±Õ´°¿Ú
+		// å…³é—­çª—å£
 		void CloseWindow() { 
 			XWnd_CloseWindow(GetWindowHandle()); 
 		}
 
-		// µ÷Õû´°¿Ú²¼¾Ö
+		// è°ƒæ•´çª—å£å¸ƒå±€
 		void AdjustLayout() { 
 			XWnd_AdjustLayout(GetWindowHandle());
 		}
 
-		// µ÷Õû²¼¾ÖÀ©Õ¹
+		// è°ƒæ•´å¸ƒå±€æ‰©å±•
 		void AdjustLayoutEx(adjustLayout_ nFlags = adjustLayout_self) {
 			XWnd_AdjustLayoutEx(GetWindowHandle(), nFlags); 
 		}
 
-		// ´´½¨²åÈë·û,»ùÓÚÔªËØ×ø±ê
+		// åˆ›å»ºæ’å…¥ç¬¦,åŸºäºå…ƒç´ åæ ‡
 		void CreateCaret(HELE hEle, int x, int y, int width, int height) { 
 			XWnd_CreateCaret(GetWindowHandle(), hEle, x, y, width, height); 
 		}
 
-		// 	ÉèÖÃ²åÈë·ûÎ»ÖÃ
+		// 	è®¾ç½®æ’å…¥ç¬¦ä½ç½®
 		void SetCaretPos(int x, int y, int width, int height, bool bUpdate = false) { 
 			XWnd_SetCaretPos(GetWindowHandle(), x, y, width, height, bUpdate);
 		}
 		
-		// ÉèÖÃ²åÈë·ûÑÕÉ«
+		// è®¾ç½®æ’å…¥ç¬¦é¢œè‰²
 		void SetCaretColor(COLORREF color) { 
 			XWnd_SetCaretColor(GetWindowHandle(), color);
 		}
 
 
-		// ÏÔÊ¾²åÈë·û
+		// æ˜¾ç¤ºæ’å…¥ç¬¦
 		void ShowCaret(bool bShow) { 
 			XWnd_ShowCaret(GetWindowHandle(), bShow);
 		}
 
-		// ·µ»Ø²åÈë·ûÔªËØ
+		// è¿”å›æ’å…¥ç¬¦å…ƒç´ 
 		HELE GetCaretHELE() { 
 			return XWnd_GetCaretHELE(GetWindowHandle());
 		}
 
-		// »ñÈ¡²åÈë·ûĞÅÏ¢
+		// è·å–æ’å…¥ç¬¦ä¿¡æ¯
 		HELE GetCaretInfo(int* pX, int* pY, int* pWidth, int* pHeight) { 
 			return XWnd_GetCaretInfo(GetWindowHandle(), pX, pY, pWidth, pHeight); 
 		}
 
-		// Ïú»Ù²åÈë·û
+		// é”€æ¯æ’å…¥ç¬¦
 		void DestroyCaret() { 
 			XWnd_DestroyCaret(GetWindowHandle()); 
 		}
 
-		// »ñÈ¡´°¿Ú¿Í»§Çø×ø±ê;Èç¹ûÊÇÒõÓ°´°¿Ú,ÄÇÃ´²»°üº¬ÒõÓ°²¿·Ö
+		// è·å–çª—å£å®¢æˆ·åŒºåæ ‡;å¦‚æœæ˜¯é˜´å½±çª—å£,é‚£ä¹ˆä¸åŒ…å«é˜´å½±éƒ¨åˆ†
 		bool GetClientRect(RECT* pRect) { 
 			return XWnd_GetClientRect(GetWindowHandle(), pRect); 
 		}
 
-		// »ñÈ¡body×ø±ê
+		// è·å–bodyåæ ‡
 		void GetBodyRect(RECT* pRect) { 
 			XWnd_GetBodyRect(GetWindowHandle(), pRect);
 		}
 
-		// È¡²¼¾Ö×ø±ê
+		// å–å¸ƒå±€åæ ‡
 		void GetLayoutRect(RECT* pRect) { 
 			XWnd_GetLayoutRect(GetWindowHandle(), pRect); 
 		}
 
-		// ÒÆ¶¯´°¿Ú
+		// ç§»åŠ¨çª—å£
 		void SetPosition(int x, int y) { 
 			XWnd_SetPosition(GetWindowHandle(), x, y); 
 		}
 
-		// È¡×ø±ê
+		// å–åæ ‡
 		void GetRect(RECT* pRect) { 
 			XWnd_GetRect(GetWindowHandle(), pRect);
 		}
 
-		// ÖÃ×ø±ê
+		// ç½®åæ ‡
 		void SetRect(RECT* pRect) { 
 			XWnd_SetRect(GetWindowHandle(), pRect);
 		}
 
-		// ÖÃ¶¥
+		// ç½®é¡¶
 		void SetTop() { 
 			XWnd_SetTop(GetWindowHandle()); 
 		}
 
-		//  ×î´ó»¯
+		//  æœ€å¤§åŒ–
 		void MaxWindow(bool bMaximize) { 
 			XWnd_MaxWindow(GetWindowHandle(), bMaximize);
 		}
 
-		// ÉèÖÃ´°¿Ú¶¨Ê±Æ÷
+		// è®¾ç½®çª—å£å®šæ—¶å™¨
 		UINT SetTimer(UINT nIDEvent, UINT uElapse) { 
 			return XWnd_SetTimer(GetWindowHandle(), nIDEvent, uElapse); 
 		}
 
-		// ¹Ø±Õ¶¨Ê±Æ÷
+		// å…³é—­å®šæ—¶å™¨
 		bool KillTimer(UINT nIDEvent) { 
 			return XWnd_KillTimer(GetWindowHandle(), nIDEvent);
 		}
 
-		// ÉèÖÃìÅ²Ê´°¿Ú¶¨Ê±Æ÷
+		// è®¾ç½®ç‚«å½©çª—å£å®šæ—¶å™¨
 		bool SetXCTimer(UINT nIDEvent, UINT uElapse) { 
 			return XWnd_SetXCTimer(GetWindowHandle(), nIDEvent, uElapse);
 		}
 
-		// ¹Ø±ÕìÅ²Ê´°¿Ú¶¨Ê±Æ÷
+		// å…³é—­ç‚«å½©çª—å£å®šæ—¶å™¨
 		bool KillXCTimer(UINT nIDEvent) { 
 			return XWnd_KillXCTimer(GetWindowHandle(), nIDEvent);
 		}
 
-		// Ìí¼Ó±³¾°ÄÚÈİ±ß¿ò
+		// æ·»åŠ èƒŒæ™¯å†…å®¹è¾¹æ¡†
 		void AddBkBorder(int nState, COLORREF color, int width) { 
 			XWnd_AddBkBorder(GetWindowHandle(), nState, color, width);
 		}
 
-		// Ìí¼Ó±³¾°ÄÚÈİÌî³ä
+		// æ·»åŠ èƒŒæ™¯å†…å®¹å¡«å……
 		void AddBkFill(int nState, COLORREF color) { 
 			XWnd_AddBkFill(GetWindowHandle(), nState, color);
 		}
 
-		// 	Ìí¼Ó±³¾°ÄÚÈİÍ¼Æ¬
+		// 	æ·»åŠ èƒŒæ™¯å†…å®¹å›¾ç‰‡
 		void AddBkImage(int nState, HIMAGE hImage) { 
 			XWnd_AddBkImage(GetWindowHandle(), nState, hImage);
 		}
 		
-		// ÖÃ±³¾°
+		// ç½®èƒŒæ™¯
 		int SetBkInfo(const std::wstring& text) { 
 			return XWnd_SetBkInfo(GetWindowHandle(), text.c_str());
 		}
 
-		// »ñÈ¡±³¾°ÄÚÈİÊıÁ¿
+		// è·å–èƒŒæ™¯å†…å®¹æ•°é‡
 		int GetBkInfoCount() { 
 			return XWnd_GetBkInfoCount(GetWindowHandle());
 		}
 
-		// Çå¿Õ±³¾°ÄÚÈİ; Èç¹û±³¾°Ã»ÓĞÄÚÈİ,½«Ê¹ÓÃÏµÍ³Ä¬ÈÏÄÚÈİ,ÒÔ±ã±£Ö¤±³¾°ÕıÈ·
+		// æ¸…ç©ºèƒŒæ™¯å†…å®¹; å¦‚æœèƒŒæ™¯æ²¡æœ‰å†…å®¹,å°†ä½¿ç”¨ç³»ç»Ÿé»˜è®¤å†…å®¹,ä»¥ä¾¿ä¿è¯èƒŒæ™¯æ­£ç¡®
 		void ClearBkInfo() { 
 			XWnd_ClearBkInfo(GetWindowHandle());
 		}
@@ -530,42 +530,42 @@ namespace xcgui {
 			return XWnd_GetBkManager(GetWindowHandle()); 
 		}
 
-		// »ñÈ¡±³¾°¹ÜÀíÆ÷,ÓÅÏÈ´Ó×ÊÔ´ÖĞ»ñÈ¡
+		// è·å–èƒŒæ™¯ç®¡ç†å™¨,ä¼˜å…ˆä»èµ„æºä¸­è·å–
 		HBKM GetBkManagerEx() { 
 			return XWnd_GetBkManagerEx(GetWindowHandle());
 		}
 
-		// ÖÃ±³¾°¹ÜÀíÆ÷
+		// ç½®èƒŒæ™¯ç®¡ç†å™¨
 		void SetBkMagager(HBKM hBkInfoM) { 
 			XWnd_SetBkMagager(GetWindowHandle(), hBkInfoM);
 		}
 
-		// ÉèÖÃÍ¸Ã÷´°¿Ú,Í¬Ê±¿ÉÒÔÍ¨¹ı¸Ãº¯Êı¹Ø±ÕÍ¸Ã÷´°¿Ú
+		// è®¾ç½®é€æ˜çª—å£,åŒæ—¶å¯ä»¥é€šè¿‡è¯¥å‡½æ•°å…³é—­é€æ˜çª—å£
 		void SetTransparentType(window_transparent_ nType) { 
 			XWnd_SetTransparentType(GetWindowHandle(), nType);
 		}
 
-		// ÉèÖÃÍ¸Ã÷´°¿ÚµÄÍ¸Ã÷¶È,ÉèÖÃºóµ÷ÓÃÖØ»æ´°¿ÚAPIÀ´¸üĞÂ  alpha ´°¿ÚÍ¸Ã÷¶È,·¶Î§0-255Ö®¼ä,0Í¸Ã÷,255²»Í¸Ã÷
+		// è®¾ç½®é€æ˜çª—å£çš„é€æ˜åº¦,è®¾ç½®åè°ƒç”¨é‡ç»˜çª—å£APIæ¥æ›´æ–°  alpha çª—å£é€æ˜åº¦,èŒƒå›´0-255ä¹‹é—´,0é€æ˜,255ä¸é€æ˜
 		void SetTransparentAlpha(BYTE alpha) { 
 			XWnd_SetTransparentAlpha(GetWindowHandle(), alpha); 
 		}
 
-		// ÉèÖÃÍ¸Ã÷´°¿ÚµÄÍ¸Ã÷É«
+		// è®¾ç½®é€æ˜çª—å£çš„é€æ˜è‰²
 		void SetTransparentColor(COLORREF color) { 
 			XWnd_SetTransparentColor(GetWindowHandle(), color);
 		}
 
-		// ÉèÖÃ´°¿ÚÒõÓ°ĞÅÏ¢
+		// è®¾ç½®çª—å£é˜´å½±ä¿¡æ¯
 		void SetShadowInfo(int nSize, int nDepth, int nAngeleSize, bool bRightAngle, COLORREF color) { 
 			XWnd_SetShadowInfo(GetWindowHandle(), nSize, nDepth, nAngeleSize, bRightAngle, color); 
 		}
 
-		// »ñÈ¡´°¿ÚÒõÓ°ĞÅÏ¢
+		// è·å–çª—å£é˜´å½±ä¿¡æ¯
 		void GetShadowInfo(int* pnSize, int* pnDepth, int* pnAngeleSize, BOOL* pbRightAngle, COLORREF* pColor) { 
 			XWnd_GetShadowInfo(GetWindowHandle(), pnSize, pnDepth, pnAngeleSize, pbRightAngle, pColor); 
 		}
 
-		// »ñÈ¡´°¿ÚÍ¸Ã÷ÀàĞÍ
+		// è·å–çª—å£é€æ˜ç±»å‹
 		window_transparent_ GetTransparentType() { 
 			return XWnd_GetTransparentType(GetWindowHandle()); 
 		}

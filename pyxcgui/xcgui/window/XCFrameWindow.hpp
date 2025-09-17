@@ -30,48 +30,48 @@ namespace xcgui {
 			return m_handle;
 		}
 
-		// ÉèÖÃÖ÷ÊÓÍ¼ÔªËØ
+		// è®¾ç½®ä¸»è§†å›¾å…ƒç´ 
 		void SetView(HELE ele) {
 			XFrameWnd_SetView(GetWindowHandle(), ele);
 		}
 
-		// ÉèÖÃ´°¸ñ×éTabBar¸ß¶È
+		// è®¾ç½®çª—æ ¼ç»„TabBaré«˜åº¦
 		void SetTabBarHeight(int height) {
 			XFrameWnd_SetTabBarHeight(GetWindowHandle(), height);
 		}
 
-		// ÉèÖÃ´°¸ñ·Ö¸ôÌõÑÕÉ«.
+		// è®¾ç½®çª—æ ¼åˆ†éš”æ¡é¢œè‰².
 		void SetPaneSplitBarColor(COLORREF color) {
 			XFrameWnd_SetPaneSplitBarColor(GetWindowHandle(), color);
 		}
 
-		// ±£´æ²¼¾ÖĞÅÏ¢µ½ÎÄ¼ş
+		// ä¿å­˜å¸ƒå±€ä¿¡æ¯åˆ°æ–‡ä»¶
 		bool SaveLayoutToFile(const std::wstring& fileName) {
 			return XFrameWnd_SaveLayoutToFile(GetWindowHandle(), fileName.c_str());
 		}
 
-		// Ìí¼Ó´°¸ñµ½¿ò¼Ü´°¿Ú
+		// æ·»åŠ çª—æ ¼åˆ°æ¡†æ¶çª—å£
 		bool AddPane(HELE paneDest, HELE paneNew, pane_align_ align) {
 			return XFrameWnd_AddPane(GetWindowHandle(), paneDest, paneNew, align);
 		}
 
-		// ºÏ²¢´°¸ñ
+		// åˆå¹¶çª—æ ¼
 		bool MergePane(HELE paneDest, HELE paneNew) {
 			return XFrameWnd_MergePane(GetWindowHandle(), paneDest, paneNew);
 		}
 
-		// ¼ÓÔØ²¼¾ÖĞÅÏ¢ÎÄ¼ş
+		// åŠ è½½å¸ƒå±€ä¿¡æ¯æ–‡ä»¶
 		bool LoadLayoutFile(in_buffer_ HELE* aPaneList, int nPaneCount, const std::wstring& fileName) {
 			return XFrameWnd_LoadLayoutFile(GetWindowHandle(), aPaneList, nPaneCount, fileName.c_str());
 		}
 
-		// ÓÃÀ´²¼¾Ö´°¸ñµÄÇøÓò×ø±ê,²»°üº¬ÂëÍ·
+		// ç”¨æ¥å¸ƒå±€çª—æ ¼çš„åŒºåŸŸåæ ‡,ä¸åŒ…å«ç å¤´
 		void GetLayoutAreaRect(RECT* pRect) {
 			XFrameWnd_GetLayoutAreaRect(GetWindowHandle(), pRect);
 		}
 
 
-		// 3.3.5 ĞÂÔö
+		// 3.3.5 æ–°å¢
 		frameWnd_cell_type_  GetDragFloatWndTopFlag() {
 			return XFrameWnd_GetDragFloatWndTopFlag(GetWindowHandle());
 		}

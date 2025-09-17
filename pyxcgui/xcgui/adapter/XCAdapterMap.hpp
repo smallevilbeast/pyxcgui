@@ -16,68 +16,68 @@ namespace xcgui {
 			m_handle = XAdMap_Create();
 		}
 
-		/// @brief Ôö¼ÓÊı¾İÏî. 
-		/// @param name.c_str() ×Ö¶Î³Æ. 
-		/// @param value.c_str() Öµ. 
-		/// @return ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE. 
+		/// @brief å¢åŠ æ•°æ®é¡¹. 
+		/// @param name.c_str() å­—æ®µç§°. 
+		/// @param value.c_str() å€¼. 
+		/// @return æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE. 
 
 		bool AddItemText(const std::wstring& name, const std::wstring& value)
 		{
 			return XAdMap_AddItemText(m_handle, name.c_str(), value.c_str());
 		}
 
-		/// @brief Ìí¼ÓÏîÍ¼Æ¬. 
-		/// @param name.c_str() Í¼Æ¬¾ä±ú. 
-		/// @param hImage Í¼Æ¬¾ä±ú. 
-		/// @return ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE. 
+		/// @brief æ·»åŠ é¡¹å›¾ç‰‡. 
+		/// @param name.c_str() å›¾ç‰‡å¥æŸ„. 
+		/// @param hImage å›¾ç‰‡å¥æŸ„. 
+		/// @return æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE. 
 		bool AddItemImage(const std::wstring& name, HIMAGE hImage)
 		{
 			return XAdMap_AddItemImage(m_handle, name.c_str(), hImage);;
 		}
 
-		/// @brief É¾³ıÏî
-		/// @param name.c_str() ×Ö¶Î³Æ. 
-		/// @return ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE. 
+		/// @brief åˆ é™¤é¡¹
+		/// @param name.c_str() å­—æ®µç§°. 
+		/// @return æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE. 
 		bool DeleteItem(const std::wstring& name)
 		{
 			return XAdMap_DeleteItem(m_handle, name.c_str());
 		}
-		/// @brief È¡ÏîÊıÁ¿ 
-		/// @return È¡ÏîÊıÁ¿ 
+		/// @brief å–é¡¹æ•°é‡ 
+		/// @return å–é¡¹æ•°é‡ 
 		int GetCount()
 		{
 			return XAdMap_GetCount(m_handle);
 		}
 
-		/// @brief È¡ÏîÎÄ±¾ 
-		/// @param name.c_str() ×Ö¶Î³Æ.  
-		/// @return ·µ»ØÎÄ±¾ÄÚÈİ.
+		/// @brief å–é¡¹æ–‡æœ¬ 
+		/// @param name.c_str() å­—æ®µç§°.  
+		/// @return è¿”å›æ–‡æœ¬å†…å®¹.
 		std::wstring GetItemText(const std::wstring& name)
 		{
 			auto pText = XAdMap_GetItemText(m_handle, name.c_str());
 			if (!pText) return L"";
 			return pText;
 		}
-		/// @brief ·µ»ØÎÄ±¾ÄÚÈİ.
-		/// @param name.c_str() ×Ö¶Î³Æ. 
-		/// @return ·µ»ØÍ¼Æ¬¾ä±ú. 
+		/// @brief è¿”å›æ–‡æœ¬å†…å®¹.
+		/// @param name.c_str() å­—æ®µç§°. 
+		/// @return è¿”å›å›¾ç‰‡å¥æŸ„. 
 		HIMAGE GetItemImage(const std::wstring& name)
 		{
 			return XAdMap_GetItemImage(m_handle, name.c_str());
 		}
 
-		/// @brief ÖÃÏîÎÄ±¾ 
-		/// @param name.c_str() ×Ö¶Î³Æ. 
-		/// @param value.c_str() Öµ. 
-		/// @return ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.  
+		/// @brief ç½®é¡¹æ–‡æœ¬ 
+		/// @param name.c_str() å­—æ®µç§°. 
+		/// @param value.c_str() å€¼. 
+		/// @return æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.  
 		bool SetItemText(const std::wstring& name, const std::wstring& value)
 		{
 			return XAdMap_SetItemText(m_handle, name.c_str(), value.c_str());
 		}
-		/// @brief ÖÃÏîÍ¼Æ¬ 
-		/// @param name.c_str() ÖÃÏîÍ¼Æ¬ 
-		/// @param hImage ÖÃÏîÍ¼Æ¬ 
-		/// @return ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE. 
+		/// @brief ç½®é¡¹å›¾ç‰‡ 
+		/// @param name.c_str() ç½®é¡¹å›¾ç‰‡ 
+		/// @param hImage ç½®é¡¹å›¾ç‰‡ 
+		/// @return æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE. 
 		bool SetItemImage(const std::wstring& name, HIMAGE hImage)
 		{
 			return XAdMap_SetItemImage(m_handle, name.c_str(), hImage);

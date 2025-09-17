@@ -23,97 +23,97 @@ namespace xcgui {
 			return (HIMAGE)m_handle;
 		}
 
-		//  ¼ÓÔØÍ¼Æ¬´ÓÎÄ¼ş
+		//  åŠ è½½å›¾ç‰‡ä»æ–‡ä»¶
 		HIMAGE LoadFile(const std::wstring& fileName) { 
 			m_handle = XImgSrc_LoadFile(fileName.c_str());
 			return (HIMAGE)m_handle;
 		}
 
-		// ¼ÓÔØÍ¼Æ¬,Ö¸¶¨ÇøÎ»ÖÃ¼°´óĞ¡.  
+		// åŠ è½½å›¾ç‰‡,æŒ‡å®šåŒºä½ç½®åŠå¤§å°.  
 		HIMAGE LoadFileRect(const std::wstring& fileName, int x, int y, int cx, int cy) { 
 			m_handle = XImgSrc_LoadFileRect(fileName.c_str(), x, y, cx, cy);
 			return (HIMAGE)m_handle;
 		}
 
-		// ¼ÓÔØÍ¼Æ¬´Ó×ÊÔ´.  
+		// åŠ è½½å›¾ç‰‡ä»èµ„æº.  
 		HIMAGE LoadRes(int id, const std::wstring& typeName, HMODULE hModule) { 
 			m_handle = XImgSrc_LoadRes(id, typeName.c_str(), hModule);
 			return (HIMAGE)m_handle;
 		}
 		
 
-		// ¼ÓÔØÍ¼Æ¬´ÓZIPÑ¹Ëõ°ü. 
+		// åŠ è½½å›¾ç‰‡ä»ZIPå‹ç¼©åŒ…. 
 		HIMAGE LoadZip(const std::wstring& zipFileName, const std::wstring& fileName, const std::wstring& password) { 
 			m_handle = XImgSrc_LoadZip(zipFileName.c_str(), fileName.c_str(), password.c_str());
 			return (HIMAGE)m_handle;
 		}
 		
-		// ¼ÓÔØZIPÍ¼Æ¬,Ö¸¶¨ÇøÎ»ÖÃ¼°´óĞ¡
+		// åŠ è½½ZIPå›¾ç‰‡,æŒ‡å®šåŒºä½ç½®åŠå¤§å°
 		HIMAGE LoadZipRect(const std::wstring& zipFileName, const std::wstring& fileName, const std::wstring& password, int x, int y, int cx, int cy) {
 			m_handle = XImgSrc_LoadZipRect(zipFileName.c_str(), fileName.c_str(), password.c_str(), x, y, cx, cy);
 			return (HIMAGE)m_handle;
 		}
 		
-		// ¼ÓÔØ´ÓÄÚ´æZIP
+		// åŠ è½½ä»å†…å­˜ZIP
 		HIMAGE LoadZipMem(const std::string& data, const std::wstring& fileName, const std::wstring& password) {
 			m_handle = XImgSrc_LoadZipMem((void*)data.c_str(), data.size(), fileName.c_str(), password.c_str());
 			return (HIMAGE)m_handle;
 		}
 		
 
-		// ¼ÓÔØ´ÓÄÚ´æ
+		// åŠ è½½ä»å†…å­˜
 		HIMAGE LoadMemory(const std::string& data) { 
 			m_handle = XImgSrc_LoadMemory((void*)data.c_str(), data.size());
 			return (HIMAGE)m_handle;
 		}
 		
-		// ¼ÓÔØ´ÓÄÚ´æÖ¸¶¨ÇøÓò
+		// åŠ è½½ä»å†…å­˜æŒ‡å®šåŒºåŸŸ
 		HIMAGE LoadMemoryRect(const std::string& data, int x, int y, int cx, int cy) { 
 			m_handle = XImgSrc_LoadMemoryRect((void*)data.c_str(), data.size(), x, y, cx, cy);
 			return (HIMAGE)m_handle;
 		}
 		
-		// ¼ÓÔØÍ¼Æ¬´ÓGDI+µÄImage¶ÔÏó
+		// åŠ è½½å›¾ç‰‡ä»GDI+çš„Imageå¯¹è±¡
 		HIMAGE LoadFromImage(void* pImage) { 
 			m_handle = XImgSrc_LoadFromImage(pImage);
 			return (HIMAGE)m_handle;;
 		}
 
-		// ¼ÓÔØÎÄ¼şÍ¼±ê,´ÓÒ»¸öEXEÎÄ¼ş»òDLLÎÄ¼ş»òÍ¼±êÎÄ¼ş;ÀıÈç:*.exeÎÄ¼şµÄÍ¼±ê
+		// åŠ è½½æ–‡ä»¶å›¾æ ‡,ä»ä¸€ä¸ªEXEæ–‡ä»¶æˆ–DLLæ–‡ä»¶æˆ–å›¾æ ‡æ–‡ä»¶;ä¾‹å¦‚:*.exeæ–‡ä»¶çš„å›¾æ ‡
 		HIMAGE LoadFromExtractIcon(const std::wstring& fileName) {
 			m_handle = XImgSrc_LoadFromExtractIcon(fileName.c_str());
 			return (HIMAGE)m_handle;
 		}
 
 
-		// ´´½¨Ò»¸öìÅ²ÊÍ¼Æ¬¾ä±ú,´ÓÒ»¸öÏÖÓĞµÄÍ¼±ê¾ä±úHICON.  
+		// åˆ›å»ºä¸€ä¸ªç‚«å½©å›¾ç‰‡å¥æŸ„,ä»ä¸€ä¸ªç°æœ‰çš„å›¾æ ‡å¥æŸ„HICON.  
 		HIMAGE LoadFromHICON(HICON hIcon) { 
 			m_handle = XImgSrc_LoadFromHICON(hIcon);
 			return (HIMAGE)m_handle;
 		}
 
-		// ´´½¨Ò»¸öìÅ²ÊÍ¼Æ¬¾ä±ú,´ÓÒ»¸öÏÖÓĞµÄÎ»Í¼¾ä±úHBITMAP.  
+		// åˆ›å»ºä¸€ä¸ªç‚«å½©å›¾ç‰‡å¥æŸ„,ä»ä¸€ä¸ªç°æœ‰çš„ä½å›¾å¥æŸ„HBITMAP.  
 		HIMAGE LoadFromHBITMAP(HBITMAP hBitmap) { 
 			m_handle = XImgSrc_LoadFromHBITMAP(hBitmap);
 			return (HIMAGE)m_handle;
 		}
 
-		// ÆôÓÃ»ò¹Ø±Õ×Ô¶¯Ïú»Ù,µ±ÓëUIÔªËØ¹ØÁªÊ±ÓĞĞ§  
+		// å¯ç”¨æˆ–å…³é—­è‡ªåŠ¨é”€æ¯,å½“ä¸UIå…ƒç´ å…³è”æ—¶æœ‰æ•ˆ  
 		void EnableAutoDestroy(bool bEnable) { 
 			XImgSrc_EnableAutoDestroy((HIMAGE)m_handle, bEnable);
 		}
 
-		// »ñÈ¡Í¼Æ¬¿í¶È
+		// è·å–å›¾ç‰‡å®½åº¦
 		int GetWidth() { 
 			return XImgSrc_GetWidth((HIMAGE)m_handle);
 		}
 
-		// »ñÈ¡Í¼Æ¬¸ß¶È.
+		// è·å–å›¾ç‰‡é«˜åº¦.
 		int GetHeight() { 
 			return XImgSrc_GetHeight((HIMAGE)m_handle);
 		}
 		
-		// »ñÈ¡Í¼Æ¬ÎÄ¼şÃû 
+		// è·å–å›¾ç‰‡æ–‡ä»¶å 
 		std::wstring GetFile() { 
 			auto pFile = XImgSrc_GetFile((HIMAGE)m_handle);
 			if (!pFile)
@@ -121,23 +121,23 @@ namespace xcgui {
 			return pFile;
 		}
 
-		// Ôö¼ÓÒıÓÃ¼ÆÊı.  
+		// å¢åŠ å¼•ç”¨è®¡æ•°.  
 		void AddRef() { 
 			XImgSrc_AddRef((HIMAGE)m_handle);
 		}
 		
-		// ÊÍ·ÅÒıÓÃ¼ÆÊı,µ±ÒıÓÃ¼ÆÊıÎª0Ê±,×Ô¶¯Ïú»Ù
+		// é‡Šæ”¾å¼•ç”¨è®¡æ•°,å½“å¼•ç”¨è®¡æ•°ä¸º0æ—¶,è‡ªåŠ¨é”€æ¯
 		void Release() { 
 			XImgSrc_Release((HIMAGE)m_handle);
 		}
 		
 
-		// »ñÈ¡ÒıÓÃ¼ÆÊı.
+		// è·å–å¼•ç”¨è®¡æ•°.
 		int GetRefCount() { 
 			return XImgSrc_GetRefCount((HIMAGE)m_handle);
 		}
 		
-		// Ç¿ÖÆÏú»ÙÍ¼Æ¬, ½÷É÷Ê¹ÓÃ, ½¨ÒéÊ¹ÓÃ
+		// å¼ºåˆ¶é”€æ¯å›¾ç‰‡, è°¨æ…ä½¿ç”¨, å»ºè®®ä½¿ç”¨
 		void Destroy() { 
 			XImgSrc_Destroy((HIMAGE)m_handle);
 		}

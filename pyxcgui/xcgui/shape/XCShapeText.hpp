@@ -23,68 +23,68 @@ namespace xcgui {
 			return m_handle;
 		}
 
-		//@±¸×¢ ÉèÖÃÎÄ±¾ÄÚÈİ.  
-		//@²ÎÊı name.c_str() ÎÄ±¾ÄÚÈİ.
-		//@±ğÃû  ÖÃÎÄ±¾()
+		//@å¤‡æ³¨ è®¾ç½®æ–‡æœ¬å†…å®¹.  
+		//@å‚æ•° name.c_str() æ–‡æœ¬å†…å®¹.
+		//@åˆ«å  ç½®æ–‡æœ¬()
 		void SetText(const std::wstring& name) {
 			XShapeText_SetText(m_handle, name.c_str());
 		}
 
-		//@±¸×¢ »ñÈ¡ÎÄ±¾ÄÚÈİ.  
-		//@±ğÃû  È¡ÎÄ±¾()
+		//@å¤‡æ³¨ è·å–æ–‡æœ¬å†…å®¹.  
+		//@åˆ«å  å–æ–‡æœ¬()
 		std::wstring GetText() {
 			auto pText = XShapeText_GetText(m_handle);
 			if (!pText) return L"";
 			return pText;
 		}
 
-		//@±¸×¢ »ñÈ¡ÎÄ±¾³¤¶È.  
-		//@·µ»Ø ÎÄ±¾³¤¶È.
-		//@±ğÃû  È¡ÎÄ±¾³¤¶È()
+		//@å¤‡æ³¨ è·å–æ–‡æœ¬é•¿åº¦.  
+		//@è¿”å› æ–‡æœ¬é•¿åº¦.
+		//@åˆ«å  å–æ–‡æœ¬é•¿åº¦()
 		int GetTextLength() {
 			return XShapeText_GetTextLength(m_handle);
 		}
 
-		//@±¸×¢ ÉèÖÃ×ÖÌå.  
-		//@²ÎÊı hFontx ×ÖÌå¾ä±ú.
-		//@±ğÃû  ÖÃ×ÖÌå()
+		//@å¤‡æ³¨ è®¾ç½®å­—ä½“.  
+		//@å‚æ•° hFontx å­—ä½“å¥æŸ„.
+		//@åˆ«å  ç½®å­—ä½“()
 		void SetFont(HFONTX hFontx) {
 			XShapeText_SetFont(m_handle, hFontx);
 		}
 
-		//@±¸×¢ »ñÈ¡×ÖÌå.  
-		//@·µ»Ø ·µ»Ø×ÖÌå¾ä±ú.
-		//@±ğÃû  È¡×ÖÌå()
+		//@å¤‡æ³¨ è·å–å­—ä½“.  
+		//@è¿”å› è¿”å›å­—ä½“å¥æŸ„.
+		//@åˆ«å  å–å­—ä½“()
 		HFONTX GetFont() {
 			return XShapeText_GetFont(m_handle);
 		}
 
-		//@±¸×¢ ÉèÖÃÎÄ±¾ÑÕÉ«.  
-		//@²ÎÊı color ÑÕÉ«Öµ, ÇëÊ¹ÓÃºê: RGBA()
-		//@±ğÃû  ÖÃÎÄ±¾ÑÕÉ«()
+		//@å¤‡æ³¨ è®¾ç½®æ–‡æœ¬é¢œè‰².  
+		//@å‚æ•° color é¢œè‰²å€¼, è¯·ä½¿ç”¨å®: RGBA()
+		//@åˆ«å  ç½®æ–‡æœ¬é¢œè‰²()
 		void SetTextColor(COLORREF color) {
 			XShapeText_SetTextColor(m_handle, color);
 		}
 
-		//@±¸×¢ »ñÈ¡ÎÄ±¾ÑÕÉ«.  
-		//@·µ»Ø ÑÕÉ«Öµ.
-		//@±ğÃû  È¡ÎÄ±¾ÑÕÉ«()
+		//@å¤‡æ³¨ è·å–æ–‡æœ¬é¢œè‰².  
+		//@è¿”å› é¢œè‰²å€¼.
+		//@åˆ«å  å–æ–‡æœ¬é¢œè‰²()
 		COLORREF GetTextColor() {
 			return XShapeText_GetTextColor(m_handle);
 		}
 
-		//@±¸×¢ ÉèÖÃÎÄ±¾¶ÔÆë·½Ê½.  
-		//@²ÎÊı align ÎÄ±¾¶ÔÆë·½Ê½; @ref textFormatFlag_ .
-		//@±ğÃû  ÖÃÎÄ±¾¶ÔÆë()
+		//@å¤‡æ³¨ è®¾ç½®æ–‡æœ¬å¯¹é½æ–¹å¼.  
+		//@å‚æ•° align æ–‡æœ¬å¯¹é½æ–¹å¼; @ref textFormatFlag_ .
+		//@åˆ«å  ç½®æ–‡æœ¬å¯¹é½()
 		void SetTextAlign(int align) {
 			XShapeText_SetTextAlign(m_handle, align);
 		}
 
-		//@±¸×¢ ÉèÖÃÄÚÈİÆ«ÒÆ.  
-		//@²ÎÊı x X×ø±ê.
-		//@²ÎÊı y Y×ø±ê.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÖÃÆ«ÒÆ()
+		//@å¤‡æ³¨ è®¾ç½®å†…å®¹åç§».  
+		//@å‚æ•° x Xåæ ‡.
+		//@å‚æ•° y Yåæ ‡.
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  ç½®åç§»()
 		void SetOffset(int x, int y) {
 			XShapeText_SetOffset(m_handle, x, y);
 		}

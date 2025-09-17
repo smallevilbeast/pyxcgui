@@ -34,915 +34,915 @@ namespace xcgui {
 			return (HDRAW)m_handle;
 		}
 
-		// ´´½¨Í¼ĞÎ»æÖÆÄ£¿éÊµÀı
+		// åˆ›å»ºå›¾å½¢ç»˜åˆ¶æ¨¡å—å®ä¾‹
 		HDRAW CreateGDI(HWINDOW hWindow, HDC hdc) {
 			m_handle = XDraw_CreateGDI(hWindow, hdc);
 			return (HDRAW)m_handle;
 		}
 
-		// Ïú»ÙÍ¼ĞÎ»æÖÆÄ£¿éÊµÀı¾ä±ú.  
+		// é”€æ¯å›¾å½¢ç»˜åˆ¶æ¨¡å—å®ä¾‹å¥æŸ„.  
 		void Destroy() {
 			XDraw_Destroy((HDRAW)m_handle);
 		}
 
-		// ÉèÖÃ×ø±êÆ«ÒÆÁ¿,XÏò×óÆ«ÒÆÎª¸ºÊı,ÏòÓÒÆ«ÒÆÎªÕıÊı.  
+		// è®¾ç½®åæ ‡åç§»é‡,Xå‘å·¦åç§»ä¸ºè´Ÿæ•°,å‘å³åç§»ä¸ºæ­£æ•°.  
 		void SetOffset(int x, int y) {
 			XDraw_SetOffset((HDRAW)m_handle, x, y);
 		}
 
-		// »ñÈ¡×ø±êÆ«ÒÆÁ¿,XÏò×óÆ«ÒÆÎª¸ºÊı,ÏòÓÒÆ«ÒÆÎªÕıÊı.  
+		// è·å–åæ ‡åç§»é‡,Xå‘å·¦åç§»ä¸ºè´Ÿæ•°,å‘å³åç§»ä¸ºæ­£æ•°.  
 		void GetOffset(int* pX, int* pY) {
 			XDraw_GetOffset((HDRAW)m_handle, pX, pY);
 		}
 
-		// »¹Ô­×´Ì¬,ÊÍ·ÅÓÃ»§°ó¶¨µÄGDI¶ÔÏó,ÀıÈç»­Ë¢,»­±Ê
+		// è¿˜åŸçŠ¶æ€,é‡Šæ”¾ç”¨æˆ·ç»‘å®šçš„GDIå¯¹è±¡,ä¾‹å¦‚ç”»åˆ·,ç”»ç¬”
 		void GDI_RestoreGDIOBJ() {
 			XDraw_GDI_RestoreGDIOBJ((HDRAW)m_handle);
 		}
 
-		// GDI_ÖÃ±³¾°Ä£Ê½
+		// GDI_ç½®èƒŒæ™¯æ¨¡å¼
 		int GDI_SetBkMode(bool bTransparent) {
 			return XDraw_GDI_SetBkMode((HDRAW)m_handle, bTransparent);
 		}
 
-		// Ñ¡ÔñÒ»¸öÇøÓò×÷Îªµ±Ç°²Ã¼ôÇøÓò,×¢Òâ:¸Ãº¯ÊıÖ»¶ÔGDIÓĞĞ§
-		//@²ÎÊı hRgn ÇøÓò¾ä±ú.
-		//@·µ»Ø ·µ»ØÖµÖ¸¶¨µØÇøµÄ¸´ÔÓĞÔ£¬¿ÉÒÔÊÇÏÂÁĞÖµÖ®Ò».\n
-		//@±ğÃû  GDI_Ñ¡Ôñ²Ã¼ôÇøÓò()
+		// é€‰æ‹©ä¸€ä¸ªåŒºåŸŸä½œä¸ºå½“å‰è£å‰ªåŒºåŸŸ,æ³¨æ„:è¯¥å‡½æ•°åªå¯¹GDIæœ‰æ•ˆ
+		//@å‚æ•° hRgn åŒºåŸŸå¥æŸ„.
+		//@è¿”å› è¿”å›å€¼æŒ‡å®šåœ°åŒºçš„å¤æ‚æ€§ï¼Œå¯ä»¥æ˜¯ä¸‹åˆ—å€¼ä¹‹ä¸€.\n
+		//@åˆ«å  GDI_é€‰æ‹©è£å‰ªåŒºåŸŸ()
 		int GDI_SelectClipRgn(HRGN hRgn) {
 			return XDraw_GDI_SelectClipRgn((HDRAW)m_handle, hRgn);
 		}
 
-		// GDI´´½¨¾ßÓĞÖ¸¶¨µÄ´¿É«Âß¼­Ë¢
-		//@²ÎÊı crColor »­Ë¢ÑÕÉ«.
-		//@·µ»Ø Èç¹ûº¯Êı³É¹¦,·µ»ØÖµ±êÊ¶Ò»¸öÂß¼­Ë¢,Èç¹ûº¯ÊıÊ§°Ü,·µ»ØÖµÊÇNULL.
-		//@±ğÃû  GDI_´´½¨ÊµĞÄ»­Ë¢()
+		// GDIåˆ›å»ºå…·æœ‰æŒ‡å®šçš„çº¯è‰²é€»è¾‘åˆ·
+		//@å‚æ•° crColor ç”»åˆ·é¢œè‰².
+		//@è¿”å› å¦‚æœå‡½æ•°æˆåŠŸ,è¿”å›å€¼æ ‡è¯†ä¸€ä¸ªé€»è¾‘åˆ·,å¦‚æœå‡½æ•°å¤±è´¥,è¿”å›å€¼æ˜¯NULL.
+		//@åˆ«å  GDI_åˆ›å»ºå®å¿ƒç”»åˆ·()
 		HBRUSH GDI_CreateSolidBrush(COLORREF crColor) {
 			return XDraw_GDI_CreateSolidBrush((HDRAW)m_handle, crColor);
 		}
 
-		// GDI´´½¨Ò»¸öÂß¼­±Ê,Ö¸¶¨µÄÑùÊ½,¿í¶ÈºÍÑÕÉ«,ËæºóµÄ±Ê¿ÉÒÔÑ¡Ôñµ½Éè±¸ÉÏÏÂÎÄ,ÓÃÓÚ»æÖÆÏßÌõºÍÇúÏß
-		//@²ÎÊı fnPenStyle »­±ÊÑùÊ½, PS_SOLID:ÊµÏß PS_DASH:¶ÎÏß PS_DOT:µãÏß  PS_DASHDOT:¶ÎÏß_µãÏß PS_DASHDOTDOT:¶ÎÏß_µã_µã PS_NULL:¿Õ  PS_INSIDEFRAME:ÊµÏß_±Ê¿íÊÇÏòÀïÀ©Õ¹
-		//@²ÎÊı width »­±Ê¿í¶È
-		//@²ÎÊı crColor ÑÕÉ«
-		//@·µ»Ø Èç¹ûº¯Êı³É¹¦,·µ»ØÖµÊÇÒ»¸ö¾ä±ú,±êÊ¶Ò»¸öÂß¼­±Ê,Èç¹ûº¯ÊıÊ§°Ü,·µ»ØÖµÊÇNULL.
-		//@±ğÃû  GDI_´´½¨»­±Ê()
+		// GDIåˆ›å»ºä¸€ä¸ªé€»è¾‘ç¬”,æŒ‡å®šçš„æ ·å¼,å®½åº¦å’Œé¢œè‰²,éšåçš„ç¬”å¯ä»¥é€‰æ‹©åˆ°è®¾å¤‡ä¸Šä¸‹æ–‡,ç”¨äºç»˜åˆ¶çº¿æ¡å’Œæ›²çº¿
+		//@å‚æ•° fnPenStyle ç”»ç¬”æ ·å¼, PS_SOLID:å®çº¿ PS_DASH:æ®µçº¿ PS_DOT:ç‚¹çº¿  PS_DASHDOT:æ®µçº¿_ç‚¹çº¿ PS_DASHDOTDOT:æ®µçº¿_ç‚¹_ç‚¹ PS_NULL:ç©º  PS_INSIDEFRAME:å®çº¿_ç¬”å®½æ˜¯å‘é‡Œæ‰©å±•
+		//@å‚æ•° width ç”»ç¬”å®½åº¦
+		//@å‚æ•° crColor é¢œè‰²
+		//@è¿”å› å¦‚æœå‡½æ•°æˆåŠŸ,è¿”å›å€¼æ˜¯ä¸€ä¸ªå¥æŸ„,æ ‡è¯†ä¸€ä¸ªé€»è¾‘ç¬”,å¦‚æœå‡½æ•°å¤±è´¥,è¿”å›å€¼æ˜¯NULL.
+		//@åˆ«å  GDI_åˆ›å»ºç”»ç¬”()
 		HPEN GDI_CreatePen(int fnPenStyle, int width, COLORREF crColor) {
 			return XDraw_GDI_CreatePen((HDRAW)m_handle, fnPenStyle, width, crColor);
 		}
 
 
-		// GDI´´½¨¾ØĞÎÇøÓò
-		//@²ÎÊı nLeftRect ×óÉÏ½ÇX×ø±ê.
-		//@²ÎÊı nTopRect ×óÉÏ½ÇY×ø±ê.
-		//@²ÎÊı nRightRect ÓÒÏÂ½ÇX×ø±ê.
-		//@²ÎÊı nBottomRect ÓÒÏÂ½ÇY×ø±ê.
-		//@·µ»Ø ³É¹¦·µ»ØÇøÓò¾ä±ú,Ê§°Ü·µ»ØNULL.
-		//@±ğÃû  GDI_´´½¨¾ØĞÎÇøÓò()
+		// GDIåˆ›å»ºçŸ©å½¢åŒºåŸŸ
+		//@å‚æ•° nLeftRect å·¦ä¸Šè§’Xåæ ‡.
+		//@å‚æ•° nTopRect å·¦ä¸Šè§’Yåæ ‡.
+		//@å‚æ•° nRightRect å³ä¸‹è§’Xåæ ‡.
+		//@å‚æ•° nBottomRect å³ä¸‹è§’Yåæ ‡.
+		//@è¿”å› æˆåŠŸè¿”å›åŒºåŸŸå¥æŸ„,å¤±è´¥è¿”å›NULL.
+		//@åˆ«å  GDI_åˆ›å»ºçŸ©å½¢åŒºåŸŸ()
 		HRGN GDI_CreateRectRgn(int nLeftRect, int nTopRect, int nRightRect, int nBottomRect) {
 			return XDraw_GDI_CreateRectRgn((HDRAW)m_handle, nLeftRect, nTopRect, nRightRect, nBottomRect);
 		}
 
 
-		// GDI´´½¨Ò»¸öÔ²½ÇµÄ¾ØĞÎÇøÓò
-		//@²ÎÊı nLeftRect X-×ø±êµÄ×óÉÏ½Ç.
-		//@²ÎÊı nTopRect Y-×ø±ê×óÉÏ½Ç×ø±ê
-		//@²ÎÊı nRightRect X-×ø±êÓÒÏÂ½Ç
-		//@²ÎÊı nBottomRect Y-×ø±êÓÒÏÂ½Ç
-		//@²ÎÊı nWidthEllipse ÍÖÔ²µÄ¿í¶È.
-		//@²ÎÊı nHeightEllipse ÍÖÔ²µÄ¸ß¶È.
-		//@·µ»Ø Èç¹ûº¯Êı³É¹¦,·µ»ØÖµÊÇ¸ÃÇøÓòµÄ¾ä±ú,Èç¹ûº¯ÊıÊ§°Ü,·µ»ØÖµÊÇNULL.
-		//@±ğÃû  GDI_´´½¨Ô²½Ç¾ØĞÎÇøÓò()
+		// GDIåˆ›å»ºä¸€ä¸ªåœ†è§’çš„çŸ©å½¢åŒºåŸŸ
+		//@å‚æ•° nLeftRect X-åæ ‡çš„å·¦ä¸Šè§’.
+		//@å‚æ•° nTopRect Y-åæ ‡å·¦ä¸Šè§’åæ ‡
+		//@å‚æ•° nRightRect X-åæ ‡å³ä¸‹è§’
+		//@å‚æ•° nBottomRect Y-åæ ‡å³ä¸‹è§’
+		//@å‚æ•° nWidthEllipse æ¤­åœ†çš„å®½åº¦.
+		//@å‚æ•° nHeightEllipse æ¤­åœ†çš„é«˜åº¦.
+		//@è¿”å› å¦‚æœå‡½æ•°æˆåŠŸ,è¿”å›å€¼æ˜¯è¯¥åŒºåŸŸçš„å¥æŸ„,å¦‚æœå‡½æ•°å¤±è´¥,è¿”å›å€¼æ˜¯NULL.
+		//@åˆ«å  GDI_åˆ›å»ºåœ†è§’çŸ©å½¢åŒºåŸŸ()
 		HRGN GDI_CreateRoundRectRgn(int nLeftRect, int nTopRect, int nRightRect, int nBottomRect, int nWidthEllipse, int nHeightEllipse) {
 			return XDraw_GDI_CreateRoundRectRgn((HDRAW)m_handle, nLeftRect, nTopRect, nRightRect, nBottomRect, nWidthEllipse, nHeightEllipse);
 		}
 
-		// GDI´´½¨Ò»¸ö¶à±ßĞÎÇøÓò
-		//@²ÎÊı pPt POINTÊı×é.
-		//@²ÎÊı cPoints Êı×é´óĞ¡.
-		//@²ÎÊı fnPolyFillMode ¶à±ßĞÎÌî³äÄ£Ê½,Ö¸¶¨ÓÃÓÚÈ·¶¨ÔÚ¸ÃµØÇøµÄÏñËØÌî³äÄ£Ê½,Õâ¸ö²ÎÊı¿ÉÒÔÊÇÏÂÁĞÖµÖ®Ò».\n
-		//@·µ»Ø Èç¹ûº¯Êı³É¹¦,·µ»ØÖµÊÇ¸ÃÇøÓòµÄ¾ä±ú,Èç¹ûº¯ÊıÊ§°Ü,·µ»ØÖµÊÇNULL.
-		//@±ğÃû  GDI_´´½¨¶à±ßĞÎÇøÓò()
+		// GDIåˆ›å»ºä¸€ä¸ªå¤šè¾¹å½¢åŒºåŸŸ
+		//@å‚æ•° pPt POINTæ•°ç»„.
+		//@å‚æ•° cPoints æ•°ç»„å¤§å°.
+		//@å‚æ•° fnPolyFillMode å¤šè¾¹å½¢å¡«å……æ¨¡å¼,æŒ‡å®šç”¨äºç¡®å®šåœ¨è¯¥åœ°åŒºçš„åƒç´ å¡«å……æ¨¡å¼,è¿™ä¸ªå‚æ•°å¯ä»¥æ˜¯ä¸‹åˆ—å€¼ä¹‹ä¸€.\n
+		//@è¿”å› å¦‚æœå‡½æ•°æˆåŠŸ,è¿”å›å€¼æ˜¯è¯¥åŒºåŸŸçš„å¥æŸ„,å¦‚æœå‡½æ•°å¤±è´¥,è¿”å›å€¼æ˜¯NULL.
+		//@åˆ«å  GDI_åˆ›å»ºå¤šè¾¹å½¢åŒºåŸŸ()
 		HRGN GDI_CreatePolygonRgn(POINT* pPt, int cPoints, int fnPolyFillMode) {
 			return XDraw_GDI_CreatePolygonRgn((HDRAW)m_handle, pPt, cPoints, fnPolyFillMode);
 		}
 
-		// »æÖÆ¾ØĞÎ,Ê¹ÓÃµ±Ç°µÄ»­Ë¢ºÍ»­±Ê
-		//@²ÎÊı nLeftRect ×óÉÏ½ÇX×ø±ê.
-		//@²ÎÊı nTopRect ×óÉÏ½ÇY×ø±ê.
-		//@²ÎÊı nRightRect ÓÒÏÂ½ÇX×ø±ê.
-		//@²ÎÊı nBottomRect ÓÒÏÂ½ÇY×ø±ê.
-		//@·µ»Ø Èç¹ûº¯Êı³É¹¦,·µ»Ø·ÇÁãÖµ,Èç¹ûº¯ÊıÊ§°Ü,·µ»ØÖµÊÇÁã.
-		//@±ğÃû  GDI_¾ØĞÎ()
+		// ç»˜åˆ¶çŸ©å½¢,ä½¿ç”¨å½“å‰çš„ç”»åˆ·å’Œç”»ç¬”
+		//@å‚æ•° nLeftRect å·¦ä¸Šè§’Xåæ ‡.
+		//@å‚æ•° nTopRect å·¦ä¸Šè§’Yåæ ‡.
+		//@å‚æ•° nRightRect å³ä¸‹è§’Xåæ ‡.
+		//@å‚æ•° nBottomRect å³ä¸‹è§’Yåæ ‡.
+		//@è¿”å› å¦‚æœå‡½æ•°æˆåŠŸ,è¿”å›éé›¶å€¼,å¦‚æœå‡½æ•°å¤±è´¥,è¿”å›å€¼æ˜¯é›¶.
+		//@åˆ«å  GDI_çŸ©å½¢()
 		bool GDI_Rectangle(int nLeftRect, int nTopRect, int nRightRect, int nBottomRect) {
 			return XDraw_GDI_Rectangle((HDRAW)m_handle, nLeftRect, nTopRect, nRightRect, nBottomRect);
 		}
 
-		// Í¨¹ıÊ¹ÓÃÖ¸¶¨µÄ»­Ë¢Ìî³äÒ»¸öÇøÓò
-		//@²ÎÊı hrgn ÇøÓò¾ä±ú.
-		//@²ÎÊı hbr »­Ë¢¾ä±ú.
-		//@·µ»Ø Èç¹ûº¯Êı³É¹¦,·µ»Ø·ÇÁãÖµ,Èç¹ûº¯ÊıÊ§°Ü,·µ»ØÖµÊÇÁã.
-		//@±ğÃû  GID_Ìî³äÇøÓò()
+		// é€šè¿‡ä½¿ç”¨æŒ‡å®šçš„ç”»åˆ·å¡«å……ä¸€ä¸ªåŒºåŸŸ
+		//@å‚æ•° hrgn åŒºåŸŸå¥æŸ„.
+		//@å‚æ•° hbr ç”»åˆ·å¥æŸ„.
+		//@è¿”å› å¦‚æœå‡½æ•°æˆåŠŸ,è¿”å›éé›¶å€¼,å¦‚æœå‡½æ•°å¤±è´¥,è¿”å›å€¼æ˜¯é›¶.
+		//@åˆ«å  GID_å¡«å……åŒºåŸŸ()
 		bool GDI_FillRgn(HRGN hrgn, HBRUSH hbr) {
 			return XDraw_GDI_FillRgn((HDRAW)m_handle, hrgn, hbr);
 		}
 
-		//@²ÎÊı pRect ¾ØĞÎÇøÓò
-		//@·µ»Ø Èç¹û³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  GDI_ÍÖÔ²()
+		//@å‚æ•° pRect çŸ©å½¢åŒºåŸŸ
+		//@è¿”å› å¦‚æœæˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  GDI_æ¤­åœ†()
 		bool GDI_Ellipse(RECT* pRect) {
 			return XDraw_GDI_Ellipse((HDRAW)m_handle, pRect);
 		}
 
-		// »æÖÆ±ß¿ò,Ê¹ÓÃÖ¸¶¨µÄ»­Ë¢»æÖÆÖ¸¶¨µÄÇøÓòµÄ±ß¿ò
-		//@²ÎÊı hrgn ÇøÓò¾ä±ú.
-		//@²ÎÊı hbr »­Ë¢¾ä±ú.
-		//@²ÎÊı width ±ß¿ò¿í¶È,´¹Ö±±ß.
-		//@²ÎÊı height ±ß¿ò¸ß¶È,Ë®Æ½±ß.
-		//@·µ»Ø Èç¹ûº¯Êı³É¹¦,·µ»Ø·ÇÁãÖµ,Èç¹ûº¯ÊıÊ§°Ü,·µ»ØÖµÊÇÁã.
-		//@±ğÃû  GDI_±ß¿òÇøÓò()
+		// ç»˜åˆ¶è¾¹æ¡†,ä½¿ç”¨æŒ‡å®šçš„ç”»åˆ·ç»˜åˆ¶æŒ‡å®šçš„åŒºåŸŸçš„è¾¹æ¡†
+		//@å‚æ•° hrgn åŒºåŸŸå¥æŸ„.
+		//@å‚æ•° hbr ç”»åˆ·å¥æŸ„.
+		//@å‚æ•° width è¾¹æ¡†å®½åº¦,å‚ç›´è¾¹.
+		//@å‚æ•° height è¾¹æ¡†é«˜åº¦,æ°´å¹³è¾¹.
+		//@è¿”å› å¦‚æœå‡½æ•°æˆåŠŸ,è¿”å›éé›¶å€¼,å¦‚æœå‡½æ•°å¤±è´¥,è¿”å›å€¼æ˜¯é›¶.
+		//@åˆ«å  GDI_è¾¹æ¡†åŒºåŸŸ()
 		bool GDI_FrameRgn(HRGN hrgn, HBRUSH hbr, int width, int nHeight) {
 			return XDraw_GDI_FrameRgn((HDRAW)m_handle, hrgn, hbr, width, nHeight);
 		}
 
-		// ¸üĞÂµ±Ç°Î»ÖÃµ½Ö¸¶¨µã£¬²¢·µ»ØÒÔÇ°µÄÎ»ÖÃ
-		//@²ÎÊı X ×ø±ê.
-		//@²ÎÊı Y ×ø±ê.
-		//@²ÎÊı pPoint ½ÓÊÕÒÔÇ°µÄµ±Ç°Î»ÖÃµ½Ò»¸öPOINT½á¹¹µÄÖ¸Õë,Èç¹ûÕâ¸ö²ÎÊıÊÇNULLÖ¸Õë,Ã»ÓĞ·µ»ØÔ­À´µÄÎ»ÖÃ.
-		//@·µ»Ø Èç¹ûº¯Êı³É¹¦,·µ»Ø·ÇÁãÖµ,Èç¹ûº¯ÊıÊ§°Ü,·µ»ØÖµÊÇÁã.
-		//@±ğÃû  GDI_ÒÆ¶¯µ½Æğµã()
+		// æ›´æ–°å½“å‰ä½ç½®åˆ°æŒ‡å®šç‚¹ï¼Œå¹¶è¿”å›ä»¥å‰çš„ä½ç½®
+		//@å‚æ•° X åæ ‡.
+		//@å‚æ•° Y åæ ‡.
+		//@å‚æ•° pPoint æ¥æ”¶ä»¥å‰çš„å½“å‰ä½ç½®åˆ°ä¸€ä¸ªPOINTç»“æ„çš„æŒ‡é’ˆ,å¦‚æœè¿™ä¸ªå‚æ•°æ˜¯NULLæŒ‡é’ˆ,æ²¡æœ‰è¿”å›åŸæ¥çš„ä½ç½®.
+		//@è¿”å› å¦‚æœå‡½æ•°æˆåŠŸ,è¿”å›éé›¶å€¼,å¦‚æœå‡½æ•°å¤±è´¥,è¿”å›å€¼æ˜¯é›¶.
+		//@åˆ«å  GDI_ç§»åŠ¨åˆ°èµ·ç‚¹()
 		bool GDI_MoveToEx(int X, int Y, POINT* pPoint = NULL) {
 			return XDraw_GDI_MoveToEx((HDRAW)m_handle, X, Y, pPoint);
 		}
 
-		// º¯Êı»æÖÆÒ»ÌõÏß´Óµ±Ç°Î»ÖÃµ½,µ«²»°üÀ¨Ö¸¶¨µã
-		//@²ÎÊı nXEnd X×ø±ê,Ïß½áÊøµã.
-		//@²ÎÊı nYEnd Y×ø±ê,Ïß½áÊøµã.
-		//@·µ»Ø Èç¹ûº¯Êı³É¹¦,·µ»Ø·ÇÁãÖµ,Èç¹ûº¯ÊıÊ§°Ü,·µ»ØÖµÊÇÁã.
-		//@±ğÃû  GDI_ÏßÖÕµã()
+		// å‡½æ•°ç»˜åˆ¶ä¸€æ¡çº¿ä»å½“å‰ä½ç½®åˆ°,ä½†ä¸åŒ…æ‹¬æŒ‡å®šç‚¹
+		//@å‚æ•° nXEnd Xåæ ‡,çº¿ç»“æŸç‚¹.
+		//@å‚æ•° nYEnd Yåæ ‡,çº¿ç»“æŸç‚¹.
+		//@è¿”å› å¦‚æœå‡½æ•°æˆåŠŸ,è¿”å›éé›¶å€¼,å¦‚æœå‡½æ•°å¤±è´¥,è¿”å›å€¼æ˜¯é›¶.
+		//@åˆ«å  GDI_çº¿ç»ˆç‚¹()
 		bool GDI_LineTo(int nXEnd, int nYEnd) {
 			return XDraw_GDI_LineTo((HDRAW)m_handle, nXEnd, nYEnd);
 		}
 
-		// Polyline() ²Î¼ûMSDN
-		//@²ÎÊı pArrayPt ²Î¼ûMSDN.
-		//@²ÎÊı arrayPtSize ²Î¼ûMSDN.
-		//@·µ»Ø ²Î¼ûMSDN.
-		//@±ğÃû  GDI_ÕÛÏß()
+		// Polyline() å‚è§MSDN
+		//@å‚æ•° pArrayPt å‚è§MSDN.
+		//@å‚æ•° arrayPtSize å‚è§MSDN.
+		//@è¿”å› å‚è§MSDN.
+		//@åˆ«å  GDI_æŠ˜çº¿()
 		bool GDI_Polyline(POINT* pArrayPt, int arrayPtSize) {
 			return XDraw_GDI_Polyline((HDRAW)m_handle, pArrayPt, arrayPtSize);
 		}
 
-		// »æÖÆÍ¼±ê,DrawIconEx()²Î¼ûMSDN
-		//@²ÎÊı xLeft .
-		//@²ÎÊı yTop .
-		//@²ÎÊı hIcon .
-		//@²ÎÊı cxWidth .
-		//@²ÎÊı cyWidth .
-		//@²ÎÊı istepIfAniCur .
-		//@²ÎÊı hbrFlickerFreeDraw .
-		//@²ÎÊı diFlags .
-		//@·µ»Ø .
-		//@±ğÃû  GDI_Í¼±êÀ©Õ¹()
+		// ç»˜åˆ¶å›¾æ ‡,DrawIconEx()å‚è§MSDN
+		//@å‚æ•° xLeft .
+		//@å‚æ•° yTop .
+		//@å‚æ•° hIcon .
+		//@å‚æ•° cxWidth .
+		//@å‚æ•° cyWidth .
+		//@å‚æ•° istepIfAniCur .
+		//@å‚æ•° hbrFlickerFreeDraw .
+		//@å‚æ•° diFlags .
+		//@è¿”å› .
+		//@åˆ«å  GDI_å›¾æ ‡æ‰©å±•()
 		bool GDI_DrawIconEx(int xLeft, int yTop, HICON hIcon, int cxWidth, int cyWidth, UINT istepIfAniCur, HBRUSH hbrFlickerFreeDraw, UINT diFlags) {
 			return XDraw_GDI_DrawIconEx((HDRAW)m_handle, xLeft, yTop, hIcon, cxWidth, cyWidth, istepIfAniCur, hbrFlickerFreeDraw, diFlags);
 		}
 
-		// BitBlt() ²Î¼ûMSDN
-		//@²ÎÊı nXDest XX.
-		//@²ÎÊı nYDest XX.
-		//@²ÎÊı width XX.
-		//@²ÎÊı height XX.
-		//@²ÎÊı hdcSrc XX.
-		//@²ÎÊı nXSrc XX.
-		//@²ÎÊı nYSrc XX.
-		//@²ÎÊı dwRop XX.
-		//@·µ»Ø .
-		//@±ğÃû  GDI_¸´ÖÆ()
+		// BitBlt() å‚è§MSDN
+		//@å‚æ•° nXDest XX.
+		//@å‚æ•° nYDest XX.
+		//@å‚æ•° width XX.
+		//@å‚æ•° height XX.
+		//@å‚æ•° hdcSrc XX.
+		//@å‚æ•° nXSrc XX.
+		//@å‚æ•° nYSrc XX.
+		//@å‚æ•° dwRop XX.
+		//@è¿”å› .
+		//@åˆ«å  GDI_å¤åˆ¶()
 		bool GDI_BitBlt(int nXDest, int nYDest, int width, int nHeight, HDC hdcSrc, int nXSrc, int nYSrc, DWORD dwRop) {
 			return XDraw_GDI_BitBlt((HDRAW)m_handle, nXDest, nYDest, width, nHeight, hdcSrc, nXSrc, nYSrc, dwRop);
 		}
 
-		// BitBlt() ²Î¼ûMSDN
-		//@²ÎÊı nXDest XX.
-		//@²ÎÊı nYDest XX.
-		//@²ÎÊı width XX.
-		//@²ÎÊı height XX.
-		//@²ÎÊı hDrawSrc XX.
-		//@²ÎÊı nXSrc XX.
-		//@²ÎÊı nYSrc XX.
-		//@²ÎÊı dwRop XX.
-		//@·µ»Ø .
-		//@±ğÃû  GDI_¸´ÖÆ2()
+		// BitBlt() å‚è§MSDN
+		//@å‚æ•° nXDest XX.
+		//@å‚æ•° nYDest XX.
+		//@å‚æ•° width XX.
+		//@å‚æ•° height XX.
+		//@å‚æ•° hDrawSrc XX.
+		//@å‚æ•° nXSrc XX.
+		//@å‚æ•° nYSrc XX.
+		//@å‚æ•° dwRop XX.
+		//@è¿”å› .
+		//@åˆ«å  GDI_å¤åˆ¶2()
 		bool GDI_BitBlt2(int nXDest, int nYDest, int width, int nHeight, HDRAW hDrawSrc, int nXSrc, int nYSrc, DWORD dwRop) {
 			return XDraw_GDI_BitBlt2((HDRAW)m_handle, nXDest, nYDest, width, nHeight, hDrawSrc, nXSrc, nYSrc, dwRop);
 		}
 
-		// AlphaBlend() ²Î¼ûMSDN
-		//@²ÎÊı nXOriginDest XX.
-		//@²ÎÊı nYOriginDest XX.
-		//@²ÎÊı nWidthDest XX.
-		//@²ÎÊı nHeightDest XX.
-		//@²ÎÊı hdcSrc XX.
-		//@²ÎÊı nXOriginSrc XX.
-		//@²ÎÊı nYOriginSrc XX.
-		//@²ÎÊı nWidthSrc XX.
-		//@²ÎÊı nHeightSrc XX.
-		//@²ÎÊı alpha XX.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  GDI_´øÍ¸Ã÷¸´ÖÆ()
+		// AlphaBlend() å‚è§MSDN
+		//@å‚æ•° nXOriginDest XX.
+		//@å‚æ•° nYOriginDest XX.
+		//@å‚æ•° nWidthDest XX.
+		//@å‚æ•° nHeightDest XX.
+		//@å‚æ•° hdcSrc XX.
+		//@å‚æ•° nXOriginSrc XX.
+		//@å‚æ•° nYOriginSrc XX.
+		//@å‚æ•° nWidthSrc XX.
+		//@å‚æ•° nHeightSrc XX.
+		//@å‚æ•° alpha XX.
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  GDI_å¸¦é€æ˜å¤åˆ¶()
 		bool GDI_AlphaBlend(int nXOriginDest, int nYOriginDest, int nWidthDest, int nHeightDest, HDC hdcSrc, int nXOriginSrc, int nYOriginSrc, int nWidthSrc, int nHeightSrc, int alpha) {
 			return XDraw_GDI_AlphaBlend((HDRAW)m_handle, nXOriginDest, nYOriginDest, nWidthDest, nHeightDest, hdcSrc, nXOriginSrc, nYOriginSrc, nWidthSrc, nHeightSrc, alpha);
 		}
 
-		// º¯ÊıÉèÖÃÔÚÖ¸¶¨µÄ×ø±êµ½Ö¸¶¨µÄÑÕÉ«µÄÏñËØ
-		//@²ÎÊı X ×ø±ê
-		//@²ÎÊı Y ×ø±ê
-		//@²ÎÊı crColor ÑÕÉ«Öµ, ÇëÊ¹ÓÃºê: RGBA()
-		//@·µ»Ø Èç¹ûº¯Êı³É¹¦·µ»ØRGBÖµ,Èç¹ûÊ§°Ü·µ»Ø-1.
-		//@±ğÃû  GDI_ÖÃÏñËØÑÕÉ«()
+		// å‡½æ•°è®¾ç½®åœ¨æŒ‡å®šçš„åæ ‡åˆ°æŒ‡å®šçš„é¢œè‰²çš„åƒç´ 
+		//@å‚æ•° X åæ ‡
+		//@å‚æ•° Y åæ ‡
+		//@å‚æ•° crColor é¢œè‰²å€¼, è¯·ä½¿ç”¨å®: RGBA()
+		//@è¿”å› å¦‚æœå‡½æ•°æˆåŠŸè¿”å›RGBå€¼,å¦‚æœå¤±è´¥è¿”å›-1.
+		//@åˆ«å  GDI_ç½®åƒç´ é¢œè‰²()
 		COLORREF GDI_SetPixel(int X, int Y, COLORREF crColor) {
 			return XDraw_GDI_SetPixel((HDRAW)m_handle, X, Y, crColor);
 		}
 
-		// »ñÈ¡°ó¶¨µÄÉè±¸ÉÏÏÂÎÄHDC.  
-		//@·µ»Ø ·µ»ØHDC¾ä±ú. 
-		//@±ğÃû  È¡HDC()
+		// è·å–ç»‘å®šçš„è®¾å¤‡ä¸Šä¸‹æ–‡HDC.  
+		//@è¿”å› è¿”å›HDCå¥æŸ„. 
+		//@åˆ«å  å–HDC()
 		HDC GetHDC() {
 			return XDraw_GetHDC((HDRAW)m_handle);
 		}
 
-		//@·µ»Ø ·µ»Ø ID2D1RenderTarget*
-		//@±ğÃû  È¡D2DäÖÈ¾Ä¿±ê()
+		//@è¿”å› è¿”å› ID2D1RenderTarget*
+		//@åˆ«å  å–D2Dæ¸²æŸ“ç›®æ ‡()
 		vint GetD2dRenderTarget() {
 			return XDraw_GetD2dRenderTarget((HDRAW)m_handle);
 		}
 
-		//@²ÎÊı mode äÖÈ¾Ä£Ê½  @ref XC_DWRITE_RENDERING_MODE
-		//@±ğÃû  ÖÃD2DÎÄ±¾äÖÈ¾Ä£Ê½()
+		//@å‚æ•° mode æ¸²æŸ“æ¨¡å¼  @ref XC_DWRITE_RENDERING_MODE
+		//@åˆ«å  ç½®D2Dæ–‡æœ¬æ¸²æŸ“æ¨¡å¼()
 		void SetD2dTextRenderingMode(XC_DWRITE_RENDERING_MODE mode) {
 			XDraw_SetD2dTextRenderingMode((HDRAW)m_handle, mode);
 		}
 
-		// ÉèÖÃÎÄ±¾äÖÈ¾ÖÊÁ¿GDI+
-		//@²ÎÊı nType ²Î¼ûGDI+ TextRenderingHint ¶¨Òå.
-		//@±ğÃû  ÖÃÎÄ±¾ìÅ²ÊÖÊÁ¿()
+		// è®¾ç½®æ–‡æœ¬æ¸²æŸ“è´¨é‡GDI+
+		//@å‚æ•° nType å‚è§GDI+ TextRenderingHint å®šä¹‰.
+		//@åˆ«å  ç½®æ–‡æœ¬ç‚«å½©è´¨é‡()
 		void SetTextRenderingHint(int nType) {
 			XDraw_SetTextRenderingHint((HDRAW)m_handle, nType);
 		}
 
-		// Ê¹ÓÃÖ¸¶¨ÑÕÉ«ÇåÀí»­²¼
-		//@²ÎÊı color ÑÕÉ«Öµ, ÇëÊ¹ÓÃºê: RGBA()
-		//@±ğÃû  D2D_ÇåÀí()
+		// ä½¿ç”¨æŒ‡å®šé¢œè‰²æ¸…ç†ç”»å¸ƒ
+		//@å‚æ•° color é¢œè‰²å€¼, è¯·ä½¿ç”¨å®: RGBA()
+		//@åˆ«å  D2D_æ¸…ç†()
 		void D2D_Clear(COLORREF color) {
 			XDraw_D2D_Clear((HDRAW)m_handle, color);
 		}
 
-		// ÉèÖÃ»­Ë¢ÑÕÉ«.  
-		//@²ÎÊı color ÑÕÉ«Öµ, ÇëÊ¹ÓÃºê: RGBA()
-		//@±ğÃû  ÖÃ»­Ë¢ÑÕÉ«()
+		// è®¾ç½®ç”»åˆ·é¢œè‰².  
+		//@å‚æ•° color é¢œè‰²å€¼, è¯·ä½¿ç”¨å®: RGBA()
+		//@åˆ«å  ç½®ç”»åˆ·é¢œè‰²()
 		void SetBrushColor(COLORREF color) {
 			XDraw_SetBrushColor((HDRAW)m_handle, color);
 		}
 
-		// ÉèÖÃÎÄ±¾´¹Ö±ÏÔÊ¾.  
-		//@²ÎÊı bVertical ÊÇ·ñ´¹Ö±ÏÔÊ¾ÎÄ±¾.
-		//@±ğÃû  ÖÃÎÄ±¾´¹Ö±()
+		// è®¾ç½®æ–‡æœ¬å‚ç›´æ˜¾ç¤º.  
+		//@å‚æ•° bVertical æ˜¯å¦å‚ç›´æ˜¾ç¤ºæ–‡æœ¬.
+		//@åˆ«å  ç½®æ–‡æœ¬å‚ç›´()
 		void SetTextVertical(bool bVertical) {
 			XDraw_SetTextVertical((HDRAW)m_handle, bVertical);
 		}
 
-		// ÉèÖÃÎÄ±¾¶ÔÆë.  
-		//@²ÎÊı nFlags ¶ÔÆë±êÊ¶ @ref textFormatFlag_ .
-		//@±ğÃû  ÖÃÎÄ±¾¶ÔÆë()
+		// è®¾ç½®æ–‡æœ¬å¯¹é½.  
+		//@å‚æ•° nFlags å¯¹é½æ ‡è¯† @ref textFormatFlag_ .
+		//@åˆ«å  ç½®æ–‡æœ¬å¯¹é½()
 		void SetTextAlign(int nFlag) {
 			XDraw_SetTextAlign((HDRAW)m_handle, nFlag);
 		}
 
-		// ÉèÖÃ×ÖÌå.  
-		//@²ÎÊı hFontx ìÅ²Ê×ÖÌå.
-		//@±ğÃû  ÖÃ×ÖÌå()
+		// è®¾ç½®å­—ä½“.  
+		//@å‚æ•° hFontx ç‚«å½©å­—ä½“.
+		//@åˆ«å  ç½®å­—ä½“()
 		void SetFont(HFONTX hFontx) {
 			XDraw_SetFont((HDRAW)m_handle, hFontx);
 		}
 
-		// ÉèÖÃÏß¿í.  
-		//@²ÎÊı width ¿í¶È.
-		//@±ğÃû  ÖÃÏß¿í()
+		// è®¾ç½®çº¿å®½.  
+		//@å‚æ•° width å®½åº¦.
+		//@åˆ«å  ç½®çº¿å®½()
 		void SetLineWidth(int width) {
 			XDraw_SetLineWidth((HDRAW)m_handle, width);
 		}
 
-		// ÉèÖÃÏß¿í
-		//@²ÎÊı width ¿í¶È.
-		//@±ğÃû  ÖÃÏß¿íF()
+		// è®¾ç½®çº¿å®½
+		//@å‚æ•° width å®½åº¦.
+		//@åˆ«å  ç½®çº¿å®½F()
 		void SetLineWidthF(float width) {
 			XDraw_SetLineWidthF((HDRAW)m_handle, width);
 		}
 
-		// ÉèÖÃ²Ã¼ôÇøÓò.  
-		//@²ÎÊı pRect ÇøÓò×ø±ê.
-		//@±ğÃû  ÖÃ²Ã¼ôÇøÓò()
+		// è®¾ç½®è£å‰ªåŒºåŸŸ.  
+		//@å‚æ•° pRect åŒºåŸŸåæ ‡.
+		//@åˆ«å  ç½®è£å‰ªåŒºåŸŸ()
 		void SetClipRect(RECT* pRect) {
 			XDraw_SetClipRect((HDRAW)m_handle, pRect);
 		}
 
-		// Çå³ı²Ã¼ôÇøÓò.  
-		//@±ğÃû  Çå³ı²Ã¼ôÇøÓò()
+		// æ¸…é™¤è£å‰ªåŒºåŸŸ.  
+		//@åˆ«å  æ¸…é™¤è£å‰ªåŒºåŸŸ()
 		void ClearClip() {
 			XDraw_ClearClip((HDRAW)m_handle);
 		}
 
-		// ÆôÓÃÆ½»¬Ä£Ê½.  
-		//@²ÎÊı bEnable ÊÇ·ñÆôÓÃ.
-		//@±ğÃû  ÆôÓÃÆ½»¬Ä£Ê½()
+		// å¯ç”¨å¹³æ»‘æ¨¡å¼.  
+		//@å‚æ•° bEnable æ˜¯å¦å¯ç”¨.
+		//@åˆ«å  å¯ç”¨å¹³æ»‘æ¨¡å¼()
 		void EnableSmoothingMode(bool bEnable) {
 			XDraw_EnableSmoothingMode((HDRAW)m_handle, bEnable);
 		}
 
-		// µ±ÆôÓÃÖ®ºó,µ÷ÓÃGDI+º¯ÊıÊ±, Èç¹û²ÎÊıalpha=255,½«×Ô¶¯ĞŞ¸ÄÎª254, Ó¦¶ÔGDI+µÄbug, ·ñÔòÍ¸Ã÷Í¨µÀÒì³£
-		//@²ÎÊı bTransparent ÊÇ·ñÆôÓÃ
-		//@±ğÃû  ÆôÓÃ´°¿ÚÍ¸Ã÷ÅĞ¶Ï()
+		// å½“å¯ç”¨ä¹‹å,è°ƒç”¨GDI+å‡½æ•°æ—¶, å¦‚æœå‚æ•°alpha=255,å°†è‡ªåŠ¨ä¿®æ”¹ä¸º254, åº”å¯¹GDI+çš„bug, å¦åˆ™é€æ˜é€šé“å¼‚å¸¸
+		//@å‚æ•° bTransparent æ˜¯å¦å¯ç”¨
+		//@åˆ«å  å¯ç”¨çª—å£é€æ˜åˆ¤æ–­()
 		void EnableWndTransparent(bool bTransparent) {
 			XDraw_EnableWndTransparent((HDRAW)m_handle, bTransparent);
 		}
 
-		//@²ÎÊı pRect ¾ØĞÎÇøÓò.
-		//@±ğÃû  Ìî³ä¾ØĞÎ()
+		//@å‚æ•° pRect çŸ©å½¢åŒºåŸŸ.
+		//@åˆ«å  å¡«å……çŸ©å½¢()
 		void FillRect(RECT* pRect) {
 			XDraw_FillRect((HDRAW)m_handle, pRect);
 		}
 
-		//@²ÎÊı pRect ¾ØĞÎÇøÓò
-		//@±ğÃû  Ìî³ä¾ØĞÎF()
+		//@å‚æ•° pRect çŸ©å½¢åŒºåŸŸ
+		//@åˆ«å  å¡«å……çŸ©å½¢F()
 		void FillRectF(RECTF* pRect) {
 			XDraw_FillRectF((HDRAW)m_handle, pRect);
 		}
 
-		//@²ÎÊı pRect ¾ØĞÎÇøÓò.
-		//@²ÎÊı color ÑÕÉ«.
-		//@±ğÃû  Ìî³ä¾ØĞÎÖ¸¶¨ÑÕÉ«()
+		//@å‚æ•° pRect çŸ©å½¢åŒºåŸŸ.
+		//@å‚æ•° color é¢œè‰².
+		//@åˆ«å  å¡«å……çŸ©å½¢æŒ‡å®šé¢œè‰²()
 		void FillRectColor(RECT* pRect, COLORREF color) {
 			XDraw_FillRectColor((HDRAW)m_handle, pRect, color);
 		}
 
-		//@²ÎÊı pRect ¾ØĞÎÇøÓò.
-		//@²ÎÊı color ÑÕÉ«.
-		//@±ğÃû  Ìî³ä¾ØĞÎÖ¸¶¨ÑÕÉ«F()
+		//@å‚æ•° pRect çŸ©å½¢åŒºåŸŸ.
+		//@å‚æ•° color é¢œè‰².
+		//@åˆ«å  å¡«å……çŸ©å½¢æŒ‡å®šé¢œè‰²F()
 		void FillRectColorF(RECTF* pRect, COLORREF color) {
 			XDraw_FillRectColorF((HDRAW)m_handle, pRect, color);
 		}
 
-		//@²ÎÊı pRect ¾ØĞÎÇøÓò
-		//@±ğÃû  Ìî³äÍÖÔ²()
+		//@å‚æ•° pRect çŸ©å½¢åŒºåŸŸ
+		//@åˆ«å  å¡«å……æ¤­åœ†()
 		void FillEllipse(RECT* pRect) {
 			XDraw_FillEllipse((HDRAW)m_handle, pRect);
 		}
 
-		//@²ÎÊı pRect ¾ØĞÎÇøÓò
-		//@±ğÃû  Ìî³äÍÖÔ²F()
+		//@å‚æ•° pRect çŸ©å½¢åŒºåŸŸ
+		//@åˆ«å  å¡«å……æ¤­åœ†F()
 		void FillEllipseF(RECTF* pRect) {
 			XDraw_FillEllipseF((HDRAW)m_handle, pRect);
 		}
 
-		// »æÖÆÍÖÔ²±ß¿ò
-		//@²ÎÊı pRect ¾ØĞÎÇøÓò.
-		//@±ğÃû  ÍÖÔ²()
+		// ç»˜åˆ¶æ¤­åœ†è¾¹æ¡†
+		//@å‚æ•° pRect çŸ©å½¢åŒºåŸŸ.
+		//@åˆ«å  æ¤­åœ†()
 		void DrawEllipse(RECT* pRect) {
 			XDraw_DrawEllipse((HDRAW)m_handle, pRect);
 		}
 
-		// »æÖÆÍÖÔ²±ß¿ò
-		//@²ÎÊı pRect ¾ØĞÎÇøÓò.
-		//@±ğÃû  ÍÖÔ²F()
+		// ç»˜åˆ¶æ¤­åœ†è¾¹æ¡†
+		//@å‚æ•° pRect çŸ©å½¢åŒºåŸŸ.
+		//@åˆ«å  æ¤­åœ†F()
 		void DrawEllipseF(RECTF* pRect) {
 			XDraw_DrawEllipseF((HDRAW)m_handle, pRect);
 		}
 
-		// Ìî³äÔ²½Ç¾ØĞÎ
-		//@²ÎÊı pRect ¾ØĞÎ×ø±ê.
-		//@²ÎÊı width Ô²½Ç¿í¶È.
-		//@²ÎÊı height Ô²½Ç¸ß¶È.
-		//@±ğÃû  Ìî³äÔ²½Ç¾ØĞÎ()
+		// å¡«å……åœ†è§’çŸ©å½¢
+		//@å‚æ•° pRect çŸ©å½¢åæ ‡.
+		//@å‚æ•° width åœ†è§’å®½åº¦.
+		//@å‚æ•° height åœ†è§’é«˜åº¦.
+		//@åˆ«å  å¡«å……åœ†è§’çŸ©å½¢()
 		void FillRoundRect(RECT* pRect, int width, int nHeight) {
 			XDraw_FillRoundRect((HDRAW)m_handle, pRect, width, nHeight);
 		}
 
-		// Ìî³äÔ²½Ç¾ØĞÎ
-		//@²ÎÊı pRect ¾ØĞÎ×ø±ê.
-		//@²ÎÊı width Ô²½Ç¿í¶È.
-		//@²ÎÊı height Ô²½Ç¸ß¶È.
-		//@±ğÃû  Ìî³äÔ²½Ç¾ØĞÎF()
+		// å¡«å……åœ†è§’çŸ©å½¢
+		//@å‚æ•° pRect çŸ©å½¢åæ ‡.
+		//@å‚æ•° width åœ†è§’å®½åº¦.
+		//@å‚æ•° height åœ†è§’é«˜åº¦.
+		//@åˆ«å  å¡«å……åœ†è§’çŸ©å½¢F()
 		void FillRoundRectF(RECTF* pRect, float width, float height) {
 			XDraw_FillRoundRectF((HDRAW)m_handle, pRect, width, height);
 		}
 
-		// »æÖÆÔ²½Ç¾ØĞÎ±ß¿ò.  
-		//@²ÎÊı pRect ¾ØĞÎ×ø±ê.
-		//@²ÎÊı width Ô²½Ç¿í¶È.
-		//@²ÎÊı height Ô²½Ç¸ß¶È.
-		//@±ğÃû  Ô²½Ç¾ØĞÎ()
+		// ç»˜åˆ¶åœ†è§’çŸ©å½¢è¾¹æ¡†.  
+		//@å‚æ•° pRect çŸ©å½¢åæ ‡.
+		//@å‚æ•° width åœ†è§’å®½åº¦.
+		//@å‚æ•° height åœ†è§’é«˜åº¦.
+		//@åˆ«å  åœ†è§’çŸ©å½¢()
 		void DrawRoundRect(RECT* pRect, int width, int nHeight) {
 			XDraw_DrawRoundRect((HDRAW)m_handle, pRect, width, nHeight);
 		}
 
-		// »æÖÆÔ²½Ç¾ØĞÎ±ß¿ò
-		//@²ÎÊı pRect ¾ØĞÎ×ø±ê.
-		//@²ÎÊı width Ô²½Ç¿í¶È.
-		//@²ÎÊı height Ô²½Ç¸ß¶È.
-		//@±ğÃû  Ô²½Ç¾ØĞÎF()
+		// ç»˜åˆ¶åœ†è§’çŸ©å½¢è¾¹æ¡†
+		//@å‚æ•° pRect çŸ©å½¢åæ ‡.
+		//@å‚æ•° width åœ†è§’å®½åº¦.
+		//@å‚æ•° height åœ†è§’é«˜åº¦.
+		//@åˆ«å  åœ†è§’çŸ©å½¢F()
 		void DrawRoundRectF(RECTF* pRect, float width, float height) {
 			XDraw_DrawRoundRectF((HDRAW)m_handle, pRect, width, height);
 		}
 
-		// Ìî³äÔ²½Ç¾ØĞÎ.  
-		//@²ÎÊı pRect ×ø±ê.
-		//@²ÎÊı leftTop Ô²½Ç´óĞ¡.
-		//@²ÎÊı rightTop Ô²½Ç´óĞ¡.
-		//@²ÎÊı rightBottom Ô²½Ç´óĞ¡.
-		//@²ÎÊı leftBottom Ô²½Ç´óĞ¡.
-		//@±ğÃû  Ìî³äÔ²½Ç¾ØĞÎÀ©Õ¹()
+		// å¡«å……åœ†è§’çŸ©å½¢.  
+		//@å‚æ•° pRect åæ ‡.
+		//@å‚æ•° leftTop åœ†è§’å¤§å°.
+		//@å‚æ•° rightTop åœ†è§’å¤§å°.
+		//@å‚æ•° rightBottom åœ†è§’å¤§å°.
+		//@å‚æ•° leftBottom åœ†è§’å¤§å°.
+		//@åˆ«å  å¡«å……åœ†è§’çŸ©å½¢æ‰©å±•()
 		void FillRoundRectEx(RECT* pRect, int leftTop, int rightTop, int rightBottom, int leftBottom) {
 			XDraw_FillRoundRectEx((HDRAW)m_handle, pRect, leftTop, rightTop, rightBottom, leftBottom);
 		}
 
-		// Ìî³äÔ²½Ç¾ØĞÎ
-		//@²ÎÊı pRect ×ø±ê.
-		//@²ÎÊı leftTop Ô²½Ç´óĞ¡.
-		//@²ÎÊı rightTop Ô²½Ç´óĞ¡.
-		//@²ÎÊı rightBottom Ô²½Ç´óĞ¡.
-		//@²ÎÊı leftBottom Ô²½Ç´óĞ¡.
-		//@±ğÃû  Ìî³äÔ²½Ç¾ØĞÎÀ©Õ¹F()
+		// å¡«å……åœ†è§’çŸ©å½¢
+		//@å‚æ•° pRect åæ ‡.
+		//@å‚æ•° leftTop åœ†è§’å¤§å°.
+		//@å‚æ•° rightTop åœ†è§’å¤§å°.
+		//@å‚æ•° rightBottom åœ†è§’å¤§å°.
+		//@å‚æ•° leftBottom åœ†è§’å¤§å°.
+		//@åˆ«å  å¡«å……åœ†è§’çŸ©å½¢æ‰©å±•F()
 		void FillRoundRectExF(RECTF* pRect, float leftTop, float rightTop, float rightBottom, float leftBottom) {
 			XDraw_FillRoundRectExF((HDRAW)m_handle, pRect, leftTop, rightTop, rightBottom, leftBottom);
 		}
 
-		// »æÖÆÔ²½Ç¾ØĞÎ±ß¿ò  
-		//@²ÎÊı pRect ×ø±ê.
-		//@²ÎÊı leftTop Ô²½Ç´óĞ¡.
-		//@²ÎÊı rightTop Ô²½Ç´óĞ¡.
-		//@²ÎÊı rightBottom Ô²½Ç´óĞ¡.
-		//@²ÎÊı leftBottom Ô²½Ç´óĞ¡.
-		//@±ğÃû  Ô²½Ç¾ØĞÎÀ©Õ¹()
+		// ç»˜åˆ¶åœ†è§’çŸ©å½¢è¾¹æ¡†  
+		//@å‚æ•° pRect åæ ‡.
+		//@å‚æ•° leftTop åœ†è§’å¤§å°.
+		//@å‚æ•° rightTop åœ†è§’å¤§å°.
+		//@å‚æ•° rightBottom åœ†è§’å¤§å°.
+		//@å‚æ•° leftBottom åœ†è§’å¤§å°.
+		//@åˆ«å  åœ†è§’çŸ©å½¢æ‰©å±•()
 		void DrawRoundRectEx(RECT* pRect, int leftTop, int rightTop, int rightBottom, int leftBottom) {
 			XDraw_DrawRoundRectEx((HDRAW)m_handle, pRect, leftTop, rightTop, rightBottom, leftBottom);
 		}
 
-		// »æÖÆÔ²½Ç¾ØĞÎ±ß¿ò
-		//@²ÎÊı pRect ×ø±ê.
-		//@²ÎÊı leftTop Ô²½Ç´óĞ¡.
-		//@²ÎÊı rightTop Ô²½Ç´óĞ¡.
-		//@²ÎÊı rightBottom Ô²½Ç´óĞ¡.
-		//@²ÎÊı leftBottom Ô²½Ç´óĞ¡.
-		//@±ğÃû  Ô²½Ç¾ØĞÎÀ©Õ¹F()
+		// ç»˜åˆ¶åœ†è§’çŸ©å½¢è¾¹æ¡†
+		//@å‚æ•° pRect åæ ‡.
+		//@å‚æ•° leftTop åœ†è§’å¤§å°.
+		//@å‚æ•° rightTop åœ†è§’å¤§å°.
+		//@å‚æ•° rightBottom åœ†è§’å¤§å°.
+		//@å‚æ•° leftBottom åœ†è§’å¤§å°.
+		//@åˆ«å  åœ†è§’çŸ©å½¢æ‰©å±•F()
 		void DrawRoundRectExF(RECTF* pRect, float leftTop, float rightTop, float rightBottom, float leftBottom) {
 			XDraw_DrawRoundRectExF((HDRAW)m_handle, pRect, leftTop, rightTop, rightBottom, leftBottom);
 		}
 
-		// ½¥±äÌî³ä,´ÓÒ»ÖÖÑÕÉ«¹ı¶Éµ½ÁíÒ»ÖÖÑÕÉ«.  
-		//@²ÎÊı pRect ¾ØĞÎ×ø±ê.
-		//@²ÎÊı color1 ¿ªÊ¼ÑÕÉ«.
-		//@²ÎÊı color2 ½áÊøÑÕÉ«.
-		//@²ÎÊı mode Ä£Ê½.
-		//@±ğÃû  ½¥±äÌî³ä2()
+		// æ¸å˜å¡«å……,ä»ä¸€ç§é¢œè‰²è¿‡æ¸¡åˆ°å¦ä¸€ç§é¢œè‰².  
+		//@å‚æ•° pRect çŸ©å½¢åæ ‡.
+		//@å‚æ•° color1 å¼€å§‹é¢œè‰².
+		//@å‚æ•° color2 ç»“æŸé¢œè‰².
+		//@å‚æ•° mode æ¨¡å¼.
+		//@åˆ«å  æ¸å˜å¡«å……2()
 		void GradientFill2(RECT* pRect, COLORREF color1, COLORREF color2, int mode) {
 			XDraw_GradientFill2((HDRAW)m_handle, pRect, color1, color2, mode);
 		}
 
-		// ½¥±äÌî³ä,´ÓÒ»ÖÖÑÕÉ«¹ı¶Éµ½ÁíÒ»ÖÖÑÕÉ«
-		//@²ÎÊı pRect ¾ØĞÎ×ø±ê.
-		//@²ÎÊı color1 ¿ªÊ¼ÑÕÉ«.
-		//@²ÎÊı color2 ½áÊøÑÕÉ«.
-		//@²ÎÊı mode Ä£Ê½.
-		//@±ğÃû  ½¥±äÌî³ä2F()
+		// æ¸å˜å¡«å……,ä»ä¸€ç§é¢œè‰²è¿‡æ¸¡åˆ°å¦ä¸€ç§é¢œè‰²
+		//@å‚æ•° pRect çŸ©å½¢åæ ‡.
+		//@å‚æ•° color1 å¼€å§‹é¢œè‰².
+		//@å‚æ•° color2 ç»“æŸé¢œè‰².
+		//@å‚æ•° mode æ¨¡å¼.
+		//@åˆ«å  æ¸å˜å¡«å……2F()
 		void GradientFill2F(RECTF* pRect, COLORREF color1, COLORREF color2, int mode) {
 			XDraw_GradientFill2F((HDRAW)m_handle, pRect, color1, color2, mode);
 		}
 
-		// ½¥±äÌî³ä,´ÓÒ»ÖÖÑÕÉ«¹ı¶Éµ½ÁíÒ»ÖÖÑÕÉ«.  
-		//@²ÎÊı pRect ¾ØĞÎ×ø±ê.
-		//@²ÎÊı color1 ¿ªÊ¼ÑÕÉ«.
-		//@²ÎÊı color2 ½áÊøÑÕÉ«,ÖĞ¼ä.
-		//@²ÎÊı color3 ¿ªÊ¼ÑÕÉ«,ÖĞ¼ä.
-		//@²ÎÊı color4 ½áÊøÑÕÉ«.
-		//@²ÎÊı mode Ä£Ê½.
-		//@±ğÃû  ½¥±äÌî³ä4()
+		// æ¸å˜å¡«å……,ä»ä¸€ç§é¢œè‰²è¿‡æ¸¡åˆ°å¦ä¸€ç§é¢œè‰².  
+		//@å‚æ•° pRect çŸ©å½¢åæ ‡.
+		//@å‚æ•° color1 å¼€å§‹é¢œè‰².
+		//@å‚æ•° color2 ç»“æŸé¢œè‰²,ä¸­é—´.
+		//@å‚æ•° color3 å¼€å§‹é¢œè‰²,ä¸­é—´.
+		//@å‚æ•° color4 ç»“æŸé¢œè‰².
+		//@å‚æ•° mode æ¨¡å¼.
+		//@åˆ«å  æ¸å˜å¡«å……4()
 		void GradientFill4(RECT* pRect, COLORREF color1, COLORREF color2, COLORREF color3, COLORREF color4, int mode) {
 			XDraw_GradientFill4((HDRAW)m_handle, pRect, color1, color2, color3, color4, mode);
 		}
 
-		// ½¥±äÌî³ä,´ÓÒ»ÖÖÑÕÉ«¹ı¶Éµ½ÁíÒ»ÖÖÑÕÉ«
-		//@²ÎÊı pRect ¾ØĞÎ×ø±ê.
-		//@²ÎÊı color1 ¿ªÊ¼ÑÕÉ«.
-		//@²ÎÊı color2 ½áÊøÑÕÉ«,ÖĞ¼ä.
-		//@²ÎÊı color3 ¿ªÊ¼ÑÕÉ«,ÖĞ¼ä.
-		//@²ÎÊı color4 ½áÊøÑÕÉ«.
-		//@²ÎÊı mode Ä£Ê½.
-		//@±ğÃû  ½¥±äÌî³ä4F()
+		// æ¸å˜å¡«å……,ä»ä¸€ç§é¢œè‰²è¿‡æ¸¡åˆ°å¦ä¸€ç§é¢œè‰²
+		//@å‚æ•° pRect çŸ©å½¢åæ ‡.
+		//@å‚æ•° color1 å¼€å§‹é¢œè‰².
+		//@å‚æ•° color2 ç»“æŸé¢œè‰²,ä¸­é—´.
+		//@å‚æ•° color3 å¼€å§‹é¢œè‰²,ä¸­é—´.
+		//@å‚æ•° color4 ç»“æŸé¢œè‰².
+		//@å‚æ•° mode æ¨¡å¼.
+		//@åˆ«å  æ¸å˜å¡«å……4F()
 		void GradientFill4F(RECTF* pRect, COLORREF color1, COLORREF color2, COLORREF color3, COLORREF color4, int mode) {
 			XDraw_GradientFill4F((HDRAW)m_handle, pRect, color1, color2, color3, color4, mode);
 		}
 
-		// »æÖÆ¾ØĞÎ±ß¿ò  
-		//@²ÎÊı pRect ¾ØĞÎ×ø±ê
-		//@±ğÃû  ¾ØĞÎ()
+		// ç»˜åˆ¶çŸ©å½¢è¾¹æ¡†  
+		//@å‚æ•° pRect çŸ©å½¢åæ ‡
+		//@åˆ«å  çŸ©å½¢()
 		void DrawRect(RECT* pRect) {
 			XDraw_DrawRect((HDRAW)m_handle, pRect);
 		}
 
-		// »æÖÆ¾ØĞÎ±ß¿ò
-		//@²ÎÊı pRect ¾ØĞÎ×ø±ê
-		//@±ğÃû  ¾ØĞÎF()
+		// ç»˜åˆ¶çŸ©å½¢è¾¹æ¡†
+		//@å‚æ•° pRect çŸ©å½¢åæ ‡
+		//@åˆ«å  çŸ©å½¢F()
 		void DrawRectF(RECTF* pRect) {
 			XDraw_DrawRectF((HDRAW)m_handle, pRect);
 		}
 
-		// »æÖÆÏßÌõ.  
-		//@²ÎÊı x1 ×ø±ê.
-		//@²ÎÊı y1 ×ø±ê.
-		//@²ÎÊı x2 ×ø±ê.
-		//@²ÎÊı y2 ×ø±ê.
-		//@±ğÃû  ÏßÌõ()
+		// ç»˜åˆ¶çº¿æ¡.  
+		//@å‚æ•° x1 åæ ‡.
+		//@å‚æ•° y1 åæ ‡.
+		//@å‚æ•° x2 åæ ‡.
+		//@å‚æ•° y2 åæ ‡.
+		//@åˆ«å  çº¿æ¡()
 		void DrawLine(int x1, int y1, int x2, int y2) {
 			XDraw_DrawLine((HDRAW)m_handle, x1, y1, x2, y2);
 		}
 
-		// »æÖÆÏßÌõ
-		//@²ÎÊı x1 ×ø±ê.
-		//@²ÎÊı y1 ×ø±ê.
-		//@²ÎÊı x2 ×ø±ê.
-		//@²ÎÊı y2 ×ø±ê.
-		//@±ğÃû  ÏßÌõF()
+		// ç»˜åˆ¶çº¿æ¡
+		//@å‚æ•° x1 åæ ‡.
+		//@å‚æ•° y1 åæ ‡.
+		//@å‚æ•° x2 åæ ‡.
+		//@å‚æ•° y2 åæ ‡.
+		//@åˆ«å  çº¿æ¡F()
 		void DrawLineF(float x1, float y1, float x2, float y2) {
 			XDraw_DrawLineF((HDRAW)m_handle, x1, y1, x2, y2);
 		}
 
-		// D2DÔİÊ±Áô¿Õ
-		//@²ÎÊı points ×ø±êµãÊı×é
-		//@²ÎÊı count Êı×é´óĞ¡
-		//@²ÎÊı tension ´óÓÚ»òµÈÓÚ0.0FµÄÖµ£¬Ö¸¶¨ÇúÏßµÄÕÅÁ¦¡£D2D ºöÂÔ´Ë²ÎÊı
-		//@±ğÃû  ÇúÏß()
+		// D2Dæš‚æ—¶ç•™ç©º
+		//@å‚æ•° points åæ ‡ç‚¹æ•°ç»„
+		//@å‚æ•° count æ•°ç»„å¤§å°
+		//@å‚æ•° tension å¤§äºæˆ–ç­‰äº0.0Fçš„å€¼ï¼ŒæŒ‡å®šæ›²çº¿çš„å¼ åŠ›ã€‚D2D å¿½ç•¥æ­¤å‚æ•°
+		//@åˆ«å  æ›²çº¿()
 		void DrawCurve(POINT* points, int count, float tension) {
 			XDraw_DrawCurve((HDRAW)m_handle, points, count, tension);
 		}
 
-		// D2DÔİÊ±Áô¿Õ
-		//@²ÎÊı points ×ø±êµãÊı×é
-		//@²ÎÊı count Êı×é´óĞ¡
-		//@²ÎÊı tension ´óÓÚ»òµÈÓÚ0.0FµÄÖµ£¬Ö¸¶¨ÇúÏßµÄÕÅÁ¦¡£D2D ºöÂÔ´Ë²ÎÊı
-		//@±ğÃû  ÇúÏßF()
+		// D2Dæš‚æ—¶ç•™ç©º
+		//@å‚æ•° points åæ ‡ç‚¹æ•°ç»„
+		//@å‚æ•° count æ•°ç»„å¤§å°
+		//@å‚æ•° tension å¤§äºæˆ–ç­‰äº0.0Fçš„å€¼ï¼ŒæŒ‡å®šæ›²çº¿çš„å¼ åŠ›ã€‚D2D å¿½ç•¥æ­¤å‚æ•°
+		//@åˆ«å  æ›²çº¿F()
 		void DrawCurveF(POINTF* points, int count, float tension) {
 			XDraw_DrawCurveF((HDRAW)m_handle, points, count, tension);
 		}
 
-		//@²ÎÊı x ×ø±ê
-		//@²ÎÊı y ×ø±ê
-		//@²ÎÊı width ¿í¶È
-		//@²ÎÊı height ¸ß¶È
-		//@²ÎÊı startAngle ÆğÊ¼½Ç¶È
-		//@²ÎÊı sweepAngle »æÖÆ½Ç¶È, ´ÓÆğÊ¼½Ç¶È¿ªÊ¼¼ÆËã
-		//@±ğÃû  Ô²»¡()
+		//@å‚æ•° x åæ ‡
+		//@å‚æ•° y åæ ‡
+		//@å‚æ•° width å®½åº¦
+		//@å‚æ•° height é«˜åº¦
+		//@å‚æ•° startAngle èµ·å§‹è§’åº¦
+		//@å‚æ•° sweepAngle ç»˜åˆ¶è§’åº¦, ä»èµ·å§‹è§’åº¦å¼€å§‹è®¡ç®—
+		//@åˆ«å  åœ†å¼§()
 		void DrawArc(int x, int y, int width, int nHeight, float startAngle, float sweepAngle) {
 			XDraw_DrawArc((HDRAW)m_handle, x, y, width, nHeight, startAngle, sweepAngle);
 		}
 
-		//@²ÎÊı x ×ø±ê
-		//@²ÎÊı y ×ø±ê
-		//@²ÎÊı width ¿í¶È
-		//@²ÎÊı height ¸ß¶È
-		//@²ÎÊı startAngle ÆğÊ¼½Ç¶È
-		//@²ÎÊı sweepAngle »æÖÆ½Ç¶È, ´ÓÆğÊ¼½Ç¶È¿ªÊ¼¼ÆËã
-		//@±ğÃû  Ô²»¡F()
+		//@å‚æ•° x åæ ‡
+		//@å‚æ•° y åæ ‡
+		//@å‚æ•° width å®½åº¦
+		//@å‚æ•° height é«˜åº¦
+		//@å‚æ•° startAngle èµ·å§‹è§’åº¦
+		//@å‚æ•° sweepAngle ç»˜åˆ¶è§’åº¦, ä»èµ·å§‹è§’åº¦å¼€å§‹è®¡ç®—
+		//@åˆ«å  åœ†å¼§F()
 		void DrawArcF(float x, float y, float width, float height, float startAngle, float sweepAngle) {
 			XDraw_DrawArcF((HDRAW)m_handle, x, y, width, height, startAngle, sweepAngle);
 		}
 
-		// »æÖÆ½¹µã¾ØĞÎ.  
-		//@²ÎÊı pRect ¾ØĞÎ×ø±ê.
-		//@±ğÃû  ½¹µã¾ØĞÎ()
+		// ç»˜åˆ¶ç„¦ç‚¹çŸ©å½¢.  
+		//@å‚æ•° pRect çŸ©å½¢åæ ‡.
+		//@åˆ«å  ç„¦ç‚¹çŸ©å½¢()
 		void FocusRect(RECT* pRect) {
 			XDraw_FocusRect((HDRAW)m_handle, pRect);
 		}
 
-		// »æÖÆ½¹µã¾ØĞÎ
-		//@²ÎÊı pRect ¾ØĞÎ×ø±ê.
-		//@±ğÃû  ½¹µã¾ØĞÎF()
+		// ç»˜åˆ¶ç„¦ç‚¹çŸ©å½¢
+		//@å‚æ•° pRect çŸ©å½¢åæ ‡.
+		//@åˆ«å  ç„¦ç‚¹çŸ©å½¢F()
 		void FocusRectF(RECTF* pRect) {
 			XDraw_FocusRectF((HDRAW)m_handle, pRect);
 		}
 
-		// »æÖÆË®Æ½»ò´¹Ö±ĞéÏß.  
-		//@²ÎÊı x1 Æğµãx×ø±ê.
-		//@²ÎÊı y1 Æğµãy×ø±ê.
-		//@²ÎÊı x2 ½áÊøµãx×ø±ê.
-		//@²ÎÊı y2 ½áÊøµãy×ø±ê.
-		//@±ğÃû  ĞéÏß()
+		// ç»˜åˆ¶æ°´å¹³æˆ–å‚ç›´è™šçº¿.  
+		//@å‚æ•° x1 èµ·ç‚¹xåæ ‡.
+		//@å‚æ•° y1 èµ·ç‚¹yåæ ‡.
+		//@å‚æ•° x2 ç»“æŸç‚¹xåæ ‡.
+		//@å‚æ•° y2 ç»“æŸç‚¹yåæ ‡.
+		//@åˆ«å  è™šçº¿()
 		void Dottedline(int x1, int y1, int x2, int y2) {
 			XDraw_Dottedline((HDRAW)m_handle, x1, y1, x2, y2);
 		}
 
-		// »æÖÆË®Æ½»ò´¹Ö±ĞéÏß
-		//@²ÎÊı x1 Æğµãx×ø±ê.
-		//@²ÎÊı y1 Æğµãy×ø±ê.
-		//@²ÎÊı x2 ½áÊøµãx×ø±ê.
-		//@²ÎÊı y2 ½áÊøµãy×ø±ê.
-		//@±ğÃû  ĞéÏßF()
+		// ç»˜åˆ¶æ°´å¹³æˆ–å‚ç›´è™šçº¿
+		//@å‚æ•° x1 èµ·ç‚¹xåæ ‡.
+		//@å‚æ•° y1 èµ·ç‚¹yåæ ‡.
+		//@å‚æ•° x2 ç»“æŸç‚¹xåæ ‡.
+		//@å‚æ•° y2 ç»“æŸç‚¹yåæ ‡.
+		//@åˆ«å  è™šçº¿F()
 		void DottedlineF(float x1, float y1, float x2, float y2) {
 			XDraw_DottedlineF((HDRAW)m_handle, x1, y1, x2, y2);
 		}
 
-		// »æÖÆ¶à±ßĞÎ.  
-		//@²ÎÊı points ¶¥µã×ø±êÊı×é.
-		//@²ÎÊı nCount ¶¥µãÊıÁ¿.
-		//@±ğÃû  ¶à±ßĞÎ()
+		// ç»˜åˆ¶å¤šè¾¹å½¢.  
+		//@å‚æ•° points é¡¶ç‚¹åæ ‡æ•°ç»„.
+		//@å‚æ•° nCount é¡¶ç‚¹æ•°é‡.
+		//@åˆ«å  å¤šè¾¹å½¢()
 		void DrawPolygon(POINT* points, int nCount) {
 			XDraw_DrawPolygon((HDRAW)m_handle, points, nCount);
 		}
 
-		// »æÖÆ¶à±ßĞÎ
-		//@²ÎÊı points ¶¥µã×ø±êÊı×é.
-		//@²ÎÊı nCount ¶¥µãÊıÁ¿.
-		//@±ğÃû  ¶à±ßĞÎF()
+		// ç»˜åˆ¶å¤šè¾¹å½¢
+		//@å‚æ•° points é¡¶ç‚¹åæ ‡æ•°ç»„.
+		//@å‚æ•° nCount é¡¶ç‚¹æ•°é‡.
+		//@åˆ«å  å¤šè¾¹å½¢F()
 		void DrawPolygonF(POINTF* points, int nCount) {
 			XDraw_DrawPolygonF((HDRAW)m_handle, points, nCount);
 		}
 
-		// Ìî³ä¶à±ßĞÎ.  
-		//@²ÎÊı points ¶¥µã×ø±êÊı×é.
-		//@²ÎÊı nCount ¶¥µãÊıÁ¿.
-		//@±ğÃû  Ìî³ä¶à±ßĞÎ()
+		// å¡«å……å¤šè¾¹å½¢.  
+		//@å‚æ•° points é¡¶ç‚¹åæ ‡æ•°ç»„.
+		//@å‚æ•° nCount é¡¶ç‚¹æ•°é‡.
+		//@åˆ«å  å¡«å……å¤šè¾¹å½¢()
 		void FillPolygon(POINT* points, int nCount) {
 			XDraw_FillPolygon((HDRAW)m_handle, points, nCount);
 		}
 
-		// Ìî³ä¶à±ßĞÎ
-		//@²ÎÊı points ¶¥µã×ø±êÊı×é.
-		//@²ÎÊı nCount ¶¥µãÊıÁ¿.
-		//@±ğÃû  Ìî³ä¶à±ßĞÎF()
+		// å¡«å……å¤šè¾¹å½¢
+		//@å‚æ•° points é¡¶ç‚¹åæ ‡æ•°ç»„.
+		//@å‚æ•° nCount é¡¶ç‚¹æ•°é‡.
+		//@åˆ«å  å¡«å……å¤šè¾¹å½¢F()
 		void FillPolygonF(POINTF* points, int nCount) {
 			XDraw_FillPolygonF((HDRAW)m_handle, points, nCount);
 		}
 
-		// »æÖÆÍ¼Æ¬.  
-		//@²ÎÊı hImageFrame Í¼Æ¬¾ä±ú.
-		//@²ÎÊı x x×ø±ê.
-		//@²ÎÊı y y×ø±ê.
-		//@±ğÃû  Í¼Æ¬()
+		// ç»˜åˆ¶å›¾ç‰‡.  
+		//@å‚æ•° hImageFrame å›¾ç‰‡å¥æŸ„.
+		//@å‚æ•° x xåæ ‡.
+		//@å‚æ•° y yåæ ‡.
+		//@åˆ«å  å›¾ç‰‡()
 		void Image(HIMAGE hImageFrame, int x, int y) {
 			XDraw_Image((HDRAW)m_handle, hImageFrame, x, y);
 		}
 
-		// »æÖÆÍ¼Æ¬
-		//@²ÎÊı hImageFrame Í¼Æ¬¾ä±ú.
-		//@²ÎÊı x x×ø±ê.
-		//@²ÎÊı y y×ø±ê.
-		//@±ğÃû  Í¼Æ¬F()
+		// ç»˜åˆ¶å›¾ç‰‡
+		//@å‚æ•° hImageFrame å›¾ç‰‡å¥æŸ„.
+		//@å‚æ•° x xåæ ‡.
+		//@å‚æ•° y yåæ ‡.
+		//@åˆ«å  å›¾ç‰‡F()
 		void ImageF(HIMAGE hImageFrame, float x, float y) {
 			XDraw_ImageF((HDRAW)m_handle, hImageFrame, x, y);
 		}
 
-		// »æÖÆÍ¼Æ¬
-		//@²ÎÊı hImageFrame Í¼Æ¬¾ä±ú.
-		//@²ÎÊı x x×ø±ê.
-		//@²ÎÊı y y×ø±ê.
-		//@²ÎÊı width ¿í¶È.
-		//@²ÎÊı height ¸ß¶È.
-		//@±ğÃû  Í¼Æ¬À©Õ¹()
+		// ç»˜åˆ¶å›¾ç‰‡
+		//@å‚æ•° hImageFrame å›¾ç‰‡å¥æŸ„.
+		//@å‚æ•° x xåæ ‡.
+		//@å‚æ•° y yåæ ‡.
+		//@å‚æ•° width å®½åº¦.
+		//@å‚æ•° height é«˜åº¦.
+		//@åˆ«å  å›¾ç‰‡æ‰©å±•()
 		void ImageEx(HIMAGE hImageFrame, int x, int y, int width, int height) {
 			XDraw_ImageEx((HDRAW)m_handle, hImageFrame, x, y, width, height);
 		}
 
-		// »æÖÆÍ¼Æ¬
-		//@²ÎÊı hImageFrame Í¼Æ¬¾ä±ú.
-		//@²ÎÊı x x×ø±ê.
-		//@²ÎÊı y y×ø±ê.
-		//@²ÎÊı width ¿í¶È.
-		//@²ÎÊı height ¸ß¶È.
-		//@±ğÃû  Í¼Æ¬À©Õ¹F()
+		// ç»˜åˆ¶å›¾ç‰‡
+		//@å‚æ•° hImageFrame å›¾ç‰‡å¥æŸ„.
+		//@å‚æ•° x xåæ ‡.
+		//@å‚æ•° y yåæ ‡.
+		//@å‚æ•° width å®½åº¦.
+		//@å‚æ•° height é«˜åº¦.
+		//@åˆ«å  å›¾ç‰‡æ‰©å±•F()
 		void ImageExF(HIMAGE hImageFrame, float x, float y, float width, float height) {
 			XDraw_ImageExF((HDRAW)m_handle, hImageFrame, x, y, width, height);
 		}
 
-		// »æÖÆÍ¼Æ¬.  
-		//@²ÎÊı hImageFrame Í¼Æ¬¾ä±ú.
-		//@²ÎÊı pRect ×ø±ê.
-		//@²ÎÊı bOnlyBorder ÊÇ·ñÖ»»æÖÆ±ßÔµÇøÓò.
-		//@±ğÃû  Í¼Æ¬×ÔÊÊÓ¦()
+		// ç»˜åˆ¶å›¾ç‰‡.  
+		//@å‚æ•° hImageFrame å›¾ç‰‡å¥æŸ„.
+		//@å‚æ•° pRect åæ ‡.
+		//@å‚æ•° bOnlyBorder æ˜¯å¦åªç»˜åˆ¶è¾¹ç¼˜åŒºåŸŸ.
+		//@åˆ«å  å›¾ç‰‡è‡ªé€‚åº”()
 		void ImageAdaptive(HIMAGE hImageFrame, RECT* pRect, bool bOnlyBorder = false) {
 			XDraw_ImageAdaptive((HDRAW)m_handle, hImageFrame, pRect, bOnlyBorder);
 		}
 
-		// »æÖÆÍ¼Æ¬
-		//@²ÎÊı hImageFrame Í¼Æ¬¾ä±ú.
-		//@²ÎÊı pRect ×ø±ê.
-		//@²ÎÊı bOnlyBorder ÊÇ·ñÖ»»æÖÆ±ßÔµÇøÓò.
-		//@±ğÃû  Í¼Æ¬×ÔÊÊÓ¦F()
+		// ç»˜åˆ¶å›¾ç‰‡
+		//@å‚æ•° hImageFrame å›¾ç‰‡å¥æŸ„.
+		//@å‚æ•° pRect åæ ‡.
+		//@å‚æ•° bOnlyBorder æ˜¯å¦åªç»˜åˆ¶è¾¹ç¼˜åŒºåŸŸ.
+		//@åˆ«å  å›¾ç‰‡è‡ªé€‚åº”F()
 		void ImageAdaptiveF(HIMAGE hImageFrame, RECTF* pRect, bool bOnlyBorder = false) {
 			XDraw_ImageAdaptiveF((HDRAW)m_handle, hImageFrame, pRect, bOnlyBorder);
 		}
 
-		// »æÖÆÍ¼Æ¬.  
-		//@²ÎÊı hImageFrame Í¼Æ¬¾ä±ú.
-		//@²ÎÊı pRect ×ø±ê.
-		//@²ÎÊı flag ±êÊ¶, 0:´Ó×óÉÏ½Ç¿ªÊ¼Æ½ÆÌ,1:´Ó×óÏÂ½Ç¿ªÊ¼Æ½ÆÌ.
-		//@±ğÃû  Í¼Æ¬Æ½ÆÌ()
+		// ç»˜åˆ¶å›¾ç‰‡.  
+		//@å‚æ•° hImageFrame å›¾ç‰‡å¥æŸ„.
+		//@å‚æ•° pRect åæ ‡.
+		//@å‚æ•° flag æ ‡è¯†, 0:ä»å·¦ä¸Šè§’å¼€å§‹å¹³é“º,1:ä»å·¦ä¸‹è§’å¼€å§‹å¹³é“º.
+		//@åˆ«å  å›¾ç‰‡å¹³é“º()
 		void ImageTile(HIMAGE hImageFrame, RECT* pRect, int flag = 0) {
 			XDraw_ImageTile((HDRAW)m_handle, hImageFrame, pRect, flag);
 		}
 
-		// »æÖÆÍ¼Æ¬
-		//@²ÎÊı hImageFrame Í¼Æ¬¾ä±ú.
-		//@²ÎÊı pRect ×ø±ê.
-		//@²ÎÊı flag ±êÊ¶, 0:´Ó×óÉÏ½Ç¿ªÊ¼Æ½ÆÌ,1:´Ó×óÏÂ½Ç¿ªÊ¼Æ½ÆÌ.
-		//@±ğÃû  Í¼Æ¬Æ½ÆÌF()
+		// ç»˜åˆ¶å›¾ç‰‡
+		//@å‚æ•° hImageFrame å›¾ç‰‡å¥æŸ„.
+		//@å‚æ•° pRect åæ ‡.
+		//@å‚æ•° flag æ ‡è¯†, 0:ä»å·¦ä¸Šè§’å¼€å§‹å¹³é“º,1:ä»å·¦ä¸‹è§’å¼€å§‹å¹³é“º.
+		//@åˆ«å  å›¾ç‰‡å¹³é“ºF()
 		void ImageTileF(HIMAGE hImageFrame, RECTF* pRect, int flag = 0) {
 			XDraw_ImageTileF((HDRAW)m_handle, hImageFrame, pRect, flag);
 		}
 
-		// »æÖÆÍ¼Æ¬.  
-		//@²ÎÊı hImageFrame Í¼Æ¬¾ä±ú.
-		//@²ÎÊı pRect ×ø±ê.
-		//@²ÎÊı bClip ÊÇ·ñ²Ã¼ôÇøÓò.
-		//@±ğÃû  Í¼Æ¬ÔöÇ¿()
+		// ç»˜åˆ¶å›¾ç‰‡.  
+		//@å‚æ•° hImageFrame å›¾ç‰‡å¥æŸ„.
+		//@å‚æ•° pRect åæ ‡.
+		//@å‚æ•° bClip æ˜¯å¦è£å‰ªåŒºåŸŸ.
+		//@åˆ«å  å›¾ç‰‡å¢å¼º()
 		void ImageSuper(HIMAGE hImageFrame, RECT* pRect, bool bClip = false) {
 			XDraw_ImageSuper((HDRAW)m_handle, hImageFrame, pRect, bClip);
 		}
 
-		// »æÖÆÍ¼Æ¬
-		//@²ÎÊı hImageFrame Í¼Æ¬¾ä±ú.
-		//@²ÎÊı pRect ×ø±ê.
-		//@²ÎÊı bClip ÊÇ·ñ²Ã¼ôÇøÓò.
-		//@±ğÃû  Í¼Æ¬ÔöÇ¿F()
+		// ç»˜åˆ¶å›¾ç‰‡
+		//@å‚æ•° hImageFrame å›¾ç‰‡å¥æŸ„.
+		//@å‚æ•° pRect åæ ‡.
+		//@å‚æ•° bClip æ˜¯å¦è£å‰ªåŒºåŸŸ.
+		//@åˆ«å  å›¾ç‰‡å¢å¼ºF()
 		void ImageSuperF(HIMAGE hImageFrame, RECTF* pRect, bool bClip = false) {
 			XDraw_ImageSuperF((HDRAW)m_handle, hImageFrame, pRect, bClip);
 		}
 
-		// »æÖÆÍ¼Æ¬.  
-		//@²ÎÊı hImageFrame Í¼Æ¬¾ä±ú.
-		//@²ÎÊı pRcDest Ä¿±ê×ø±ê.
-		//@²ÎÊı pRcSrc Ô´×ø±ê.
-		//@±ğÃû  Í¼Æ¬ÔöÇ¿2()
+		// ç»˜åˆ¶å›¾ç‰‡.  
+		//@å‚æ•° hImageFrame å›¾ç‰‡å¥æŸ„.
+		//@å‚æ•° pRcDest ç›®æ ‡åæ ‡.
+		//@å‚æ•° pRcSrc æºåæ ‡.
+		//@åˆ«å  å›¾ç‰‡å¢å¼º2()
 		void ImageSuperEx(HIMAGE hImageFrame, RECT* pRcDest, RECT* pRcSrc) {
 			XDraw_ImageSuperEx((HDRAW)m_handle, hImageFrame, pRcDest, pRcSrc);
 		}
 
-		// »æÖÆÍ¼Æ¬
-		//@²ÎÊı hImageFrame Í¼Æ¬¾ä±ú.
-		//@²ÎÊı pRcDest Ä¿±ê×ø±ê.
-		//@²ÎÊı pRcSrc Ô´×ø±ê.
-		//@±ğÃû  Í¼Æ¬ÔöÇ¿À©Õ¹F()
+		// ç»˜åˆ¶å›¾ç‰‡
+		//@å‚æ•° hImageFrame å›¾ç‰‡å¥æŸ„.
+		//@å‚æ•° pRcDest ç›®æ ‡åæ ‡.
+		//@å‚æ•° pRcSrc æºåæ ‡.
+		//@åˆ«å  å›¾ç‰‡å¢å¼ºæ‰©å±•F()
 		void ImageSuperExF(HIMAGE hImageFrame, RECTF* pRcDest, RECTF* pRcSrc) {
 			XDraw_ImageSuperExF((HDRAW)m_handle, hImageFrame, pRcDest, pRcSrc);
 		}
 
-		// »æÖÆ´øÕÚ¸ÇµÄÍ¼Æ¬. D2DÁô¿Õ  
-		//@²ÎÊı hImageFrame Í¼Æ¬¾ä±ú.
-		//@²ÎÊı hImageFrameMask Í¼Æ¬¾ä±ú,ÕÚ¸Ç.
-		//@²ÎÊı pRect ×ø±ê.
-		//@²ÎÊı pRectMask ×ø±ê,ÕÚ¸Ç.
-		//@²ÎÊı bClip ÊÇ·ñ²Ã¼ôÇøÓò.
-		//@±ğÃû  Í¼Æ¬ÔöÇ¿ÕÚ¸Ç()
+		// ç»˜åˆ¶å¸¦é®ç›–çš„å›¾ç‰‡. D2Dç•™ç©º  
+		//@å‚æ•° hImageFrame å›¾ç‰‡å¥æŸ„.
+		//@å‚æ•° hImageFrameMask å›¾ç‰‡å¥æŸ„,é®ç›–.
+		//@å‚æ•° pRect åæ ‡.
+		//@å‚æ•° pRectMask åæ ‡,é®ç›–.
+		//@å‚æ•° bClip æ˜¯å¦è£å‰ªåŒºåŸŸ.
+		//@åˆ«å  å›¾ç‰‡å¢å¼ºé®ç›–()
 		void ImageSuperMask(HIMAGE hImageFrame, HIMAGE hImageFrameMask, RECT* pRect, RECT* pRectMask, bool bClip = false) {
 			XDraw_ImageSuperMask((HDRAW)m_handle, hImageFrame, hImageFrameMask, pRect, pRectMask, bClip);
 		}
 
-		// »æÖÆ´øÕÚ¸ÇµÄÍ¼Æ¬.D2DÁô¿Õ  
-		//@²ÎÊı hImageFrame Í¼Æ¬¾ä±ú.
-		//@²ÎÊı hImageFrameMask Í¼Æ¬¾ä±ú,ÕÚ¸Ç.
-		//@²ÎÊı x hImageFrame X×ø±ê.
-		//@²ÎÊı y hImageFrame Y×ø±ê.
-		//@²ÎÊı x2 hImageFrameMask X×ø±ê.
-		//@²ÎÊı y2 hImageFrameMask Y×ø±ê.
-		//@±ğÃû  Í¼Æ¬ÕÚ¸Ç()
+		// ç»˜åˆ¶å¸¦é®ç›–çš„å›¾ç‰‡.D2Dç•™ç©º  
+		//@å‚æ•° hImageFrame å›¾ç‰‡å¥æŸ„.
+		//@å‚æ•° hImageFrameMask å›¾ç‰‡å¥æŸ„,é®ç›–.
+		//@å‚æ•° x hImageFrame Xåæ ‡.
+		//@å‚æ•° y hImageFrame Yåæ ‡.
+		//@å‚æ•° x2 hImageFrameMask Xåæ ‡.
+		//@å‚æ•° y2 hImageFrameMask Yåæ ‡.
+		//@åˆ«å  å›¾ç‰‡é®ç›–()
 		void ImageMask(HIMAGE hImageFrame, HIMAGE hImageFrameMask, RECT* pRect, int x2, int y2) {
 			XDraw_ImageMask((HDRAW)m_handle, hImageFrame, hImageFrameMask, pRect, x2, y2);
 		}
 
-		//@²ÎÊı pString ×Ö·û´®.
-		//@²ÎÊı nCount ×Ö·û´®³¤¶È.
-		//@²ÎÊı pRect ×ø±ê.
-		//@±ğÃû  ÎÄ±¾Ö¸¶¨¾ØĞÎ()
+		//@å‚æ•° pString å­—ç¬¦ä¸².
+		//@å‚æ•° nCount å­—ç¬¦ä¸²é•¿åº¦.
+		//@å‚æ•° pRect åæ ‡.
+		//@åˆ«å  æ–‡æœ¬æŒ‡å®šçŸ©å½¢()
 		void DrawText(const std::wstring& text, RECT* pRect) {
 			XDraw_DrawText((HDRAW)m_handle, text.c_str(), text.size(), pRect);
 		}
 
-		//@²ÎÊı pString ×Ö·û´®.
-		//@²ÎÊı nCount ×Ö·û´®³¤¶È.
-		//@²ÎÊı pRect ×ø±ê.
-		//@±ğÃû  ÎÄ±¾Ö¸¶¨¾ØĞÎF()
+		//@å‚æ•° pString å­—ç¬¦ä¸².
+		//@å‚æ•° nCount å­—ç¬¦ä¸²é•¿åº¦.
+		//@å‚æ•° pRect åæ ‡.
+		//@åˆ«å  æ–‡æœ¬æŒ‡å®šçŸ©å½¢F()
 		void DrawTextF(const std::wstring& text, RECTF* pRect) {
 			XDraw_DrawTextF((HDRAW)m_handle, text.c_str(), text.size(), pRect);
 		}
 
-		// ²Î¼ûMSDN.  
-		//@²ÎÊı pString ×Ö·û´®.
-		//@²ÎÊı nCount ×Ö·û´®³¤¶È.
-		//@²ÎÊı pRect ×ø±ê.
-		//@²ÎÊı colorLine ÏÂ»®ÏßÑÕÉ«.
-		//@±ğÃû  ÎÄ±¾ÏÂ»®Ïß()
+		// å‚è§MSDN.  
+		//@å‚æ•° pString å­—ç¬¦ä¸².
+		//@å‚æ•° nCount å­—ç¬¦ä¸²é•¿åº¦.
+		//@å‚æ•° pRect åæ ‡.
+		//@å‚æ•° colorLine ä¸‹åˆ’çº¿é¢œè‰².
+		//@åˆ«å  æ–‡æœ¬ä¸‹åˆ’çº¿()
 		void DrawTextUnderline(const std::wstring& text, RECT* pRect, COLORREF colorLine) {
 			XDraw_DrawTextUnderline((HDRAW)m_handle, text.c_str(), text.size(), pRect, colorLine);
 		}
 
-		//@²ÎÊı pString ×Ö·û´®.
-		//@²ÎÊı nCount ×Ö·û´®³¤¶È.
-		//@²ÎÊı pRect ×ø±ê.
-		//@²ÎÊı colorLine ÏÂ»®ÏßÑÕÉ«.
-		//@±ğÃû  ÎÄ±¾ÏÂ»®ÏßF()
+		//@å‚æ•° pString å­—ç¬¦ä¸².
+		//@å‚æ•° nCount å­—ç¬¦ä¸²é•¿åº¦.
+		//@å‚æ•° pRect åæ ‡.
+		//@å‚æ•° colorLine ä¸‹åˆ’çº¿é¢œè‰².
+		//@åˆ«å  æ–‡æœ¬ä¸‹åˆ’çº¿F()
 		void DrawTextUnderlineF(const std::wstring& text, RECTF* pRect, COLORREF colorLine) {
 			XDraw_DrawTextUnderlineF((HDRAW)m_handle, text.c_str(), text.size(), pRect, colorLine);
 		}
 
-		//@²ÎÊı xStart XX.
-		//@²ÎÊı yStart XX.
-		//@²ÎÊı pString XX.
-		//@²ÎÊı cbString XX.
-		//@±ğÃû  ÎÄ±¾()
+		//@å‚æ•° xStart XX.
+		//@å‚æ•° yStart XX.
+		//@å‚æ•° pString XX.
+		//@å‚æ•° cbString XX.
+		//@åˆ«å  æ–‡æœ¬()
 		void TextOut(int xStart, int yStart, const std::wstring& text) {
 			XDraw_TextOut((HDRAW)m_handle, xStart, yStart, text.c_str(), text.size());
 		}
 
-		//@²ÎÊı xStart XX.
-		//@²ÎÊı yStart XX.
-		//@²ÎÊı pString XX.
-		//@²ÎÊı cbString XX.
-		//@±ğÃû  ÎÄ±¾F()
+		//@å‚æ•° xStart XX.
+		//@å‚æ•° yStart XX.
+		//@å‚æ•° pString XX.
+		//@å‚æ•° cbString XX.
+		//@åˆ«å  æ–‡æœ¬F()
 		void TextOutF(float xStart, float yStart, const std::wstring& text) {
 			XDraw_TextOutF((HDRAW)m_handle, xStart, yStart, text.c_str(), text.size());
 		}
 
-		//@²ÎÊı xStart XX.
-		//@²ÎÊı yStart XX.
-		//@²ÎÊı pString XX.
-		//@±ğÃû  ÎÄ±¾À©Õ¹()
+		//@å‚æ•° xStart XX.
+		//@å‚æ•° yStart XX.
+		//@å‚æ•° pString XX.
+		//@åˆ«å  æ–‡æœ¬æ‰©å±•()
 		void TextOutEx(int xStart, int yStart, const std::wstring& text) {
 			XDraw_TextOutEx((HDRAW)m_handle, xStart, yStart, text.c_str());
 		}
 
-		//@²ÎÊı xStart XX.
-		//@²ÎÊı yStart XX.
-		//@²ÎÊı pString XX.
-		//@±ğÃû  ÎÄ±¾À©Õ¹F()
+		//@å‚æ•° xStart XX.
+		//@å‚æ•° yStart XX.
+		//@å‚æ•° pString XX.
+		//@åˆ«å  æ–‡æœ¬æ‰©å±•F()
 		void TextOutExF(float xStart, float yStart, const std::wstring& text) {
 			XDraw_TextOutExF((HDRAW)m_handle, xStart, yStart, text.c_str());
 		}
 
-		//@²ÎÊı xStart XX.
-		//@²ÎÊı yStart XX.
-		//@²ÎÊı pString XX.
-		//@±ğÃû  ÎÄ±¾A()
+		//@å‚æ•° xStart XX.
+		//@å‚æ•° yStart XX.
+		//@å‚æ•° pString XX.
+		//@åˆ«å  æ–‡æœ¬A()
 		void TextOutA(int xStart, int yStart, const std::string& text) {
 			XDraw_TextOutA((HDRAW)m_handle, xStart, yStart, text.c_str());
 		}
 
-		//@²ÎÊı xStart XX.
-		//@²ÎÊı yStart XX.
-		//@²ÎÊı pString XX.
-		//@±ğÃû  ÎÄ±¾AF()
+		//@å‚æ•° xStart XX.
+		//@å‚æ•° yStart XX.
+		//@å‚æ•° pString XX.
+		//@åˆ«å  æ–‡æœ¬AF()
 		void TextOutAF(float xStart, float yStart, const std::string& text) {
 			XDraw_TextOutAF((HDRAW)m_handle, xStart, yStart, text.c_str());
 		}
 
-		//@²ÎÊı hSvg SVG¾ä±ú
-		//@±ğÃû  SVGÔ´()
+		//@å‚æ•° hSvg SVGå¥æŸ„
+		//@åˆ«å  SVGæº()
 		void DrawSvgSrc(HSVG hSvg) {
 			XDraw_DrawSvgSrc((HDRAW)m_handle, hSvg);
 		}
 
-		//@²ÎÊı hSvg SVG¾ä±ú
-		//@²ÎÊı x x×ø±ê
-		//@²ÎÊı y y×ø±ê
-		//@±ğÃû  SVG()
+		//@å‚æ•° hSvg SVGå¥æŸ„
+		//@å‚æ•° x xåæ ‡
+		//@å‚æ•° y yåæ ‡
+		//@åˆ«å  SVG()
 		void DrawSvg(HSVG hSvg, int x, int y) {
 			XDraw_DrawSvg((HDRAW)m_handle, hSvg, x, y);
 		}
 
-		//@²ÎÊı hSvg SVG¾ä±ú
-		//@²ÎÊı x x×ø±ê
-		//@²ÎÊı y y×ø±ê
-		//@²ÎÊı nWidth ¿í¶È
-		//@²ÎÊı nHeight ¸ß¶È
-		//@±ğÃû  SVGÀ©Õ¹()
+		//@å‚æ•° hSvg SVGå¥æŸ„
+		//@å‚æ•° x xåæ ‡
+		//@å‚æ•° y yåæ ‡
+		//@å‚æ•° nWidth å®½åº¦
+		//@å‚æ•° nHeight é«˜åº¦
+		//@åˆ«å  SVGæ‰©å±•()
 		void DrawSvgEx(HSVG hSvg, int x, int y, int nWidth, int nHeight) {
 			XDraw_DrawSvgEx((HDRAW)m_handle, hSvg, x, y, nWidth, nHeight);
 		}
 
-		//@²ÎÊı hSvg SVG¾ä±ú
-		//@²ÎÊı nWidth ¿í¶È
-		//@²ÎÊı nHeight ¸ß¶È
-		//@±ğÃû  SVG´óĞ¡()
+		//@å‚æ•° hSvg SVGå¥æŸ„
+		//@å‚æ•° nWidth å®½åº¦
+		//@å‚æ•° nHeight é«˜åº¦
+		//@åˆ«å  SVGå¤§å°()
 		void DrawSvgSize(HSVG hSvg, int nWidth, int nHeight) {
 			XDraw_DrawSvgSize((HDRAW)m_handle, hSvg, nWidth, nHeight);
 		}
 
 
-		// 3.5 ĞÂÔö
-		// Ê¹ÓÃ¾ØĞÎ×÷ÎªÕÚÕÖ
+		// 3.5 æ–°å¢
+		// ä½¿ç”¨çŸ©å½¢ä½œä¸ºé®ç½©
 		void ImageMaskRect(HIMAGE hImageFrame,RECT* pRect,RECT* pRcMask, RECT* pRcRoundAngle) {
 			XDraw_ImageMaskRect((HDRAW)m_handle, hImageFrame, pRect, pRcMask, pRcRoundAngle);
 		}
 
-		// Ê¹ÓÃÔ²ĞÎ×÷ÎªÕÚÕÖ
+		// ä½¿ç”¨åœ†å½¢ä½œä¸ºé®ç½©
 		void ImageMaskEllipse(HIMAGE hImageFrame, RECT* pRect, RECT* pRcMask) {
 			XDraw_ImageMaskEllipse((HDRAW)m_handle, hImageFrame, pRect, pRcMask);
 		}

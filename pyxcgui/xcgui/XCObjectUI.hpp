@@ -15,31 +15,31 @@ namespace xcgui {
 			m_handle = handle;
 		}
 		
-		// ÉèÖÃUI¶ÔÏóÑùÊ½
+		// è®¾ç½®UIå¯¹è±¡æ ·å¼
 		void SetStyle(XC_OBJECT_STYLE nStyle)
 		{
 			XUI_SetStyle(m_handle, nStyle);
 		}
 
-		// »ñÈ¡UI¶ÔÏóÑùÊ½
+		// è·å–UIå¯¹è±¡æ ·å¼
 		XC_OBJECT_STYLE GetStyle()
 		{
 			return XUI_GetStyle(m_handle);
 		}
 
-		//ÆôÓÃ»ò½ûÓÃÑùÊ½
+		//å¯ç”¨æˆ–ç¦ç”¨æ ·å¼
 		void EnableCSS(bool bEnable)
 		{
 			XUI_EnableCSS(m_handle, bEnable);
 		}
 
-		// ÉèÖÃCSS[Ì×ÓÃÑùÊ½]Ãû³Æ
+		// è®¾ç½®CSS[å¥—ç”¨æ ·å¼]åç§°
 		void SetCssName(const std::wstring& name)
 		{
 			return XUI_SetCssName(m_handle, name.c_str());
 		}
 
-		// »ñÈ¡CSSÑùÊ½Ãû³Æ
+		// è·å–CSSæ ·å¼åç§°
 		std::wstring GetCssName()
 		{
 			auto pName = XUI_GetCssName(m_handle);
@@ -49,17 +49,17 @@ namespace xcgui {
 			return L"";
 		}
 
-		// Í¨¹ıname»ñÈ¡¶ÔÏó¾ä±ú
+		// é€šè¿‡nameè·å–å¯¹è±¡å¥æŸ„
 		HXCGUI FindObjectByName(const std::wstring& name) {
 			return XC_GetObjectByName(name.c_str());
 		}
 
-		// Í¨¹ıUID»ñÈ¡¶ÔÏó¾ä±ú,²»°üÀ¨´°¿Ú¶ÔÏó.
+		// é€šè¿‡UIDè·å–å¯¹è±¡å¥æŸ„,ä¸åŒ…æ‹¬çª—å£å¯¹è±¡.
 		HXCGUI FindObjectByUID(int nId) {
 			return XC_GetObjectByUID(nId);
 		}
 
-		// Í¨¹ıUIDÃû³Æ»ñÈ¡¶ÔÏó¾ä±ú
+		// é€šè¿‡UIDåç§°è·å–å¯¹è±¡å¥æŸ„
 		HXCGUI FindObjectByUIDName(const std::wstring& name) {
 			return XC_GetObjectByUIDName(name.c_str());
 		}

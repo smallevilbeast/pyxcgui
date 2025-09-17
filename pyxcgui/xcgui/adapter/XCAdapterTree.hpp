@@ -16,175 +16,175 @@ namespace xcgui {
 			m_handle = XAdTree_Create();
 		}
 		
-		//@±¸×¢ Ìí¼ÓÁĞ.  
-		//@²ÎÊı name.c_str() ×Ö¶ÎÃû³Æ.
-		//@·µ»Ø ·µ»ØË÷ÒıÖµ.
-		//@±ğÃû  Ìí¼ÓÁĞ()
+		//@å¤‡æ³¨ æ·»åŠ åˆ—.  
+		//@å‚æ•° name.c_str() å­—æ®µåç§°.
+		//@è¿”å› è¿”å›ç´¢å¼•å€¼.
+		//@åˆ«å  æ·»åŠ åˆ—()
 		int AddColumn(const std::wstring& name) {
 			return XAdTree_AddColumn(m_handle, name.c_str());
 		}
 
-		//@±¸×¢ ÉèÖÃÁĞ.  
-		//@²ÎÊı pColName ÁĞÃû,¶à¸öÁĞÃûÓÃ¶ººÅ·Ö¿ª.
-		//@·µ»Ø ·µ»ØÁĞÊıÁ¿.
-		//@±ğÃû  ÖÃÁĞ()
+		//@å¤‡æ³¨ è®¾ç½®åˆ—.  
+		//@å‚æ•° pColName åˆ—å,å¤šä¸ªåˆ—åç”¨é€—å·åˆ†å¼€.
+		//@è¿”å› è¿”å›åˆ—æ•°é‡.
+		//@åˆ«å  ç½®åˆ—()
 		int SetColumn(const std::wstring& colName) {
 			return XAdTree_SetColumn(m_handle, colName.c_str());
 		}
 
-		//@±¸×¢ ²åÈëÏî,Êı¾İÌî³äµ½µÚÒ»ÁĞ.  
-		//@²ÎÊı value.c_str() Öµ.
-		//@²ÎÊı nParentID ¸¸ID.
-		//@²ÎÊı insertID ²åÈëÎ»ÖÃID.
-		//@·µ»Ø ·µ»ØÏîIDÖµ.
-		//@±ğÃû  ²åÈëÏîÎÄ±¾()
+		//@å¤‡æ³¨ æ’å…¥é¡¹,æ•°æ®å¡«å……åˆ°ç¬¬ä¸€åˆ—.  
+		//@å‚æ•° value.c_str() å€¼.
+		//@å‚æ•° nParentID çˆ¶ID.
+		//@å‚æ•° insertID æ’å…¥ä½ç½®ID.
+		//@è¿”å› è¿”å›é¡¹IDå€¼.
+		//@åˆ«å  æ’å…¥é¡¹æ–‡æœ¬()
 		int InsertItemText(const std::wstring& value, int nParentID = XC_ID_ROOT, int insertID = XC_ID_LAST) {
 			return XAdTree_InsertItemText(m_handle, value.c_str(), nParentID, insertID);
 		}
 
-		//@±¸×¢ ²åÈëÏî,Êı¾İÌî³äµ½Ö¸¶¨ÁĞ.  
-		//@²ÎÊı name.c_str() ×Ö¶ÎÃû³Æ.
-		//@²ÎÊı value.c_str() Öµ.
-		//@²ÎÊı nParentID ¸¸ID.
-		//@²ÎÊı insertID ²åÈëÎ»ÖÃID.
-		//@·µ»Ø ·µ»ØÏîIDÖµ.
-		//@±ğÃû  ²åÈëÏîÎÄ±¾À©Õ¹()
+		//@å¤‡æ³¨ æ’å…¥é¡¹,æ•°æ®å¡«å……åˆ°æŒ‡å®šåˆ—.  
+		//@å‚æ•° name.c_str() å­—æ®µåç§°.
+		//@å‚æ•° value.c_str() å€¼.
+		//@å‚æ•° nParentID çˆ¶ID.
+		//@å‚æ•° insertID æ’å…¥ä½ç½®ID.
+		//@è¿”å› è¿”å›é¡¹IDå€¼.
+		//@åˆ«å  æ’å…¥é¡¹æ–‡æœ¬æ‰©å±•()
 		int InsertItemTextEx(const std::wstring& name, const std::wstring& value, int nParentID = XC_ID_ROOT, int insertID = XC_ID_LAST) {
 			return XAdTree_InsertItemTextEx(m_handle, name.c_str(), value.c_str(), nParentID, insertID);
 		}
 
-		//@±¸×¢ ²åÈëÏî,Êı¾İÌî³äµ½µÚÒ»ÁĞ.  
-		//@²ÎÊı hImage Í¼Æ¬¾ä±ú.
-		//@²ÎÊı nParentID ¸¸ID.
-		//@²ÎÊı insertID ²åÈëÎ»ÖÃID.
-		//@·µ»Ø ·µ»ØÏîIDÖµ.
-		//@±ğÃû  ²åÈëÏîÍ¼Æ¬()
+		//@å¤‡æ³¨ æ’å…¥é¡¹,æ•°æ®å¡«å……åˆ°ç¬¬ä¸€åˆ—.  
+		//@å‚æ•° hImage å›¾ç‰‡å¥æŸ„.
+		//@å‚æ•° nParentID çˆ¶ID.
+		//@å‚æ•° insertID æ’å…¥ä½ç½®ID.
+		//@è¿”å› è¿”å›é¡¹IDå€¼.
+		//@åˆ«å  æ’å…¥é¡¹å›¾ç‰‡()
 		int InsertItemImage(HIMAGE hImage, int nParentID = XC_ID_ROOT, int insertID = XC_ID_LAST) {
 			return XAdTree_InsertItemImage(m_handle, hImage, nParentID, insertID);
 		}
 
-		//@±¸×¢ ²åÈëÏî,Êı¾İÌî³äµ½Ö¸¶¨ÁĞ.  
-		//@²ÎÊı name.c_str() ×Ö¶ÎÃû³Æ.
-		//@²ÎÊı hImage Í¼Æ¬¾ä±ú.
-		//@²ÎÊı nParentID ¸¸ID.
-		//@²ÎÊı insertID ²åÈëÎ»ÖÃID.
-		//@·µ»Ø ·µ»ØÏîIDÖµ.
-		//@±ğÃû  ²åÈëÏîÍ¼Æ¬À©Õ¹()
+		//@å¤‡æ³¨ æ’å…¥é¡¹,æ•°æ®å¡«å……åˆ°æŒ‡å®šåˆ—.  
+		//@å‚æ•° name.c_str() å­—æ®µåç§°.
+		//@å‚æ•° hImage å›¾ç‰‡å¥æŸ„.
+		//@å‚æ•° nParentID çˆ¶ID.
+		//@å‚æ•° insertID æ’å…¥ä½ç½®ID.
+		//@è¿”å› è¿”å›é¡¹IDå€¼.
+		//@åˆ«å  æ’å…¥é¡¹å›¾ç‰‡æ‰©å±•()
 		int InsertItemImageEx(const std::wstring& name, HIMAGE hImage, int nParentID = XC_ID_ROOT, int insertID = XC_ID_LAST) {
 			return XAdTree_InsertItemImageEx(m_handle, name.c_str(), hImage, nParentID, insertID);
 		}
 
-		//@±¸×¢ »ñÈ¡ÏîÊıÁ¿.  
-		//@·µ»Ø ·µ»ØÊıÁ¿.
-		//@±ğÃû  È¡ÏîÊıÁ¿()
+		//@å¤‡æ³¨ è·å–é¡¹æ•°é‡.  
+		//@è¿”å› è¿”å›æ•°é‡.
+		//@åˆ«å  å–é¡¹æ•°é‡()
 		int GetCount() {
 			return XAdTree_GetCount(m_handle);
 		}
 
-		//@±¸×¢ »ñÈ¡ÁĞÊıÁ¿.  
-		//@·µ»Ø ·µ»ØÁĞÊıÁ¿.
-		//@±ğÃû  È¡ÁĞÊıÁ¿()
+		//@å¤‡æ³¨ è·å–åˆ—æ•°é‡.  
+		//@è¿”å› è¿”å›åˆ—æ•°é‡.
+		//@åˆ«å  å–åˆ—æ•°é‡()
 		int GetCountColumn() {
 			return XAdTree_GetCountColumn(m_handle);
 		}
 
-		//@±¸×¢ ÉèÖÃÏîÊı¾İ.  
-		//@²ÎÊı nID ÏîID.
-		//@²ÎÊı iColumn ÁĞË÷Òı.
-		//@²ÎÊı value.c_str() Öµ.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÖÃÏîÎÄ±¾()
+		//@å¤‡æ³¨ è®¾ç½®é¡¹æ•°æ®.  
+		//@å‚æ•° nID é¡¹ID.
+		//@å‚æ•° iColumn åˆ—ç´¢å¼•.
+		//@å‚æ•° value.c_str() å€¼.
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  ç½®é¡¹æ–‡æœ¬()
 		bool SetItemText(int nID, int iColumn, const std::wstring& value) {
 			return XAdTree_SetItemText(m_handle, nID, iColumn, value.c_str());
 		}
 
-		//@±¸×¢ ÉèÖÃÏîÎÄ¼şÄÚÈİ.  
-		//@²ÎÊı nID ÏîID.
-		//@²ÎÊı name.c_str() ×Ö¶ÎÃû³Æ.
-		//@²ÎÊı value.c_str() Öµ.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÖÃÏîÎÄ±¾À©Õ¹()
+		//@å¤‡æ³¨ è®¾ç½®é¡¹æ–‡ä»¶å†…å®¹.  
+		//@å‚æ•° nID é¡¹ID.
+		//@å‚æ•° name.c_str() å­—æ®µåç§°.
+		//@å‚æ•° value.c_str() å€¼.
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  ç½®é¡¹æ–‡æœ¬æ‰©å±•()
 		bool SetItemTextEx(int nID, const std::wstring& name, const std::wstring& value) {
 			return XAdTree_SetItemTextEx(m_handle, nID, name.c_str(), value.c_str());
 		}
 
-		//@±¸×¢ ÉèÖÃÏîÊı¾İ.  
-		//@²ÎÊı nID ÏîID.
-		//@²ÎÊı iColumn ÁĞË÷Òı.
-		//@²ÎÊı hImage Í¼Æ¬¾ä±ú.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÖÃÏîÍ¼Æ¬()
+		//@å¤‡æ³¨ è®¾ç½®é¡¹æ•°æ®.  
+		//@å‚æ•° nID é¡¹ID.
+		//@å‚æ•° iColumn åˆ—ç´¢å¼•.
+		//@å‚æ•° hImage å›¾ç‰‡å¥æŸ„.
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  ç½®é¡¹å›¾ç‰‡()
 		bool SetItemImage(int nID, int iColumn, HIMAGE hImage) {
 			return XAdTree_SetItemImage(m_handle, nID, iColumn, hImage);
 		}
 
-		//@±¸×¢ ÉèÖÃÏîÄÚÈİ.  
-		//@²ÎÊı nID ÏîID.
-		//@²ÎÊı name.c_str() ×Ö¶ÎÃû³Æ.
-		//@²ÎÊı hImage Í¼Æ¬¾ä±ú.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÖÃÏîÍ¼Æ¬À©Õ¹()
+		//@å¤‡æ³¨ è®¾ç½®é¡¹å†…å®¹.  
+		//@å‚æ•° nID é¡¹ID.
+		//@å‚æ•° name.c_str() å­—æ®µåç§°.
+		//@å‚æ•° hImage å›¾ç‰‡å¥æŸ„.
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  ç½®é¡¹å›¾ç‰‡æ‰©å±•()
 		bool SetItemImageEx(int nID, const std::wstring& name, HIMAGE hImage) {
 			return XAdTree_SetItemImageEx(m_handle, nID, name.c_str(), hImage);
 		}
 
-		//@±¸×¢ »ñÈ¡ÏîÎÄ±¾ÄÚÈİ.  
-		//@²ÎÊı nID ÏîID.
-		//@²ÎÊı iColumn ÁĞË÷Òı.
-		//@·µ»Ø ·µ»ØÎÄ±¾ÄÚÈİ
-		//@±ğÃû  È¡ÏîÎÄ±¾()
+		//@å¤‡æ³¨ è·å–é¡¹æ–‡æœ¬å†…å®¹.  
+		//@å‚æ•° nID é¡¹ID.
+		//@å‚æ•° iColumn åˆ—ç´¢å¼•.
+		//@è¿”å› è¿”å›æ–‡æœ¬å†…å®¹
+		//@åˆ«å  å–é¡¹æ–‡æœ¬()
 		std::wstring GetItemText(int nID, int iColumn) {
 			auto pText = XAdTree_GetItemText(m_handle, nID, iColumn);
 			if (!pText) return L"";
 			return pText;
 		}
 
-		//@±¸×¢ »ñÈ¡ÏîÎÄ±¾ÄÚÈİ.  
-		//@²ÎÊı nID ÏîID.
-		//@²ÎÊı name.c_str() ×Ö¶ÎÃû³Æ.
-		//@·µ»Ø ·µ»ØÎÄ±¾ÄÚÈİ
-		//@±ğÃû  È¡ÏîÎÄ±¾À©Õ¹()
+		//@å¤‡æ³¨ è·å–é¡¹æ–‡æœ¬å†…å®¹.  
+		//@å‚æ•° nID é¡¹ID.
+		//@å‚æ•° name.c_str() å­—æ®µåç§°.
+		//@è¿”å› è¿”å›æ–‡æœ¬å†…å®¹
+		//@åˆ«å  å–é¡¹æ–‡æœ¬æ‰©å±•()
 		std::wstring GetItemTextEx(int nID, const std::wstring& name) {
 			auto pText = XAdTree_GetItemTextEx(m_handle, nID, name.c_str());
 			if (!pText) return L"";
 			return pText;
 		}
 
-		//@±¸×¢ »ñÈ¡ÏîÄÚÈİ.  
-		//@²ÎÊı nID ÏîID.
-		//@²ÎÊı iColumn ÁĞË÷Òı.
-		//@·µ»Ø ·µ»ØÍ¼Æ¬¾ä±ú.
-		//@±ğÃû  È¡ÏîÍ¼Æ¬()
+		//@å¤‡æ³¨ è·å–é¡¹å†…å®¹.  
+		//@å‚æ•° nID é¡¹ID.
+		//@å‚æ•° iColumn åˆ—ç´¢å¼•.
+		//@è¿”å› è¿”å›å›¾ç‰‡å¥æŸ„.
+		//@åˆ«å  å–é¡¹å›¾ç‰‡()
 		HIMAGE GetItemImage(int nID, int iColumn) {
 			return XAdTree_GetItemImage(m_handle, nID, iColumn);
 		}
 
-		//@±¸×¢ »ñÈ¡ÏîÄÚÈİ.  
-		//@²ÎÊı nID ÏîID.
-		//@²ÎÊı name.c_str() ×Ö¶ÎÃû³Æ.
-		//@·µ»Ø ·µ»ØÍ¼Æ¬¾ä±ú.
-		//@±ğÃû  È¡ÏîÍ¼Æ¬À©Õ¹()
+		//@å¤‡æ³¨ è·å–é¡¹å†…å®¹.  
+		//@å‚æ•° nID é¡¹ID.
+		//@å‚æ•° name.c_str() å­—æ®µåç§°.
+		//@è¿”å› è¿”å›å›¾ç‰‡å¥æŸ„.
+		//@åˆ«å  å–é¡¹å›¾ç‰‡æ‰©å±•()
 		HIMAGE GetItemImageEx(int nID, const std::wstring& name) {
 			return XAdTree_GetItemImageEx(m_handle, nID, name.c_str());
 		}
 
-		//@±¸×¢ É¾³ıÏî.  
-		//@²ÎÊı nID ÏîID.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  É¾³ıÏî()
+		//@å¤‡æ³¨ åˆ é™¤é¡¹.  
+		//@å‚æ•° nID é¡¹ID.
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  åˆ é™¤é¡¹()
 		bool DeleteItem(int nID) {
 			return XAdTree_DeleteItem(m_handle, nID);
 		}
 
-		//@±¸×¢ É¾³ıËùÓĞÏî.  
-		//@±ğÃû  É¾³ıÏîÈ«²¿()
+		//@å¤‡æ³¨ åˆ é™¤æ‰€æœ‰é¡¹.  
+		//@åˆ«å  åˆ é™¤é¡¹å…¨éƒ¨()
 		void DeleteItemAll() {
 			XAdTree_DeleteItemAll(m_handle);
 		}
 
-		//@±¸×¢ É¾³ıËùÓĞÁĞ,²¢ÇÒÇå¿ÕÊı¾İ.  
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  É¾³ıÁĞÈ«²¿()
+		//@å¤‡æ³¨ åˆ é™¤æ‰€æœ‰åˆ—,å¹¶ä¸”æ¸…ç©ºæ•°æ®.  
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  åˆ é™¤åˆ—å…¨éƒ¨()
 		void DeleteColumnAll() {
 			XAdTree_DeleteColumnAll(m_handle);
 		}

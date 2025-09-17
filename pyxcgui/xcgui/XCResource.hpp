@@ -6,42 +6,42 @@ namespace xcgui {
 	class XCResource
 	{
 	public:
-		// ÆôÓÃÑÓ³Ù¼ÓÔØ;Í¼Æ¬ÎÄ¼ş,ÁĞ±íÏîÄ£°åÎÄ¼ş
+		// å¯ç”¨å»¶è¿ŸåŠ è½½;å›¾ç‰‡æ–‡ä»¶,åˆ—è¡¨é¡¹æ¨¡æ¿æ–‡ä»¶
 		static void EnableDelayLoad(bool bEnable) {
 			XRes_EnableDelayLoad(bEnable);
 		}
 
-		// ´Ó×ÊÔ´ÖĞ²éÕÒ±³¾°
+		// ä»èµ„æºä¸­æŸ¥æ‰¾èƒŒæ™¯
 		static HBKM GetBkM(const std::wstring& name) {
 			return XRes_GetBkM(name.c_str());
 		}
 
-		// ´Ó×ÊÔ´ÖĞ²éÕÒÑÕÉ«
+		// ä»èµ„æºä¸­æŸ¥æ‰¾é¢œè‰²
 		static COLORREF GetColor(const std::wstring& name) {
 			return XRes_GetColor(name.c_str());
 		}
 
-		// ´Ó×ÊÔ´ÖĞ²éÕÒ×ÖÌå
+		// ä»èµ„æºä¸­æŸ¥æ‰¾å­—ä½“
 		static HFONTX GetFont(const std::wstring& name) {
 			return XRes_GetFont(name.c_str());
 		}
 
-		// »ñÈ¡×ÊÔ´IDÕûĞÍÖµ
+		// è·å–èµ„æºIDæ•´å‹å€¼
 		static int GetIDValue(const std::wstring& name) {
 			return XRes_GetIDValue(name.c_str());
 		}
 
-		// ²éÕÒ×ÊÔ´Í¼Æ¬
+		// æŸ¥æ‰¾èµ„æºå›¾ç‰‡
 		static HIMAGE GetImage(const std::wstring& name) {
 			return XRes_GetImage(name.c_str());
 		}
 
-		// ´ÓÖ¸¶¨µÄ×ÊÔ´ÎÄ¼şÖĞ²éÕÒÍ¼Æ¬
+		// ä»æŒ‡å®šçš„èµ„æºæ–‡ä»¶ä¸­æŸ¥æ‰¾å›¾ç‰‡
 		static HIMAGE GetImageEx(const std::wstring& fileName, const std::wstring& name) {
 			return XRes_GetImageEx(fileName.c_str(), name.c_str());
 		}
 
-		// ÉèÖÃÎÄ¼ş¼ÓÔØ»Øµ÷º¯Êı
+		// è®¾ç½®æ–‡ä»¶åŠ è½½å›è°ƒå‡½æ•°
 		static void SetLoadFileCallback(funLoadFile pFun) {
 			XRes_SetLoadFileCallback(pFun);
 		}

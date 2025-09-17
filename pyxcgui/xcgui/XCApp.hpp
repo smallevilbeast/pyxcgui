@@ -20,62 +20,62 @@ namespace xcgui {
 			XExitXCGUI();
 		}
 
-		// Ìí¼ÓÎÄ¼şËÑË÷Â·¾¶, Ä¬ÈÏÂ·ÎªexeÄ¿Â¼ºÍ³ÌĞòµ±Ç°ÔËĞĞÄ¿Â¼
+		// æ·»åŠ æ–‡ä»¶æœç´¢è·¯å¾„, é»˜è®¤è·¯ä¸ºexeç›®å½•å’Œç¨‹åºå½“å‰è¿è¡Œç›®å½•
 		void AddFileSearchPath(const std::wstring& path) {
 			XC_AddFileSearchPath(path.c_str());
 		}
 
-		//  Æô¶¯»ò½ûÓÃ×Ô¶¯ÍË³ö³ÌĞò,µ±¼ì²âµ½ËùÓĞÓÃ»§´´½¨µÄ´°¿Ú¶¼¹Ø±ÕÊ±,×Ô¶¯ÍË³ö³ÌĞò; ¿Éµ÷ÓÃ XC_PostQuitMessage() ÊÖ¶¯ÍË³ö³ÌĞò
+		//  å¯åŠ¨æˆ–ç¦ç”¨è‡ªåŠ¨é€€å‡ºç¨‹åº,å½“æ£€æµ‹åˆ°æ‰€æœ‰ç”¨æˆ·åˆ›å»ºçš„çª—å£éƒ½å…³é—­æ—¶,è‡ªåŠ¨é€€å‡ºç¨‹åº; å¯è°ƒç”¨ XC_PostQuitMessage() æ‰‹åŠ¨é€€å‡ºç¨‹åº
 		void EnableAutoExitApp(bool bEnable) {
 			XC_EnableAutoExitApp(bEnable);
 		}
 
-		//  ´òÓ¡µ÷ÊÔĞÅÏ¢µ½ÎÄ¼ş
+		//  æ‰“å°è°ƒè¯•ä¿¡æ¯åˆ°æ–‡ä»¶
 		void DebugToFileInfo(const std::string& file) {
 			XC_DebugToFileInfo(file.c_str());
 		}
 
-		// ÆôÓÃdebugÎÄ¼ş
+		// å¯ç”¨debugæ–‡ä»¶
 		void EnableDebugFile(bool bEnable) {
 			XC_EnableDebugFile(bEnable);
 		}
 		
-		// ÆôÓÃ´íÎóµ¯³ö,Í¨¹ı¸Ã½Ó¿Ú¿ÉÒÔÉèÖÃÓöµ½ÑÏÖØ´íÎóÊ±²»µ¯³öÏûÏ¢ÌáÊ¾¿ò.
+		// å¯ç”¨é”™è¯¯å¼¹å‡º,é€šè¿‡è¯¥æ¥å£å¯ä»¥è®¾ç½®é‡åˆ°ä¸¥é‡é”™è¯¯æ—¶ä¸å¼¹å‡ºæ¶ˆæ¯æç¤ºæ¡†.
 		void EnableErrorMessageBox(bool bEnable) {
 			XC_EnableErrorMessageBox(bEnable);
 		}
 
-		// ÆôÓÃGDI»æÖÆÎÄ±¾ ½«Ó°Ïìµ½ÒÔÏÂº¯Êı: XDraw_TextOut XDraw_TextOutEx XDraw_TextOutA
+		// å¯ç”¨GDIç»˜åˆ¶æ–‡æœ¬ å°†å½±å“åˆ°ä»¥ä¸‹å‡½æ•°: XDraw_TextOut XDraw_TextOutEx XDraw_TextOutA
 		void EnableGdiDrawText(bool bEnable) {
 			XC_EnableGdiDrawText(bEnable);
 		}
 
-		// ÆôÓÃ×ÊÔ´¼àÊÓÆ÷
+		// å¯ç”¨èµ„æºç›‘è§†å™¨
 		void EnableResMonitor(bool bEnable) {
 			XC_EnableResMonitor(bEnable);
 		}
 
-		// ÏÔÊ¾²¼¾Ö¶ÔÏó±ß½ç
+		// æ˜¾ç¤ºå¸ƒå±€å¯¹è±¡è¾¹ç•Œ
 		void ShowLayoutFrame(bool bShow) {
 			XC_ShowLayoutFrame(bShow);
 		}
 
-		// ÏÔÊ¾±ß½ç ¸¨Öú¹¦ÄÜ
+		// æ˜¾ç¤ºè¾¹ç•Œ è¾…åŠ©åŠŸèƒ½
 		void ShowSvgFrame(bool bShow) {
 			XC_ShowSvgFrame(bShow);
 		}
 
-		// ÉèÖÃ²¼¾Ö±ß¿òÑÕÉ«
+		// è®¾ç½®å¸ƒå±€è¾¹æ¡†é¢œè‰²
 		void SetLayoutFrameColor(COLORREF color) {
 			XC_SetLayoutFrameColor(color);
 		}
 
-		// ÉèÖÃUIµÄ×îĞ¡ÖØ»æÆµÂÊ
+		// è®¾ç½®UIçš„æœ€å°é‡ç»˜é¢‘ç‡
 		void SetPaintFrequency(uint32_t milliseconds) {
 			XC_SetPaintFrequency(milliseconds);
 		}
 
-		// ÉèÖÃÎÄ±¾äÖÈ¾ÖÊÁ¿GDI+.
+		// è®¾ç½®æ–‡æœ¬æ¸²æŸ“è´¨é‡GDI+.
 		void SetTextRenderingHint(int nType) {
 			XC_SetTextRenderingHint(nType);
 		}

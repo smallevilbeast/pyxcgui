@@ -52,7 +52,7 @@ namespace xcgui {
 				self.GetLayoutAreaRect((RECT*)&rect);
 				})
 
-			// 3.3.5 ÐÂÔö
+			// 3.3.5 æ–°å¢ž
 			.def("getDragFloatWndTopFlag", &XCFrameWindow::GetDragFloatWndTopFlag)
 			;
 	}

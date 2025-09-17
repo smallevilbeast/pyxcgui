@@ -15,27 +15,27 @@ namespace xcgui {
 			m_handle = handle;
 		}
 		
-		// Ôö¼ÓÒıÓÃ¼ÆÊı()
+		// å¢åŠ å¼•ç”¨è®¡æ•°()
 		int AddRef() {
 			return XAd_AddRef(m_handle);
 		}
 
-		// ÊÍ·ÅÒıÓÃ¼ÆÊı()
+		// é‡Šæ”¾å¼•ç”¨è®¡æ•°()
 		int Release() {
 			return XAd_Release(m_handle);
 		}
 
-		// È¡ÒıÓÃ¼ÆÊı()
+		// å–å¼•ç”¨è®¡æ•°()
 		int GetRefCount() {
 			return XAd_GetRefCount(m_handle);
 		}
 
-		// Ïú»Ù()
+		// é”€æ¯()
 		void Destroy() {
 			XAd_Destroy(m_handle);
 		}
 
-		// ÆôÓÃ×Ô¶¯Ïú»Ù()
+		// å¯ç”¨è‡ªåŠ¨é”€æ¯()
 		void EnableAutoDestroy(BOOL bEnable) {
 			XAd_EnableAutoDestroy(m_handle, bEnable);
 		}

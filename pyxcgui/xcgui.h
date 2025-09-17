@@ -1,18 +1,18 @@
 /**************************************************************************\
 *
-* Copyright (c)  ìÅ²Ê½çÃæ¿â. All Rights Reserved.
+* Copyright (c)  ç‚«å½©ç•Œé¢åº“. All Rights Reserved.
 *
-* ìÅ²Ê½çÃæ¿â - ¹Ù·½ÍøÕ¾ : http://www.xcgui.com
+* ç‚«å½©ç•Œé¢åº“ - å®˜æ–¹ç½‘ç«™ : http://www.xcgui.com
 *
 \**************************************************************************/
 #pragma once
 
 //v3.3.4
-////////////ÊäÈëÊä³ö///////////////////
+////////////è¾“å…¥è¾“å‡º///////////////////
 #define  in_
 #define  out_
 #define  in_out_
-#define  in_buffer_  //±êÊ¶ÎªÄÚ´æÖ¸Õë, ·Ç±äÁ¿Ö¸Õë
+#define  in_buffer_  //æ ‡è¯†ä¸ºå†…å­˜æŒ‡é’ˆ, éå˜é‡æŒ‡é’ˆ
 #define  out_buffer_
 
 #define  XC_API extern "C"
@@ -46,7 +46,7 @@ typedef  __int64  vint;
 typedef  int      vint;
 #endif
 
-//Èç¹û³öÏÖÖØ¸´¶¨ÒåPOINTF,Çë×¢ÊÍµôÏÂÃæ¶¨ÒåPOINTF
+//å¦‚æœå‡ºç°é‡å¤å®šä¹‰POINTF,è¯·æ³¨é‡Šæ‰ä¸‹é¢å®šä¹‰POINTF
 #ifndef __IOleControlSite_INTERFACE_DEFINED__
 struct POINTF
 {
@@ -55,9 +55,9 @@ struct POINTF
 };
 #endif
 
-typedef   void  bkInfo_i;  //±³¾°ĞÅÏ¢
+typedef   void  bkInfo_i;  //èƒŒæ™¯ä¿¡æ¯
 
-/*@ÉùÃ÷
+/*@å£°æ˜
 #define  WM_LBUTTONDOWN
 #define  SW_SHOW
 #define  WM_PAINT
@@ -86,33 +86,33 @@ typedef   void  bkInfo_i;  //±³¾°ĞÅÏ¢
 */
 
 /////////////////////////////////////////////////////////////////////
-/////////////////////¾ä±úÀàĞÍ¶¨Òå//////////////////////////////////////
+/////////////////////å¥æŸ„ç±»å‹å®šä¹‰//////////////////////////////////////
 /////////////////////////////////////////////////////////////////////
 #define DECLARE_HANDLEX(name) struct name##__ { int unused; }; typedef struct name##__ *name
 
-/// @defgroup groupHandle   ¾ä±úÀàĞÍ
+/// @defgroup groupHandle   å¥æŸ„ç±»å‹
 /// @{
 
-//@±ğÃû  ìÅ²Ê¾ä±ú
-typedef void* HXCGUI;       ///<×ÊÔ´¾ä±ú
-//@±ğÃû  ´°¿Ú¾ä±ú
-DECLARE_HANDLEX(HWINDOW);     ///<´°¿Ú×ÊÔ´¾ä±ú
-//@±ğÃû  ÔªËØ¾ä±ú
-DECLARE_HANDLEX(HELE);        ///<ÔªËØ×ÊÔ´¾ä±ú
-//@±ğÃû  ²Ëµ¥¾ä±ú
-DECLARE_HANDLEX(HMENUX);      ///<²Ëµ¥×ÊÔ´¾ä±ú
-//@±ğÃû  »æÍ¼¾ä±ú
-DECLARE_HANDLEX(HDRAW);       ///<Í¼ĞÎ»æÖÆ×ÊÔ´¾ä±ú
-//@±ğÃû  Í¼Æ¬¾ä±ú
-DECLARE_HANDLEX(HIMAGE);      ///<Í¼Æ¬×ÊÔ´¾ä±ú
-//@±ğÃû  ×ÖÌå¾ä±ú
-DECLARE_HANDLEX(HFONTX);      ///<ìÅ²Ê×ÖÌå¾ä±ú
-//@±ğÃû  ±³¾°¾ä±ú
-DECLARE_HANDLEX(HBKM);        ///<±³¾°ÄÚÈİ¹ÜÀíÆ÷¾ä±ú
-//@±ğÃû  Ä£°å¾ä±ú
-DECLARE_HANDLEX(HTEMP);       ///<Ä£°å¾ä±ú
-//@±ğÃû  SVG¾ä±ú
-DECLARE_HANDLEX(HSVG);        ///<SVG¾ä±ú
+//@åˆ«å  ç‚«å½©å¥æŸ„
+typedef void* HXCGUI;       ///<èµ„æºå¥æŸ„
+//@åˆ«å  çª—å£å¥æŸ„
+DECLARE_HANDLEX(HWINDOW);     ///<çª—å£èµ„æºå¥æŸ„
+//@åˆ«å  å…ƒç´ å¥æŸ„
+DECLARE_HANDLEX(HELE);        ///<å…ƒç´ èµ„æºå¥æŸ„
+//@åˆ«å  èœå•å¥æŸ„
+DECLARE_HANDLEX(HMENUX);      ///<èœå•èµ„æºå¥æŸ„
+//@åˆ«å  ç»˜å›¾å¥æŸ„
+DECLARE_HANDLEX(HDRAW);       ///<å›¾å½¢ç»˜åˆ¶èµ„æºå¥æŸ„
+//@åˆ«å  å›¾ç‰‡å¥æŸ„
+DECLARE_HANDLEX(HIMAGE);      ///<å›¾ç‰‡èµ„æºå¥æŸ„
+//@åˆ«å  å­—ä½“å¥æŸ„
+DECLARE_HANDLEX(HFONTX);      ///<ç‚«å½©å­—ä½“å¥æŸ„
+//@åˆ«å  èƒŒæ™¯å¥æŸ„
+DECLARE_HANDLEX(HBKM);        ///<èƒŒæ™¯å†…å®¹ç®¡ç†å™¨å¥æŸ„
+//@åˆ«å  æ¨¡æ¿å¥æŸ„
+DECLARE_HANDLEX(HTEMP);       ///<æ¨¡æ¿å¥æŸ„
+//@åˆ«å  SVGå¥æŸ„
+DECLARE_HANDLEX(HSVG);        ///<SVGå¥æŸ„
 ///@}
 
 #ifndef _INC_SHELLAPI
@@ -120,220 +120,220 @@ DECLARE_HANDLEX(HDROP);
 #endif
 
 /////////////////////////////////////////////////////////////////////
-/////////////////////ìÅ²Ê¶ÔÏóÀàĞÍ¼°ÑùÊ½/////////////////////////////////
+/////////////////////ç‚«å½©å¯¹è±¡ç±»å‹åŠæ ·å¼/////////////////////////////////
 /////////////////////////////////////////////////////////////////////
 
-//¶ÔÏóÀàĞÍ¾ö¶¨¹¦ÄÜ
-//¶ÔÏóÑùÊ½¾ö¶¨Íâ¹Û
-/// @defgroup group_type_style_  ¶ÔÏóÀàĞÍ¼°ÑùÊ½
+//å¯¹è±¡ç±»å‹å†³å®šåŠŸèƒ½
+//å¯¹è±¡æ ·å¼å†³å®šå¤–è§‚
+/// @defgroup group_type_style_  å¯¹è±¡ç±»å‹åŠæ ·å¼
 /// @{
 
-/// @defgroup group_ObjectType ¶ÔÏó¾ä±úÀàĞÍ(XC_OBJECT_TYPE)
+/// @defgroup group_ObjectType å¯¹è±¡å¥æŸ„ç±»å‹(XC_OBJECT_TYPE)
 /// @{
 enum XC_OBJECT_TYPE
 {
-	XC_ERROR                 =-1,   ///<´íÎóÀàĞÍ
-	XC_NOTHING               =0,    ///<É¶Ò²²»ÊÇ
-	XC_WINDOW                =1,    ///<´°¿Ú
-	XC_MODALWINDOW           =2,    ///<Ä£Ì¬´°¿Ú
-	XC_FRAMEWND              =3,    ///<¿ò¼Ü´°¿Ú
-	XC_FLOATWND              =4,    ///<¸¡¶¯´°¿Ú
-	XC_COMBOBOXWINDOW        =11,   ///<×éºÏ¿òµ¯³öÏÂÀ­ÁĞ±í´°¿Ú comboBoxWindow_        
-	XC_POPUPMENUWINDOW       =12 ,  ///<µ¯³ö²Ëµ¥Ö÷´°¿Ú popupMenuWindow_       
-	XC_POPUPMENUCHILDWINDOW  =13,   ///<µ¯³ö²Ëµ¥×Ó´°¿Ú popupMenuChildWindow_  
-	XC_OBJECT_UI      =19,   ///<¿ÉÊÓ¶ÔÏó
-	XC_WIDGET_UI      =20,   ///<´°¿Ú×é¼ş
-	//ÔªËØ
-	XC_ELE            =21,   ///<»ù´¡ÔªËØ
-	XC_ELE_LAYOUT     =53,   ///<²¼¾ÖÔªËØ
-	XC_LAYOUT_FRAME   =54,   ///<Á÷Ê½²¼¾Ö
-	XC_BUTTON         =22,   ///<°´Å¥
-	XC_EDIT           =45,   ///<±à¼­¿ò
-	XC_EDITOR         =46,   ///<´úÂë±à¼­¿ò
+	XC_ERROR                 =-1,   ///<é”™è¯¯ç±»å‹
+	XC_NOTHING               =0,    ///<å•¥ä¹Ÿä¸æ˜¯
+	XC_WINDOW                =1,    ///<çª—å£
+	XC_MODALWINDOW           =2,    ///<æ¨¡æ€çª—å£
+	XC_FRAMEWND              =3,    ///<æ¡†æ¶çª—å£
+	XC_FLOATWND              =4,    ///<æµ®åŠ¨çª—å£
+	XC_COMBOBOXWINDOW        =11,   ///<ç»„åˆæ¡†å¼¹å‡ºä¸‹æ‹‰åˆ—è¡¨çª—å£ comboBoxWindow_        
+	XC_POPUPMENUWINDOW       =12 ,  ///<å¼¹å‡ºèœå•ä¸»çª—å£ popupMenuWindow_       
+	XC_POPUPMENUCHILDWINDOW  =13,   ///<å¼¹å‡ºèœå•å­çª—å£ popupMenuChildWindow_  
+	XC_OBJECT_UI      =19,   ///<å¯è§†å¯¹è±¡
+	XC_WIDGET_UI      =20,   ///<çª—å£ç»„ä»¶
+	//å…ƒç´ 
+	XC_ELE            =21,   ///<åŸºç¡€å…ƒç´ 
+	XC_ELE_LAYOUT     =53,   ///<å¸ƒå±€å…ƒç´ 
+	XC_LAYOUT_FRAME   =54,   ///<æµå¼å¸ƒå±€
+	XC_BUTTON         =22,   ///<æŒ‰é’®
+	XC_EDIT           =45,   ///<ç¼–è¾‘æ¡†
+	XC_EDITOR         =46,   ///<ä»£ç ç¼–è¾‘æ¡†
 
-	XC_RICHEDIT       =23,   ///<¸»ÎÄ±¾±à¼­¿ò(ÒÑ·ÏÆú), ÇëÊ¹ÓÃXC_EDIT
-	XC_COMBOBOX       =24,   ///<ÏÂÀ­×éºÏ¿ò
-	XC_SCROLLBAR      =25,   ///<¹ö¶¯Ìõ
-	XC_SCROLLVIEW     =26,   ///<¹ö¶¯ÊÓÍ¼
-	XC_LIST           =27,   ///<ÁĞ±í
-	XC_LISTBOX        =28,   ///<ÁĞ±í¿ò
-	XC_LISTVIEW       =29,   ///<ÁĞ±íÊÓÍ¼,´óÍ¼±ê
-	XC_TREE           =30,   ///<ÁĞ±íÊ÷
-	XC_MENUBAR        =31,   ///<²Ëµ¥Ìõ
-	XC_SLIDERBAR      =32,   ///<»¬¶¯Ìõ
-	XC_PROGRESSBAR    =33,   ///<½ø¶ÈÌõ
-	XC_TOOLBAR        =34,   ///<¹¤¾ßÌõ
-	XC_MONTHCAL       =35,   ///<ÔÂÀú¿¨Æ¬
-	XC_DATETIME       =36,   ///<ÈÕÆÚÊ±¼ä
-	XC_PROPERTYGRID   =37,   ///<ÊôĞÔÍø¸ñ
-	XC_EDIT_COLOR     =38,   ///<ÑÕÉ«Ñ¡Ôñ¿ò
-	XC_EDIT_SET       =39,   ///<ÉèÖÃ±à¼­¿ò
-	XC_TABBAR         =40,   ///<tabÌõ
-	XC_TEXTLINK       =41,   ///<ÎÄ±¾Á´½Ó°´Å¥
+	XC_RICHEDIT       =23,   ///<å¯Œæ–‡æœ¬ç¼–è¾‘æ¡†(å·²åºŸå¼ƒ), è¯·ä½¿ç”¨XC_EDIT
+	XC_COMBOBOX       =24,   ///<ä¸‹æ‹‰ç»„åˆæ¡†
+	XC_SCROLLBAR      =25,   ///<æ»šåŠ¨æ¡
+	XC_SCROLLVIEW     =26,   ///<æ»šåŠ¨è§†å›¾
+	XC_LIST           =27,   ///<åˆ—è¡¨
+	XC_LISTBOX        =28,   ///<åˆ—è¡¨æ¡†
+	XC_LISTVIEW       =29,   ///<åˆ—è¡¨è§†å›¾,å¤§å›¾æ ‡
+	XC_TREE           =30,   ///<åˆ—è¡¨æ ‘
+	XC_MENUBAR        =31,   ///<èœå•æ¡
+	XC_SLIDERBAR      =32,   ///<æ»‘åŠ¨æ¡
+	XC_PROGRESSBAR    =33,   ///<è¿›åº¦æ¡
+	XC_TOOLBAR        =34,   ///<å·¥å…·æ¡
+	XC_MONTHCAL       =35,   ///<æœˆå†å¡ç‰‡
+	XC_DATETIME       =36,   ///<æ—¥æœŸæ—¶é—´
+	XC_PROPERTYGRID   =37,   ///<å±æ€§ç½‘æ ¼
+	XC_EDIT_COLOR     =38,   ///<é¢œè‰²é€‰æ‹©æ¡†
+	XC_EDIT_SET       =39,   ///<è®¾ç½®ç¼–è¾‘æ¡†
+	XC_TABBAR         =40,   ///<tabæ¡
+	XC_TEXTLINK       =41,   ///<æ–‡æœ¬é“¾æ¥æŒ‰é’®
 
-	XC_PANE                 =42,   ///<´°¸ñ
-	XC_PANE_SPLIT           =43,   ///<´°¸ñÍÏ¶¯·Ö¸îÌõ
-	XC_MENUBAR_BUTTON       =44,   ///<²Ëµ¥ÌõÉÏµÄ°´Å¥
-//	XC_TOOLBAR_BUTTON       =45,   ///<¹¤¾ßÌõÉÏ°´Å¥
-//	XC_PROPERTYPAGE_LABEL   =46,   ///<ÊôĞÔÒ³±êÇ©°´Å¥
-//	XC_PIER                 =47,   ///<´°¸ñÍ£¿¿ÂëÍ·
-//	XC_BUTTON_MENU          =48,   ///<µ¯³ö²Ëµ¥°´Å¥
-//	XC_VIRTUAL_ELE          =49,   ///<ĞéÄâÔªËØ
-	XC_EDIT_FILE            =50,   ///<EditFile ÎÄ¼şÑ¡Ôñ±à¼­¿ò
-	XC_EDIT_FOLDER          =51,   ///<EditFolder  ÎÄ¼ş¼ĞÑ¡Ôñ±à¼­¿ò
-	XC_LIST_HEADER          =52,   ///<ÁĞ±íÍ·ÔªËØ
+	XC_PANE                 =42,   ///<çª—æ ¼
+	XC_PANE_SPLIT           =43,   ///<çª—æ ¼æ‹–åŠ¨åˆ†å‰²æ¡
+	XC_MENUBAR_BUTTON       =44,   ///<èœå•æ¡ä¸Šçš„æŒ‰é’®
+//	XC_TOOLBAR_BUTTON       =45,   ///<å·¥å…·æ¡ä¸ŠæŒ‰é’®
+//	XC_PROPERTYPAGE_LABEL   =46,   ///<å±æ€§é¡µæ ‡ç­¾æŒ‰é’®
+//	XC_PIER                 =47,   ///<çª—æ ¼åœé ç å¤´
+//	XC_BUTTON_MENU          =48,   ///<å¼¹å‡ºèœå•æŒ‰é’®
+//	XC_VIRTUAL_ELE          =49,   ///<è™šæ‹Ÿå…ƒç´ 
+	XC_EDIT_FILE            =50,   ///<EditFile æ–‡ä»¶é€‰æ‹©ç¼–è¾‘æ¡†
+	XC_EDIT_FOLDER          =51,   ///<EditFolder  æ–‡ä»¶å¤¹é€‰æ‹©ç¼–è¾‘æ¡†
+	XC_LIST_HEADER          =52,   ///<åˆ—è¡¨å¤´å…ƒç´ 
 
-	XC_SHAPE             =61,    ///<ĞÎ×´¶ÔÏó
-	XC_SHAPE_TEXT        =62,    ///<ĞÎ×´¶ÔÏó-ÎÄ±¾
-	XC_SHAPE_PICTURE     =63,    ///<ĞÎ×´¶ÔÏó-Í¼Æ¬
-	XC_SHAPE_RECT        =64,    ///<ĞÎ×´¶ÔÏó-¾ØĞÎ
-	XC_SHAPE_ELLIPSE     =65,    ///<ĞÎ×´¶ÔÏó-Ô²
-	XC_SHAPE_LINE        =66,    ///<ĞÎ×´¶ÔÏó-Ö±Ïß
-	XC_SHAPE_GROUPBOX    =67,    ///<ĞÎ×´¶ÔÏó-×é¿ò
-	XC_SHAPE_GIF         =68,    ///<ĞÎ×´¶ÔÏó-GIF
-	XC_SHAPE_TABLE       =69,    ///<ĞÎ×´¶ÔÏó-±í¸ñ
+	XC_SHAPE             =61,    ///<å½¢çŠ¶å¯¹è±¡
+	XC_SHAPE_TEXT        =62,    ///<å½¢çŠ¶å¯¹è±¡-æ–‡æœ¬
+	XC_SHAPE_PICTURE     =63,    ///<å½¢çŠ¶å¯¹è±¡-å›¾ç‰‡
+	XC_SHAPE_RECT        =64,    ///<å½¢çŠ¶å¯¹è±¡-çŸ©å½¢
+	XC_SHAPE_ELLIPSE     =65,    ///<å½¢çŠ¶å¯¹è±¡-åœ†
+	XC_SHAPE_LINE        =66,    ///<å½¢çŠ¶å¯¹è±¡-ç›´çº¿
+	XC_SHAPE_GROUPBOX    =67,    ///<å½¢çŠ¶å¯¹è±¡-ç»„æ¡†
+	XC_SHAPE_GIF         =68,    ///<å½¢çŠ¶å¯¹è±¡-GIF
+	XC_SHAPE_TABLE       =69,    ///<å½¢çŠ¶å¯¹è±¡-è¡¨æ ¼
 
-	//ÆäËûÀàĞÍ
-	XC_MENU              =81,   ///<µ¯³ö²Ëµ¥
-	XC_IMAGE             =82,         ///<Í¼Æ¬
-	XC_IMAGE_TEXTURE     =XC_IMAGE,   ///<Í¼Æ¬ÎÆÀí,Í¼Æ¬Ô´,Í¼Æ¬ËØ²Ä
-	XC_HDRAW             =83,   ///<»æÍ¼²Ù×÷
-	XC_FONT              =84,   ///<ìÅ²Ê×ÖÌå
+	//å…¶ä»–ç±»å‹
+	XC_MENU              =81,   ///<å¼¹å‡ºèœå•
+	XC_IMAGE             =82,         ///<å›¾ç‰‡
+	XC_IMAGE_TEXTURE     =XC_IMAGE,   ///<å›¾ç‰‡çº¹ç†,å›¾ç‰‡æº,å›¾ç‰‡ç´ æ
+	XC_HDRAW             =83,   ///<ç»˜å›¾æ“ä½œ
+	XC_FONT              =84,   ///<ç‚«å½©å­—ä½“
 //	XC_FLASH             =85,   ///<flash   
 //	XC_PANE_CELL         =86,   ///<...
 //	XC_WEB               =87,   ///<...
-	XC_IMAGE_FRAME       =88,   ///<Í¼Æ¬Ö¡,Ö¸¶¨Í¼Æ¬µÄäÖÈ¾ÊôĞÔ
-	XC_SVG               =89,   ///<SVGÊ¸Á¿Í¼ĞÎ
+	XC_IMAGE_FRAME       =88,   ///<å›¾ç‰‡å¸§,æŒ‡å®šå›¾ç‰‡çš„æ¸²æŸ“å±æ€§
+	XC_SVG               =89,   ///<SVGçŸ¢é‡å›¾å½¢
 
-	XC_LAYOUT_OBJECT      =101, ///<²¼¾Ö¶ÔÏóLayoutObject, ÒÑ·ÏÆú
-	XC_ADAPTER            =102, ///<Êı¾İÊÊÅäÆ÷Adapter
-	XC_ADAPTER_TABLE      =103, ///<Êı¾İÊÊÅäÆ÷AdapterTable
-	XC_ADAPTER_TREE       =104, ///<Êı¾İÊÊÅäÆ÷AdapterTree
-	XC_ADAPTER_LISTVIEW   =105, ///<Êı¾İÊÊÅäÆ÷AdapterListView
-	XC_ADAPTER_MAP        =106, ///<Êı¾İÊÊÅäÆ÷AdapterMap
-	XC_BKINFOM            =116, ///<±³¾°¹ÜÀíÆ÷
+	XC_LAYOUT_OBJECT      =101, ///<å¸ƒå±€å¯¹è±¡LayoutObject, å·²åºŸå¼ƒ
+	XC_ADAPTER            =102, ///<æ•°æ®é€‚é…å™¨Adapter
+	XC_ADAPTER_TABLE      =103, ///<æ•°æ®é€‚é…å™¨AdapterTable
+	XC_ADAPTER_TREE       =104, ///<æ•°æ®é€‚é…å™¨AdapterTree
+	XC_ADAPTER_LISTVIEW   =105, ///<æ•°æ®é€‚é…å™¨AdapterListView
+	XC_ADAPTER_MAP        =106, ///<æ•°æ®é€‚é…å™¨AdapterMap
+	XC_BKINFOM            =116, ///<èƒŒæ™¯ç®¡ç†å™¨
 
-	//ÎŞÊµÌå¶ÔÏó,Ö»ÊÇÓÃÀ´ÅĞ¶Ï²¼¾Ö
-	XC_LAYOUT_LISTVIEW     = 111,  ///<ÄÚ²¿Ê¹ÓÃ
-	XC_LAYOUT_LIST         = 112,  ///<ÄÚ²¿Ê¹ÓÃ
-	XC_LAYOUT_OBJECT_GROUP = 113,  ///<ÄÚ²¿Ê¹ÓÃ
-	XC_LAYOUT_OBJECT_ITEM  = 114,  ///<ÄÚ²¿Ê¹ÓÃ
-	XC_LAYOUT_PANEL        = 115,  ///<ÄÚ²¿Ê¹ÓÃ
+	//æ— å®ä½“å¯¹è±¡,åªæ˜¯ç”¨æ¥åˆ¤æ–­å¸ƒå±€
+	XC_LAYOUT_LISTVIEW     = 111,  ///<å†…éƒ¨ä½¿ç”¨
+	XC_LAYOUT_LIST         = 112,  ///<å†…éƒ¨ä½¿ç”¨
+	XC_LAYOUT_OBJECT_GROUP = 113,  ///<å†…éƒ¨ä½¿ç”¨
+	XC_LAYOUT_OBJECT_ITEM  = 114,  ///<å†…éƒ¨ä½¿ç”¨
+	XC_LAYOUT_PANEL        = 115,  ///<å†…éƒ¨ä½¿ç”¨
 
-	//ÎŞÊµÌå¶ÔÏó,Ö»ÊÇÓÃÀ´ÅĞ¶ÏÀàĞÍ
-//	XC_LIST_ITEM       =121,     //ÁĞ±íÏîÄ£°å list_item
+	//æ— å®ä½“å¯¹è±¡,åªæ˜¯ç”¨æ¥åˆ¤æ–­ç±»å‹
+//	XC_LIST_ITEM       =121,     //åˆ—è¡¨é¡¹æ¨¡æ¿ list_item
 //	XC_LISTVIEW_GROUP  =122,
 //	XC_LISTVIEW_ITEM   =123,
-	XC_LAYOUT_BOX      =124,      ///<²¼¾ÖºĞ×Ó,¸´ºÏÀàĞÍ
+	XC_LAYOUT_BOX      =124,      ///<å¸ƒå±€ç›’å­,å¤åˆç±»å‹
 
-	XC_ANIMATION_SEQUENCE =131,   ///<¶¯»­ĞòÁĞ
-	XC_ANIMATION_GROUP    =132,   ///<¶¯»­Í¬²½×é
-	XC_ANIMATION_ITEM     =133,   ///<¶¯»­Ïî
+	XC_ANIMATION_SEQUENCE =131,   ///<åŠ¨ç”»åºåˆ—
+	XC_ANIMATION_GROUP    =132,   ///<åŠ¨ç”»åŒæ­¥ç»„
+	XC_ANIMATION_ITEM     =133,   ///<åŠ¨ç”»é¡¹
 };
 ///@}
 
 
-/// @defgroup group_ObjectTypeEx   ¶ÔÏóÀ©Õ¹ÀàĞÍ(XC_OBJECT_TYPE_EX,¹¦ÄÜÀ©Õ¹)
+/// @defgroup group_ObjectTypeEx   å¯¹è±¡æ‰©å±•ç±»å‹(XC_OBJECT_TYPE_EX,åŠŸèƒ½æ‰©å±•)
 /// @{
 enum XC_OBJECT_TYPE_EX
 {
-	xc_ex_error=-1,        ///<´íÎóÀàĞÍ
-	button_type_default=0, ///<Ä¬ÈÏÀàĞÍ
-	button_type_radio,     ///<µ¥Ñ¡°´Å¥
-	button_type_check,     ///<¶àÑ¡°´Å¥
-	button_type_close,     ///<´°¿Ú¹Ø±Õ°´Å¥
-	button_type_min,       ///<´°¿Ú×îĞ¡»¯°´Å¥
-	button_type_max,       ///<´°¿Ú×î´ó»¯»¹Ô­°´Å¥
+	xc_ex_error=-1,        ///<é”™è¯¯ç±»å‹
+	button_type_default=0, ///<é»˜è®¤ç±»å‹
+	button_type_radio,     ///<å•é€‰æŒ‰é’®
+	button_type_check,     ///<å¤šé€‰æŒ‰é’®
+	button_type_close,     ///<çª—å£å…³é—­æŒ‰é’®
+	button_type_min,       ///<çª—å£æœ€å°åŒ–æŒ‰é’®
+	button_type_max,       ///<çª—å£æœ€å¤§åŒ–è¿˜åŸæŒ‰é’®
 
-	element_type_layout,   ///<²¼¾ÖÔªËØ,ÆôÓÃ²¼¾Ö¹¦ÄÜµÄÔªËØ
+	element_type_layout,   ///<å¸ƒå±€å…ƒç´ ,å¯ç”¨å¸ƒå±€åŠŸèƒ½çš„å…ƒç´ 
 };
 ///@}
 
 
-/// @defgroup group_ObjectStyle ¶ÔÏóÑùÊ½(XC_OBJECT_STYLE,ÓÃÓÚÇø·ÖÍâ¹Û)
+/// @defgroup group_ObjectStyle å¯¹è±¡æ ·å¼(XC_OBJECT_STYLE,ç”¨äºåŒºåˆ†å¤–è§‚)
 /// @{
 enum  XC_OBJECT_STYLE
 {
 	xc_style_default     =0,
-	button_style_default = xc_style_default,  ///<Ä¬ÈÏ·ç¸ñ
-	button_style_radio,                 ///<µ¥Ñ¡°´Å¥
-	button_style_check,                 ///<¶àÑ¡°´Å¥
-	button_style_icon,                  ///<Í¼±ê°´Å¥		   
-	button_style_expand,                ///<Õ¹¿ª°´Å¥
+	button_style_default = xc_style_default,  ///<é»˜è®¤é£æ ¼
+	button_style_radio,                 ///<å•é€‰æŒ‰é’®
+	button_style_check,                 ///<å¤šé€‰æŒ‰é’®
+	button_style_icon,                  ///<å›¾æ ‡æŒ‰é’®		   
+	button_style_expand,                ///<å±•å¼€æŒ‰é’®
 	
-	button_style_close,			        ///<¹Ø±Õ°´Å¥
-	button_style_max,			        ///<×î´ó»¯°´Å¥
-	button_style_min,			        ///<×îĞ¡»¯°´Å¥
+	button_style_close,			        ///<å…³é—­æŒ‰é’®
+	button_style_max,			        ///<æœ€å¤§åŒ–æŒ‰é’®
+	button_style_min,			        ///<æœ€å°åŒ–æŒ‰é’®
 
-	button_style_scrollbar_left,         ///<Ë®Æ½¹ö¶¯Ìõ-×ó°´Å¥
-	button_style_scrollbar_right,        ///<Ë®Æ½¹ö¶¯Ìõ-ÓÒ°´Å¥
-	button_style_scrollbar_up,           ///<´¹Ö±¹ö¶¯Ìõ-ÉÏ°´Å¥
-	button_style_scrollbar_down,         ///<´¹Ö±¹ö¶¯Ìõ-ÏÂ°´Å¥
-	button_style_scrollbar_slider_h,     ///<Ë®Æ½¹ö¶¯Ìõ-»¬¿é
-	button_style_scrollbar_slider_v,     ///<´¹Ö±¹ö¶¯Ìõ-»¬¿é
+	button_style_scrollbar_left,         ///<æ°´å¹³æ»šåŠ¨æ¡-å·¦æŒ‰é’®
+	button_style_scrollbar_right,        ///<æ°´å¹³æ»šåŠ¨æ¡-å³æŒ‰é’®
+	button_style_scrollbar_up,           ///<å‚ç›´æ»šåŠ¨æ¡-ä¸ŠæŒ‰é’®
+	button_style_scrollbar_down,         ///<å‚ç›´æ»šåŠ¨æ¡-ä¸‹æŒ‰é’®
+	button_style_scrollbar_slider_h,     ///<æ°´å¹³æ»šåŠ¨æ¡-æ»‘å—
+	button_style_scrollbar_slider_v,     ///<å‚ç›´æ»šåŠ¨æ¡-æ»‘å—
 
-	button_style_tabBar,                 ///<TabÌõ-°´Å¥
-	button_style_slider,                 ///<»¬¶¯Ìõ-»¬¿é
+	button_style_tabBar,                 ///<Tabæ¡-æŒ‰é’®
+	button_style_slider,                 ///<æ»‘åŠ¨æ¡-æ»‘å—
 
-	button_style_toolBar,                ///<¹¤¾ßÌõ-°´Å¥
-	button_style_toolBar_left,           ///<¹¤¾ßÌõ-×ó¹ö¶¯°´Å¥
-	button_style_toolBar_right,          ///<¹¤¾ßÌõ-ÓÒ¹ö¶¯°´Å¥
+	button_style_toolBar,                ///<å·¥å…·æ¡-æŒ‰é’®
+	button_style_toolBar_left,           ///<å·¥å…·æ¡-å·¦æ»šåŠ¨æŒ‰é’®
+	button_style_toolBar_right,          ///<å·¥å…·æ¡-å³æ»šåŠ¨æŒ‰é’®
 
-	button_style_pane_close,             ///<´°¸ñ-¹Ø±Õ°´Å¥
-	button_style_pane_lock,              ///<´°¸ñ-Ëø¶¨°´Å¥
-	button_style_pane_menu,              ///<´°¸ñ-²Ëµ¥°´Å¥
+	button_style_pane_close,             ///<çª—æ ¼-å…³é—­æŒ‰é’®
+	button_style_pane_lock,              ///<çª—æ ¼-é”å®šæŒ‰é’®
+	button_style_pane_menu,              ///<çª—æ ¼-èœå•æŒ‰é’®
 
-	button_style_pane_dock_left,         ///<´°¸ñ-ÂëÍ·°´Å¥×ó
-	button_style_pane_dock_top,          ///<´°¸ñ-ÂëÍ·°´Å¥ÉÏ
-	button_style_pane_dock_right,        ///<´°¸ñ-ÂëÍ·°´Å¥ÓÒ
-	button_style_pane_dock_bottom,       ///<´°¸ñ-ÂëÍ·°´Å¥ÏÂ
+	button_style_pane_dock_left,         ///<çª—æ ¼-ç å¤´æŒ‰é’®å·¦
+	button_style_pane_dock_top,          ///<çª—æ ¼-ç å¤´æŒ‰é’®ä¸Š
+	button_style_pane_dock_right,        ///<çª—æ ¼-ç å¤´æŒ‰é’®å³
+	button_style_pane_dock_bottom,       ///<çª—æ ¼-ç å¤´æŒ‰é’®ä¸‹
 
-	element_style_frameWnd_dock_left,    ///<¿ò¼Ü´°¿Ú-Í£¿¿ÂëÍ·×ó
-	element_style_frameWnd_dock_top,     ///<¿ò¼Ü´°¿Ú-Í£¿¿ÂëÍ·ÉÏ
-	element_style_frameWnd_dock_right,   ///<¿ò¼Ü´°¿Ú-Í£¿¿ÂëÍ·ÓÒ
-	element_style_frameWnd_dock_bottom,  ///<¿ò¼Ü´°¿Ú-Í£¿¿ÂëÍ·ÏÂ
+	element_style_frameWnd_dock_left,    ///<æ¡†æ¶çª—å£-åœé ç å¤´å·¦
+	element_style_frameWnd_dock_top,     ///<æ¡†æ¶çª—å£-åœé ç å¤´ä¸Š
+	element_style_frameWnd_dock_right,   ///<æ¡†æ¶çª—å£-åœé ç å¤´å³
+	element_style_frameWnd_dock_bottom,  ///<æ¡†æ¶çª—å£-åœé ç å¤´ä¸‹
 
-	element_style_toolBar_separator,     ///<¹¤¾ßÌõ-·Ö¸îÏß
-	listBox_style_comboBox,              ///<×éºÏ¿ò-ÏÂÀ­ÁĞ±í¿ò  ,ÏÂÀ­×éºÏ¿òµ¯³öµÄListBox
+	element_style_toolBar_separator,     ///<å·¥å…·æ¡-åˆ†å‰²çº¿
+	listBox_style_comboBox,              ///<ç»„åˆæ¡†-ä¸‹æ‹‰åˆ—è¡¨æ¡†  ,ä¸‹æ‹‰ç»„åˆæ¡†å¼¹å‡ºçš„ListBox
 };
 ///@}
 
-/// @defgroup group_WindowStyle  ´°¿ÚÑùÊ½(window_style_)
+/// @defgroup group_WindowStyle  çª—å£æ ·å¼(window_style_)
 /// @{
 enum  window_style_
 {
-	window_style_nothing         = 0x0000,   ///<Ê²Ã´Ò²Ã»ÓĞ
-	window_style_caption         = 0x0001,   ///<±êÌâÀ¸
-	window_style_border          = 0x0002,   ///<±ß¿ò,Èç¹ûÃ»ÓĞÖ¸¶¨,ÄÇÃ´±ß¿ò´óĞ¡Îª0
-	window_style_center          = 0x0004,   ///<´°¿Ú¾ÓÖĞ
-	window_style_drag_border     = 0x0008,   ///<ÍÏ¶¯´°¿Ú±ß¿ò
-	window_style_drag_window     = 0x0010,   ///<ÍÏ¶¯´°¿Ú
-	window_style_allow_maxWindow = 0x0020,   ///<ÔÊĞí´°¿Ú×î´ó»¯
+	window_style_nothing         = 0x0000,   ///<ä»€ä¹ˆä¹Ÿæ²¡æœ‰
+	window_style_caption         = 0x0001,   ///<æ ‡é¢˜æ 
+	window_style_border          = 0x0002,   ///<è¾¹æ¡†,å¦‚æœæ²¡æœ‰æŒ‡å®š,é‚£ä¹ˆè¾¹æ¡†å¤§å°ä¸º0
+	window_style_center          = 0x0004,   ///<çª—å£å±…ä¸­
+	window_style_drag_border     = 0x0008,   ///<æ‹–åŠ¨çª—å£è¾¹æ¡†
+	window_style_drag_window     = 0x0010,   ///<æ‹–åŠ¨çª—å£
+	window_style_allow_maxWindow = 0x0020,   ///<å…è®¸çª—å£æœ€å¤§åŒ–
 
-	window_style_icon            = 0x0040,   ///<Í¼±ê
-	window_style_title           = 0x0080,   ///<±êÌâ
-	window_style_btn_min         = 0x0100,   ///<¿ØÖÆ°´Å¥-×îĞ¡»¯
-	window_style_btn_max         = 0x0200,   ///<¿ØÖÆ°´Å¥-×î´ó»¯
-	window_style_btn_close       = 0x0400,   ///<¿ØÖÆ°´Å¥-¹Ø±Õ
+	window_style_icon            = 0x0040,   ///<å›¾æ ‡
+	window_style_title           = 0x0080,   ///<æ ‡é¢˜
+	window_style_btn_min         = 0x0100,   ///<æ§åˆ¶æŒ‰é’®-æœ€å°åŒ–
+	window_style_btn_max         = 0x0200,   ///<æ§åˆ¶æŒ‰é’®-æœ€å¤§åŒ–
+	window_style_btn_close       = 0x0400,   ///<æ§åˆ¶æŒ‰é’®-å…³é—­
 
-	///´°¿ÚÑùÊ½-¿ØÖÆ°´Å¥: ¾ÓÖĞ Í¼±ê, ±êÌâ, ¹Ø±Õ°´Å¥, ×î´ó»¯°´Å¥, ×îĞ¡»¯°´Å¥
+	///çª—å£æ ·å¼-æ§åˆ¶æŒ‰é’®: å±…ä¸­ å›¾æ ‡, æ ‡é¢˜, å…³é—­æŒ‰é’®, æœ€å¤§åŒ–æŒ‰é’®, æœ€å°åŒ–æŒ‰é’®
 	window_style_default=(window_style_caption | window_style_border | window_style_center |\
 		window_style_drag_border | window_style_allow_maxWindow | window_style_icon |\
 		window_style_title | window_style_btn_min | window_style_btn_max | window_style_btn_close),
 
-	///´°¿ÚÑùÊ½-¼òµ¥: ¾ÓÖĞ
+	///çª—å£æ ·å¼-ç®€å•: å±…ä¸­
 	window_style_simple=(window_style_caption | window_style_border | window_style_center | window_style_drag_border | window_style_allow_maxWindow),
 
-	///´°¿ÚÑùÊ½-µ¯³ö´°¿Ú: Í¼±ê, ±êÌâ, ¹Ø±Õ°´Å¥
+	///çª—å£æ ·å¼-å¼¹å‡ºçª—å£: å›¾æ ‡, æ ‡é¢˜, å…³é—­æŒ‰é’®
 	window_style_pop = (window_style_caption | window_style_border | window_style_center | \
 		window_style_drag_border | window_style_allow_maxWindow | window_style_icon | \
 		window_style_title | window_style_btn_close),
 
-	///Ä£Ì¬´°¿ÚÑùÊ½-¿ØÖÆ°´Å¥: ¾ÓÖĞ, Í¼±ê, ±êÌâ, ¹Ø±Õ°´Å¥
+	///æ¨¡æ€çª—å£æ ·å¼-æ§åˆ¶æŒ‰é’®: å±…ä¸­, å›¾æ ‡, æ ‡é¢˜, å…³é—­æŒ‰é’®
 	window_style_modal=(window_style_caption | window_style_border | window_style_center |\
 		window_style_icon | window_style_title | window_style_btn_close),
 	
-	///Ä£Ì¬´°¿ÚÑùÊ½-¼òµ¥: ¾ÓÖĞ
+	///æ¨¡æ€çª—å£æ ·å¼-ç®€å•: å±…ä¸­
 	window_style_modal_simple = (window_style_caption | window_style_border | window_style_center),
 };
 
@@ -341,9 +341,9 @@ enum  window_style_
 ///@}
 
 /////////////////////////////////////////////////////////////////////
-/////////////////////ºê¶¨Òå///////////////////////////////////////////
+/////////////////////å®å®šä¹‰///////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////
-/// @defgroup group_macro_def  ºê¶¨Òå
+/// @defgroup group_macro_def  å®å®šä¹‰
 /// @{
 
 #ifdef _DEBUG
@@ -370,371 +370,371 @@ enum  window_style_
 #define  CLOUDUI_flag_downloadFileComplete      3
 #define  CLOUDUI_flag_complete      4
 
-/// @name  ´°¿ÚÎ»ÖÃ
+/// @name  çª—å£ä½ç½®
 /// @{
-#define  WINDOW_TOP            1 //ÉÏ
-#define  WINDOW_BOTTOM         2 //ÏÂ
-#define  WINDOW_LEFT           3 //×ó
-#define  WINDOW_RIGHT          4 //ÓÒ
-#define  WINDOW_TOPLEFT        5 //×óÉÏ½Ç
-#define  WINDOW_TOPRIGHT       6 //ÓÒÉÏ½Ç
-#define  WINDOW_BOTTOMLEFT     7 //×óÏÂ½Ç
-#define  WINDOW_BOTTOMRIGHT    8 //ÓÒÏÂ½Ç
-#define  WINDOW_CAPTION        9 //±êÌâÀ¸ÒÆ¶¯´°¿ÚÇøÓò
+#define  WINDOW_TOP            1 //ä¸Š
+#define  WINDOW_BOTTOM         2 //ä¸‹
+#define  WINDOW_LEFT           3 //å·¦
+#define  WINDOW_RIGHT          4 //å³
+#define  WINDOW_TOPLEFT        5 //å·¦ä¸Šè§’
+#define  WINDOW_TOPRIGHT       6 //å³ä¸Šè§’
+#define  WINDOW_BOTTOMLEFT     7 //å·¦ä¸‹è§’
+#define  WINDOW_BOTTOMRIGHT    8 //å³ä¸‹è§’
+#define  WINDOW_CAPTION        9 //æ ‡é¢˜æ ç§»åŠ¨çª—å£åŒºåŸŸ
 #define  WINDOW_BODY           10
 /// @}
 
-/// @name  ÌØÊâID
+/// @name  ç‰¹æ®ŠID
 /// @{
-#define  XC_ID_ROOT            0   ///<¸ù½Úµã
-#define  XC_ID_ERROR          -1   ///<ID´íÎó
-#define  XC_ID_FIRST          -2   ///<²åÈë¿ªÊ¼Î»ÖÃ
-#define  XC_ID_LAST           -3   ///<²åÈëÄ©Î²Î»ÖÃ
+#define  XC_ID_ROOT            0   ///<æ ¹èŠ‚ç‚¹
+#define  XC_ID_ERROR          -1   ///<IDé”™è¯¯
+#define  XC_ID_FIRST          -2   ///<æ’å…¥å¼€å§‹ä½ç½®
+#define  XC_ID_LAST           -3   ///<æ’å…¥æœ«å°¾ä½ç½®
 /// @}
 
-///@name ²Ëµ¥ID , µ±Ç°Î´Ê¹ÓÃ
+///@name èœå•ID , å½“å‰æœªä½¿ç”¨
 ///@{
-#define  IDM_CLIP          1000000000    ///<¼ôÇĞ
-#define  IDM_COPY          1000000001    ///<¸´ÖÆ
-#define  IDM_PASTE         1000000002    ///<Õ³Ìù
-#define  IDM_DELETE        1000000003    ///<É¾³ı
-#define  IDM_SELECTALL     1000000004    ///<È«Ñ¡
-#define  IDM_DELETEALL     1000000005    ///<Çå¿Õ
+#define  IDM_CLIP          1000000000    ///<å‰ªåˆ‡
+#define  IDM_COPY          1000000001    ///<å¤åˆ¶
+#define  IDM_PASTE         1000000002    ///<ç²˜è´´
+#define  IDM_DELETE        1000000003    ///<åˆ é™¤
+#define  IDM_SELECTALL     1000000004    ///<å…¨é€‰
+#define  IDM_DELETEALL     1000000005    ///<æ¸…ç©º
 ///@}
 
 
-//´°¸ñ²Ëµ¥ µ±Ç°Î´Ê¹ÓÃ
-#define  IDM_LOCK          1000000006    ///<Ëø¶¨
-#define  IDM_DOCK          1000000007    ///<Í£¿¿
-#define  IDM_FLOAT         1000000008    ///<¸¡¶¯
-#define  IDM_HIDE          1000000009    ///<Òş²Ø
+//çª—æ ¼èœå• å½“å‰æœªä½¿ç”¨
+#define  IDM_LOCK          1000000006    ///<é”å®š
+#define  IDM_DOCK          1000000007    ///<åœé 
+#define  IDM_FLOAT         1000000008    ///<æµ®åŠ¨
+#define  IDM_HIDE          1000000009    ///<éšè—
 
-//#define  edit_style_no        0  ///<ÎŞĞ§ÑùÊ½
-#define  edit_style_default   1  ///<edit Ä¬ÈÏÑùÊ½
+//#define  edit_style_no        0  ///<æ— æ•ˆæ ·å¼
+#define  edit_style_default   1  ///<edit é»˜è®¤æ ·å¼
 
 /// @}
 
 /////////////////////////////////////////////////////////////////////
-/////////////////////´°¿ÚÊÂ¼ş/////////////////////////////////////////
+/////////////////////çª—å£äº‹ä»¶/////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////
 
-//´°¿ÚÏûÏ¢
+//çª—å£æ¶ˆæ¯
 /**
 @addtogroup wndMSG
 
 <hr>
-<h2>Windows ±ê×¼ÏûÏ¢</h2>
-- @ref WM_PAINT ´°¿Ú»æÖÆÏûÏ¢
-- @ref WM_CLOSE ´°¿Ú¹Ø±ÕÏûÏ¢.
-- @ref WM_DESTROY ´°¿ÚÏú»ÙÏûÏ¢.
-- @ref WM_NCDESTROY ´°¿Ú·Ç¿Í»§ÇøÏú»ÙÏûÏ¢.
-- @ref WM_LBUTTONDOWN ´°¿ÚÊó±ê×ó¼ü°´ÏÂÏûÏ¢
-- @ref WM_LBUTTONUP ´°¿ÚÊó±ê×ó¼üµ¯ÆğÏûÏ¢.
-- @ref WM_RBUTTONDOWN ´°¿ÚÊó±êÓÒ¼ü°´ÏÂÏûÏ¢.
-- @ref WM_RBUTTONUP ´°¿ÚÊó±êÓÒ¼üµ¯ÆğÏûÏ¢.
-- @ref WM_LBUTTONDBLCLK ´°¿ÚÊó±ê×ó¼üË«»÷ÏûÏ¢.
-- @ref WM_RBUTTONDBLCLK ´°¿ÚÊó±êÓÒ¼üË«»÷ÏûÏ¢.
-- @ref WM_MOUSEMOVE ´°¿ÚÊó±êÒÆ¶¯ÏûÏ¢.
-- @ref WM_MOUSEHOVER ´°¿ÚÊó±êĞüÍ£ÏûÏ¢
-- @ref WM_MOUSELEAVE ´°¿ÚÊó±êÀë¿ªÏûÏ¢.
-- @ref WM_MOUSEWHEEL ´°¿ÚÊó±ê¹öÂÖ¹ö¶¯ÏûÏ¢.
-- @ref WM_CAPTURECHANGED ´°¿ÚÊó±ê²¶»ñ¸Ä±äÏûÏ¢.
-- @ref WM_KEYDOWN ´°¿Ú¼üÅÌ°´¼üÏûÏ¢.
-- @ref WM_KEYUP ´°¿Ú¼üÅÌµ¯ÆğÏûÏ¢.
-- @ref WM_CHAR       ´°¿Ú×Ö·ûÏûÏ¢.
-- @ref WM_SIZE ´°¿Ú´óĞ¡¸Ä±äÏûÏ¢.
-- @ref WM_EXITSIZEMOVE ´°¿ÚÍË³öÒÆ¶¯»òµ÷Õû´óĞ¡Ä£Ê½Ñ­»·¸Ä£¬ÏêÇé²Î¼ûMSDN.
-- @ref WM_TIMER ´°¿Ú¶¨Ê±Æ÷ÏûÏ¢.
-- @ref WM_SETFOCUS ´°¿Ú»ñµÃ½¹µã.
-- @ref WM_KILLFOCUS ´°¿ÚÊ§È¥½¹µã.
-- @ref WM_SETCURSOR  ´°¿ÚÉèÖÃÊó±ê¹â±ê.
-- @ref WM_DROPFILES  ÍÏ¶¯ÎÄ¼şµ½´°¿Ú.
-- @ref other ÆäËûWindowsÏµÍ³ÏûÏ¢,°üº¬Äã×Ô¶¨ÒåµÄWindowsÏûÏ¢.
+<h2>Windows æ ‡å‡†æ¶ˆæ¯</h2>
+- @ref WM_PAINT çª—å£ç»˜åˆ¶æ¶ˆæ¯
+- @ref WM_CLOSE çª—å£å…³é—­æ¶ˆæ¯.
+- @ref WM_DESTROY çª—å£é”€æ¯æ¶ˆæ¯.
+- @ref WM_NCDESTROY çª—å£éå®¢æˆ·åŒºé”€æ¯æ¶ˆæ¯.
+- @ref WM_LBUTTONDOWN çª—å£é¼ æ ‡å·¦é”®æŒ‰ä¸‹æ¶ˆæ¯
+- @ref WM_LBUTTONUP çª—å£é¼ æ ‡å·¦é”®å¼¹èµ·æ¶ˆæ¯.
+- @ref WM_RBUTTONDOWN çª—å£é¼ æ ‡å³é”®æŒ‰ä¸‹æ¶ˆæ¯.
+- @ref WM_RBUTTONUP çª—å£é¼ æ ‡å³é”®å¼¹èµ·æ¶ˆæ¯.
+- @ref WM_LBUTTONDBLCLK çª—å£é¼ æ ‡å·¦é”®åŒå‡»æ¶ˆæ¯.
+- @ref WM_RBUTTONDBLCLK çª—å£é¼ æ ‡å³é”®åŒå‡»æ¶ˆæ¯.
+- @ref WM_MOUSEMOVE çª—å£é¼ æ ‡ç§»åŠ¨æ¶ˆæ¯.
+- @ref WM_MOUSEHOVER çª—å£é¼ æ ‡æ‚¬åœæ¶ˆæ¯
+- @ref WM_MOUSELEAVE çª—å£é¼ æ ‡ç¦»å¼€æ¶ˆæ¯.
+- @ref WM_MOUSEWHEEL çª—å£é¼ æ ‡æ»šè½®æ»šåŠ¨æ¶ˆæ¯.
+- @ref WM_CAPTURECHANGED çª—å£é¼ æ ‡æ•è·æ”¹å˜æ¶ˆæ¯.
+- @ref WM_KEYDOWN çª—å£é”®ç›˜æŒ‰é”®æ¶ˆæ¯.
+- @ref WM_KEYUP çª—å£é”®ç›˜å¼¹èµ·æ¶ˆæ¯.
+- @ref WM_CHAR       çª—å£å­—ç¬¦æ¶ˆæ¯.
+- @ref WM_SIZE çª—å£å¤§å°æ”¹å˜æ¶ˆæ¯.
+- @ref WM_EXITSIZEMOVE çª—å£é€€å‡ºç§»åŠ¨æˆ–è°ƒæ•´å¤§å°æ¨¡å¼å¾ªç¯æ”¹ï¼Œè¯¦æƒ…å‚è§MSDN.
+- @ref WM_TIMER çª—å£å®šæ—¶å™¨æ¶ˆæ¯.
+- @ref WM_SETFOCUS çª—å£è·å¾—ç„¦ç‚¹.
+- @ref WM_KILLFOCUS çª—å£å¤±å»ç„¦ç‚¹.
+- @ref WM_SETCURSOR  çª—å£è®¾ç½®é¼ æ ‡å…‰æ ‡.
+- @ref WM_DROPFILES  æ‹–åŠ¨æ–‡ä»¶åˆ°çª—å£.
+- @ref other å…¶ä»–Windowsç³»ç»Ÿæ¶ˆæ¯,åŒ…å«ä½ è‡ªå®šä¹‰çš„Windowsæ¶ˆæ¯.
 
 <hr>
-@anchor WM_PAINT WM_PAINT ´°¿Ú»æÖÆÏûÏ¢
+@anchor WM_PAINT WM_PAINT çª—å£ç»˜åˆ¶æ¶ˆæ¯
 @code   int CALLBACK OnWndDrawWindow(HDRAW hDraw,BOOL *pbHandled) @endcode
-@param  hDraw   Í¼ĞÎ»æÖÆ¾ä±ú.
+@param  hDraw   å›¾å½¢ç»˜åˆ¶å¥æŸ„.
 
 <hr>
-@anchor WM_CLOSE WM_CLOSE ´°¿Ú¹Ø±ÕÏûÏ¢.
+@anchor WM_CLOSE WM_CLOSE çª—å£å…³é—­æ¶ˆæ¯.
 @code   int CALLBACK OnWndClose(BOOL *pbHandled) @endcode
 
 <hr>
-@anchor WM_DESTROY WM_DESTROY ´°¿ÚÏú»ÙÏûÏ¢.
+@anchor WM_DESTROY WM_DESTROY çª—å£é”€æ¯æ¶ˆæ¯.
 @code   int CALLBACK OnWndDestroy(BOOL *pbHandled)  @endcode
 
 <hr>
-@anchor WM_NCDESTROY WM_NCDESTROY ´°¿Ú·Ç¿Í»§ÇøÏú»ÙÏûÏ¢.
+@anchor WM_NCDESTROY WM_NCDESTROY çª—å£éå®¢æˆ·åŒºé”€æ¯æ¶ˆæ¯.
 @code   int CALLBACK OnWndNCDestroy(BOOL *pbHandled) @endcode
 
 <hr>
-@anchor WM_LBUTTONDOWN WM_LBUTTONDOWN ´°¿ÚÊó±ê×ó¼ü°´ÏÂÏûÏ¢
+@anchor WM_LBUTTONDOWN WM_LBUTTONDOWN çª—å£é¼ æ ‡å·¦é”®æŒ‰ä¸‹æ¶ˆæ¯
 @code   int CALLBACK OnWndLButtonDown(UINT nFlags,POINT *pPt,BOOL *pbHandled) @endcode
-@param  flags   Çë²Î¼ûMSDN WM_LBUTTONDOWN.
-@param  pPt     Êó±ê×ø±êµã.
+@param  flags   è¯·å‚è§MSDN WM_LBUTTONDOWN.
+@param  pPt     é¼ æ ‡åæ ‡ç‚¹.
 
 <hr>
-@anchor WM_LBUTTONUP WM_LBUTTONUP ´°¿ÚÊó±ê×ó¼üµ¯ÆğÏûÏ¢.
+@anchor WM_LBUTTONUP WM_LBUTTONUP çª—å£é¼ æ ‡å·¦é”®å¼¹èµ·æ¶ˆæ¯.
 @code   int CALLBACK OnWndLButtonUp(UINT nFlags,POINT *pPt,BOOL *pbHandled) @endcode
-@param  flags   Çë²Î¼ûMSDN WM_LBUTTONUP.
-@param  pPt     Êó±ê×ø±êµã.
+@param  flags   è¯·å‚è§MSDN WM_LBUTTONUP.
+@param  pPt     é¼ æ ‡åæ ‡ç‚¹.
 
 <hr>
-@anchor WM_RBUTTONDOWN WM_RBUTTONDOWN ´°¿ÚÊó±êÓÒ¼ü°´ÏÂÏûÏ¢.
+@anchor WM_RBUTTONDOWN WM_RBUTTONDOWN çª—å£é¼ æ ‡å³é”®æŒ‰ä¸‹æ¶ˆæ¯.
 @code   int CALLBACK OnWndRButtonDown(UINT nFlags,POINT *pPt,BOOL *pbHandled) @endcode
-@param  flags   Çë²Î¼ûMSDN WM_RBUTTONDOWN.
-@param  pPt     Êó±ê×ø±êµã.
+@param  flags   è¯·å‚è§MSDN WM_RBUTTONDOWN.
+@param  pPt     é¼ æ ‡åæ ‡ç‚¹.
 
 <hr>
-@anchor WM_RBUTTONUP WM_RBUTTONUP ´°¿ÚÊó±êÓÒ¼üµ¯ÆğÏûÏ¢.
+@anchor WM_RBUTTONUP WM_RBUTTONUP çª—å£é¼ æ ‡å³é”®å¼¹èµ·æ¶ˆæ¯.
 @code   int CALLBACK OnWndRButtonUp(UINT nFlags,POINT *pPt,BOOL *pbHandled) @endcode
-@param  flags   Çë²Î¼ûMSDN WM_RBUTTONUP.
-@param  pPt     Êó±ê×ø±êµã.
+@param  flags   è¯·å‚è§MSDN WM_RBUTTONUP.
+@param  pPt     é¼ æ ‡åæ ‡ç‚¹.
 
 <hr>
-@anchor WM_LBUTTONDBLCLK WM_LBUTTONDBLCLK ´°¿ÚÊó±ê×ó¼üË«»÷ÏûÏ¢.
+@anchor WM_LBUTTONDBLCLK WM_LBUTTONDBLCLK çª—å£é¼ æ ‡å·¦é”®åŒå‡»æ¶ˆæ¯.
 @code   int CALLBACK OnWndLButtonDBClick(UINT nFlags,POINT *pPt,BOOL *pbHandled) @endcode
-@param  flags   Çë²Î¼ûMSDN WM_LBUTTONDBLCLK.
-@param  pPt     Êó±ê×ø±êµã.
+@param  flags   è¯·å‚è§MSDN WM_LBUTTONDBLCLK.
+@param  pPt     é¼ æ ‡åæ ‡ç‚¹.
 
 <hr>
-@anchor WM_RBUTTONDBLCLK WM_RBUTTONDBLCLK ´°¿ÚÊó±êÓÒ¼üË«»÷ÏûÏ¢.
+@anchor WM_RBUTTONDBLCLK WM_RBUTTONDBLCLK çª—å£é¼ æ ‡å³é”®åŒå‡»æ¶ˆæ¯.
 @code   int CALLBACK OnWndRButtonDBClick(UINT nFlags,POINT *pPt,BOOL *pbHandled) @endcode
-@param  flags   Çë²Î¼ûMSDN WM_RBUTTONDBLCLK.
-@param  pPt     Êó±ê×ø±êµã.
+@param  flags   è¯·å‚è§MSDN WM_RBUTTONDBLCLK.
+@param  pPt     é¼ æ ‡åæ ‡ç‚¹.
 
 <hr>
-@anchor WM_MOUSEMOVE WM_MOUSEMOVE ´°¿ÚÊó±êÒÆ¶¯ÏûÏ¢.
+@anchor WM_MOUSEMOVE WM_MOUSEMOVE çª—å£é¼ æ ‡ç§»åŠ¨æ¶ˆæ¯.
 @code   int CALLBACK OnWndMouseMove(UINT nFlags,POINT *pPt,BOOL *pbHandled)  @endcode
-@param  flags   Çë²Î¼ûMSDN WM_MOUSEMOVE wParam²ÎÊı.
-@param  pPt     Êó±ê×ø±êµã.
+@param  flags   è¯·å‚è§MSDN WM_MOUSEMOVE wParamå‚æ•°.
+@param  pPt     é¼ æ ‡åæ ‡ç‚¹.
 
 <hr>
-@anchor WM_MOUSEHOVER WM_MOUSEHOVER ´°¿ÚÊó±êĞüÍ£ÏûÏ¢.
+@anchor WM_MOUSEHOVER WM_MOUSEHOVER çª—å£é¼ æ ‡æ‚¬åœæ¶ˆæ¯.
 @code   int CALLBACK OnWndMouseHover(UINT nFlags,POINT *pPt,BOOL *pbHandled) @endcode
-@param  flags  Çë²Î¼ûMSDN WM_MOUSEHOVERÏûÏ¢wParam²ÎÊı.
-@param  pPt    Êó±êÎ»ÖÃ
+@param  flags  è¯·å‚è§MSDN WM_MOUSEHOVERæ¶ˆæ¯wParamå‚æ•°.
+@param  pPt    é¼ æ ‡ä½ç½®
 
 <hr>
-@anchor WM_MOUSELEAVE WM_MOUSELEAVE ´°¿ÚÊó±êÀë¿ªÏûÏ¢.
+@anchor WM_MOUSELEAVE WM_MOUSELEAVE çª—å£é¼ æ ‡ç¦»å¼€æ¶ˆæ¯.
 @code   int CALLBACK OnWndMouseLeave(BOOL *pbHandled) @endcode
 
 <hr>
-@anchor WM_MOUSEWHEEL WM_MOUSEWHEEL ´°¿ÚÊó±ê¹öÂÖ¹ö¶¯ÏûÏ¢.
+@anchor WM_MOUSEWHEEL WM_MOUSEWHEEL çª—å£é¼ æ ‡æ»šè½®æ»šåŠ¨æ¶ˆæ¯.
 @code   int CALLBACK OnWndMouseWheel(UINT nFlags,POINT *pPt,BOOL *pbHandled) @endcode
-@param  flags   Çë²Î¼ûMSDN WM_MOUSEWHEELÏûÏ¢wParam²ÎÊı.
-@param  pPt     Êó±ê×ø±êµã.
+@param  flags   è¯·å‚è§MSDN WM_MOUSEWHEELæ¶ˆæ¯wParamå‚æ•°.
+@param  pPt     é¼ æ ‡åæ ‡ç‚¹.
 
 <hr>
-@anchor WM_CAPTURECHANGED WM_CAPTURECHANGED ´°¿ÚÊó±ê²¶»ñ¸Ä±äÏûÏ¢.
+@anchor WM_CAPTURECHANGED WM_CAPTURECHANGED çª—å£é¼ æ ‡æ•è·æ”¹å˜æ¶ˆæ¯.
 @code   int CALLBACK OnWndCaptureChanged(HWND hWnd,BOOL *pbHandled) @endcode
-@param  hWnd    »ñµÃÊó±ê²¶»ñµÄ´°¿Ú¾ä±ú.
+@param  hWnd    è·å¾—é¼ æ ‡æ•è·çš„çª—å£å¥æŸ„.
 
 <hr>
-@anchor WM_KEYDOWN WM_KEYDOWN ´°¿Ú¼üÅÌ°´ÏÂÏûÏ¢.
+@anchor WM_KEYDOWN WM_KEYDOWN çª—å£é”®ç›˜æŒ‰ä¸‹æ¶ˆæ¯.
 @code   int CALLBACK OnWndKeyDown(WPARAM wParam,LPARAM lParam,BOOL *pbHandled) @endcode
-@note   wParam,lParam:Çë²Î¼ûMSDN WM_KEYDOWN.
+@note   wParam,lParam:è¯·å‚è§MSDN WM_KEYDOWN.
 <hr>
-@anchor WM_KEYUP WM_KEYUP ´°¿Ú¼üÅÌµ¯ÆğÏûÏ¢.
+@anchor WM_KEYUP WM_KEYUP çª—å£é”®ç›˜å¼¹èµ·æ¶ˆæ¯.
 @code   int CALLBACK OnWndKeyUp(WPARAM wParam,LPARAM lParam,BOOL *pbHandled) @endcode
-@note   wParam,lParam:Çë²Î¼ûMSDN WM_KEYUP.
+@note   wParam,lParam:è¯·å‚è§MSDN WM_KEYUP.
 
 <hr>
-@anchor  WM_CHAR WM_CHAR ´°¿Ú×Ö·ûÊäÈëÏûÏ¢.
+@anchor  WM_CHAR WM_CHAR çª—å£å­—ç¬¦è¾“å…¥æ¶ˆæ¯.
 @code    int CALLBACK OnWndChar(WPARAM wParam,LPARAM lParam,BOOL *pbHandled) @endcode
-@note    wParam,lParam:Çë²Î¼ûMSDN WM_CHAR.
+@note    wParam,lParam:è¯·å‚è§MSDN WM_CHAR.
 
 <hr>
-@anchor WM_SIZE WM_SIZE ´°¿Ú´óĞ¡¸Ä±äÏûÏ¢.
+@anchor WM_SIZE WM_SIZE çª—å£å¤§å°æ”¹å˜æ¶ˆæ¯.
 @code   int CALLBACK OnWndSize(UINT nFlags,SIZE *pSize,BOOL *pbHandled) @endcode
-@param  flags   Çë²Î¼ûMSDN WM_SIZEÏûÏ¢wParam²ÎÊı.
-@param  pSize   ´°¿Ú´óĞ¡.
+@param  flags   è¯·å‚è§MSDN WM_SIZEæ¶ˆæ¯wParamå‚æ•°.
+@param  pSize   çª—å£å¤§å°.
 
 <hr>
-@anchor WM_EXITSIZEMOVE WM_EXITSIZEMOVE ´°¿ÚÍË³öÒÆ¶¯»òµ÷Õû´óĞ¡Ä£Ê½Ñ­»·£¬ÏêÇé²Î¼ûMSDN.
+@anchor WM_EXITSIZEMOVE WM_EXITSIZEMOVE çª—å£é€€å‡ºç§»åŠ¨æˆ–è°ƒæ•´å¤§å°æ¨¡å¼å¾ªç¯ï¼Œè¯¦æƒ…å‚è§MSDN.
 @code   int CALLBACK OnWndExitSizeMove(BOOL *pbHandled) @endcode
 
 <hr>
-@anchor WM_TIMER WM_TIMER ´°¿Ú¶¨Ê±Æ÷ÏûÏ¢.
+@anchor WM_TIMER WM_TIMER çª—å£å®šæ—¶å™¨æ¶ˆæ¯.
 @code   int CALLBACK OnWndTimer(UINT nIDEvent,BOOL *pbHandled) @endcode
-@param  nIDEnent ¶¨Ê±Æ÷±êÊ¾·û.
-@param  uElapse  Ö¸¶¨Ëù¾­¹ıµÄÏµÍ³Æô¶¯ÒÔÀ´µÄºÁÃëÊı,ÕâÊÇÓÉGetTickCountº¯ÊıµÄ·µ»ØÖµ.
+@param  nIDEnent å®šæ—¶å™¨æ ‡ç¤ºç¬¦.
+@param  uElapse  æŒ‡å®šæ‰€ç»è¿‡çš„ç³»ç»Ÿå¯åŠ¨ä»¥æ¥çš„æ¯«ç§’æ•°,è¿™æ˜¯ç”±GetTickCountå‡½æ•°çš„è¿”å›å€¼.
 
 <hr>
-@anchor WM_SETFOCUS WM_SETFOCUS ´°¿Ú»ñµÃ½¹µã.
+@anchor WM_SETFOCUS WM_SETFOCUS çª—å£è·å¾—ç„¦ç‚¹.
 @code   int CALLBACK OnWndSetFocus(BOOL *pbHandled) @endcode
 
 <hr>
-@anchor WM_KILLFOCUS WM_KILLFOCUS ´°¿ÚÊ§È¥½¹µã.
+@anchor WM_KILLFOCUS WM_KILLFOCUS çª—å£å¤±å»ç„¦ç‚¹.
 @code   int CALLBACK OnWndKillFocus(BOOL *pbHandled) @endcode
 
 <hr>
-@anchor  WM_SETCURSOR WM_SETCURSOR ´°¿ÚÉèÖÃÊó±ê¹â±ê.
+@anchor  WM_SETCURSOR WM_SETCURSOR çª—å£è®¾ç½®é¼ æ ‡å…‰æ ‡.
 @code    int CALLBACK OnWndSetCursor(WPARAM wParam,LPARAM lParam,BOOL *pbHandled) @endcode
-@note    wParam,lParam:Çë²Î¼ûMSDN WM_SETCURSOR.
+@note    wParam,lParam:è¯·å‚è§MSDN WM_SETCURSOR.
 
 <hr>
-@anchor  WM_DROPFILES WM_DROPFILES ÍÏ¶¯ÎÄ¼şµ½´°¿ÚÏûÏ¢,ĞèÆôÓÃ:XWnd_EnableDragFiles()
+@anchor  WM_DROPFILES WM_DROPFILES æ‹–åŠ¨æ–‡ä»¶åˆ°çª—å£æ¶ˆæ¯,éœ€å¯ç”¨:XWnd_EnableDragFiles()
 @code    int CALLBACK OnDropFiles(HDROP hDropInfo , BOOL *pbHandled) @endcode
-@note    Çë²Î¼ûMSDN WM_DROPFILES.
+@note    è¯·å‚è§MSDN WM_DROPFILES.
 
 <hr>
-@anchor other ÆäËûWindowsÏµÍ³ÏûÏ¢,°üº¬Äã×Ô¶¨ÒåµÄWindowsÏûÏ¢.
+@anchor other å…¶ä»–Windowsç³»ç»Ÿæ¶ˆæ¯,åŒ…å«ä½ è‡ªå®šä¹‰çš„Windowsæ¶ˆæ¯.
 @code   int CALLBACK OnWndOther(WPARAM wParam,LPARAM lParam,BOOL *pbHandled) @endcode
-@param  wParam  ÏûÏ¢²ÎÊı.
-@param  lParam  ÏûÏ¢²ÎÊı.
-@note   ²ÎÊıĞÅÏ¢Çë²Î¼ûMSDN.
+@param  wParam  æ¶ˆæ¯å‚æ•°.
+@param  lParam  æ¶ˆæ¯å‚æ•°.
+@note   å‚æ•°ä¿¡æ¯è¯·å‚è§MSDN.
 @{
 */
 
-//´°¿ÚÏûÏ¢-°üº¬ÏµÍ³·Ç¿Í»§ÇøÏûÏ¢
-#define  XWM_EVENT_ALL        WM_APP+1000 //ÊÂ¼şÍ¶µİ -------²»¹«¿ª-------²»ĞèÒª×¢²á
+//çª—å£æ¶ˆæ¯-åŒ…å«ç³»ç»Ÿéå®¢æˆ·åŒºæ¶ˆæ¯
+#define  XWM_EVENT_ALL        WM_APP+1000 //äº‹ä»¶æŠ•é€’ -------ä¸å…¬å¼€-------ä¸éœ€è¦æ³¨å†Œ
 
-//wParam:left-top×ø±ê×éºÏ; lParam:right-bottom×ø±ê×éºÏ; Èç¹ûÕâ2¸ö²ÎÊıÎª¿Õ,ÄÇÃ´ÖØ»æÕû¸ö´°¿Ú
-//#define  XWM_REDRAW           WM_APP+1007  //´°¿ÚÖØ»æÑÓÊ± ----²»¹«¿ª-----ÄÚ²¿×Ô¶¨ÒåÏûÏ¢
+//wParam:left-topåæ ‡ç»„åˆ; lParam:right-bottomåæ ‡ç»„åˆ; å¦‚æœè¿™2ä¸ªå‚æ•°ä¸ºç©º,é‚£ä¹ˆé‡ç»˜æ•´ä¸ªçª—å£
+//#define  XWM_REDRAW           WM_APP+1007  //çª—å£é‡ç»˜å»¶æ—¶ ----ä¸å…¬å¼€-----å†…éƒ¨è‡ªå®šä¹‰æ¶ˆæ¯
 
-//ÖØ»æÔªËØ,ÄÚ²¿Ê¹ÓÃ
-#define  XWM_REDRAW_ELE       0x7000+1 //ÖØ»æÔªËØ wParam:ÔªËØ¾ä±ú, lParam:RECT*»ùÓÚ´°¿Ú×ø±ê
+//é‡ç»˜å…ƒç´ ,å†…éƒ¨ä½¿ç”¨
+#define  XWM_REDRAW_ELE       0x7000+1 //é‡ç»˜å…ƒç´  wParam:å…ƒç´ å¥æŸ„, lParam:RECT*åŸºäºçª—å£åæ ‡
 
-///@brief ´°¿ÚÏûÏ¢¹ı³Ì
+///@brief çª—å£æ¶ˆæ¯è¿‡ç¨‹
 ///@code  int CALLBACK OnWndProc(UINT message, WPARAM wParam, LPARAM lParam, BOOL *pbHandled)  @endcode
-#define  XWM_WINDPROC         0x7000+2    //×¢²á´°¿Ú´¦Àí¹ı³Ì
+#define  XWM_WINDPROC         0x7000+2    //æ³¨å†Œçª—å£å¤„ç†è¿‡ç¨‹
 
-#define  XWM_DRAW_T           0x7000+3    //´°¿Ú»æÖÆ,ÄÚ²¿Ê¹ÓÃ, wParam:0, lParam:0
+#define  XWM_DRAW_T           0x7000+3    //çª—å£ç»˜åˆ¶,å†…éƒ¨ä½¿ç”¨, wParam:0, lParam:0
 
-#define  XWM_TIMER_T          0x7000+4    //ÄÚ²¿Ê¹ÓÃ, wParam:hXCGUI, lParam:ID
+#define  XWM_TIMER_T          0x7000+4    //å†…éƒ¨ä½¿ç”¨, wParam:hXCGUI, lParam:ID
 
-#define  XWM_CLOUDUI_DOWNLOADFILE_COMPLETE   0x7000+6  //ÄÚ²¿Ê¹ÓÃ
+#define  XWM_CLOUDUI_DOWNLOADFILE_COMPLETE   0x7000+6  //å†…éƒ¨ä½¿ç”¨
 
-#define  XWM_CLOUNDUI_OPENURL_WAIT    0x7000+7 //ÄÚ²¿Ê¹ÓÃ
+#define  XWM_CLOUNDUI_OPENURL_WAIT    0x7000+7 //å†…éƒ¨ä½¿ç”¨
 
-#define  XWM_CALL_UI_THREAD   0x7000+8     //ÄÚ²¿Ê¹ÓÃ
+#define  XWM_CALL_UI_THREAD   0x7000+8     //å†…éƒ¨ä½¿ç”¨
 
-/// @brief  ìÅ²Ê¶¨Ê±Æ÷,·ÇÏµÍ³¶¨Ê±Æ÷,×¢²áÏûÏ¢XWM_TIMER½ÓÊÕ
+/// @brief  ç‚«å½©å®šæ—¶å™¨,éç³»ç»Ÿå®šæ—¶å™¨,æ³¨å†Œæ¶ˆæ¯XWM_TIMERæ¥æ”¶
 /// @code  int CALLBACK OnWndXCTimer(UINT nTimerID,BOOL *pbHandled)  @endcode
-/// @param nTimerID   ¶¨Ê±Æ÷ID
-#define  XWM_XC_TIMER         0x7000+5 //wParam:¶¨Ê±Æ÷ID, lParam:0
+/// @param nTimerID   å®šæ—¶å™¨ID
+#define  XWM_XC_TIMER         0x7000+5 //wParam:å®šæ—¶å™¨ID, lParam:0
 
-///@brief ²Ëµ¥µ¯³ö
+///@brief èœå•å¼¹å‡º
 ///@code  int CALLBACK OnWndMenuPopup(HMENUX hMenu, BOOL *pbHandled) @endcode
 #define  XWM_MENU_POPUP       0x7000+11
 
-///@brief ²Ëµ¥µ¯³ö´°¿Ú
+///@brief èœå•å¼¹å‡ºçª—å£
 ///@code  int CALLBACK OnWndMenuPopupWnd(HMENUX hMenu,menu_popupWnd_ *pInfo,BOOL *pbHandled) @endcode
 #define  XWM_MENU_POPUP_WND     0x7000+12    
 
-///@brief ²Ëµ¥Ñ¡Ôñ
+///@brief èœå•é€‰æ‹©
 ///@code  int CALLBACK OnWndMenuSelect(int nID,BOOL *pbHandled) @endcode
-#define  XWM_MENU_SELECT       0x7000+13 //²Ëµ¥Ñ¡Ôñ wParam:²Ëµ¥ÏîID, lParam:0
+#define  XWM_MENU_SELECT       0x7000+13 //èœå•é€‰æ‹© wParam:èœå•é¡¹ID, lParam:0
 
-///@brief ²Ëµ¥ÍË³ö
+///@brief èœå•é€€å‡º
 ///@code  int CALLBACK OnWndMenuExit(BOOL *pbHandled) @endcode
-#define  XWM_MENU_EXIT         0x7000+14 //²Ëµ¥ÍË³ö wParam:0, lParam:0
+#define  XWM_MENU_EXIT         0x7000+14 //èœå•é€€å‡º wParam:0, lParam:0
 
-///@brief »æÖÆ²Ëµ¥±³¾°, ÆôÓÃ¸Ã¹¦ÄÜĞèÒªµ÷ÓÃXMenu_EnableDrawBackground().
+///@brief ç»˜åˆ¶èœå•èƒŒæ™¯, å¯ç”¨è¯¥åŠŸèƒ½éœ€è¦è°ƒç”¨XMenu_EnableDrawBackground().
 ///@code  int CALLBACK OnWndMenuDrawBackground(HDRAW hDraw,menu_drawBackground_ *pInfo,BOOL *pbHandled) @endcode
-#define  XWM_MENU_DRAW_BACKGROUND   0x7000+15 //»æÖÆ²Ëµ¥±³¾°
+#define  XWM_MENU_DRAW_BACKGROUND   0x7000+15 //ç»˜åˆ¶èœå•èƒŒæ™¯
 
-/// @brief »æÖÆ²Ëµ¥ÏîÊÂ¼ş, ÆôÓÃ¸Ã¹¦ÄÜĞèÒªµ÷ÓÃXMenu_EnableDrawItem().
+/// @brief ç»˜åˆ¶èœå•é¡¹äº‹ä»¶, å¯ç”¨è¯¥åŠŸèƒ½éœ€è¦è°ƒç”¨XMenu_EnableDrawItem().
 /// @code  int CALLBACK OnMenuDrawItem(HDRAW hDraw,menu_drawItem_* pInfo,BOOL *pbHandled) @endcode
-#define  XWM_MENU_DRAWITEM             0x7000+16  //»æÖÆ²Ëµ¥Ïî 
+#define  XWM_MENU_DRAWITEM             0x7000+16  //ç»˜åˆ¶èœå•é¡¹ 
 
-#define  XWM_COMBOBOX_POPUP_DROPLIST   0x7000+17  //µ¯³öÏÂÀ­×é¿òÁĞ±í,ÄÚ²¿Ê¹ÓÃ
+#define  XWM_COMBOBOX_POPUP_DROPLIST   0x7000+17  //å¼¹å‡ºä¸‹æ‹‰ç»„æ¡†åˆ—è¡¨,å†…éƒ¨ä½¿ç”¨
 
-///@brief ¸¡¶¯´°¸ñ
+///@brief æµ®åŠ¨çª—æ ¼
 ///@code  int CALLBACK OnWndFloatPane(HWINDOW hFloatWnd, HELE hPane, BOOL *pbHandled) @endcode
-#define  XWM_FLOAT_PANE               0x7000+18 //¸¡¶¯´°¸ñ, ´°¸ñ´Ó¿ò¼Ü´°¿ÚÖĞµ¯³ö,±ä³É¸¡¶¯´°¸ñ
+#define  XWM_FLOAT_PANE               0x7000+18 //æµ®åŠ¨çª—æ ¼, çª—æ ¼ä»æ¡†æ¶çª—å£ä¸­å¼¹å‡º,å˜æˆæµ®åŠ¨çª—æ ¼
 
-///@brief ´°¿Ú»æÖÆÍê³ÉÏûÏ¢
+///@brief çª—å£ç»˜åˆ¶å®Œæˆæ¶ˆæ¯
 ///@code   int CALLBACK OnWndDrawWindowEnd(HDRAW hDraw,BOOL *pbHandled) @endcode
 #define  XWM_PAINT_END               0x7000+19
 
-///@brief ´°¿Ú»æÖÆÍê³É²¢ÇÒÒÑ¾­ÏÔÊ¾µ½ÆÁÄ»
+///@brief çª—å£ç»˜åˆ¶å®Œæˆå¹¶ä¸”å·²ç»æ˜¾ç¤ºåˆ°å±å¹•
 ///@code   int CALLBACK OnWndDrawWindowDisplay(BOOL *pbHandled) @endcode
 #define  XWM_PAINT_DISPLAY           0x7000+20
 
-///@brief  ¿ò¼Ü´°¿ÚÂëÍ·µ¯³ö´°¸ñ  µ±ÓÃ»§µã»÷ÂëÍ·ÉÏµÄ°´Å¥Ê±,ÏÔÊ¾¶ÔÓ¦µÄ´°¸ñ,µ±Ê§È¥½¹µãÊ±×Ô¶¯Òş²Ø´°¸ñ
-///@param  hWindowDock µ¯³ö´°¸ñ´°¿Ú¾ä±ú
-///@param  hPane       ´°¸ñ¾ä±ú
+///@brief  æ¡†æ¶çª—å£ç å¤´å¼¹å‡ºçª—æ ¼  å½“ç”¨æˆ·ç‚¹å‡»ç å¤´ä¸Šçš„æŒ‰é’®æ—¶,æ˜¾ç¤ºå¯¹åº”çš„çª—æ ¼,å½“å¤±å»ç„¦ç‚¹æ—¶è‡ªåŠ¨éšè—çª—æ ¼
+///@param  hWindowDock å¼¹å‡ºçª—æ ¼çª—å£å¥æŸ„
+///@param  hPane       çª—æ ¼å¥æŸ„
 ///@code   int CALLBACK OnWndDocPopup(HWINDOW hWindowDock,  HELE hPane, BOOL *pbHandled) @endcode
 #define  XWM_DOCK_POPUP              0x7000+21
 
-///@brief  ¸¡¶¯´°¿ÚÍÏ¶¯   ÓÃ»§ÍÏ¶¯¸¡¶¯´°¿ÚÒÆ¶¯,ÏÔÊ¾Í£¿¿ÌáÊ¾
-///@param  hFloatWnd ÍÏ¶¯µÄ¸¡¶¯´°¿Ú¾ä±ú
-///@param  hArray    HWINDOW array[6],´°¸ñÍ£¿¿ÌáÊ¾´°¿Ú¾ä±úÊı×é,ÓĞ6¸ö³ÉÔ±,·Ö±ğÎª:[0]ÖĞ¼äÊ®×Ö, [1]×ó²à,[2]¶¥²¿,[3]ÓÒ²à,[4]µ×²¿, [5]Í£¿¿Î»ÖÃÔ¤ÀÀ 
+///@brief  æµ®åŠ¨çª—å£æ‹–åŠ¨   ç”¨æˆ·æ‹–åŠ¨æµ®åŠ¨çª—å£ç§»åŠ¨,æ˜¾ç¤ºåœé æç¤º
+///@param  hFloatWnd æ‹–åŠ¨çš„æµ®åŠ¨çª—å£å¥æŸ„
+///@param  hArray    HWINDOW array[6],çª—æ ¼åœé æç¤ºçª—å£å¥æŸ„æ•°ç»„,æœ‰6ä¸ªæˆå‘˜,åˆ†åˆ«ä¸º:[0]ä¸­é—´åå­—, [1]å·¦ä¾§,[2]é¡¶éƒ¨,[3]å³ä¾§,[4]åº•éƒ¨, [5]åœé ä½ç½®é¢„è§ˆ 
 ///@code   int CALLBACK OnWndFloatWndDrag(HWINDOW hFloatWnd, HWINDOW* hArray, BOOL *pbHandled) @endcode
 #define  XWM_FLOATWND_DRAG           0x7000+22
 
 
-//´°¸ñÏÔÊ¾Òş²Ø
+//çª—æ ¼æ˜¾ç¤ºéšè—
 //int CALLBACK OnWndPaneShow(HELE hPane, BOOL bShow, BOOL *pbHandled);
 #define  XWM_PANE_SHOW              0x7000+23
 ///@}
 
 /////////////////////////////////////////////////////////////////////
-/////////////////ÔªËØÊÂ¼ş/////////////////////////////////////////////
+/////////////////å…ƒç´ äº‹ä»¶/////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////
-//ÔªËØÊÂ¼ş
+//å…ƒç´ äº‹ä»¶
 /// @addtogroup eleEvents
 /// @{
 
 
-/// @brief ÔªËØ´¦Àí¹ı³ÌÊÂ¼ş.
+/// @brief å…ƒç´ å¤„ç†è¿‡ç¨‹äº‹ä»¶.
 /// @code  int CALLBACK OnEventProc(UINT nEvent, WPARAM wParam, LPARAM lParam, BOOL *pbHandled) @endcode
-#define  XE_ELEPROCE         1     ///ÔªËØÊÂ¼ş´¦Àí¹ı³Ì
+#define  XE_ELEPROCE         1     ///å…ƒç´ äº‹ä»¶å¤„ç†è¿‡ç¨‹
 
-/// @brief ÔªËØ»æÖÆÊÂ¼ş
+/// @brief å…ƒç´ ç»˜åˆ¶äº‹ä»¶
 /// @code  int CALLBACK OnDraw(HDRAW hDraw,BOOL *pbHandled)  @endcode
 #define  XE_PAINT            2
 
-/// @brief ¸ÃÔªËØ¼°×ÓÔªËØ»æÖÆÍê³ÉÊÂ¼ş.ÆôÓÃ¸Ã¹¦ÄÜĞèÒªµ÷ÓÃXEle_EnableEvent_XE_PAINT_END()
+/// @brief è¯¥å…ƒç´ åŠå­å…ƒç´ ç»˜åˆ¶å®Œæˆäº‹ä»¶.å¯ç”¨è¯¥åŠŸèƒ½éœ€è¦è°ƒç”¨XEle_EnableEvent_XE_PAINT_END()
 /// @code  int CALLBACK OnPaintEnd(HDRAW hDraw,BOOL *pbHandled) @endcode
-#define  XE_PAINT_END        3     //ÔªËØ¼°×ÓÔªËØ»æÖÆÍê³Éºó´¥·¢,ĞèÒªÆôÓÃ¸Ã¹¦ÄÜ,XEle_EnableEvent_XE_PAINT_END()
+#define  XE_PAINT_END        3     //å…ƒç´ åŠå­å…ƒç´ ç»˜åˆ¶å®Œæˆåè§¦å‘,éœ€è¦å¯ç”¨è¯¥åŠŸèƒ½,XEle_EnableEvent_XE_PAINT_END()
 
-/// @brief ¹ö¶¯ÊÓÍ¼»æÖÆÊÂ¼ş.
+/// @brief æ»šåŠ¨è§†å›¾ç»˜åˆ¶äº‹ä»¶.
 /// @code int CALLBACK OnDrawScrollView(HDRAW hDraw,BOOL *pbHandled) @endcode
 #define  XE_PAINT_SCROLLVIEW   4
 
-/// @brief ÔªËØÊó±êÒÆ¶¯ÊÂ¼ş.
+/// @brief å…ƒç´ é¼ æ ‡ç§»åŠ¨äº‹ä»¶.
 /// @code  int CALLBACK OnMouseMove(UINT nFlags, POINT *pPt, BOOL *pbHandled)  @endcode
 #define  XE_MOUSEMOVE        5
 
-/// @brief ÔªËØÊó±ê½øÈëÊÂ¼ş.
+/// @brief å…ƒç´ é¼ æ ‡è¿›å…¥äº‹ä»¶.
 /// @code  int CALLBACK OnMouseStay(BOOL *pbHandled) @endcode
-#define  XE_MOUSESTAY        6   ///Í£Áô
+#define  XE_MOUSESTAY        6   ///åœç•™
 
-/// @brief ÔªËØÊó±êĞüÍ£ÊÂ¼ş.
+/// @brief å…ƒç´ é¼ æ ‡æ‚¬åœäº‹ä»¶.
 /// @code  int CALLBACK OnMouseHover(UINT nFlags, POINT *pPt, BOOL *pbHandled) @endcode
-#define  XE_MOUSEHOVER       7   ///ĞüÍ£
+#define  XE_MOUSEHOVER       7   ///æ‚¬åœ
 
-/// @brief ÔªËØÊó±êÀë¿ªÊÂ¼ş.
-/// @param  hEleStay ½«»ñµÃÊó±êÍ£Áô×´Ì¬µÄÔªËØ.
+/// @brief å…ƒç´ é¼ æ ‡ç¦»å¼€äº‹ä»¶.
+/// @param  hEleStay å°†è·å¾—é¼ æ ‡åœç•™çŠ¶æ€çš„å…ƒç´ .
 /// @code  int CALLBACK OnMouseLeave(HELE hEleStay,BOOL *pbHandled) @endcode
-#define  XE_MOUSELEAVE       8   ///Àë¿ª
+#define  XE_MOUSELEAVE       8   ///ç¦»å¼€
 
-/// @brief ÔªËØÊó±ê¹öÂÖ¹ö¶¯ÊÂ¼ş. Èç¹û·Ç¹ö¶¯ÊÓÍ¼ĞèÒªµ÷ÓÃ XEle_EnableEvent_XE_MOUSEWHEEL()
+/// @brief å…ƒç´ é¼ æ ‡æ»šè½®æ»šåŠ¨äº‹ä»¶. å¦‚æœéæ»šåŠ¨è§†å›¾éœ€è¦è°ƒç”¨ XEle_EnableEvent_XE_MOUSEWHEEL()
 /// @code  int CALLBACK OnMouseWheel(UINT nFlags,POINT *pPt,BOOL *pbHandled) @endcode
-/// @param flags      ¼ûMSDNÖĞWM_MOUSEWHEELÏûÏ¢wParam²ÎÊıËµÃ÷.
-#define  XE_MOUSEWHEEL         9  //Êó±ê¹öÂÖ  wParam:±êÊ¶,lParam:POINT×ø±ê
+/// @param flags      è§MSDNä¸­WM_MOUSEWHEELæ¶ˆæ¯wParamå‚æ•°è¯´æ˜.
+#define  XE_MOUSEWHEEL         9  //é¼ æ ‡æ»šè½®  wParam:æ ‡è¯†,lParam:POINTåæ ‡
 
-/// @brief Êó±ê×ó¼ü°´ÏÂÊÂ¼ş.
+/// @brief é¼ æ ‡å·¦é”®æŒ‰ä¸‹äº‹ä»¶.
 /// @code  int CALLBACK OnLButtonDown(UINT nFlags, POINT *pPt,BOOL *pbHandled)  @endcode
 #define  XE_LBUTTONDOWN        10
 
-/// @brief Êó±ê×ó¼üµ¯ÆğÊÂ¼ş.
+/// @brief é¼ æ ‡å·¦é”®å¼¹èµ·äº‹ä»¶.
 /// @code  int CALLBACK OnLButtonUp(UINT nFlags, POINT *pPt,BOOL *pbHandled) @endcode
 #define  XE_LBUTTONUP          11
 
-/// @brief Êó±êÓÒ¼ü°´ÏÂÊÂ¼ş.
+/// @brief é¼ æ ‡å³é”®æŒ‰ä¸‹äº‹ä»¶.
 /// @code  int CALLBACK OnRButtonDown(UINT nFlags, POINT *pPt,BOOL *pbHandled)  @endcode
 #define  XE_RBUTTONDOWN        12
 
-/// @brief Êó±êÓÒ¼üµ¯ÆğÊÂ¼ş.
+/// @brief é¼ æ ‡å³é”®å¼¹èµ·äº‹ä»¶.
 /// @code int CALLBACK OnRButtonUp(UINT nFlags, POINT *pPt,BOOL *pbHandled)  @endcode
 #define  XE_RBUTTONUP          13
 
-/// @brief Êó±ê×ó¼üË«»÷ÊÂ¼ş.
+/// @brief é¼ æ ‡å·¦é”®åŒå‡»äº‹ä»¶.
 /// @code   int CALLBACK OnLButtonDBClick(UINT nFlags, POINT *pPt,BOOL *pbHandled) @endcode
 #define  XE_LBUTTONDBCLICK     14
 
@@ -742,320 +742,320 @@ enum  window_style_
 //#define  XE_RBUTTONDBCLICK     15
 
 
-/// @brief ìÅ²Ê¶¨Ê±Æ÷,·ÇÏµÍ³¶¨Ê±Æ÷,¶¨Ê±Æ÷ÏûÏ¢ XM_TIMER.
+/// @brief ç‚«å½©å®šæ—¶å™¨,éç³»ç»Ÿå®šæ—¶å™¨,å®šæ—¶å™¨æ¶ˆæ¯ XM_TIMER.
 /// @code int CALLBACK OnEleXCTimer(UINT nTimerID,BOOL *pbHandled) @endcode
-/// @param hEle        ÔªËØ¾ä±ú.
-/// @param nTimerID    ¶¨Ê±Æ÷ID.
-#define  XE_XC_TIMER             16  //wParam:¶¨Ê±Æ÷ID, lParam:0
+/// @param hEle        å…ƒç´ å¥æŸ„.
+/// @param nTimerID    å®šæ—¶å™¨ID.
+#define  XE_XC_TIMER             16  //wParam:å®šæ—¶å™¨ID, lParam:0
 
-/// @brief µ÷Õû²¼¾ÖÊÂ¼ş. ÔİÍ£Ê¹ÓÃ
+/// @brief è°ƒæ•´å¸ƒå±€äº‹ä»¶. æš‚åœä½¿ç”¨
 /// @code int CALLBACK OnAdjustLayout(int nFlags, UINT nAdjustNo, BOOL *pbHandled) @endcode
 #define  XE_ADJUSTLAYOUT         17
 
-/// @brief µ÷Õû²¼¾ÖÍê³ÉÊÂ¼ş.
+/// @brief è°ƒæ•´å¸ƒå±€å®Œæˆäº‹ä»¶.
 /// @code int CALLBACK OnAdjustLayoutEnd(int nFlags, UINT nAdjustNo, BOOL *pbHandled) @endcode
 #define  XE_ADJUSTLAYOUT_END     18
 
-/// @brief ÔªËØ»ñµÃ½¹µãÊÂ¼ş.
+/// @brief å…ƒç´ è·å¾—ç„¦ç‚¹äº‹ä»¶.
 /// @code int CALLBACK OnSetFocus(BOOL *pbHandled) @endcode
 #define  XE_SETFOCUS           31
 
-/// @brief ÔªËØÊ§È¥½¹µãÊÂ¼ş.
+/// @brief å…ƒç´ å¤±å»ç„¦ç‚¹äº‹ä»¶.
 /// @code int CALLBACK OnKillFocus(BOOL *pbHandled) @endcode
 #define  XE_KILLFOCUS          32
 
-/// @brief ÔªËØ¼´½«Ïú»ÙÊÂ¼ş. ÔÚÏú»Ù×Ó¶ÔÏóÖ®Ç°´¥·¢
+/// @brief å…ƒç´ å³å°†é”€æ¯äº‹ä»¶. åœ¨é”€æ¯å­å¯¹è±¡ä¹‹å‰è§¦å‘
 /// @code int CALLBACK OnDestroy(BOOL *pbHandled) @endcode
-#define  XE_DESTROY            33   //ÔªËØÏú»Ù
+#define  XE_DESTROY            33   //å…ƒç´ é”€æ¯
 
-/// @brief ÔªËØÏú»ÙÍê³ÉÊÂ¼ş. ÔÚÏú»Ù×Ó¶ÔÏóÖ®ºó´¥·¢
+/// @brief å…ƒç´ é”€æ¯å®Œæˆäº‹ä»¶. åœ¨é”€æ¯å­å¯¹è±¡ä¹‹åè§¦å‘
 /// @code int CALLBACK OnDestroyeEnd(BOOL *pbHandled) @endcode
-#define  XE_DESTROY_END        42   //ÔªËØÏú»Ù
+#define  XE_DESTROY_END        42   //å…ƒç´ é”€æ¯
 
-/// @brief ÔªËØ´óĞ¡¸Ä±äÊÂ¼ş.
+/// @brief å…ƒç´ å¤§å°æ”¹å˜äº‹ä»¶.
 /// @code int CALLBACK OnSize(int nFlags, UINT nAdjustNo, BOOL *pbHandled) @endcode
 /// @param  nFlags  adjustLayout_
 #define  XE_SIZE               36
 
-/// @brief ÔªËØÏÔÊ¾Òş²ØÊÂ¼ş.
+/// @brief å…ƒç´ æ˜¾ç¤ºéšè—äº‹ä»¶.
 /// @code  int CALLBACK OnShow(BOOL bShow,BOOL *pbHandled) @endcode
-#define  XE_SHOW               37  //wParam:TRUE»òFALSE, lParam:0
+#define  XE_SHOW               37  //wParam:TRUEæˆ–FALSE, lParam:0
 
-/// @brief ÔªËØÉèÖÃ×ÖÌåÊÂ¼ş.
+/// @brief å…ƒç´ è®¾ç½®å­—ä½“äº‹ä»¶.
 /// @code  int CALLBACK OnSetFont(BOOL *pbHandled) @endcode
 #define  XE_SETFONT           38
 
-/// @brief ÔªËØ°´¼üÊÂ¼ş.
+/// @brief å…ƒç´ æŒ‰é”®äº‹ä»¶.
 /// @code  int CALLBACK OnEventKeyDown(WPARAM wParam,LPARAM lParam,BOOL *pbHandled) @endcode
-/// @note  wParam,lParam:Çë²Î¼ûMSDN WM_KEYDOWN. 
-#define  XE_KEYDOWN            39 //wParamºÍlParam²ÎÊıÓë±ê×¼ÏûÏ¢ÏàÍ¬
+/// @note  wParam,lParam:è¯·å‚è§MSDN WM_KEYDOWN. 
+#define  XE_KEYDOWN            39 //wParamå’ŒlParamå‚æ•°ä¸æ ‡å‡†æ¶ˆæ¯ç›¸åŒ
 
-/// @brief ÔªËØ°´¼üÊÂ¼ş.
+/// @brief å…ƒç´ æŒ‰é”®äº‹ä»¶.
 /// @code  int CALLBACK OnEventKeyUp(WPARAM wParam,LPARAM lParam,BOOL *pbHandled) @endcode
-/// @note  wParam,lParam:Çë²Î¼ûMSDN WM_KEYDOWN. 
-#define  XE_KEYUP             40 //wParamºÍlParam²ÎÊıÓë±ê×¼ÏûÏ¢ÏàÍ¬
+/// @note  wParam,lParam:è¯·å‚è§MSDN WM_KEYDOWN. 
+#define  XE_KEYUP             40 //wParamå’ŒlParamå‚æ•°ä¸æ ‡å‡†æ¶ˆæ¯ç›¸åŒ
 
-/// @brief Í¨¹ıTranslateMessageº¯Êı·­ÒëµÄ×Ö·ûÊÂ¼ş.
+/// @brief é€šè¿‡TranslateMessageå‡½æ•°ç¿»è¯‘çš„å­—ç¬¦äº‹ä»¶.
 /// @code  int CALLBACK OnEventChar(WPARAM wParam,LPARAM lParam,BOOL *pbHandled) @endcode
-/// @note   wParam,lParam:Çë²Î¼ûMSDN WM_KEYDOWN. 
-#define  XE_CHAR               41  //wParamºÍlParam²Î¼ûMSDN
+/// @note   wParam,lParam:è¯·å‚è§MSDN WM_KEYDOWN. 
+#define  XE_CHAR               41  //wParamå’ŒlParamå‚è§MSDN
 
 #define  XE_SYSKEYDOWN     42
 
 #define  XE_SYSKEYUP       43
 
-/// @brief ÔªËØÉèÖÃÊó±ê²¶»ñ.
+/// @brief å…ƒç´ è®¾ç½®é¼ æ ‡æ•è·.
 /// @code int CALLBACK OnSetCapture(BOOL *pbHandled) @endcode
 #define  XE_SETCAPTURE      51
 
-/// @brief ÔªËØÊ§È¥Êó±ê²¶»ñ.
+/// @brief å…ƒç´ å¤±å»é¼ æ ‡æ•è·.
 /// @code int CALLBACK OnKillCapture(BOOL *pbHandled) @endcode
 #define  XE_KILLCAPTURE     52
 
-/// @brief ÉèÖÃÊó±ê¹â±ê
+/// @brief è®¾ç½®é¼ æ ‡å…‰æ ‡
 /// @code int CALLBACK OnSetCursor(WPARAM wParam,LPARAM lParam,BOOL *pbHandled) @endcode
 #define  XE_SETCURSOR            53  // SetCursor
 
-///@brief ²Ëµ¥µ¯³ö
+///@brief èœå•å¼¹å‡º
 ///@code  int CALLBACK OnMenuPopup(HMENUX hMenu, BOOL *pbHandled) @endcode
 #define  XE_MENU_POPUP       57
 
-///@brief ²Ëµ¥µ¯³ö´°¿Ú
+///@brief èœå•å¼¹å‡ºçª—å£
 ///@code  int CALLBACK OnMenuPopupWnd(HMENUX hMenu,menu_popupWnd_* pInfo,BOOL *pbHandled) @endcode
 #define  XE_MENU_POPUP_WND     58
 
-/// @brief µ¯³ö²Ëµ¥ÏîÑ¡ÔñÊÂ¼ş.
+/// @brief å¼¹å‡ºèœå•é¡¹é€‰æ‹©äº‹ä»¶.
 /// @code  int CALLBACK OnMenuSelect(int nItem,BOOL *pbHandled) @endcode
-/// @param nItem          ²Ëµ¥Ïîid.
-#define  XE_MENU_SELECT      59  //²Ëµ¥ÏîÑ¡Ôñ wParam:²Ëµ¥ID,lParam:0
+/// @param nItem          èœå•é¡¹id.
+#define  XE_MENU_SELECT      59  //èœå•é¡¹é€‰æ‹© wParam:èœå•ID,lParam:0
 
-///@brief »æÖÆ²Ëµ¥±³¾°, ÆôÓÃ¸Ã¹¦ÄÜĞèÒªµ÷ÓÃXMenu_EnableDrawBackground().
+///@brief ç»˜åˆ¶èœå•èƒŒæ™¯, å¯ç”¨è¯¥åŠŸèƒ½éœ€è¦è°ƒç”¨XMenu_EnableDrawBackground().
 ///@code  int CALLBACK OnMenuDrawBackground(HDRAW hDraw,menu_drawBackground_ *pInfo,BOOL *pbHandled) @endcode
-#define  XE_MENU_DRAW_BACKGROUND   60 //»æÖÆ²Ëµ¥±³¾°
+#define  XE_MENU_DRAW_BACKGROUND   60 //ç»˜åˆ¶èœå•èƒŒæ™¯
 
-/// @brief »æÖÆ²Ëµ¥ÏîÊÂ¼ş, ÆôÓÃ¸Ã¹¦ÄÜĞèÒªµ÷ÓÃXMenu_EnableDrawItem().
+/// @brief ç»˜åˆ¶èœå•é¡¹äº‹ä»¶, å¯ç”¨è¯¥åŠŸèƒ½éœ€è¦è°ƒç”¨XMenu_EnableDrawItem().
 /// @code  int CALLBACK OnMenuDrawItem(HDRAW hDraw,menu_drawItem_* pInfo,BOOL *pbHandled) @endcode
-#define  XE_MENU_DRAWITEM    61  //»æÖÆ²Ëµ¥Ïî 
+#define  XE_MENU_DRAWITEM    61  //ç»˜åˆ¶èœå•é¡¹ 
 
-/// @brief µ¯³ö²Ëµ¥ÍË³öÊÂ¼ş.
+/// @brief å¼¹å‡ºèœå•é€€å‡ºäº‹ä»¶.
 /// @code  int CALLBACK OnMenuExit(BOOL *pbHandled) @endcode
-#define  XE_MENU_EXIT        62 //²Ëµ¥ÍË³ö
+#define  XE_MENU_EXIT        62 //èœå•é€€å‡º
 
-/// @brief °´Å¥µã»÷ÊÂ¼ş.
+/// @brief æŒ‰é’®ç‚¹å‡»äº‹ä»¶.
 /// @code int CALLBACK OnBtnClick(BOOL *pbHandled) @endcode
 #define  XE_BNCLICK            34
 
-/// @brief °´Å¥Ñ¡ÖĞÊÂ¼ş.
+/// @brief æŒ‰é’®é€‰ä¸­äº‹ä»¶.
 /// @code int CALLBACK OnButtonCheck(BOOL bCheck,BOOL *pbHandled) @endcode
-#define  XE_BUTTON_CHECK       35  //°´Å¥Ñ¡ÖĞÊÂ¼ş
+#define  XE_BUTTON_CHECK       35  //æŒ‰é’®é€‰ä¸­äº‹ä»¶
 
-/// @brief ¹ö¶¯ÊÓÍ¼ÔªËØË®Æ½¹ö¶¯ÊÂ¼ş,¹ö¶¯ÊÓÍ¼´¥·¢.
+/// @brief æ»šåŠ¨è§†å›¾å…ƒç´ æ°´å¹³æ»šåŠ¨äº‹ä»¶,æ»šåŠ¨è§†å›¾è§¦å‘.
 /// @code  int CALLBACK OnScrollViewScrollH(int pos,BOOL *pbHandled) @endcode
-/// @param pos         µ±Ç°¹ö¶¯µã.
-#define  XE_SCROLLVIEW_SCROLL_H    54  //¹ö¶¯ÊÓÍ¼ ¹ö¶¯ÊÂ¼ş wParam:¹ö¶¯µã,lParam:0 (¹ö¶¯ÊÓÍ¼´¥·¢,±íÃ÷¹ö¶¯ÊÓÍ¼ÒÑ¹ö¶¯Íê³É)
+/// @param pos         å½“å‰æ»šåŠ¨ç‚¹.
+#define  XE_SCROLLVIEW_SCROLL_H    54  //æ»šåŠ¨è§†å›¾ æ»šåŠ¨äº‹ä»¶ wParam:æ»šåŠ¨ç‚¹,lParam:0 (æ»šåŠ¨è§†å›¾è§¦å‘,è¡¨æ˜æ»šåŠ¨è§†å›¾å·²æ»šåŠ¨å®Œæˆ)
 
-/// @brief ¹ö¶¯ÊÓÍ¼ÔªËØ´¹Ö±¹ö¶¯ÊÂ¼ş,¹ö¶¯ÊÓÍ¼´¥·¢.
+/// @brief æ»šåŠ¨è§†å›¾å…ƒç´ å‚ç›´æ»šåŠ¨äº‹ä»¶,æ»šåŠ¨è§†å›¾è§¦å‘.
 /// @code  int CALLBACK OnScrollViewScrollV(int pos,BOOL *pbHandled) @endcode
-/// @param pos         µ±Ç°¹ö¶¯µã.
-#define  XE_SCROLLVIEW_SCROLL_V    55  //¹ö¶¯ÊÓÍ¼ ¹ö¶¯ÊÂ¼ş wParam:¹ö¶¯µã,lParam:0 (¹ö¶¯ÊÓÍ¼´¥·¢,±íÃ÷¹ö¶¯ÊÓÍ¼ÒÑ¹ö¶¯Íê³É)
+/// @param pos         å½“å‰æ»šåŠ¨ç‚¹.
+#define  XE_SCROLLVIEW_SCROLL_V    55  //æ»šåŠ¨è§†å›¾ æ»šåŠ¨äº‹ä»¶ wParam:æ»šåŠ¨ç‚¹,lParam:0 (æ»šåŠ¨è§†å›¾è§¦å‘,è¡¨æ˜æ»šåŠ¨è§†å›¾å·²æ»šåŠ¨å®Œæˆ)
 
-/// @brief ¹ö¶¯ÌõÔªËØ¹ö¶¯ÊÂ¼ş,¹ö¶¯Ìõ´¥·¢.
+/// @brief æ»šåŠ¨æ¡å…ƒç´ æ»šåŠ¨äº‹ä»¶,æ»šåŠ¨æ¡è§¦å‘.
 /// @code  int CALLBACK OnSBarScroll(int pos,BOOL *pbHandled) @endcode
-/// @param pos   µ±Ç°¹ö¶¯µã.
-#define  XE_SBAR_SCROLL        56   //¹ö¶¯Ìõ¹ö¶¯ÊÂ¼ş wParam:¹ö¶¯µã,lParam:0 (¹ö¶¯Ìõ´¥·¢)
+/// @param pos   å½“å‰æ»šåŠ¨ç‚¹.
+#define  XE_SBAR_SCROLL        56   //æ»šåŠ¨æ¡æ»šåŠ¨äº‹ä»¶ wParam:æ»šåŠ¨ç‚¹,lParam:0 (æ»šåŠ¨æ¡è§¦å‘)
 
-/// @brief »¬¶¯ÌõÔªËØ,»¬¿éÎ»ÖÃ¸Ä±äÊÂ¼ş.
+/// @brief æ»‘åŠ¨æ¡å…ƒç´ ,æ»‘å—ä½ç½®æ”¹å˜äº‹ä»¶.
 /// @code  int CALLBACK OnSliderBarChange(int pos,BOOL *pbHandled) @endcode
 #define  XE_SLIDERBAR_CHANGE   63
 
-/// @brief ½ø¶ÈÌõÔªËØ,½ø¶È¸Ä±äÊÂ¼ş.
+/// @brief è¿›åº¦æ¡å…ƒç´ ,è¿›åº¦æ”¹å˜äº‹ä»¶.
 /// @code  int CALLBACK OnProgressBarChange(int pos,BOOL *pbHandled) @endcode
 #define  XE_PROGRESSBAR_CHANGE  64
 
-/// @brief ×éºÏ¿òÏÂÀ­ÁĞ±íÏîÑ¡ÔñÊÂ¼ş.
+/// @brief ç»„åˆæ¡†ä¸‹æ‹‰åˆ—è¡¨é¡¹é€‰æ‹©äº‹ä»¶.
 /// @code  int CALLBACK OnComboBoxSelect(int iItem,BOOL *pbHandled)  @endcode
-#define  XE_COMBOBOX_SELECT       71   //×éºÏ¿òÏîÑ¡Ôñ  
+#define  XE_COMBOBOX_SELECT       71   //ç»„åˆæ¡†é¡¹é€‰æ‹©  
 
-/// @brief ×éºÏ¿òÏÂÀ­ÁĞ±íÏîÑ¡ÔñÍê³ÉÊÂ¼ş,±à¼­¿òÄÚÈİÒÑ¾­¸Ä±ä.
+/// @brief ç»„åˆæ¡†ä¸‹æ‹‰åˆ—è¡¨é¡¹é€‰æ‹©å®Œæˆäº‹ä»¶,ç¼–è¾‘æ¡†å†…å®¹å·²ç»æ”¹å˜.
 /// @code  int CALLBACK OnComboBoxSelectEnd(int iItem,BOOL *pbHandled)  @endcode
-#define  XE_COMBOBOX_SELECT_END   74   //×éºÏ¿òÏîÑ¡Ôñ  
+#define  XE_COMBOBOX_SELECT_END   74   //ç»„åˆæ¡†é¡¹é€‰æ‹©  
 
-/// @brief ×éºÏ¿òÏÂÀ­ÁĞ±íµ¯³öÊÂ¼ş.
+/// @brief ç»„åˆæ¡†ä¸‹æ‹‰åˆ—è¡¨å¼¹å‡ºäº‹ä»¶.
 /// @code  int CALLBACK OnComboBoxPopupList(HWINDOW hWindow,HELE hListBox,BOOL *pbHandled)  @endcode
 #define  XE_COMBOBOX_POPUP_LIST   72
 
-/// @brief ×éºÏ¿òÏÂÀ­ÁĞ±íÍË³öÊÂ¼ş.
+/// @brief ç»„åˆæ¡†ä¸‹æ‹‰åˆ—è¡¨é€€å‡ºäº‹ä»¶.
 /// @code  int CALLBACK OnComboBoxExitList(BOOL *pbHandled)  @endcode
 #define  XE_COMBOBOX_EXIT_LIST    73
 
-/// @brief ÁĞ±í¿òÔªËØ-ÏîÄ£°å´´½¨ÊÂ¼ş, Ä£°å¸´ÓÃ»úÖÆĞèÏÈÆôÓÃ; Ìæ»»Ä£°åÎŞĞ§ÅĞ¶ÏnFlag,ÒòÎªÄÚ²¿»á¼ì²éÄ£°åÊÇ·ñ¸Ä±ä,²»ÓÃµ£ĞÄÖØ¸´
+/// @brief åˆ—è¡¨æ¡†å…ƒç´ -é¡¹æ¨¡æ¿åˆ›å»ºäº‹ä»¶, æ¨¡æ¿å¤ç”¨æœºåˆ¶éœ€å…ˆå¯ç”¨; æ›¿æ¢æ¨¡æ¿æ— æ•ˆåˆ¤æ–­nFlag,å› ä¸ºå†…éƒ¨ä¼šæ£€æŸ¥æ¨¡æ¿æ˜¯å¦æ”¹å˜,ä¸ç”¨æ‹…å¿ƒé‡å¤
 /// @code int CALLBACK OnListBoxTemplateCreate(listBox_item_* pItem, int nFlag, BOOL *pbHandled) @endcode
-/// @param nFlag  0:×´Ì¬¸Ä±ä; 1:ĞÂÄ£°åÊµÀı; 2:¾ÉÄ£°å¸´ÓÃ 
+/// @param nFlag  0:çŠ¶æ€æ”¹å˜; 1:æ–°æ¨¡æ¿å®ä¾‹; 2:æ—§æ¨¡æ¿å¤ç”¨ 
 #define  XE_LISTBOX_TEMP_CREATE     81
 
-/// @brief ÁĞ±í¿òÔªËØ-ÏîÄ£°å´´½¨Íê³ÉÊÂ¼ş,Ä£°å¸´ÓÃ»úÖÆĞèÏÈÆôÓÃ;²»¹ÜÊÇĞÂ½¨»¹ÊÇ¸´ÓÃ,¶¼ĞèÒª¸üĞÂÊı¾İ, µ±Îª¸´ÓÃÊ±²»Òª×¢²áÊÂ¼şÒÔÃâÖØ¸´×¢²á
+/// @brief åˆ—è¡¨æ¡†å…ƒç´ -é¡¹æ¨¡æ¿åˆ›å»ºå®Œæˆäº‹ä»¶,æ¨¡æ¿å¤ç”¨æœºåˆ¶éœ€å…ˆå¯ç”¨;ä¸ç®¡æ˜¯æ–°å»ºè¿˜æ˜¯å¤ç”¨,éƒ½éœ€è¦æ›´æ–°æ•°æ®, å½“ä¸ºå¤ç”¨æ—¶ä¸è¦æ³¨å†Œäº‹ä»¶ä»¥å…é‡å¤æ³¨å†Œ
 /// @code int CALLBACK OnListBoxTemplateCreateEnd(listBox_item_* pItem, int nFlag, BOOL *pbHandled) @endcode
-/// @param nFlag  0:×´Ì¬¸Ä±ä(¸´ÓÃ); 1:ĞÂÄ£°åÊµÀı; 2:¾ÉÄ£°å¸´ÓÃ
+/// @param nFlag  0:çŠ¶æ€æ”¹å˜(å¤ç”¨); 1:æ–°æ¨¡æ¿å®ä¾‹; 2:æ—§æ¨¡æ¿å¤ç”¨
 #define  XE_LISTBOX_TEMP_CREATE_END     82
 #define  XE_LISTBOX_TEMP_UPDATE   XE_LISTBOX_TEMP_CREATE_END
 
-/// @brief ÁĞ±í¿òÔªËØ,ÏîÄ£°åÏú»Ù.
+/// @brief åˆ—è¡¨æ¡†å…ƒç´ ,é¡¹æ¨¡æ¿é”€æ¯.
 /// @code int CALLBACK OnListBoxTemplateDestroy(listBox_item_* pItem, int nFlag, BOOL *pbHandled) @endcode
-/// @param  nFlag   0:Õı³£Ïú»Ù;  1:ÒÆ¶¯µ½»º´æ(²»»á±»Ïú»Ù,ÁÙÊ±»º´æ±¸ÓÃ,µ±ĞèÒªÊ±±»¸´ÓÃ)
+/// @param  nFlag   0:æ­£å¸¸é”€æ¯;  1:ç§»åŠ¨åˆ°ç¼“å­˜(ä¸ä¼šè¢«é”€æ¯,ä¸´æ—¶ç¼“å­˜å¤‡ç”¨,å½“éœ€è¦æ—¶è¢«å¤ç”¨)
 #define  XE_LISTBOX_TEMP_DESTROY    83
 
-/// @brief ÁĞ±í¿òÔªËØ,ÏîÄ£°åµ÷Õû×ø±ê. ÒÑÍ£ÓÃ
+/// @brief åˆ—è¡¨æ¡†å…ƒç´ ,é¡¹æ¨¡æ¿è°ƒæ•´åæ ‡. å·²åœç”¨
 /// @code  int CALLBACK OnListBoxTemplateAdjustCoordinate(listBox_item_* pItem, BOOL *pbHandled) @endcode
 #define  XE_LISTBOX_TEMP_ADJUST_COORDINATE  84
 
-/// @brief ÁĞ±í¿òÔªËØ,Ïî»æÖÆÊÂ¼ş.
+/// @brief åˆ—è¡¨æ¡†å…ƒç´ ,é¡¹ç»˜åˆ¶äº‹ä»¶.
 /// @code  int CALLBACK OnListBoxDrawItem(HDRAW hDraw,listBox_item_* pItem,BOOL *pbHandled) @endcode
 #define  XE_LISTBOX_DRAWITEM     85
 
-/// @brief ÁĞ±í¿òÔªËØ,ÏîÑ¡ÔñÊÂ¼ş.
+/// @brief åˆ—è¡¨æ¡†å…ƒç´ ,é¡¹é€‰æ‹©äº‹ä»¶.
 /// @code  int CALLBACK OnListBoxSelect(int iItem,BOOL *pbHandled)  @endcode
 #define  XE_LISTBOX_SELECT       86
 
-/// @brief ÁĞ±íÔªËØ-ÏîÄ£°å´´½¨ÊÂ¼ş,Ä£°å¸´ÓÃ»úÖÆĞèÏÈÆôÓÃ;Ìæ»»Ä£°åÎŞĞ§ÅĞ¶ÏnFlag,ÒòÎªÄÚ²¿»á¼ì²éÄ£°åÊÇ·ñ¸Ä±ä,²»ÓÃµ£ĞÄÖØ¸´
+/// @brief åˆ—è¡¨å…ƒç´ -é¡¹æ¨¡æ¿åˆ›å»ºäº‹ä»¶,æ¨¡æ¿å¤ç”¨æœºåˆ¶éœ€å…ˆå¯ç”¨;æ›¿æ¢æ¨¡æ¿æ— æ•ˆåˆ¤æ–­nFlag,å› ä¸ºå†…éƒ¨ä¼šæ£€æŸ¥æ¨¡æ¿æ˜¯å¦æ”¹å˜,ä¸ç”¨æ‹…å¿ƒé‡å¤
 /// @code  int CALLBACK OnListTemplateCreate(list_item_* pItem,int nFlag, BOOL *pbHandled) @endcode
-/// @param nFlag  0:×´Ì¬¸Ä±ä; 1:ĞÂÄ£°åÊµÀı; 2:¾ÉÄ£°å¸´ÓÃ 
+/// @param nFlag  0:çŠ¶æ€æ”¹å˜; 1:æ–°æ¨¡æ¿å®ä¾‹; 2:æ—§æ¨¡æ¿å¤ç”¨ 
 #define  XE_LIST_TEMP_CREATE     101
 
-/// @brief ÁĞ±íÔªËØ-ÏîÄ£°å´´½¨Íê³ÉÊÂ¼ş,Ä£°å¸´ÓÃ»úÖÆĞèÏÈÆôÓÃ;²»¹ÜÊÇĞÂ½¨»¹ÊÇ¸´ÓÃ,¶¼ĞèÒª¸üĞÂÊı¾İ, µ±Îª¸´ÓÃÊ±²»Òª×¢²áÊÂ¼şÒÔÃâÖØ¸´×¢²á
+/// @brief åˆ—è¡¨å…ƒç´ -é¡¹æ¨¡æ¿åˆ›å»ºå®Œæˆäº‹ä»¶,æ¨¡æ¿å¤ç”¨æœºåˆ¶éœ€å…ˆå¯ç”¨;ä¸ç®¡æ˜¯æ–°å»ºè¿˜æ˜¯å¤ç”¨,éƒ½éœ€è¦æ›´æ–°æ•°æ®, å½“ä¸ºå¤ç”¨æ—¶ä¸è¦æ³¨å†Œäº‹ä»¶ä»¥å…é‡å¤æ³¨å†Œ
 /// @code  int CALLBACK OnListTemplateCreateEnd(list_item_* pItem, int nFlag, BOOL *pbHandled) @endcode
-/// @param nFlag  0:×´Ì¬¸Ä±ä(¸´ÓÃ); 1:ĞÂÄ£°åÊµÀı; 2:¾ÉÄ£°å¸´ÓÃ
+/// @param nFlag  0:çŠ¶æ€æ”¹å˜(å¤ç”¨); 1:æ–°æ¨¡æ¿å®ä¾‹; 2:æ—§æ¨¡æ¿å¤ç”¨
 #define  XE_LIST_TEMP_CREATE_END     102
 #define  XE_LIST_TEMP_UPDATE  XE_LIST_TEMP_CREATE_END 
 
-/// @brief ÁĞ±íÔªËØ,ÏîÄ£°åÏú»Ù.
+/// @brief åˆ—è¡¨å…ƒç´ ,é¡¹æ¨¡æ¿é”€æ¯.
 /// @code int CALLBACK OnListTemplateDestroy(list_item_* pItem, int nFlag, BOOL *pbHandled) @endcode
-/// @param  nFlag   0:Õı³£Ïú»Ù;  1:ÒÆ¶¯µ½»º´æ(²»»á±»Ïú»Ù,ÁÙÊ±»º´æ±¸ÓÃ,µ±ĞèÒªÊ±±»¸´ÓÃ)
+/// @param  nFlag   0:æ­£å¸¸é”€æ¯;  1:ç§»åŠ¨åˆ°ç¼“å­˜(ä¸ä¼šè¢«é”€æ¯,ä¸´æ—¶ç¼“å­˜å¤‡ç”¨,å½“éœ€è¦æ—¶è¢«å¤ç”¨)
 #define  XE_LIST_TEMP_DESTROY    103
 
-/// @brief ÁĞ±íÔªËØ,ÏîÄ£°åµ÷Õû×ø±ê. ÒÑÍ£ÓÃ
+/// @brief åˆ—è¡¨å…ƒç´ ,é¡¹æ¨¡æ¿è°ƒæ•´åæ ‡. å·²åœç”¨
 /// @code  typedef int CALLBACK OnListTemplateAdjustCoordinate(list_item_* pItem,BOOL *pbHandled) @endcode
 #define  XE_LIST_TEMP_ADJUST_COORDINATE  104
 
-/// @brief ÁĞ±íÔªËØ,»æÖÆÏî.
+/// @brief åˆ—è¡¨å…ƒç´ ,ç»˜åˆ¶é¡¹.
 /// @code  int CALLBACK OnListDrawItem(HDRAW hDraw,list_item_* pItem,BOOL *pbHandled) @endcode
 #define  XE_LIST_DRAWITEM                105
 
-/// @brief ÁĞ±íÔªËØ,ÏîÑ¡ÔñÊÂ¼ş.
+/// @brief åˆ—è¡¨å…ƒç´ ,é¡¹é€‰æ‹©äº‹ä»¶.
 /// @code  int CALLBACK OnListSelect(int iItem,BOOL *pbHandled) @endcode
 #define  XE_LIST_SELECT                  106
 
-/// @brief ÁĞ±íÔªËØ»æÖÆÁĞ±íÍ·Ïî.
+/// @brief åˆ—è¡¨å…ƒç´ ç»˜åˆ¶åˆ—è¡¨å¤´é¡¹.
 /// @code  int CALLBACK OnListHeaderDrawItem(HDRAW hDraw, list_header_item_* pItem, BOOL *pbHandled) @endcode
 #define  XE_LIST_HEADER_DRAWITEM         107
 
-/// @brief ÁĞ±íÔªËØ,ÁĞ±íÍ·Ïîµã»÷ÊÂ¼ş.
+/// @brief åˆ—è¡¨å…ƒç´ ,åˆ—è¡¨å¤´é¡¹ç‚¹å‡»äº‹ä»¶.
 /// @code  int CALLBACK OnListHeaderClick(int iItem, BOOL *pbHandled) @endcode
 #define  XE_LIST_HEADER_CLICK            108
 
-/// @brief ÁĞ±íÔªËØ,ÁĞ±íÍ·Ïî¿í¶È¸Ä±äÊÂ¼ş.
+/// @brief åˆ—è¡¨å…ƒç´ ,åˆ—è¡¨å¤´é¡¹å®½åº¦æ”¹å˜äº‹ä»¶.
 /// @code  int CALLBACK OnListHeaderItemWidthChange(int iItem, int nWidth BOOL *pbHandled) @endcode
 #define  XE_LIST_HEADER_WIDTH_CHANGE     109
 
-/// @brief ÁĞ±íÔªËØ,ÁĞ±íÍ·ÏîÄ£°å´´½¨.
+/// @brief åˆ—è¡¨å…ƒç´ ,åˆ—è¡¨å¤´é¡¹æ¨¡æ¿åˆ›å»º.
 /// @code  int CALLBACK OnListHeaderTemplateCreate(list_header_item_* pItem,BOOL *pbHandled) @endcode
 #define  XE_LIST_HEADER_TEMP_CREATE          110
 
-/// @brief ÁĞ±íÔªËØ,ÁĞ±íÍ·ÏîÄ£°å´´½¨Íê³ÉÊÂ¼ş.
+/// @brief åˆ—è¡¨å…ƒç´ ,åˆ—è¡¨å¤´é¡¹æ¨¡æ¿åˆ›å»ºå®Œæˆäº‹ä»¶.
 /// @code  int CALLBACK OnListHeaderTemplateCreateEnd(list_header_item_* pItem,BOOL *pbHandled) @endcode
 #define  XE_LIST_HEADER_TEMP_CREATE_END      111
 
-/// @brief ÁĞ±íÔªËØ,ÁĞ±íÍ·ÏîÄ£°åÏú»Ù.
+/// @brief åˆ—è¡¨å…ƒç´ ,åˆ—è¡¨å¤´é¡¹æ¨¡æ¿é”€æ¯.
 /// @code int CALLBACK OnListHeaderTemplateDestroy(list_header_item_* pItem,BOOL *pbHandled) @endcode
 #define  XE_LIST_HEADER_TEMP_DESTROY          112
 
-/// @brief ÁĞ±íÔªËØ,ÁĞ±íÍ·ÏîÄ£°åµ÷Õû×ø±ê. ÒÑÍ£ÓÃ
+/// @brief åˆ—è¡¨å…ƒç´ ,åˆ—è¡¨å¤´é¡¹æ¨¡æ¿è°ƒæ•´åæ ‡. å·²åœç”¨
 /// @code  typedef int CALLBACK OnListHeaderTemplateAdjustCoordinate(list_header_item_* pItem,BOOL *pbHandled) @endcode
 #define  XE_LIST_HEADER_TEMP_ADJUST_COORDINATE  113
 
 
-/// @brief ÁĞ±íÊ÷ÔªËØ-ÏîÄ£°å´´½¨,Ä£°å¸´ÓÃ»úÖÆĞèÏÈÆôÓÃ; Ìæ»»Ä£°åÎŞĞ§ÅĞ¶ÏnFlag,ÒòÎªÄÚ²¿»á¼ì²éÄ£°åÊÇ·ñ¸Ä±ä,²»ÓÃµ£ĞÄÖØ¸´
+/// @brief åˆ—è¡¨æ ‘å…ƒç´ -é¡¹æ¨¡æ¿åˆ›å»º,æ¨¡æ¿å¤ç”¨æœºåˆ¶éœ€å…ˆå¯ç”¨; æ›¿æ¢æ¨¡æ¿æ— æ•ˆåˆ¤æ–­nFlag,å› ä¸ºå†…éƒ¨ä¼šæ£€æŸ¥æ¨¡æ¿æ˜¯å¦æ”¹å˜,ä¸ç”¨æ‹…å¿ƒé‡å¤
 /// @code  int CALLBACK OnTreeTemplateCreate(tree_item_* pItem,int nFlag, BOOL *pbHandled) @endcode
-/// @param nFlag  0:×´Ì¬¸Ä±ä; 1:ĞÂÄ£°åÊµÀı; 2:¾ÉÄ£°å¸´ÓÃ 
+/// @param nFlag  0:çŠ¶æ€æ”¹å˜; 1:æ–°æ¨¡æ¿å®ä¾‹; 2:æ—§æ¨¡æ¿å¤ç”¨ 
 #define  XE_TREE_TEMP_CREATE             121  
 
-/// @brief ÁĞ±íÊ÷ÔªËØ-ÏîÄ£°å´´½¨Íê³É,Ä£°å¸´ÓÃ»úÖÆĞèÏÈÆôÓÃ; ²»¹ÜÊÇĞÂ½¨»¹ÊÇ¸´ÓÃ,¶¼ĞèÒª¸üĞÂÊı¾İ, µ±Îª¸´ÓÃÊ±²»Òª×¢²áÊÂ¼şÒÔÃâÖØ¸´×¢²á
+/// @brief åˆ—è¡¨æ ‘å…ƒç´ -é¡¹æ¨¡æ¿åˆ›å»ºå®Œæˆ,æ¨¡æ¿å¤ç”¨æœºåˆ¶éœ€å…ˆå¯ç”¨; ä¸ç®¡æ˜¯æ–°å»ºè¿˜æ˜¯å¤ç”¨,éƒ½éœ€è¦æ›´æ–°æ•°æ®, å½“ä¸ºå¤ç”¨æ—¶ä¸è¦æ³¨å†Œäº‹ä»¶ä»¥å…é‡å¤æ³¨å†Œ
 /// @code  int CALLBACK OnTreeTemplateCreateEnd(tree_item_* pItem, int nFlag, BOOL *pbHandled) @endcode
-/// @param nFlag  0:×´Ì¬¸Ä±ä(¸´ÓÃ); 1:ĞÂÄ£°åÊµÀı; 2:¾ÉÄ£°å¸´ÓÃ
+/// @param nFlag  0:çŠ¶æ€æ”¹å˜(å¤ç”¨); 1:æ–°æ¨¡æ¿å®ä¾‹; 2:æ—§æ¨¡æ¿å¤ç”¨
 #define  XE_TREE_TEMP_CREATE_END         122
 #define  XE_TREE_TEMP_UPDATE   XE_TREE_TEMP_CREATE_END
 
-/// @brief ÁĞ±íÊ÷ÔªËØ-ÏîÄ£°åÏú»Ù,Ä£°å¸´ÓÃ»úÖÆĞèÏÈÆôÓÃ;
+/// @brief åˆ—è¡¨æ ‘å…ƒç´ -é¡¹æ¨¡æ¿é”€æ¯,æ¨¡æ¿å¤ç”¨æœºåˆ¶éœ€å…ˆå¯ç”¨;
 /// @code  int CALLBACK OnTreeTemplateDestroy(tree_item_* pItem, int nFlag, BOOL *pbHandled) @endcode
-/// @param  nFlag   0:Õı³£Ïú»Ù;  1:ÒÆ¶¯µ½»º´æ(²»»á±»Ïú»Ù,ÁÙÊ±»º´æ±¸ÓÃ,µ±ĞèÒªÊ±±»¸´ÓÃ)
+/// @param  nFlag   0:æ­£å¸¸é”€æ¯;  1:ç§»åŠ¨åˆ°ç¼“å­˜(ä¸ä¼šè¢«é”€æ¯,ä¸´æ—¶ç¼“å­˜å¤‡ç”¨,å½“éœ€è¦æ—¶è¢«å¤ç”¨)
 #define  XE_TREE_TEMP_DESTROY            123 
 
-/// @brief Ê÷ÔªËØ,ÏîÄ£°å,µ÷ÕûÏî×ø±ê. ÒÑÍ£ÓÃ
+/// @brief æ ‘å…ƒç´ ,é¡¹æ¨¡æ¿,è°ƒæ•´é¡¹åæ ‡. å·²åœç”¨
 /// @code  int CALLBACK OnTreeTemplateAdjustCoordinate(tree_item_* pItem,BOOL *pbHandled) @endcode
 #define  XE_TREE_TEMP_ADJUST_COORDINATE  124  
 
-/// @brief Ê÷ÔªËØ,»æÖÆÏî.
+/// @brief æ ‘å…ƒç´ ,ç»˜åˆ¶é¡¹.
 /// @code  int CALLBACK OnTreeDrawItem(HDRAW hDraw,tree_item_* pItem,BOOL *pbHandled) @endcode
 #define  XE_TREE_DRAWITEM                125  
 
-/// @brief Ê÷ÔªËØ,ÏîÑ¡ÔñÊÂ¼ş.
+/// @brief æ ‘å…ƒç´ ,é¡¹é€‰æ‹©äº‹ä»¶.
 /// @code  int CALLBACK OnTreeSelect(int nItemID,BOOL *pbHandled) @endcode
-/// @param nItemID  ÏîID.
+/// @param nItemID  é¡¹ID.
 #define  XE_TREE_SELECT                 126
 
-/// @brief Ê÷ÔªËØ,ÏîÕ¹¿ªÊÕËõÊÂ¼ş.
+/// @brief æ ‘å…ƒç´ ,é¡¹å±•å¼€æ”¶ç¼©äº‹ä»¶.
 /// @code int CALLBACK OnTreeExpand(int id,BOOL bExpand,BOOL *pbHandled) @endcode
 #define  XE_TREE_EXPAND                 127
 
-/// @brief Ê÷ÔªËØ,ÓÃ»§ÕıÔÚÍÏ¶¯Ïî, ¿É¶Ô²ÎÊıÖµĞŞ¸Ä.
+/// @brief æ ‘å…ƒç´ ,ç”¨æˆ·æ­£åœ¨æ‹–åŠ¨é¡¹, å¯å¯¹å‚æ•°å€¼ä¿®æ”¹.
 /// @code int CALLBACK OnTreeDragItemIng(tree_drag_item_* pInfo, BOOL *pbHandled) @endcode 
 #define  XE_TREE_DRAG_ITEM_ING           128
 
-/// @brief Ê÷ÔªËØ,ÍÏ¶¯ÏîÊÂ¼ş.
+/// @brief æ ‘å…ƒç´ ,æ‹–åŠ¨é¡¹äº‹ä»¶.
 /// @code int CALLBACK OnTreeDragItem(tree_drag_item_* pInfo, BOOL *pbHandled) @endcode 
 #define  XE_TREE_DRAG_ITEM               129
 
-/// @brief ÁĞ±íÊÓÔªËØ-ÏîÄ£°å´´½¨ÊÂ¼ş,Ä£°å¸´ÓÃ»úÖÆĞèÏÈÆôÓÃ; Ìæ»»Ä£°åÎŞĞ§ÅĞ¶ÏnFlag,ÒòÎªÄÚ²¿»á¼ì²éÄ£°åÊÇ·ñ¸Ä±ä,²»ÓÃµ£ĞÄÖØ¸´
+/// @brief åˆ—è¡¨è§†å…ƒç´ -é¡¹æ¨¡æ¿åˆ›å»ºäº‹ä»¶,æ¨¡æ¿å¤ç”¨æœºåˆ¶éœ€å…ˆå¯ç”¨; æ›¿æ¢æ¨¡æ¿æ— æ•ˆåˆ¤æ–­nFlag,å› ä¸ºå†…éƒ¨ä¼šæ£€æŸ¥æ¨¡æ¿æ˜¯å¦æ”¹å˜,ä¸ç”¨æ‹…å¿ƒé‡å¤
 /// @code  int CALLBACK OnListViewTemplateCreate(listView_item_* pItem,int nFlag, BOOL *pbHandled) @endcode
-/// @param nFlag  0:×´Ì¬¸Ä±ä(µ±Ç°Î´Ê¹ÓÃ); 1ĞÂÄ£°åÊµÀı; 2¾ÉÄ£°å¸´ÓÃ 
+/// @param nFlag  0:çŠ¶æ€æ”¹å˜(å½“å‰æœªä½¿ç”¨); 1æ–°æ¨¡æ¿å®ä¾‹; 2æ—§æ¨¡æ¿å¤ç”¨ 
 #define  XE_LISTVIEW_TEMP_CREATE           141
 
-/// @brief ÁĞ±íÊÓÔªËØ-ÏîÄ£°å´´½¨Íê³ÉÊÂ¼ş,Ä£°å¸´ÓÃ»úÖÆĞèÏÈÆôÓÃ; ²»¹ÜÊÇĞÂ½¨»¹ÊÇ¸´ÓÃ,¶¼ĞèÒª¸üĞÂÊı¾İ, µ±Îª¸´ÓÃÊ±²»Òª×¢²áÊÂ¼şÒÔÃâÖØ¸´×¢²á
+/// @brief åˆ—è¡¨è§†å…ƒç´ -é¡¹æ¨¡æ¿åˆ›å»ºå®Œæˆäº‹ä»¶,æ¨¡æ¿å¤ç”¨æœºåˆ¶éœ€å…ˆå¯ç”¨; ä¸ç®¡æ˜¯æ–°å»ºè¿˜æ˜¯å¤ç”¨,éƒ½éœ€è¦æ›´æ–°æ•°æ®, å½“ä¸ºå¤ç”¨æ—¶ä¸è¦æ³¨å†Œäº‹ä»¶ä»¥å…é‡å¤æ³¨å†Œ
 /// @code  int CALLBACK OnListViewTemplateCreateEnd(listView_item_* pItem,int nFlag, BOOL *pbHandled) @endcode
-/// @param nFlag  0:×´Ì¬¸Ä±ä(¸´ÓÃ,µ±Ç°Î´Ê¹ÓÃ); 1:ĞÂÄ£°åÊµÀı; 2:¾ÉÄ£°å¸´ÓÃ 
+/// @param nFlag  0:çŠ¶æ€æ”¹å˜(å¤ç”¨,å½“å‰æœªä½¿ç”¨); 1:æ–°æ¨¡æ¿å®ä¾‹; 2:æ—§æ¨¡æ¿å¤ç”¨ 
 #define  XE_LISTVIEW_TEMP_CREATE_END           142
 #define  XE_LISTVIEW_TEMP_UPDATE     XE_LISTVIEW_TEMP_CREATE_END
 
-/// @brief ÁĞ±íÊÓÔªËØ-ÏîÄ£°åÏú»Ù, Ä£°å¸´ÓÃ»úÖÆĞèÏÈÆôÓÃ;
+/// @brief åˆ—è¡¨è§†å…ƒç´ -é¡¹æ¨¡æ¿é”€æ¯, æ¨¡æ¿å¤ç”¨æœºåˆ¶éœ€å…ˆå¯ç”¨;
 /// @code  int CALLBACK OnListViewTemplateDestroy(listView_item_* pItem, int nFlag, BOOL *pbHandled) @endcode
-/// @param  nFlag   0:Õı³£Ïú»Ù;  1:ÒÆ¶¯µ½»º´æÁĞ±í(²»»á±»Ïú»Ù, ÁÙÊ±»º´æ±¸ÓÃ, µ±ĞèÒªÊ±±»¸´ÓÃ)
+/// @param  nFlag   0:æ­£å¸¸é”€æ¯;  1:ç§»åŠ¨åˆ°ç¼“å­˜åˆ—è¡¨(ä¸ä¼šè¢«é”€æ¯, ä¸´æ—¶ç¼“å­˜å¤‡ç”¨, å½“éœ€è¦æ—¶è¢«å¤ç”¨)
 #define  XE_LISTVIEW_TEMP_DESTROY           143
 
-/// @brief ÁĞ±íÊÓÔªËØ,ÏîÄ£°åµ÷Õû×ø±ê.ÒÑÍ£ÓÃ
+/// @brief åˆ—è¡¨è§†å…ƒç´ ,é¡¹æ¨¡æ¿è°ƒæ•´åæ ‡.å·²åœç”¨
 /// @code  int CALLBACK OnListViewTemplateAdjustCoordinate(listView_item_* pItem,BOOL *pbHandled) @endcode
 #define  XE_LISTVIEW_TEMP_ADJUST_COORDINATE   144
 
-/// @brief ÁĞ±íÊÓÔªËØ,×Ô»æÏî.
+/// @brief åˆ—è¡¨è§†å…ƒç´ ,è‡ªç»˜é¡¹.
 /// @code int CALLBACK OnListViewDrawItem(HDRAW hDraw,listView_item_* pItem,BOOL *pbHandled)  @endcode
 #define  XE_LISTVIEW_DRAWITEM              145
 
-/// @brief ÁĞ±íÊÓÔªËØ,ÏîÑ¡ÔñÊÂ¼ş.
+/// @brief åˆ—è¡¨è§†å…ƒç´ ,é¡¹é€‰æ‹©äº‹ä»¶.
 /// @code int CALLBACK OnListViewSelect(int iGroup,int iItem,BOOL *pbHandled) @endcode
 #define  XE_LISTVIEW_SELECT            146
 
-/// @brief ÁĞ±íÊÓÔªËØ,×éÕ¹¿ªÊÕËõÊÂ¼ş.
+/// @brief åˆ—è¡¨è§†å…ƒç´ ,ç»„å±•å¼€æ”¶ç¼©äº‹ä»¶.
 /// @code int CALLBACK OnListViewExpand(int iGroup,BOOL bExpand,BOOL *pbHandled) @endcode
 #define  XE_LISTVIEW_EXPAND         147
 
-/// @brief ÊôĞÔÍø¸ñÔªËØ ÏîÖµ¸Ä±äÊÂ¼ş
+/// @brief å±æ€§ç½‘æ ¼å…ƒç´  é¡¹å€¼æ”¹å˜äº‹ä»¶
 /// @code   int CALLBACK OnPGridValueChange(int nItemID,BOOL *pbHandled) @endcode
-/// @param  nItemID  ÏîID.
+/// @param  nItemID  é¡¹ID.
 #define  XE_PGRID_VALUE_CHANGE     151
 
 /// @code int CALLBACK OnPGridItemSet(int nItemID, BOOL *pbHandled)  @endcode
 #define  XE_PGRID_ITEM_SET          152
 
 /// @code int CALLBACK OnPGridItemSelect(int nItemID, BOOL *pbHandled)  @endcode
-#define  XE_PGRID_ITEM_SELECT         153  //ÏîÑ¡Ôñ
+#define  XE_PGRID_ITEM_SELECT         153  //é¡¹é€‰æ‹©
 
 /// @code int CALLBACK OnPGridItemAdjustCoordinate(propertyGrid_item_* pItem, BOOL *pbHandled)  @endcode
 #define  XE_PGRID_ITEM_ADJUST_COORDINATE  154
@@ -1071,70 +1071,70 @@ enum  window_style_
 #define  XE_EDIT_SET           180
 
 /// @code int CALLBACK OnEditDrawRow(HDRAW hDraw, int iRow, BOOL *pbHandled)  @endcode
-#define  XE_EDIT_DRAWROW    181   //ÔİÎ´Ê¹ÓÃ
+#define  XE_EDIT_DRAWROW    181   //æš‚æœªä½¿ç”¨
 
 /// @code int CALLBACK OnEditChanged(BOOL *pbHandled)  @endcode
-#define  XE_EDIT_CHANGED   182  //ÄÚÈİ±»¸ü¸Ä
+#define  XE_EDIT_CHANGED   182  //å†…å®¹è¢«æ›´æ”¹
 
 /// @code int CALLBACK OnEditPosChanged(int iPos, BOOL *pbHandled)  @endcode
-#define  XE_EDIT_POS_CHANGED    183  //Î»ÖÃ¸Ä±ä
+#define  XE_EDIT_POS_CHANGED    183  //ä½ç½®æ”¹å˜
 
 /// @code int CALLBACK OnEditStyleChanged(int iStyle, BOOL *pbHandled)  @endcode
-#define  XE_EDIT_STYLE_CHANGED  184  //ÑùÊ½¸Ä±ä
+#define  XE_EDIT_STYLE_CHANGED  184  //æ ·å¼æ”¹å˜
 
 /// @code int CALLBACK OnEditEnterGetTabAlign(BOOL *pbHandled)  @endcode
-#define  XE_EDIT_ENTER_GET_TABALIGN    185  //»Ø³µTAB¶ÔÆë,·µ»ØĞèÒªTABÊıÁ¿
+#define  XE_EDIT_ENTER_GET_TABALIGN    185  //å›è½¦TABå¯¹é½,è¿”å›éœ€è¦TABæ•°é‡
 
 /// @code int CALLBACK OnEditSwapRow(int iRow, int bArrowUp, BOOL *pbHandled)  @endcode
-#define  XE_EDIT_SWAPROW     186     //½»»»ĞĞ
+#define  XE_EDIT_SWAPROW     186     //äº¤æ¢è¡Œ
 
-/// @brief ¶àĞĞÄÚÈİ¸Ä±äÊÂ¼ş ÀıÈç:Çø¿é×¢ÊÍ²Ù×÷, Çø¿éËõ½ø²Ù×÷, ´úÂë¸ñÊ½»¯
+/// @brief å¤šè¡Œå†…å®¹æ”¹å˜äº‹ä»¶ ä¾‹å¦‚:åŒºå—æ³¨é‡Šæ“ä½œ, åŒºå—ç¼©è¿›æ“ä½œ, ä»£ç æ ¼å¼åŒ–
 /// @code int CALLBACK OnEditChangeRows(int iRow, int nRows, BOOL *pbHandled)  @endcode
-/// @param iRow   ¿ªÊ¼ĞĞ
-/// @param nRows  ¸Ä±äĞĞÊıÁ¿
-#define  XE_EDITOR_MODIFY_ROWS         190  //¶àĞĞÄÚÈİĞŞ¸ÄÊÂ¼ş
+/// @param iRow   å¼€å§‹è¡Œ
+/// @param nRows  æ”¹å˜è¡Œæ•°é‡
+#define  XE_EDITOR_MODIFY_ROWS         190  //å¤šè¡Œå†…å®¹ä¿®æ”¹äº‹ä»¶
 
 /// @code int CALLBACK OnEditorSetBreakpoint(int iRow, BOOL bCheck, BOOL *pbHandled)  @endcode
-#define  XE_EDITOR_SETBREAKPOINT       191 //ÉèÖÃ¶Ïµã
+#define  XE_EDITOR_SETBREAKPOINT       191 //è®¾ç½®æ–­ç‚¹
 
 /// @code int CALLBACK OnEditorRemoveBreakpoint(int iRow, BOOL *pbHandled)  @endcode
-#define  XE_EDITOR_REMOVEBREAKPOINT    192 //ÒÆ³ı¶Ïµã
+#define  XE_EDITOR_REMOVEBREAKPOINT    192 //ç§»é™¤æ–­ç‚¹
 
-// iRow: ¸ü¸ÄĞĞ¿ªÊ¼Î»ÖÃË÷Òı,  if(nChangeRows>0) iEnd= iRow + nChangeRows
-// nChangeRows: ¸Ä±äĞĞÊı, ÕıÊıÌí¼ÓĞĞ, ¸ºÊıÉ¾³ıĞĞ
+// iRow: æ›´æ”¹è¡Œå¼€å§‹ä½ç½®ç´¢å¼•,  if(nChangeRows>0) iEnd= iRow + nChangeRows
+// nChangeRows: æ”¹å˜è¡Œæ•°, æ­£æ•°æ·»åŠ è¡Œ, è´Ÿæ•°åˆ é™¤è¡Œ
 /// @code int CALLBACK OnEditorBreakpointChanged(int iRow, int nChangeRows, BOOL *pbHandled)  @endcode
-#define  XE_EDIT_ROW_CHANGED  193 //¿É¶Ô¶ÏµãÎ»ÖÃĞŞ¸Ä
+#define  XE_EDIT_ROW_CHANGED  193 //å¯å¯¹æ–­ç‚¹ä½ç½®ä¿®æ”¹
 
 /// @code int CALLBACK OnEditorAutoMatchSelect(int iRow, int nRows, BOOL *pbHandled)  @endcode
 #define  XE_EDITOR_AUTOMATCH_SELECT  194
 
-/// @brief  TabBar±êÇ©°´Å¥Ñ¡Ôñ¸Ä±äÊÂ¼ş
+/// @brief  TabBaræ ‡ç­¾æŒ‰é’®é€‰æ‹©æ”¹å˜äº‹ä»¶
 /// @code   int CALLBACK OnTabBarSelect(int iItem, BOOL *pbHandled) @endcode
-/// @param  iItem  ±êÇ©Î»ÖÃË÷Òı.
+/// @param  iItem  æ ‡ç­¾ä½ç½®ç´¢å¼•.
 #define  XE_TABBAR_SELECT    221
 
-/// @brief  TabBar±êÇ©°´Å¥É¾³ıÊÂ¼ş
+/// @brief  TabBaræ ‡ç­¾æŒ‰é’®åˆ é™¤äº‹ä»¶
 /// @code   int CALLBACK OnTabBarDelete(int iItem, BOOL *pbHandled) @endcode
-/// @param  iItem  ±êÇ©Î»ÖÃË÷Òı.
+/// @param  iItem  æ ‡ç­¾ä½ç½®ç´¢å¼•.
 #define  XE_TABBAR_DELETE    222
 
-/// @brief  ÔÂÀúÔªËØÈÕÆÚ¸Ä±äÊÂ¼ş
+/// @brief  æœˆå†å…ƒç´ æ—¥æœŸæ”¹å˜äº‹ä»¶
 /// @code   int CALLBACK OnCalendarChange(BOOL *pbHandled) @endcode
-#define  XE_MONTHCAL_CHANGE   231   //ÔÂÀú ÈÕÆÚ¸Ä±äÊÂ¼ş
+#define  XE_MONTHCAL_CHANGE   231   //æœˆå† æ—¥æœŸæ”¹å˜äº‹ä»¶
 
-/// @brief  ÈÕÆÚÊ±¼äÔªËØ,ÄÚÈİ¸Ä±äÊÂ¼ş
+/// @brief  æ—¥æœŸæ—¶é—´å…ƒç´ ,å†…å®¹æ”¹å˜äº‹ä»¶
 /// @code   int CALLBACK OnDateTimeChange(BOOL *pbHandled) @endcode
-#define  XE_DATETIME_CHANGE    241   //ÈÕÆÚÊ±¼äÔªËØ  ¸Ä±äÊÂ¼ş
+#define  XE_DATETIME_CHANGE    241   //æ—¥æœŸæ—¶é—´å…ƒç´   æ”¹å˜äº‹ä»¶
 
-/// @brief  ÈÕÆÚÊ±¼äÔªËØ,µ¯³öÔÂÀú¿¨Æ¬ÊÂ¼ş
+/// @brief  æ—¥æœŸæ—¶é—´å…ƒç´ ,å¼¹å‡ºæœˆå†å¡ç‰‡äº‹ä»¶
 /// @code   int CALLBACK OnDateTimePopupMonthCal(HWINDOW hMonthCalWnd,HELE hMonthCal,BOOL *pbHandled) @endcode
-#define  XE_DATETIME_POPUP_MONTHCAL     242   //ÈÕÆÚÊ±¼äÔªËØ  µ¯³öÔÂÀúÊÂ¼ş
+#define  XE_DATETIME_POPUP_MONTHCAL     242   //æ—¥æœŸæ—¶é—´å…ƒç´   å¼¹å‡ºæœˆå†äº‹ä»¶
 
-/// @brief  ÈÕÆÚÊ±¼äÔªËØ,µ¯³öµÄÔÂÀú¿¨Æ¬ÍË³öÊÂ¼ş
+/// @brief  æ—¥æœŸæ—¶é—´å…ƒç´ ,å¼¹å‡ºçš„æœˆå†å¡ç‰‡é€€å‡ºäº‹ä»¶
 /// @code   int CALLBACK OnDateTimeExitMonthCal(HWINDOW hMonthCalWnd,HELE hMonthCal,BOOL *pbHandled) @endcode
-#define  XE_DATETIME_EXIT_MONTHCAL      243   //ÈÕÆÚÊ±¼äÔªËØ  ÍË³öÔÂÀúÊÂ¼ş
+#define  XE_DATETIME_EXIT_MONTHCAL      243   //æ—¥æœŸæ—¶é—´å…ƒç´   é€€å‡ºæœˆå†äº‹ä»¶
 
-/// @brief  ÎÄ¼şÍÏ·ÅÊÂ¼ş, ĞèÏÈÆôÓÃ:XWnd_EnableDragFiles()
+/// @brief  æ–‡ä»¶æ‹–æ”¾äº‹ä»¶, éœ€å…ˆå¯ç”¨:XWnd_EnableDragFiles()
 /// @code   int CALLBACK OnDropFiles(HDROP hDropInfo, BOOL *pbHandled) @endcode
 #define  XE_DROPFILES                 250  
 
@@ -1149,771 +1149,771 @@ enum  window_style_
 
 
 //////////////////////////////////////////////////////////////////
-//////////////////Ã¶¾Ù¶¨Òå/////////////////////////////////////////
+//////////////////æšä¸¾å®šä¹‰/////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
 
-/// @defgroup  group_enum   Ã¶¾ÙÀàĞÍ
+/// @defgroup  group_enum   æšä¸¾ç±»å‹
 /// @{
 
-/// @defgroup groupWindow_position ´°¿ÚÎ»ÖÃ(window_position_)
+/// @defgroup groupWindow_position çª—å£ä½ç½®(window_position_)
 /// @{
 enum   window_position_
 {
-	window_position_error=-1,  ///<´íÎó
+	window_position_error=-1,  ///<é”™è¯¯
 	window_position_top=0,     ///<top
 	window_position_bottom,    ///<bottom
 	window_position_left,      ///<left
 	window_position_right,     ///<right
 	window_position_body,      ///<body
-	window_position_window,    ///<window Õû¸ö´°¿Ú 
+	window_position_window,    ///<window æ•´ä¸ªçª—å£ 
 };
 ///@}
 
-/// @defgroup groupElement_position UIÔªËØÎ»ÖÃ(element_position_)
+/// @defgroup groupElement_position UIå…ƒç´ ä½ç½®(element_position_)
 /// @{
 enum element_position_
 {
-	element_position_no     = 0x00,     ///<ÎŞĞ§
-	element_position_left   = 0x01,     ///<×ó±ß
-	element_position_top    = 0x02,		///<ÉÏ±ß
-	element_position_right  = 0x04,		///<ÓÒ±ß
-	element_position_bottom = 0X08,		///<ÏÂ±ß
+	element_position_no     = 0x00,     ///<æ— æ•ˆ
+	element_position_left   = 0x01,     ///<å·¦è¾¹
+	element_position_top    = 0x02,		///<ä¸Šè¾¹
+	element_position_right  = 0x04,		///<å³è¾¹
+	element_position_bottom = 0X08,		///<ä¸‹è¾¹
 };
 ///@}
 
-/// @defgroup group_position Î»ÖÃ±êÊ¶(element_position_)
+/// @defgroup group_position ä½ç½®æ ‡è¯†(element_position_)
 /// @{
 enum position_flag_
 {
-	position_flag_left,          ///<×ó
-	position_flag_top,           ///<ÉÏ
-	position_flag_right,         ///<ÓÒ
-	position_flag_bottom,        ///<ÏÂ
-	position_flag_leftTop,       ///<×óÉÏ½Ç
-	position_flag_leftBottom,    ///<×óÏÂ½Ç
-	position_flag_rightTop,      ///<ÓÒÉÏ½Ç
-	position_flag_rightBottom,   ///<ÓÒÏÂ½Ç
-	position_flag_center,        ///<ÖĞĞÄ
+	position_flag_left,          ///<å·¦
+	position_flag_top,           ///<ä¸Š
+	position_flag_right,         ///<å³
+	position_flag_bottom,        ///<ä¸‹
+	position_flag_leftTop,       ///<å·¦ä¸Šè§’
+	position_flag_leftBottom,    ///<å·¦ä¸‹è§’
+	position_flag_rightTop,      ///<å³ä¸Šè§’
+	position_flag_rightBottom,   ///<å³ä¸‹è§’
+	position_flag_center,        ///<ä¸­å¿ƒ
 };
 ///@}
 
-//Í¸Ã÷´°¿Ú
-/// @defgroup groupWindowTransparent ìÅ²Ê´°¿ÚÍ¸Ã÷±êÊ¶(window_transparent_)
+//é€æ˜çª—å£
+/// @defgroup groupWindowTransparent ç‚«å½©çª—å£é€æ˜æ ‡è¯†(window_transparent_)
 /// @{
 enum  window_transparent_
 {
-	window_transparent_false=0,   ///<Ä¬ÈÏ´°¿Ú,²»Í¸Ã÷
-	window_transparent_shaped,    ///<Í¸Ã÷´°¿Ú,´øÍ¸Ã÷Í¨µÀ,ÒìĞÍ
-	window_transparent_shadow,    ///<ÒõÓ°´°¿Ú,´øÍ¸Ã÷Í¨µÀ,±ß¿òÒõÓ°,´°¿ÚÍ¸Ã÷»ò°ëÍ¸Ã÷
-	window_transparent_simple,    ///<Í¸Ã÷´°¿Ú,²»´øÍ¸Ã÷Í¨µÀ,Ö¸¶¨°ëÍ¸Ã÷¶È,Ö¸¶¨Í¸Ã÷É«
-	window_transparent_win7,      ///<WIN7²£Á§´°¿Ú,ĞèÒªWIN7¿ªÆôÌØĞ§,µ±Ç°Î´ÆôÓÃ,µ±Ç°Î´ÆôÓÃ.
+	window_transparent_false=0,   ///<é»˜è®¤çª—å£,ä¸é€æ˜
+	window_transparent_shaped,    ///<é€æ˜çª—å£,å¸¦é€æ˜é€šé“,å¼‚å‹
+	window_transparent_shadow,    ///<é˜´å½±çª—å£,å¸¦é€æ˜é€šé“,è¾¹æ¡†é˜´å½±,çª—å£é€æ˜æˆ–åŠé€æ˜
+	window_transparent_simple,    ///<é€æ˜çª—å£,ä¸å¸¦é€æ˜é€šé“,æŒ‡å®šåŠé€æ˜åº¦,æŒ‡å®šé€æ˜è‰²
+	window_transparent_win7,      ///<WIN7ç»ç’ƒçª—å£,éœ€è¦WIN7å¼€å¯ç‰¹æ•ˆ,å½“å‰æœªå¯ç”¨,å½“å‰æœªå¯ç”¨.
 };
 ///@}
 
 
-/// @defgroup groupMenu µ¯³ö²Ëµ¥(menu)
+/// @defgroup groupMenu å¼¹å‡ºèœå•(menu)
 /// @{
 
-///@name µ¯³ö²Ëµ¥Ïî±êÊ¶(menu_item_flag_)
+///@name å¼¹å‡ºèœå•é¡¹æ ‡è¯†(menu_item_flag_)
 ///@{
 enum   menu_item_flag_
 {
-	menu_item_flag_normal=   0x00,   ///<Õı³£
-	menu_item_flag_select=   0x01,   ///<Ñ¡Ôñ»òÊó±êÍ£Áô
-	menu_item_flag_stay =    0x01,   ///<Ñ¡Ôñ»òÊó±êÍ£Áô µÈÓÚ menu_item_flag_select
-	menu_item_flag_check=    0x02,   ///<¹´Ñ¡
-	menu_item_flag_popup=    0x04,   ///<µ¯³ö
-	menu_item_flag_separator=0x08,   ///<·Ö¸ôÀ¸ IDºÅÈÎÒâ,IDºÅ±»ºöÂÔ
-	menu_item_flag_disable=  0x10,   ///<½ûÓÃ
+	menu_item_flag_normal=   0x00,   ///<æ­£å¸¸
+	menu_item_flag_select=   0x01,   ///<é€‰æ‹©æˆ–é¼ æ ‡åœç•™
+	menu_item_flag_stay =    0x01,   ///<é€‰æ‹©æˆ–é¼ æ ‡åœç•™ ç­‰äº menu_item_flag_select
+	menu_item_flag_check=    0x02,   ///<å‹¾é€‰
+	menu_item_flag_popup=    0x04,   ///<å¼¹å‡º
+	menu_item_flag_separator=0x08,   ///<åˆ†éš”æ  IDå·ä»»æ„,IDå·è¢«å¿½ç•¥
+	menu_item_flag_disable=  0x10,   ///<ç¦ç”¨
 };
 ///@}
 
-///@name µ¯³ö²Ëµ¥·½Ïò(menu_popup_position_)
+///@name å¼¹å‡ºèœå•æ–¹å‘(menu_popup_position_)
 ///@{
 enum  menu_popup_position_
 {
-	menu_popup_position_left_top=0,      ///<×óÉÏ½Ç
-	menu_popup_position_left_bottom,     ///<×óÏÂ½Ç
-	menu_popup_position_right_top,       ///<ÓÒÉÏ½Ç
-	menu_popup_position_right_bottom,    ///<ÓÒÏÂ½Ç
-	menu_popup_position_center_left,     ///<×ó¾ÓÖĞ
-	menu_popup_position_center_top,      ///<ÉÏ¾ÓÖĞ
-	menu_popup_position_center_right,    ///<ÓÒ¾ÓÖĞ
-	menu_popup_position_center_bottom,   ///<ÏÂ¾ÓÖĞ
+	menu_popup_position_left_top=0,      ///<å·¦ä¸Šè§’
+	menu_popup_position_left_bottom,     ///<å·¦ä¸‹è§’
+	menu_popup_position_right_top,       ///<å³ä¸Šè§’
+	menu_popup_position_right_bottom,    ///<å³ä¸‹è§’
+	menu_popup_position_center_left,     ///<å·¦å±…ä¸­
+	menu_popup_position_center_top,      ///<ä¸Šå±…ä¸­
+	menu_popup_position_center_right,    ///<å³å±…ä¸­
+	menu_popup_position_center_bottom,   ///<ä¸‹å±…ä¸­
 };
 ///@}
 ///@}
 
-/// @defgroup groupImageDrawType Í¼Æ¬»æÖÆÀàĞÍ(image_draw_type_)
+/// @defgroup groupImageDrawType å›¾ç‰‡ç»˜åˆ¶ç±»å‹(image_draw_type_)
 /// @{
 enum  image_draw_type_
 {
-	image_draw_type_default=0,     ///<Ä¬ÈÏ
-	image_draw_type_stretch,       ///<À­Éì
-	image_draw_type_adaptive,      ///<×ÔÊÊÓ¦,¾Å¹¬¸ñ
-	image_draw_type_tile,          ///<Æ½ÆÌ
-	image_draw_type_fixed_ratio,   ///<¹Ì¶¨±ÈÀı,µ±Í¼Æ¬³¬³öÏÔÊ¾·¶Î§Ê±,°´ÕÕÔ­Ê¼±ÈÀıÑ¹ËõÏÔÊ¾Í¼Æ¬
-	image_draw_type_adaptive_border,  ///<¾Å¹¬¸ñ²»»æÖÆÖĞ¼äÇøÓò
+	image_draw_type_default=0,     ///<é»˜è®¤
+	image_draw_type_stretch,       ///<æ‹‰ä¼¸
+	image_draw_type_adaptive,      ///<è‡ªé€‚åº”,ä¹å®«æ ¼
+	image_draw_type_tile,          ///<å¹³é“º
+	image_draw_type_fixed_ratio,   ///<å›ºå®šæ¯”ä¾‹,å½“å›¾ç‰‡è¶…å‡ºæ˜¾ç¤ºèŒƒå›´æ—¶,æŒ‰ç…§åŸå§‹æ¯”ä¾‹å‹ç¼©æ˜¾ç¤ºå›¾ç‰‡
+	image_draw_type_adaptive_border,  ///<ä¹å®«æ ¼ä¸ç»˜åˆ¶ä¸­é—´åŒºåŸŸ
 };
 ///@}
 
 
-//×´Ì¬--------------------------------------
-/// @defgroup groupCommonState3 ÆÕÍ¨ÈıÖÖ×´Ì¬(common_state3_)
+//çŠ¶æ€--------------------------------------
+/// @defgroup groupCommonState3 æ™®é€šä¸‰ç§çŠ¶æ€(common_state3_)
 /// @{
 enum  common_state3_
 {
-	common_state3_leave=0,  ///<Àë¿ª
-	common_state3_stay,     ///<Í£Áô
-	common_state3_down,     ///<°´ÏÂ
+	common_state3_leave=0,  ///<ç¦»å¼€
+	common_state3_stay,     ///<åœç•™
+	common_state3_down,     ///<æŒ‰ä¸‹
 };
 
 ///@}
 
-/// @defgroup groupButtonStateFlag °´Å¥×´Ì¬(button_state_)
+/// @defgroup groupButtonStateFlag æŒ‰é’®çŠ¶æ€(button_state_)
 /// @{
 enum  button_state_
 {
-	button_state_leave=0,   ///<Àë¿ª×´Ì¬
-	button_state_stay,      ///<Í£Áô×´Ì¬
-	button_state_down,      ///<°´ÏÂ×´Ì¬
-	button_state_check,     ///<Ñ¡ÖĞ×´Ì¬
-	button_state_disable,   ///<½ûÓÃ×´Ì¬
+	button_state_leave=0,   ///<ç¦»å¼€çŠ¶æ€
+	button_state_stay,      ///<åœç•™çŠ¶æ€
+	button_state_down,      ///<æŒ‰ä¸‹çŠ¶æ€
+	button_state_check,     ///<é€‰ä¸­çŠ¶æ€
+	button_state_disable,   ///<ç¦ç”¨çŠ¶æ€
 };
 ///@}
 
-/// @defgroup   groupComboBoxState ×éºÏ¿ò×´Ì¬(comboBox_state_)
+/// @defgroup   groupComboBoxState ç»„åˆæ¡†çŠ¶æ€(comboBox_state_)
 /// @{
 enum  comboBox_state_
 {
-	comboBox_state_leave=0,   ///<Êó±êÀë¿ª×´Ì¬
-	comboBox_state_stay=1,    ///<Êó±êÍ£Áô×´Ì¬
-	comboBox_state_down=2,    ///<°´ÏÂ×´Ì¬
+	comboBox_state_leave=0,   ///<é¼ æ ‡ç¦»å¼€çŠ¶æ€
+	comboBox_state_stay=1,    ///<é¼ æ ‡åœç•™çŠ¶æ€
+	comboBox_state_down=2,    ///<æŒ‰ä¸‹çŠ¶æ€
 };
 ///@}
 
-/// @defgroup groupListItemState ÁĞ±íÏî×´Ì¬(list_item_state_)
-/// ÊÊÓÃÓÚ(ÁĞ±í,ÁĞ±í¿ò,ÁĞ±íÊÓÍ¼)
+/// @defgroup groupListItemState åˆ—è¡¨é¡¹çŠ¶æ€(list_item_state_)
+/// é€‚ç”¨äº(åˆ—è¡¨,åˆ—è¡¨æ¡†,åˆ—è¡¨è§†å›¾)
 /// @{
 enum  list_item_state_
 {
-	list_item_state_leave=0,   ///<ÏîÊó±êÀë¿ª×´Ì¬
-	list_item_state_stay=1,    ///<ÏîÊó±êÍ£Áô×´Ì¬
-	list_item_state_select=2,  ///<ÏîÑ¡Ôñ×´Ì¬
-	list_item_state_cache=3,   ///<»º´æµÄÏî
+	list_item_state_leave=0,   ///<é¡¹é¼ æ ‡ç¦»å¼€çŠ¶æ€
+	list_item_state_stay=1,    ///<é¡¹é¼ æ ‡åœç•™çŠ¶æ€
+	list_item_state_select=2,  ///<é¡¹é€‰æ‹©çŠ¶æ€
+	list_item_state_cache=3,   ///<ç¼“å­˜çš„é¡¹
 };
 ///@}
 
 
-/// @defgroup groupTreeItemState  ÁĞ±íÊ÷Ïî×´Ì¬(tree_item_state_)
+/// @defgroup groupTreeItemState  åˆ—è¡¨æ ‘é¡¹çŠ¶æ€(tree_item_state_)
 /// @{
 enum  tree_item_state_
 {
-	tree_item_state_leave=0,   ///<ÏîÊó±êÀë¿ª×´Ì¬
-	tree_item_state_stay=1,    ///<ÏîÊó±êÍ£Áô×´Ì¬
-	tree_item_state_select=2,  ///<ÏîÑ¡Ôñ×´Ì¬
+	tree_item_state_leave=0,   ///<é¡¹é¼ æ ‡ç¦»å¼€çŠ¶æ€
+	tree_item_state_stay=1,    ///<é¡¹é¼ æ ‡åœç•™çŠ¶æ€
+	tree_item_state_select=2,  ///<é¡¹é€‰æ‹©çŠ¶æ€
 };
 ///@}
 
 
-//°´Å¥Í¼±ê¶ÔÆë·½Ê½
-/// @defgroup groupButtonIconAlign °´Å¥Í¼±ê¶ÔÆë·½Ê½(button_icon_align_)
+//æŒ‰é’®å›¾æ ‡å¯¹é½æ–¹å¼
+/// @defgroup groupButtonIconAlign æŒ‰é’®å›¾æ ‡å¯¹é½æ–¹å¼(button_icon_align_)
 /// @{
 enum  button_icon_align_
 {
-	button_icon_align_left=0,  ///<Í¼±êÔÚ×ó±ß
-	button_icon_align_top,     ///<Í¼±êÔÚ¶¥²¿
-	button_icon_align_right,   ///<Í¼±êÔÚÓÒ±ß
-	button_icon_align_bottom,  ///<Í¼±êÔÚµ×²¿
+	button_icon_align_left=0,  ///<å›¾æ ‡åœ¨å·¦è¾¹
+	button_icon_align_top,     ///<å›¾æ ‡åœ¨é¡¶éƒ¨
+	button_icon_align_right,   ///<å›¾æ ‡åœ¨å³è¾¹
+	button_icon_align_bottom,  ///<å›¾æ ‡åœ¨åº•éƒ¨
 };
 ///@}
 
-/// @defgroup  groupListDrawItemBkFlag  Ïî±³¾°»æÖÆ±êÖ¾Î»(List,ListBox,ListView,Tree)
+/// @defgroup  groupListDrawItemBkFlag  é¡¹èƒŒæ™¯ç»˜åˆ¶æ ‡å¿—ä½(List,ListBox,ListView,Tree)
 /// @{
 enum  list_drawItemBk_flag_
 {
-	list_drawItemBk_flag_nothing = 0x000,     ///<²»»æÖÆ
-	list_drawItemBk_flag_leave = 0x001,       ///<»æÖÆÊó±êÀë¿ª×´Ì¬Ïî±³¾°
-	list_drawItemBk_flag_stay = 0x002,        ///<»æÖÆÊó±êÑ¡Ôñ×´Ì¬Ïî±³¾°
-	list_drawItemBk_flag_select = 0x004,      ///<»æÖÆÊó±êÍ£Áô×´Ì¬ÏîÏî±³¾°
-	list_drawItemBk_flag_group_leave = 0x008, ///<»æÖÆÊó±êÀë¿ª×´Ì¬×é±³¾°,µ±ÏîÎª×éÊ±
-	list_drawItemBk_flag_group_stay = 0x010,  ///<»æÖÆÊó±êÍ£Áô×´Ì¬×é±³¾°,µ±ÏîÎª×éÊ±
+	list_drawItemBk_flag_nothing = 0x000,     ///<ä¸ç»˜åˆ¶
+	list_drawItemBk_flag_leave = 0x001,       ///<ç»˜åˆ¶é¼ æ ‡ç¦»å¼€çŠ¶æ€é¡¹èƒŒæ™¯
+	list_drawItemBk_flag_stay = 0x002,        ///<ç»˜åˆ¶é¼ æ ‡é€‰æ‹©çŠ¶æ€é¡¹èƒŒæ™¯
+	list_drawItemBk_flag_select = 0x004,      ///<ç»˜åˆ¶é¼ æ ‡åœç•™çŠ¶æ€é¡¹é¡¹èƒŒæ™¯
+	list_drawItemBk_flag_group_leave = 0x008, ///<ç»˜åˆ¶é¼ æ ‡ç¦»å¼€çŠ¶æ€ç»„èƒŒæ™¯,å½“é¡¹ä¸ºç»„æ—¶
+	list_drawItemBk_flag_group_stay = 0x010,  ///<ç»˜åˆ¶é¼ æ ‡åœç•™çŠ¶æ€ç»„èƒŒæ™¯,å½“é¡¹ä¸ºç»„æ—¶
 
-	list_drawItemBk_flag_line  =0x020,        ///<ÁĞ±í»æÖÆË®Æ½·Ö¸îÏß
-	list_drawItemBk_flag_lineV =0x040,        ///<ÁĞ±í»æÖÆ´¹Ö±·Ö¸îÏß
+	list_drawItemBk_flag_line  =0x020,        ///<åˆ—è¡¨ç»˜åˆ¶æ°´å¹³åˆ†å‰²çº¿
+	list_drawItemBk_flag_lineV =0x040,        ///<åˆ—è¡¨ç»˜åˆ¶å‚ç›´åˆ†å‰²çº¿
 
 };
 /// @}
 
-//µ¯³öÏûÏ¢¿òÀàĞÍ
-/// @defgroup groupMessageBox µ¯³öÏûÏ¢¿ò(messageBox_flag_)
+//å¼¹å‡ºæ¶ˆæ¯æ¡†ç±»å‹
+/// @defgroup groupMessageBox å¼¹å‡ºæ¶ˆæ¯æ¡†(messageBox_flag_)
 /// @{
 enum  messageBox_flag_
 {
-	messageBox_flag_other= 0x00,    ///<ÆäËû
-	messageBox_flag_ok=    0x01,    ///<È·¶¨°´Å¥
-	messageBox_flag_cancel=0x02,    ///<È¡Ïû°´Å¥
+	messageBox_flag_other= 0x00,    ///<å…¶ä»–
+	messageBox_flag_ok=    0x01,    ///<ç¡®å®šæŒ‰é’®
+	messageBox_flag_cancel=0x02,    ///<å–æ¶ˆæŒ‰é’®
 	
-	messageBox_flag_icon_appicon =0x01000,  ///<Í¼±ê Ó¦ÓÃ³ÌĞò  IDI_APPLICATION
-	messageBox_flag_icon_info    =0x02000,  ///<Í¼±ê ĞÅÏ¢     IDI_ASTERISK
-	messageBox_flag_icon_qustion =0x04000,  ///<Í¼±ê ÎÊÑ¯/°ïÖú/ÌáÎÊ   IDI_QUESTION
-	messageBox_flag_icon_error   =0x08000,  ///<Í¼±ê ´íÎó/¾Ü¾ø/½ûÖ¹  IDI_ERROR
-	messageBox_flag_icon_warning =0x10000,  ///<Í¼±ê ¾¯¸æ       IDI_WARNING
-	messageBox_flag_icon_shield  =0x20000,  ///<Í¼±ê ¶ÜÅÆ/°²È«   IDI_SHIELD
+	messageBox_flag_icon_appicon =0x01000,  ///<å›¾æ ‡ åº”ç”¨ç¨‹åº  IDI_APPLICATION
+	messageBox_flag_icon_info    =0x02000,  ///<å›¾æ ‡ ä¿¡æ¯     IDI_ASTERISK
+	messageBox_flag_icon_qustion =0x04000,  ///<å›¾æ ‡ é—®è¯¢/å¸®åŠ©/æé—®   IDI_QUESTION
+	messageBox_flag_icon_error   =0x08000,  ///<å›¾æ ‡ é”™è¯¯/æ‹’ç»/ç¦æ­¢  IDI_ERROR
+	messageBox_flag_icon_warning =0x10000,  ///<å›¾æ ‡ è­¦å‘Š       IDI_WARNING
+	messageBox_flag_icon_shield  =0x20000,  ///<å›¾æ ‡ ç›¾ç‰Œ/å®‰å…¨   IDI_SHIELD
 };
 ///@}
 
-///@defgroup GroupPropertyGrid_item_type    ÊôĞÔÍø¸ñÏîÀàĞÍ(propertyGrid_item_type_)
+///@defgroup GroupPropertyGrid_item_type    å±æ€§ç½‘æ ¼é¡¹ç±»å‹(propertyGrid_item_type_)
 ///@{
 enum  propertyGrid_item_type_
 {
-	propertyGrid_item_type_text=0,      ///<Ä¬ÈÏ,×Ö·û´®ÀàĞÍ
-	propertyGrid_item_type_edit,        ///<±à¼­¿ò
-	propertyGrid_item_type_edit_color,  ///<ÑÕÉ«Ñ¡ÔñÔªËØ
-	propertyGrid_item_type_edit_file,   ///<ÎÄ¼şÑ¡Ôñ±à¼­¿ò
-	propertyGrid_item_type_edit_set,    ///<ÉèÖÃ
-	propertyGrid_item_type_comboBox,    ///<×éºÏ¿ò
-	propertyGrid_item_type_group,       ///<×é
-	propertyGrid_item_type_panel,       ///<Ãæ°å
+	propertyGrid_item_type_text=0,      ///<é»˜è®¤,å­—ç¬¦ä¸²ç±»å‹
+	propertyGrid_item_type_edit,        ///<ç¼–è¾‘æ¡†
+	propertyGrid_item_type_edit_color,  ///<é¢œè‰²é€‰æ‹©å…ƒç´ 
+	propertyGrid_item_type_edit_file,   ///<æ–‡ä»¶é€‰æ‹©ç¼–è¾‘æ¡†
+	propertyGrid_item_type_edit_set,    ///<è®¾ç½®
+	propertyGrid_item_type_comboBox,    ///<ç»„åˆæ¡†
+	propertyGrid_item_type_group,       ///<ç»„
+	propertyGrid_item_type_panel,       ///<é¢æ¿
 };
 ///@}
 
-///@defgroup  GroupZOrder    ZĞòÎ»ÖÃ(zorder_)
+///@defgroup  GroupZOrder    Zåºä½ç½®(zorder_)
 ///@{
 enum zorder_
 {
-	zorder_top,    ///<×îÉÏÃæ
-	zorder_bottom, ///<×îÏÂÃæ
-	zorder_before, ///<Ö¸¶¨Ä¿±êÏÂÃæ
-	zorder_after,  ///<Ö¸¶¨Ä¿±êÉÏÃæ
+	zorder_top,    ///<æœ€ä¸Šé¢
+	zorder_bottom, ///<æœ€ä¸‹é¢
+	zorder_before, ///<æŒ‡å®šç›®æ ‡ä¸‹é¢
+	zorder_after,  ///<æŒ‡å®šç›®æ ‡ä¸Šé¢
 };
 ///@}
 
-///@defgroup Group_pane_align_  ´°¸ñ¶ÔÆë(pane_align_)
+///@defgroup Group_pane_align_  çª—æ ¼å¯¹é½(pane_align_)
 ///@{
 enum pane_align_
 {
-	pane_align_error=-1,  ///<´íÎó
-	pane_align_left=0,    ///<×ó²à
-	pane_align_top,       ///<¶¥²¿
-	pane_align_right,     ///<ÓÒ²à
-	pane_align_bottom,    ///<µ×²¿
-	pane_align_center,    ///<¾ÓÖĞ
+	pane_align_error=-1,  ///<é”™è¯¯
+	pane_align_left=0,    ///<å·¦ä¾§
+	pane_align_top,       ///<é¡¶éƒ¨
+	pane_align_right,     ///<å³ä¾§
+	pane_align_bottom,    ///<åº•éƒ¨
+	pane_align_center,    ///<å±…ä¸­
 };
 ///@}
 
-///@defgroup Group_layout_align_  ²¼¾Ö¶ÔÆë(layout_align_)
+///@defgroup Group_layout_align_  å¸ƒå±€å¯¹é½(layout_align_)
 ///@{
 enum  layout_align_
 {
-	layout_align_left = 0,		  ///<×ó²à
-	layout_align_top,			  ///<¶¥²¿
-	layout_align_right,			  ///<ÓÒ²à
-	layout_align_bottom,		  ///<µ×²¿
-	layout_align_center,		  ///<¾ÓÖĞ
-	layout_align_equidistant,     ///<µÈ¾à
+	layout_align_left = 0,		  ///<å·¦ä¾§
+	layout_align_top,			  ///<é¡¶éƒ¨
+	layout_align_right,			  ///<å³ä¾§
+	layout_align_bottom,		  ///<åº•éƒ¨
+	layout_align_center,		  ///<å±…ä¸­
+	layout_align_equidistant,     ///<ç­‰è·
 };
 ///@}
 
-/// @defgroup groupLayoutSize ²¼¾Ö´óĞ¡ÀàĞÍ(layout_size_)
+/// @defgroup groupLayoutSize å¸ƒå±€å¤§å°ç±»å‹(layout_size_)
 /// @{
 enum  layout_size_
 {
-	layout_size_fixed = 0, ///<¹Ì¶¨´óĞ¡
-	layout_size_fill,      ///<fill Ìî³ä¸¸
-	layout_size_auto,      ///<auto ×Ô¶¯´óĞ¡,¸ù¾İÄÚÈİ¼ÆËã´óĞ¡
-	layout_size_weight,    ///<weight ±ÈÀı,°´ÕÕ±ÈÀı·ÖÅäÊ£Óà¿Õ¼ä
-	layout_size_percent,   ///<°Ù·Ö±È
-	layout_size_disable,   ///<disable ²»Ê¹ÓÃ
+	layout_size_fixed = 0, ///<å›ºå®šå¤§å°
+	layout_size_fill,      ///<fill å¡«å……çˆ¶
+	layout_size_auto,      ///<auto è‡ªåŠ¨å¤§å°,æ ¹æ®å†…å®¹è®¡ç®—å¤§å°
+	layout_size_weight,    ///<weight æ¯”ä¾‹,æŒ‰ç…§æ¯”ä¾‹åˆ†é…å‰©ä½™ç©ºé—´
+	layout_size_percent,   ///<ç™¾åˆ†æ¯”
+	layout_size_disable,   ///<disable ä¸ä½¿ç”¨
 };
 ///@}
 
-/// @defgroup  groupLayoutAlignAxis ²¼¾ÖÖá¶ÔÆë(layout_align_axis_)
+/// @defgroup  groupLayoutAlignAxis å¸ƒå±€è½´å¯¹é½(layout_align_axis_)
 /// @{
 enum layout_align_axis_
 {
-	layout_align_axis_auto = 0,   ///<ÎŞ
-	layout_align_axis_start,      ///<Ë®Æ½²¼¾Ö(¶¥²¿), ´¹Ö±²¼¾Ö(×ó²à)
-	layout_align_axis_center,     ///<¾ÓÖĞ
-	layout_align_axis_end,        ///<Ë®Æ½²¼¾Ö(µ×²¿), ´¹Ö±²¼¾Ö(ÓÒ²à)
+	layout_align_axis_auto = 0,   ///<æ— 
+	layout_align_axis_start,      ///<æ°´å¹³å¸ƒå±€(é¡¶éƒ¨), å‚ç›´å¸ƒå±€(å·¦ä¾§)
+	layout_align_axis_center,     ///<å±…ä¸­
+	layout_align_axis_end,        ///<æ°´å¹³å¸ƒå±€(åº•éƒ¨), å‚ç›´å¸ƒå±€(å³ä¾§)
 };
 ///@}
 
-///@defgroup Group_edit_textAlign_flag_  ±à¼­¿òÎÄ±¾¶ÔÆë(edit_textAlign_flag_)
+///@defgroup Group_edit_textAlign_flag_  ç¼–è¾‘æ¡†æ–‡æœ¬å¯¹é½(edit_textAlign_flag_)
 ///@{
 enum edit_textAlign_flag_
 {
-	edit_textAlign_flag_left    = 0x0,   ///<×ó²à
-	edit_textAlign_flag_right   = 0x1,   ///<ÓÒ²à
-	edit_textAlign_flag_center  = 0x2,   ///<Ë®Æ½¾ÓÖĞ
+	edit_textAlign_flag_left    = 0x0,   ///<å·¦ä¾§
+	edit_textAlign_flag_right   = 0x1,   ///<å³ä¾§
+	edit_textAlign_flag_center  = 0x2,   ///<æ°´å¹³å±…ä¸­
 
-	edit_textAlign_flag_top      = 0x0,  ///<¶¥²¿
-	edit_textAlign_flag_bottom   = 0x4,  ///<µ×²¿
-	edit_textAlign_flag_center_v = 0x8,  ///<´¹Ö±¾ÓÖĞ
+	edit_textAlign_flag_top      = 0x0,  ///<é¡¶éƒ¨
+	edit_textAlign_flag_bottom   = 0x4,  ///<åº•éƒ¨
+	edit_textAlign_flag_center_v = 0x8,  ///<å‚ç›´å±…ä¸­
 };
 ///@}
 
-///@defgroup Group_pane_state_  ´°¸ñ×´Ì¬(pane_state_)
+///@defgroup Group_pane_state_  çª—æ ¼çŠ¶æ€(pane_state_)
 ///@{
 enum pane_state_
 {
 	pane_state_error=-1,
 	pane_state_any=0,
-	pane_state_lock,   ///<Ëø¶¨
-	pane_state_dock,   ///<Í£¿¿ÂëÍ·
-	pane_state_float,  ///<¸¡¶¯´°¸ñ
+	pane_state_lock,   ///<é”å®š
+	pane_state_dock,   ///<åœé ç å¤´
+	pane_state_float,  ///<æµ®åŠ¨çª—æ ¼
 };
 ///@}
 
-///@defgroup Group_textFormatFlag_    ÎÄ±¾¶ÔÆë(textFormatFlag_)
+///@defgroup Group_textFormatFlag_    æ–‡æœ¬å¯¹é½(textFormatFlag_)
 ///@{
 enum  textFormatFlag_
 {
-	textAlignFlag_left     =0,      ///<×ó¶ÔÆë
-	textAlignFlag_top      =0,      ///<´¹Ö±¶¥¶ÔÆë
-	textAlignFlag_left_top =0x4000, ///<ÄÚ²¿±£Áô
-	textAlignFlag_center   =0x1,    ///<Ë®Æ½¾ÓÖĞ
-	textAlignFlag_right    =0x2,    ///<ÓÒ¶ÔÆë.
+	textAlignFlag_left     =0,      ///<å·¦å¯¹é½
+	textAlignFlag_top      =0,      ///<å‚ç›´é¡¶å¯¹é½
+	textAlignFlag_left_top =0x4000, ///<å†…éƒ¨ä¿ç•™
+	textAlignFlag_center   =0x1,    ///<æ°´å¹³å±…ä¸­
+	textAlignFlag_right    =0x2,    ///<å³å¯¹é½.
 
-	textAlignFlag_vcenter  =0x4,    ///<´¹Ö±¾ÓÖĞ
-	textAlignFlag_bottom   =0x8,    ///<´¹Ö±µ×¶ÔÆë
+	textAlignFlag_vcenter  =0x4,    ///<å‚ç›´å±…ä¸­
+	textAlignFlag_bottom   =0x8,    ///<å‚ç›´åº•å¯¹é½
 
-	textFormatFlag_DirectionRightToLeft=0x10,   ///<´ÓÓÒÏò×óË³ĞòÏÔÊ¾ÎÄ±¾
-	textFormatFlag_NoWrap              =0x20,   ///<½ûÖ¹»»ĞĞ
-	textFormatFlag_DirectionVertical   =0x40,   ///<´¹Ö±ÏÔÊ¾ÎÄ±¾
-	textFormatFlag_NoFitBlackBox       =0x80,   ///<ÔÊĞí²¿·Ö×Ö·ûÑÓÉì¸Ã×Ö·û´®µÄ²¼¾Ö¾ØĞÎ¡£Ä¬ÈÏÇé¿öÏÂ£¬½«ÖØĞÂ¶¨Î»×Ö·ûÒÔ±ÜÃâÈÎºÎÑÓÉì
-	textFormatFlag_DisplayFormatControl=0x100,  ///<¿ØÖÆ×Ö·û£¨Èç´Ó×óµ½ÓÒ±ê¼Ç£©Ëæ¾ßÓĞ´ú±íĞÔµÄ±êÖ¾·ûºÅÒ»ÆğÏÔÊ¾ÔÚÊä³öÖĞ¡£
-	textFormatFlag_NoFontFallback  =0x200,      ///<¶ÔÓÚÇëÇóµÄ×ÖÌåÖĞ²»Ö§³ÖµÄ×Ö·û£¬½ûÓÃ»ØÍËµ½¿ÉÑ¡×ÖÌå¡£È±Ê§µÄÈÎºÎ×Ö·û¶¼ÓÃÈ±Ê§±êÖ¾·ûºÅµÄ×ÖÌåÏÔÊ¾£¬Í¨³£ÊÇÒ»¸ö¿ÕµÄ·½¿é
-	textFormatFlag_MeasureTrailingSpaces=0x400, ///<°üÀ¨Ã¿Ò»ĞĞ½áÎ²´¦µÄÎ²Ëæ¿Õ¸ñ¡£ÔÚÄ¬ÈÏÇé¿öÏÂ£¬MeasureString ·½·¨·µ»ØµÄ±ß¿ò¶¼½«ÅÅ³ıÃ¿Ò»ĞĞ½áÎ²´¦µÄ¿Õ¸ñ¡£ÉèÖÃ´Ë±ê¼ÇÒÔ±ãÔÚ²â¶¨Ê±½«¿Õ¸ñ°üÀ¨½øÈ¥
-	textFormatFlag_LineLimit       =0x800,      ///<Èç¹ûÄÚÈİÏÔÊ¾¸ß¶È²»¹»Ò»ĞĞ,ÄÇÃ´²»ÏÔÊ¾
-	textFormatFlag_NoClip          =0x1000,     ///<ÔÊĞíÏÔÊ¾±êÖ¾·ûºÅµÄÉì³ö²¿·ÖºÍÑÓÉìµ½±ß¿òÍâµÄÎ´»»ĞĞÎÄ±¾¡£ÔÚÄ¬ÈÏÇé¿öÏÂ£¬ÑÓÉìµ½±ß¿òÍâ²àµÄËùÓĞÎÄ±¾ºÍ±êÖ¾·ûºÅ²¿·Ö¶¼±»¼ô²Ã
+	textFormatFlag_DirectionRightToLeft=0x10,   ///<ä»å³å‘å·¦é¡ºåºæ˜¾ç¤ºæ–‡æœ¬
+	textFormatFlag_NoWrap              =0x20,   ///<ç¦æ­¢æ¢è¡Œ
+	textFormatFlag_DirectionVertical   =0x40,   ///<å‚ç›´æ˜¾ç¤ºæ–‡æœ¬
+	textFormatFlag_NoFitBlackBox       =0x80,   ///<å…è®¸éƒ¨åˆ†å­—ç¬¦å»¶ä¼¸è¯¥å­—ç¬¦ä¸²çš„å¸ƒå±€çŸ©å½¢ã€‚é»˜è®¤æƒ…å†µä¸‹ï¼Œå°†é‡æ–°å®šä½å­—ç¬¦ä»¥é¿å…ä»»ä½•å»¶ä¼¸
+	textFormatFlag_DisplayFormatControl=0x100,  ///<æ§åˆ¶å­—ç¬¦ï¼ˆå¦‚ä»å·¦åˆ°å³æ ‡è®°ï¼‰éšå…·æœ‰ä»£è¡¨æ€§çš„æ ‡å¿—ç¬¦å·ä¸€èµ·æ˜¾ç¤ºåœ¨è¾“å‡ºä¸­ã€‚
+	textFormatFlag_NoFontFallback  =0x200,      ///<å¯¹äºè¯·æ±‚çš„å­—ä½“ä¸­ä¸æ”¯æŒçš„å­—ç¬¦ï¼Œç¦ç”¨å›é€€åˆ°å¯é€‰å­—ä½“ã€‚ç¼ºå¤±çš„ä»»ä½•å­—ç¬¦éƒ½ç”¨ç¼ºå¤±æ ‡å¿—ç¬¦å·çš„å­—ä½“æ˜¾ç¤ºï¼Œé€šå¸¸æ˜¯ä¸€ä¸ªç©ºçš„æ–¹å—
+	textFormatFlag_MeasureTrailingSpaces=0x400, ///<åŒ…æ‹¬æ¯ä¸€è¡Œç»“å°¾å¤„çš„å°¾éšç©ºæ ¼ã€‚åœ¨é»˜è®¤æƒ…å†µä¸‹ï¼ŒMeasureString æ–¹æ³•è¿”å›çš„è¾¹æ¡†éƒ½å°†æ’é™¤æ¯ä¸€è¡Œç»“å°¾å¤„çš„ç©ºæ ¼ã€‚è®¾ç½®æ­¤æ ‡è®°ä»¥ä¾¿åœ¨æµ‹å®šæ—¶å°†ç©ºæ ¼åŒ…æ‹¬è¿›å»
+	textFormatFlag_LineLimit       =0x800,      ///<å¦‚æœå†…å®¹æ˜¾ç¤ºé«˜åº¦ä¸å¤Ÿä¸€è¡Œ,é‚£ä¹ˆä¸æ˜¾ç¤º
+	textFormatFlag_NoClip          =0x1000,     ///<å…è®¸æ˜¾ç¤ºæ ‡å¿—ç¬¦å·çš„ä¼¸å‡ºéƒ¨åˆ†å’Œå»¶ä¼¸åˆ°è¾¹æ¡†å¤–çš„æœªæ¢è¡Œæ–‡æœ¬ã€‚åœ¨é»˜è®¤æƒ…å†µä¸‹ï¼Œå»¶ä¼¸åˆ°è¾¹æ¡†å¤–ä¾§çš„æ‰€æœ‰æ–‡æœ¬å’Œæ ‡å¿—ç¬¦å·éƒ¨åˆ†éƒ½è¢«å‰ªè£
 
-	textTrimming_None              = 0,        ///<²»Ê¹ÓÃÈ¥Î²
-	textTrimming_Character         = 0x40000,  ///<ÒÔ×Ö·ûÎªµ¥Î»È¥Î²
-	textTrimming_Word              = 0x80000,  ///<ÒÔµ¥´ÊÎªµ¥Î»È¥Î²
-	textTrimming_EllipsisCharacter = 0x8000,   ///<ÒÔ×Ö·ûÎªµ¥Î»È¥Î²,Ê¡ÂÔ²¿·ÖÊ¹ÓÃÇÒÂÔºÅ±íÊ¾
-	textTrimming_EllipsisWord      = 0x10000,  ///<ÒÔµ¥´ÊÎªµ¥Î»È¥Î²,
-	textTrimming_EllipsisPath      = 0x20000,  ///<ÂÔÈ¥×Ö·û´®ÖĞ¼ä²¿·Ö£¬±£Ö¤×Ö·ûµÄÊ×Î²¶¼ÄÜ¹»ÏÔÊ¾  
+	textTrimming_None              = 0,        ///<ä¸ä½¿ç”¨å»å°¾
+	textTrimming_Character         = 0x40000,  ///<ä»¥å­—ç¬¦ä¸ºå•ä½å»å°¾
+	textTrimming_Word              = 0x80000,  ///<ä»¥å•è¯ä¸ºå•ä½å»å°¾
+	textTrimming_EllipsisCharacter = 0x8000,   ///<ä»¥å­—ç¬¦ä¸ºå•ä½å»å°¾,çœç•¥éƒ¨åˆ†ä½¿ç”¨ä¸”ç•¥å·è¡¨ç¤º
+	textTrimming_EllipsisWord      = 0x10000,  ///<ä»¥å•è¯ä¸ºå•ä½å»å°¾,
+	textTrimming_EllipsisPath      = 0x20000,  ///<ç•¥å»å­—ç¬¦ä¸²ä¸­é—´éƒ¨åˆ†ï¼Œä¿è¯å­—ç¬¦çš„é¦–å°¾éƒ½èƒ½å¤Ÿæ˜¾ç¤º  
 };
 ///@}
 
-///@defgroup Group_textFormatFlag_dwrite_    D2DÎÄ±¾äÖÈ¾Ä£Ê½(XC_DWRITE_RENDERING_MODE)
+///@defgroup Group_textFormatFlag_dwrite_    D2Dæ–‡æœ¬æ¸²æŸ“æ¨¡å¼(XC_DWRITE_RENDERING_MODE)
 ///@{
 enum XC_DWRITE_RENDERING_MODE
 {
-	XC_DWRITE_RENDERING_MODE_DEFAULT = 0,                    ///<Ö¸¶¨¸ù¾İ×ÖÌåºÍ´óĞ¡×Ô¶¯È·¶¨³ÊÏÖÄ£Ê½¡£
-	XC_DWRITE_RENDERING_MODE_ALIASED,						 ///<Ö¸¶¨²»Ö´ĞĞ¿¹¾â³İ¡£ Ã¿¸öÏñËØÒªÃ´ÉèÖÃÎªÎÄ±¾µÄÇ°¾°É«£¬ÒªÃ´±£Áô±³¾°µÄÑÕÉ«¡£
-	XC_DWRITE_RENDERING_MODE_CLEARTYPE_GDI_CLASSIC,			 ///<Ê¹ÓÃÓë±ğÃûÎÄ±¾ÏàÍ¬µÄ¶ÈÁ¿Ö¸¶¨ ClearType ³ÊÏÖ¡£ ×ÖĞÎÖ»ÄÜ¶¨Î»ÔÚÕû¸öÏñËØµÄ±ß½çÉÏ¡£
-	XC_DWRITE_RENDERING_MODE_CLEARTYPE_GDI_NATURAL,			 ///<Ê¹ÓÃÊ¹ÓÃ CLEARTYPE_NATURAL_QUALITY ´´½¨µÄ×ÖÌå£¬Ê¹ÓÃÓëÊ¹ÓÃ GDI µÄÎÄ±¾³ÊÏÖÏàÍ¬µÄÖ¸±êÖ¸¶¨ ClearType ³ÊÏÖ¡£ ÓëÊ¹ÓÃ±ğÃûÎÄ±¾Ïà±È£¬×ÖĞÎ¶ÈÁ¿¸ü½Ó½üÆäÀíÏëÖµ£¬µ«×ÖĞÎÈÔÈ»Î»ÓÚÕû¸öÏñËØµÄ±ß½çÉÏ¡£
-	XC_DWRITE_RENDERING_MODE_CLEARTYPE_NATURAL,				 ///<½öÔÚË®Æ½Î¬¶ÈÖĞÖ¸¶¨¾ßÓĞ¿¹¾â³İ¹¦ÄÜµÄ ClearType äÖÈ¾¡£ÕâÍ¨³£ÓÃÓÚÖĞĞ¡×ÖÌå´óĞ¡£¨×î¶à 16 ppem£©¡£
-	XC_DWRITE_RENDERING_MODE_CLEARTYPE_NATURAL_SYMMETRIC,	 ///<Ö¸¶¨ÔÚË®Æ½ºÍ´¹Ö±Î¬¶ÈÉÏ¾ßÓĞ¿¹¾â³İµÄ ClearType äÖÈ¾¡£ÕâÍ¨³£ÓÃÓÚ½Ï´óµÄ³ß´ç£¬ÒÔÊ¹ÇúÏßºÍ¶Ô½ÇÏß¿´ÆğÀ´¸üÆ½»¬£¬µ«»áÎşÉüÒ»Ğ©ÈáºÍ¶È¡£
-	XC_DWRITE_RENDERING_MODE_OUTLINE,                        ///<Ö¸¶¨äÖÈ¾Ó¦ÈÆ¹ı¹âÕ¤»¯Æ÷²¢Ö±½ÓÊ¹ÓÃÂÖÀª¡£ ÕâÍ¨³£ÓÃÓÚ·Ç³£´óµÄ³ß´ç¡£
+	XC_DWRITE_RENDERING_MODE_DEFAULT = 0,                    ///<æŒ‡å®šæ ¹æ®å­—ä½“å’Œå¤§å°è‡ªåŠ¨ç¡®å®šå‘ˆç°æ¨¡å¼ã€‚
+	XC_DWRITE_RENDERING_MODE_ALIASED,						 ///<æŒ‡å®šä¸æ‰§è¡ŒæŠ—é”¯é½¿ã€‚ æ¯ä¸ªåƒç´ è¦ä¹ˆè®¾ç½®ä¸ºæ–‡æœ¬çš„å‰æ™¯è‰²ï¼Œè¦ä¹ˆä¿ç•™èƒŒæ™¯çš„é¢œè‰²ã€‚
+	XC_DWRITE_RENDERING_MODE_CLEARTYPE_GDI_CLASSIC,			 ///<ä½¿ç”¨ä¸åˆ«åæ–‡æœ¬ç›¸åŒçš„åº¦é‡æŒ‡å®š ClearType å‘ˆç°ã€‚ å­—å½¢åªèƒ½å®šä½åœ¨æ•´ä¸ªåƒç´ çš„è¾¹ç•Œä¸Šã€‚
+	XC_DWRITE_RENDERING_MODE_CLEARTYPE_GDI_NATURAL,			 ///<ä½¿ç”¨ä½¿ç”¨ CLEARTYPE_NATURAL_QUALITY åˆ›å»ºçš„å­—ä½“ï¼Œä½¿ç”¨ä¸ä½¿ç”¨ GDI çš„æ–‡æœ¬å‘ˆç°ç›¸åŒçš„æŒ‡æ ‡æŒ‡å®š ClearType å‘ˆç°ã€‚ ä¸ä½¿ç”¨åˆ«åæ–‡æœ¬ç›¸æ¯”ï¼Œå­—å½¢åº¦é‡æ›´æ¥è¿‘å…¶ç†æƒ³å€¼ï¼Œä½†å­—å½¢ä»ç„¶ä½äºæ•´ä¸ªåƒç´ çš„è¾¹ç•Œä¸Šã€‚
+	XC_DWRITE_RENDERING_MODE_CLEARTYPE_NATURAL,				 ///<ä»…åœ¨æ°´å¹³ç»´åº¦ä¸­æŒ‡å®šå…·æœ‰æŠ—é”¯é½¿åŠŸèƒ½çš„ ClearType æ¸²æŸ“ã€‚è¿™é€šå¸¸ç”¨äºä¸­å°å­—ä½“å¤§å°ï¼ˆæœ€å¤š 16 ppemï¼‰ã€‚
+	XC_DWRITE_RENDERING_MODE_CLEARTYPE_NATURAL_SYMMETRIC,	 ///<æŒ‡å®šåœ¨æ°´å¹³å’Œå‚ç›´ç»´åº¦ä¸Šå…·æœ‰æŠ—é”¯é½¿çš„ ClearType æ¸²æŸ“ã€‚è¿™é€šå¸¸ç”¨äºè¾ƒå¤§çš„å°ºå¯¸ï¼Œä»¥ä½¿æ›²çº¿å’Œå¯¹è§’çº¿çœ‹èµ·æ¥æ›´å¹³æ»‘ï¼Œä½†ä¼šç‰ºç‰²ä¸€äº›æŸ”å’Œåº¦ã€‚
+	XC_DWRITE_RENDERING_MODE_OUTLINE,                        ///<æŒ‡å®šæ¸²æŸ“åº”ç»•è¿‡å…‰æ …åŒ–å™¨å¹¶ç›´æ¥ä½¿ç”¨è½®å»“ã€‚ è¿™é€šå¸¸ç”¨äºéå¸¸å¤§çš„å°ºå¯¸ã€‚
 };
 ///@}
 
-///@defgroup Group_listItemTemp_type_    ÁĞ±íÏîÄ£°åÀàĞÍ(listItemTemp_type_)
+///@defgroup Group_listItemTemp_type_    åˆ—è¡¨é¡¹æ¨¡æ¿ç±»å‹(listItemTemp_type_)
 ///@{
 enum listItemTemp_type_
 {
 	listItemTemp_type_tree = 0x01,					  ///<tree
 	listItemTemp_type_listBox = 0x02,				  ///<listBox
-	listItemTemp_type_list_head = 0x04,				  ///<list ÁĞ±íÍ·
-	listItemTemp_type_list_item = 0x08,				  ///<list ÁĞ±íÏî
-	listItemTemp_type_listView_group = 0x10,		  ///<listView ÁĞ±íÊÓ×é
-	listItemTemp_type_listView_item = 0x20,			  ///<listView ÁĞ±íÊÓÏî
-	listItemTemp_type_list = listItemTemp_type_list_head | listItemTemp_type_list_item,  ///<list (ÁĞ±íÍ·)Óë(ÁĞ±íÏî)×éºÏ
-	listItemTemp_type_listView = listItemTemp_type_listView_group | listItemTemp_type_listView_item, ///<listView (ÁĞ±íÊÓ×é)Óë(ÁĞ±íÊÓÏî)×éºÏ
+	listItemTemp_type_list_head = 0x04,				  ///<list åˆ—è¡¨å¤´
+	listItemTemp_type_list_item = 0x08,				  ///<list åˆ—è¡¨é¡¹
+	listItemTemp_type_listView_group = 0x10,		  ///<listView åˆ—è¡¨è§†ç»„
+	listItemTemp_type_listView_item = 0x20,			  ///<listView åˆ—è¡¨è§†é¡¹
+	listItemTemp_type_list = listItemTemp_type_list_head | listItemTemp_type_list_item,  ///<list (åˆ—è¡¨å¤´)ä¸(åˆ—è¡¨é¡¹)ç»„åˆ
+	listItemTemp_type_listView = listItemTemp_type_listView_group | listItemTemp_type_listView_item, ///<listView (åˆ—è¡¨è§†ç»„)ä¸(åˆ—è¡¨è§†é¡¹)ç»„åˆ
 };
 ///@}
 
-///@defgroup Group_adjustLayout    µ÷Õû²¼¾Ö±êÊ¶Î»(adjustLayout_)
+///@defgroup Group_adjustLayout    è°ƒæ•´å¸ƒå±€æ ‡è¯†ä½(adjustLayout_)
 ///@{
 enum adjustLayout_
 {
-	adjustLayout_no   = 0x00,  ///<²»µ÷Õû²¼¾Ö
-	adjustLayout_all  = 0x01,  ///<Ç¿ÖÆµ÷Õû×ÔÉíºÍ×Ó¶ÔÏó²¼¾Ö.
-	adjustLayout_self = 0x02,  ///<Ö»µ÷Õû×ÔÉí²¼¾Ö,²»µ÷Õû×Ó¶ÔÏó²¼¾Ö.
-	//xc_adjustLayout_free = 0x03   µ÷Õû²¼¾Ö,·ÇÇ¿ÖÆĞÔ, Ö»µ÷Õû×ø±ê¸Ä±äµÄ¶ÔÏó
+	adjustLayout_no   = 0x00,  ///<ä¸è°ƒæ•´å¸ƒå±€
+	adjustLayout_all  = 0x01,  ///<å¼ºåˆ¶è°ƒæ•´è‡ªèº«å’Œå­å¯¹è±¡å¸ƒå±€.
+	adjustLayout_self = 0x02,  ///<åªè°ƒæ•´è‡ªèº«å¸ƒå±€,ä¸è°ƒæ•´å­å¯¹è±¡å¸ƒå±€.
+	//xc_adjustLayout_free = 0x03   è°ƒæ•´å¸ƒå±€,éå¼ºåˆ¶æ€§, åªè°ƒæ•´åæ ‡æ”¹å˜çš„å¯¹è±¡
 };
 ///@}
 
-/// @defgroup group_edit_macro ±à¼­¿òÀàĞÍ(edit_type_)
+/// @defgroup group_edit_macro ç¼–è¾‘æ¡†ç±»å‹(edit_type_)
 /// @{
 enum edit_type_ 
 {
-	edit_type_none = 0,   ///<ÆÕÍ¨±à¼­¿ò,   Ã¿ĞĞµÄ¸ß¶ÈÏàÍ¬
-	edit_type_editor,     ///<´úÂë±à¼­
-	edit_type_richedit,   ///<¸»ÎÄ±¾±à¼­¿ò, Ã¿ĞĞµÄ¸ß¶È¿ÉÄÜ²»Í¬
-	edit_type_chat,       ///<ÁÄÌìÆøÅİ, Ã¿ĞĞµÄ¸ß¶È¿ÉÄÜ²»Í¬
-	edit_type_codeTable,  ///<´úÂë±í¸ñ,ÄÚ²¿Ê¹ÓÃ,  Ã¿ĞĞµÄ¸ß¶ÈÏàÍ¬
+	edit_type_none = 0,   ///<æ™®é€šç¼–è¾‘æ¡†,   æ¯è¡Œçš„é«˜åº¦ç›¸åŒ
+	edit_type_editor,     ///<ä»£ç ç¼–è¾‘
+	edit_type_richedit,   ///<å¯Œæ–‡æœ¬ç¼–è¾‘æ¡†, æ¯è¡Œçš„é«˜åº¦å¯èƒ½ä¸åŒ
+	edit_type_chat,       ///<èŠå¤©æ°”æ³¡, æ¯è¡Œçš„é«˜åº¦å¯èƒ½ä¸åŒ
+	edit_type_codeTable,  ///<ä»£ç è¡¨æ ¼,å†…éƒ¨ä½¿ç”¨,  æ¯è¡Œçš„é«˜åº¦ç›¸åŒ
 };
 
 enum edit_style_type_
 {
-	edit_style_type_font_color = 1,  ///<×ÖÌå
-	edit_style_type_image,           ///<Í¼Æ¬
-	edit_style_type_obj,             ///<UI¶ÔÏó
+	edit_style_type_font_color = 1,  ///<å­—ä½“
+	edit_style_type_image,           ///<å›¾ç‰‡
+	edit_style_type_obj,             ///<UIå¯¹è±¡
 };
 
-///Edit ÁÄÌìÆøÅİ¶ÔÆë·½Ê½
+///Edit èŠå¤©æ°”æ³¡å¯¹é½æ–¹å¼
 enum chat_flag_
 {
-	chat_flag_left = 0x1,    ///<×ó²à
-	chat_flag_right = 0x2,   ///<ÓÒ²à
-	chat_flag_center = 0x4,  ///<ÖĞ¼ä
-	chat_flag_next_row_bubble = 0x8,   ///<ÏÂÒ»ĞĞÏÔÊ¾ÆøÅİ
+	chat_flag_left = 0x1,    ///<å·¦ä¾§
+	chat_flag_right = 0x2,   ///<å³ä¾§
+	chat_flag_center = 0x4,  ///<ä¸­é—´
+	chat_flag_next_row_bubble = 0x8,   ///<ä¸‹ä¸€è¡Œæ˜¾ç¤ºæ°”æ³¡
 };
 ///@}
 
-/// @defgroup group_table  ĞÎ×´±í¸ñ±êÊ¶(table_flag_)
+/// @defgroup group_table  å½¢çŠ¶è¡¨æ ¼æ ‡è¯†(table_flag_)
 /// @{
 
-///@name  ĞÎ×´±í¸ñ±êÊ¶(table_flag_)
+///@name  å½¢çŠ¶è¡¨æ ¼æ ‡è¯†(table_flag_)
 ///@{
 enum  table_flag_
 {
-	table_flag_full = 0,   ///<ÆÌÂú×éºÏµ¥Ôª¸ñ
-	table_flag_none,       ///<Õı³£×îĞ¡µ¥Ôª¸ñ
+	table_flag_full = 0,   ///<é“ºæ»¡ç»„åˆå•å…ƒæ ¼
+	table_flag_none,       ///<æ­£å¸¸æœ€å°å•å…ƒæ ¼
 };
 ///@}
 
-///@name  ĞÎ×´±í¸ñÏß±êÊ¶(table_line_flag_)
+///@name  å½¢çŠ¶è¡¨æ ¼çº¿æ ‡è¯†(table_line_flag_)
 ///@{
 enum  table_line_flag_  
 {
-	table_line_flag_left    = 0x1,   ///<´ı²¹³ä
-	table_line_flag_top     = 0x2,   ///<´ı²¹³ä
-	table_line_flag_right   = 0x4,	 ///<´ı²¹³ä
-	table_line_flag_bottom  = 0x8,   ///<´ı²¹³ä
-	table_line_flag_left2   = 0x10,  ///<´ı²¹³ä
-	table_line_flag_top2    = 0x20,	 ///<´ı²¹³ä
-	table_line_flag_right2  = 0x40,	 ///<´ı²¹³ä
-	table_line_flag_bottom2 = 0x80,	 ///<´ı²¹³ä
+	table_line_flag_left    = 0x1,   ///<å¾…è¡¥å……
+	table_line_flag_top     = 0x2,   ///<å¾…è¡¥å……
+	table_line_flag_right   = 0x4,	 ///<å¾…è¡¥å……
+	table_line_flag_bottom  = 0x8,   ///<å¾…è¡¥å……
+	table_line_flag_left2   = 0x10,  ///<å¾…è¡¥å……
+	table_line_flag_top2    = 0x20,	 ///<å¾…è¡¥å……
+	table_line_flag_right2  = 0x40,	 ///<å¾…è¡¥å……
+	table_line_flag_bottom2 = 0x80,	 ///<å¾…è¡¥å……
 };
 ///@}
 ///@}
 
-/// @defgroup group_monthCal_button_type_    ÔÂÀúÔªËØÉÏµÄ°´Å¥ÀàĞÍ(monthCal_button_type_)
+/// @defgroup group_monthCal_button_type_    æœˆå†å…ƒç´ ä¸Šçš„æŒ‰é’®ç±»å‹(monthCal_button_type_)
 /// @{
 enum monthCal_button_type_
 {
-	monthCal_button_type_today = 0,  ///< ½ñÌì°´Å¥
-	monthCal_button_type_last_year,  ///< ÉÏÒ»Äê
-	monthCal_button_type_next_year,  ///< ÏÂÒ»Äê
-	monthCal_button_type_last_month, ///< ÉÏÒ»ÔÂ
-	monthCal_button_type_next_month, ///< ÏÂÒ»ÔÂ
+	monthCal_button_type_today = 0,  ///< ä»Šå¤©æŒ‰é’®
+	monthCal_button_type_last_year,  ///< ä¸Šä¸€å¹´
+	monthCal_button_type_next_year,  ///< ä¸‹ä¸€å¹´
+	monthCal_button_type_last_month, ///< ä¸Šä¸€æœˆ
+	monthCal_button_type_next_month, ///< ä¸‹ä¸€æœˆ
 };
 ///@}
 
-///@defgroup  group_fontStyle_  ×ÖÌåÑùÊ½(fontStyle_)
+///@defgroup  group_fontStyle_  å­—ä½“æ ·å¼(fontStyle_)
 ///@{
 enum fontStyle_
 {
-	fontStyle_regular = 0,     ///<Õı³£
-	fontStyle_bold = 1,        ///<´ÖÌå
-	fontStyle_italic = 2,      ///<Ğ±Ìå
-	fontStyle_boldItalic = 3,  ///<´ÖĞ±Ìå
-	fontStyle_underline = 4,   ///<ÏÂ»®Ïß
-	fontStyle_strikeout = 8    ///<É¾³ıÏß
+	fontStyle_regular = 0,     ///<æ­£å¸¸
+	fontStyle_bold = 1,        ///<ç²—ä½“
+	fontStyle_italic = 2,      ///<æ–œä½“
+	fontStyle_boldItalic = 3,  ///<ç²—æ–œä½“
+	fontStyle_underline = 4,   ///<ä¸‹åˆ’çº¿
+	fontStyle_strikeout = 8    ///<åˆ é™¤çº¿
 };
 ///@}
 
-///@defgroup  group_adapter_date_type_    Êı¾İÊÊÅäÆ÷Êı¾İÀàĞÍ(adapter_date_type_)
+///@defgroup  group_adapter_date_type_    æ•°æ®é€‚é…å™¨æ•°æ®ç±»å‹(adapter_date_type_)
 ///@{
 enum  adapter_date_type_
 {
 	adapter_date_type_error = -1,
-	adapter_date_type_int = 0,     ///<ÕûĞÎ
-	adapter_date_type_float = 1,   ///<¸¡µãĞÍ
-	adapter_date_type_string = 2,  ///<×Ö·û´®
-	adapter_date_type_image = 3,   ///<Í¼Æ¬
+	adapter_date_type_int = 0,     ///<æ•´å½¢
+	adapter_date_type_float = 1,   ///<æµ®ç‚¹å‹
+	adapter_date_type_string = 2,  ///<å­—ç¬¦ä¸²
+	adapter_date_type_image = 3,   ///<å›¾ç‰‡
 };
 ///@}
 
-/// @defgroup group_ease_type_  »º¶¯ÀàĞÍ(ease_type_)
+/// @defgroup group_ease_type_  ç¼“åŠ¨ç±»å‹(ease_type_)
 /// @{
 enum ease_type_
 {
-	easeIn,      ///<´ÓÂıµ½¿ì
-	easeOut,     ///<´Ó¿ìµ½Âı
-	easeInOut,   ///<´ÓÂıµ½¿ìÔÙµ½Âı
+	easeIn,      ///<ä»æ…¢åˆ°å¿«
+	easeOut,     ///<ä»å¿«åˆ°æ…¢
+	easeInOut,   ///<ä»æ…¢åˆ°å¿«å†åˆ°æ…¢
 };
 ///@}
 
-///@defgroup   group_ease_flag_  »º¶¯±êÊ¶(ease_flag_)
+///@defgroup   group_ease_flag_  ç¼“åŠ¨æ ‡è¯†(ease_flag_)
 ///@{
 enum ease_flag_
 {
-	ease_flag_linear,			///<ÏßĞÔ, Ö±Ïß
-	ease_flag_quad,			    ///<¶ş´Î·½ÇúÏß
-	ease_flag_cubic,			///<Èı´Î·½ÇúÏß, Ô²»¡
-	ease_flag_quart,			///<ËÄ´Î·½ÇúÏß
-	ease_flag_quint,			///<Îå´Î·½ÇúÏß
+	ease_flag_linear,			///<çº¿æ€§, ç›´çº¿
+	ease_flag_quad,			    ///<äºŒæ¬¡æ–¹æ›²çº¿
+	ease_flag_cubic,			///<ä¸‰æ¬¡æ–¹æ›²çº¿, åœ†å¼§
+	ease_flag_quart,			///<å››æ¬¡æ–¹æ›²çº¿
+	ease_flag_quint,			///<äº”æ¬¡æ–¹æ›²çº¿
 
-	ease_flag_sine,				///<ÕıÏÒ, ÔÚÄ©¶Ë±ä»¯
-	ease_flag_expo,			    ///<Í»»÷, Í»È»Ò»ÏÂ
-	ease_flag_circ,		        ///<Ô²»·, ºÃ±ÈÈÆ¹ıÒ»¸öÔ²»·
-	ease_flag_elastic,		    ///<Ç¿Á¦»Øµ¯
-	ease_flag_back,				///<»Øµ¯, ±È½Ï»ºÂı
-	ease_flag_bounce,		    ///<µ¯Ìø, Ä£ÄâĞ¡ÇòÂäµØµ¯Ìø
+	ease_flag_sine,				///<æ­£å¼¦, åœ¨æœ«ç«¯å˜åŒ–
+	ease_flag_expo,			    ///<çªå‡», çªç„¶ä¸€ä¸‹
+	ease_flag_circ,		        ///<åœ†ç¯, å¥½æ¯”ç»•è¿‡ä¸€ä¸ªåœ†ç¯
+	ease_flag_elastic,		    ///<å¼ºåŠ›å›å¼¹
+	ease_flag_back,				///<å›å¼¹, æ¯”è¾ƒç¼“æ…¢
+	ease_flag_bounce,		    ///<å¼¹è·³, æ¨¡æ‹Ÿå°çƒè½åœ°å¼¹è·³
 
-	ease_flag_in    = 0x010000, ///<´ÓÂıµ½¿ì
-	ease_flag_out   = 0x020000, ///<´Ó¿ìµ½Âı
-	ease_flag_inOut = 0x030000, ///<´ÓÂıµ½¿ìÔÙµ½Âı
+	ease_flag_in    = 0x010000, ///<ä»æ…¢åˆ°å¿«
+	ease_flag_out   = 0x020000, ///<ä»å¿«åˆ°æ…¢
+	ease_flag_inOut = 0x030000, ///<ä»æ…¢åˆ°å¿«å†åˆ°æ…¢
 };
 ///@}
 
-///@defgroup   group_notifyMsg_skin_  Í¨ÖªÏûÏ¢Íâ¹Û(notifyMsg_skin_)
+///@defgroup   group_notifyMsg_skin_  é€šçŸ¥æ¶ˆæ¯å¤–è§‚(notifyMsg_skin_)
 ///@{
 enum  notifyMsg_skin_
 {
-	notifyMsg_skin_no,         ///<Ä¬ÈÏ
-	notifyMsg_skin_success,    ///<³É¹¦
-	notifyMsg_skin_warning,	   ///<¾¯¸æ
-	notifyMsg_skin_message,	   ///<ÏûÏ¢
-	notifyMsg_skin_error,	   ///<´íÎó
+	notifyMsg_skin_no,         ///<é»˜è®¤
+	notifyMsg_skin_success,    ///<æˆåŠŸ
+	notifyMsg_skin_warning,	   ///<è­¦å‘Š
+	notifyMsg_skin_message,	   ///<æ¶ˆæ¯
+	notifyMsg_skin_error,	   ///<é”™è¯¯
 };
 ///@}
 
-///@defgroup group_animation_move_  ¶¯»­ÒÆ¶¯±êÊ¶(animation_move_)
+///@defgroup group_animation_move_  åŠ¨ç”»ç§»åŠ¨æ ‡è¯†(animation_move_)
 ///@{
 enum animation_move_
 {
-	animation_move_x = 0x01,   ///<XÖáÒÆ¶¯
-	animation_move_y = 0x02,   ///<YÖáÒÆ¶¯
+	animation_move_x = 0x01,   ///<Xè½´ç§»åŠ¨
+	animation_move_y = 0x02,   ///<Yè½´ç§»åŠ¨
 };
 ///@}
 
-///@defgroup group_bkInfo_align_flag_  ±³¾°¶ÔÏó¶ÔÆë·½Ê½(bkObject_align_flag_)
+///@defgroup group_bkInfo_align_flag_  èƒŒæ™¯å¯¹è±¡å¯¹é½æ–¹å¼(bkObject_align_flag_)
 ///@{
-enum bkObject_align_flag_  //±³¾°¶ÔÏó¶ÔÆë·½Ê½
+enum bkObject_align_flag_  //èƒŒæ™¯å¯¹è±¡å¯¹é½æ–¹å¼
 {
-	bkObject_align_flag_no     = 0x000,    ///<ÎŞ
-	bkObject_align_flag_left   = 0x001,    ///<×ó¶ÔÆë, µ±ÉèÖÃ´Ë±êÊ¶Ê±,Íâ¼ä¾à(margin.left)´ú±í×ó²à¼ä¾à; µ±rightÎ´ÉèÖÃÊ±,ÄÇÃ´Íâ¼ä¾à(margin.right)´ú±í¿í¶È;
-	bkObject_align_flag_top    = 0x002,    ///<¶¥¶ÔÆë, µ±ÉèÖÃ´Ë±êÊ¶Ê±,Íâ¼ä¾à(margin.top)´ú±í¶¥²¿¼ä¾à; µ±bottomÎ´ÉèÖÃÊ±,ÄÇÃ´Íâ¼ä¾à(margin.bottom)´ú±í¸ß¶È;
-	bkObject_align_flag_right  = 0x004,    ///<ÓÒ¶ÔÆë, µ±ÉèÖÃ´Ë±êÊ¶Ê±,Íâ¼ä¾à(margin.right)´ú±íÓÒ²à¼ä¾à; µ±leftÎ´ÉèÖÃÊ±,ÄÇÃ´Íâ¼ä¾à(margin.left)´ú±í¿í¶È;
-	bkObject_align_flag_bottom = 0x008,    ///<µ×¶ÔÆë, µ±ÉèÖÃ´Ë±êÊ¶Ê±,Íâ¼ä¾à(margin.bottom)´ú±íµ×²¿¼ä¾à; µ±topÎ´ÉèÖÃÊ±,ÄÇÃ´Íâ¼ä¾à(margin.top)´ú±í¸ß¶È;
-	bkObject_align_flag_center = 0x010,    ///<Ë®Æ½¾ÓÖĞ, µ±ÉèÖÃ´Ë±êÊ¶Ê±,Íâ¼ä¾à(margin.left)´ú±í¿í¶È;
-	bkObject_align_flag_center_v = 0x020,  ///<´¹Ö±¾ÓÖĞ, µ±ÉèÖÃ´Ë±êÊ¶Ê±,Íâ¼ä¾à(margin.top)´ú±í¸ß¶È; 
+	bkObject_align_flag_no     = 0x000,    ///<æ— 
+	bkObject_align_flag_left   = 0x001,    ///<å·¦å¯¹é½, å½“è®¾ç½®æ­¤æ ‡è¯†æ—¶,å¤–é—´è·(margin.left)ä»£è¡¨å·¦ä¾§é—´è·; å½“rightæœªè®¾ç½®æ—¶,é‚£ä¹ˆå¤–é—´è·(margin.right)ä»£è¡¨å®½åº¦;
+	bkObject_align_flag_top    = 0x002,    ///<é¡¶å¯¹é½, å½“è®¾ç½®æ­¤æ ‡è¯†æ—¶,å¤–é—´è·(margin.top)ä»£è¡¨é¡¶éƒ¨é—´è·; å½“bottomæœªè®¾ç½®æ—¶,é‚£ä¹ˆå¤–é—´è·(margin.bottom)ä»£è¡¨é«˜åº¦;
+	bkObject_align_flag_right  = 0x004,    ///<å³å¯¹é½, å½“è®¾ç½®æ­¤æ ‡è¯†æ—¶,å¤–é—´è·(margin.right)ä»£è¡¨å³ä¾§é—´è·; å½“leftæœªè®¾ç½®æ—¶,é‚£ä¹ˆå¤–é—´è·(margin.left)ä»£è¡¨å®½åº¦;
+	bkObject_align_flag_bottom = 0x008,    ///<åº•å¯¹é½, å½“è®¾ç½®æ­¤æ ‡è¯†æ—¶,å¤–é—´è·(margin.bottom)ä»£è¡¨åº•éƒ¨é—´è·; å½“topæœªè®¾ç½®æ—¶,é‚£ä¹ˆå¤–é—´è·(margin.top)ä»£è¡¨é«˜åº¦;
+	bkObject_align_flag_center = 0x010,    ///<æ°´å¹³å±…ä¸­, å½“è®¾ç½®æ­¤æ ‡è¯†æ—¶,å¤–é—´è·(margin.left)ä»£è¡¨å®½åº¦;
+	bkObject_align_flag_center_v = 0x020,  ///<å‚ç›´å±…ä¸­, å½“è®¾ç½®æ­¤æ ‡è¯†æ—¶,å¤–é—´è·(margin.top)ä»£è¡¨é«˜åº¦; 
 };
 ///@}
 
 
-///@defgroup group_frameWnd_cell_type_  ¿ò¼Ü´°¿Úµ¥Ôª¸ñÀàĞÍ(frameWnd_cell_type_)
+///@defgroup group_frameWnd_cell_type_  æ¡†æ¶çª—å£å•å…ƒæ ¼ç±»å‹(frameWnd_cell_type_)
 enum frameWnd_cell_type_
 {
-	frameWnd_cell_type_no          = 0,   ///<ÎŞ
-	frameWnd_cell_type_pane        = 1,   ///<´°¸ñ
-	frameWnd_cell_type_group       = 2,   ///<´°¸ñ×é
-	frameWnd_cell_type_bodyView    = 3,   ///<Ö÷ÊÓÍ¼Çø
-	frameWnd_cell_type_top_bottom  = 4,   ///<ÉÏÏÂ²¼¾Ö
-	frameWnd_cell_type_left_right  = 5,   ///<×óÓÒ²¼¾Ö
+	frameWnd_cell_type_no          = 0,   ///<æ— 
+	frameWnd_cell_type_pane        = 1,   ///<çª—æ ¼
+	frameWnd_cell_type_group       = 2,   ///<çª—æ ¼ç»„
+	frameWnd_cell_type_bodyView    = 3,   ///<ä¸»è§†å›¾åŒº
+	frameWnd_cell_type_top_bottom  = 4,   ///<ä¸Šä¸‹å¸ƒå±€
+	frameWnd_cell_type_left_right  = 5,   ///<å·¦å³å¸ƒå±€
 };
 
 
 ///@}
 
 /////////////////////////////////////////////////////////////////////
-//////////////ìÅ²Ê×éºÏ×´Ì¬/////////////////////////////////////////////
+//////////////ç‚«å½©ç»„åˆçŠ¶æ€/////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////
 
-/// @defgroup group_combo_StateFlag  ×éºÏ×´Ì¬
+/// @defgroup group_combo_StateFlag  ç»„åˆçŠ¶æ€
 /// @{
 
-///@defgroup group_window_state_flag_  ´°¿Ú×´Ì¬(window_state_flag_)
+///@defgroup group_window_state_flag_  çª—å£çŠ¶æ€(window_state_flag_)
 ///@{
 enum  window_state_flag_
 {
-	window_state_flag_nothing       =0x0000,  ///<ÎŞ
-	window_state_flag_leave         =0x0001,  ///<Õû¸ö´°¿Ú
-	window_state_flag_body_leave    =0x0002,  ///<´°¿Ú-body
-	window_state_flag_top_leave     =0x0004,  ///<´°¿Ú-top
-	window_state_flag_bottom_leave  =0x0008,  ///<´°¿Ú-bottom
-	window_state_flag_left_leave    =0x0010,  ///<´°¿Ú-left
-	window_state_flag_right_leave   =0x0020,  ///<´°¿Ú-right
+	window_state_flag_nothing       =0x0000,  ///<æ— 
+	window_state_flag_leave         =0x0001,  ///<æ•´ä¸ªçª—å£
+	window_state_flag_body_leave    =0x0002,  ///<çª—å£-body
+	window_state_flag_top_leave     =0x0004,  ///<çª—å£-top
+	window_state_flag_bottom_leave  =0x0008,  ///<çª—å£-bottom
+	window_state_flag_left_leave    =0x0010,  ///<çª—å£-left
+	window_state_flag_right_leave   =0x0020,  ///<çª—å£-right
 
-	window_state_flag_layout_body   =0x20000000, ///<²¼¾ÖÄÚÈİÇø
+	window_state_flag_layout_body   =0x20000000, ///<å¸ƒå±€å†…å®¹åŒº
 };
 ///@}
 
-///@defgroup  group_element_state_flag_ ÔªËØ×´Ì¬(element_state_flag_)
+///@defgroup  group_element_state_flag_ å…ƒç´ çŠ¶æ€(element_state_flag_)
 ///@{
 enum  element_state_flag_
 {
-	element_state_flag_nothing   =window_state_flag_nothing,  ///<ÎŞ
-	element_state_flag_enable    =0x0001,  ///<ÆôÓÃ
-	element_state_flag_disable   =0x0002,  ///<½ûÓÃ
-	element_state_flag_focus     =0x0004,  ///<½¹µã
-	element_state_flag_focus_no  =0x0008,  ///<ÎŞ½¹µã
-	element_state_flag_focusEx   =0x40000000,  ///<¸ÃÔªËØ»ò¸ÃÔªËØµÄ×ÓÔªËØÓµÓĞ½¹µã
-	element_state_flag_focusEx_no=0x80000000,  ///<ÎŞ½¹µãEx
+	element_state_flag_nothing   =window_state_flag_nothing,  ///<æ— 
+	element_state_flag_enable    =0x0001,  ///<å¯ç”¨
+	element_state_flag_disable   =0x0002,  ///<ç¦ç”¨
+	element_state_flag_focus     =0x0004,  ///<ç„¦ç‚¹
+	element_state_flag_focus_no  =0x0008,  ///<æ— ç„¦ç‚¹
+	element_state_flag_focusEx   =0x40000000,  ///<è¯¥å…ƒç´ æˆ–è¯¥å…ƒç´ çš„å­å…ƒç´ æ‹¥æœ‰ç„¦ç‚¹
+	element_state_flag_focusEx_no=0x80000000,  ///<æ— ç„¦ç‚¹Ex
 
-	layout_state_flag_layout_body  =window_state_flag_layout_body, ///<²¼¾ÖÄÚÈİÇø
+	layout_state_flag_layout_body  =window_state_flag_layout_body, ///<å¸ƒå±€å†…å®¹åŒº
 
-	element_state_flag_leave     =0x0010,  ///<Êó±êÀë¿ª
-	element_state_flag_stay      =0x0020,  ///<ÎªÀ©Õ¹Ä£¿é±£Áô
-	element_state_flag_down      =0x0040,  ///<ÎªÀ©Õ¹Ä£¿é±£Áô
+	element_state_flag_leave     =0x0010,  ///<é¼ æ ‡ç¦»å¼€
+	element_state_flag_stay      =0x0020,  ///<ä¸ºæ‰©å±•æ¨¡å—ä¿ç•™
+	element_state_flag_down      =0x0040,  ///<ä¸ºæ‰©å±•æ¨¡å—ä¿ç•™
 };
 ///@}
 
-///@defgroup  group_button_state_flag_ °´Å¥×´Ì¬(button_state_flag_)
+///@defgroup  group_button_state_flag_ æŒ‰é’®çŠ¶æ€(button_state_flag_)
 ///@{
 enum  button_state_flag_
 {
-	button_state_flag_leave     =element_state_flag_leave,  ///<Êó±êÀë¿ª
-	button_state_flag_stay      =element_state_flag_stay,   ///<Êó±êÍ£Áô
-	button_state_flag_down      =element_state_flag_down,   ///<Êó±ê°´ÏÂ
+	button_state_flag_leave     =element_state_flag_leave,  ///<é¼ æ ‡ç¦»å¼€
+	button_state_flag_stay      =element_state_flag_stay,   ///<é¼ æ ‡åœç•™
+	button_state_flag_down      =element_state_flag_down,   ///<é¼ æ ‡æŒ‰ä¸‹
 
-	button_state_flag_check     =0x0080, ///<Ñ¡ÖĞ
-	button_state_flag_check_no  =0x0100, ///<Î´Ñ¡ÖĞ
+	button_state_flag_check     =0x0080, ///<é€‰ä¸­
+	button_state_flag_check_no  =0x0100, ///<æœªé€‰ä¸­
 	
-	button_state_flag_WindowRestore  =0x0200, ///<´°¿Ú»¹Ô­
-	button_state_flag_WindowMaximize =0x0400, ///<´°¿Ú×î´ó»¯
+	button_state_flag_WindowRestore  =0x0200, ///<çª—å£è¿˜åŸ
+	button_state_flag_WindowMaximize =0x0400, ///<çª—å£æœ€å¤§åŒ–
 };
 ///@}
 
-///@defgroup   group_comboBox_state_flag_  ×éºÏ¿ò×´Ì¬(comboBox_state_flag_)
+///@defgroup   group_comboBox_state_flag_  ç»„åˆæ¡†çŠ¶æ€(comboBox_state_flag_)
 ///@{
 enum comboBox_state_flag_
 {
-	comboBox_state_flag_leave   =element_state_flag_leave, ///<Êó±êÀë¿ª
-	comboBox_state_flag_stay    =element_state_flag_stay,  ///<Êó±êÍ£Áô
-	comboBox_state_flag_down    =element_state_flag_down,  ///<Êó±ê°´ÏÂ
+	comboBox_state_flag_leave   =element_state_flag_leave, ///<é¼ æ ‡ç¦»å¼€
+	comboBox_state_flag_stay    =element_state_flag_stay,  ///<é¼ æ ‡åœç•™
+	comboBox_state_flag_down    =element_state_flag_down,  ///<é¼ æ ‡æŒ‰ä¸‹
 };
 ///@}
 
-///@defgroup   group_listBox_state_flag_  ÁĞ±í¿ò×´Ì¬(listBox_state_flag_)
+///@defgroup   group_listBox_state_flag_  åˆ—è¡¨æ¡†çŠ¶æ€(listBox_state_flag_)
 ///@{
 enum listBox_state_flag_
 {
-	listBox_state_flag_item_leave     =0x0080, ///<ÏîÊó±êÀë¿ª
-	listBox_state_flag_item_stay      =0x0100, ///<ÏîÊó±êÍ£Áô
+	listBox_state_flag_item_leave     =0x0080, ///<é¡¹é¼ æ ‡ç¦»å¼€
+	listBox_state_flag_item_stay      =0x0100, ///<é¡¹é¼ æ ‡åœç•™
 
-	listBox_state_flag_item_select    =0x0200, ///<ÏîÑ¡Ôñ
-	listBox_state_flag_item_select_no =0x0400, ///<ÏîÎ´Ñ¡Ôñ
+	listBox_state_flag_item_select    =0x0200, ///<é¡¹é€‰æ‹©
+	listBox_state_flag_item_select_no =0x0400, ///<é¡¹æœªé€‰æ‹©
 };
 ///@}
 
-///@defgroup   group_list_state_flag_  ÁĞ±í×´Ì¬(list_state_flag_)
+///@defgroup   group_list_state_flag_  åˆ—è¡¨çŠ¶æ€(list_state_flag_)
 ///@{
 enum list_state_flag_
 {
-	list_state_flag_item_leave      =0x0080, ///<ÏîÊó±êÀë¿ª
-	list_state_flag_item_stay       =0x0100, ///<ÏîÊó±êÍ£Áô
+	list_state_flag_item_leave      =0x0080, ///<é¡¹é¼ æ ‡ç¦»å¼€
+	list_state_flag_item_stay       =0x0100, ///<é¡¹é¼ æ ‡åœç•™
 
-	list_state_flag_item_select     =0x0200, ///<ÏîÑ¡Ôñ
-	list_state_flag_item_select_no  =0x0400, ///<ÏîÎ´Ñ¡Ôñ
+	list_state_flag_item_select     =0x0200, ///<é¡¹é€‰æ‹©
+	list_state_flag_item_select_no  =0x0400, ///<é¡¹æœªé€‰æ‹©
 };
 ///@}
 
-///@defgroup   group_listHeader_state_flag_  ÁĞ±íÍ·×´Ì¬(listHeader_state_flag_)
+///@defgroup   group_listHeader_state_flag_  åˆ—è¡¨å¤´çŠ¶æ€(listHeader_state_flag_)
 ///@{
 enum listHeader_state_flag_
 {
-	listHeader_state_flag_item_leave  =0x0080, ///<ÏîÊó±êÀë¿ª
-	listHeader_state_flag_item_stay   =0x0100, ///<ÏîÊó±êÍ£Áô
-	listHeader_state_flag_item_down   =0x0200, ///<ÏîÊó±ê°´ÏÂ
+	listHeader_state_flag_item_leave  =0x0080, ///<é¡¹é¼ æ ‡ç¦»å¼€
+	listHeader_state_flag_item_stay   =0x0100, ///<é¡¹é¼ æ ‡åœç•™
+	listHeader_state_flag_item_down   =0x0200, ///<é¡¹é¼ æ ‡æŒ‰ä¸‹
 };
 ///@}
 
-///@defgroup   group_listView_state_flag_ ÁĞ±íÊÓÍ¼×´Ì¬(listView_state_flag_)
+///@defgroup   group_listView_state_flag_ åˆ—è¡¨è§†å›¾çŠ¶æ€(listView_state_flag_)
 ///@{
 enum listView_state_flag_
 {
-	listView_state_flag_item_leave       =0x0080,  ///<ÏîÊó±êÀë¿ª
-	listView_state_flag_item_stay        =0x0100,  ///<ÏîÊó±êÍ£Áô
+	listView_state_flag_item_leave       =0x0080,  ///<é¡¹é¼ æ ‡ç¦»å¼€
+	listView_state_flag_item_stay        =0x0100,  ///<é¡¹é¼ æ ‡åœç•™
 
-	listView_state_flag_item_select      =0x0200,  ///<ÏîÑ¡Ôñ
-	listView_state_flag_item_select_no   =0x0400,  ///<ÏîÎ´Ñ¡Ôñ
+	listView_state_flag_item_select      =0x0200,  ///<é¡¹é€‰æ‹©
+	listView_state_flag_item_select_no   =0x0400,  ///<é¡¹æœªé€‰æ‹©
 
-	listView_state_flag_group_leave      =0x0800,  ///<×éÊó±êÀë¿ª
-	listView_state_flag_group_stay       =0x1000,  ///<×éÊó±êÍ£Áô
+	listView_state_flag_group_leave      =0x0800,  ///<ç»„é¼ æ ‡ç¦»å¼€
+	listView_state_flag_group_stay       =0x1000,  ///<ç»„é¼ æ ‡åœç•™
 
-	listView_state_flag_group_select     =0x2000,  ///<×éÑ¡Ôñ
-	listView_state_flag_group_select_no  =0x4000,  ///<×éÎ´Ñ¡Ôñ
+	listView_state_flag_group_select     =0x2000,  ///<ç»„é€‰æ‹©
+	listView_state_flag_group_select_no  =0x4000,  ///<ç»„æœªé€‰æ‹©
 };
 ///@}
 
-///@defgroup   group_tree_state_flag_ ÁĞ±íÊ÷×´Ì¬(tree_state_flag_)
+///@defgroup   group_tree_state_flag_ åˆ—è¡¨æ ‘çŠ¶æ€(tree_state_flag_)
 ///@{
 enum tree_state_flag_
 {
-	tree_state_flag_item_leave      =0x0080,  ///<ÏîÊó±êÀë¿ª
-	tree_state_flag_item_stay       =0x0100,  ///<ÏîÊó±êÍ£Áô,±£ÁôÖµ, ÔİÎ´Ê¹ÓÃ
+	tree_state_flag_item_leave      =0x0080,  ///<é¡¹é¼ æ ‡ç¦»å¼€
+	tree_state_flag_item_stay       =0x0100,  ///<é¡¹é¼ æ ‡åœç•™,ä¿ç•™å€¼, æš‚æœªä½¿ç”¨
 
-	tree_state_flag_item_select     =0x0200,  ///<ÏîÑ¡Ôñ
-	tree_state_flag_item_select_no  =0x0400,  ///<ÏîÎ´Ñ¡Ôñ
+	tree_state_flag_item_select     =0x0200,  ///<é¡¹é€‰æ‹©
+	tree_state_flag_item_select_no  =0x0400,  ///<é¡¹æœªé€‰æ‹©
 
-	tree_state_flag_group           =0x0800,  ///<ÏîÎª×é
-	tree_state_flag_group_no        =0x1000,  ///<Ïî²»Îª×é
+	tree_state_flag_group           =0x0800,  ///<é¡¹ä¸ºç»„
+	tree_state_flag_group_no        =0x1000,  ///<é¡¹ä¸ä¸ºç»„
 };
 ///@}
 
-///@defgroup   group_monthCal_state_flag_  ÔÂÀú¿¨Æ¬×´Ì¬(monthCal_state_flag_)
+///@defgroup   group_monthCal_state_flag_  æœˆå†å¡ç‰‡çŠ¶æ€(monthCal_state_flag_)
 ///@{
 enum monthCal_state_flag_     
 {
-	monthCal_state_flag_leave = element_state_flag_leave,  ///<Àë¿ª×´Ì¬
+	monthCal_state_flag_leave = element_state_flag_leave,  ///<ç¦»å¼€çŠ¶æ€
 
-	monthCal_state_flag_item_leave      = 0x0080,     ///< Ïî-Àë¿ª
-	monthCal_state_flag_item_stay       = 0x0100,     ///< Ïî-Í£Áô
-	monthCal_state_flag_item_down       = 0x0200,     ///< Ïî-°´ÏÂ
+	monthCal_state_flag_item_leave      = 0x0080,     ///< é¡¹-ç¦»å¼€
+	monthCal_state_flag_item_stay       = 0x0100,     ///< é¡¹-åœç•™
+	monthCal_state_flag_item_down       = 0x0200,     ///< é¡¹-æŒ‰ä¸‹
 
-	monthCal_state_flag_item_select     = 0x0400,     ///< Ïî-Ñ¡Ôñ
-	monthCal_state_flag_item_select_no  = 0x0800,     ///< Ïî-Î´Ñ¡Ôñ
+	monthCal_state_flag_item_select     = 0x0400,     ///< é¡¹-é€‰æ‹©
+	monthCal_state_flag_item_select_no  = 0x0800,     ///< é¡¹-æœªé€‰æ‹©
 
-	monthCal_state_flag_item_today      = 0x1000,     ///< Ïî-½ñÌì
-//	monthCal_state_flag_item_other      = 0x2000,     ///< Ïî-ÉÏÔÂ¼°ÏÂÔÂ
-	monthCal_state_flag_item_last_month = 0x2000,     ///< Ïî-ÉÏÔÂ
-	monthCal_state_flag_item_cur_month  = 0x4000,     ///< Ïî-µ±ÔÂ
-	monthCal_state_flag_item_next_month = 0x8000,     ///< Ïî-ÏÂÔÂ
+	monthCal_state_flag_item_today      = 0x1000,     ///< é¡¹-ä»Šå¤©
+//	monthCal_state_flag_item_other      = 0x2000,     ///< é¡¹-ä¸ŠæœˆåŠä¸‹æœˆ
+	monthCal_state_flag_item_last_month = 0x2000,     ///< é¡¹-ä¸Šæœˆ
+	monthCal_state_flag_item_cur_month  = 0x4000,     ///< é¡¹-å½“æœˆ
+	monthCal_state_flag_item_next_month = 0x8000,     ///< é¡¹-ä¸‹æœˆ
 };
 ///@}
 
-///@defgroup   group_propertyGrid_state_flag_  ÊôĞÔÍø¸ñ×´Ì¬(propertyGrid_state_flag_)
+///@defgroup   group_propertyGrid_state_flag_  å±æ€§ç½‘æ ¼çŠ¶æ€(propertyGrid_state_flag_)
 ///@{
 enum propertyGrid_state_flag_     
 {
-	propertyGrid_state_flag_item_leave     = 0x0080,  	 ///<Àë¿ª
-	propertyGrid_state_flag_item_stay      = 0x0100,	 ///<Í£Áô
+	propertyGrid_state_flag_item_leave     = 0x0080,  	 ///<ç¦»å¼€
+	propertyGrid_state_flag_item_stay      = 0x0100,	 ///<åœç•™
 
-	propertyGrid_state_flag_item_select    = 0x0200,	 ///<Ñ¡Ôñ
-	propertyGrid_state_flag_item_select_no = 0x0400,	 ///<Î´Ñ¡Ôñ
+	propertyGrid_state_flag_item_select    = 0x0200,	 ///<é€‰æ‹©
+	propertyGrid_state_flag_item_select_no = 0x0400,	 ///<æœªé€‰æ‹©
 
-	propertyGrid_state_flag_group_leave      = 0x0800,	 ///<×éÀë¿ª
-	propertyGrid_state_flag_group_expand     = 0x1000,	 ///<×éÕ¹¿ª
-	propertyGrid_state_flag_group_expand_no  = 0x2000,	 ///<×éÎ´Õ¹¿ª
+	propertyGrid_state_flag_group_leave      = 0x0800,	 ///<ç»„ç¦»å¼€
+	propertyGrid_state_flag_group_expand     = 0x1000,	 ///<ç»„å±•å¼€
+	propertyGrid_state_flag_group_expand_no  = 0x2000,	 ///<ç»„æœªå±•å¼€
 };
 ///@}
 
-///@defgroup   group_pane_state_flag_  ´°¸ñ×´Ì¬(pane_state_flag_)
+///@defgroup   group_pane_state_flag_  çª—æ ¼çŠ¶æ€(pane_state_flag_)
 ///@{
 enum pane_state_flag_     
 {
-	pane_state_flag_leave     = element_state_flag_leave,  ///<Àë¿ª
-	pane_state_flag_stay      = element_state_flag_stay,   ///<Í£Áô
+	pane_state_flag_leave     = element_state_flag_leave,  ///<ç¦»å¼€
+	pane_state_flag_stay      = element_state_flag_stay,   ///<åœç•™
 
-	pane_state_flag_caption   = 0x0080,  ///<±êÌâ
-	pane_state_flag_body      = 0x0100,  ///<ÄÚÈİÇø
+	pane_state_flag_caption   = 0x0080,  ///<æ ‡é¢˜
+	pane_state_flag_body      = 0x0100,  ///<å†…å®¹åŒº
 };
 ///@}
 
-///@defgroup   group_layout_state_flag_  ²¼¾Ö×´Ì¬(layout_state_flag_)
+///@defgroup   group_layout_state_flag_  å¸ƒå±€çŠ¶æ€(layout_state_flag_)
 ///@{
 enum layout_state_flag_
 {
-	layout_state_flag_nothing   =window_state_flag_nothing,  ///<ÎŞ
-	layout_state_flag_full      = 0x0001,   ///<ÍêÕû±³¾°
-	layout_state_flag_body      = 0x0002,   ///<ÄÚÈİÇøÓò, ²»°üº¬±ß´óĞ¡
+	layout_state_flag_nothing   =window_state_flag_nothing,  ///<æ— 
+	layout_state_flag_full      = 0x0001,   ///<å®Œæ•´èƒŒæ™¯
+	layout_state_flag_body      = 0x0002,   ///<å†…å®¹åŒºåŸŸ, ä¸åŒ…å«è¾¹å¤§å°
 };
 ///@}
 ///@}
 
 /////////////////////////////////////////////////////////////////////
-//////////////¶¨Òå½á¹¹Ìå///////////////////////////////////////////////
+//////////////å®šä¹‰ç»“æ„ä½“///////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////
 
-///@defgroup  group_struct_  ½á¹¹Ìå¶¨Òå
+///@defgroup  group_struct_  ç»“æ„ä½“å®šä¹‰
 ///@{
 
 typedef   struct lua_State lua_State;
@@ -1926,248 +1926,248 @@ struct  RECTF
 	float  bottom;
 };
 
-///±ß´óĞ¡
-struct borderSize_  //4Ìõ±ßµÄ´óĞ¡
+///è¾¹å¤§å°
+struct borderSize_  //4æ¡è¾¹çš„å¤§å°
 {
-	int  leftSize;   ///<×ó±ß´óĞ¡
-	int  topSize;    ///<ÉÏ±ß´óĞ¡
-	int  rightSize;  ///<ÓÒ±ß´óĞ¡
-	int  bottomSize; ///<ÏÂ±ß´óĞ¡
+	int  leftSize;   ///<å·¦è¾¹å¤§å°
+	int  topSize;    ///<ä¸Šè¾¹å¤§å°
+	int  rightSize;  ///<å³è¾¹å¤§å°
+	int  bottomSize; ///<ä¸‹è¾¹å¤§å°
 };
 typedef  borderSize_  spaceSize_, paddingSize_, marginSize_;
 
-///Î»ÖÃµã
+///ä½ç½®ç‚¹
 struct  position_
 {
-	int  iRow;    ///<ĞĞË÷Òı
-	int  iColumn; ///<ÁĞË÷Òı
+	int  iRow;    ///<è¡Œç´¢å¼•
+	int  iColumn; ///<åˆ—ç´¢å¼•
 };
 
-///ListBox ÁĞ±í¿òÏîĞÅÏ¢
+///ListBox åˆ—è¡¨æ¡†é¡¹ä¿¡æ¯
 struct listBox_item_
 {
-	int     index;      ///<ÏîË÷Òı
-	vint    nUserData;  ///<ÓÃ»§°ó¶¨Êı¾İ
-	int     nHeight;    ///<ÏîÄ¬ÈÏ¸ß¶È
-	int     nSelHeight; ///<ÏîÑ¡ÖĞÊ±¸ß¶È
-	list_item_state_  nState;  ///<×´Ì¬
-	RECT    rcItem;     ///<Ïî×ø±ê
-	HXCGUI  hLayout;    ///<²¼¾Ö¶ÔÏó
-	HTEMP   hTemp;      ///<ÁĞ±íÏîÄ£°å
+	int     index;      ///<é¡¹ç´¢å¼•
+	vint    nUserData;  ///<ç”¨æˆ·ç»‘å®šæ•°æ®
+	int     nHeight;    ///<é¡¹é»˜è®¤é«˜åº¦
+	int     nSelHeight; ///<é¡¹é€‰ä¸­æ—¶é«˜åº¦
+	list_item_state_  nState;  ///<çŠ¶æ€
+	RECT    rcItem;     ///<é¡¹åæ ‡
+	HXCGUI  hLayout;    ///<å¸ƒå±€å¯¹è±¡
+	HTEMP   hTemp;      ///<åˆ—è¡¨é¡¹æ¨¡æ¿
 };
 
-///ListBox ÁĞ±í¿òÏîĞÅÏ¢2
+///ListBox åˆ—è¡¨æ¡†é¡¹ä¿¡æ¯2
 struct listBox_item_info_
 {
-	vint    nUserData;  ///<ÓÃ»§°ó¶¨Êı¾İ
-	int     nHeight;    ///<Ïî¸ß¶È, -1Ê¹ÓÃÄ¬ÈÏ¸ß¶È
-	int     nSelHeight; ///<ÏîÑ¡ÖĞÊ±¸ß¶È, -1Ê¹ÓÃÄ¬ÈÏ¸ß¶È
+	vint    nUserData;  ///<ç”¨æˆ·ç»‘å®šæ•°æ®
+	int     nHeight;    ///<é¡¹é«˜åº¦, -1ä½¿ç”¨é»˜è®¤é«˜åº¦
+	int     nSelHeight; ///<é¡¹é€‰ä¸­æ—¶é«˜åº¦, -1ä½¿ç”¨é»˜è®¤é«˜åº¦
 };
 
-///ListView ÁĞ±íÊÓÏîID
+///ListView åˆ—è¡¨è§†é¡¹ID
 struct  listView_item_id_
 {
-	int  iGroup;   ///<×éË÷Òı
-	int  iItem;    ///<ÏîË÷Òı
+	int  iGroup;   ///<ç»„ç´¢å¼•
+	int  iItem;    ///<é¡¹ç´¢å¼•
 };
 
-///List ÁĞ±íÏîĞÅÏ¢
+///List åˆ—è¡¨é¡¹ä¿¡æ¯
 struct list_item_
 {
-	int     index;             ///<ÏîË÷Òı(ĞĞË÷Òı)
-	int     iSubItem;          ///<×ÓÏîË÷Òı(ÁĞË÷Òı)
-	vint    nUserData;         ///<ÓÃ»§Êı¾İ
-	list_item_state_  nState;  ///<×´Ì¬
-	RECT    rcItem;     ///<Î´Ê¹ÓÃ
-	HXCGUI  hLayout;    ///<²¼¾Ö¶ÔÏó
-	HTEMP   hTemp;      ///<ÁĞ±íÏîÄ£°å
+	int     index;             ///<é¡¹ç´¢å¼•(è¡Œç´¢å¼•)
+	int     iSubItem;          ///<å­é¡¹ç´¢å¼•(åˆ—ç´¢å¼•)
+	vint    nUserData;         ///<ç”¨æˆ·æ•°æ®
+	list_item_state_  nState;  ///<çŠ¶æ€
+	RECT    rcItem;     ///<æœªä½¿ç”¨
+	HXCGUI  hLayout;    ///<å¸ƒå±€å¯¹è±¡
+	HTEMP   hTemp;      ///<åˆ—è¡¨é¡¹æ¨¡æ¿
 };
 
-///List ÁĞ±íÍ·ÏîĞÅÏ¢
+///List åˆ—è¡¨å¤´é¡¹ä¿¡æ¯
 struct list_header_item_
 {
-	int     index;           ///<ÏîË÷Òı
-	vint    nUserData;       ///<ÓÃ»§Êı¾İ
+	int     index;           ///<é¡¹ç´¢å¼•
+	vint    nUserData;       ///<ç”¨æˆ·æ•°æ®
 
-	BOOL    bSort;           ///<ÊÇ·ñÖ§³ÖÅÅĞò
-	int     nSortType;       ///<ÅÅĞò·½Ê½,0ÎŞĞ§,1ÉıĞò,2½µĞò
-	int     iColumnAdapter;  ///<¶ÔÓ¦Êı¾İÊÊÅäÆ÷ÖĞµÄÁĞË÷Òı
+	BOOL    bSort;           ///<æ˜¯å¦æ”¯æŒæ’åº
+	int     nSortType;       ///<æ’åºæ–¹å¼,0æ— æ•ˆ,1å‡åº,2é™åº
+	int     iColumnAdapter;  ///<å¯¹åº”æ•°æ®é€‚é…å™¨ä¸­çš„åˆ—ç´¢å¼•
 
-	common_state3_  nState;  ///<×´Ì¬
-	RECT      rcItem;        ///<×ø±ê
-	HXCGUI    hLayout;       ///<²¼¾Ö¶ÔÏó
-	HTEMP     hTemp;         ///<ÁĞ±íÏîÄ£°å
+	common_state3_  nState;  ///<çŠ¶æ€
+	RECT      rcItem;        ///<åæ ‡
+	HXCGUI    hLayout;       ///<å¸ƒå±€å¯¹è±¡
+	HTEMP     hTemp;         ///<åˆ—è¡¨é¡¹æ¨¡æ¿
 };
 
-///Tree Ê÷ÏîĞÅÏ¢
+///Tree æ ‘é¡¹ä¿¡æ¯
 struct tree_item_
 {
-	int     nID;				 ///<ÏîID
-	int     nDepth;				 ///<Éî¶È
-	int     nHeight;			 ///<Ïî¸ß¶È
-	int     nSelHeight;			 ///<ÏîÑ¡ÖĞ×´Ì¬¸ß¶È
-	vint    nUserData;			 ///<ÓÃ»§Êı¾İ
-	BOOL    bExpand;			 ///<Õ¹¿ª
-	tree_item_state_  nState;	 ///<×´Ì¬
-	RECT    rcItem;              ///<×ø±ê
-	HXCGUI  hLayout;             ///<²¼¾Ö¶ÔÏó
-	HTEMP   hTemp;               ///<ÁĞ±íÏîÄ£°å
+	int     nID;				 ///<é¡¹ID
+	int     nDepth;				 ///<æ·±åº¦
+	int     nHeight;			 ///<é¡¹é«˜åº¦
+	int     nSelHeight;			 ///<é¡¹é€‰ä¸­çŠ¶æ€é«˜åº¦
+	vint    nUserData;			 ///<ç”¨æˆ·æ•°æ®
+	BOOL    bExpand;			 ///<å±•å¼€
+	tree_item_state_  nState;	 ///<çŠ¶æ€
+	RECT    rcItem;              ///<åæ ‡
+	HXCGUI  hLayout;             ///<å¸ƒå±€å¯¹è±¡
+	HTEMP   hTemp;               ///<åˆ—è¡¨é¡¹æ¨¡æ¿
 };
 
-///ListView ÁĞ±íÊÓÏîĞÅÏ¢
+///ListView åˆ—è¡¨è§†é¡¹ä¿¡æ¯
 struct listView_item_
 {
-	int     iGroup;            ///<ÏîËùÊö×éË÷Òı -1Ã»ÓĞ×é
-	int     iItem;             ///<ÏîÔÚÊı×éÖĞÎ»ÖÃË÷Òı,Èç¹û´ËÖÂÎª-1,ÄÇÃ´Îª×é
-	vint    nUserData;         ///<ÓÃ»§°ó¶¨Êı¾İ
-	list_item_state_  nState;  ///<×´Ì¬  
-	RECT    rcItem;            ///<Õû¸öÇøÓò,°üº¬±ß¿ò
-	HXCGUI  hLayout;           ///<²¼¾Ö¶ÔÏó
-	HTEMP   hTemp;             ///<ÁĞ±íÏîÄ£°å 
+	int     iGroup;            ///<é¡¹æ‰€è¿°ç»„ç´¢å¼• -1æ²¡æœ‰ç»„
+	int     iItem;             ///<é¡¹åœ¨æ•°ç»„ä¸­ä½ç½®ç´¢å¼•,å¦‚æœæ­¤è‡´ä¸º-1,é‚£ä¹ˆä¸ºç»„
+	vint    nUserData;         ///<ç”¨æˆ·ç»‘å®šæ•°æ®
+	list_item_state_  nState;  ///<çŠ¶æ€  
+	RECT    rcItem;            ///<æ•´ä¸ªåŒºåŸŸ,åŒ…å«è¾¹æ¡†
+	HXCGUI  hLayout;           ///<å¸ƒå±€å¯¹è±¡
+	HTEMP   hTemp;             ///<åˆ—è¡¨é¡¹æ¨¡æ¿ 
 };
 
-/// @defgroup group_menu_macro Menu²Ëµ¥
+/// @defgroup group_menu_macro Menuèœå•
 /// @{
 
-///²Ëµ¥-µ¯³ö´°¿ÚĞÅÏ¢
+///èœå•-å¼¹å‡ºçª—å£ä¿¡æ¯
 struct  menu_popupWnd_
 {
-	HWINDOW hWindow;    ///<´°¿Ú¾ä±ú
-	int     nParentID;  ///<¸¸ÏîID
+	HWINDOW hWindow;    ///<çª—å£å¥æŸ„
+	int     nParentID;  ///<çˆ¶é¡¹ID
 };
 
-///²Ëµ¥±³¾°×Ô»æ½á¹¹
+///èœå•èƒŒæ™¯è‡ªç»˜ç»“æ„
 struct menu_drawBackground_
 {
-	HMENUX  hMenu;      ///<²Ëµ¥¾ä±ú
-	HWINDOW hWindow;    ///<µ±Ç°µ¯³ö²Ëµ¥ÏîµÄ´°¿Ú¾ä±ú
-	int     nParentID;  ///<¸¸ÏîID
+	HMENUX  hMenu;      ///<èœå•å¥æŸ„
+	HWINDOW hWindow;    ///<å½“å‰å¼¹å‡ºèœå•é¡¹çš„çª—å£å¥æŸ„
+	int     nParentID;  ///<çˆ¶é¡¹ID
 };
 
-///²Ëµ¥Ïî×Ô»æ½á¹¹
+///èœå•é¡¹è‡ªç»˜ç»“æ„
 struct  menu_drawItem_
 {
-	HMENUX     hMenu;       ///<²Ëµ¥¾ä±ú
-	HWINDOW    hWindow;     ///<µ±Ç°µ¯³ö²Ëµ¥ÏîµÄ´°¿Ú¾ä±ú
+	HMENUX     hMenu;       ///<èœå•å¥æŸ„
+	HWINDOW    hWindow;     ///<å½“å‰å¼¹å‡ºèœå•é¡¹çš„çª—å£å¥æŸ„
 	int        nID;         ///<ID
-	int        nState;	    ///<×´Ì¬ @ref menu_item_flag_
-	RECT       rcItem;      ///<×ø±ê
-	HIMAGE     hIcon;       ///<²Ëµ¥ÏîÍ¼±ê
-	const wchar_t* pText;   ///<ÎÄ±¾
+	int        nState;	    ///<çŠ¶æ€ @ref menu_item_flag_
+	RECT       rcItem;      ///<åæ ‡
+	HIMAGE     hIcon;       ///<èœå•é¡¹å›¾æ ‡
+	const wchar_t* pText;   ///<æ–‡æœ¬
 };
 ///@}
 
-///Ê÷UIÔªËØÍÏ¶¯Ïî
+///æ ‘UIå…ƒç´ æ‹–åŠ¨é¡¹
 struct tree_drag_item_
 {
-	int  nDragItem;  ///< ÍÏ¶¯ÏîID
-	int  nDestItem;  ///< Ä¿±êÏîID
-	int  nType;      ///< Í£·ÅÏà¶ÔÄ¿±êÎ»ÖÃ,0:(ÉÏ)Í£·Åµ½Ä¿±êµÄÉÏÃæ, 1:(ÏÂ)Í£·Åµ½Ä¿±êµÄÏÂÃæ, 3:(ÖĞ)Í£·Åµ½Ä¿±êµÄµÄ×ÓÏî, 
+	int  nDragItem;  ///< æ‹–åŠ¨é¡¹ID
+	int  nDestItem;  ///< ç›®æ ‡é¡¹ID
+	int  nType;      ///< åœæ”¾ç›¸å¯¹ç›®æ ‡ä½ç½®,0:(ä¸Š)åœæ”¾åˆ°ç›®æ ‡çš„ä¸Šé¢, 1:(ä¸‹)åœæ”¾åˆ°ç›®æ ‡çš„ä¸‹é¢, 3:(ä¸­)åœæ”¾åˆ°ç›®æ ‡çš„çš„å­é¡¹, 
 };
 
-///×ÖÌåĞÅÏ¢
+///å­—ä½“ä¿¡æ¯
 struct  font_info_
 {
-	int   nSize;                 ///<×ÖÌå´óĞ¡,µ¥Î»(pt,°õ).
-	int   nStyle;                ///<×ÖÌåÑùÊ½ fontStyle_
-	wchar_t  name[LF_FACESIZE];  ///<×ÖÌåÃû³Æ
+	int   nSize;                 ///<å­—ä½“å¤§å°,å•ä½(pt,ç£…).
+	int   nStyle;                ///<å­—ä½“æ ·å¼ fontStyle_
+	wchar_t  name[LF_FACESIZE];  ///<å­—ä½“åç§°
 };
 
-///PGrid ÊôĞÔÍø¸ñÏîĞÅÏ¢
+///PGrid å±æ€§ç½‘æ ¼é¡¹ä¿¡æ¯
 struct propertyGrid_item_
 {
-	propertyGrid_item_type_ nType; ///<ÀàĞÍ
-	int   nID;           ///<ÏîID
-	int   nDepth;        ///<Éî¶È
-	vint  nUserData;     ///<ÓÃ»§Êı¾İ
-	int   nNameColWidth; ///<Ãû³ÆÁĞ¿í¶È
+	propertyGrid_item_type_ nType; ///<ç±»å‹
+	int   nID;           ///<é¡¹ID
+	int   nDepth;        ///<æ·±åº¦
+	vint  nUserData;     ///<ç”¨æˆ·æ•°æ®
+	int   nNameColWidth; ///<åç§°åˆ—å®½åº¦
 
-	RECT  rcItem;   ///<×ø±ê
-	RECT  rcExpand; ///<Õ¹¿ª
-	BOOL  bExpand;  ///<ÊÇ·ñÕ¹¿ª
-	BOOL  bShow;    ///<ÊÇ·ñ¿É¼û
+	RECT  rcItem;   ///<åæ ‡
+	RECT  rcExpand; ///<å±•å¼€
+	BOOL  bExpand;  ///<æ˜¯å¦å±•å¼€
+	BOOL  bShow;    ///<æ˜¯å¦å¯è§
 };
 
 
-///Edit ÑùÊ½ĞÅÏ¢
+///Edit æ ·å¼ä¿¡æ¯
 struct edit_style_info_
 {
-	USHORT   type;    ///<ÑùÊ½ÀàĞÍ
-	USHORT   nRef;              ///<ÒıÓÃ¼ÆÊı
-	HXCGUI   hFont_image_obj;   ///<×ÖÌå,Í¼Æ¬,UI¶ÔÏó
-	COLORREF color;             ///<ÑÕÉ«
-	BOOL     bColor;            ///<ÊÇ·ñÊ¹ÓÃÑÕÉ«
+	USHORT   type;    ///<æ ·å¼ç±»å‹
+	USHORT   nRef;              ///<å¼•ç”¨è®¡æ•°
+	HXCGUI   hFont_image_obj;   ///<å­—ä½“,å›¾ç‰‡,UIå¯¹è±¡
+	COLORREF color;             ///<é¢œè‰²
+	BOOL     bColor;            ///<æ˜¯å¦ä½¿ç”¨é¢œè‰²
 };
 
-///Edit Êı¾İ¸´ÖÆ-ÑùÊ½
+///Edit æ•°æ®å¤åˆ¶-æ ·å¼
 struct edit_data_copy_style_
 {
-	HIMAGE   hFont_image_obj; ///<×ÖÌå,Í¼Æ¬,UI¶ÔÏó
-	COLORREF color;           ///<ÑÕÉ«
-	BOOL     bColor;          ///<ÊÇ·ñÊ¹ÓÃÑÕÉ«
+	HIMAGE   hFont_image_obj; ///<å­—ä½“,å›¾ç‰‡,UIå¯¹è±¡
+	COLORREF color;           ///<é¢œè‰²
+	BOOL     bColor;          ///<æ˜¯å¦ä½¿ç”¨é¢œè‰²
 };
 
-///Edit Êı¾İ¸´ÖÆ
+///Edit æ•°æ®å¤åˆ¶
 struct edit_data_copy_
 {
-	int  nCount;       ///<ÄÚÈİÊıÁ¿
-	int  nStyleCount;  ///<ÑùÊ½ÊıÁ¿
-	edit_data_copy_style_* pStyle; ///<ÑùÊ½Êı×é
-	UINT* pData;       ///<ÄÚÈİÊı×é ¸ßÎ»2×Ö½Ú:ÑùÊ½Ë÷Òı, µÍÎ»2×Ö½Ú:Öµ
+	int  nCount;       ///<å†…å®¹æ•°é‡
+	int  nStyleCount;  ///<æ ·å¼æ•°é‡
+	edit_data_copy_style_* pStyle; ///<æ ·å¼æ•°ç»„
+	UINT* pData;       ///<å†…å®¹æ•°ç»„ é«˜ä½2å­—èŠ‚:æ ·å¼ç´¢å¼•, ä½ä½2å­—èŠ‚:å€¼
 };
 
-///Editor ÑÕÉ«ĞÅÏ¢
+///Editor é¢œè‰²ä¿¡æ¯
 struct editor_color_
 {
-	BOOL       bAlignLineArrow;            ///<¶ÔÆëÏß - ÊÇ·ñÏÔÊ¾¼ıÍ·
-	COLORREF   clrMargin1;                 ///<²à±ßÀ¸ - ±³¾°É«1, ÏÔÊ¾¶Ïµã
-	COLORREF   clrMargin2;                 ///<²à±ßÀ¸ - ±³¾°É«2, ÏÔÊ¾ĞĞºÅ
-	COLORREF   clrMargin_text;             ///<²à±ßÀ¸ - ÎÄ±¾É« - ĞĞºÅÑÕÉ«
-	COLORREF   clrMargin_breakpoint;       ///<²à±ßÀ¸ - ¶ÏµãÉ«
-	COLORREF   clrMargin_breakpointBorder; ///<²à±ßÀ¸ - ¶ÏµãÃè±ßÉ«
-	COLORREF   clrMargin_runRowArrow;      ///<²à±ßÀ¸ - µ÷ÊÔÎ»ÖÃ¼ıÍ·
-	COLORREF   clrMargin_curRow;           ///<²à±ßÀ¸ - µ±Ç°ĞĞÖ¸Ê¾É«,¹â±êËùÔÚĞĞ
-	COLORREF   clrMargin_error;            ///<²à±ßÀ¸ - ´íÎóÖ¸Ê¾É«
+	BOOL       bAlignLineArrow;            ///<å¯¹é½çº¿ - æ˜¯å¦æ˜¾ç¤ºç®­å¤´
+	COLORREF   clrMargin1;                 ///<ä¾§è¾¹æ  - èƒŒæ™¯è‰²1, æ˜¾ç¤ºæ–­ç‚¹
+	COLORREF   clrMargin2;                 ///<ä¾§è¾¹æ  - èƒŒæ™¯è‰²2, æ˜¾ç¤ºè¡Œå·
+	COLORREF   clrMargin_text;             ///<ä¾§è¾¹æ  - æ–‡æœ¬è‰² - è¡Œå·é¢œè‰²
+	COLORREF   clrMargin_breakpoint;       ///<ä¾§è¾¹æ  - æ–­ç‚¹è‰²
+	COLORREF   clrMargin_breakpointBorder; ///<ä¾§è¾¹æ  - æ–­ç‚¹æè¾¹è‰²
+	COLORREF   clrMargin_runRowArrow;      ///<ä¾§è¾¹æ  - è°ƒè¯•ä½ç½®ç®­å¤´
+	COLORREF   clrMargin_curRow;           ///<ä¾§è¾¹æ  - å½“å‰è¡ŒæŒ‡ç¤ºè‰²,å…‰æ ‡æ‰€åœ¨è¡Œ
+	COLORREF   clrMargin_error;            ///<ä¾§è¾¹æ  - é”™è¯¯æŒ‡ç¤ºè‰²
 
-	COLORREF   clrCurRowFull;       ///<Í»³öÏÔÊ¾µ±Ç°ĞĞÑÕÉ«
-	COLORREF   clrMatchSel;         ///<Æ¥ÅäÑ¡ÔñÎÄ±¾±³¾°É«
-	COLORREF   clrAlignLine;        ///<¶ÔÆëÏß
-	COLORREF   clrAlignLineSel;     ///<¶ÔÆëÏß - Ñ¡ÔñÄÚÈİ¿é
-	COLORREF   clrFunSplitLine;     ///<º¯Êı·Ö¸îÏßÑÕÉ« new
-	//Ñ¡ÔñÎÄ±¾±³¾° Í¨¹ıAPIÉèÖÃ
-	//²åÈë·ûÑÕÉ«   Í¨¹ıAPIÉèÖÃ
+	COLORREF   clrCurRowFull;       ///<çªå‡ºæ˜¾ç¤ºå½“å‰è¡Œé¢œè‰²
+	COLORREF   clrMatchSel;         ///<åŒ¹é…é€‰æ‹©æ–‡æœ¬èƒŒæ™¯è‰²
+	COLORREF   clrAlignLine;        ///<å¯¹é½çº¿
+	COLORREF   clrAlignLineSel;     ///<å¯¹é½çº¿ - é€‰æ‹©å†…å®¹å—
+	COLORREF   clrFunSplitLine;     ///<å‡½æ•°åˆ†å‰²çº¿é¢œè‰² new
+	//é€‰æ‹©æ–‡æœ¬èƒŒæ™¯ é€šè¿‡APIè®¾ç½®
+	//æ’å…¥ç¬¦é¢œè‰²   é€šè¿‡APIè®¾ç½®
 
-	int       styleSys;             ///<ÏµÍ³¹Ø¼ü×Ö  return, break, for
-	int       styleFunction;        ///<º¯Êı
-	int       styleVar;             ///<±äÁ¿
-	int       styleDataType;        ///<»ù´¡Êı¾İÀàĞÍ  int, byte, char
-	int       styleClass;           ///<Àà  class
-	int       styleMacro;           ///<ºê
-	int       styleEnum;            ///<Ã¶¾Ù   new
-	int       styleNumber;          ///<Êı×Ö
-	int       styleString;          ///<×Ö·û´®
-	int       styleComment;         ///<×¢ÊÍ
-	int       StylePunctuation;     ///<±êµã·ûºÅ  new
+	int       styleSys;             ///<ç³»ç»Ÿå…³é”®å­—  return, break, for
+	int       styleFunction;        ///<å‡½æ•°
+	int       styleVar;             ///<å˜é‡
+	int       styleDataType;        ///<åŸºç¡€æ•°æ®ç±»å‹  int, byte, char
+	int       styleClass;           ///<ç±»  class
+	int       styleMacro;           ///<å®
+	int       styleEnum;            ///<æšä¸¾   new
+	int       styleNumber;          ///<æ•°å­—
+	int       styleString;          ///<å­—ç¬¦ä¸²
+	int       styleComment;         ///<æ³¨é‡Š
+	int       StylePunctuation;     ///<æ ‡ç‚¹ç¬¦å·  new
 };
 
-/// ÔÂÀúÔªËØÏîÊı¾İ
+/// æœˆå†å…ƒç´ é¡¹æ•°æ®
 struct monthCal_item_
 {
-	int  nDay;     ///< ÈÕÆÚ
-	int  nType;    ///< 1ÉÏÔÂ,2µ±ÔÂ,3ÏÂÔÂ
-	int  nState;   ///< ×éºÏ×´Ì¬ monthCal_state_flag_
-	RECT rcItem;   ///< Ïî×ø±ê
+	int  nDay;     ///< æ—¥æœŸ
+	int  nType;    ///< 1ä¸Šæœˆ,2å½“æœˆ,3ä¸‹æœˆ
+	int  nState;   ///< ç»„åˆçŠ¶æ€ monthCal_state_flag_
+	RECT rcItem;   ///< é¡¹åæ ‡
 };
 
 ///@}
 
 
-///@defgroup  group_func_  ìÅ²Ê»Øµ÷º¯Êı¶¨Òå
+///@defgroup  group_func_  ç‚«å½©å›è°ƒå‡½æ•°å®šä¹‰
 ///@{
 
-typedef void (CALLBACK* funDebugError)(const char* pInfo);       //´íÎó»Øµ÷
-typedef BOOL (CALLBACK* funLoadFile)(const wchar_t* pFileName);  //Í¼Æ¬×ÊÔ´ÎÄ¼ş¼ÓÔØ»Øµ÷
-typedef void (CALLBACK* funCloudEvent)(const wchar_t* pFileName, int nEvent, HXCGUI hXCGUI);  //ÔÆUIÊÂ¼ş»Øµ÷
+typedef void (CALLBACK* funDebugError)(const char* pInfo);       //é”™è¯¯å›è°ƒ
+typedef BOOL (CALLBACK* funLoadFile)(const wchar_t* pFileName);  //å›¾ç‰‡èµ„æºæ–‡ä»¶åŠ è½½å›è°ƒ
+typedef void (CALLBACK* funCloudEvent)(const wchar_t* pFileName, int nEvent, HXCGUI hXCGUI);  //äº‘UIäº‹ä»¶å›è°ƒ
 
 typedef vint (CALLBACK* funCallUiThread)(vint data);
 typedef void (CALLBACK* funIdle)();
@@ -2180,7 +2180,7 @@ typedef  void(CALLBACK* funAnimationItem)(HXCGUI hAnimation, float pos);
 
 
 ///////////////////////////////////////////////////////////////////////////////////
-/////////////ÊÂ¼ş×¢²á//////////////////////////////////////////////////////////////
+/////////////äº‹ä»¶æ³¨å†Œ//////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////
 
 class bind_event_cpp
@@ -2286,10 +2286,10 @@ struct xc_event
 		m_regType=regType;
 		if(pFunName) strcpy_s(m_name,pFunName);
 	}
-	int            m_regType;   //×¢²áÀàĞÍ, 0:CPP,1:CPP1,2:CPP2
-	bind_event_cpp*  m_pBind;     //C++ÊÂ¼ş»Øµ÷
-	bind_event_c*    m_pFunC;     //CÊÂ¼ş»Øµ÷
-	char           m_name[MAX_PATH]; //º¯ÊıÃû
+	int            m_regType;   //æ³¨å†Œç±»å‹, 0:CPP,1:CPP1,2:CPP2
+	bind_event_cpp*  m_pBind;     //C++äº‹ä»¶å›è°ƒ
+	bind_event_c*    m_pFunC;     //Cäº‹ä»¶å›è°ƒ
+	char           m_name[MAX_PATH]; //å‡½æ•°å
 
 	BOOL Equal(xc_event* pEvent){
 		if(m_pBind && pEvent->m_pBind)
@@ -2387,18 +2387,18 @@ BOOL XCGUI_RegEventCPP_t(HXCGUI hXCGUI, UINT nEvent, int type, BOOL bEle, C* c, 
 	return XEle_RegEventCPP_tt<R>(hXCGUI,nEvent,type,bEle,(CT*)c,f, pFunName);}
 
 
-//@±ğÃû ÔªËØ_×¢²áÊÂ¼şCPP(¾ä±ú, ÊÂ¼şÀàĞÍ, ÊÂ¼şº¯Êı)
+//@åˆ«å å…ƒç´ _æ³¨å†Œäº‹ä»¶CPP(å¥æŸ„, äº‹ä»¶ç±»å‹, äº‹ä»¶å‡½æ•°)
 #define XEle_RegEventCPP(hXCGUI,Event,mFun)  XCGUI_RegEventCPP_t(hXCGUI,Event,FALSE,TRUE,this,mFun,#mFun)
-//@±ğÃû ÔªËØ_×¢²áÊÂ¼şCPP1(¾ä±ú, ÊÂ¼şÀàĞÍ, ÊÂ¼şº¯Êı)
+//@åˆ«å å…ƒç´ _æ³¨å†Œäº‹ä»¶CPP1(å¥æŸ„, äº‹ä»¶ç±»å‹, äº‹ä»¶å‡½æ•°)
 #define XEle_RegEventCPP1(hXCGUI,Event,mFun)  XCGUI_RegEventCPP_t(hXCGUI,Event,TRUE,TRUE,this,mFun,#mFun)
-//@±ğÃû ÔªËØ_ÒÆ³ıÊÂ¼şCPP(¾ä±ú, ÊÂ¼şÀàĞÍ, ÊÂ¼şº¯Êı)
+//@åˆ«å å…ƒç´ _ç§»é™¤äº‹ä»¶CPP(å¥æŸ„, äº‹ä»¶ç±»å‹, äº‹ä»¶å‡½æ•°)
 #define XEle_RemoveEventCPP(hXCGUI,Event,mFun) XCGUI_RegEventCPP_t(hXCGUI,Event,-1,TRUE,this,mFun,#mFun)
 
-//@±ğÃû ´°¿Ú_×¢²áÊÂ¼şCPP(¾ä±ú, ÊÂ¼şÀàĞÍ, ÊÂ¼şº¯Êı)
+//@åˆ«å çª—å£_æ³¨å†Œäº‹ä»¶CPP(å¥æŸ„, äº‹ä»¶ç±»å‹, äº‹ä»¶å‡½æ•°)
 #define XWnd_RegEventCPP(hXCGUI,Event,mFun)  XCGUI_RegEventCPP_t(hXCGUI,Event,FALSE,FALSE,this,mFun,#mFun)
-//@±ğÃû ´°¿Ú_×¢²áÊÂ¼şCPP1(¾ä±ú, ÊÂ¼şÀàĞÍ, ÊÂ¼şº¯Êı)
+//@åˆ«å çª—å£_æ³¨å†Œäº‹ä»¶CPP1(å¥æŸ„, äº‹ä»¶ç±»å‹, äº‹ä»¶å‡½æ•°)
 #define XWnd_RegEventCPP1(hXCGUI,Event,mFun)  XCGUI_RegEventCPP_t(hXCGUI,Event,TRUE,FALSE,this,mFun,#mFun)
-//@±ğÃû ´°¿Ú_ÒÆ³ıÊÂ¼şCPP(¾ä±ú, ÊÂ¼şÀàĞÍ, ÊÂ¼şº¯Êı)
+//@åˆ«å çª—å£_ç§»é™¤äº‹ä»¶CPP(å¥æŸ„, äº‹ä»¶ç±»å‹, äº‹ä»¶å‡½æ•°)
 #define XWnd_RemoveEventCPP(hXCGUI,Event,mFun) XCGUI_RegEventCPP_t(hXCGUI,Event,-1,FALSE,this,mFun,#mFun)
 
 
@@ -2413,25 +2413,25 @@ XC_API int WINAPI XC_AnsiToUnicode(const char* pIn, int inLen, out_ wchar_t* pOu
 XC_API LRESULT WINAPI XC_SendMessage(HWINDOW hWindow, UINT msg, WPARAM wParam, LPARAM lParam);
 XC_API BOOL    WINAPI XC_PostMessage(HWINDOW hWindow, UINT msg, WPARAM wParam, LPARAM lParam);
 XC_API vint WINAPI XC_CallUiThread(funCallUiThread pCall, vint data);
-XC_API void WINAPI XC_DebugToFileInfo(const char* pInfo);//´òÓ¡µ÷ÊÔĞÅÏ¢µ½ÎÄ¼ş xcgui_debug.txt
-XC_API BOOL WINAPI XC_IsHELE(HXCGUI hEle); //¼ì²é¾ä±ú
-XC_API BOOL WINAPI XC_IsHWINDOW(HXCGUI hWindow); //¼ì²é¾ä±ú
-XC_API BOOL WINAPI XC_IsShape(HXCGUI hShape); //¼ì²é¾ä±ú
+XC_API void WINAPI XC_DebugToFileInfo(const char* pInfo);//æ‰“å°è°ƒè¯•ä¿¡æ¯åˆ°æ–‡ä»¶ xcgui_debug.txt
+XC_API BOOL WINAPI XC_IsHELE(HXCGUI hEle); //æ£€æŸ¥å¥æŸ„
+XC_API BOOL WINAPI XC_IsHWINDOW(HXCGUI hWindow); //æ£€æŸ¥å¥æŸ„
+XC_API BOOL WINAPI XC_IsShape(HXCGUI hShape); //æ£€æŸ¥å¥æŸ„
 XC_API BOOL WINAPI XC_IsHXCGUI(HXCGUI hXCGUI, XC_OBJECT_TYPE nType);
 XC_API HWINDOW WINAPI XC_hWindowFromHWnd(HWND hWnd);
 XC_API BOOL    WINAPI XC_SetActivateTopWindow();
 XC_API BOOL WINAPI XC_SetProperty(HXCGUI hXCGUI, const wchar_t* pName, const wchar_t* pValue);
 XC_API const wchar_t* WINAPI XC_GetProperty(HXCGUI hXCGUI, const wchar_t* pName);
-XC_API BOOL WINAPI XC_RegisterWindowClassName(const wchar_t* pClassName); //×¢²á´°¿ÚÀàÃû
-XC_API BOOL WINAPI XC_IsSViewExtend(HELE hEle);  //ÅĞ¶ÏÔªËØÊÇ·ñ´Ó¹ö¶¯ÊÓÍ¼ÔªËØÀ©Õ¹µÄĞÂÔªËØ,°üº¬¹ö¶¯ÊÓÍ¼ÔªËØ
+XC_API BOOL WINAPI XC_RegisterWindowClassName(const wchar_t* pClassName); //æ³¨å†Œçª—å£ç±»å
+XC_API BOOL WINAPI XC_IsSViewExtend(HELE hEle);  //åˆ¤æ–­å…ƒç´ æ˜¯å¦ä»æ»šåŠ¨è§†å›¾å…ƒç´ æ‰©å±•çš„æ–°å…ƒç´ ,åŒ…å«æ»šåŠ¨è§†å›¾å…ƒç´ 
 XC_API XC_OBJECT_TYPE WINAPI XC_GetObjectType(HXCGUI hXCGUI);
-XC_API HXCGUI WINAPI XC_GetObjectByID(HWINDOW hWindow, int nID); //Í¨¹ıID»ñÈ¡¶ÔÏó¾ä±ú
+XC_API HXCGUI WINAPI XC_GetObjectByID(HWINDOW hWindow, int nID); //é€šè¿‡IDè·å–å¯¹è±¡å¥æŸ„
 XC_API HXCGUI WINAPI XC_GetObjectByIDName(HWINDOW hWindow, const wchar_t* pName);
 XC_API HXCGUI WINAPI XC_GetObjectByUID(int nUID);
 XC_API HXCGUI WINAPI XC_GetObjectByUIDName(const wchar_t* pName);
 XC_API HXCGUI WINAPI XC_GetObjectByName(const wchar_t* pName);
-XC_API void WINAPI XC_SetPaintFrequency(int nMilliseconds); //ÉèÖÃUI»æÖÆÆµÂÊ
-XC_API void WINAPI XC_SetTextRenderingHint(int  nType);   //ÉèÖÃÎÄ±¾äÖÈ¾ÖÊÁ¿
+XC_API void WINAPI XC_SetPaintFrequency(int nMilliseconds); //è®¾ç½®UIç»˜åˆ¶é¢‘ç‡
+XC_API void WINAPI XC_SetTextRenderingHint(int  nType);   //è®¾ç½®æ–‡æœ¬æ¸²æŸ“è´¨é‡
 XC_API void WINAPI XC_EnableGdiDrawText(BOOL bEnable);
 XC_API BOOL WINAPI XC_RectInRect(RECT* pRect1, RECT* pRect2);
 XC_API void WINAPI XC_CombineRect(RECT* pDest, RECT* pSrc1, RECT* pSrc2);
@@ -2453,8 +2453,8 @@ XC_API void WINAPI XC_GetTextSize(const wchar_t* pString, int length, HFONTX hFo
 XC_API void WINAPI XC_GetTextShowSize(const wchar_t* pString, int length, HFONTX hFontX, out_ SIZE* pOutSize);
 XC_API void WINAPI XC_GetTextShowSizeEx(const wchar_t* pString, int length, HFONTX hFontX, int nTextAlign, out_ SIZE* pOutSize);
 //XC_API void WINAPI XC_GetTextShowRect(const wchar_t* pString, int length, HFONTX hFontX, int width, out_ SIZE* pOutSize);
-XC_API HFONTX WINAPI XC_GetDefaultFont(); //»ñÈ¡Ä¬ÈÏ×ÖÌå
-XC_API void   WINAPI XC_SetDefaultFont(HFONTX hFontX); //ÉèÖÃÄ¬ÈÏ×ÖÌå
+XC_API HFONTX WINAPI XC_GetDefaultFont(); //è·å–é»˜è®¤å­—ä½“
+XC_API void   WINAPI XC_SetDefaultFont(HFONTX hFontX); //è®¾ç½®é»˜è®¤å­—ä½“
 XC_API void  WINAPI XC_AddFileSearchPath(const wchar_t* pPath);
 XC_API void  WINAPI XC_InitFont(LOGFONTW* pFont, wchar_t* pName, int size, BOOL bBold = FALSE, BOOL bItalic = FALSE, BOOL bUnderline = FALSE, BOOL bStrikeOut = FALSE);
 XC_API  void* WINAPI XC_Malloc(int size);
@@ -2507,7 +2507,7 @@ XC_API void WINAPI XBkM_AddRef(HBKM hBkInfoM);
 XC_API void WINAPI XBkM_Release(HBKM hBkInfoM);
 XC_API int  WINAPI XBkM_GetRefCount(HBKM hBkInfoM);
 XC_API HELE WINAPI XBtn_Create(int x, int y, int cx, int cy, const wchar_t* pName, HXCGUI hParent = NULL);
-XC_API BOOL WINAPI XBtn_IsCheck(HELE hEle); //°´Å¥ÊÇ·ñ±»Ñ¡ÖĞ
+XC_API BOOL WINAPI XBtn_IsCheck(HELE hEle); //æŒ‰é’®æ˜¯å¦è¢«é€‰ä¸­
 XC_API BOOL WINAPI XBtn_SetCheck(HELE hEle, BOOL bCheck);
 XC_API void WINAPI XBtn_SetState(HELE hEle, common_state3_ nState);
 XC_API common_state3_  WINAPI XBtn_GetState(HELE hEle);
@@ -2537,7 +2537,7 @@ XC_API HELE WINAPI XComboBox_Create(int x, int y, int cx, int cy, HXCGUI hParent
 XC_API BOOL  WINAPI XComboBox_SetSelItem(HELE hEle, int iIndex);
 XC_API void WINAPI XComboBox_GetButtonRect(HELE hEle, out_ RECT* pRect);
 XC_API void WINAPI XComboBox_SetButtonSize(HELE hEle, int size);
-XC_API void WINAPI XComboBox_SetDropHeight(HELE hEle, int height); //ÉèÖÃÏÂÀ­ÁĞ±í¸ß¶È
+XC_API void WINAPI XComboBox_SetDropHeight(HELE hEle, int height); //è®¾ç½®ä¸‹æ‹‰åˆ—è¡¨é«˜åº¦
 XC_API int  WINAPI XComboBox_GetDropHeight(HELE hEle);
 XC_API HXCGUI WINAPI XComboBox_CreateAdapter(HELE hEle);
 XC_API void WINAPI XComboBox_BindAdapter(HELE hEle, HXCGUI hAdapter);
@@ -2546,7 +2546,7 @@ XC_API void WINAPI XComboBox_SetBindName(HELE hEle, const wchar_t* pName);
 XC_API void WINAPI XComboBox_SetItemTemplateXML(HELE hEle, const wchar_t* pXmlFile);
 XC_API void WINAPI XComboBox_SetItemTemplateXMLFromString(HELE hEle, const char* pStringXML);
 XC_API void WINAPI XComboBox_EnableDrawButton(HELE hEle, BOOL bEnable);
-XC_API void WINAPI XComboBox_EnableEdit(HELE hEle, BOOL bEdit);  //Æô¶¯±à¼­ÄÚÈİ
+XC_API void WINAPI XComboBox_EnableEdit(HELE hEle, BOOL bEdit);  //å¯åŠ¨ç¼–è¾‘å†…å®¹
 XC_API void WINAPI XComboBox_EnableDropHeightFixed(HELE hEle, BOOL bEnable);
 
 XC_API int WINAPI XComboBox_GetSelItem(HELE hEle);
@@ -2615,7 +2615,7 @@ XC_API BOOL WINAPI XAdListView_Group_SetImage(HXCGUI hAdapter, int iGroup, int i
 XC_API BOOL WINAPI XAdListView_Group_SetImageEx(HXCGUI hAdapter, int iGroup, const wchar_t* pName, HIMAGE hImage);
 XC_API int  WINAPI XAdListView_Group_GetCount(HXCGUI hAdapter);
 XC_API int  WINAPI XAdListView_Item_GetCount(HXCGUI hAdapter, int iGroup);
-XC_API int  WINAPI XAdListView_Item_AddColumn(HXCGUI hAdapter, const wchar_t* pName);  //Ôö¼ÓÁĞ
+XC_API int  WINAPI XAdListView_Item_AddColumn(HXCGUI hAdapter, const wchar_t* pName);  //å¢åŠ åˆ—
 XC_API int  WINAPI XAdListView_Item_AddItemText(HXCGUI hAdapter, int iGroup, const wchar_t* pValue, int iPos = -1);
 XC_API int  WINAPI XAdListView_Item_AddItemTextEx(HXCGUI hAdapter, int iGroup, const wchar_t* pName, const wchar_t* pValue, int iPos = -1);
 XC_API int  WINAPI XAdListView_Item_AddItemImage(HXCGUI hAdapter, int iGroup, HIMAGE hImage, int iPos = -1);
@@ -2635,7 +2635,7 @@ XC_API void WINAPI XAdListView_DeleteColumnItem(HXCGUI hAdapter, int iColumn);
 XC_API const wchar_t* WINAPI XAdListView_Item_GetTextEx(HXCGUI hAdapter, int iGroup, int iItem, const wchar_t* pName);
 XC_API HIMAGE WINAPI XAdListView_Item_GetImageEx(HXCGUI hAdapter, int iGroup, int iItem, const wchar_t* pName);
 XC_API HXCGUI WINAPI XAdTable_Create();
-XC_API void   WINAPI XAdTable_Sort(HXCGUI hAdapter, int iColumn, BOOL bAscending);  //ÅÅĞò
+XC_API void   WINAPI XAdTable_Sort(HXCGUI hAdapter, int iColumn, BOOL bAscending);  //æ’åº
 XC_API adapter_date_type_  WINAPI XAdTable_GetItemDataType(HXCGUI hAdapter, int iItem, int iColumn);
 XC_API adapter_date_type_  WINAPI XAdTable_GetItemDataTypeEx(HXCGUI hAdapter, int iItem, const wchar_t* pName);
 XC_API int WINAPI XAdTable_AddColumn(HXCGUI hAdapter, const wchar_t* pName);
@@ -2700,11 +2700,11 @@ XC_API HIMAGE WINAPI XAdMap_GetItemImage(HXCGUI hAdapter, const wchar_t* pName);
 XC_API BOOL WINAPI XAdMap_SetItemText(HXCGUI hAdapter, const wchar_t* pName, const wchar_t* pValue);
 XC_API BOOL WINAPI XAdMap_SetItemImage(HXCGUI hAdapter, const wchar_t* pName, HIMAGE hImage);
 XC_API void WINAPI XDebug_Print(int  level, const char* pInfo);
-XC_API void WINAPI _xtrace(const char* pFormat, ...); //Ö§³Ö¶àÏß³Ì
-XC_API void WINAPI _xtracew(const wchar_t* pFormat, ...); //Ö§³Ö¶àÏß³Ì
+XC_API void WINAPI _xtrace(const char* pFormat, ...); //æ”¯æŒå¤šçº¿ç¨‹
+XC_API void WINAPI _xtracew(const wchar_t* pFormat, ...); //æ”¯æŒå¤šçº¿ç¨‹
 XC_API void WINAPI XDebug_OutputDebugStringA(const char* pString); //OutputDebugStringA
 XC_API void WINAPI XDebug_OutputDebugStringW(const wchar_t* pString); //OutputDebugStringW
-XC_API void WINAPI XDebug_Set_OutputDebugString_UTF8(BOOL bUTF8); //ÉèÖÃdebugÊä³ö±àÂë·½Ê½ encoding_utf8
+XC_API void WINAPI XDebug_Set_OutputDebugString_UTF8(BOOL bUTF8); //è®¾ç½®debugè¾“å‡ºç¼–ç æ–¹å¼ encoding_utf8
 
 XC_API float WINAPI XEase_Linear(float p);
 XC_API float WINAPI XEase_Quad(float p, ease_type_ flag);
@@ -2828,10 +2828,10 @@ XC_API BOOL WINAPI XEdit_IndentationSelect(HELE hEle, int bAdd);
 XC_API HELE WINAPI XEle_Create(int x, int y, int cx, int cy, HXCGUI hParent = NULL);
 XC_API BOOL WINAPI _XEle_RegEvent(HELE hEle, UINT nEvent, xc_event* pEvent);
 XC_API BOOL WINAPI _XEle_RemoveEvent(HELE hEle, UINT nEvent, xc_event* pEvent);
-XC_API BOOL WINAPI XEle_RegEventC(HELE hEle, int nEvent, void* pFun); //×¢²áÊÂ¼şC·½Ê½
+XC_API BOOL WINAPI XEle_RegEventC(HELE hEle, int nEvent, void* pFun); //æ³¨å†Œäº‹ä»¶Cæ–¹å¼
 XC_API BOOL WINAPI XEle_RegEventC1(HELE hEle, int nEvent, void* pFun);
 XC_API BOOL WINAPI XEle_RegEventC2(HELE hEle, int nEvent, void* pFun);
-XC_API BOOL WINAPI XEle_RemoveEventC(HELE hEle, int nEvent, void* pFun); //ÒÆ³ıÊÂ¼şº¯ÊıC·½Ê½
+XC_API BOOL WINAPI XEle_RemoveEventC(HELE hEle, int nEvent, void* pFun); //ç§»é™¤äº‹ä»¶å‡½æ•°Cæ–¹å¼
 XC_API int  WINAPI XEle_SendEvent(HELE hEle, int nEvent, WPARAM wParam, LPARAM lParam);
 XC_API BOOL WINAPI XEle_PostEvent(HELE hEle, int nEvent, WPARAM wParam, LPARAM lParam);
 XC_API BOOL WINAPI XEle_IsShow(HELE hEle);
@@ -2861,10 +2861,10 @@ XC_API void WINAPI XEle_EnableEvent_XE_PAINT_END(HELE hEle, BOOL bEnable);
 XC_API void WINAPI XEle_EnableEvent_XE_MOUSEWHEEL(HELE hEle, BOOL bEnable);
 XC_API int  WINAPI XEle_SetRect(HELE hEle, RECT* pRect, BOOL bRedraw = FALSE, int nFlags = adjustLayout_all, UINT nAdjustNo = 0);
 XC_API int  WINAPI XEle_SetRectEx(HELE hEle, int x, int y, int cx, int cy, BOOL bRedraw = FALSE, int nFlags = adjustLayout_all, UINT nAdjustNo = 0);
-XC_API int  WINAPI XEle_SetRectLogic(HELE hEle, RECT* pRect, BOOL bRedraw = FALSE, int nFlags = adjustLayout_all, UINT nAdjustNo = 0); //Âß¼­Ä£Ê½×ø±ê
-XC_API void WINAPI XEle_GetRect(HELE hEle, out_ RECT* pRect);   //Ïà¶ÔÓë¸¸×ø±ê,ÈËÑÛ¹Û²ìÄ£Ê½
-XC_API void WINAPI XEle_GetRectLogic(HELE hEle, out_ RECT* pRect); //Ïà¶ÔÓë¸¸×ø±ê,Âß¼­Ä£Ê½
-XC_API void WINAPI XEle_GetClientRect(HELE hEle, out_ RECT* pRect);  //×óÉÏ½ÇÎª0£¬0×ø±ê
+XC_API int  WINAPI XEle_SetRectLogic(HELE hEle, RECT* pRect, BOOL bRedraw = FALSE, int nFlags = adjustLayout_all, UINT nAdjustNo = 0); //é€»è¾‘æ¨¡å¼åæ ‡
+XC_API void WINAPI XEle_GetRect(HELE hEle, out_ RECT* pRect);   //ç›¸å¯¹ä¸çˆ¶åæ ‡,äººçœ¼è§‚å¯Ÿæ¨¡å¼
+XC_API void WINAPI XEle_GetRectLogic(HELE hEle, out_ RECT* pRect); //ç›¸å¯¹ä¸çˆ¶åæ ‡,é€»è¾‘æ¨¡å¼
+XC_API void WINAPI XEle_GetClientRect(HELE hEle, out_ RECT* pRect);  //å·¦ä¸Šè§’ä¸º0ï¼Œ0åæ ‡
 XC_API void WINAPI XEle_GetWndClientRect(HELE hEle, out_ RECT* pRect);
 XC_API void WINAPI XEle_SetWidth(HELE hEle, int nWidth);
 XC_API void WINAPI XEle_SetHeight(HELE hEle, int nHeight);
@@ -2875,7 +2875,7 @@ XC_API void WINAPI XEle_PointWndClientToEleClient(HELE hEle, in_out_ POINT* pPt)
 XC_API void WINAPI XEle_RectClientToWndClient(HELE hEle, in_out_ RECT* pRect);
 XC_API void WINAPI XEle_PointClientToWndClient(HELE hEle, in_out_ POINT* pPt);
 XC_API BOOL WINAPI XEle_AddChild(HELE hEle, HXCGUI hChild);
-XC_API BOOL WINAPI XEle_InsertChild(HELE hEle, HXCGUI hChild, int index);  //²åÈëµ½Ö¸¶¨Î»ÖÃ
+XC_API BOOL WINAPI XEle_InsertChild(HELE hEle, HXCGUI hChild, int index);  //æ’å…¥åˆ°æŒ‡å®šä½ç½®
 XC_API void WINAPI XEle_Remove(HELE hEle);
 XC_API BOOL WINAPI XEle_SetZOrder(HELE hEle, int index);
 XC_API BOOL WINAPI XEle_SetZOrderEx(HELE hEle, HELE hDestEle, zorder_ nType);
@@ -2915,7 +2915,7 @@ XC_API void WINAPI XEle_GetContentSize(HELE hEle, BOOL bHorizon, int cx, int cy,
 XC_API void WINAPI XEle_SetCapture(HELE hEle, BOOL b);
 XC_API void WINAPI XEle_Redraw(HELE hEle, BOOL bImmediate = FALSE);
 XC_API void WINAPI XEle_RedrawRect(HELE hEle, RECT* pRect, BOOL bImmediate = FALSE);
-XC_API void WINAPI XEle_Destroy(HELE hEle);  //Ïú»Ù
+XC_API void WINAPI XEle_Destroy(HELE hEle);  //é”€æ¯
 XC_API void WINAPI XEle_AddBkBorder(HELE hEle,int nState, COLORREF color, int width);
 XC_API void WINAPI XEle_AddBkFill(HELE hEle, int nState, COLORREF color);
 XC_API void WINAPI XEle_AddBkImage(HELE hEle, int nState, HIMAGE hImage);
@@ -2924,7 +2924,7 @@ XC_API void WINAPI XEle_ClearBkInfo(HELE hEle);
 XC_API HBKM WINAPI XEle_GetBkManager(HELE hEle);
 XC_API HBKM WINAPI XEle_GetBkManagerEx(HELE hEle);
 XC_API void WINAPI XEle_SetBkManager(HELE hEle, HBKM hBkInfoM);
-XC_API int  WINAPI XEle_GetStateFlags(HELE hEle); //»ñÈ¡×éºÏ×´Ì¬
+XC_API int  WINAPI XEle_GetStateFlags(HELE hEle); //è·å–ç»„åˆçŠ¶æ€
 XC_API BOOL WINAPI XEle_DrawFocus(HELE hEle, HDRAW hDraw, RECT* pRect);
 XC_API void WINAPI XEle_DrawEle(HELE hEle, HDRAW hDraw);
 XC_API void WINAPI XEle_EnableTransparentChannel(HELE hEle, BOOL bEnable);
@@ -2937,8 +2937,8 @@ XC_API void WINAPI XEle_PopupToolTip(HELE hEle, int x, int y);
 XC_API void WINAPI XEle_AdjustLayout(HELE hEle, UINT nAdjustNo = 0);
 XC_API void WINAPI XEle_AdjustLayoutEx(HELE hEle, int nFlags = adjustLayout_self, UINT nAdjustNo = 0);
 
-XC_API HFONTX WINAPI XFont_Create(int size);//´´½¨×ÖÌå
-XC_API HFONTX WINAPI XFont_CreateEx(const wchar_t* pName = L"ËÎÌå", int size = 12, int style = fontStyle_regular);
+XC_API HFONTX WINAPI XFont_Create(int size);//åˆ›å»ºå­—ä½“
+XC_API HFONTX WINAPI XFont_CreateEx(const wchar_t* pName = L"å®‹ä½“", int size = 12, int style = fontStyle_regular);
 XC_API HFONTX WINAPI XFont_CreateFromLOGFONTW(LOGFONTW* pFontInfo);
 XC_API HFONTX WINAPI XFont_CreateFromHFONT(HFONT hFont);
 XC_API HFONTX WINAPI XFont_CreateFromFont(void* pFont);
@@ -2947,12 +2947,12 @@ XC_API void   WINAPI XFont_EnableAutoDestroy(HFONTX hFontX, BOOL bEnable);
 XC_API void* WINAPI XFont_GetFont(HFONTX hFontX);
 XC_API void  WINAPI XFont_GetFontInfo(HFONTX hFontX, out_ font_info_* pInfo);
 XC_API BOOL  WINAPI XFont_GetLOGFONTW(HFONTX hFontX, HDC hdc, out_ LOGFONTW* pOut);
-XC_API void  WINAPI XFont_AddRef(HFONTX hFontX);   //Ôö¼ÓÒıÓÃ¼ÆÊı
-XC_API void  WINAPI XFont_Release(HFONTX hFontX);  //ÊÍ·ÅÒıÓÃ¼ÆÊı
+XC_API void  WINAPI XFont_AddRef(HFONTX hFontX);   //å¢åŠ å¼•ç”¨è®¡æ•°
+XC_API void  WINAPI XFont_Release(HFONTX hFontX);  //é‡Šæ”¾å¼•ç”¨è®¡æ•°
 XC_API int   WINAPI XFont_GetRefCount(HFONTX hFontX);
-XC_API void  WINAPI XFont_Destroy(HFONTX hFontX);  //Ïú»Ù×ÖÌå
-XC_API HWINDOW WINAPI XFrameWnd_Create(int x, int y, int cx, int cy, const wchar_t* pTitle, HWND hWndParent, int XCStyle);  //´´½¨´°¿Ú
-XC_API void WINAPI XFrameWnd_GetLayoutAreaRect(HWINDOW hWindow, out_ RECT* pRect); //»ñÈ¡¿Í»§Çø²¼¾ÖÇøÓò×ø±ê
+XC_API void  WINAPI XFont_Destroy(HFONTX hFontX);  //é”€æ¯å­—ä½“
+XC_API HWINDOW WINAPI XFrameWnd_Create(int x, int y, int cx, int cy, const wchar_t* pTitle, HWND hWndParent, int XCStyle);  //åˆ›å»ºçª—å£
+XC_API void WINAPI XFrameWnd_GetLayoutAreaRect(HWINDOW hWindow, out_ RECT* pRect); //è·å–å®¢æˆ·åŒºå¸ƒå±€åŒºåŸŸåæ ‡
 XC_API void WINAPI XFrameWnd_SetView(HWINDOW hWindow, HELE hEle);
 XC_API void WINAPI XFrameWnd_SetPaneSplitBarColor(HWINDOW hWindow, COLORREF color);
 XC_API void WINAPI XFrameWnd_SetTabBarHeight(HWINDOW hWindow, int nHeight);
@@ -2960,10 +2960,10 @@ XC_API BOOL WINAPI XFrameWnd_SaveLayoutToFile(HWINDOW hWindow, const wchar_t* pF
 XC_API BOOL WINAPI XFrameWnd_LoadLayoutFile(HWINDOW hWindow, in_buffer_ HELE* aPaneList, int nEleCount, const wchar_t* pFileName);
 XC_API BOOL WINAPI XFrameWnd_AddPane(HWINDOW hWindow, HELE hPaneDest, HELE hPaneNew, pane_align_ align);
 XC_API BOOL WINAPI XFrameWnd_MergePane(HWINDOW hWindow, HELE hPaneDest, HELE hPaneNew);
-XC_API HIMAGE WINAPI XImgSrc_LoadFile(const wchar_t* pFileName);//´ÓÎÄ¼şÖĞ¼ÓÔØÍ¼Æ¬
-XC_API HIMAGE WINAPI XImgSrc_LoadFileRect(const wchar_t* pFileName, int x, int y, int cx, int cy);  //¼ÓÔØÍ¼Æ¬,Ö¸¶¨ÇøÓò
-XC_API HIMAGE WINAPI XImgSrc_LoadRes(int id, const wchar_t* pType, HMODULE hModule);//´Ó×ÊÔ´ÖĞ¼ÓÔØÍ¼Æ¬
-XC_API HIMAGE WINAPI XImgSrc_LoadZip(const wchar_t* pZipFileName, const wchar_t* pFileName, const wchar_t* pPassword = NULL);//´ÓZIPÖĞ¼ÓÔØÍ¼Æ¬
+XC_API HIMAGE WINAPI XImgSrc_LoadFile(const wchar_t* pFileName);//ä»æ–‡ä»¶ä¸­åŠ è½½å›¾ç‰‡
+XC_API HIMAGE WINAPI XImgSrc_LoadFileRect(const wchar_t* pFileName, int x, int y, int cx, int cy);  //åŠ è½½å›¾ç‰‡,æŒ‡å®šåŒºåŸŸ
+XC_API HIMAGE WINAPI XImgSrc_LoadRes(int id, const wchar_t* pType, HMODULE hModule);//ä»èµ„æºä¸­åŠ è½½å›¾ç‰‡
+XC_API HIMAGE WINAPI XImgSrc_LoadZip(const wchar_t* pZipFileName, const wchar_t* pFileName, const wchar_t* pPassword = NULL);//ä»ZIPä¸­åŠ è½½å›¾ç‰‡
 XC_API HIMAGE WINAPI XImgSrc_LoadZipRect(const wchar_t* pZipFileName, const wchar_t* pFileName, const wchar_t* pPassword, int x, int y, int cx, int cy);
 XC_API HIMAGE WINAPI XImgSrc_LoadZipMem(void* data, int length, const wchar_t* pFileName, const wchar_t* pPassword = NULL);
 XC_API HIMAGE WINAPI XImgSrc_LoadMemory(void* pBuffer, int nSize);
@@ -2972,7 +2972,7 @@ XC_API HIMAGE WINAPI XImgSrc_LoadFromImage(void* pImage);
 XC_API HIMAGE WINAPI XImgSrc_LoadFromExtractIcon(const wchar_t* pFileName);
 XC_API HIMAGE WINAPI XImgSrc_LoadFromHICON(HICON hIcon);
 XC_API HIMAGE WINAPI XImgSrc_LoadFromHBITMAP(HBITMAP hBitmap);
-XC_API void WINAPI XImgSrc_EnableAutoDestroy(HIMAGE hImage, BOOL bEnable); //ÆôÓÃ»ò¹Ø±Õ×Ô¶¯Ïú»Ù,µ±ÓëUIÔªËØ¹ØÁªÊ±ÓĞĞ§
+XC_API void WINAPI XImgSrc_EnableAutoDestroy(HIMAGE hImage, BOOL bEnable); //å¯ç”¨æˆ–å…³é—­è‡ªåŠ¨é”€æ¯,å½“ä¸UIå…ƒç´ å…³è”æ—¶æœ‰æ•ˆ
 XC_API int WINAPI XImgSrc_GetWidth(HIMAGE hImage);
 XC_API int WINAPI XImgSrc_GetHeight(HIMAGE hImage);
 XC_API const wchar_t* WINAPI XImgSrc_GetFile(HIMAGE hImage);
@@ -2997,20 +2997,20 @@ XC_API HIMAGE WINAPI XImage_LoadFromImage(void* pImage);
 XC_API HIMAGE WINAPI XImage_LoadFromExtractIcon(const wchar_t* pFileName);
 XC_API HIMAGE WINAPI XImage_LoadFromHICON(HICON hIcon);
 XC_API HIMAGE WINAPI XImage_LoadFromHBITMAP(HBITMAP hBitmap);
-XC_API BOOL WINAPI XImage_IsStretch(HIMAGE hImage);   //ÊÇ·ñÀ­ÉìÍ¼Æ¬
-XC_API BOOL WINAPI XImage_IsAdaptive(HIMAGE hImage);  //ÊÇ·ñÎª×ÔÊÊÓ¦Í¼Æ¬
-XC_API BOOL WINAPI XImage_IsTile(HIMAGE hImage);      //ÊÇ·ñÎªÆ½ÆÌÍ¼Æ¬
-XC_API BOOL WINAPI XImage_SetDrawType(HIMAGE hImage, image_draw_type_ nType);//ÉèÖÃÍ¼Æ¬»æÖÆÀàĞÍ
-XC_API BOOL WINAPI XImage_SetDrawTypeAdaptive(HIMAGE hImage, int leftSize, int topSize, int rightSize, int bottomSize);//ÉèÖÃÍ¼Æ¬×ÔÊÊÓ¦
-XC_API void WINAPI XImage_SetTranColor(HIMAGE hImage, COLORREF color); //ÉèÖÃÍ¸Ã÷É«
-XC_API void WINAPI XImage_SetTranColorEx(HIMAGE hImage, COLORREF color, BYTE tranColor); //ÉèÖÃÍ¸Ã÷É«
+XC_API BOOL WINAPI XImage_IsStretch(HIMAGE hImage);   //æ˜¯å¦æ‹‰ä¼¸å›¾ç‰‡
+XC_API BOOL WINAPI XImage_IsAdaptive(HIMAGE hImage);  //æ˜¯å¦ä¸ºè‡ªé€‚åº”å›¾ç‰‡
+XC_API BOOL WINAPI XImage_IsTile(HIMAGE hImage);      //æ˜¯å¦ä¸ºå¹³é“ºå›¾ç‰‡
+XC_API BOOL WINAPI XImage_SetDrawType(HIMAGE hImage, image_draw_type_ nType);//è®¾ç½®å›¾ç‰‡ç»˜åˆ¶ç±»å‹
+XC_API BOOL WINAPI XImage_SetDrawTypeAdaptive(HIMAGE hImage, int leftSize, int topSize, int rightSize, int bottomSize);//è®¾ç½®å›¾ç‰‡è‡ªé€‚åº”
+XC_API void WINAPI XImage_SetTranColor(HIMAGE hImage, COLORREF color); //è®¾ç½®é€æ˜è‰²
+XC_API void WINAPI XImage_SetTranColorEx(HIMAGE hImage, COLORREF color, BYTE tranColor); //è®¾ç½®é€æ˜è‰²
 XC_API float WINAPI XImage_SetRotateAngle(HIMAGE hImage, float  fAngle);
 XC_API void WINAPI XImage_SetSplitEqual(HIMAGE hImage, int nCount, int iIndex);
-XC_API void WINAPI XImage_EnableTranColor(HIMAGE hImage, BOOL bEnable); //ÆôÓÃÍ¸Ã÷É«
-XC_API void WINAPI XImage_EnableAutoDestroy(HIMAGE hImage, BOOL bEnable); //ÆôÓÃ»ò¹Ø±Õ×Ô¶¯Ïú»Ù,µ±ÓëUIÔªËØ¹ØÁªÊ±ÓĞĞ§
+XC_API void WINAPI XImage_EnableTranColor(HIMAGE hImage, BOOL bEnable); //å¯ç”¨é€æ˜è‰²
+XC_API void WINAPI XImage_EnableAutoDestroy(HIMAGE hImage, BOOL bEnable); //å¯ç”¨æˆ–å…³é—­è‡ªåŠ¨é”€æ¯,å½“ä¸UIå…ƒç´ å…³è”æ—¶æœ‰æ•ˆ
 XC_API void WINAPI XImage_EnableCenter(HIMAGE hImage, BOOL bCenter); //bCenter
 XC_API BOOL WINAPI XImage_IsCenter(HIMAGE hImage);
-XC_API image_draw_type_ WINAPI XImage_GetDrawType(HIMAGE hImage); //»ñÈ¡Í¼Æ¬»æÖÆÀàĞÍ
+XC_API image_draw_type_ WINAPI XImage_GetDrawType(HIMAGE hImage); //è·å–å›¾ç‰‡ç»˜åˆ¶ç±»å‹
 XC_API int WINAPI XImage_GetWidth(HIMAGE hImage);
 XC_API int WINAPI XImage_GetHeight(HIMAGE hImage);
 XC_API HIMAGE WINAPI XImage_GetImageSrc(HIMAGE hImage);
@@ -3064,7 +3064,7 @@ XC_API int  WINAPI XListBox_GetItemIndexFromHXCGUI(HELE hEle, HXCGUI hXCGUI);
 XC_API void WINAPI XListBox_SetRowSpace(HELE hEle, int nSpace);
 XC_API int WINAPI  XListBox_GetRowSpace(HELE hEle);
 XC_API int  WINAPI XListBox_HitTest(HELE hEle, POINT* pPt);
-XC_API int  WINAPI XListBox_HitTestOffset(HELE hEle, POINT* pPt); //×Ô¶¯Ìí¼Ó¹ö¶¯ÊÓÍ¼Æ«ÒÆÁ¿
+XC_API int  WINAPI XListBox_HitTestOffset(HELE hEle, POINT* pPt); //è‡ªåŠ¨æ·»åŠ æ»šåŠ¨è§†å›¾åç§»é‡
 XC_API BOOL WINAPI XListBox_SetItemTemplateXML(HELE hEle, const wchar_t* pXmlFile);
 XC_API BOOL WINAPI XListBox_SetItemTemplateXMLFromString(HELE hEle, const char* pStringXML);
 XC_API BOOL WINAPI XListBox_SetItemTemplate(HELE hEle, HTEMP hTemp);
@@ -3073,7 +3073,7 @@ XC_API void WINAPI XListBox_EnableMultiSel(HELE hEle, BOOL bEnable);
 XC_API HXCGUI WINAPI XListBox_CreateAdapter(HELE hEle);
 XC_API void   WINAPI XListBox_BindAdapter(HELE hEle, HXCGUI hAdapter);
 XC_API HXCGUI WINAPI XListBox_GetAdapter(HELE hEle);
-XC_API void WINAPI XListBox_Sort(HELE hEle, int iColumnAdapter, BOOL bAscending);  //ÉèÖÃÅÅĞò
+XC_API void WINAPI XListBox_Sort(HELE hEle, int iColumnAdapter, BOOL bAscending);  //è®¾ç½®æ’åº
 XC_API void WINAPI XListBox_RefreshData(HELE hEle);
 XC_API void WINAPI XListBox_RefreshItem(HELE hEle, int iItem);
 XC_API int WINAPI XListBox_AddItemText(HELE hEle, const wchar_t* pText);
@@ -3106,13 +3106,13 @@ XC_API void WINAPI XListBox_DeleteItemAll(HELE hEle);
 XC_API void WINAPI XListBox_DeleteColumnAll(HELE hEle);
 XC_API int WINAPI XListBox_GetCount_AD(HELE hEle);
 XC_API int WINAPI XListBox_GetCountColumn_AD(HELE hEle);
-XC_API HTEMP WINAPI XTemp_Load(listItemTemp_type_ nType, const wchar_t* pFileName);  //¼ÓÔØÄ£°å ·µ»ØÄ£°å¶ÔÏó
+XC_API HTEMP WINAPI XTemp_Load(listItemTemp_type_ nType, const wchar_t* pFileName);  //åŠ è½½æ¨¡æ¿ è¿”å›æ¨¡æ¿å¯¹è±¡
 XC_API HTEMP WINAPI XTemp_LoadZip(listItemTemp_type_ nType, const wchar_t* pZipFile, const wchar_t* pFileName, const wchar_t* pPassword = NULL);
 XC_API HTEMP WINAPI XTemp_LoadZipMem(listItemTemp_type_ nType, void* data, int length, const wchar_t* pFileName, const wchar_t* pPassword = NULL);
 XC_API BOOL  WINAPI XTemp_LoadEx(listItemTemp_type_ nType, const wchar_t* pFileName, out_ HTEMP* pOutTemp1, out_ HTEMP* pOutTemp2);
 XC_API BOOL  WINAPI XTemp_LoadZipEx(listItemTemp_type_ nType, const wchar_t* pZipFile, const wchar_t* pFileName, const wchar_t* pPassword, out_ HTEMP* pOutTemp1, out_ HTEMP* pOutTemp2);
 XC_API BOOL  WINAPI XTemp_LoadZipMemEx(listItemTemp_type_ nType, void* data, int length, const wchar_t* pFileName, const wchar_t* pPassword, out_ HTEMP* pOutTemp1, out_ HTEMP* pOutTemp2);
-XC_API HTEMP WINAPI XTemp_LoadFromString(listItemTemp_type_ nType, const char* pStringXML);  //¼ÓÔØÄ£°å,´ÓÄÚ´æ, ·µ»ØÄ£°å¶ÔÏó
+XC_API HTEMP WINAPI XTemp_LoadFromString(listItemTemp_type_ nType, const char* pStringXML);  //åŠ è½½æ¨¡æ¿,ä»å†…å­˜, è¿”å›æ¨¡æ¿å¯¹è±¡
 XC_API BOOL  WINAPI XTemp_LoadFromStringEx(listItemTemp_type_ nType, const char* pStringXML, out_ HTEMP* pOutTemp1, out_ HTEMP* pOutTemp2);
 XC_API listItemTemp_type_ WINAPI XTemp_GetType(HTEMP hTemp);
 XC_API BOOL  WINAPI XTemp_Destroy(HTEMP hTemp);
@@ -3126,7 +3126,7 @@ XC_API void* WINAPI XTemp_List_GetNode(HTEMP hTemp, int index);
 XC_API void* WINAPI XTemp_GetNode(void* pNode, int itemID);
 XC_API void* WINAPI XTemp_CloneNode(void* pNode);
 XC_API HELE WINAPI XList_Create(int x, int y, int cx, int cy, HXCGUI hParent = NULL);
-XC_API int WINAPI XList_AddColumn(HELE hEle, int width); //Ôö¼ÓÁĞ
+XC_API int WINAPI XList_AddColumn(HELE hEle, int width); //å¢åŠ åˆ—
 XC_API int WINAPI XList_InsertColumn(HELE hEle, int width, int iItem);
 XC_API void WINAPI XList_EnableMultiSel(HELE hEle, BOOL bEnable);
 XC_API void WINAPI XList_EnableDragChangeColumnWidth(HELE hEle, BOOL bEnable);
@@ -3136,13 +3136,13 @@ XC_API void WINAPI XList_EnableFixedRowHeight(HELE hEle, BOOL bEnable);
 XC_API void WINAPI XList_EnablemTemplateReuse(HELE hEle, BOOL bEnable);
 XC_API void WINAPI XList_EnableVirtualTable(HELE hEle, BOOL bEnable);
 XC_API void WINAPI XList_SetVirtualRowCount(HELE hEle, int nRowCount);
-XC_API void WINAPI XList_SetSort(HELE hEle, int iColumn, int iColumnAdapter, BOOL bEnable);//ÉèÖÃÅÅĞò
+XC_API void WINAPI XList_SetSort(HELE hEle, int iColumn, int iColumnAdapter, BOOL bEnable);//è®¾ç½®æ’åº
 XC_API void WINAPI XList_SetDrawItemBkFlags(HELE hEle, int style);
 XC_API void WINAPI XList_SetColumnWidth(HELE hEle, int iItem, int width);
 XC_API void WINAPI XList_SetColumnMinWidth(HELE hEle, int iItem, int width);
 XC_API void WINAPI XList_SetColumnWidthFixed(HELE hEle, int iColumn, BOOL bFixed);
-XC_API int  WINAPI XList_GetColumnWidth(HELE hEle, int iColumn);  //»ñÈ¡ÁĞ¿í
-XC_API int  WINAPI XList_GetColumnCount(HELE hEle);  //»ñÈ¡ÁĞÊıÁ¿
+XC_API int  WINAPI XList_GetColumnWidth(HELE hEle, int iColumn);  //è·å–åˆ—å®½
+XC_API int  WINAPI XList_GetColumnCount(HELE hEle);  //è·å–åˆ—æ•°é‡
 XC_API BOOL WINAPI XList_DeleteColumn(HELE hEle, int iItem);
 XC_API void WINAPI XList_DeleteColumnAll(HELE hEle);
 XC_API BOOL WINAPI XList_SetItemData(HELE hEle, int iItem, int iSubItem, int data);
@@ -3166,7 +3166,7 @@ XC_API HXCGUI WINAPI XList_GetAdapterHeader(HELE hEle);
 XC_API BOOL WINAPI XList_SetItemTemplateXML(HELE hEle, const wchar_t* pXmlFile);
 XC_API BOOL WINAPI XList_SetItemTemplateXMLFromString(HELE hEle, const char* pStringXML);
 XC_API BOOL WINAPI XList_SetItemTemplate(HELE hEle, HTEMP hTemp);
-XC_API HXCGUI WINAPI XList_GetTemplateObject(HELE hEle, int iItem, int iSubItem, int nTempItemID); //Í¨¹ıÄ£°åÏîID,»ñÈ¡ÊµÀı»¯Ä£°åÏîID¶ÔÓ¦µÄ¶ÔÏó.
+XC_API HXCGUI WINAPI XList_GetTemplateObject(HELE hEle, int iItem, int iSubItem, int nTempItemID); //é€šè¿‡æ¨¡æ¿é¡¹ID,è·å–å®ä¾‹åŒ–æ¨¡æ¿é¡¹IDå¯¹åº”çš„å¯¹è±¡.
 XC_API int    WINAPI XList_GetItemIndexFromHXCGUI(HELE hEle, HXCGUI hXCGUI);
 XC_API HXCGUI WINAPI XList_GetHeaderTemplateObject(HELE hEle, int iItem, int nTempItemID);
 XC_API int    WINAPI XList_GetHeaderItemIndexFromHXCGUI(HELE hEle, HXCGUI hXCGUI);
@@ -3181,7 +3181,7 @@ XC_API int  WINAPI XList_GetRowSpace(HELE hEle);
 XC_API void WINAPI XList_SetLockColumnLeft(HELE hEle, int iColumn);
 XC_API void WINAPI XList_SetLockColumnRight(HELE hEle, int iColumn);
 XC_API void WINAPI XList_SetLockRowBottom(HELE hEle, BOOL bLock);
-XC_API void WINAPI XList_SetLockRowBottomOverlap(HELE hEle, BOOL bOverlap); //ÉèÖÃËø¶¨ĞĞ¿ÉÖØµş
+XC_API void WINAPI XList_SetLockRowBottomOverlap(HELE hEle, BOOL bOverlap); //è®¾ç½®é”å®šè¡Œå¯é‡å 
 XC_API BOOL WINAPI XList_HitTest(HELE hEle, POINT* pPt, out_ int* piItem, out_ int* piSubItem);
 XC_API BOOL WINAPI XList_HitTestOffset(HELE hEle, POINT* pPt, out_ int* piItem, out_ int* piSubItem);
 XC_API void WINAPI XList_RefreshData(HELE hEle);
@@ -3229,7 +3229,7 @@ XC_API HXCGUI WINAPI XListView_GetTemplateObject(HELE hEle, int iGroup, int iIte
 XC_API HXCGUI WINAPI XListView_GetTemplateObjectGroup(HELE hEle, int iGroup, int nTempItemID);
 XC_API BOOL  WINAPI XListView_GetItemIDFromHXCGUI(HELE hEle, HXCGUI hXCGUI, out_ int* piGroup, out_ int* piItem);
 XC_API BOOL WINAPI XListView_HitTest(HELE hEle, in_ POINT* pPt, out_ int* pOutGroup, out_ int* pOutItem);
-XC_API BOOL WINAPI XListView_HitTestOffset(HELE hEle, in_ POINT* pPt, out_ int* pOutGroup, out_ int* pOutItem); //×Ô¶¯Ìí¼Ó¹ö¶¯ÊÓÍ¼Æ«ÒÆÁ¿
+XC_API BOOL WINAPI XListView_HitTestOffset(HELE hEle, in_ POINT* pPt, out_ int* pOutGroup, out_ int* pOutItem); //è‡ªåŠ¨æ·»åŠ æ»šåŠ¨è§†å›¾åç§»é‡
 XC_API void WINAPI XListView_EnableMultiSel(HELE hEle, BOOL bEnable);
 XC_API void WINAPI XListView_EnablemTemplateReuse(HELE hEle, BOOL bEnable);
 XC_API void WINAPI XListView_EnableVirtualTable(HELE hEle, BOOL bEnable);
@@ -3244,8 +3244,8 @@ XC_API int  WINAPI XListView_GetSelectItemCount(HELE hEle);
 XC_API int  WINAPI XListView_GetSelectAll(HELE hEle, out_buffer_ listView_item_id_* pArray, int nArraySize);
 XC_API void WINAPI XListView_SetSelectAll(HELE hEle);
 XC_API void WINAPI XListView_CancelSelectAll(HELE hEle);
-XC_API void WINAPI XListView_SetColumnSpace(HELE hEle, int space); //ÉèÖÃÁĞ¼ä¸ô
-XC_API void WINAPI XListView_SetRowSpace(HELE hEle, int space); //ÉèÖÃĞĞ¼ä¸ô
+XC_API void WINAPI XListView_SetColumnSpace(HELE hEle, int space); //è®¾ç½®åˆ—é—´éš”
+XC_API void WINAPI XListView_SetRowSpace(HELE hEle, int space); //è®¾ç½®è¡Œé—´éš”
 XC_API void WINAPI XListView_SetItemSize(HELE hEle, int width, int height);
 XC_API void WINAPI XListView_GetItemSize(HELE hEle, SIZE* pSize);
 XC_API void WINAPI XListView_SetGroupHeight(HELE hEle, int height);
@@ -3269,7 +3269,7 @@ XC_API BOOL WINAPI XListView_Group_SetImage(HELE hEle, int iGroup, int iColumn, 
 XC_API BOOL WINAPI XListView_Group_SetImageEx(HELE hEle, int iGroup, const wchar_t* pName, HIMAGE hImage);
 XC_API int  WINAPI XListView_Group_GetCount(HELE hEle);
 XC_API int  WINAPI XListView_Item_GetCount(HELE hEle, int iGroup);
-XC_API int  WINAPI XListView_Item_AddColumn(HELE hEle, const wchar_t* pName);  //Ôö¼ÓÁĞ
+XC_API int  WINAPI XListView_Item_AddColumn(HELE hEle, const wchar_t* pName);  //å¢åŠ åˆ—
 XC_API int  WINAPI XListView_Item_AddItemText(HELE hEle, int iGroup, const wchar_t* pValue, int iPos);
 XC_API int  WINAPI XListView_Item_AddItemTextEx(HELE hEle, int iGroup, const wchar_t* pName, const wchar_t* pValue, int iPos);
 XC_API int  WINAPI XListView_Item_AddItemImage(HELE hEle, int iGroup, HIMAGE hImage, int iPos);
@@ -3289,13 +3289,13 @@ XC_API void WINAPI XListView_DeleteColumnItem(HELE hEle, int iColumn);
 XC_API const wchar_t* WINAPI XListView_Item_GetTextEx(HELE hEle, int iGroup, int iItem, const wchar_t* pName);
 XC_API HIMAGE WINAPI XListView_Item_GetImageEx(HELE hEle, int iGroup, int iItem, const wchar_t* pName);
 XC_API HELE WINAPI XMenuBar_Create(int x, int y, int cx, int cy, HXCGUI hParent = NULL);
-XC_API int  WINAPI XMenuBar_AddButton(HELE hEle, const wchar_t* pText);     //Ôö¼Óµ¯³ö²Ëµ¥°´Å¥
+XC_API int  WINAPI XMenuBar_AddButton(HELE hEle, const wchar_t* pText);     //å¢åŠ å¼¹å‡ºèœå•æŒ‰é’®
 XC_API void WINAPI XMenuBar_SetButtonHeight(HELE hEle, int height);
 XC_API HMENUX WINAPI XMenuBar_GetMenu(HELE hEle, int nIndex);
-XC_API BOOL WINAPI XMenuBar_DeleteButton(HELE hEle, int nIndex); //É¾³ı²Ëµ¥Ïî²¢ÇÒÏú»Ù,Í¬Ê±¸Ã°´Å¥ÏÂµÄµ¯³ö²Ëµ¥Ò²±»Ïú»Ù
+XC_API BOOL WINAPI XMenuBar_DeleteButton(HELE hEle, int nIndex); //åˆ é™¤èœå•é¡¹å¹¶ä¸”é”€æ¯,åŒæ—¶è¯¥æŒ‰é’®ä¸‹çš„å¼¹å‡ºèœå•ä¹Ÿè¢«é”€æ¯
 XC_API void WINAPI XMenuBar_EnableAutoWidth(HELE hEle, BOOL bEnable);
 XC_API HMENUX WINAPI XMenu_Create();
-XC_API void WINAPI XMenu_AddItem(HMENUX hMenu, int nID, const wchar_t* pText, int parentId = XC_ID_ROOT, int nFlags = 0); //Ìí¼Ó²Ëµ¥Ïî
+XC_API void WINAPI XMenu_AddItem(HMENUX hMenu, int nID, const wchar_t* pText, int parentId = XC_ID_ROOT, int nFlags = 0); //æ·»åŠ èœå•é¡¹
 XC_API void WINAPI XMenu_AddItemIcon(HMENUX hMenu, int nID, const wchar_t* pText, int nParentID, HIMAGE hImage, int nFlags = 0);
 XC_API void WINAPI XMenu_InsertItem(HMENUX hMenu, int nID, const wchar_t* pText, int nFlags, int insertID);
 XC_API void WINAPI XMenu_InsertItemIcon(HMENUX hMenu, int nID, const wchar_t* pText, HIMAGE hIcon, int nFlags, int insertID);
@@ -3304,35 +3304,35 @@ XC_API int  WINAPI XMenu_GetEndChildItem(HMENUX hMenu, int nID);
 XC_API int  WINAPI XMenu_GetPrevSiblingItem(HMENUX hMenu, int nID);
 XC_API int  WINAPI XMenu_GetNextSiblingItem(HMENUX hMenu, int nID);
 XC_API int  WINAPI XMenu_GetParentItem(HMENUX hMenu, int nID);
-XC_API void WINAPI XMenu_SetAutoDestroy(HMENUX hMenu, BOOL bAuto); //ÊÇ·ñ×Ô¶¯Ïú»Ù¶ÔÏó,Ä¬ÈÏµ¯³ö²Ëµ¥¹Ø±Õºó×Ô¶¯Ïú»Ù
-XC_API void WINAPI XMenu_EnableDrawBackground(HMENUX hMenu, BOOL bEnable); //ÊÇ·ñÓĞÓÃ»§»æÖÆ²Ëµ¥±³¾°
+XC_API void WINAPI XMenu_SetAutoDestroy(HMENUX hMenu, BOOL bAuto); //æ˜¯å¦è‡ªåŠ¨é”€æ¯å¯¹è±¡,é»˜è®¤å¼¹å‡ºèœå•å…³é—­åè‡ªåŠ¨é”€æ¯
+XC_API void WINAPI XMenu_EnableDrawBackground(HMENUX hMenu, BOOL bEnable); //æ˜¯å¦æœ‰ç”¨æˆ·ç»˜åˆ¶èœå•èƒŒæ™¯
 XC_API void WINAPI XMenu_EnableDrawItem(HMENUX hMenu, BOOL bEnable);
-XC_API BOOL WINAPI XMenu_Popup(HMENUX hMenu, HWND hParentWnd, int x, int y, HELE hParentEle = NULL, menu_popup_position_ nPosition = menu_popup_position_left_top); //µ¯³ö²Ëµ¥
+XC_API BOOL WINAPI XMenu_Popup(HMENUX hMenu, HWND hParentWnd, int x, int y, HELE hParentEle = NULL, menu_popup_position_ nPosition = menu_popup_position_left_top); //å¼¹å‡ºèœå•
 XC_API void WINAPI XMenu_DestroyMenu(HMENUX hMenu);
 XC_API void WINAPI XMenu_CloseMenu(HMENUX hMenu);
 XC_API void WINAPI XMenu_SetBkImage(HMENUX hMenu, HIMAGE hImage);
-XC_API BOOL WINAPI XMenu_SetItemText(HMENUX hMenu, int nID, const wchar_t* pText); //ÉèÖÃÏîÎÄ±¾
+XC_API BOOL WINAPI XMenu_SetItemText(HMENUX hMenu, int nID, const wchar_t* pText); //è®¾ç½®é¡¹æ–‡æœ¬
 XC_API const wchar_t* WINAPI XMenu_GetItemText(HMENUX hMenu, int nID);
 XC_API int  WINAPI XMenu_GetItemTextLength(HMENUX hMenu, int nID);
 XC_API BOOL WINAPI XMenu_SetItemIcon(HMENUX hMenu, int nID, HIMAGE hIcon);
-XC_API BOOL WINAPI XMenu_SetItemFlags(HMENUX hMenu, int nID, int uFlags);   //ÉèÖÃÏîÊôĞÔ
-XC_API void WINAPI XMenu_SetItemHeight(HMENUX hMenu, int height); //ÉèÖÃ²Ëµ¥Ïî¸ß¶È
+XC_API BOOL WINAPI XMenu_SetItemFlags(HMENUX hMenu, int nID, int uFlags);   //è®¾ç½®é¡¹å±æ€§
+XC_API void WINAPI XMenu_SetItemHeight(HMENUX hMenu, int height); //è®¾ç½®èœå•é¡¹é«˜åº¦
 XC_API int  WINAPI XMenu_GetItemHeight(HMENUX hMenu);
 XC_API void WINAPI XMenu_SetBorderColor(HMENUX hMenu, COLORREF crColor);
 XC_API void WINAPI XMenu_SetBorderSize(HMENUX hMenu, int nLeft, int nTop, int nRight, int nBottom);
-XC_API int  WINAPI XMenu_GetLeftWidth(HMENUX hMenu); //»ñÈ¡×ó²à¿í¶È
-XC_API int  WINAPI XMenu_GetLeftSpaceText(HMENUX hMenu);  //»ñÈ¡²Ëµ¥ÏîÎÄ±¾×ó¼ä¸ô
-XC_API int  WINAPI XMenu_GetItemCount(HMENUX hMenu); //»ñÈ¡²Ëµ¥ÏîÊıÁ¿,°üº¬×Ó²Ëµ¥Ïî
+XC_API int  WINAPI XMenu_GetLeftWidth(HMENUX hMenu); //è·å–å·¦ä¾§å®½åº¦
+XC_API int  WINAPI XMenu_GetLeftSpaceText(HMENUX hMenu);  //è·å–èœå•é¡¹æ–‡æœ¬å·¦é—´éš”
+XC_API int  WINAPI XMenu_GetItemCount(HMENUX hMenu); //è·å–èœå•é¡¹æ•°é‡,åŒ…å«å­èœå•é¡¹
 XC_API BOOL WINAPI XMenu_SetItemCheck(HMENUX hMenu, int nID, BOOL bCheck);
 XC_API BOOL WINAPI XMenu_IsItemCheck(HMENUX hMenu, int nID);
 XC_API HWINDOW WINAPI XModalWnd_Create(int nWidth, int nHeight, const wchar_t* pTitle, HWND hWndParent, int XCStyle = window_style_modal);
 XC_API void WINAPI XModalWnd_EnableAutoClose(HWINDOW hWindow, BOOL bEnable);
 XC_API void WINAPI XModalWnd_EnableEscClose(HWINDOW hWindow, BOOL bEnable);
-XC_API int  WINAPI XModalWnd_DoModal(HWINDOW hWindow);     //Æô¶¯Ä£Ì¬´°¿Ú
-XC_API void WINAPI XModalWnd_EndModal(HWINDOW hWindow, int nResult); //ÖÕÖ¹
+XC_API int  WINAPI XModalWnd_DoModal(HWINDOW hWindow);     //å¯åŠ¨æ¨¡æ€çª—å£
+XC_API void WINAPI XModalWnd_EndModal(HWINDOW hWindow, int nResult); //ç»ˆæ­¢
 XC_API HELE WINAPI XPane_Create(const wchar_t* pName, int nWidth, int nHeight, HWINDOW hFrameWnd = NULL);
 XC_API void WINAPI XPane_SetView(HELE hEle, HELE hView);
-XC_API BOOL WINAPI XPane_IsShowPane(HELE hEle); //ÅĞ¶Ï´°¸ñÊÇ·ñÒş²Ø
+XC_API BOOL WINAPI XPane_IsShowPane(HELE hEle); //åˆ¤æ–­çª—æ ¼æ˜¯å¦éšè—
 XC_API void WINAPI XPane_SetSize(HELE hEle, int nWidth, int nHeight);
 XC_API pane_state_ WINAPI XPane_GetState(HELE hEle);
 XC_API void WINAPI XPane_GetViewRect(HELE hEle, out_ RECT* pRect);
@@ -3340,13 +3340,13 @@ XC_API void WINAPI XPane_SetTitle(HELE hEle, wchar_t* pTitle);
 XC_API const wchar_t* WINAPI XPane_GetTitle(HELE hEle);
 XC_API void WINAPI XPane_SetCaptionHeight(HELE hEle, int nHeight);
 XC_API int  WINAPI XPane_GetCaptionHeight(HELE hEle);
-//XC_API void  WINAPI XPane_HidePane(HELE hEle);     //Òş²Ø´°¸ñ
-//XC_API void  WINAPI XPane_ShowPane(HELE hEle);     //Òş²Ø-ÏÔÊ¾´°¸ñ,²¢ÇĞ»»´°¸ñ
-XC_API void  WINAPI XPane_DockPane(HELE hEle);      //Í£¿¿´°¸ñ,×Ô¶¯Òş²Ø
-XC_API void  WINAPI XPane_LockPane(HELE hEle);      //Ëø¶¨´°¸ñ
-XC_API void  WINAPI XPane_FloatPane(HELE hEle);     //µ¯³ö´°¸ñ,µ±ÔÚÂëÍ·ÉÏ
+//XC_API void  WINAPI XPane_HidePane(HELE hEle);     //éšè—çª—æ ¼
+//XC_API void  WINAPI XPane_ShowPane(HELE hEle);     //éšè—-æ˜¾ç¤ºçª—æ ¼,å¹¶åˆ‡æ¢çª—æ ¼
+XC_API void  WINAPI XPane_DockPane(HELE hEle);      //åœé çª—æ ¼,è‡ªåŠ¨éšè—
+XC_API void  WINAPI XPane_LockPane(HELE hEle);      //é”å®šçª—æ ¼
+XC_API void  WINAPI XPane_FloatPane(HELE hEle);     //å¼¹å‡ºçª—æ ¼,å½“åœ¨ç å¤´ä¸Š
 XC_API void  WINAPI XPane_DrawPane(HELE hEle, HDRAW hDraw);
-XC_API BOOL  WINAPI XPane_SetSelect(HELE hEle);   //Èç¹ûÔÚ×éÖĞ,Ê¹ÆäÑ¡Ôñ
+XC_API BOOL  WINAPI XPane_SetSelect(HELE hEle);   //å¦‚æœåœ¨ç»„ä¸­,ä½¿å…¶é€‰æ‹©
 XC_API BOOL WINAPI XFloatWnd_EnableCaptionContent(HWINDOW hWindow, BOOL bEnable);
 XC_API HXCGUI WINAPI XFloatWnd_GetCaptionLayout(HWINDOW hWindow);
 XC_API HXCGUI WINAPI XFloatWnd_GetCaptionShapeText(HWINDOW hWindow);
@@ -3362,7 +3362,7 @@ XC_API int  WINAPI XProgBar_GetPos(HELE hEle);
 XC_API void WINAPI XProgBar_EnableHorizon(HELE hEle, BOOL bHorizon);
 XC_API void WINAPI XProgBar_SetImageLoad(HELE hEle, HIMAGE hImage);
 XC_API HELE WINAPI XPGrid_Create(int x, int y, int cx, int cy, HXCGUI hParent = NULL);
-XC_API int  WINAPI XPGrid_AddItem(HELE hEle, const wchar_t* pName, propertyGrid_item_type_ nType, int nParentID = XC_ID_ROOT); //Ìí¼ÓÏî
+XC_API int  WINAPI XPGrid_AddItem(HELE hEle, const wchar_t* pName, propertyGrid_item_type_ nType, int nParentID = XC_ID_ROOT); //æ·»åŠ é¡¹
 XC_API int  WINAPI XPGrid_AddItemString(HELE hEle, const wchar_t* pName, const wchar_t* pValue, int nParentID = XC_ID_ROOT);
 XC_API int  WINAPI XPGrid_AddItemEle(HELE hEle, HELE hElePanel, int nParentID = XC_ID_ROOT);
 XC_API void WINAPI XPGrid_DeleteAll(HELE hEle);
@@ -3375,74 +3375,74 @@ XC_API vint WINAPI XPGrid_GetItemData(HELE hEle, int nItemID);
 XC_API const wchar_t* WINAPI XPGrid_GetItemValue(HELE hEle, int nItemID);
 XC_API int  WINAPI XPGrid_HitTest(HELE hEle, POINT* pPt, BOOL* pbExpandButton);
 XC_API int  WINAPI XPGrid_HitTestOffset(HELE hEle, POINT* pPt, BOOL* pbExpandButton);
-XC_API BOOL WINAPI XPGrid_ExpandItem(HELE hEle, int nItemID, BOOL bExpand);//Õ¹¿ªÏî
+XC_API BOOL WINAPI XPGrid_ExpandItem(HELE hEle, int nItemID, BOOL bExpand);//å±•å¼€é¡¹
 XC_API int  WINAPI XPGrid_GetSelItem(HELE hEle);
 XC_API BOOL WINAPI XPGrid_SetSelItem(HELE hEle, int nItemID);
 XC_API void WINAPI XPGrid_SetDrawItemBkFlags(HELE hEle, int nFlags);
 XC_API void   WINAPI XRes_EnableDelayLoad(BOOL bEnable);
 XC_API void   WINAPI XRes_SetLoadFileCallback(funLoadFile pFun);
-XC_API int    WINAPI XRes_GetIDValue(const wchar_t* pName);  //»ñÈ¡×ÊÔ´IDÖµ
-XC_API HIMAGE WINAPI XRes_GetImage(const wchar_t* pName);  //»ñÈ¡×ÊÔ´Í¼Æ¬
-XC_API HIMAGE WINAPI XRes_GetImageEx(const wchar_t* pFileName, const wchar_t* pName); //»ñÈ¡×ÊÔ´Í¼Æ¬
-XC_API COLORREF WINAPI XRes_GetColor(const wchar_t* pName);  //»ñÈ¡×ÊÔ´ÑÕÉ«
-XC_API HFONTX   WINAPI XRes_GetFont(const wchar_t* pName);  //»ñÈ¡×ÊÔ´×ÖÌå
-XC_API HBKM     WINAPI XRes_GetBkM(const wchar_t* pName);  //»ñÈ¡×ÊÔ´±³¾°ĞÅÏ¢
+XC_API int    WINAPI XRes_GetIDValue(const wchar_t* pName);  //è·å–èµ„æºIDå€¼
+XC_API HIMAGE WINAPI XRes_GetImage(const wchar_t* pName);  //è·å–èµ„æºå›¾ç‰‡
+XC_API HIMAGE WINAPI XRes_GetImageEx(const wchar_t* pFileName, const wchar_t* pName); //è·å–èµ„æºå›¾ç‰‡
+XC_API COLORREF WINAPI XRes_GetColor(const wchar_t* pName);  //è·å–èµ„æºé¢œè‰²
+XC_API HFONTX   WINAPI XRes_GetFont(const wchar_t* pName);  //è·å–èµ„æºå­—ä½“
+XC_API HBKM     WINAPI XRes_GetBkM(const wchar_t* pName);  //è·å–èµ„æºèƒŒæ™¯ä¿¡æ¯
 XC_API HELE WINAPI XEditColor_Create(int x, int y, int cx, int cy, HXCGUI hParent);
-XC_API void WINAPI XEditColor_SetColor(HELE hEle, COLORREF color);//ÉèÖÃÑÕÉ«
-XC_API COLORREF WINAPI XEditColor_GetColor(HELE hEle); //»ñÈ¡ÑÕÉ«RGBÖµ
+XC_API void WINAPI XEditColor_SetColor(HELE hEle, COLORREF color);//è®¾ç½®é¢œè‰²
+XC_API COLORREF WINAPI XEditColor_GetColor(HELE hEle); //è·å–é¢œè‰²RGBå€¼
 XC_API HELE WINAPI XEditSet_Create(int x, int y, int cx, int cy, HXCGUI hParent);
 XC_API HELE WINAPI XEditFile_Create(int x, int y, int cx, int cy, HXCGUI hParent = NULL);
-XC_API void WINAPI XEditFile_SetOpenFileType(HELE hEle, const wchar_t* pType); //ÉèÖÃ´ò¿ªÎÄ¼şÀàĞÍ
-XC_API void WINAPI XEditFile_SetDefaultFile(HELE hEle, const wchar_t* pFile); //ÉèÖÃÄ¬ÈÏÄ¿Â¼ÎÄ¼ş
-XC_API void WINAPI XEditFile_SetRelativeDir(HELE hEle, const wchar_t* pDir); //TODO:ÉèÖÃÏà¶ÔÂ·¾¶
+XC_API void WINAPI XEditFile_SetOpenFileType(HELE hEle, const wchar_t* pType); //è®¾ç½®æ‰“å¼€æ–‡ä»¶ç±»å‹
+XC_API void WINAPI XEditFile_SetDefaultFile(HELE hEle, const wchar_t* pFile); //è®¾ç½®é»˜è®¤ç›®å½•æ–‡ä»¶
+XC_API void WINAPI XEditFile_SetRelativeDir(HELE hEle, const wchar_t* pDir); //TODO:è®¾ç½®ç›¸å¯¹è·¯å¾„
 XC_API HELE WINAPI XEditFolder_Create(int x, int y, int cx, int cy, HXCGUI hParent);
-XC_API void WINAPI XEditFolder_SetDefaultDir(HELE hEle, const wchar_t* pDir);  //ÉèÖÃÄ¬ÈÏÄ¿Â¼
+XC_API void WINAPI XEditFolder_SetDefaultDir(HELE hEle, const wchar_t* pDir);  //è®¾ç½®é»˜è®¤ç›®å½•
 XC_API HELE WINAPI XSBar_Create(int x, int y, int cx, int cy, HXCGUI hParent = NULL);
 XC_API void WINAPI XSBar_SetRange(HELE hEle, int range);
 XC_API int  WINAPI XSBar_GetRange(HELE hEle);
 XC_API void  WINAPI XSBar_ShowButton(HELE hEle, BOOL bShow);
-XC_API void WINAPI XSBar_SetSliderLength(HELE hEle, int length); //ÉèÖÃ»¬¿é³¤¶È
-XC_API void WINAPI XSBar_SetSliderMinLength(HELE hEle, int minLength); //ÉèÖÃ»¬¿é×îĞ¡³¤¶È
+XC_API void WINAPI XSBar_SetSliderLength(HELE hEle, int length); //è®¾ç½®æ»‘å—é•¿åº¦
+XC_API void WINAPI XSBar_SetSliderMinLength(HELE hEle, int minLength); //è®¾ç½®æ»‘å—æœ€å°é•¿åº¦
 XC_API void WINAPI XSBar_SetSliderPadding(HELE hEle, int nPadding);
-XC_API BOOL WINAPI XSBar_EnableHorizon(HELE hEle, BOOL bHorizon);  //Ë®Æ½ÏÔÊ¾»ò´¹Ö±
+XC_API BOOL WINAPI XSBar_EnableHorizon(HELE hEle, BOOL bHorizon);  //æ°´å¹³æ˜¾ç¤ºæˆ–å‚ç›´
 XC_API int  WINAPI XSBar_GetSliderMaxLength(HELE hEle);
-XC_API BOOL WINAPI XSBar_ScrollUp(HELE hEle);       //Ïò×ó¹ö¶¯
-XC_API BOOL WINAPI XSBar_ScrollDown(HELE hEle);     //ÏòÓÒ¹ö¶¯
-XC_API BOOL WINAPI XSBar_ScrollTop(HELE hEle);      //¹ö¶¯µ½¶¥²¿
-XC_API BOOL WINAPI XSBar_ScrollBottom(HELE hEle);   //¹ö¶¯µ½µ×²¿
-XC_API BOOL WINAPI XSBar_ScrollPos(HELE hEle, int pos); //¹ö¶¯µ½Ö¸¶¨µã
+XC_API BOOL WINAPI XSBar_ScrollUp(HELE hEle);       //å‘å·¦æ»šåŠ¨
+XC_API BOOL WINAPI XSBar_ScrollDown(HELE hEle);     //å‘å³æ»šåŠ¨
+XC_API BOOL WINAPI XSBar_ScrollTop(HELE hEle);      //æ»šåŠ¨åˆ°é¡¶éƒ¨
+XC_API BOOL WINAPI XSBar_ScrollBottom(HELE hEle);   //æ»šåŠ¨åˆ°åº•éƒ¨
+XC_API BOOL WINAPI XSBar_ScrollPos(HELE hEle, int pos); //æ»šåŠ¨åˆ°æŒ‡å®šç‚¹
 XC_API HELE WINAPI XSBar_GetButtonUp(HELE hEle);
 XC_API HELE WINAPI XSBar_GetButtonDown(HELE hEle);
 XC_API HELE WINAPI XSBar_GetButtonSlider(HELE hEle);
 XC_API HELE WINAPI XSView_Create(int x, int y, int cx, int cy, HXCGUI hParent = NULL);
-XC_API BOOL WINAPI XSView_SetTotalSize(HELE hEle, int cx, int cy); //ÉèÖÃÊÓÍ¼ÄÚÈİ×Ü´óĞ¡(²»°üº¬±ß¿ò¼ä¸ô)
-XC_API void WINAPI XSView_GetTotalSize(HELE hEle, out_ SIZE* pSize);  //»ñÈ¡ÉèÖÃµÄÄÚÈİ´óĞ¡
+XC_API BOOL WINAPI XSView_SetTotalSize(HELE hEle, int cx, int cy); //è®¾ç½®è§†å›¾å†…å®¹æ€»å¤§å°(ä¸åŒ…å«è¾¹æ¡†é—´éš”)
+XC_API void WINAPI XSView_GetTotalSize(HELE hEle, out_ SIZE* pSize);  //è·å–è®¾ç½®çš„å†…å®¹å¤§å°
 XC_API BOOL WINAPI XSView_SetLineSize(HELE hEle, int nWidth, int nHeight);
 XC_API void WINAPI XSView_GetLineSize(HELE hEle, out_ SIZE* pSize);
-XC_API void WINAPI XSView_SetScrollBarSize(HELE hEle, int size); //ÉèÖÃ¹ö¶¯Ìõ´óĞ¡
-XC_API int  WINAPI XSView_GetViewPosH(HELE hEle);   //»ñÈ¡ÊÓ¿ÚÔ­µãX×ø±ê
-XC_API int  WINAPI XSView_GetViewPosV(HELE hEle);   //»ñÈ¡ÊÓ¿ÚÔ­µãY×ø±ê
+XC_API void WINAPI XSView_SetScrollBarSize(HELE hEle, int size); //è®¾ç½®æ»šåŠ¨æ¡å¤§å°
+XC_API int  WINAPI XSView_GetViewPosH(HELE hEle);   //è·å–è§†å£åŸç‚¹Xåæ ‡
+XC_API int  WINAPI XSView_GetViewPosV(HELE hEle);   //è·å–è§†å£åŸç‚¹Yåæ ‡
 XC_API int  WINAPI XSView_GetViewWidth(HELE hEle);
 XC_API int  WINAPI XSView_GetViewHeight(HELE hEle);
-XC_API void WINAPI XSView_GetViewRect(HELE hEle, out_ RECT* pRect); //»ñÈ¡ÊÓ¿Ú×ø±ê(²»º¬±ß¿ò¼ä¸ô),leftÎªÊÓ¿Ú×ó¼ä¸ô´óĞ¡,topÎªÊÓ¿ÚÉÏ¼ä¸ô´óĞ¡,·Ç(0,0).
-XC_API HELE WINAPI XSView_GetScrollBarH(HELE hEle); //»ñÈ¡Ë®Æ½¹ö¶¯Ìõ
-XC_API HELE WINAPI XSView_GetScrollBarV(HELE hEle); //»ñÈ¡´¹Ö±¹ö¶¯Ìõ
+XC_API void WINAPI XSView_GetViewRect(HELE hEle, out_ RECT* pRect); //è·å–è§†å£åæ ‡(ä¸å«è¾¹æ¡†é—´éš”),leftä¸ºè§†å£å·¦é—´éš”å¤§å°,topä¸ºè§†å£ä¸Šé—´éš”å¤§å°,é(0,0).
+XC_API HELE WINAPI XSView_GetScrollBarH(HELE hEle); //è·å–æ°´å¹³æ»šåŠ¨æ¡
+XC_API HELE WINAPI XSView_GetScrollBarV(HELE hEle); //è·å–å‚ç›´æ»šåŠ¨æ¡
 
-XC_API BOOL WINAPI XSView_ScrollPosH(HELE hEle, int pos); //¹ö¶¯µ½Ö¸¶¨µã
-XC_API BOOL WINAPI XSView_ScrollPosV(HELE hEle, int pos); //¹ö¶¯µ½Ö¸¶¨µã
-XC_API BOOL WINAPI XSView_ScrollPosXH(HELE hEle, int posX); //¹ö¶¯µ½Ö¸¶¨×ø±ê
-XC_API BOOL WINAPI XSView_ScrollPosYV(HELE hEle, int posY); //¹ö¶¯µ½Ö¸¶¨×ø±ê
-XC_API void WINAPI XSView_ShowSBarH(HELE hEle, BOOL bShow); //ÆôÓÃË®Æ½¹ö¶¯Ìõ
-XC_API void WINAPI XSView_ShowSBarV(HELE hEle, BOOL bShow); //ÆôÓÃ´¹Ö±¹ö¶¯Ìõ
+XC_API BOOL WINAPI XSView_ScrollPosH(HELE hEle, int pos); //æ»šåŠ¨åˆ°æŒ‡å®šç‚¹
+XC_API BOOL WINAPI XSView_ScrollPosV(HELE hEle, int pos); //æ»šåŠ¨åˆ°æŒ‡å®šç‚¹
+XC_API BOOL WINAPI XSView_ScrollPosXH(HELE hEle, int posX); //æ»šåŠ¨åˆ°æŒ‡å®šåæ ‡
+XC_API BOOL WINAPI XSView_ScrollPosYV(HELE hEle, int posY); //æ»šåŠ¨åˆ°æŒ‡å®šåæ ‡
+XC_API void WINAPI XSView_ShowSBarH(HELE hEle, BOOL bShow); //å¯ç”¨æ°´å¹³æ»šåŠ¨æ¡
+XC_API void WINAPI XSView_ShowSBarV(HELE hEle, BOOL bShow); //å¯ç”¨å‚ç›´æ»šåŠ¨æ¡
 XC_API void WINAPI XSView_EnableAutoShowScrollBar(HELE hEle, BOOL bEnable);
-XC_API BOOL WINAPI XSView_ScrollLeftLine(HELE hEle);    //Ïò×ó¹ö¶¯
-XC_API BOOL WINAPI XSView_ScrollRightLine(HELE hEle);   //ÏòÓÒ¹ö¶¯
-XC_API BOOL WINAPI XSView_ScrollTopLine(HELE hEle);     //ÏòÉÏ¹ö¶¯
-XC_API BOOL WINAPI XSView_ScrollBottomLine(HELE hEle);    //ÏòÏÂ¹ö¶¯
-XC_API BOOL WINAPI XSView_ScrollLeft(HELE hEle);    //Ë®Æ½¹ö¶¯µ½×ó²à
-XC_API BOOL WINAPI XSView_ScrollRight(HELE hEle);   //Ë®Æ½¹ö¶¯µ½ÓÒ²à
-XC_API BOOL WINAPI XSView_ScrollTop(HELE hEle);     //¹ö¶¯µ½¶¥²¿
-XC_API BOOL WINAPI XSView_ScrollBottom(HELE hEle);  //¹ö¶¯µ½µ×²¿
+XC_API BOOL WINAPI XSView_ScrollLeftLine(HELE hEle);    //å‘å·¦æ»šåŠ¨
+XC_API BOOL WINAPI XSView_ScrollRightLine(HELE hEle);   //å‘å³æ»šåŠ¨
+XC_API BOOL WINAPI XSView_ScrollTopLine(HELE hEle);     //å‘ä¸Šæ»šåŠ¨
+XC_API BOOL WINAPI XSView_ScrollBottomLine(HELE hEle);    //å‘ä¸‹æ»šåŠ¨
+XC_API BOOL WINAPI XSView_ScrollLeft(HELE hEle);    //æ°´å¹³æ»šåŠ¨åˆ°å·¦ä¾§
+XC_API BOOL WINAPI XSView_ScrollRight(HELE hEle);   //æ°´å¹³æ»šåŠ¨åˆ°å³ä¾§
+XC_API BOOL WINAPI XSView_ScrollTop(HELE hEle);     //æ»šåŠ¨åˆ°é¡¶éƒ¨
+XC_API BOOL WINAPI XSView_ScrollBottom(HELE hEle);  //æ»šåŠ¨åˆ°åº•éƒ¨
 
 XC_API void  WINAPI XShape_RemoveShape(HXCGUI hShape);
 
@@ -3455,7 +3455,7 @@ XC_API void WINAPI XShape_SetRect(HXCGUI hShape, in_  RECT* pRect);
 XC_API BOOL WINAPI XShape_SetRectLogic(HXCGUI hShape, RECT* pRect, BOOL bRedraw);
 XC_API void WINAPI XShape_GetRectLogic(HXCGUI hShape, out_ RECT* pRect);
 XC_API void WINAPI XShape_GetWndClientRect(HXCGUI hShape, out_ RECT* pRect);
-XC_API void WINAPI XShape_GetContentSize(HXCGUI hShape, out_ SIZE* pSize);//»ñÈ¡ÄÚÈİ´óĞ¡
+XC_API void WINAPI XShape_GetContentSize(HXCGUI hShape, out_ SIZE* pSize);//è·å–å†…å®¹å¤§å°
 XC_API void WINAPI XShape_ShowLayout(HXCGUI hShape, BOOL bShow);
 XC_API void WINAPI XShape_AdjustLayout(HXCGUI hShape);
 XC_API void WINAPI XShape_Destroy(HXCGUI hShape);
@@ -3527,32 +3527,32 @@ XC_API const char* WINAPI XC_atoutf8(const char* pValue);
 XC_API const char* WINAPI XC_wtoutf8(const wchar_t* pValue);
 XC_API const char* WINAPI XC_wtoutf8Ex(const wchar_t* pValue, int length);
 XC_API HELE WINAPI XTabBar_Create(int x, int y, int cx, int cy, HXCGUI hParent = NULL);
-XC_API int  WINAPI XTabBar_AddLabel(HELE hEle, const wchar_t* pName); //Ìí¼ÓÒ»¸ö±êÇ©
+XC_API int  WINAPI XTabBar_AddLabel(HELE hEle, const wchar_t* pName); //æ·»åŠ ä¸€ä¸ªæ ‡ç­¾
 XC_API int  WINAPI XTabBar_InsertLabel(HELE hEle, int index, const wchar_t* pName);
 XC_API BOOL WINAPI XTabBar_MoveLabel(HELE hEle, int iSrc, int iDest);
-XC_API BOOL WINAPI XTabBar_DeleteLabel(HELE hEle, int index);  //É¾³ı
-XC_API void WINAPI XTabBar_DeleteLabelAll(HELE hEle);  //É¾³ıËùÓĞTAB
-XC_API HELE WINAPI XTabBar_GetLabel(HELE hEle, int index);//»ñÈ¡±êÇ©°´Å¥Button
+XC_API BOOL WINAPI XTabBar_DeleteLabel(HELE hEle, int index);  //åˆ é™¤
+XC_API void WINAPI XTabBar_DeleteLabelAll(HELE hEle);  //åˆ é™¤æ‰€æœ‰TAB
+XC_API HELE WINAPI XTabBar_GetLabel(HELE hEle, int index);//è·å–æ ‡ç­¾æŒ‰é’®Button
 XC_API HELE WINAPI XTabBar_GetLabelClose(HELE hEle, int index);
 XC_API HELE WINAPI XTabBar_GetButtonLeft(HELE hEle);
 XC_API HELE WINAPI XTabBar_GetButtonRight(HELE hEle);
 XC_API HELE WINAPI XTabBar_GetButtonDropMenu(HELE hEle);
-XC_API int  WINAPI XTabBar_GetSelect(HELE hEle);  //»ñÈ¡Ñ¡ÔñµÄ±êÇ©
-XC_API int  WINAPI XTabBar_GetLabelSpacing(HELE hEle); //»ñÈ¡±êÇ©¼ä¾à, 0Ã»ÓĞ¼ä¾à
-XC_API int  WINAPI XTabBar_GetLabelCount(HELE hEle); //»ñÈ¡±êÇ©ÏîÊıÁ¿
+XC_API int  WINAPI XTabBar_GetSelect(HELE hEle);  //è·å–é€‰æ‹©çš„æ ‡ç­¾
+XC_API int  WINAPI XTabBar_GetLabelSpacing(HELE hEle); //è·å–æ ‡ç­¾é—´è·, 0æ²¡æœ‰é—´è·
+XC_API int  WINAPI XTabBar_GetLabelCount(HELE hEle); //è·å–æ ‡ç­¾é¡¹æ•°é‡
 XC_API int  WINAPI XTabBar_GetindexByEle(HELE hEle, HELE hLabel);
-XC_API void WINAPI XTabBar_SetLabelSpacing(HELE hEle, int spacing);//ÉèÖÃ±êÇ©¼ä¾à, 0Ã»ÓĞ¼ä¾à
+XC_API void WINAPI XTabBar_SetLabelSpacing(HELE hEle, int spacing);//è®¾ç½®æ ‡ç­¾é—´è·, 0æ²¡æœ‰é—´è·
 XC_API void WINAPI XTabBar_SetPadding(HELE hEle, int left, int top, int right, int bottom);
-XC_API void WINAPI XTabBar_SetSelect(HELE hEle, int index);   //ÉèÖÃÑ¡Ôñ±êÇ©
-XC_API void WINAPI XTabBar_SetUp(HELE hEle);    //×ó¹ö¶¯
-XC_API void WINAPI XTabBar_SetDown(HELE hEle);  //ÓÒ¹ö¶¯
-XC_API void WINAPI XTabBar_EnableTile(HELE hEle, BOOL bTile);  //Æ½ÆÌ±êÇ©,Ã¿¸ö±êÇ©ÏÔÊ¾ÏàÍ¬´óĞ¡
+XC_API void WINAPI XTabBar_SetSelect(HELE hEle, int index);   //è®¾ç½®é€‰æ‹©æ ‡ç­¾
+XC_API void WINAPI XTabBar_SetUp(HELE hEle);    //å·¦æ»šåŠ¨
+XC_API void WINAPI XTabBar_SetDown(HELE hEle);  //å³æ»šåŠ¨
+XC_API void WINAPI XTabBar_EnableTile(HELE hEle, BOOL bTile);  //å¹³é“ºæ ‡ç­¾,æ¯ä¸ªæ ‡ç­¾æ˜¾ç¤ºç›¸åŒå¤§å°
 XC_API void WINAPI XTabBar_EnableDropMenu(HELE hEle, BOOL bEnable);
 XC_API void WINAPI XTabBar_EnableClose(HELE hEle, BOOL bEnable);
 XC_API void WINAPI XTabBar_SetCloseSize(HELE hEle, SIZE* pSize);
 XC_API void WINAPI XTabBar_SetTurnButtonSize(HELE hEle, SIZE* pSize);
 XC_API void WINAPI XTabBar_SetLabelWidth(HELE hEle, int index, int nWidth);
-XC_API BOOL WINAPI XTabBar_ShowLabel(HELE hEle, int index, BOOL bShow); //ÏÔÊ¾»òÒş²ØÖ¸¶¨Ïî
+XC_API BOOL WINAPI XTabBar_ShowLabel(HELE hEle, int index, BOOL bShow); //æ˜¾ç¤ºæˆ–éšè—æŒ‡å®šé¡¹
 XC_API HXCGUI WINAPI XTable_Create(int x, int y, int cx, int cy, HXCGUI hParent = NULL);
 XC_API void WINAPI XTable_Reset(HXCGUI hShape, int nRow, int nCol);
 XC_API void WINAPI XTable_ComboRow(HXCGUI hShape, int iRow, int iCol, int count);
@@ -3578,15 +3578,15 @@ XC_API void WINAPI XTextLink_SetTextColorStay(HELE hEle, COLORREF color);
 XC_API void WINAPI XTextLink_SetUnderlineColorLeave(HELE hEle, COLORREF color);
 XC_API void WINAPI XTextLink_SetUnderlineColorStay(HELE hEle, COLORREF color);
 XC_API HELE WINAPI XToolBar_Create(int x, int y, int cx, int cy, HXCGUI hParent = NULL);
-XC_API int WINAPI XToolBar_InsertEle(HELE hEle, HELE hNewEle, int index = -1); //Ìí¼ÓÔªËØµ½¹¤¾ßÌõ, -1²åÈëµ½Ä©Î²
-XC_API int WINAPI XToolBar_InsertSeparator(HELE hEle, int index = -1, COLORREF color = RGB(128, 128, 128)); //Ìí¼Ó·Ö¸ô·û, -1²åÈëµ½Ä©Î²
-XC_API void WINAPI XToolBar_EnableButtonMenu(HELE hEle, BOOL bEnable);  //ÏÔÊ¾Òş²ØÏî²Ëµ¥°´Å¥
-XC_API HELE WINAPI XToolBar_GetEle(HELE hEle, int index);  //»ñÈ¡¹¤¾ßÌõÉÏÔªËØ¾ä±ú
-XC_API HELE WINAPI XToolBar_GetButtonLeft(HELE hEle);   //»ñÈ¡¹¤¾ßÌõ×ó¹ö¶¯°´Å¥Button
-XC_API HELE WINAPI XToolBar_GetButtonRight(HELE hEle);  //»ñÈ¡¹¤¾ßÌõÓÒ¹ö¶¯°´Å¥Button
-XC_API HELE WINAPI XToolBar_GetButtonMenu(HELE hEle);   //»ñÈ¡µ¯³ö²Ëµ¥°´Å¥
+XC_API int WINAPI XToolBar_InsertEle(HELE hEle, HELE hNewEle, int index = -1); //æ·»åŠ å…ƒç´ åˆ°å·¥å…·æ¡, -1æ’å…¥åˆ°æœ«å°¾
+XC_API int WINAPI XToolBar_InsertSeparator(HELE hEle, int index = -1, COLORREF color = RGB(128, 128, 128)); //æ·»åŠ åˆ†éš”ç¬¦, -1æ’å…¥åˆ°æœ«å°¾
+XC_API void WINAPI XToolBar_EnableButtonMenu(HELE hEle, BOOL bEnable);  //æ˜¾ç¤ºéšè—é¡¹èœå•æŒ‰é’®
+XC_API HELE WINAPI XToolBar_GetEle(HELE hEle, int index);  //è·å–å·¥å…·æ¡ä¸Šå…ƒç´ å¥æŸ„
+XC_API HELE WINAPI XToolBar_GetButtonLeft(HELE hEle);   //è·å–å·¥å…·æ¡å·¦æ»šåŠ¨æŒ‰é’®Button
+XC_API HELE WINAPI XToolBar_GetButtonRight(HELE hEle);  //è·å–å·¥å…·æ¡å³æ»šåŠ¨æŒ‰é’®Button
+XC_API HELE WINAPI XToolBar_GetButtonMenu(HELE hEle);   //è·å–å¼¹å‡ºèœå•æŒ‰é’®
 XC_API void WINAPI XToolBar_SetSpace(HELE hEle, int nSize);
-XC_API void WINAPI XToolBar_DeleteEle(HELE hEle, int index); //ÒÆ³ı¹¤¾ßÌõÉÏÔªËØ²¢Ïú»Ù
+XC_API void WINAPI XToolBar_DeleteEle(HELE hEle, int index); //ç§»é™¤å·¥å…·æ¡ä¸Šå…ƒç´ å¹¶é”€æ¯
 XC_API void WINAPI XToolBar_DeleteAllEle(HELE hEle);
 XC_API HELE WINAPI XTree_Create(int x, int y, int cx, int cy, HXCGUI hParent = NULL);
 XC_API void WINAPI XTree_EnableDragItem(HELE hEle, BOOL bEnable);
@@ -3629,7 +3629,7 @@ XC_API BOOL WINAPI XTree_MoveItem(HELE hEle, int nMoveItem, int nDestItem, int n
 
 XC_API void WINAPI XTree_SetItemHeightDefault(HELE hEle, int nHeight, int nSelHeight);
 XC_API void WINAPI XTree_GetItemHeightDefault(HELE hEle, out_ int* pHeight, out_ int* pSelHeight);
-XC_API HXCGUI WINAPI XTree_GetTemplateObject(HELE hEle, int nID, int nTempItemID); //Í¨¹ıÄ£°åÏîID,»ñÈ¡ÊµÀı»¯Ä£°åÏîID¶ÔÓ¦µÄ¶ÔÏó.
+XC_API HXCGUI WINAPI XTree_GetTemplateObject(HELE hEle, int nID, int nTempItemID); //é€šè¿‡æ¨¡æ¿é¡¹ID,è·å–å®ä¾‹åŒ–æ¨¡æ¿é¡¹IDå¯¹åº”çš„å¯¹è±¡.
 XC_API int    WINAPI XTree_GetItemIDFromHXCGUI(HELE hEle, HXCGUI hXCGUI);
 XC_API HXCGUI WINAPI XTree_CreateAdapter(HELE hEle);
 XC_API void WINAPI XTree_BindAdapter(HELE hEle, HXCGUI hAdapter);
@@ -3666,7 +3666,7 @@ XC_API void WINAPI XWnd_EnableDragBorder(HWINDOW hWindow, BOOL bEnable);
 XC_API void WINAPI XWnd_EnableDragWindow(HWINDOW hWindow, BOOL bEnable);
 XC_API void WINAPI XWnd_EnableDragCaption(HWINDOW hWindow, BOOL bEnable);
 XC_API void WINAPI XWnd_EnableDrawBk(HWINDOW hWindow, BOOL bEnable);
-XC_API void WINAPI XWnd_EnableAutoFocus(HWINDOW hWindow, BOOL bEnable); //µ±Êó±ê×ó¼ü°´ÏÂÊÇ·ñ»ñµÃ½¹µã
+XC_API void WINAPI XWnd_EnableAutoFocus(HWINDOW hWindow, BOOL bEnable); //å½“é¼ æ ‡å·¦é”®æŒ‰ä¸‹æ˜¯å¦è·å¾—ç„¦ç‚¹
 XC_API void WINAPI XWnd_EnableMaxWindow(HWINDOW hWindow, BOOL bEnable);
 XC_API void WINAPI XWnd_EnablemLimitWindowSize(HWINDOW hWindow, BOOL bEnable);
 XC_API void WINAPI XWnd_EnableLayout(HWINDOW hWindow, BOOL bEnable);
@@ -3675,10 +3675,10 @@ XC_API void WINAPI XWnd_ShowLayoutFrame(HWINDOW hWindow, BOOL bEnable);
 XC_API BOOL WINAPI XWnd_IsEnableLayout(HWINDOW hWindow);
 XC_API BOOL WINAPI XWnd_IsMaxWindow(HWINDOW hWindow);
 XC_API void WINAPI XWnd_Redraw(HWINDOW hWindow, BOOL bImmediate = FALSE);
-XC_API void WINAPI XWnd_RedrawRect(HWINDOW hWindow, RECT* pRect, BOOL bImmediate = FALSE); //ÖØ»æ´°¿ÚÖ¸¶¨ÇøÓò
+XC_API void WINAPI XWnd_RedrawRect(HWINDOW hWindow, RECT* pRect, BOOL bImmediate = FALSE); //é‡ç»˜çª—å£æŒ‡å®šåŒºåŸŸ
 XC_API void WINAPI XWnd_SetFocusEle(HWINDOW hWindow, HELE hFocusEle);
 XC_API HELE WINAPI XWnd_GetFocusEle(HWINDOW hWindow);
-XC_API HELE WINAPI XWnd_GetStayEle(HWINDOW hWindow);  //»ñÈ¡µ±Ç°Êó±êËùÍ£ÁôÔªËØ
+XC_API HELE WINAPI XWnd_GetStayEle(HWINDOW hWindow);  //è·å–å½“å‰é¼ æ ‡æ‰€åœç•™å…ƒç´ 
 XC_API void WINAPI XWnd_DrawWindow(HWINDOW hWindow, HDRAW hDraw);
 XC_API void WINAPI XWnd_Center(HWINDOW hWindow);
 XC_API void WINAPI XWnd_CenterEx(HWINDOW hWindow, int width, int height);
@@ -3699,7 +3699,7 @@ XC_API void WINAPI XWnd_SetBorderSize(HWINDOW hWindow, int left, int top, int ri
 XC_API void WINAPI XWnd_GetBorderSize(HWINDOW hWindow, out_ borderSize_* pBorder);
 XC_API void WINAPI XWnd_SetPadding(HWINDOW hWindow, int left, int top, int right, int bottom);
 XC_API void WINAPI XWnd_GetPadding(HWINDOW hWindow, out_ paddingSize_* pPadding);
-XC_API void WINAPI XWnd_SetDragBorderSize(HWINDOW hWindow, int left, int top, int right, int bottom); //ÉèÖÃÍÏ¶¯±ß¿ò´óĞ¡
+XC_API void WINAPI XWnd_SetDragBorderSize(HWINDOW hWindow, int left, int top, int right, int bottom); //è®¾ç½®æ‹–åŠ¨è¾¹æ¡†å¤§å°
 XC_API void WINAPI XWnd_GetDragBorderSize(HWINDOW hWindow, out_ borderSize_* pSize);
 XC_API void WINAPI XWnd_SetMinimumSize(HWINDOW hWindow, int width, int height);
 XC_API HELE WINAPI XWnd_HitChildEle(HWINDOW hWindow, POINT* pPt);
@@ -3712,33 +3712,33 @@ XC_API BOOL WINAPI XWnd_ShowWindow(HWINDOW hWindow, int nCmdShow);
 XC_API void WINAPI XWnd_AdjustLayout(HWINDOW hWindow);
 XC_API void WINAPI XWnd_AdjustLayoutEx(HWINDOW hWindow, int nFlags = adjustLayout_self);
 XC_API void WINAPI XWnd_CloseWindow(HWINDOW hWindow);
-XC_API void WINAPI XWnd_CreateCaret(HWINDOW hWindow, HELE hEle, int x, int y, int width, int height);//´´½¨²åÈë·û
+XC_API void WINAPI XWnd_CreateCaret(HWINDOW hWindow, HELE hEle, int x, int y, int width, int height);//åˆ›å»ºæ’å…¥ç¬¦
 
 XC_API HELE WINAPI XWnd_GetCaretHELE(HWINDOW hWindow);
-XC_API void WINAPI XWnd_SetCaretColor(HWINDOW hWindow, COLORREF color); //ÉèÖÃ²åÈë·ûÑÕÉ«
-XC_API void WINAPI XWnd_ShowCaret(HWINDOW hWindow, BOOL bShow);  //ÏÔÊ¾²åÈë·û
-XC_API void WINAPI XWnd_DestroyCaret(HWINDOW hWindow);    //Ïú»Ù²åÈë·û
+XC_API void WINAPI XWnd_SetCaretColor(HWINDOW hWindow, COLORREF color); //è®¾ç½®æ’å…¥ç¬¦é¢œè‰²
+XC_API void WINAPI XWnd_ShowCaret(HWINDOW hWindow, BOOL bShow);  //æ˜¾ç¤ºæ’å…¥ç¬¦
+XC_API void WINAPI XWnd_DestroyCaret(HWINDOW hWindow);    //é”€æ¯æ’å…¥ç¬¦
 
 XC_API void WINAPI XWnd_SetCaretPos(HWINDOW hWindow, int x, int y, int width, int height, BOOL bUpdate = FALSE);
 XC_API HELE WINAPI XWnd_GetCaretInfo(HWINDOW hWindow, int* pX, int* pY, int* pWidth, int* pHeight);
 
-XC_API BOOL WINAPI XWnd_GetClientRect(HWINDOW hWindow, out_ RECT* pRect); //»ñÈ¡¿Í»§Çø×ø±ê
-XC_API void WINAPI XWnd_GetBodyRect(HWINDOW hWindow, out_ RECT* pRect);  //»ñÈ¡´°¿Úbody×ø±ê
+XC_API BOOL WINAPI XWnd_GetClientRect(HWINDOW hWindow, out_ RECT* pRect); //è·å–å®¢æˆ·åŒºåæ ‡
+XC_API void WINAPI XWnd_GetBodyRect(HWINDOW hWindow, out_ RECT* pRect);  //è·å–çª—å£bodyåæ ‡
 XC_API void WINAPI XWnd_GetLayoutRect(HWINDOW hWindow, out_ RECT* pRect);
 XC_API void WINAPI XWnd_GetRect(HWINDOW hWindow, out_ RECT* pRect);
 XC_API void WINAPI XWnd_SetRect(HWINDOW hWindow, RECT* pRect);
 XC_API void WINAPI XWnd_SetTop(HWINDOW hWindow);
 XC_API void WINAPI XWnd_MaxWindow(HWINDOW hWindow, BOOL bMaximize);
-XC_API UINT WINAPI XWnd_SetTimer(HWINDOW hWindow, UINT nIDEvent, UINT uElapse); //ÉèÖÃ¶¨Ê±Æ÷
+XC_API UINT WINAPI XWnd_SetTimer(HWINDOW hWindow, UINT nIDEvent, UINT uElapse); //è®¾ç½®å®šæ—¶å™¨
 XC_API BOOL WINAPI XWnd_KillTimer(HWINDOW hWindow, UINT nIDEvent);
-XC_API BOOL WINAPI XWnd_SetXCTimer(HWINDOW hWindow, UINT nIDEvent, UINT uElapse); //ÉèÖÃ¶¨Ê±Æ÷
+XC_API BOOL WINAPI XWnd_SetXCTimer(HWINDOW hWindow, UINT nIDEvent, UINT uElapse); //è®¾ç½®å®šæ—¶å™¨
 XC_API BOOL WINAPI XWnd_KillXCTimer(HWINDOW hWindow, UINT nIDEvent);
 XC_API HBKM WINAPI  XWnd_GetBkManager(HWINDOW hWindow);
 XC_API HBKM WINAPI  XWnd_GetBkManagerEx(HWINDOW hWindow);
 XC_API void WINAPI  XWnd_SetBkMagager(HWINDOW hWindow, HBKM hBkInfoM);
-XC_API void WINAPI XWnd_SetTransparentType(HWINDOW hWindow, window_transparent_ nType);  //ÉèÖÃÍ¸Ã÷´°¿Ú
-XC_API void WINAPI XWnd_SetTransparentAlpha(HWINDOW hWindow, BYTE alpha); //ÉèÖÃ´°¿ÚÍ¸Ã÷¶È
-XC_API void WINAPI XWnd_SetTransparentColor(HWINDOW hWindow, COLORREF color); //ÉèÖÃ´°¿ÚÍ¸Ã÷É«
+XC_API void WINAPI XWnd_SetTransparentType(HWINDOW hWindow, window_transparent_ nType);  //è®¾ç½®é€æ˜çª—å£
+XC_API void WINAPI XWnd_SetTransparentAlpha(HWINDOW hWindow, BYTE alpha); //è®¾ç½®çª—å£é€æ˜åº¦
+XC_API void WINAPI XWnd_SetTransparentColor(HWINDOW hWindow, COLORREF color); //è®¾ç½®çª—å£é€æ˜è‰²
 XC_API void WINAPI XWnd_SetShadowInfo(HWINDOW hWindow, int nSize, int nDepth, int nAngeleSize, BOOL bRightAngle, COLORREF color);
 XC_API window_transparent_ WINAPI XWnd_GetTransparentType(HWINDOW hWindow);
 XC_API void WINAPI XWnd_GetShadowInfo(HWINDOW hWindow, out_ int* pnSize, out_ int* pnDepth, out_ int* pnAngeleSize, out_ BOOL* pbRightAngle, out_ COLORREF* pColor);
@@ -3747,7 +3747,7 @@ XC_API BOOL WINAPI _XWnd_RemoveEvent(HWINDOW hWindow, UINT nEvent, xc_event* pEv
 XC_API BOOL WINAPI _XEle_RegEvent(HELE hEle, UINT nEvent, xc_event* pEvent);
 XC_API BOOL WINAPI _XEle_RemoveEvent(HELE hEle, UINT nEvent, xc_event* pEvent);
 
-//²¼¾Ö
+//å¸ƒå±€
 XC_API void WINAPI XWidget_LayoutItem_EnableWrap(HXCGUI hXCGUI, BOOL bWrap);
 XC_API void WINAPI XWidget_LayoutItem_EnableSwap(HXCGUI hXCGUI, BOOL bEnable);
 XC_API void WINAPI XWidget_LayoutItem_EnableFloat(HXCGUI hXCGUI, BOOL bFloat);
@@ -3786,12 +3786,12 @@ XC_API const wchar_t* WINAPI XWidget_GetName(HXCGUI hXCGUI);
 
 
 
-XC_API HDRAW WINAPI XDraw_Create(HWINDOW hWindow); //´´½¨
+XC_API HDRAW WINAPI XDraw_Create(HWINDOW hWindow); //åˆ›å»º
 XC_API HDRAW WINAPI XDraw_CreateGDI(HWINDOW hWindow, HDC hdc);
 
-XC_API void  WINAPI XDraw_Destroy(HDRAW hDraw); //Ïú»Ù
-XC_API void  WINAPI XDraw_SetOffset(HDRAW hDraw, int x, int y); //ÉèÖÃ×ø±êÆ«ÒÆÁ¿
-XC_API void  WINAPI XDraw_GetOffset(HDRAW hDraw, out_ int* pX, out_ int* pY); //»ñÈ¡×ø±êÆ«ÒÆÁ¿
+XC_API void  WINAPI XDraw_Destroy(HDRAW hDraw); //é”€æ¯
+XC_API void  WINAPI XDraw_SetOffset(HDRAW hDraw, int x, int y); //è®¾ç½®åæ ‡åç§»é‡
+XC_API void  WINAPI XDraw_GetOffset(HDRAW hDraw, out_ int* pX, out_ int* pY); //è·å–åæ ‡åç§»é‡
 XC_API HDC   WINAPI XDraw_GetHDC(HDRAW hDraw);
 
 XC_API void WINAPI XDraw_SetBrushColor(HDRAW hDraw, COLORREF color);
@@ -3804,11 +3804,11 @@ XC_API void WINAPI XDraw_SetLineWidthF(HDRAW hDraw, float width);
 XC_API void WINAPI XDraw_SetClipRect(HDRAW hDraw, RECT* pRect);
 XC_API void WINAPI XDraw_ClearClip(HDRAW hDraw);
 
-XC_API void WINAPI XDraw_EnableSmoothingMode(HDRAW hDraw, BOOL  bEnable);   //ÆôÓÃÆ½»¬Ä£Ê½
+XC_API void WINAPI XDraw_EnableSmoothingMode(HDRAW hDraw, BOOL  bEnable);   //å¯ç”¨å¹³æ»‘æ¨¡å¼
 XC_API void WINAPI XDraw_EnableWndTransparent(HDRAW hDraw, BOOL  bTransparent);
 
 //GDI:
-XC_API void WINAPI XDraw_GDI_RestoreGDIOBJ(HDRAW hDraw);  //»¹Ô­×´Ì¬,ÊÍ·ÅÓÃ»§°ó¶¨µÄGDI¶ÔÏó
+XC_API void WINAPI XDraw_GDI_RestoreGDIOBJ(HDRAW hDraw);  //è¿˜åŸçŠ¶æ€,é‡Šæ”¾ç”¨æˆ·ç»‘å®šçš„GDIå¯¹è±¡
 XC_API int  WINAPI XDraw_GDI_SetBkMode(HDRAW hDraw, BOOL bTransparent);
 XC_API int  WINAPI XDraw_GDI_SelectClipRgn(HDRAW hDraw, HRGN hRgn);
 
@@ -3879,18 +3879,18 @@ XC_API void WINAPI XDraw_DottedlineF(HDRAW hDraw, float x1, float y1, float x2, 
 XC_API void WINAPI XDraw_DrawCurve(HDRAW hDraw, in_buffer_ POINT* points, int count, float tension);
 XC_API void WINAPI XDraw_DrawCurveF(HDRAW hDraw, in_buffer_ POINTF* points, int count, float tension);
 
-//»æÖÆÔ²»¡
+//ç»˜åˆ¶åœ†å¼§
 XC_API void WINAPI XDraw_DrawArc(HDRAW hDraw, int x, int y, int width, int nHeight, float startAngle, float sweepAngle);
 XC_API void WINAPI XDraw_DrawArcF(HDRAW hDraw, float x, float y, float width, float height, float startAngle, float sweepAngle);
 
-//»æÖÆ¶à±ßĞÎ
+//ç»˜åˆ¶å¤šè¾¹å½¢
 XC_API void WINAPI XDraw_DrawPolygon(HDRAW hDraw, in_buffer_ POINT* points, int nCount);
 XC_API void WINAPI XDraw_DrawPolygonF(HDRAW hDraw, in_buffer_ POINTF* points, int nCount);
 
 XC_API void WINAPI XDraw_FillPolygon(HDRAW hDraw, in_buffer_ POINT* points, int nCount);
 XC_API void WINAPI XDraw_FillPolygonF(HDRAW hDraw, in_buffer_ POINTF* points, int nCount);
 
-//Í¼Æ¬
+//å›¾ç‰‡
 XC_API void WINAPI XDraw_Image(HDRAW hDraw, HIMAGE hImageFrame, int x, int y);
 XC_API void WINAPI XDraw_ImageF(HDRAW hDraw, HIMAGE hImageFrame, float x, float y);
 
@@ -3900,8 +3900,8 @@ XC_API void WINAPI XDraw_ImageExF(HDRAW hDraw, HIMAGE hImageFrame, float x, floa
 XC_API void WINAPI XDraw_ImageAdaptive(HDRAW hDraw, HIMAGE hImageFrame, RECT* pRect, BOOL bOnlyBorder = FALSE);
 XC_API void WINAPI XDraw_ImageAdaptiveF(HDRAW hDraw, HIMAGE hImageFrame, RECTF* pRect, BOOL bOnlyBorder = FALSE);
 
-//´Ó×óÏÂ½ÇÍùÓÒÉÏ½ÇÆÌ,ÏÖÔÚÆ½ÆÌÇøÓò
-//flag:Æ½°åÀàĞÍ,0×óÉÏ½Ç,1×ó×óÏÂ½Ç
+//ä»å·¦ä¸‹è§’å¾€å³ä¸Šè§’é“º,ç°åœ¨å¹³é“ºåŒºåŸŸ
+//flag:å¹³æ¿ç±»å‹,0å·¦ä¸Šè§’,1å·¦å·¦ä¸‹è§’
 XC_API void WINAPI XDraw_ImageTile(HDRAW hDraw, HIMAGE hImageFrame, RECT* pRect, int flag = 0);
 XC_API void WINAPI XDraw_ImageTileF(HDRAW hDraw, HIMAGE hImageFrame, RECTF* pRect, int flag = 0);
 
@@ -3913,7 +3913,7 @@ XC_API void WINAPI XDraw_ImageSuperExF(HDRAW hDraw, HIMAGE hImageFrame, RECTF* p
 
 XC_API void WINAPI XDraw_ImageSuperMask(HDRAW hDraw, HIMAGE hImageFrame, HIMAGE hImageFrameMask, RECT* pRect, RECT* pRectMask, BOOL bClip = FALSE);
 
-//ÎÄ±¾
+//æ–‡æœ¬
 XC_API void WINAPI XDraw_DrawText(HDRAW hDraw, const wchar_t* pString, int nCount, RECT* pRect);
 XC_API void WINAPI XDraw_DrawTextF(HDRAW hDraw, const wchar_t* pString, int nCount, RECTF* pRect);
 
@@ -3964,9 +3964,9 @@ XC_API int WINAPI XC_MessageBox(const wchar_t* pTitle, const wchar_t* pText, int
 XC_API HWINDOW WINAPI XMsg_Create(const wchar_t* pTitle, const wchar_t* pText, int nFlags=messageBox_flag_ok | messageBox_flag_icon_info, HWND hWndParent =0, int XCStyle = window_style_modal);
 
 //3.2.0--------------------------
-//ĞŞ¸Ä:
+//ä¿®æ”¹:
 XC_API BOOL WINAPI XC_LoadStyleFromStringW(const wchar_t* pString, const wchar_t* pFileName);
-//Ôö¼Ó:
+//å¢åŠ :
 XC_API BOOL WINAPI XC_LoadStyleFromString(const char* pString, const wchar_t* pFileName);
 XC_API BOOL WINAPI XC_LoadStyleFromStringUtf8(const char* pString, const wchar_t* pFileName);
 
@@ -3974,7 +3974,7 @@ XC_API HIMAGE WINAPI XImage_LoadSvg(HSVG hSvg);
 XC_API HIMAGE WINAPI XImage_LoadSvgFile(const wchar_t* pFileName);
 XC_API HSVG   WINAPI XImage_GetSvg(HIMAGE hImage);
 
-//SVG ºÏ²¢µ½ 3.3.0
+//SVG åˆå¹¶åˆ° 3.3.0
 
 XC_API void WINAPI XDraw_DrawSvgSrc(HDRAW hDraw, HSVG hSvg);
 XC_API void WINAPI XDraw_DrawSvg(HDRAW hDraw, HSVG hSvg, int x, int y);
@@ -3992,7 +3992,7 @@ XC_API void WINAPI XWnd_ClearBkInfo(HWINDOW hWindow);
 
 //3.3.0----------------------------------------
 
-//ÒÆ³ı:
+//ç§»é™¤:
 //XEle_Move
 //XEle_MoveLogic
 //XShape_Move
@@ -4002,7 +4002,7 @@ XC_API void WINAPI XWnd_ClearBkInfo(HWINDOW hWindow);
 //XSvg_LoadString
 //XImage_LoadSvgString
 
-//Ôö¼Ó:
+//å¢åŠ :
 XC_API void WINAPI XWnd_SetPosition(HWINDOW hWindow, int x, int y);
 XC_API int  WINAPI XEle_SetPosition(HELE hEle, int x, int y, BOOL bRedraw = FALSE, int nFlags = adjustLayout_all, UINT nAdjustNo = 0);
 XC_API int  WINAPI XEle_SetPositionLogic(HELE hEle, int x, int y, BOOL bRedraw = FALSE, int nFlags = adjustLayout_all, UINT nAdjustNo = 0);
@@ -4017,7 +4017,7 @@ XC_API void WINAPI XShape_GetSize(HXCGUI hShape, int* pOutWidth, int* pOutHeight
 XC_API void WINAPI XShape_SetAlpha(HXCGUI hShape, BYTE alpha);
 XC_API BYTE WINAPI XShape_GetAlpha(HXCGUI hShape);
 
-XC_API HIMAGE WINAPI XImage_LoadSvgString(const char* pString); //ĞŞ¸Ä
+XC_API HIMAGE WINAPI XImage_LoadSvgString(const char* pString); //ä¿®æ”¹
 XC_API HIMAGE WINAPI XImage_LoadSvgStringW(const wchar_t* pString);
 XC_API HIMAGE WINAPI XImage_LoadSvgStringUtf8(const char* pString);
 
@@ -4065,12 +4065,12 @@ XC_API void WINAPI XSvg_Release(HSVG hSvg);
 XC_API int  WINAPI XSvg_GetRefCount(HSVG hSvg);
 XC_API void WINAPI XSvg_Destroy(HSVG hSvg);
 
-//¶¯»­ÌØĞ§------------------------------------------------
+//åŠ¨ç”»ç‰¹æ•ˆ------------------------------------------------
 XC_API void   WINAPI XAnima_Run(HXCGUI hAnimation, HXCGUI hRedrawObjectUI);
 XC_API BOOL   WINAPI XAnima_Release(HXCGUI hAnimation, BOOL bEnd = TRUE);
-XC_API int    WINAPI XAnima_ReleaseEx(HXCGUI hObjectUI, BOOL bEnd); //ÒÆ³ıÖ¸¶¨UI¶ÔÏó¹ØÁªµÄ¶¯»­
+XC_API int    WINAPI XAnima_ReleaseEx(HXCGUI hObjectUI, BOOL bEnd); //ç§»é™¤æŒ‡å®šUIå¯¹è±¡å…³è”çš„åŠ¨ç”»
 
-//¶¯»­ĞòÁĞ
+//åŠ¨ç”»åºåˆ—
 XC_API HXCGUI WINAPI XAnima_Create(HXCGUI hObjectUI, int nLoopCount = 0);
 
 XC_API HXCGUI WINAPI XAnima_Move(HXCGUI  hSequence, UINT duration, float x, float y, int nLoopCount = 1, int ease_flag = 0, BOOL bGoBack = FALSE);
@@ -4101,28 +4101,28 @@ XC_API HXCGUI WINAPI XAnima_LayoutSize(HXCGUI hSequence, UINT duration, layout_s
 XC_API HXCGUI WINAPI XAnima_Delay(HXCGUI hSequence, float duration);
 XC_API HXCGUI WINAPI XAnima_Show(HXCGUI hSequence, float duration, BOOL bShow);
 
-//¶¯»­×é
+//åŠ¨ç”»ç»„
 XC_API HXCGUI WINAPI XAnimaGroup_Create(int nLoopCount = 0);
 XC_API void   WINAPI XAnimaGroup_AddItem(HXCGUI hGroup, HXCGUI hSequence);
 
-//ÉèÖÃÏîÊôĞÔ
+//è®¾ç½®é¡¹å±æ€§
 XC_API void   WINAPI XAnimaItem_EnableCompleteRelease(HXCGUI hAnimationItem, BOOL bEnable);
 XC_API void   WINAPI XAnimaRotate_SetCenter(HXCGUI hAnimationRotate, float x, float y, BOOL bOffset = FALSE);
 XC_API void   WINAPI XAnimaScale_SetPosition(HXCGUI hAnimationScale, position_flag_  position);
 
-XC_API HXCGUI WINAPI XAnima_GetObjectUI(HXCGUI hAnimation); //»ñÈ¡¶¯»­¹ØÁªµÄUI¶ÔÏó
-XC_API void   WINAPI XAnima_EnableAutoDestroy(HXCGUI hAnimation, BOOL bEnable);//ÆôÓÃ×Ô¶¯Ïú»Ù
+XC_API HXCGUI WINAPI XAnima_GetObjectUI(HXCGUI hAnimation); //è·å–åŠ¨ç”»å…³è”çš„UIå¯¹è±¡
+XC_API void   WINAPI XAnima_EnableAutoDestroy(HXCGUI hAnimation, BOOL bEnable);//å¯ç”¨è‡ªåŠ¨é”€æ¯
 XC_API void   WINAPI XAnima_SetCallback(HXCGUI 	hAnimationEx, funAnimation 	callback);
 
 
 //v3.3.1---------------------------------------------------------
 
-//ÓÅ»¯²ÎÊıË³Ğò
+//ä¼˜åŒ–å‚æ•°é¡ºåº
 XC_API HWINDOW WINAPI XWnd_CreateEx(DWORD dwExStyle, DWORD dwStyle, const wchar_t* lpClassName, int x, int y, int cx, int cy, const wchar_t* pTitle, HWND hWndParent = NULL, int XCStyle = window_style_default);
-XC_API HWINDOW WINAPI XModalWnd_CreateEx(DWORD dwExStyle, DWORD dwStyle, const wchar_t* lpClassName, int x, int y, int cx, int cy, const wchar_t* pTitle, HWND hWndParent, int XCStyle=window_style_modal);  //´´½¨´°¿Ú
-XC_API HWINDOW WINAPI XFrameWnd_CreateEx(DWORD dwExStyle, DWORD dwStyle, wchar_t* lpClassName, int x, int y, int cx, int cy, wchar_t* pTitle, HWND hWndParent, int XCStyle);  //´´½¨´°¿Ú
+XC_API HWINDOW WINAPI XModalWnd_CreateEx(DWORD dwExStyle, DWORD dwStyle, const wchar_t* lpClassName, int x, int y, int cx, int cy, const wchar_t* pTitle, HWND hWndParent, int XCStyle=window_style_modal);  //åˆ›å»ºçª—å£
+XC_API HWINDOW WINAPI XFrameWnd_CreateEx(DWORD dwExStyle, DWORD dwStyle, wchar_t* lpClassName, int x, int y, int cx, int cy, wchar_t* pTitle, HWND hWndParent, int XCStyle);  //åˆ›å»ºçª—å£
 
-//ĞÂÔö
+//æ–°å¢
 XC_API HXCGUI WINAPI XAnima_DestroyObjectUI(HXCGUI hSequence, float duration);
 XC_API void   WINAPI XAnima_SetCallback(HXCGUI hAnimation, funAnimation callback);
 XC_API void   WINAPI XAnima_SetUserData(HXCGUI hAnimation, vint nUserData);
@@ -4137,10 +4137,10 @@ XC_API void   WINAPI XAnimaItem_EnableAutoDestroy(HXCGUI hAnimationItem, BOOL bE
 
 XC_API HELE WINAPI XNotifyMsg_WindowPopup(HWINDOW hWindow, position_flag_ position, const wchar_t* pTitle, const wchar_t* pText, HIMAGE hIcon, notifyMsg_skin_ skin = notifyMsg_skin_no);
 XC_API HELE WINAPI XNotifyMsg_WindowPopupEx(HWINDOW hWindow, position_flag_ position, const wchar_t* pTitle, const wchar_t* pText, HIMAGE hIcon = NULL, notifyMsg_skin_ skin = notifyMsg_skin_no, BOOL bBtnClose = TRUE, BOOL bAutoClose = TRUE, int nWidth = -1, int nHeight = -1);
-//ÔÚ×ÀÃæµ¯³öÍ¨ÖªÏûÏ¢,·µ»Ø´°¿Ú¾ä±ú
+//åœ¨æ¡Œé¢å¼¹å‡ºé€šçŸ¥æ¶ˆæ¯,è¿”å›çª—å£å¥æŸ„
 XC_API HWINDOW WINAPI XNotifyMsg_Popup(position_flag_ position, const wchar_t* pTitle, const wchar_t* pText, HIMAGE hIcon, notifyMsg_skin_ skin = notifyMsg_skin_no);
 XC_API HWINDOW WINAPI XNotifyMsg_PopupEx(position_flag_ position, const wchar_t* pTitle, const wchar_t* pText, HIMAGE hIcon = NULL, notifyMsg_skin_ skin = notifyMsg_skin_no, BOOL bBtnClose = TRUE, BOOL bAutoClose = TRUE, int nWidth = -1, int nHeight = -1);
-//ÉèÖÃÖ¸¶¨´°¿ÚÍ¨ÖªÏûÏ¢ÊôĞÔ, Èç¹ûÎ´Ö¸¶¨´°¿Ú,ÄÇÃ´ÉèÖÃ×ÀÃæÍ¨ÖªÏûÏ¢ÊôĞÔ
+//è®¾ç½®æŒ‡å®šçª—å£é€šçŸ¥æ¶ˆæ¯å±æ€§, å¦‚æœæœªæŒ‡å®šçª—å£,é‚£ä¹ˆè®¾ç½®æ¡Œé¢é€šçŸ¥æ¶ˆæ¯å±æ€§
 XC_API void WINAPI XNotifyMsg_SetDuration(HWINDOW hWindow, UINT duration);
 XC_API void WINAPI XNotifyMsg_SetCaptionHeight(HWINDOW hWindow, int nHeight);
 XC_API void WINAPI XNotifyMsg_SetWidth(HWINDOW hWindow, int nWidth);
@@ -4158,7 +4158,7 @@ XC_API int  WINAPI XWnd_SetBkInfo(HWINDOW hWindow, const wchar_t* pText);
 XC_API int  WINAPI XBkM_SetInfo(HBKM hBkInfoM, const wchar_t* pText);
 
 
-//Ôö¼Ó²ÎÊı hAttachWnd
+//å¢åŠ å‚æ•° hAttachWnd
 XC_API HXCGUI WINAPI XC_LoadLayout(const wchar_t *pFileName, HXCGUI hParent=NULL, HWND hAttachWnd=NULL);
 XC_API HXCGUI WINAPI XC_LoadLayoutZip(const wchar_t *pZipFileName, const wchar_t *pFileName, const wchar_t* pPassword=NULL, HXCGUI hParent=NULL, HWND hAttachWnd = NULL);
 XC_API HXCGUI WINAPI XC_LoadLayoutZipMem(void* data, int length, const wchar_t *pFileName, const wchar_t* pPassword = NULL, HXCGUI hParent = NULL, HWND hAttachWnd = NULL);
@@ -4229,37 +4229,37 @@ XC_API void WINAPI XEdit_SetCharSpaceSize(HELE hEle, int size, int sizeZh);
 XC_API int  WINAPI XEdit_GetSelectTextLength(HELE hEle);
 XC_API void WINAPI XEdit_SetSelectTextStyle(HELE hEle, int iStyle);
 
-XC_API const char* WINAPI XEditor_GetExpandState(HELE hEle); //»ñÈ¡ÕÛµş×´Ì¬
-XC_API BOOL WINAPI XEditor_SetExpandState(HELE hEle, const char* pString); //ÉèÖÃÕÛµş×´Ì¬
+XC_API const char* WINAPI XEditor_GetExpandState(HELE hEle); //è·å–æŠ˜å çŠ¶æ€
+XC_API BOOL WINAPI XEditor_SetExpandState(HELE hEle, const char* pString); //è®¾ç½®æŠ˜å çŠ¶æ€
 XC_API int  WINAPI XEditor_GetIndentation(HELE hEle, int iRow);
 XC_API BOOL WINAPI XEidtor_IsEmptyRow(HELE hEle, int iRow);
 
 XC_API void WINAPI XEdit_AddTextUser(HELE hEle, const wchar_t* pString);
 XC_API void WINAPI XEdit_PosToRowCol(HELE hEle, int iPos, out_ position_* pInfo);
 XC_API int  WINAPI XEdit_RowColToPos(HELE hEle, int iRow, int iCol);
-XC_API void WINAPI XEdit_SetCurPosEx(HELE hEle, int iRow, int iCol); //ĞÂÔö
-XC_API void WINAPI XEdit_GetCurPosEx(HELE hEle, out_ int* iRow, out_ int* iCol); //ĞÂÔö
-XC_API BOOL WINAPI XEdit_SetCurPos(HELE hEle, int pos);  //ĞŞ¸Ä
-XC_API void WINAPI XEdit_MoveEnd(HELE hEle); //ĞÂÔö
+XC_API void WINAPI XEdit_SetCurPosEx(HELE hEle, int iRow, int iCol); //æ–°å¢
+XC_API void WINAPI XEdit_GetCurPosEx(HELE hEle, out_ int* iRow, out_ int* iCol); //æ–°å¢
+XC_API BOOL WINAPI XEdit_SetCurPos(HELE hEle, int pos);  //ä¿®æ”¹
+XC_API void WINAPI XEdit_MoveEnd(HELE hEle); //æ–°å¢
 
-//Ôö¼Ó²ÎÊı
+//å¢åŠ å‚æ•°
 XC_API void  WINAPI XPane_ShowPane(HELE hEle, BOOL bActivate);
 XC_API void  WINAPI XPane_HidePane(HELE hEle, BOOL bGroupDelay = FALSE);
-//ĞÂÔö:
+//æ–°å¢:
 XC_API BOOL WINAPI XPane_IsGroupActivate(HELE hEle);
 
-//Ôö¼Ó²ÎÊı:
+//å¢åŠ å‚æ•°:
 XC_API void WINAPI XC_GetTextShowRect(const wchar_t* pString, int length, HFONTX hFontX, int nTextAlign, int width, out_ SIZE* pOutSize);
 
-//ĞÂÔö:
+//æ–°å¢:
 XC_API void WINAPI XList_SetItemHeight(HELE hEle, int iItem, int nHeight, int nSelHeight);
 XC_API void WINAPI XList_GetItemHeight(HELE hEle, int iItem, out_ int* pHeight, out_ int* pSelHeight);
 
-//µ¯³ö²Ëµ¥ĞŞ¸´ ¶Ô±³¾°¹ÜÀíÆ÷Ö§³Ö, ¶Ô´°¿ÚÒş²ØÖ§³Ö
+//å¼¹å‡ºèœå•ä¿®å¤ å¯¹èƒŒæ™¯ç®¡ç†å™¨æ”¯æŒ, å¯¹çª—å£éšè—æ”¯æŒ
 
-//¾ä±úÉÏÏŞÔö¼Óµ½20Íò
+//å¥æŸ„ä¸Šé™å¢åŠ åˆ°20ä¸‡
 
-//Ôö¼ÓÁĞ±íÊÓÍ¼ È¡Êı¾İ½Ó¿Ú
+//å¢åŠ åˆ—è¡¨è§†å›¾ å–æ•°æ®æ¥å£
 XC_API const wchar_t* WINAPI XAdListView_Group_GetText(HXCGUI hAdapter, int iGroup, int iColumn); //new
 XC_API const wchar_t* XAdListView_Group_GetTextEx(HXCGUI hAdapter, int iGroup, const wchar_t* pName); //new
 XC_API HIMAGE WINAPI XAdListView_Group_GetImage(HXCGUI hAdapter, int iGroup, int iColumn); //new
@@ -4300,7 +4300,7 @@ XC_API HSVG WINAPI XSvg_LoadZipMem(void* data, int length, const wchar_t* pFileN
 XC_API HFONTX WINAPI XFont_CreateFromZip(const wchar_t* pZipFileName,const wchar_t* pFileName, const wchar_t* pPassword, int fontSize, int style);
 XC_API HFONTX WINAPI XFont_CreateFromZipMem(void* data, int length, const wchar_t* pFileName, const wchar_t* pPassword, int fontSize, int style);
 
-//Ôö¼Ó²ÎÊı col_extend_count  ÁĞ±íÏîÄ£°åÖ§³ÖÁĞÑÓÉì
+//å¢åŠ å‚æ•° col_extend_count  åˆ—è¡¨é¡¹æ¨¡æ¿æ”¯æŒåˆ—å»¶ä¼¸
 //XC_API HXCGUI WINAPI XList_CreateAdapter(HELE hEle, int col_extend_count=0);
 
 

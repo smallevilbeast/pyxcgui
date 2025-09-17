@@ -18,59 +18,59 @@ namespace xcgui {
 			m_handle = XProgBar_Create(x, y, width, height, parent);
 		}
 
-		//@±¸×¢ ÏÔÊ¾½ø¶ÈÖµÎÄ±¾
-		//@²ÎÊı bShow ÊÇ·ñÆôÓÃ
-		//@±ğÃû  ÆôÓÃ½ø¶ÈÎÄ±¾()
+		//@å¤‡æ³¨ æ˜¾ç¤ºè¿›åº¦å€¼æ–‡æœ¬
+		//@å‚æ•° bShow æ˜¯å¦å¯ç”¨
+		//@åˆ«å  å¯ç”¨è¿›åº¦æ–‡æœ¬()
 		void EnableShowText(bool bShow) {
 			XProgBar_EnableShowText(getEleHandle(), bShow);
 		}
 
-		//@±¸×¢ Ëõ·Å½ø¶ÈÌùÍ¼Îªµ±Ç°½ø¶ÈÇøÓò(µ±Ç°½ø¶ÈËùÏÔÊ¾ÇøÓò),·ñÔòÎªÕûÌå100%½ø¶ÈÇøÓò
-		//@²ÎÊı bStretch Ëõ·Å
-		//@·µ»Ø Èç¹û³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  ÆôÓÃËõ·Å()
+		//@å¤‡æ³¨ ç¼©æ”¾è¿›åº¦è´´å›¾ä¸ºå½“å‰è¿›åº¦åŒºåŸŸ(å½“å‰è¿›åº¦æ‰€æ˜¾ç¤ºåŒºåŸŸ),å¦åˆ™ä¸ºæ•´ä½“100%è¿›åº¦åŒºåŸŸ
+		//@å‚æ•° bStretch ç¼©æ”¾
+		//@è¿”å› å¦‚æœæˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  å¯ç”¨ç¼©æ”¾()
 		void EnableStretch(bool bStretch) {
 			XProgBar_EnableStretch(getEleHandle(), bStretch);
 		}
 
-		//@±¸×¢ ÉèÖÃ·¶Î§.  
-		//@²ÎÊı range ·¶Î§.
-		//@±ğÃû  ÖÃ·¶Î§()
+		//@å¤‡æ³¨ è®¾ç½®èŒƒå›´.  
+		//@å‚æ•° range èŒƒå›´.
+		//@åˆ«å  ç½®èŒƒå›´()
 		void SetRange(int range) {
 			XProgBar_SetRange(getEleHandle(), range);
 		}
 
-		//@±¸×¢ »ñÈ¡·¶Î§.  
-		//@·µ»Ø ·µ»Ø·¶Î§.
-		//@±ğÃû  È¡·¶Î§()
+		//@å¤‡æ³¨ è·å–èŒƒå›´.  
+		//@è¿”å› è¿”å›èŒƒå›´.
+		//@åˆ«å  å–èŒƒå›´()
 		int GetRange() {
 			return XProgBar_GetRange(getEleHandle());
 		}
 
-		//@±¸×¢ ÉèÖÃ½ø¶ÈÌùÍ¼.  
-		//@²ÎÊı hImage Í¼Æ¬¾ä±ú.
-		//@±ğÃû  ÖÃ½ø¶ÈÍ¼Æ¬()
+		//@å¤‡æ³¨ è®¾ç½®è¿›åº¦è´´å›¾.  
+		//@å‚æ•° hImage å›¾ç‰‡å¥æŸ„.
+		//@åˆ«å  ç½®è¿›åº¦å›¾ç‰‡()
 		void SetImageLoad(HIMAGE hImage) {
 			XProgBar_SetImageLoad(getEleHandle(), hImage);
 		}
 
-		//@±¸×¢ ÉèÖÃÎ»ÖÃµã.  
-		//@²ÎÊı pos Î»ÖÃµã.
-		//@±ğÃû  ÖÃ½ø¶È()
+		//@å¤‡æ³¨ è®¾ç½®ä½ç½®ç‚¹.  
+		//@å‚æ•° pos ä½ç½®ç‚¹.
+		//@åˆ«å  ç½®è¿›åº¦()
 		void SetPos(int pos) {
 			XProgBar_SetPos(getEleHandle(), pos);
 		}
 
-		//@±¸×¢ »ñÈ¡µ±Ç°Î»ÖÃµã.  
-		//@·µ»Ø ·µ»Øµ±Ç°Î»ÖÃµã.
-		//@±ğÃû  È¡½ø¶È()
+		//@å¤‡æ³¨ è·å–å½“å‰ä½ç½®ç‚¹.  
+		//@è¿”å› è¿”å›å½“å‰ä½ç½®ç‚¹.
+		//@åˆ«å  å–è¿›åº¦()
 		int GetPos() {
 			return XProgBar_GetPos(getEleHandle());
 		}
 
-		//@±¸×¢ ÉèÖÃË®Æ½»ò´¹Ö±.  
-		//@²ÎÊı bHorizon Ë®Æ½»ò´¹Ö±.
-		//@±ğÃû  ÆôÓÃË®Æ½()
+		//@å¤‡æ³¨ è®¾ç½®æ°´å¹³æˆ–å‚ç›´.  
+		//@å‚æ•° bHorizon æ°´å¹³æˆ–å‚ç›´.
+		//@åˆ«å  å¯ç”¨æ°´å¹³()
 		void EnableHorizon(bool bHorizon) {
 			XProgBar_EnableHorizon(getEleHandle(), bHorizon);
 		}

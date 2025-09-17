@@ -16,32 +16,32 @@ namespace xcgui {
 			m_handle = handle;
 		}
 
-		//  »ñÈ¡¶ÔÏó×îÖÕÀàĞÍ
+		//  è·å–å¯¹è±¡æœ€ç»ˆç±»å‹
 		XC_OBJECT_TYPE GetType()
 		{
 			return XObj_GetType(m_handle);
 		}
 
-		// »ñÈ¡¶ÔÏóµÄ»ù´¡ÀàĞÍ
+		// è·å–å¯¹è±¡çš„åŸºç¡€ç±»å‹
 		XC_OBJECT_TYPE GetTypeBase()
 		{
 			return XObj_GetTypeBase(m_handle);
 		}
 
-		// »ñÈ¡¶ÔÏóÀ©Õ¹ÀàĞÍ
+		// è·å–å¯¹è±¡æ‰©å±•ç±»å‹
 		XC_OBJECT_TYPE_EX GetTypeEx()
 		{
 			return XObj_GetTypeEx(m_handle);
 		}
 
-		// Èç¹ûÊÇ°´Å¥, ÇëÊ¹ÓÃ°´Å¥µÄÔöÇ¿½Ó¿Ú XBtn_SetTypeEx()
+		// å¦‚æœæ˜¯æŒ‰é’®, è¯·ä½¿ç”¨æŒ‰é’®çš„å¢å¼ºæ¥å£ XBtn_SetTypeEx()
 		void SetTypeEx(XC_OBJECT_TYPE_EX nType)
 		{
 			XObj_SetTypeEx(m_handle, nType);
 		}
 
 
-		// »ñÈ¡¶ÔÏóÊôĞÔ.
+		// è·å–å¯¹è±¡å±æ€§.
 		std::wstring GetProperty(const std::wstring& name) {
 			auto pName = XC_GetProperty(m_handle, name.c_str());
 			if (!pName) {

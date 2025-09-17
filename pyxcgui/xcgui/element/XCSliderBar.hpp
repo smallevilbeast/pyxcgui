@@ -18,65 +18,65 @@ namespace xcgui {
 			m_handle = XSliderBar_Create(x, y, width, height, parent);
 		}
 
-		//@±¸×¢ ÉèÖÃ»¬¶¯·¶Î§.  
-		//@²ÎÊı range ·¶Î§.
-		//@±ğÃû  ÖÃ·¶Î§()
+		//@å¤‡æ³¨ è®¾ç½®æ»‘åŠ¨èŒƒå›´.  
+		//@å‚æ•° range èŒƒå›´.
+		//@åˆ«å  ç½®èŒƒå›´()
 		void SetRange(int range) {
 			XSliderBar_SetRange(getEleHandle(), range);
 		}
 
-		//@±¸×¢ »ñÈ¡¹ö¶¯·¶Î§.  
-		//@·µ»Ø ·µ»Ø¹ö¶¯·¶Î§.
-		//@±ğÃû  È¡·¶Î§()
+		//@å¤‡æ³¨ è·å–æ»šåŠ¨èŒƒå›´.  
+		//@è¿”å› è¿”å›æ»šåŠ¨èŒƒå›´.
+		//@åˆ«å  å–èŒƒå›´()
 		int GetRange() {
 			return XSliderBar_GetRange(getEleHandle());
 		}
 
-		//@±¸×¢ ÉèÖÃ½ø¶ÈÌùÍ¼.  
-		//@²ÎÊı hImage Í¼Æ¬¾ä±ú.
-		//@±ğÃû  ÖÃ½ø¶ÈÍ¼Æ¬()
+		//@å¤‡æ³¨ è®¾ç½®è¿›åº¦è´´å›¾.  
+		//@å‚æ•° hImage å›¾ç‰‡å¥æŸ„.
+		//@åˆ«å  ç½®è¿›åº¦å›¾ç‰‡()
 		void SetImageLoad(HIMAGE hImage) {
 			XSliderBar_SetImageLoad(getEleHandle(), hImage);
 		}
 
-		//@±¸×¢ ÉèÖÃ»¬¿é°´Å¥¿í¶È.  
-		//@²ÎÊı width ¿í¶È.
-		//@±ğÃû  ÖÃ»¬¿é¿í¶È()
+		//@å¤‡æ³¨ è®¾ç½®æ»‘å—æŒ‰é’®å®½åº¦.  
+		//@å‚æ•° width å®½åº¦.
+		//@åˆ«å  ç½®æ»‘å—å®½åº¦()
 		void SetButtonWidth(int width) {
 			XSliderBar_SetButtonWidth(getEleHandle(), width);
 		}
 
-		//@±¸×¢ ÉèÖÃ»¬¿é°´Å¥¸ß¶È.  
-		//@²ÎÊı height ¸ß¶È.
-		//@±ğÃû  ÖÃ»¬¿é¸ß¶È()
+		//@å¤‡æ³¨ è®¾ç½®æ»‘å—æŒ‰é’®é«˜åº¦.  
+		//@å‚æ•° height é«˜åº¦.
+		//@åˆ«å  ç½®æ»‘å—é«˜åº¦()
 		void SetButtonHeight(int height) {
 			XSliderBar_SetButtonHeight(getEleHandle(), height);
 		}
 
-		//@±¸×¢ ÉèÖÃµ±Ç°½ø¶Èµã.  
-		//@²ÎÊı pos ½ø¶Èµã.
-		//@±ğÃû  ÖÃµ±Ç°Î»ÖÃ()
+		//@å¤‡æ³¨ è®¾ç½®å½“å‰è¿›åº¦ç‚¹.  
+		//@å‚æ•° pos è¿›åº¦ç‚¹.
+		//@åˆ«å  ç½®å½“å‰ä½ç½®()
 		void SetPos(int pos) {
 			XSliderBar_SetPos(getEleHandle(), pos);
 		}
 
-		//@±¸×¢ »ñÈ¡µ±Ç°½ø¶Èµã.  
-		//@·µ»Ø ·µ»Øµ±Ç°½ø¶Èµã.
-		//@±ğÃû  È¡µ±Ç°Î»ÖÃ()
+		//@å¤‡æ³¨ è·å–å½“å‰è¿›åº¦ç‚¹.  
+		//@è¿”å› è¿”å›å½“å‰è¿›åº¦ç‚¹.
+		//@åˆ«å  å–å½“å‰ä½ç½®()
 		int GetPos() {
 			return XSliderBar_GetPos(getEleHandle());
 		}
 
-		//@±¸×¢ »ñÈ¡»¬¿é°´Å¥.  
-		//@·µ»Ø °´Å¥¾ä±ú.
-		//@±ğÃû  È¡»¬¿é()
+		//@å¤‡æ³¨ è·å–æ»‘å—æŒ‰é’®.  
+		//@è¿”å› æŒ‰é’®å¥æŸ„.
+		//@åˆ«å  å–æ»‘å—()
 		HELE GetButton() {
 			return XSliderBar_GetButton(getEleHandle());
 		}
 
-		//@±¸×¢ ÉèÖÃË®Æ½»ò´¹Ö±.  
-		//@²ÎÊı bHorizon Ë®Æ½»ò´¹Ö±.
-		//@±ğÃû  ÆôÓÃË®Æ½()
+		//@å¤‡æ³¨ è®¾ç½®æ°´å¹³æˆ–å‚ç›´.  
+		//@å‚æ•° bHorizon æ°´å¹³æˆ–å‚ç›´.
+		//@åˆ«å  å¯ç”¨æ°´å¹³()
 		void EnableHorizon(bool bHorizon) {
 			XSliderBar_EnableHorizon(getEleHandle(), bHorizon);
 		}

@@ -15,88 +15,88 @@ namespace xcgui {
 		XCAnimation() = default;
 
 
-		//@±¸×¢ ½«¶¯»­¼ÓÈë¶¯»­ÏµÍ³ÖÐÔËÐÐ
-		//@²ÎÊý hAnimationEx ¶¯»­ÐòÁÐ»ò¶¯»­×é¾ä±ú
-		//@²ÎÊý hRedrawObjectUI µ±¸üÐÂUIÊ±ÖØ»æµÄUI²ã;  UI¶ÔÏó¾ä±ú: ´°¿Ú¾ä±ú,ÔªËØ¾ä±ú,ÐÎ×´¾ä±ú,SVG¾ä±ú
-		//@±ðÃû ¶¯»­_ÔËÐÐ()
+		//@å¤‡æ³¨ å°†åŠ¨ç”»åŠ å…¥åŠ¨ç”»ç³»ç»Ÿä¸­è¿è¡Œ
+		//@å‚æ•° hAnimationEx åŠ¨ç”»åºåˆ—æˆ–åŠ¨ç”»ç»„å¥æŸ„
+		//@å‚æ•° hRedrawObjectUI å½“æ›´æ–°UIæ—¶é‡ç»˜çš„UIå±‚;  UIå¯¹è±¡å¥æŸ„: çª—å£å¥æŸ„,å…ƒç´ å¥æŸ„,å½¢çŠ¶å¥æŸ„,SVGå¥æŸ„
+		//@åˆ«å åŠ¨ç”»_è¿è¡Œ()
 		void Run(HXCGUI hRedRawObjectUI) {
 			XAnima_Run(m_handle, hRedRawObjectUI);
 		}
-		//@±¸×¢ ½«¶¯»­´Ó¶¯»­ÏµÍ³ÖÐÒÆ³ý,²¢ÇÒ×Ô¶¯Ïú»Ù(Èç¹ûÆôÓÃ×Ô¶¯Ïú»Ù)
-		//@²ÎÊý hAnimationEx ¶¯»­ÐòÁÐ»ò¶¯»­×é¾ä±ú
-		//@²ÎÊý bEnd ÊÇ·ñÁ¢¼´Ö´ÐÐµ½ÖÕµã
-		//@±ðÃû ¶¯»­_ÊÍ·Å()
+		//@å¤‡æ³¨ å°†åŠ¨ç”»ä»ŽåŠ¨ç”»ç³»ç»Ÿä¸­ç§»é™¤,å¹¶ä¸”è‡ªåŠ¨é”€æ¯(å¦‚æžœå¯ç”¨è‡ªåŠ¨é”€æ¯)
+		//@å‚æ•° hAnimationEx åŠ¨ç”»åºåˆ—æˆ–åŠ¨ç”»ç»„å¥æŸ„
+		//@å‚æ•° bEnd æ˜¯å¦ç«‹å³æ‰§è¡Œåˆ°ç»ˆç‚¹
+		//@åˆ«å åŠ¨ç”»_é‡Šæ”¾()
 		bool Release(bool bEnd = true) {
 			return XAnima_Release(m_handle, bEnd);
 
 		}
-		//@±¸×¢ ´Ó¶¯»­ÏµÍ³ÖÐÒÆ³ýÓëÖ¸¶¨UI¶ÔÏó¹ØÁªµÄËùÓÐ¶¯»­, ²¢ÇÒ×Ô¶¯Ïú»Ù(Èç¹ûÆôÓÃ×Ô¶¯Ïú»Ù)
-		//@²ÎÊý hObjectUI Ö¸¶¨UI¶ÔÏó¾ä±ú
-		//@²ÎÊý bEnd ÊÇ·ñÁ¢¼´Ö´ÐÐµ½ÖÕµã
-		//@·µ»Ø ·µ»ØÊÍ·Å¶¯»­ÊýÁ¿
-		//@±ðÃû ¶¯»­_ÊÍ·ÅÀ©Õ¹()
+		//@å¤‡æ³¨ ä»ŽåŠ¨ç”»ç³»ç»Ÿä¸­ç§»é™¤ä¸ŽæŒ‡å®šUIå¯¹è±¡å…³è”çš„æ‰€æœ‰åŠ¨ç”», å¹¶ä¸”è‡ªåŠ¨é”€æ¯(å¦‚æžœå¯ç”¨è‡ªåŠ¨é”€æ¯)
+		//@å‚æ•° hObjectUI æŒ‡å®šUIå¯¹è±¡å¥æŸ„
+		//@å‚æ•° bEnd æ˜¯å¦ç«‹å³æ‰§è¡Œåˆ°ç»ˆç‚¹
+		//@è¿”å›ž è¿”å›žé‡Šæ”¾åŠ¨ç”»æ•°é‡
+		//@åˆ«å åŠ¨ç”»_é‡Šæ”¾æ‰©å±•()
 		static int ReleaseEx(HXCGUI objectUI, bool bEnd) {
 			return XAnima_ReleaseEx(objectUI, bEnd);
 		}
 
 
 
-		//@±¸×¢ true:×Ô¶¯Ïú»Ù false:ÊÖ¶¯Ïú»Ù
-		//@²ÎÊý hAnimationEx ¶¯»­ÐòÁÐ»ò¶¯»­×é¾ä±ú
-		//@²ÎÊý bEnable ÊÇ·ñÆôÓÃ
-		//@±ðÃû ¶¯»­_ÆôÓÃ×Ô¶¯Ïú»Ù()
+		//@å¤‡æ³¨ true:è‡ªåŠ¨é”€æ¯ false:æ‰‹åŠ¨é”€æ¯
+		//@å‚æ•° hAnimationEx åŠ¨ç”»åºåˆ—æˆ–åŠ¨ç”»ç»„å¥æŸ„
+		//@å‚æ•° bEnable æ˜¯å¦å¯ç”¨
+		//@åˆ«å åŠ¨ç”»_å¯ç”¨è‡ªåŠ¨é”€æ¯()
 		void EnableAutoDestroy(bool bEnable) {
 			XAnima_EnableAutoDestroy(m_handle, bEnable);
 		}
 
 
-		//@±¸×¢ »ñÈ¡¶¯»­¹ØÁªµÄUI¶ÔÏó
-		//@²ÎÊý hAnimationEx ¶¯»­ÐòÁÐ»ò¶¯»­×é»ò¶¯»­Ïî¾ä±ú
-		//@·µ»Ø ·µ»ØUI¶ÔÏó¾ä±ú
-		//@±ðÃû ¶¯»­_È¡UI¶ÔÏó()
+		//@å¤‡æ³¨ èŽ·å–åŠ¨ç”»å…³è”çš„UIå¯¹è±¡
+		//@å‚æ•° hAnimationEx åŠ¨ç”»åºåˆ—æˆ–åŠ¨ç”»ç»„æˆ–åŠ¨ç”»é¡¹å¥æŸ„
+		//@è¿”å›ž è¿”å›žUIå¯¹è±¡å¥æŸ„
+		//@åˆ«å åŠ¨ç”»_å–UIå¯¹è±¡()
 		HXCGUI GetObjectUI() {
 			return XAnima_GetObjectUI(m_handle);
 		}
 
-		//@²ÎÊý hAnimationEx ¶¯»­ÐòÁÐ»ò¶¯»­×é¾ä±ú
-		//@²ÎÊý callback »Øµ÷º¯Êý
-		//@±ðÃû ¶¯»­_ÖÃ»Øµ÷()
+		//@å‚æ•° hAnimationEx åŠ¨ç”»åºåˆ—æˆ–åŠ¨ç”»ç»„å¥æŸ„
+		//@å‚æ•° callback å›žè°ƒå‡½æ•°
+		//@åˆ«å åŠ¨ç”»_ç½®å›žè°ƒ()
 		void SetCallBack(funAnimation callback) {
 			XAnima_SetCallback(m_handle, callback);
 		}
 
 
-		//@²ÎÊý hAnimationEx ¶¯»­ÐòÁÐ»ò¶¯»­×é¾ä±ú
-		//@²ÎÊý nUserData ÓÃÊý¾Ý
-		//@±ðÃû ¶¯»­_ÖÃÓÃ»§Êý¾Ý()
+		//@å‚æ•° hAnimationEx åŠ¨ç”»åºåˆ—æˆ–åŠ¨ç”»ç»„å¥æŸ„
+		//@å‚æ•° nUserData ç”¨æ•°æ®
+		//@åˆ«å åŠ¨ç”»_ç½®ç”¨æˆ·æ•°æ®()
 		void SetUserData(vint nUserData) {
 			return XAnima_SetUserData(m_handle, nUserData);
 		}
 
 
-		//@²ÎÊý hAnimationEx ¶¯»­ÐòÁÐ»ò¶¯»­×é¾ä±ú
-		//@·µ»Ø ·µ»ØÓÃ»§Êý¾Ý
-		//@±ðÃû ¶¯»­_È¡ÓÃ»§Êý¾Ý()
+		//@å‚æ•° hAnimationEx åŠ¨ç”»åºåˆ—æˆ–åŠ¨ç”»ç»„å¥æŸ„
+		//@è¿”å›ž è¿”å›žç”¨æˆ·æ•°æ®
+		//@åˆ«å åŠ¨ç”»_å–ç”¨æˆ·æ•°æ®()
 		vint GetUserData() {
 			return XAnima_GetUserData(m_handle);
 		}
 
-		//@²ÎÊý hAnimationEx ¶¯»­ÐòÁÐ»ò¶¯»­×é¾ä±ú
-		//@±ðÃû ¶¯»­_Í£Ö¹()
+		//@å‚æ•° hAnimationEx åŠ¨ç”»åºåˆ—æˆ–åŠ¨ç”»ç»„å¥æŸ„
+		//@åˆ«å åŠ¨ç”»_åœæ­¢()
 		void Stop() {
 			XAnima_Stop(m_handle);
 		}
 
 
-		//@²ÎÊý hAnimationEx ¶¯»­ÐòÁÐ»ò¶¯»­×é¾ä±ú
-		//@±ðÃû ¶¯»­_¿ªÊ¼()
+		//@å‚æ•° hAnimationEx åŠ¨ç”»åºåˆ—æˆ–åŠ¨ç”»ç»„å¥æŸ„
+		//@åˆ«å åŠ¨ç”»_å¼€å§‹()
 		void Start() {
 			XAnima_Start(m_handle);
 		}
 
-		//@±¸×¢ Î´ÊµÏÖ¹¦ÄÜ
-		//@²ÎÊý hAnimationEx ¶¯»­ÐòÁÐ»ò¶¯»­×é¾ä±ú
-		//@±ðÃû ¶¯»­_ÔÝÍ£()
+		//@å¤‡æ³¨ æœªå®žçŽ°åŠŸèƒ½
+		//@å‚æ•° hAnimationEx åŠ¨ç”»åºåˆ—æˆ–åŠ¨ç”»ç»„å¥æŸ„
+		//@åˆ«å åŠ¨ç”»_æš‚åœ()
 		void Pause() {
 			XAnima_Pause(m_handle);
 		}

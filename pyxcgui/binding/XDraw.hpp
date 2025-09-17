@@ -349,7 +349,7 @@ namespace xcgui {
 				self.DrawSvgSize(svg.getSvgHandle(), width, height);
 			}, "svg"_a, "width"_a, "height"_a)
 				
-			// 3.5.5ÐÂÔö
+			// 3.5.5æ–°å¢ž
 			.def("imageMaskRect", [](XCDraw& self, const XCImage& image, const XCRect& rect, const XCRect& rectMask, const XCRect& rectRoundAngle) {
 				self.ImageMaskRect(image.getImageHandle(), (RECT*)&rect, (RECT*)&rectMask, (RECT*)&rectRoundAngle);
 			}, "image"_a, "rect"_a, "rectMask"_a, "rectRoundAngle"_a)

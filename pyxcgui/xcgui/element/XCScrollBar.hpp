@@ -18,116 +18,116 @@ namespace xcgui {
 			m_handle = XSBar_Create(x, y, width, height, parent);
 		}
 
-		//@±¸×¢ ÉèÖÃ¹ö¶¯·¶Î§.  
-		//@²ÎÊı range ·¶Î§.
-		//@±ğÃû  ÖÃ·¶Î§()
+		//@å¤‡æ³¨ è®¾ç½®æ»šåŠ¨èŒƒå›´.  
+		//@å‚æ•° range èŒƒå›´.
+		//@åˆ«å  ç½®èŒƒå›´()
 		void SetRange(int range) {
 			XSBar_SetRange(getEleHandle(), range);
 		}
 
-		//@±¸×¢ »ñÈ¡¹ö¶¯·¶Î§.  
-		//@·µ»Ø ¹ö¶¯·¶Î§.
-		//@±ğÃû  È¡·¶Î§()
+		//@å¤‡æ³¨ è·å–æ»šåŠ¨èŒƒå›´.  
+		//@è¿”å› æ»šåŠ¨èŒƒå›´.
+		//@åˆ«å  å–èŒƒå›´()
 		int GetRange() {
 			return XSBar_GetRange(getEleHandle());
 		}
 
-		//@±¸×¢ ÏÔÊ¾Òş²Ø¹ö¶¯ÌõÉÏÏÂ°´Å¥.  
-		//@²ÎÊı bShow ÊÇ·ñÏÔÊ¾.
-		//@±ğÃû  ÏÔÊ¾ÉÏÏÂ°´Å¥()
+		//@å¤‡æ³¨ æ˜¾ç¤ºéšè—æ»šåŠ¨æ¡ä¸Šä¸‹æŒ‰é’®.  
+		//@å‚æ•° bShow æ˜¯å¦æ˜¾ç¤º.
+		//@åˆ«å  æ˜¾ç¤ºä¸Šä¸‹æŒ‰é’®()
 		void ShowButton(bool bShow) {
 			XSBar_ShowButton(getEleHandle(), bShow);
 		}
 
-		//@±¸×¢ ÉèÖÃ»¬¿é³¤¶È.  
-		//@²ÎÊı length ³¤¶È.
-		//@±ğÃû  ÖÃ»¬¿é³¤¶È()
+		//@å¤‡æ³¨ è®¾ç½®æ»‘å—é•¿åº¦.  
+		//@å‚æ•° length é•¿åº¦.
+		//@åˆ«å  ç½®æ»‘å—é•¿åº¦()
 		void SetSliderLength(int length) {
 			XSBar_SetSliderLength(getEleHandle(), length);
 		}
 
-		//@±¸×¢ ÉèÖÃ»¬¿é×îĞ¡³¤¶È.  
-		//@²ÎÊı minLength ³¤¶È.
-		//@±ğÃû  ÖÃ»¬¿é×îĞ¡³¤¶È()
+		//@å¤‡æ³¨ è®¾ç½®æ»‘å—æœ€å°é•¿åº¦.  
+		//@å‚æ•° minLength é•¿åº¦.
+		//@åˆ«å  ç½®æ»‘å—æœ€å°é•¿åº¦()
 		void SetSliderMinLength(int minLength) {
 			XSBar_SetSliderMinLength(getEleHandle(), minLength);
 		}
 
-		//@±¸×¢ ÉèÖÃ»¬¿éÁ½±ßµÄ¼ä¸ô´óĞ¡.  
-		//@²ÎÊı nPadding ¼ä¸ô´óĞ¡.
-		//@±ğÃû  ÖÃ»¬¿éÁ½±ß¼ä¸ô()
+		//@å¤‡æ³¨ è®¾ç½®æ»‘å—ä¸¤è¾¹çš„é—´éš”å¤§å°.  
+		//@å‚æ•° nPadding é—´éš”å¤§å°.
+		//@åˆ«å  ç½®æ»‘å—ä¸¤è¾¹é—´éš”()
 		void SetSliderPadding(int nPadding) {
 			XSBar_SetSliderPadding(getEleHandle(), nPadding);
 		}
 
-		//@±¸×¢ ÉèÖÃË®Æ½»òÕß´¹Ö±.  
-		//@²ÎÊı bEnable Ë®Æ½»ò´¹Ö±.
-		//@·µ»Ø Èç¹û¸Ä±ä·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÆôÓÃË®Æ½()
+		//@å¤‡æ³¨ è®¾ç½®æ°´å¹³æˆ–è€…å‚ç›´.  
+		//@å‚æ•° bEnable æ°´å¹³æˆ–å‚ç›´.
+		//@è¿”å› å¦‚æœæ”¹å˜è¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  å¯ç”¨æ°´å¹³()
 		bool EnableHorizon(bool bHorizon) {
 			return XSBar_EnableHorizon(getEleHandle(), bHorizon);
 		}
 
-		//@±¸×¢ »ñÈ¡»¬¿é×î´ó³¤¶È.  
-		//@·µ»Ø ³¤¶È.
-		//@±ğÃû  È¡»¬¿é×î´ó³¤¶È()
+		//@å¤‡æ³¨ è·å–æ»‘å—æœ€å¤§é•¿åº¦.  
+		//@è¿”å› é•¿åº¦.
+		//@åˆ«å  å–æ»‘å—æœ€å¤§é•¿åº¦()
 		int GetSliderMaxLength() {
 			return XSBar_GetSliderMaxLength(getEleHandle());
 		}
 
-		//@±¸×¢ ÏòÉÏ¹ö¶¯.  
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÏòÉÏ¹ö¶¯()
+		//@å¤‡æ³¨ å‘ä¸Šæ»šåŠ¨.  
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  å‘ä¸Šæ»šåŠ¨()
 		bool ScrollUp() {
 			return XSBar_ScrollUp(getEleHandle());
 		}
 
-		//@±¸×¢ ÏòÏÂ¹ö¶¯.  
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÏòÏÂ¹ö¶¯()
+		//@å¤‡æ³¨ å‘ä¸‹æ»šåŠ¨.  
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  å‘ä¸‹æ»šåŠ¨()
 		bool ScrollDown() {
 			return XSBar_ScrollDown(getEleHandle());
 		}
 
-		//@±¸×¢ ¹ö¶¯µ½¶¥²¿.  
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ¹ö¶¯µ½¶¥²¿()
+		//@å¤‡æ³¨ æ»šåŠ¨åˆ°é¡¶éƒ¨.  
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  æ»šåŠ¨åˆ°é¡¶éƒ¨()
 		bool ScrollTop() {
 			return XSBar_ScrollTop(getEleHandle());
 		}
 
-		//@±¸×¢ ¹ö¶¯µ½µ×²¿.  
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ¹ö¶¯µ½µ×²¿()
+		//@å¤‡æ³¨ æ»šåŠ¨åˆ°åº•éƒ¨.  
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  æ»šåŠ¨åˆ°åº•éƒ¨()
 		bool ScrollBottom() {
 			return XSBar_ScrollBottom(getEleHandle());
 		}
 
-		//@±¸×¢ ¹ö¶¯µ½Ö¸¶¨Î»ÖÃµã ,´¥·¢ÊÂ¼ş 
-		//@²ÎÊı pos Î»ÖÃµã.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ¹ö¶¯µ½Ö¸¶¨Î»ÖÃ()
+		//@å¤‡æ³¨ æ»šåŠ¨åˆ°æŒ‡å®šä½ç½®ç‚¹ ,è§¦å‘äº‹ä»¶ 
+		//@å‚æ•° pos ä½ç½®ç‚¹.
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  æ»šåŠ¨åˆ°æŒ‡å®šä½ç½®()
 		bool ScrollPos(int pos) {
 			return XSBar_ScrollPos(getEleHandle(), pos);
 		}
 
-		//@±¸×¢ »ñÈ¡ÉÏ°´Å¥.  
-		//@·µ»Ø ·µ»Ø°´Å¥¾ä±ú.
-		//@±ğÃû  È¡ÉÏ°´Å¥()
+		//@å¤‡æ³¨ è·å–ä¸ŠæŒ‰é’®.  
+		//@è¿”å› è¿”å›æŒ‰é’®å¥æŸ„.
+		//@åˆ«å  å–ä¸ŠæŒ‰é’®()
 		HELE GetButtonUp() {
 			return XSBar_GetButtonUp(getEleHandle());
 		}
 
-		//@±¸×¢ »ñÈ¡ÏÂ°´Å¥.  
-		//@·µ»Ø ·µ»Ø°´Å¥¾ä±ú.
-		//@±ğÃû  È¡ÏÂ°´Å¥()
+		//@å¤‡æ³¨ è·å–ä¸‹æŒ‰é’®.  
+		//@è¿”å› è¿”å›æŒ‰é’®å¥æŸ„.
+		//@åˆ«å  å–ä¸‹æŒ‰é’®()
 		HELE GetButtonDown() {
 			return XSBar_GetButtonDown(getEleHandle());
 		}
 
-		//@±¸×¢ »ñÈ¡»¬¶¯°´Å¥.  
-		//@·µ»Ø ·µ»Ø°´Å¥¾ä±ú.
-		//@±ğÃû  È¡»¬¿é()
+		//@å¤‡æ³¨ è·å–æ»‘åŠ¨æŒ‰é’®.  
+		//@è¿”å› è¿”å›æŒ‰é’®å¥æŸ„.
+		//@åˆ«å  å–æ»‘å—()
 		HELE GetButtonSlider() {
 			return XSBar_GetButtonSlider(getEleHandle());
 		}

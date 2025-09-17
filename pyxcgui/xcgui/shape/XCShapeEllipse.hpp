@@ -23,30 +23,30 @@ namespace xcgui {
 			return m_handle;
 		}
 
-		//@±¸×¢ ÉèÖÃ±ß¿òÑÕÉ«.  
-		//@²ÎÊı color ÑÕÉ«Öµ, ÇëÊ¹ÓÃºê: RGBA()
-		//@±ğÃû  ÖÃ±ß¿òÉ«()
+		//@å¤‡æ³¨ è®¾ç½®è¾¹æ¡†é¢œè‰².  
+		//@å‚æ•° color é¢œè‰²å€¼, è¯·ä½¿ç”¨å®: RGBA()
+		//@åˆ«å  ç½®è¾¹æ¡†è‰²()
 		void SetBorderColor(COLORREF color) { 
 			XShapeEllipse_SetBorderColor(m_handle, color); 
 		}
 
-		//@±¸×¢ ÉèÖÃÌî³äÑÕÉ«.  
-		//@²ÎÊı color ÑÕÉ«Öµ, ÇëÊ¹ÓÃºê: RGBA()
-		//@±ğÃû  ÖÃÌî³äÉ«()
+		//@å¤‡æ³¨ è®¾ç½®å¡«å……é¢œè‰².  
+		//@å‚æ•° color é¢œè‰²å€¼, è¯·ä½¿ç”¨å®: RGBA()
+		//@åˆ«å  ç½®å¡«å……è‰²()
 		void SetFillColor(COLORREF color) { 
 			XShapeEllipse_SetFillColor(m_handle, color); 
 		}
 
-		//@±¸×¢ ÆôÓÃ»æÖÆÔ²±ß¿ò.  
-		//@²ÎÊı bEnable ÊÇ·ñÆôÓÃ.
-		//@±ğÃû  ÆôÓÃ±ß¿ò()
+		//@å¤‡æ³¨ å¯ç”¨ç»˜åˆ¶åœ†è¾¹æ¡†.  
+		//@å‚æ•° bEnable æ˜¯å¦å¯ç”¨.
+		//@åˆ«å  å¯ç”¨è¾¹æ¡†()
 		void EnableBorder(bool bEnable) { 
 			XShapeEllipse_EnableBorder(m_handle, bEnable); 
 		}
 		
-		//@±¸×¢ ÆôÓÃÌî³äÔ².  
-		//@²ÎÊı bEnable ÊÇ·ñÆôÓÃ.
-		//@±ğÃû  ÆôÓÃÌî³ä()
+		//@å¤‡æ³¨ å¯ç”¨å¡«å……åœ†.  
+		//@å‚æ•° bEnable æ˜¯å¦å¯ç”¨.
+		//@åˆ«å  å¯ç”¨å¡«å……()
 		void EnableFill(bool bEnable) { 
 			XShapeEllipse_EnableFill(m_handle, bEnable); 
 		}

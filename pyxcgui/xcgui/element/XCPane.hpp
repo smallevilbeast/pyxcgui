@@ -18,121 +18,121 @@ namespace xcgui {
 			m_handle = XPane_Create(name.c_str(), width, height, parent);
 		}
 
-		//@±¸×¢ ÉèÖÃ´°¸ñÊÓÍ¼ÔªËØ.  
-		//@²ÎÊı hView °ó¶¨ÊÓÍ¼ÔªËØ.
-		//@±ğÃû  ÖÃÊÓÍ¼()
+		//@å¤‡æ³¨ è®¾ç½®çª—æ ¼è§†å›¾å…ƒç´ .  
+		//@å‚æ•° hView ç»‘å®šè§†å›¾å…ƒç´ .
+		//@åˆ«å  ç½®è§†å›¾()
 		void SetView(HELE hView) {
 			XPane_SetView(getEleHandle(), hView);
 		}
 
-		//@±¸×¢ ÉèÖÃ±êÌâÎÄ±¾.  
-		//@²ÎÊı pTitle ÎÄ±¾ÄÚÈİ.
-		//@±ğÃû  ÖÃ±êÌâ()
+		//@å¤‡æ³¨ è®¾ç½®æ ‡é¢˜æ–‡æœ¬.  
+		//@å‚æ•° pTitle æ–‡æœ¬å†…å®¹.
+		//@åˆ«å  ç½®æ ‡é¢˜()
 		void SetTitle(const std::wstring& title) {
 			XPane_SetTitle(getEleHandle(), (wchar_t*)title.c_str());
 		}
 
-		//@±¸×¢ »ñÈ¡±êÌâÎÄ±¾.  
-		//@·µ»Ø ·µ»ØÎÄ±¾ÄÚÈİ
-		//@±ğÃû  È¡±êÌâ()
+		//@å¤‡æ³¨ è·å–æ ‡é¢˜æ–‡æœ¬.  
+		//@è¿”å› è¿”å›æ–‡æœ¬å†…å®¹
+		//@åˆ«å  å–æ ‡é¢˜()
 		std::wstring GetTitle() {
 			auto pTitle = XPane_GetTitle(getEleHandle());
 			if (!pTitle) return L"";
 			return pTitle;
 		}
 
-		//@±¸×¢ ÉèÖÃ±êÌâÀ¸¸ß¶È.  
-		//@²ÎÊı nHeight ¸ß¶È.
-		//@±ğÃû  ÖÃ±êÌâÀ¸¸ß¶È()
+		//@å¤‡æ³¨ è®¾ç½®æ ‡é¢˜æ é«˜åº¦.  
+		//@å‚æ•° nHeight é«˜åº¦.
+		//@åˆ«å  ç½®æ ‡é¢˜æ é«˜åº¦()
 		void SetCaptionHeight(int nHeight) {
 			XPane_SetCaptionHeight(getEleHandle(), nHeight);
 		}
 
-		//@±¸×¢ »ñÈ¡±êÌâÀ¸¸ß¶È.  
-		//@·µ»Ø ·µ»Ø±êÌâÀ¸¸ß¶È.
-		//@±ğÃû  È¡±êÌâÀ¸¸ß¶È()
+		//@å¤‡æ³¨ è·å–æ ‡é¢˜æ é«˜åº¦.  
+		//@è¿”å› è¿”å›æ ‡é¢˜æ é«˜åº¦.
+		//@åˆ«å  å–æ ‡é¢˜æ é«˜åº¦()
 		int GetCaptionHeight() {
 			return XPane_GetCaptionHeight(getEleHandle());
 		}
 
-		//@±¸×¢ ÅĞ¶Ï´°¸ñÊÇ·ñÏÔÊ¾.  
-		//@·µ»Ø Èç¹ûÏÔÊ¾·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÊÇ·ñÏÔÊ¾()
+		//@å¤‡æ³¨ åˆ¤æ–­çª—æ ¼æ˜¯å¦æ˜¾ç¤º.  
+		//@è¿”å› å¦‚æœæ˜¾ç¤ºè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  æ˜¯å¦æ˜¾ç¤º()
 		bool IsShowPane() {
 			return XPane_IsShowPane(getEleHandle());
 		}
 
-		//@±¸×¢ ÅĞ¶Ï´°¸ñÊÇ·ñ¼¤»î, µ±Îª×é³ÉÔ±Ê±ÓĞĞ§
-		//@·µ»Ø Èç¹ûÎª´°¸ñ×éÏÔÊ¾Ïî·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  ÊÇ·ñ¼¤»î()
+		//@å¤‡æ³¨ åˆ¤æ–­çª—æ ¼æ˜¯å¦æ¿€æ´», å½“ä¸ºç»„æˆå‘˜æ—¶æœ‰æ•ˆ
+		//@è¿”å› å¦‚æœä¸ºçª—æ ¼ç»„æ˜¾ç¤ºé¡¹è¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  æ˜¯å¦æ¿€æ´»()
 		bool IsGroupActivate() {
 			return XPane_IsGroupActivate(getEleHandle());
 		}
 
-		//@±¸×¢ ÉèÖÃ´°¸ñ´óĞ¡.  
-		//@²ÎÊı nWidth ¿í¶È.
-		//@²ÎÊı nHeight ¸ß¶È.
-		//@±ğÃû  ÖÃ´óĞ¡()
+		//@å¤‡æ³¨ è®¾ç½®çª—æ ¼å¤§å°.  
+		//@å‚æ•° nWidth å®½åº¦.
+		//@å‚æ•° nHeight é«˜åº¦.
+		//@åˆ«å  ç½®å¤§å°()
 		void SetSize(int nWidth, int nHeight) {
 			XPane_SetSize(getEleHandle(), nWidth, nHeight);
 		}
 
-		//@±¸×¢ »ñÈ¡´°¸ñÍ£¿¿×´Ì¬.  
-		//@·µ»Ø ·µ»Ø×´Ì¬±êÊ¶ @ref pane_state_.
-		//@±ğÃû  È¡×´Ì¬()
+		//@å¤‡æ³¨ è·å–çª—æ ¼åœé çŠ¶æ€.  
+		//@è¿”å› è¿”å›çŠ¶æ€æ ‡è¯† @ref pane_state_.
+		//@åˆ«å  å–çŠ¶æ€()
 		pane_state_ GetState() {
 			return XPane_GetState(getEleHandle());
 		}
 
-		//@±¸×¢ »ñÈ¡´°¸ñÊÓÍ¼×ø±ê.  
-		//@²ÎÊı pRect ½ÓÊÕ·µ»ØµÄ×ø±êÖµ.
-		//@±ğÃû  È¡ÊÓÍ¼×ø±ê()
+		//@å¤‡æ³¨ è·å–çª—æ ¼è§†å›¾åæ ‡.  
+		//@å‚æ•° pRect æ¥æ”¶è¿”å›çš„åæ ‡å€¼.
+		//@åˆ«å  å–è§†å›¾åæ ‡()
 		void GetViewRect(RECT* pRect) {
 			XPane_GetViewRect(getEleHandle(), pRect);
 		}
 
-		//@±¸×¢ Òş²Ø´°¸ñ.  
-		//@²ÎÊı bGroupDelay µ±Îª´°¸ñ×é³ÉÔ±Ê±, ÑÓ³Ù´¦Àí´°¸ñ×é³ÉÔ±¼¤»îµÄÇĞ»»
-		//@±ğÃû  Òş²Ø()
+		//@å¤‡æ³¨ éšè—çª—æ ¼.  
+		//@å‚æ•° bGroupDelay å½“ä¸ºçª—æ ¼ç»„æˆå‘˜æ—¶, å»¶è¿Ÿå¤„ç†çª—æ ¼ç»„æˆå‘˜æ¿€æ´»çš„åˆ‡æ¢
+		//@åˆ«å  éšè—()
 		void HidePane(bool bGroupDelay = false) {
 			XPane_HidePane(getEleHandle(), bGroupDelay);
 		}
 
-		//@±¸×¢ ÏÔÊ¾´°¸ñ.  
-		//@²ÎÊı bGroupActivate Èç¹ûÊÇ´°¸ñ×é³ÉÔ±,ÄÇÃ´´°¸ñ×éÇĞ»»µ±Ç°´°¸ñÎªÏÔÊ¾×´Ì¬
-		//@±ğÃû  ÏÔÊ¾()
+		//@å¤‡æ³¨ æ˜¾ç¤ºçª—æ ¼.  
+		//@å‚æ•° bGroupActivate å¦‚æœæ˜¯çª—æ ¼ç»„æˆå‘˜,é‚£ä¹ˆçª—æ ¼ç»„åˆ‡æ¢å½“å‰çª—æ ¼ä¸ºæ˜¾ç¤ºçŠ¶æ€
+		//@åˆ«å  æ˜¾ç¤º()
 		void ShowPane(bool bGroupActivate) {
 			XPane_ShowPane(getEleHandle(), bGroupActivate);
 		}
 
-		//@±¸×¢ ´°¸ñÍ£¿¿µ½ÂëÍ·.  
-		//@±ğÃû  Í£¿¿()
+		//@å¤‡æ³¨ çª—æ ¼åœé åˆ°ç å¤´.  
+		//@åˆ«å  åœé ()
 		void DockPane() {
 			XPane_DockPane(getEleHandle());
 		}
 
-		//@±¸×¢ Ëø¶¨´°¸ñ.  
-		//@±ğÃû  Ëø¶¨()
+		//@å¤‡æ³¨ é”å®šçª—æ ¼.  
+		//@åˆ«å  é”å®š()
 		void LockPane() {
 			XPane_LockPane(getEleHandle());
 		}
 
-		//@±¸×¢ ¸¡¶¯´°¸ñ.  
-		//@±ğÃû  ¸¡¶¯()
+		//@å¤‡æ³¨ æµ®åŠ¨çª—æ ¼.  
+		//@åˆ«å  æµ®åŠ¨()
 		void FloatPane() {
 			XPane_FloatPane(getEleHandle());
 		}
 
-		//@±¸×¢ ÊÖ¶¯µ÷ÓÃ¸Ãº¯Êı»æÖÆ´°¸ñ, ÒÔ±ã¿ØÖÆ»æÖÆË³Ğò.  
-		//@²ÎÊı hDraw Í¼ĞÎ»æÖÆ¾ä±ú.
-		//@±ğÃû  »æÖÆ()
+		//@å¤‡æ³¨ æ‰‹åŠ¨è°ƒç”¨è¯¥å‡½æ•°ç»˜åˆ¶çª—æ ¼, ä»¥ä¾¿æ§åˆ¶ç»˜åˆ¶é¡ºåº.  
+		//@å‚æ•° hDraw å›¾å½¢ç»˜åˆ¶å¥æŸ„.
+		//@åˆ«å  ç»˜åˆ¶()
 		void DrawPane(HDRAW hDraw) {
 			XPane_DrawPane(getEleHandle(), hDraw);
 		}
 
-		//@±¸×¢ Èç¹û´°¸ñÊÇ×é³ÉÔ±,ÉèÖÃÑ¡ÖĞµ±Ç°´°¸ñ¿É¼û
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  ÖÃÑ¡ÖĞ()
+		//@å¤‡æ³¨ å¦‚æœçª—æ ¼æ˜¯ç»„æˆå‘˜,è®¾ç½®é€‰ä¸­å½“å‰çª—æ ¼å¯è§
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  ç½®é€‰ä¸­()
 		bool SetSelect() {
 			return XPane_SetSelect(getEleHandle());
 		}

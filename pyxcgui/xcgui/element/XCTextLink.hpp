@@ -18,27 +18,27 @@ namespace xcgui {
 			m_handle = XTextLink_Create(x, y, width, height, name.c_str(), parent);
 		}
 
-		// ÆôÓÃÏÂ»®Ïß,Êó±êÀë¿ª×´Ì¬
+		// å¯ç”¨ä¸‹åˆ’çº¿,é¼ æ ‡ç¦»å¼€çŠ¶æ€
 		void EnableUnderlineLeave(bool bEnable) {
 			XTextLink_EnableUnderlineLeave(getEleHandle(), bEnable);
 		}
 		
-		// ÆôÓÃÏÂ»®Ïß,Êó±êÍ£Áô×´Ì¬.
+		// å¯ç”¨ä¸‹åˆ’çº¿,é¼ æ ‡åœç•™çŠ¶æ€.
 		void EnableUnderlineStay(bool bEnable) {
 			XTextLink_EnableUnderlineStay(getEleHandle(), bEnable);
 		}
 
-		// ÉèÖÃÎÄ±¾ÑÕÉ«,Êó±êÍ£Áô×´Ì¬
+		// è®¾ç½®æ–‡æœ¬é¢œè‰²,é¼ æ ‡åœç•™çŠ¶æ€
 		void SetTextColorStay(COLORREF color) {
 			XTextLink_SetTextColorStay(getEleHandle(), color);
 		}
 
-		// ÉèÖÃÏÂ»®ÏßÑÕÉ«,Êó±êÀë¿ª×´Ì¬
+		// è®¾ç½®ä¸‹åˆ’çº¿é¢œè‰²,é¼ æ ‡ç¦»å¼€çŠ¶æ€
 		void SetUnderlineColorLeave(COLORREF color) {
 			XTextLink_SetUnderlineColorLeave(getEleHandle(), color);
 		}
 
-		// ÉèÖÃÏÂ»®ÏßÑÕÉ«,Êó±êÍ£Áô×´Ì¬.
+		// è®¾ç½®ä¸‹åˆ’çº¿é¢œè‰²,é¼ æ ‡åœç•™çŠ¶æ€.
 		void SetUnderlineColorStay(COLORREF color) {
 			XTextLink_SetUnderlineColorStay(getEleHandle(), color);
 		}

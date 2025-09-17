@@ -1,4 +1,5 @@
-from setuptools import setup, Extension, find_packages
+from setuptools import setup, find_packages
+from pybind11.setup_helpers import Pybind11Extension
 from distutils.errors import *
 from distutils.dep_util import newer_group
 from distutils import log
@@ -13,6 +14,12 @@ import glob
 import pathlib
 from distutils.ccompiler import CCompiler
 from multiprocessing.pool import ThreadPool as Pool
+
+
+from pybind11.setup_helpers import ParallelCompile
+
+# 并行编译
+ParallelCompile("NPY_NUM_BUILD_JOBS", needs_recompile=True).install()
 
 
 def compile(self, sources, output_dir=None, macros=None, include_dirs=None, debug=0, extra_preargs=None,
@@ -165,7 +172,7 @@ extra_link = {
 extra_compile_args = {
     'darwin': [],
     'posix': [],
-    'win32': ['/MT', "/EHsc", "/bigobj"],
+    'win32': ["/MT", "/EHsc", "/bigobj", "/utf-8"],
 }
 
 extra_compile_cpp_args = {
@@ -181,18 +188,17 @@ def add_prefix(l, prefix):
     return [os.path.join(prefix, x) for x in l]
 
 
-extension = Extension("xcgui._xcgui",
-                      xcgui_sources,
-                      define_macros=definitions[target_os],
-                      include_dirs=[
-                          "Include",
-                          "pyxcgui"
-                      ],
-                      extra_compile_args=extra_compile_args[target_os],
-                      extra_link_args=extra_link[target_os],
-                      libraries=libs[target_os],
-                      extra_objects=extra_libs[target_os],
-                      library_dirs=extra_libs_dir[target_os])
+extension = Pybind11Extension("xcgui._xcgui",
+                            xcgui_sources,
+                            define_macros=definitions[target_os],
+                            include_dirs=[
+                                "pyxcgui"
+                            ],
+                            extra_compile_args=extra_compile_args[target_os],
+                            extra_link_args=extra_link[target_os],
+                            libraries=libs[target_os],
+                            extra_objects=extra_libs[target_os],
+                            library_dirs=extra_libs_dir[target_os])
 
 extension.extra_compile_cpp_args = extra_compile_cpp_args[target_os]
 

@@ -23,16 +23,16 @@ namespace xcgui {
 			return m_handle;
 		}
 		
-		//@±¸×¢ ÉèÖÃÍ¼Æ¬.  
-		//@²ÎÊı hImage Í¼Æ¬¾ä±ú.
-		//@±ğÃû  ÖÃÍ¼Æ¬()
+		//@å¤‡æ³¨ è®¾ç½®å›¾ç‰‡.  
+		//@å‚æ•° hImage å›¾ç‰‡å¥æŸ„.
+		//@åˆ«å  ç½®å›¾ç‰‡()
 		void SetImage(HIMAGE hImage) { 
 			XShapePic_SetImage(m_handle, hImage); 
 		}
 		
-		//@±¸×¢ »ñÈ¡Í¼Æ¬¾ä±ú  
-		//@·µ»Ø ·µ»ØÍ¼Æ¬¾ä±ú.
-		//@±ğÃû  È¡Í¼Æ¬()
+		//@å¤‡æ³¨ è·å–å›¾ç‰‡å¥æŸ„  
+		//@è¿”å› è¿”å›å›¾ç‰‡å¥æŸ„.
+		//@åˆ«å  å–å›¾ç‰‡()
 		HIMAGE GetImage() { 
 			return XShapePic_GetImage(m_handle);
 		}

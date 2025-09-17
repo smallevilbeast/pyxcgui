@@ -16,70 +16,70 @@ namespace xcgui {
 
 		XCAnimationItem() = default;
 
-		//@²ÎÊı hAnimationItem ¶¯»­Ïî¾ä±ú
-		//@²ÎÊı bEnable ÊÇ·ñÆôÓÃ
-		//@±ğÃû ¶¯»­Ïî_ÆôÓÃ×Ô¶¯Ïú»Ù()
+		//@å‚æ•° hAnimationItem åŠ¨ç”»é¡¹å¥æŸ„
+		//@å‚æ•° bEnable æ˜¯å¦å¯ç”¨
+		//@åˆ«å åŠ¨ç”»é¡¹_å¯ç”¨è‡ªåŠ¨é”€æ¯()
 		void EnableAutoDestroy(bool bEnable) {
 			XAnimaItem_EnableAutoDestroy(m_handle, bEnable);
 		}
 
-		//@±¸×¢ µ±¶¯»­ÏîÍê³Éºó×Ô¶¯ÊÍ·Å
-		//@²ÎÊı hAnimationItem ¶¯»­Ïî¾ä±ú
-		//@²ÎÊı bEnable ÊÇ·ñÆôÓÃ
-		//@±ğÃû ¶¯»­Ïî_ÆôÓÃÍê³ÉÊÍ·Å()
+		//@å¤‡æ³¨ å½“åŠ¨ç”»é¡¹å®Œæˆåè‡ªåŠ¨é‡Šæ”¾
+		//@å‚æ•° hAnimationItem åŠ¨ç”»é¡¹å¥æŸ„
+		//@å‚æ•° bEnable æ˜¯å¦å¯ç”¨
+		//@åˆ«å åŠ¨ç”»é¡¹_å¯ç”¨å®Œæˆé‡Šæ”¾()
 		void EnableCompleteRelease(bool bEnable) {
 			XAnimaItem_EnableCompleteRelease(m_handle, bEnable);
 		}
 
 
-		//@²ÎÊı hAnimationItem ¶¯»­Ïî¾ä±ú
-		//@²ÎÊı callback »Øµ÷º¯Êı
-		//@±ğÃû ¶¯»­Ïî_ÖÃ»Øµ÷()
+		//@å‚æ•° hAnimationItem åŠ¨ç”»é¡¹å¥æŸ„
+		//@å‚æ•° callback å›è°ƒå‡½æ•°
+		//@åˆ«å åŠ¨ç”»é¡¹_ç½®å›è°ƒ()
 		void SetCallback(funAnimationItem callback) {
 			XAnimaItem_SetCallback(m_handle, callback);
 		}
 
 
-		//@²ÎÊı hAnimationItem ¶¯»­Ïî¾ä±ú
-		//@²ÎÊı nUserData ÓÃ»§Êı¾İ
-		//@±ğÃû ¶¯»­Ïî_ÖÃÓÃ»§Êı¾İ()
+		//@å‚æ•° hAnimationItem åŠ¨ç”»é¡¹å¥æŸ„
+		//@å‚æ•° nUserData ç”¨æˆ·æ•°æ®
+		//@åˆ«å åŠ¨ç”»é¡¹_ç½®ç”¨æˆ·æ•°æ®()
 		void SetUserData(vint nUserData) {
 			XAnimaItem_SetUserData(m_handle, nUserData);
 		}
 
-		//@²ÎÊı hAnimationItem ¶¯»­Ïî¾ä±ú
-		//@·µ»Ø ·µ»ØÓÃ»§Êı¾İ
-		//@±ğÃû ¶¯»­Ïî_È¡ÓÃ»§Êı¾İ()
+		//@å‚æ•° hAnimationItem åŠ¨ç”»é¡¹å¥æŸ„
+		//@è¿”å› è¿”å›ç”¨æˆ·æ•°æ®
+		//@åˆ«å åŠ¨ç”»é¡¹_å–ç”¨æˆ·æ•°æ®()
 		vint GetUserData() {
 			XAnimaItem_GetUserData(m_handle);
 		}
 
-		//@±¸×¢ ÉèÖÃĞı×ªÖĞĞÄµã×ø±ê
-		//@²ÎÊı hAnimationRotate ¶¯»­Ğı×ªÏî¾ä±ú
-		//@²ÎÊı x ×ø±êX
-		//@²ÎÊı y ×ø±êY
-		//@²ÎÊı bOffset true:Ïà¶ÔÓÚ×ÔÉíÖĞĞÄµãÆ«ÒÆ, false:¾ø¶Ô×ø±ê
-		//@·µ»Ø Èç¹û³É¹¦·µ»Øtrue,·ñÔò·µ»Øfalse
-		//@±ğÃû ¶¯»­Ğı×ª_ÖÃÖĞĞÄ()
+		//@å¤‡æ³¨ è®¾ç½®æ—‹è½¬ä¸­å¿ƒç‚¹åæ ‡
+		//@å‚æ•° hAnimationRotate åŠ¨ç”»æ—‹è½¬é¡¹å¥æŸ„
+		//@å‚æ•° x åæ ‡X
+		//@å‚æ•° y åæ ‡Y
+		//@å‚æ•° bOffset true:ç›¸å¯¹äºè‡ªèº«ä¸­å¿ƒç‚¹åç§», false:ç»å¯¹åæ ‡
+		//@è¿”å› å¦‚æœæˆåŠŸè¿”å›true,å¦åˆ™è¿”å›false
+		//@åˆ«å åŠ¨ç”»æ—‹è½¬_ç½®ä¸­å¿ƒ()
 		void RotateSetCenter(float x, float y, bool bOffset = false) {
 			XAnimaRotate_SetCenter(m_handle, x, y, bOffset);
 		}
 
 
-		//@±¸×¢ ÉèÖÃËõ·ÅÆğµã, È·¶¨ÑÓÉì·½Ïò
-		//@²ÎÊı hAnimationScale ¶¯»­Ëõ·ÅÏî¾ä±ú
-		//@²ÎÊı position Î»ÖÃ
-		//@·µ»Ø Èç¹û³É¹¦·µ»Øtrue,·ñÔò·µ»Øfalse
-		//@±ğÃû ¶¯»­Ëõ·Å_ÖÃÑÓÉìÎ»ÖÃ()
+		//@å¤‡æ³¨ è®¾ç½®ç¼©æ”¾èµ·ç‚¹, ç¡®å®šå»¶ä¼¸æ–¹å‘
+		//@å‚æ•° hAnimationScale åŠ¨ç”»ç¼©æ”¾é¡¹å¥æŸ„
+		//@å‚æ•° position ä½ç½®
+		//@è¿”å› å¦‚æœæˆåŠŸè¿”å›true,å¦åˆ™è¿”å›false
+		//@åˆ«å åŠ¨ç”»ç¼©æ”¾_ç½®å»¶ä¼¸ä½ç½®()
 		void ScaleSetPosition(position_flag_ position) {
 			XAnimaScale_SetPosition(m_handle, position);
 		}
 
 
-		//@±¸×¢ ´Ë½Ó¿Ú¿É¶ÀÁ¢ÉèÖÃxÖáÒÆ¶¯»òyÖáÒÆ¶¯
-		//@²ÎÊı hAnimationMove ¶¯»­ÒÆ¶¯Ïî¾ä±ú
-		//@²ÎÊı flags @ref animation_move_x : XÖáÒÆ¶¯, @ref animation_move_y : YÖáÒÆ¶¯, ¿É×éºÏÊ¹ÓÃ, @ref animation_move_
-		//@±ğÃû ¶¯»­ÒÆ¶¯_ÖÃ±êÊ¶()
+		//@å¤‡æ³¨ æ­¤æ¥å£å¯ç‹¬ç«‹è®¾ç½®xè½´ç§»åŠ¨æˆ–yè½´ç§»åŠ¨
+		//@å‚æ•° hAnimationMove åŠ¨ç”»ç§»åŠ¨é¡¹å¥æŸ„
+		//@å‚æ•° flags @ref animation_move_x : Xè½´ç§»åŠ¨, @ref animation_move_y : Yè½´ç§»åŠ¨, å¯ç»„åˆä½¿ç”¨, @ref animation_move_
+		//@åˆ«å åŠ¨ç”»ç§»åŠ¨_ç½®æ ‡è¯†()
 		void MoveSetFlag(int flags) {
 			return XAnimaMove_SetFlag(m_handle, flags);
 		}

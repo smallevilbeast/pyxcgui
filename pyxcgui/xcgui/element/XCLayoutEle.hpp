@@ -24,37 +24,37 @@ namespace xcgui {
 			return m_handle;
 		}
 
-		//@备注 启用布局功能.  
-		//@参数 bEnable 是否启用.
-		//@别名  启用()
+		//@澶囨敞 鍚敤甯冨眬鍔熻兘.  
+		//@鍙傛暟 bEnable 鏄惁鍚敤.
+		//@鍒悕  鍚敤()
 		void EnableLayout(bool bEnable) {
 			XLayout_EnableLayout(getEleHandle(), bEnable);
 		}
 
-		//@备注 是否已经启用布局功能  
-		//@返回 如果启用布局返回TRUE,否则返回FALSE
-		//@别名  是否启用()
+		//@澶囨敞 鏄惁宸茬粡鍚敤甯冨眬鍔熻兘  
+		//@杩斿洖 濡傛灉鍚敤甯冨眬杩斿洖TRUE,鍚﹀垯杩斿洖FALSE
+		//@鍒悕  鏄惁鍚敤()
 		bool IsEnableLayout() {
 			return XLayout_IsEnableLayout(getEleHandle());
 		}
 
-		//@备注 显示布局边界.  
-		//@参数 bEnable 是否显示
-		//@别名  显示布局边界()
+		//@澶囨敞 鏄剧ず甯冨眬杈圭晫.  
+		//@鍙傛暟 bEnable 鏄惁鏄剧ず
+		//@鍒悕  鏄剧ず甯冨眬杈圭晫()
 		void ShowLayoutFrame(bool bEnable) {
 			XLayout_ShowLayoutFrame(getEleHandle(), bEnable);
 		}
 
-		//@备注 获取宽度,不包含内边距大小  
-		//@返回 返回宽度
-		//@别名  取内宽度()
+		//@澶囨敞 鑾峰彇瀹藉害,涓嶅寘鍚唴杈硅窛澶у皬  
+		//@杩斿洖 杩斿洖瀹藉害
+		//@鍒悕  鍙栧唴瀹藉害()
 		int GetWidthIn() {
 			return XLayout_GetWidthIn(getEleHandle());
 		}
 
-		//@备注 获取高度,不包含内边距大小  
-		//@返回 返回高度
-		//@别名  取内高度()
+		//@澶囨敞 鑾峰彇楂樺害,涓嶅寘鍚唴杈硅窛澶у皬  
+		//@杩斿洖 杩斿洖楂樺害
+		//@鍒悕  鍙栧唴楂樺害()
 		int GetHeightIn() {
 			return XLayout_GetHeightIn(getEleHandle());
 		}

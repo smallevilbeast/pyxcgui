@@ -31,22 +31,22 @@ namespace xcgui {
 			return m_handle;
 		}
 
-		// Æô¶¯ÏÔÊ¾Ä£Ì¬´°¿Ú,µ±´°¿Ú¹Ø±ÕÊ±·µ»Ø.
+		// å¯åŠ¨æ˜¾ç¤ºæ¨¡æ€çª—å£,å½“çª—å£å…³é—­æ—¶è¿”å›.
 		int DoModal() {
 			return XModalWnd_DoModal(GetWindowHandle());
 		}
 
-		//  ÊÇ·ñ×Ô¶¯¹Ø±Õ´°¿Ú,µ±´°¿ÚÊ§È¥½¹µãÊ±.
+		//  æ˜¯å¦è‡ªåŠ¨å…³é—­çª—å£,å½“çª—å£å¤±å»ç„¦ç‚¹æ—¶.
 		void EnableAutoClose(bool bEnable) {
 			XModalWnd_EnableAutoClose(GetWindowHandle(), bEnable);
 		}
 
-		// µ±ÓÃ»§°´ESC¼üÊ±×Ô¶¯¹Ø±ÕÄ£Ì¬´°¿Ú.
+		// å½“ç”¨æˆ·æŒ‰ESCé”®æ—¶è‡ªåŠ¨å…³é—­æ¨¡æ€çª—å£.
 		void EnableEscClose(bool bEnable) {
 			XModalWnd_EnableEscClose(GetWindowHandle(), bEnable);
 		}
 
-		// ½áÊøÄ£Ì¬´°¿Ú
+		// ç»“æŸæ¨¡æ€çª—å£
 		void EndModal(int result) {
 			XModalWnd_EndModal(GetWindowHandle(), result);
 		}

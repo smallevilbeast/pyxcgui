@@ -25,82 +25,82 @@ namespace xcgui {
 			return (HBKM)m_handle;
 		}
 
-		// ÉèÖÃ±³¾°ÄÚÈİ
+		// è®¾ç½®èƒŒæ™¯å†…å®¹
 		int SetBkInfo(const std::wstring& text) { 
 			return XBkM_SetBkInfo(GetBkmHandle(), text.c_str()); 
 		}
 
-		// 	ÉèÖÃ±³¾°ÄÚÈİ
+		// 	è®¾ç½®èƒŒæ™¯å†…å®¹
 		int SetInfo(const std::wstring& text) {
 			return XBkM_SetInfo(GetBkmHandle(), text.c_str());
 		}
 
-		// Ìí¼Ó±³¾°ÄÚÈİ
+		// æ·»åŠ èƒŒæ™¯å†…å®¹
 		int AddInfo(const std::wstring& text) {
 			return XBkM_AddInfo(GetBkmHandle(), text.c_str());
 		}
 
-		// Ìí¼Ó±ß¿ò()
+		// æ·»åŠ è¾¹æ¡†()
 		void AddBorder(int nState, COLORREF color, int width, int id = 0) {
 			XBkM_AddBorder(GetBkmHandle(), nState, color, width, id);
 		}
 
-		// Ìí¼Ó±³¾°ÄÚÈİÌî³ä
+		// æ·»åŠ èƒŒæ™¯å†…å®¹å¡«å……
 		void AddFill(int nState, COLORREF color, int id = 0) {
 			XBkM_AddFill(GetBkmHandle(), nState, color, id);
 		}
 
-		// Ìí¼Ó±³¾°ÄÚÈİÍ¼Æ¬
+		// æ·»åŠ èƒŒæ™¯å†…å®¹å›¾ç‰‡
 		void AddImage(int nState, HIMAGE hImage, int id = 0) {
 			XBkM_AddImage(GetBkmHandle(), nState, hImage, id);
 		}
 		
-		// »ñÈ¡±³¾°ÄÚÈİÊıÁ¿
+		// è·å–èƒŒæ™¯å†…å®¹æ•°é‡
 		int GetCount() {
 			return XBkM_GetCount(GetBkmHandle());
 		}
 
-		// 	Çå¿Õ±³¾°ÄÚÈİ
+		// 	æ¸…ç©ºèƒŒæ™¯å†…å®¹
 		void Clear() {
 			XBkM_Clear(GetBkmHandle());
 		}
 
-		// »æÖÆ±³¾°ÄÚÈİ
+		// ç»˜åˆ¶èƒŒæ™¯å†…å®¹
 		bool Draw(int nState, HDRAW hDraw, RECT* pRect) {
 			return XBkM_Draw(GetBkmHandle(), nState, hDraw, pRect);
 		}
 
-		// »æÖÆ±³¾°ÄÚÈİ, ÉèÖÃÌõ¼ş
+		// ç»˜åˆ¶èƒŒæ™¯å†…å®¹, è®¾ç½®æ¡ä»¶
 		bool DrawEx(int nState, HDRAW hDraw, RECT* pRect, int nStateEx) { 
 			return XBkM_DrawEx(GetBkmHandle(), nState, hDraw, pRect, nStateEx);
 		}
 
-		// È¡Ö¸¶¨×´Ì¬ÎÄ±¾ÑÕÉ«
+		// å–æŒ‡å®šçŠ¶æ€æ–‡æœ¬é¢œè‰²
 		bool GetStateTextColor(int nState, COLORREF* color) { 
 			return XBkM_GetStateTextColor(GetBkmHandle(), nState, color); 
 		}
 
-		// ±³¾°¶ÔÏóID
+		// èƒŒæ™¯å¯¹è±¡ID
 		vint GetBkObject(int id) { 
 			return XBkM_GetObject(GetBkmHandle(), id); 
 		}
 
-		// ÊÇ·ñ×Ô¶¯Ïú»Ù
+		// æ˜¯å¦è‡ªåŠ¨é”€æ¯
 		void EnableAutoDestroy(BOOL bEnable) {
 			XBkM_EnableAutoDestroy(GetBkmHandle(), bEnable);
 		}
 
-		// Ôö¼ÓÒıÓÃ¼ÆÊı
+		// å¢åŠ å¼•ç”¨è®¡æ•°
 		void AddRef() {
 			XBkM_AddRef(GetBkmHandle());
 		}
 
-		// ÊÍ·ÅÒıÓÃ¼ÆÊı,µ±ÒıÓÃ¼ÆÊıÎª0Ê±,×Ô¶¯Ïú»Ù
+		// é‡Šæ”¾å¼•ç”¨è®¡æ•°,å½“å¼•ç”¨è®¡æ•°ä¸º0æ—¶,è‡ªåŠ¨é”€æ¯
 		void Release() {
 			XBkM_Release(GetBkmHandle());
 		}
 
-		// »ñÈ¡ÒıÓÃ¼ÆÊı
+		// è·å–å¼•ç”¨è®¡æ•°
 		int GetRefCount() {
 			return XBkM_GetRefCount(GetBkmHandle());
 		}

@@ -23,136 +23,136 @@ namespace xcgui {
 			return m_handle;
 		}
 
-		//@²ÎÊı nRow ĞĞÊıÁ¿
-		//@²ÎÊı nCol ÁĞÊıÁ¿
-		//@±ğÃû  ÖØÖÃ()
+		//@å‚æ•° nRow è¡Œæ•°é‡
+		//@å‚æ•° nCol åˆ—æ•°é‡
+		//@åˆ«å  é‡ç½®()
 		void Reset(int nRow, int nCol) {
 			XTable_Reset(m_handle, nRow, nCol);
 		}
 
-		//@²ÎÊı iRow ĞĞË÷Òı
-		//@²ÎÊı iCol ÁĞË÷Òı
-		//@²ÎÊı count ÊıÁ¿
-		//@±ğÃû  ×éºÏĞĞ()
+		//@å‚æ•° iRow è¡Œç´¢å¼•
+		//@å‚æ•° iCol åˆ—ç´¢å¼•
+		//@å‚æ•° count æ•°é‡
+		//@åˆ«å  ç»„åˆè¡Œ()
 		void ComboRow(int iRow, int iCol, int count) {
 			XTable_ComboRow(m_handle, iRow, iCol, count);
 		}
 
-		//@²ÎÊı iRow ĞĞË÷Òı
-		//@²ÎÊı iCol ÁĞË÷Òı
-		//@²ÎÊı count ÊıÁ¿
-		//@±ğÃû  ×éºÏÁĞ()
+		//@å‚æ•° iRow è¡Œç´¢å¼•
+		//@å‚æ•° iCol åˆ—ç´¢å¼•
+		//@å‚æ•° count æ•°é‡
+		//@åˆ«å  ç»„åˆåˆ—()
 		void ComboCol(int iRow, int iCol, int count) {
 			XTable_ComboCol(m_handle, iRow, iCol, count);
 		}
 
-		//@²ÎÊı iCol ÁĞË÷Òı
-		//@²ÎÊı width ¿í¶È
-		//@±ğÃû  ÖÃÁĞ¿í()
+		//@å‚æ•° iCol åˆ—ç´¢å¼•
+		//@å‚æ•° width å®½åº¦
+		//@åˆ«å  ç½®åˆ—å®½()
 		void SetColWidth(int iCol, int width) {
 			XTable_SetColWidth(m_handle, iCol, width);
 		}
 
-		//@²ÎÊı iRow ĞĞË÷Òı
-		//@²ÎÊı height ¸ß¶È
-		//@±ğÃû  ÖÃĞĞ¸ß()
+		//@å‚æ•° iRow è¡Œç´¢å¼•
+		//@å‚æ•° height é«˜åº¦
+		//@åˆ«å  ç½®è¡Œé«˜()
 		void SetRowHeight(int iRow, int height) {
 			XTable_SetRowHeight(m_handle, iRow, height);
 		}
 
-		//@²ÎÊı color ÑÕÉ«
-		//@±ğÃû  ÖÃ±ßÑÕÉ«()
+		//@å‚æ•° color é¢œè‰²
+		//@åˆ«å  ç½®è¾¹é¢œè‰²()
 		void SetBorderColor(COLORREF color) {
 			XTable_SetBorderColor(m_handle, color);
 		}
 
-		//@²ÎÊı color ÑÕÉ«
-		//@±ğÃû  ÖÃÎÄ±¾ÑÕÉ«()
+		//@å‚æ•° color é¢œè‰²
+		//@åˆ«å  ç½®æ–‡æœ¬é¢œè‰²()
 		void SetTextColor(COLORREF color) {
 			XTable_SetTextColor(m_handle, color);
 		}
 
-		//@²ÎÊı hFont ×ÖÌå¾ä±ú
-		//@±ğÃû  ÖÃ×ÖÌå()
+		//@å‚æ•° hFont å­—ä½“å¥æŸ„
+		//@åˆ«å  ç½®å­—ä½“()
 		void SetFont(HFONTX hFont) {
 			XTable_SetFont(m_handle, hFont);
 		}
 
-		//@²ÎÊı leftSize ÄÚÌî³ä´óĞ¡
-		//@²ÎÊı topSize ÄÚÌî³ä´óĞ¡
-		//@²ÎÊı rightSize ÄÚÌî³ä´óĞ¡
-		//@²ÎÊı bottomSize ÄÚÌî³ä´óĞ¡
-		//@±ğÃû  ÖÃÏîÄÚÌî³ä()
+		//@å‚æ•° leftSize å†…å¡«å……å¤§å°
+		//@å‚æ•° topSize å†…å¡«å……å¤§å°
+		//@å‚æ•° rightSize å†…å¡«å……å¤§å°
+		//@å‚æ•° bottomSize å†…å¡«å……å¤§å°
+		//@åˆ«å  ç½®é¡¹å†…å¡«å……()
 		void SetItemPadding(int leftSize, int topSize, int rightSize, int bottomSize) {
 			XTable_SetItemPadding(m_handle, leftSize, topSize, rightSize, bottomSize);
 		}
 
-		//@²ÎÊı iRow ĞĞË÷Òı
-		//@²ÎÊı iCol ÁĞË÷Òı
-		//@²ÎÊı text.c_str() ÎÄ±¾
-		//@±ğÃû  ÖÃÏîÎÄ±¾()
+		//@å‚æ•° iRow è¡Œç´¢å¼•
+		//@å‚æ•° iCol åˆ—ç´¢å¼•
+		//@å‚æ•° text.c_str() æ–‡æœ¬
+		//@åˆ«å  ç½®é¡¹æ–‡æœ¬()
 		void SetItemText(int iRow, int iCol, const std::wstring& text) {
 			XTable_SetItemText(m_handle, iRow, iCol, text.c_str());
 		}
 
-		//@²ÎÊı iRow ĞĞË÷Òı
-		//@²ÎÊı iCol ÁĞË÷Òı
-		//@²ÎÊı hFont ×ÖÌå¾ä±ú
-		//@±ğÃû  ÖÃÏî×ÖÌå()
+		//@å‚æ•° iRow è¡Œç´¢å¼•
+		//@å‚æ•° iCol åˆ—ç´¢å¼•
+		//@å‚æ•° hFont å­—ä½“å¥æŸ„
+		//@åˆ«å  ç½®é¡¹å­—ä½“()
 		void SetItemFont(int iRow, int iCol, HFONTX hFont) {
 			XTable_SetItemFont(m_handle, iRow, iCol, hFont);
 		}
 
-		//@²ÎÊı iRow ĞĞË÷Òı
-		//@²ÎÊı iCol ÁĞË÷Òı
-		//@²ÎÊı nAlign ¶ÔÆë·½Ê½  @ref textFormatFlag_
-		//@±ğÃû  ÖÃÏîÎÄ±¾¶ÔÆë()
+		//@å‚æ•° iRow è¡Œç´¢å¼•
+		//@å‚æ•° iCol åˆ—ç´¢å¼•
+		//@å‚æ•° nAlign å¯¹é½æ–¹å¼  @ref textFormatFlag_
+		//@åˆ«å  ç½®é¡¹æ–‡æœ¬å¯¹é½()
 		void SetItemTextAlign(int iRow, int iCol, int nAlign) {
 			XTable_SetItemTextAlign(m_handle, iRow, iCol, nAlign);
 		}
 
-		//@²ÎÊı iRow ĞĞË÷Òı
-		//@²ÎÊı iCol ÁĞË÷Òı
-		//@²ÎÊı color ÑÕÉ«
-		//@²ÎÊı bColor ÊÇ·ñÊ¹ÓÃ
-		//@±ğÃû  ÖÃÏîÎÄ±¾É«()
+		//@å‚æ•° iRow è¡Œç´¢å¼•
+		//@å‚æ•° iCol åˆ—ç´¢å¼•
+		//@å‚æ•° color é¢œè‰²
+		//@å‚æ•° bColor æ˜¯å¦ä½¿ç”¨
+		//@åˆ«å  ç½®é¡¹æ–‡æœ¬è‰²()
 		void SetItemTextColor(int iRow, int iCol, COLORREF color, bool bColor) {
 			XTable_SetItemTextColor(m_handle, iRow, iCol, color, bColor);
 		}
 
-		//@²ÎÊı iRow ĞĞË÷Òı
-		//@²ÎÊı iCol ÁĞË÷Òı
-		//@²ÎÊı color ÑÕÉ«
-		//@²ÎÊı bColor ÊÇ·ñÊ¹ÓÃ
-		//@±ğÃû  ÖÃÏî±³¾°É«()
+		//@å‚æ•° iRow è¡Œç´¢å¼•
+		//@å‚æ•° iCol åˆ—ç´¢å¼•
+		//@å‚æ•° color é¢œè‰²
+		//@å‚æ•° bColor æ˜¯å¦ä½¿ç”¨
+		//@åˆ«å  ç½®é¡¹èƒŒæ™¯è‰²()
 		void SetItemBkColor(int iRow, int iCol, COLORREF color, bool bColor) {
 			XTable_SetItemBkColor(m_handle, iRow, iCol, color, bColor);
 		}
 
-		//@²ÎÊı iRow1 ĞĞË÷Òı1
-		//@²ÎÊı iCol1 ÁĞË÷Òı1
-		//@²ÎÊı iRow2 ĞĞË÷Òı2
-		//@²ÎÊı iCol2 ÁĞË÷Òı2
-		//@²ÎÊı nFlag ±êÊ¶  @ref  table_line_flag_
-		//@²ÎÊı color ÑÕÉ«
-		//@±ğÃû  ÖÃÏîÏß()
+		//@å‚æ•° iRow1 è¡Œç´¢å¼•1
+		//@å‚æ•° iCol1 åˆ—ç´¢å¼•1
+		//@å‚æ•° iRow2 è¡Œç´¢å¼•2
+		//@å‚æ•° iCol2 åˆ—ç´¢å¼•2
+		//@å‚æ•° nFlag æ ‡è¯†  @ref  table_line_flag_
+		//@å‚æ•° color é¢œè‰²
+		//@åˆ«å  ç½®é¡¹çº¿()
 		void SetItemLine(int iRow1, int iCol1, int iRow2, int iCol2, int nFlag, COLORREF color) {
 			XTable_SetItemLine(m_handle, iRow1, iCol1, iRow2, iCol2, nFlag, color);
 		}
 
-		//@²ÎÊı iRow ĞĞË÷Òı
-		//@²ÎÊı iCol ÁĞË÷Òı
-		//@²ÎÊı flag ±êÊ¶   @ref table_flag_
-		//@±ğÃû  ÖÃÏî±êÊ¶()
+		//@å‚æ•° iRow è¡Œç´¢å¼•
+		//@å‚æ•° iCol åˆ—ç´¢å¼•
+		//@å‚æ•° flag æ ‡è¯†   @ref table_flag_
+		//@åˆ«å  ç½®é¡¹æ ‡è¯†()
 		void SetItemFlag(int iRow, int iCol, int flag) {
 			XTable_SetItemFlag(m_handle, iRow, iCol, flag);
 		}
 
-		//@²ÎÊı iRow ĞĞË÷Òı
-		//@²ÎÊı iCol ÁĞË÷Òı
-		//@²ÎÊı pRect ½ÓÊÕ·µ»Ø×ø±ê
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  È¡Ïî×ø±ê()
+		//@å‚æ•° iRow è¡Œç´¢å¼•
+		//@å‚æ•° iCol åˆ—ç´¢å¼•
+		//@å‚æ•° pRect æ¥æ”¶è¿”å›åæ ‡
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  å–é¡¹åæ ‡()
 		bool GetItemRect(int iRow, int iCol, RECT* pRect) {
 			return XTable_GetItemRect(m_handle, iRow, iCol, pRect);
 		}

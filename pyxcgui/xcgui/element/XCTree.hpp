@@ -21,500 +21,500 @@ namespace xcgui {
 			m_handle = XTree_Create(x, y, width, height, parent);
 		}
 
-		//@±¸×¢ ÆôÓÃÍÏ¶¯Ïî¹¦ÄÜ.  
-		 //@²ÎÊı bEnable ÊÇ·ñÆôÓÃ.
-		 //@±ğÃû  ÆôÓÃÍÏ¶¯Ïî()
+		//@å¤‡æ³¨ å¯ç”¨æ‹–åŠ¨é¡¹åŠŸèƒ½.  
+		 //@å‚æ•° bEnable æ˜¯å¦å¯ç”¨.
+		 //@åˆ«å  å¯ç”¨æ‹–åŠ¨é¡¹()
 		void EnableDragItem(bool bEnable) {
 			XTree_EnableDragItem(getEleHandle(), bEnable);
 		}
 
-		//@±¸×¢ ÆôÓÃ»ò½ûÓÃÏÔÊ¾ÏîµÄÁ¬½ÓÏß.  
-		//@²ÎÊı bEnable ÊÇ·ñÆôÓÃ.
-		//@²ÎÊı bSolid ÊµÏß»òĞéÏß; TRUE:ÊµÏß, FALSE:ĞéÏß.
-		//@±ğÃû  ÆôÓÃÁ¬½ÓÏß()
+		//@å¤‡æ³¨ å¯ç”¨æˆ–ç¦ç”¨æ˜¾ç¤ºé¡¹çš„è¿æ¥çº¿.  
+		//@å‚æ•° bEnable æ˜¯å¦å¯ç”¨.
+		//@å‚æ•° bSolid å®çº¿æˆ–è™šçº¿; TRUE:å®çº¿, FALSE:è™šçº¿.
+		//@åˆ«å  å¯ç”¨è¿æ¥çº¿()
 		void EnableConnectLine(bool bEnable, bool bSolid) {
 			XTree_EnableConnectLine(getEleHandle(), bEnable, bSolid);
 		}
 
-		//@±¸×¢ Æô¶¯»ò¹Ø±ÕÄ¬ÈÏÕ¹¿ª¹¦ÄÜ,Èç¹û¿ªÆôĞÂ²åÈëµÄÏî½«×Ô¶¯Õ¹¿ª.  
-		//@²ÎÊı bEnable ÊÇ·ñÆôÓÃ.
-		//@±ğÃû  ÆôÓÃÕ¹¿ª()
+		//@å¤‡æ³¨ å¯åŠ¨æˆ–å…³é—­é»˜è®¤å±•å¼€åŠŸèƒ½,å¦‚æœå¼€å¯æ–°æ’å…¥çš„é¡¹å°†è‡ªåŠ¨å±•å¼€.  
+		//@å‚æ•° bEnable æ˜¯å¦å¯ç”¨.
+		//@åˆ«å  å¯ç”¨å±•å¼€()
 		void EnableExpand(bool bEnable) {
 			XTree_EnableExpand(getEleHandle(), bEnable);
 		}
 
-		//@²ÎÊı bEnable ÊÇ·ñÆôÓÃ
-		//@±ğÃû  ÆôÓÃÄ£°å¸´ÓÃ()
+		//@å‚æ•° bEnable æ˜¯å¦å¯ç”¨
+		//@åˆ«å  å¯ç”¨æ¨¡æ¿å¤ç”¨()
 		void EnablemTemplateReuse(bool bEnable) {
 			XTree_EnablemTemplateReuse(getEleHandle(), bEnable);
 		}
 
-		//@±¸×¢ ÉèÖÃÏîÁ¬½ÓÏßÑÕÉ«.  
-		//@²ÎÊı color ÑÕÉ«Öµ, ÇëÊ¹ÓÃºê: RGBA()
-		//@±ğÃû  ÖÃÁ¬½ÓÏßÑÕÉ«()
+		//@å¤‡æ³¨ è®¾ç½®é¡¹è¿æ¥çº¿é¢œè‰².  
+		//@å‚æ•° color é¢œè‰²å€¼, è¯·ä½¿ç”¨å®: RGBA()
+		//@åˆ«å  ç½®è¿æ¥çº¿é¢œè‰²()
 		void SetConnectLineColor(COLORREF color) {
 			XTree_SetConnectLineColor(getEleHandle(), color);
 		}
 
-		//@±¸×¢ ÉèÖÃÕ¹¿ª°´Å¥Õ¼ÓÃ¿Õ¼ä´óĞ¡.  
-		//@²ÎÊı nWidth ¿í¶È.
-		//@²ÎÊı nHeight ¸ß¶È.
-		//@±ğÃû  ÖÃÕ¹¿ª°´Å¥´óĞ¡()
+		//@å¤‡æ³¨ è®¾ç½®å±•å¼€æŒ‰é’®å ç”¨ç©ºé—´å¤§å°.  
+		//@å‚æ•° nWidth å®½åº¦.
+		//@å‚æ•° nHeight é«˜åº¦.
+		//@åˆ«å  ç½®å±•å¼€æŒ‰é’®å¤§å°()
 		void SetExpandButtonSize(int nWidth, int nHeight) {
 			XTree_SetExpandButtonSize(getEleHandle(), nWidth, nHeight);
 		}
 
-		//@±¸×¢ ÉèÖÃÁ¬Ïß»æÖÆ³¤¶È,Õ¹¿ª°´Å¥ÓëÏîÄÚÈİÖ®¼äµÄÁ¬Ïß.  
-		//@²ÎÊı nLength Á¬Ïß»æÖÆ³¤¶È.
-		//@±ğÃû  ÖÃÁ¬½ÓÏß³¤¶È()
+		//@å¤‡æ³¨ è®¾ç½®è¿çº¿ç»˜åˆ¶é•¿åº¦,å±•å¼€æŒ‰é’®ä¸é¡¹å†…å®¹ä¹‹é—´çš„è¿çº¿.  
+		//@å‚æ•° nLength è¿çº¿ç»˜åˆ¶é•¿åº¦.
+		//@åˆ«å  ç½®è¿æ¥çº¿é•¿åº¦()
 		void SetConnectLineLength(int nLength) {
 			XTree_SetConnectLineLength(getEleHandle(), nLength);
 		}
 
-		//@±¸×¢ ÉèÖÃÍÏ¶¯Ïî²åÈëÎ»ÖÃÑÕÉ«ÌáÊ¾.  
-		//@²ÎÊı color ÑÕÉ«Öµ, ÇëÊ¹ÓÃºê: RGBA()
-		//@±ğÃû  ÖÃÍÏ¶¯Ïî²åÈëÎ»ÖÃÑÕÉ«()
+		//@å¤‡æ³¨ è®¾ç½®æ‹–åŠ¨é¡¹æ’å…¥ä½ç½®é¢œè‰²æç¤º.  
+		//@å‚æ•° color é¢œè‰²å€¼, è¯·ä½¿ç”¨å®: RGBA()
+		//@åˆ«å  ç½®æ‹–åŠ¨é¡¹æ’å…¥ä½ç½®é¢œè‰²()
 		void SetDragInsertPositionColor(COLORREF color) {
 			XTree_SetDragInsertPositionColor(getEleHandle(), color);
 		}
 
-		//@±¸×¢ ÉèÖÃÏîÄ£°åÎÄ¼ş.  
-		//@²ÎÊı pXmlFile ÎÄ¼şÃû.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÖÃÏîÄ£°åÎÄ¼ş()
+		//@å¤‡æ³¨ è®¾ç½®é¡¹æ¨¡æ¿æ–‡ä»¶.  
+		//@å‚æ•° pXmlFile æ–‡ä»¶å.
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  ç½®é¡¹æ¨¡æ¿æ–‡ä»¶()
 		bool SetItemTemplateXML(const std::wstring& xmlFile) {
 			return XTree_SetItemTemplateXML(getEleHandle(), xmlFile.c_str());
 		}
 
-		//@±¸×¢ ÉèÖÃÏîÄ£°åÎÄ¼ş,ÏîÑ¡ÖĞ×´Ì¬.  
-		//@²ÎÊı pXmlFile ÎÄ¼şÃû.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÖÃÑ¡ÔñÏîÄ£°åÎÄ¼ş()
+		//@å¤‡æ³¨ è®¾ç½®é¡¹æ¨¡æ¿æ–‡ä»¶,é¡¹é€‰ä¸­çŠ¶æ€.  
+		//@å‚æ•° pXmlFile æ–‡ä»¶å.
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  ç½®é€‰æ‹©é¡¹æ¨¡æ¿æ–‡ä»¶()
 		bool SetItemTemplateXMLSel(const std::wstring& xmlFile) {
 			return XTree_SetItemTemplateXMLSel(getEleHandle(), xmlFile.c_str());
 		}
 
-		//@±¸×¢ ÉèÖÃÁĞ±íÏîÄ£°å.  
-		//@²ÎÊı hTemp Ä£°å¾ä±ú.
-		//@·µ»Ø Èç¹û³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÖÃÏîÄ£°å()
+		//@å¤‡æ³¨ è®¾ç½®åˆ—è¡¨é¡¹æ¨¡æ¿.  
+		//@å‚æ•° hTemp æ¨¡æ¿å¥æŸ„.
+		//@è¿”å› å¦‚æœæˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  ç½®é¡¹æ¨¡æ¿()
 		bool SetItemTemplate(HTEMP hTemp) {
 			return XTree_SetItemTemplate(getEleHandle(), hTemp);
 		}
 
-		//@±¸×¢ ÉèÖÃÁĞ±íÏîÄ£°å,ÏîÑ¡ÖĞ×´Ì¬.  
-		//@²ÎÊı hTemp Ä£°å¾ä±ú.
-		//@·µ»Ø Èç¹û³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÖÃÑ¡ÔñÏîÄ£°å()
+		//@å¤‡æ³¨ è®¾ç½®åˆ—è¡¨é¡¹æ¨¡æ¿,é¡¹é€‰ä¸­çŠ¶æ€.  
+		//@å‚æ•° hTemp æ¨¡æ¿å¥æŸ„.
+		//@è¿”å› å¦‚æœæˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  ç½®é€‰æ‹©é¡¹æ¨¡æ¿()
 		bool SetItemTemplateSel(HTEMP hTemp) {
 			return XTree_SetItemTemplateSel(getEleHandle(), hTemp);
 		}
 
-		//@±¸×¢ ÉèÖÃÏîÄ£°åÎÄ¼ş.  
-		//@²ÎÊı pStringXML ×Ö·û´®Ö¸Õë.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÖÃÏîÄ£°å´Ó×Ö·û´®()
+		//@å¤‡æ³¨ è®¾ç½®é¡¹æ¨¡æ¿æ–‡ä»¶.  
+		//@å‚æ•° pStringXML å­—ç¬¦ä¸²æŒ‡é’ˆ.
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  ç½®é¡¹æ¨¡æ¿ä»å­—ç¬¦ä¸²()
 		bool SetItemTemplateXMLFromString(const std::string& xmlData) {
 			return XTree_SetItemTemplateXMLFromString(getEleHandle(), xmlData.c_str());
 		}
 
-		//@±¸×¢ ÉèÖÃÏîÄ£°åÎÄ¼ş,ÏîÑ¡ÖĞ×´Ì¬.  
-		//@²ÎÊı pStringXML ×Ö·û´®Ö¸Õë.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÖÃÑ¡ÔñÏîÄ£°å´Ó×Ö·û´®()
+		//@å¤‡æ³¨ è®¾ç½®é¡¹æ¨¡æ¿æ–‡ä»¶,é¡¹é€‰ä¸­çŠ¶æ€.  
+		//@å‚æ•° pStringXML å­—ç¬¦ä¸²æŒ‡é’ˆ.
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  ç½®é€‰æ‹©é¡¹æ¨¡æ¿ä»å­—ç¬¦ä¸²()
 		bool SetItemTemplateXMLSelFromString(const std::string& xmlData) {
 			return XTree_SetItemTemplateXMLSelFromString(getEleHandle(), xmlData.c_str());
 		}
 
-		//@±¸×¢ Í¨¹ıÄ£°åÏîID,»ñÈ¡ÊµÀı»¯Ä£°åÏîID¶ÔÓ¦µÄ¶ÔÏó¾ä±ú.  
-		//@²ÎÊı nID Ê÷ÏîID.
-		//@²ÎÊı nTempItemID Ä£°åÏîID.
-		//@·µ»Ø ³É¹¦·µ»Ø¶ÔÏó¾ä±ú,·ñÔò·µ»ØNULL.
-		//@±ğÃû  È¡Ä£°å¶ÔÏó()
+		//@å¤‡æ³¨ é€šè¿‡æ¨¡æ¿é¡¹ID,è·å–å®ä¾‹åŒ–æ¨¡æ¿é¡¹IDå¯¹åº”çš„å¯¹è±¡å¥æŸ„.  
+		//@å‚æ•° nID æ ‘é¡¹ID.
+		//@å‚æ•° nTempItemID æ¨¡æ¿é¡¹ID.
+		//@è¿”å› æˆåŠŸè¿”å›å¯¹è±¡å¥æŸ„,å¦åˆ™è¿”å›NULL.
+		//@åˆ«å  å–æ¨¡æ¿å¯¹è±¡()
 		HXCGUI GetTemplateObject(int nID, int nTempItemID) {
 			return XTree_GetTemplateObject(getEleHandle(), nID, nTempItemID);
 		}
 
-		//@±¸×¢ »ñÈ¡µ±Ç°¶ÔÏóËùÔÚÄ£°åÊµÀı,ÊôÓÚÁĞ±íÊ÷ÖĞÄÄÒ»¸öÏî.  
-		//@²ÎÊı hXCGUI ¶ÔÏó¾ä±ú, UIÔªËØ¾ä±ú»òĞÎ×´¶ÔÏó¾ä±ú..
-		//@·µ»Ø ³É¹¦·µ»ØÏîID, ·ñÔò·µ»Ø@ref XC_ID_ERROR.
-		//@±ğÃû  È¡¶ÔÏóËùÔÚÏî()
+		//@å¤‡æ³¨ è·å–å½“å‰å¯¹è±¡æ‰€åœ¨æ¨¡æ¿å®ä¾‹,å±äºåˆ—è¡¨æ ‘ä¸­å“ªä¸€ä¸ªé¡¹.  
+		//@å‚æ•° hXCGUI å¯¹è±¡å¥æŸ„, UIå…ƒç´ å¥æŸ„æˆ–å½¢çŠ¶å¯¹è±¡å¥æŸ„..
+		//@è¿”å› æˆåŠŸè¿”å›é¡¹ID, å¦åˆ™è¿”å›@ref XC_ID_ERROR.
+		//@åˆ«å  å–å¯¹è±¡æ‰€åœ¨é¡¹()
 		int GetItemIDFromHXCGUI(HXCGUI hXCGUI) {
 			return XTree_GetItemIDFromHXCGUI(getEleHandle(), hXCGUI);
 		}
 
 
-		//@±¸×¢ ÉèÖÃÊÇ·ñ»æÖÆÖ¸¶¨×´Ì¬ÏÂÏîµÄ±³¾°.  
-		//@²ÎÊı nFlags ±êÖ¾Î» @ref list_drawItemBk_flag_.
-		//@±ğÃû  ÖÃÏî±³¾°»æÖÆ±êÖ¾()
+		//@å¤‡æ³¨ è®¾ç½®æ˜¯å¦ç»˜åˆ¶æŒ‡å®šçŠ¶æ€ä¸‹é¡¹çš„èƒŒæ™¯.  
+		//@å‚æ•° nFlags æ ‡å¿—ä½ @ref list_drawItemBk_flag_.
+		//@åˆ«å  ç½®é¡¹èƒŒæ™¯ç»˜åˆ¶æ ‡å¿—()
 		void SetDrawItemBkFlags(int nFlags) {
 			XTree_SetDrawItemBkFlags(getEleHandle(), nFlags);
 		}
 
-		//@²ÎÊı color ÑÕÉ«Öµ, ÇëÊ¹ÓÃºê: RGBA()
-		//@±ğÃû  ÖÃ·Ö¸îÏßÑÕÉ«()
+		//@å‚æ•° color é¢œè‰²å€¼, è¯·ä½¿ç”¨å®: RGBA()
+		//@åˆ«å  ç½®åˆ†å‰²çº¿é¢œè‰²()
 		void SetSplitLineColor(COLORREF color) {
 			XTree_SetSplitLineColor(getEleHandle(), color);
 		}
 
-		//@±¸×¢ ÉèÖÃÏîÓÃ»§Êı¾İ.  
-		//@²ÎÊı nID ÏîID.
-		//@²ÎÊı nUserData ÓÃ»§Êı¾İ.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÖÃÏîÊı¾İ()
+		//@å¤‡æ³¨ è®¾ç½®é¡¹ç”¨æˆ·æ•°æ®.  
+		//@å‚æ•° nID é¡¹ID.
+		//@å‚æ•° nUserData ç”¨æˆ·æ•°æ®.
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  ç½®é¡¹æ•°æ®()
 		bool SetItemData(int nID, vint nUserData) {
 			return XTree_SetItemData(getEleHandle(), nID, nUserData);
 		}
 
-		//@±¸×¢ »ñÈ¡ÏîÓÃ»§Êı¾İ.  
-		//@²ÎÊı nID ÏîID.
-		//@·µ»Ø ÏîÓÃ»§Êı¾İ.
-		//@±ğÃû  È¡ÏîÊı¾İ()
+		//@å¤‡æ³¨ è·å–é¡¹ç”¨æˆ·æ•°æ®.  
+		//@å‚æ•° nID é¡¹ID.
+		//@è¿”å› é¡¹ç”¨æˆ·æ•°æ®.
+		//@åˆ«å  å–é¡¹æ•°æ®()
 		vint GetItemData(int nID) {
 			return XTree_GetItemData(getEleHandle(), nID);
 		}
 
-		//@±¸×¢ ÉèÖÃÑ¡ÔñÏî.  
-		//@²ÎÊı nID ÏîID.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÖÃÑ¡ÔñÏî()
+		//@å¤‡æ³¨ è®¾ç½®é€‰æ‹©é¡¹.  
+		//@å‚æ•° nID é¡¹ID.
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  ç½®é€‰æ‹©é¡¹()
 		bool SetSelectItem(int nID) {
 			return XTree_SetSelectItem(getEleHandle(), nID);
 		}
 
-		//@±¸×¢ »ñÈ¡Ñ¡ÔñÏî.  
-		//@·µ»Ø ÏîID.
-		//@±ğÃû  È¡Ñ¡ÔñÏî()
+		//@å¤‡æ³¨ è·å–é€‰æ‹©é¡¹.  
+		//@è¿”å› é¡¹ID.
+		//@åˆ«å  å–é€‰æ‹©é¡¹()
 		int GetSelectItem() {
 			return XTree_GetSelectItem(getEleHandle());
 		}
 
-		//@±¸×¢ ¹ö¶¯ÊÓÍ¼ÈÃÖ¸¶¨Ïî¿É¼û  
-		//@²ÎÊı nID ÏîË÷Òı.
-		//@±ğÃû  ¿ÉÊÓÖ¸¶¨Ïî()
+		//@å¤‡æ³¨ æ»šåŠ¨è§†å›¾è®©æŒ‡å®šé¡¹å¯è§  
+		//@å‚æ•° nID é¡¹ç´¢å¼•.
+		//@åˆ«å  å¯è§†æŒ‡å®šé¡¹()
 		void VisibleItem(int nID) {
 			XTree_VisibleItem(getEleHandle(), nID);
 		}
 
-		//@±¸×¢ ÅĞ¶ÏÏîÊÇ·ñÕ¹¿ª.  
-		//@²ÎÊı nID ÏîID.
-		//@·µ»Ø Èç¹ûÕ¹¿ª·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÊÇ·ñÕ¹¿ª()
+		//@å¤‡æ³¨ åˆ¤æ–­é¡¹æ˜¯å¦å±•å¼€.  
+		//@å‚æ•° nID é¡¹ID.
+		//@è¿”å› å¦‚æœå±•å¼€è¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  æ˜¯å¦å±•å¼€()
 		bool IsExpand(int nID) {
 			return XTree_IsExpand(getEleHandle(), nID);
 		}
 
-		//@±¸×¢ Õ¹¿ªÏî.  
-		//@²ÎÊı nID ÏîID.
-		//@²ÎÊı bExpand ÊÇ·ñÕ¹¿ª.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,Èç¹ûÏîÒÑ¾­Õ¹¿ª»òÊ§°Ü·µ»ØFALSE.
-		//@±ğÃû  Õ¹¿ªÏî()
+		//@å¤‡æ³¨ å±•å¼€é¡¹.  
+		//@å‚æ•° nID é¡¹ID.
+		//@å‚æ•° bExpand æ˜¯å¦å±•å¼€.
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦‚æœé¡¹å·²ç»å±•å¼€æˆ–å¤±è´¥è¿”å›FALSE.
+		//@åˆ«å  å±•å¼€é¡¹()
 		bool ExpandItem(int nID, bool bExpand) {
 			return XTree_ExpandItem(getEleHandle(), nID, bExpand);
 		}
 
-		//@±¸×¢ Õ¹¿ªËùÓĞµÄ×ÓÏî.  
-		//@²ÎÊı nID ÏîID.
-		//@²ÎÊı bExpand ÊÇ·ñÕ¹¿ª.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,Ê§°Ü·µ»ØFALSE.
-		//@±ğÃû  Õ¹¿ªÈ«²¿×ÓÏî()
+		//@å¤‡æ³¨ å±•å¼€æ‰€æœ‰çš„å­é¡¹.  
+		//@å‚æ•° nID é¡¹ID.
+		//@å‚æ•° bExpand æ˜¯å¦å±•å¼€.
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¤±è´¥è¿”å›FALSE.
+		//@åˆ«å  å±•å¼€å…¨éƒ¨å­é¡¹()
 		bool ExpandAllChildItem(int nID, bool bExpand) {
 			return XTree_ExpandAllChildItem(getEleHandle(), nID, bExpand);
 		}
 
-		//@±¸×¢ ¼ì²â×ø±êµãËùÔÚÏî.  
-		//@²ÎÊı pPt ×ø±êµã.
-		//@·µ»Ø ÏîID.
-		//@±ğÃû  ²âÊÔµã»÷Ïî()
+		//@å¤‡æ³¨ æ£€æµ‹åæ ‡ç‚¹æ‰€åœ¨é¡¹.  
+		//@å‚æ•° pPt åæ ‡ç‚¹.
+		//@è¿”å› é¡¹ID.
+		//@åˆ«å  æµ‹è¯•ç‚¹å‡»é¡¹()
 		int HitTest(POINT* pPt) {
 			return XTree_HitTest(getEleHandle(), pPt);
 		}
 
-		//@±¸×¢ ¼ì²â×ø±êµãËùÔÚÏî,×Ô¶¯Ìí¼Ó¹ö¶¯ÊÓÍ¼Æ«ÒÆ×ø±ê.  
-		//@²ÎÊı pPt ×ø±êµã.
-		//@·µ»Ø ÏîID.
-		//@±ğÃû  ²âÊÔµã»÷ÏîÀ©Õ¹()
+		//@å¤‡æ³¨ æ£€æµ‹åæ ‡ç‚¹æ‰€åœ¨é¡¹,è‡ªåŠ¨æ·»åŠ æ»šåŠ¨è§†å›¾åç§»åæ ‡.  
+		//@å‚æ•° pPt åæ ‡ç‚¹.
+		//@è¿”å› é¡¹ID.
+		//@åˆ«å  æµ‹è¯•ç‚¹å‡»é¡¹æ‰©å±•()
 		int HitTestOffset(POINT* pPt) {
 			return XTree_HitTestOffset(getEleHandle(), pPt);
 		}
 
-		//@±¸×¢ »ñÈ¡µÚÒ»¸ö×ÓÏî.  
-		//@²ÎÊı nID ÏîID.
-		//@·µ»Ø ·µ»ØÏîID,Ê§°Ü·µ»ØXC_ID_ERROR.
-		//@±ğÃû  È¡µÚÒ»¸ö×ÓÏî()
+		//@å¤‡æ³¨ è·å–ç¬¬ä¸€ä¸ªå­é¡¹.  
+		//@å‚æ•° nID é¡¹ID.
+		//@è¿”å› è¿”å›é¡¹ID,å¤±è´¥è¿”å›XC_ID_ERROR.
+		//@åˆ«å  å–ç¬¬ä¸€ä¸ªå­é¡¹()
 		int GetFirstChildItem(int nID) {
 			return XTree_GetFirstChildItem(getEleHandle(), nID);
 		}
 
-		//@±¸×¢ »ñÈ¡Ä©Î²×ÓÏî.  
-		//@²ÎÊı nID ÏîID.
-		//@·µ»Ø ·µ»ØÄ©Î²×ÓÏîID,Ê§°Ü·µ»ØXC_ID_ERROR.
-		//@±ğÃû  È¡Ä©Î²×ÓÏî()
+		//@å¤‡æ³¨ è·å–æœ«å°¾å­é¡¹.  
+		//@å‚æ•° nID é¡¹ID.
+		//@è¿”å› è¿”å›æœ«å°¾å­é¡¹ID,å¤±è´¥è¿”å›XC_ID_ERROR.
+		//@åˆ«å  å–æœ«å°¾å­é¡¹()
 		int GetEndChildItem(int nID) {
 			return XTree_GetEndChildItem(getEleHandle(), nID);
 		}
 
-		//@±¸×¢ »ñÈ¡ÉÏÒ»¸öĞÖµÜÏî.  
-		//@²ÎÊı nID ÏîID.
-		//@·µ»Ø ·µ»ØÉÏÒ»¸öĞÖµÜÏîID, Ê§°Ü·µ»Ø XC_ID_ERROR.
-		//@±ğÃû  È¡ÉÏÒ»¸öĞÖµÜÏî()
+		//@å¤‡æ³¨ è·å–ä¸Šä¸€ä¸ªå…„å¼Ÿé¡¹.  
+		//@å‚æ•° nID é¡¹ID.
+		//@è¿”å› è¿”å›ä¸Šä¸€ä¸ªå…„å¼Ÿé¡¹ID, å¤±è´¥è¿”å› XC_ID_ERROR.
+		//@åˆ«å  å–ä¸Šä¸€ä¸ªå…„å¼Ÿé¡¹()
 		int GetPrevSiblingItem(int nID) {
 			return XTree_GetPrevSiblingItem(getEleHandle(), nID);
 		}
 
-		//@±¸×¢ »ñÈ¡ÏÂÒ»¸öĞÖµÜÏî.  
-		//@²ÎÊı nID ÏîID.
-		//@·µ»Ø ·µ»ØÏÂÒ»¸öĞÖµÜÏîID.
-		//@±ğÃû  È¡ÏÂÒ»¸öĞÖµÜÏî()
+		//@å¤‡æ³¨ è·å–ä¸‹ä¸€ä¸ªå…„å¼Ÿé¡¹.  
+		//@å‚æ•° nID é¡¹ID.
+		//@è¿”å› è¿”å›ä¸‹ä¸€ä¸ªå…„å¼Ÿé¡¹ID.
+		//@åˆ«å  å–ä¸‹ä¸€ä¸ªå…„å¼Ÿé¡¹()
 		int GetNextSiblingItem(int nID) {
 			return XTree_GetNextSiblingItem(getEleHandle(), nID);
 		}
 
-		//@±¸×¢ »ñÈ¡¸¸Ïî.  
-		//@²ÎÊı nID ÏîID.
-		//@·µ»Ø ·µ»Ø¸¸ÏîID,´íÎó·µ»Ø-1.
-		//@±ğÃû  È¡¸¸Ïî()
+		//@å¤‡æ³¨ è·å–çˆ¶é¡¹.  
+		//@å‚æ•° nID é¡¹ID.
+		//@è¿”å› è¿”å›çˆ¶é¡¹ID,é”™è¯¯è¿”å›-1.
+		//@åˆ«å  å–çˆ¶é¡¹()
 		int GetParentItem(int nID) {
 			return XTree_GetParentItem(getEleHandle(), nID);
 		}
 
-		//@±¸×¢ ´´½¨Êı¾İÊÊÅäÆ÷£¬¸ù¾İ°ó¶¨µÄÏîÄ£°å³õÊ¼»¯Êı¾İÊÊÅäÆ÷µÄÁĞ.  
-		//@·µ»Ø ·µ»ØÊÊÅäÆ÷¾ä±ú.
-		//@±ğÃû  ´´½¨Êı¾İÊÊÅäÆ÷()
+		//@å¤‡æ³¨ åˆ›å»ºæ•°æ®é€‚é…å™¨ï¼Œæ ¹æ®ç»‘å®šçš„é¡¹æ¨¡æ¿åˆå§‹åŒ–æ•°æ®é€‚é…å™¨çš„åˆ—.  
+		//@è¿”å› è¿”å›é€‚é…å™¨å¥æŸ„.
+		//@åˆ«å  åˆ›å»ºæ•°æ®é€‚é…å™¨()
 		HXCGUI CreateAdapter() {
 			return XTree_CreateAdapter(getEleHandle());
 		}
 
-		//@±¸×¢ °ó¶¨Êı¾İÊÊÅäÆ÷.  
-		//@²ÎÊı hAdapter Êı¾İÊÊÅäÆ÷¾ä±ú, XAdTree.
-		//@±ğÃû  °ó¶¨Êı¾İÊÊÅäÆ÷()
+		//@å¤‡æ³¨ ç»‘å®šæ•°æ®é€‚é…å™¨.  
+		//@å‚æ•° hAdapter æ•°æ®é€‚é…å™¨å¥æŸ„, XAdTree.
+		//@åˆ«å  ç»‘å®šæ•°æ®é€‚é…å™¨()
 		void BindAdapter(HXCGUI hAdapter) {
 			XTree_BindAdapter(getEleHandle(), hAdapter);
 		}
 
-		//@±¸×¢ »ñÈ¡Êı¾İÊÊÅäÆ÷.  
-		//@·µ»Ø ·µ»ØÊı¾İÊÊÅäÆ÷¾ä±ú.
-		//@±ğÃû  È¡Êı¾İÊÓÆµÆ÷()
+		//@å¤‡æ³¨ è·å–æ•°æ®é€‚é…å™¨.  
+		//@è¿”å› è¿”å›æ•°æ®é€‚é…å™¨å¥æŸ„.
+		//@åˆ«å  å–æ•°æ®è§†é¢‘å™¨()
 		HXCGUI GetAdapter() {
 			return XTree_GetAdapter(getEleHandle());
 		}
 
-		//@±¸×¢ ĞŞ¸ÄÊı¾İºó,Ë¢ĞÂËùÓĞÏîÄ£°å,ÒÔ±ã¸üĞÂÊı¾İµ½Ä£°å(Èç¹ûÏî¿É¼û).  
-		//@±ğÃû  Ë¢ĞÂÊı¾İ()
+		//@å¤‡æ³¨ ä¿®æ”¹æ•°æ®å,åˆ·æ–°æ‰€æœ‰é¡¹æ¨¡æ¿,ä»¥ä¾¿æ›´æ–°æ•°æ®åˆ°æ¨¡æ¿(å¦‚æœé¡¹å¯è§).  
+		//@åˆ«å  åˆ·æ–°æ•°æ®()
 		void RefreshData() {
 			XTree_RefreshData(getEleHandle());
 		}
 
-		//@±¸×¢ ĞŞ¸ÄÊı¾İºó,Ë¢ĞÂÖ¸¶¨ÏîÄ£°å,ÒÔ±ã¸üĞÂÊı¾İµ½Ä£°å(Èç¹ûµ±Ç°Ïî¿É¼û).  
-		//@²ÎÊı nID ÏîID.
-		//@±ğÃû  Ë¢ĞÂÖ¸¶¨Ïî()
+		//@å¤‡æ³¨ ä¿®æ”¹æ•°æ®å,åˆ·æ–°æŒ‡å®šé¡¹æ¨¡æ¿,ä»¥ä¾¿æ›´æ–°æ•°æ®åˆ°æ¨¡æ¿(å¦‚æœå½“å‰é¡¹å¯è§).  
+		//@å‚æ•° nID é¡¹ID.
+		//@åˆ«å  åˆ·æ–°æŒ‡å®šé¡¹()
 		void RefreshItem(int nID) {
 			XTree_RefreshItem(getEleHandle(), nID);
 		}
 
-		//@±¸×¢ ÉèÖÃËõ½ø´óĞ¡.  
-		//@²ÎÊı nWidth Ëõ½ø¿í¶È.
-		//@±ğÃû  ÖÃËõ½ø()
+		//@å¤‡æ³¨ è®¾ç½®ç¼©è¿›å¤§å°.  
+		//@å‚æ•° nWidth ç¼©è¿›å®½åº¦.
+		//@åˆ«å  ç½®ç¼©è¿›()
 		void SetIndentation(int nWidth) {
 			XTree_SetIndentation(getEleHandle(), nWidth);
 		}
 
-		//@±¸×¢ »ñÈ¡Ëõ½øÖµ.  
-		//@·µ»Ø ·µ»ØËõ½øÖµ´óĞ¡.
-		//@±ğÃû  È¡Ëõ½ø()
+		//@å¤‡æ³¨ è·å–ç¼©è¿›å€¼.  
+		//@è¿”å› è¿”å›ç¼©è¿›å€¼å¤§å°.
+		//@åˆ«å  å–ç¼©è¿›()
 		int GetIndentation() {
 			return XTree_GetIndentation(getEleHandle());
 		}
 
-		//@±¸×¢ ÉèÖÃÏîÄ¬ÈÏ¸ß¶È.  
-		//@²ÎÊı nHeight ¸ß¶È.
-		//@²ÎÊı nSelHeight Ñ¡ÖĞÊ±¸ß¶È.
-		//@±ğÃû  ÖÃÏîÄ¬ÈÏ¸ß¶È()
+		//@å¤‡æ³¨ è®¾ç½®é¡¹é»˜è®¤é«˜åº¦.  
+		//@å‚æ•° nHeight é«˜åº¦.
+		//@å‚æ•° nSelHeight é€‰ä¸­æ—¶é«˜åº¦.
+		//@åˆ«å  ç½®é¡¹é»˜è®¤é«˜åº¦()
 		void SetItemHeightDefault(int nHeight, int nSelHeight) {
 			XTree_SetItemHeightDefault(getEleHandle(), nHeight, nSelHeight);
 		}
 
-		//@±¸×¢ »ñÈ¡ÏîÄ¬ÈÏ¸ß¶È.  
-		//@²ÎÊı pHeight ½ÓÊÕ·µ»Ø¸ß¶È.
-		//@²ÎÊı pSelHeight ½ÓÊÕ·µ»ØÖµ,µ±ÏîÑ¡ÖĞÊ±µÄ¸ß¶È.
-		//@±ğÃû  È¡ÏîÄ¬ÈÏ¸ß¶È()
+		//@å¤‡æ³¨ è·å–é¡¹é»˜è®¤é«˜åº¦.  
+		//@å‚æ•° pHeight æ¥æ”¶è¿”å›é«˜åº¦.
+		//@å‚æ•° pSelHeight æ¥æ”¶è¿”å›å€¼,å½“é¡¹é€‰ä¸­æ—¶çš„é«˜åº¦.
+		//@åˆ«å  å–é¡¹é»˜è®¤é«˜åº¦()
 		void GetItemHeightDefault(int* pHeight, int* pSelHeight) {
 			XTree_GetItemHeightDefault(getEleHandle(), pHeight, pSelHeight);
 		}
 
-		//@±¸×¢ ÉèÖÃÖ¸¶¨Ïî¸ß¶È.  
-		//@²ÎÊı nID ÏîID.
-		//@²ÎÊı nHeight ¸ß¶È.
-		//@²ÎÊı nSelHeight Ñ¡ÖĞÊ±¸ß¶È.
-		//@±ğÃû  ÖÃÏî¸ß¶È()
+		//@å¤‡æ³¨ è®¾ç½®æŒ‡å®šé¡¹é«˜åº¦.  
+		//@å‚æ•° nID é¡¹ID.
+		//@å‚æ•° nHeight é«˜åº¦.
+		//@å‚æ•° nSelHeight é€‰ä¸­æ—¶é«˜åº¦.
+		//@åˆ«å  ç½®é¡¹é«˜åº¦()
 		void SetItemHeight(int nID, int nHeight, int nSelHeight) {
 			XTree_SetItemHeight(getEleHandle(), nID, nHeight, nSelHeight);
 		}
 
-		//@±¸×¢ »ñÈ¡Ö¸¶¨Ïî¸ß¶È.  
-		//@²ÎÊı nID ÏîID.
-		//@²ÎÊı pHeight ½ÓÊÕ·µ»Ø¸ß¶È.
-		//@²ÎÊı pSelHeight ½ÓÊÕ·µ»ØÖµ,µ±ÏîÑ¡ÖĞÊ±µÄ¸ß¶È.
-		//@±ğÃû  È¡Ïî¸ß¶È()
+		//@å¤‡æ³¨ è·å–æŒ‡å®šé¡¹é«˜åº¦.  
+		//@å‚æ•° nID é¡¹ID.
+		//@å‚æ•° pHeight æ¥æ”¶è¿”å›é«˜åº¦.
+		//@å‚æ•° pSelHeight æ¥æ”¶è¿”å›å€¼,å½“é¡¹é€‰ä¸­æ—¶çš„é«˜åº¦.
+		//@åˆ«å  å–é¡¹é«˜åº¦()
 		void GetItemHeight(int nID, int* pHeight, int* pSelHeight) {
 			XTree_GetItemHeight(getEleHandle(), nID, pHeight, pSelHeight);
 		}
 
-		//@±¸×¢ ÉèÖÃĞĞ¼ä¸ô´óĞ¡.  
-		//@²ÎÊı nSpace ĞĞ¼ä¸ô´óĞ¡.
-		//@±ğÃû  ÖÃĞĞ¼ä¾à()
+		//@å¤‡æ³¨ è®¾ç½®è¡Œé—´éš”å¤§å°.  
+		//@å‚æ•° nSpace è¡Œé—´éš”å¤§å°.
+		//@åˆ«å  ç½®è¡Œé—´è·()
 		void SetRowSpace(int nSpace) {
 			XTree_SetRowSpace(getEleHandle(), nSpace);
 		}
 
-		//@±¸×¢ »ñÈ¡ĞĞ¼ä¾à´óĞ¡.  
-		//@·µ»Ø ·µ»ØĞĞ¼ä¾à´óĞ¡.
-		//@±ğÃû  È¡ĞĞ¼ä¾à()
+		//@å¤‡æ³¨ è·å–è¡Œé—´è·å¤§å°.  
+		//@è¿”å› è¿”å›è¡Œé—´è·å¤§å°.
+		//@åˆ«å  å–è¡Œé—´è·()
 		int GetRowSpace() {
 			return XTree_GetRowSpace(getEleHandle());
 		}
 
-		//@±¸×¢ ÒÆ¶¯ÏîµÄÎ»ÖÃ.  
-		//@²ÎÊı nMoveItem ÒªÒÆ¶¯µÄÏîID.
-		//@²ÎÊı nDestItem Ä¿±êÏîID, ²ÎÕÕÎ»ÖÃ.
-		//@²ÎÊı nFlag 0:Ä¿±êÇ°Ãæ, 1:Ä¿±êºóÃæ, 2:Ä¿±ê×ÓÏîÊ×, 3:Ä¿±ê×ÓÏîÎ²
-		//@·µ»Ø ³É¹¦·µ»ØTRUE·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÒÆ¶¯Ïî()
+		//@å¤‡æ³¨ ç§»åŠ¨é¡¹çš„ä½ç½®.  
+		//@å‚æ•° nMoveItem è¦ç§»åŠ¨çš„é¡¹ID.
+		//@å‚æ•° nDestItem ç›®æ ‡é¡¹ID, å‚ç…§ä½ç½®.
+		//@å‚æ•° nFlag 0:ç›®æ ‡å‰é¢, 1:ç›®æ ‡åé¢, 2:ç›®æ ‡å­é¡¹é¦–, 3:ç›®æ ‡å­é¡¹å°¾
+		//@è¿”å› æˆåŠŸè¿”å›TRUEå¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  ç§»åŠ¨é¡¹()
 		bool MoveItem(int nMoveItem, int nDestItem, int nFlag) {
 			return XTree_MoveItem(getEleHandle(), nMoveItem, nDestItem, nFlag);
 		}
 
 
-		//@²ÎÊı value.c_str() 
-		//@²ÎÊı nParentID 
-		//@²ÎÊı insertID 
-		//@±ğÃû  ²åÈëÏîÎÄ±¾()
+		//@å‚æ•° value.c_str() 
+		//@å‚æ•° nParentID 
+		//@å‚æ•° insertID 
+		//@åˆ«å  æ’å…¥é¡¹æ–‡æœ¬()
 		int InsertItemText(const std::wstring& value, int nParentID = XC_ID_ROOT, int insertID = XC_ID_LAST) {
 			return XTree_InsertItemText(getEleHandle(), value.c_str(), nParentID, insertID);
 		}
 
-		//@²ÎÊı name.c_str() 
-		//@²ÎÊı value.c_str() 
-		//@²ÎÊı nParentID 
-		//@²ÎÊı insertID 
-		//@±ğÃû  ²åÈëÏîÎÄ±¾À©Õ¹()
+		//@å‚æ•° name.c_str() 
+		//@å‚æ•° value.c_str() 
+		//@å‚æ•° nParentID 
+		//@å‚æ•° insertID 
+		//@åˆ«å  æ’å…¥é¡¹æ–‡æœ¬æ‰©å±•()
 		int InsertItemTextEx(const std::wstring& name, const std::wstring& value, int nParentID = XC_ID_ROOT, int insertID = XC_ID_LAST) {
 			return XTree_InsertItemTextEx(getEleHandle(), name.c_str(), value.c_str(), nParentID, insertID);
 		}
 
-		//@²ÎÊı hImage 
-		//@²ÎÊı nParentID 
-		//@²ÎÊı insertID 
-		//@±ğÃû  ²åÈëÏîÍ¼Æ¬()
+		//@å‚æ•° hImage 
+		//@å‚æ•° nParentID 
+		//@å‚æ•° insertID 
+		//@åˆ«å  æ’å…¥é¡¹å›¾ç‰‡()
 		int InsertItemImage(HIMAGE hImage, int nParentID = XC_ID_ROOT, int insertID = XC_ID_LAST) {
 			return XTree_InsertItemImage(getEleHandle(), hImage, nParentID, insertID);
 		}
 
-		//@²ÎÊı name.c_str() 
-		//@²ÎÊı hImage 
-		//@²ÎÊı nParentID 
-		//@²ÎÊı insertID 
-		//@±ğÃû  ²åÈëÏîÍ¼Æ¬À©Õ¹()
+		//@å‚æ•° name.c_str() 
+		//@å‚æ•° hImage 
+		//@å‚æ•° nParentID 
+		//@å‚æ•° insertID 
+		//@åˆ«å  æ’å…¥é¡¹å›¾ç‰‡æ‰©å±•()
 		int InsertItemImageEx(const std::wstring& name, HIMAGE hImage, int nParentID = XC_ID_ROOT, int insertID = XC_ID_LAST) {
 			return XTree_InsertItemImageEx(getEleHandle(), name.c_str(), hImage, nParentID, insertID);
 		}
 
-		//@±ğÃû  È¡ÏîÊıÁ¿()
+		//@åˆ«å  å–é¡¹æ•°é‡()
 		int GetCount() {
 			return XTree_GetCount(getEleHandle());
 		}
 
-		//@±ğÃû  È¡ÁĞÊıÁ¿()
+		//@åˆ«å  å–åˆ—æ•°é‡()
 		int GetCountColumn() {
 			return XTree_GetCountColumn(getEleHandle());
 		}
 
-		//@²ÎÊı nID 
-		//@²ÎÊı iColumn 
-		//@²ÎÊı value.c_str() 
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  ÖÃÏîÎÄ±¾()
+		//@å‚æ•° nID 
+		//@å‚æ•° iColumn 
+		//@å‚æ•° value.c_str() 
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  ç½®é¡¹æ–‡æœ¬()
 		bool SetItemText(int nID, int iColumn, const std::wstring& value) {
 			return XTree_SetItemText(getEleHandle(), nID, iColumn, value.c_str());
 		}
 
-		//@²ÎÊı nID 
-		//@²ÎÊı name.c_str() 
-		//@²ÎÊı value.c_str() 
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  ÖÃÏîÎÄ±¾À©Õ¹()
+		//@å‚æ•° nID 
+		//@å‚æ•° name.c_str() 
+		//@å‚æ•° value.c_str() 
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  ç½®é¡¹æ–‡æœ¬æ‰©å±•()
 		bool SetItemTextEx(int nID, const std::wstring& name, const std::wstring& value) {
 			return XTree_SetItemTextEx(getEleHandle(), nID, name.c_str(), value.c_str());
 		}
 
-		//@²ÎÊı nID 
-		//@²ÎÊı iColumn 
-		//@²ÎÊı hImage 
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  ÖÃÏîÍ¼Æ¬()
+		//@å‚æ•° nID 
+		//@å‚æ•° iColumn 
+		//@å‚æ•° hImage 
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  ç½®é¡¹å›¾ç‰‡()
 		bool SetItemImage(int nID, int iColumn, HIMAGE hImage) {
 			return XTree_SetItemImage(getEleHandle(), nID, iColumn, hImage);
 		}
 
-		//@²ÎÊı nID 
-		//@²ÎÊı name.c_str() 
-		//@²ÎÊı hImage 
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  ÖÃÏîÍ¼Æ¬À©Õ¹()
+		//@å‚æ•° nID 
+		//@å‚æ•° name.c_str() 
+		//@å‚æ•° hImage 
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  ç½®é¡¹å›¾ç‰‡æ‰©å±•()
 		bool SetItemImageEx(int nID, const std::wstring& name, HIMAGE hImage) {
 			return XTree_SetItemImageEx(getEleHandle(), nID, name.c_str(), hImage);
 		}
 
-		//@²ÎÊı nID 
-		//@²ÎÊı iColumn 
-		//@·µ»Ø ·µ»ØÎÄ±¾ÄÚÈİ
-		//@±ğÃû  È¡ÏîÎÄ±¾()
+		//@å‚æ•° nID 
+		//@å‚æ•° iColumn 
+		//@è¿”å› è¿”å›æ–‡æœ¬å†…å®¹
+		//@åˆ«å  å–é¡¹æ–‡æœ¬()
 		std::wstring GetItemText(int nID, int iColumn) {
 			auto pText =  XTree_GetItemText(getEleHandle(), nID, iColumn);
 			if (!pText) return L"";
 			return pText;
 		}
 
-		//@²ÎÊı nID 
-		//@²ÎÊı name.c_str() 
-		//@·µ»Ø ·µ»ØÎÄ±¾ÄÚÈİ
-		//@±ğÃû  È¡ÏîÎÄ±¾À©Õ¹()
+		//@å‚æ•° nID 
+		//@å‚æ•° name.c_str() 
+		//@è¿”å› è¿”å›æ–‡æœ¬å†…å®¹
+		//@åˆ«å  å–é¡¹æ–‡æœ¬æ‰©å±•()
 		std::wstring GetItemTextEx(int nID, const std::wstring& name) {
 			auto pText = XTree_GetItemTextEx(getEleHandle(), nID, name.c_str());
 			if (!pText) return L"";
 			return pText;
 		}
 
-		//@²ÎÊı nID 
-		//@²ÎÊı iColumn 
-		//@±ğÃû  È¡ÏîÍ¼Æ¬()
+		//@å‚æ•° nID 
+		//@å‚æ•° iColumn 
+		//@åˆ«å  å–é¡¹å›¾ç‰‡()
 		HIMAGE GetItemImage(int nID, int iColumn) {
 			return XTree_GetItemImage(getEleHandle(), nID, iColumn);
 		}
 
-		//@²ÎÊı nID 
-		//@²ÎÊı name.c_str() 
-		//@±ğÃû  È¡ÏîÍ¼Æ¬À©Õ¹()
+		//@å‚æ•° nID 
+		//@å‚æ•° name.c_str() 
+		//@åˆ«å  å–é¡¹å›¾ç‰‡æ‰©å±•()
 		HIMAGE GetItemImageEx(int nID, const std::wstring& name) {
 			return XTree_GetItemImageEx(getEleHandle(), nID, name.c_str());
 		}
 
-		//@±¸×¢ XAdTree_DeleteItem  
-		//@²ÎÊı nID 
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  É¾³ıÏî()
+		//@å¤‡æ³¨ XAdTree_DeleteItem  
+		//@å‚æ•° nID 
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  åˆ é™¤é¡¹()
 		bool DeleteItem(int nID) {
 			return XTree_DeleteItem(getEleHandle(), nID);
 		}
 
-		//@±¸×¢ XAdTree_DeleteItemAll  
-		//@±ğÃû  É¾³ıÈ«²¿Ïî()
+		//@å¤‡æ³¨ XAdTree_DeleteItemAll  
+		//@åˆ«å  åˆ é™¤å…¨éƒ¨é¡¹()
 		void DeleteItemAll() {
 			XTree_DeleteItemAll(getEleHandle());
 		}
 
-		//@±¸×¢ XAdTree_DeleteColumnAll  
-		//@±ğÃû  É¾³ıÁĞÈ«²¿()
+		//@å¤‡æ³¨ XAdTree_DeleteColumnAll  
+		//@åˆ«å  åˆ é™¤åˆ—å…¨éƒ¨()
 		void DeleteColumnAll() {
 			XTree_DeleteColumnAll(getEleHandle());
 		}

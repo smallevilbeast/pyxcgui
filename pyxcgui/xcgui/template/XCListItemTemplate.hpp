@@ -73,23 +73,23 @@ namespace xcgui {
 			m_handle = XTemp_Create(tempType);
 		}
 
-		//@±¸×¢ ÁÐ±íÏîÄ£°åÎÄ¼þÔØÈë
-		//@²ÎÊý nType Ä£°åÀàÐÍ,Ö§³ÖÀàÐÍ: \n
-		//@²ÎÊý pFileName ÎÄ¼þÃû.
-		//@·µ»Ø ·µ»ØÄ£°åÐÅÏ¢.
-		//@±ðÃû ÏîÄ£°å_¼ÓÔØ´ÓÎÄ¼þ()
+		//@å¤‡æ³¨ åˆ—è¡¨é¡¹æ¨¡æ¿æ–‡ä»¶è½½å…¥
+		//@å‚æ•° nType æ¨¡æ¿ç±»åž‹,æ”¯æŒç±»åž‹: \n
+		//@å‚æ•° pFileName æ–‡ä»¶å.
+		//@è¿”å›ž è¿”å›žæ¨¡æ¿ä¿¡æ¯.
+		//@åˆ«å é¡¹æ¨¡æ¿_åŠ è½½ä»Žæ–‡ä»¶()
 		HTEMP Load(listItemTemp_type_ nType, const std::wstring& fileName) {
 			m_handle = XTemp_Load(nType, fileName.c_str());
 			return m_handle;
 		}
 
-		//@±¸×¢ ¼ÓÔØÁÐ±íÏîÄ£°å´ÓzipÑ¹Ëõ°üÖÐ
-		//@²ÎÊý nType Ä£°åÀàÐÍ,Ö§³ÖÀàÐÍ: \n
-		//@²ÎÊý pZipFile zipÎÄ¼þ
-		//@²ÎÊý pFileName ÎÄ¼þÃû
-		//@²ÎÊý pPassword zipÃÜÂë
-		//@·µ»Ø ·µ»ØÄ£°å¾ä±ú.
-		//@±ðÃû ÏîÄ£°å_¼ÓÔØ´ÓZIP()
+		//@å¤‡æ³¨ åŠ è½½åˆ—è¡¨é¡¹æ¨¡æ¿ä»ŽzipåŽ‹ç¼©åŒ…ä¸­
+		//@å‚æ•° nType æ¨¡æ¿ç±»åž‹,æ”¯æŒç±»åž‹: \n
+		//@å‚æ•° pZipFile zipæ–‡ä»¶
+		//@å‚æ•° pFileName æ–‡ä»¶å
+		//@å‚æ•° pPassword zipå¯†ç 
+		//@è¿”å›ž è¿”å›žæ¨¡æ¿å¥æŸ„.
+		//@åˆ«å é¡¹æ¨¡æ¿_åŠ è½½ä»ŽZIP()
 		HTEMP LoadZip(listItemTemp_type_ nType, const std::wstring& zipFile, 
 			const std::wstring& fileName, const std::wstring& password) 
 		{
@@ -97,14 +97,14 @@ namespace xcgui {
 			return m_handle;
 		}
 
-		//@±¸×¢ ¼ÓÔØÁÐ±íÏîÄ£°å´ÓÄÚ´æzipÑ¹Ëõ°üÖÐ
-		//@²ÎÊý nType Ä£°åÀàÐÍ,Ö§³ÖÀàÐÍ, Ö»¿ÉÑ¡Ò»¸ö: \n
-		//@²ÎÊý data ÄÚ´æ¿éÖ¸Õë
-		//@²ÎÊý length ÄÚ´æ¿é´óÐ¡,×Ö½ÚÎªµ¥Î»
-		//@²ÎÊý pFileName ÎÄ¼þÃû
-		//@²ÎÊý pPassword zipÃÜÂë
-		//@·µ»Ø ·µ»ØÄ£°å¾ä±ú.
-		//@±ðÃû ÏîÄ£°å_¼ÓÔØ´ÓÄÚ´æZIP()
+		//@å¤‡æ³¨ åŠ è½½åˆ—è¡¨é¡¹æ¨¡æ¿ä»Žå†…å­˜zipåŽ‹ç¼©åŒ…ä¸­
+		//@å‚æ•° nType æ¨¡æ¿ç±»åž‹,æ”¯æŒç±»åž‹, åªå¯é€‰ä¸€ä¸ª: \n
+		//@å‚æ•° data å†…å­˜å—æŒ‡é’ˆ
+		//@å‚æ•° length å†…å­˜å—å¤§å°,å­—èŠ‚ä¸ºå•ä½
+		//@å‚æ•° pFileName æ–‡ä»¶å
+		//@å‚æ•° pPassword zipå¯†ç 
+		//@è¿”å›ž è¿”å›žæ¨¡æ¿å¥æŸ„.
+		//@åˆ«å é¡¹æ¨¡æ¿_åŠ è½½ä»Žå†…å­˜ZIP()
 		HTEMP LoadZipMem(listItemTemp_type_ nType, const std::string& data,
 			const std::wstring& fileName, const std::wstring& password) 
 		{
@@ -112,42 +112,42 @@ namespace xcgui {
 			return m_handle;
 		}
 
-		//@±¸×¢ ¼ÓÔØÁÐ±íÏîÄ£°å´ÓÎÄ¼þ
-		//@²ÎÊý nType Ä£°åÀàÐÍ, Ö§³ÖÀàÐÍ, Ö»¿ÉÑ¡Ò»¸ö: \n 
-		//@²ÎÊý pFileName ÎÄ¼þÃû
-		//@²ÎÊý pOutTemp1 ·µ»ØÄ£°å¾ä±ú1, ÏîÄ£°å
-		//@²ÎÊý pOutTemp2 ·µ»ØÄ£°å¾ä±ú2, ÁÐ±íÍ·Ä£°å»òÁÐ±íÊÓ×éÄ£°å
-		//@·µ»Ø Èç¹û³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE.
-		//@±ðÃû ÏîÄ£°å_¼ÓÔØ´ÓÎÄ¼þÀ©Õ¹()
+		//@å¤‡æ³¨ åŠ è½½åˆ—è¡¨é¡¹æ¨¡æ¿ä»Žæ–‡ä»¶
+		//@å‚æ•° nType æ¨¡æ¿ç±»åž‹, æ”¯æŒç±»åž‹, åªå¯é€‰ä¸€ä¸ª: \n 
+		//@å‚æ•° pFileName æ–‡ä»¶å
+		//@å‚æ•° pOutTemp1 è¿”å›žæ¨¡æ¿å¥æŸ„1, é¡¹æ¨¡æ¿
+		//@å‚æ•° pOutTemp2 è¿”å›žæ¨¡æ¿å¥æŸ„2, åˆ—è¡¨å¤´æ¨¡æ¿æˆ–åˆ—è¡¨è§†ç»„æ¨¡æ¿
+		//@è¿”å›ž å¦‚æžœæˆåŠŸè¿”å›žTRUE,å¦åˆ™è¿”å›žFALSE.
+		//@åˆ«å é¡¹æ¨¡æ¿_åŠ è½½ä»Žæ–‡ä»¶æ‰©å±•()
 		static bool LoadEx(listItemTemp_type_ nType, const std::wstring& fileName, HTEMP* pOutTemp1, HTEMP* pOutTemp2) {
 			return XTemp_LoadEx(nType, fileName.c_str(), pOutTemp1, pOutTemp2);
 		}
 
-		//@±¸×¢ ¼ÓÔØÁÐ±íÏîÄ£°å´ÓzipÑ¹Ëõ°üÖÐ
-		//@²ÎÊý nType Ä£°åÀàÐÍ, Ö§³ÖÀàÐÍ: \n 
-		//@²ÎÊý pZipFile zipÎÄ¼þ
-		//@²ÎÊý pFileName ÎÄ¼þÃû
-		//@²ÎÊý pPassword zipÃÜÂë
-		//@²ÎÊý pOutTemp1 ·µ»ØÄ£°å¾ä±ú1, ÏîÄ£°å
-		//@²ÎÊý pOutTemp2 ·µ»ØÄ£°å¾ä±ú2, ÁÐ±íÍ·Ä£°å»òÁÐ±íÊÓ×éÄ£°å
-		//@·µ»Ø Èç¹û³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE.
-		//@±ðÃû ÏîÄ£°å_¼ÓÔØ´ÓZIPÀ©Õ¹()
+		//@å¤‡æ³¨ åŠ è½½åˆ—è¡¨é¡¹æ¨¡æ¿ä»ŽzipåŽ‹ç¼©åŒ…ä¸­
+		//@å‚æ•° nType æ¨¡æ¿ç±»åž‹, æ”¯æŒç±»åž‹: \n 
+		//@å‚æ•° pZipFile zipæ–‡ä»¶
+		//@å‚æ•° pFileName æ–‡ä»¶å
+		//@å‚æ•° pPassword zipå¯†ç 
+		//@å‚æ•° pOutTemp1 è¿”å›žæ¨¡æ¿å¥æŸ„1, é¡¹æ¨¡æ¿
+		//@å‚æ•° pOutTemp2 è¿”å›žæ¨¡æ¿å¥æŸ„2, åˆ—è¡¨å¤´æ¨¡æ¿æˆ–åˆ—è¡¨è§†ç»„æ¨¡æ¿
+		//@è¿”å›ž å¦‚æžœæˆåŠŸè¿”å›žTRUE,å¦åˆ™è¿”å›žFALSE.
+		//@åˆ«å é¡¹æ¨¡æ¿_åŠ è½½ä»ŽZIPæ‰©å±•()
 		static bool LoadZipEx(listItemTemp_type_ nType, const std::wstring& zipFile, 
 			const std::wstring& fileName, const std::wstring& password, HTEMP* pOutTemp1, HTEMP* pOutTemp2) 
 		{
 			return XTemp_LoadZipEx(nType, zipFile.c_str(), fileName.c_str(), password.c_str(), pOutTemp1, pOutTemp2);
 		}
 
-		//@±¸×¢ ¼ÓÔØÁÐ±íÏîÄ£°å´ÓÄÚ´æzipÑ¹Ëõ°üÖÐ
-		//@²ÎÊý nType Ä£°åÀàÐÍ, Ö§³ÖÀàÐÍ: \n 
-		//@²ÎÊý data ÄÚ´æ¿éÖ¸Õë
-		//@²ÎÊý length ÄÚ´æ¿é´óÐ¡,×Ö½ÚÎªµ¥Î»
-		//@²ÎÊý pFileName ÎÄ¼þÃû
-		//@²ÎÊý pPassword zipÃÜÂë
-		//@²ÎÊý pOutTemp1 ·µ»ØÄ£°å¾ä±ú1, ÏîÄ£°å
-		//@²ÎÊý pOutTemp2 ·µ»ØÄ£°å¾ä±ú2, ÁÐ±íÍ·Ä£°å»òÁÐ±íÊÓ×éÄ£°å
-		//@·µ»Ø Èç¹û³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE.
-		//@±ðÃû ÏîÄ£°å_¼ÓÔØ´ÓÄÚ´æZIPÀ©Õ¹()
+		//@å¤‡æ³¨ åŠ è½½åˆ—è¡¨é¡¹æ¨¡æ¿ä»Žå†…å­˜zipåŽ‹ç¼©åŒ…ä¸­
+		//@å‚æ•° nType æ¨¡æ¿ç±»åž‹, æ”¯æŒç±»åž‹: \n 
+		//@å‚æ•° data å†…å­˜å—æŒ‡é’ˆ
+		//@å‚æ•° length å†…å­˜å—å¤§å°,å­—èŠ‚ä¸ºå•ä½
+		//@å‚æ•° pFileName æ–‡ä»¶å
+		//@å‚æ•° pPassword zipå¯†ç 
+		//@å‚æ•° pOutTemp1 è¿”å›žæ¨¡æ¿å¥æŸ„1, é¡¹æ¨¡æ¿
+		//@å‚æ•° pOutTemp2 è¿”å›žæ¨¡æ¿å¥æŸ„2, åˆ—è¡¨å¤´æ¨¡æ¿æˆ–åˆ—è¡¨è§†ç»„æ¨¡æ¿
+		//@è¿”å›ž å¦‚æžœæˆåŠŸè¿”å›žTRUE,å¦åˆ™è¿”å›žFALSE.
+		//@åˆ«å é¡¹æ¨¡æ¿_åŠ è½½ä»Žå†…å­˜ZIPæ‰©å±•()
 		static bool LoadZipMemEx(listItemTemp_type_ nType, const std::string& data, const std::wstring& fileName, 
 			const std::wstring& password, HTEMP* pOutTemp1, HTEMP* pOutTemp2) 
 		{
@@ -156,11 +156,11 @@ namespace xcgui {
 		}
 
 
-		//@±¸×¢ ¼ÓÔØÁÐ±íÏîÄ£°åÎÄ¼þ´ÓÄÚ´æ×Ö·û´®
-		//@²ÎÊý nType Ä£°åÀàÐÍ,Ö§³ÖÀàÐÍ: \n
-		//@²ÎÊý pStringXML ×Ö·û´®Ö¸Õë.
-		//@·µ»Ø ·µ»ØÄ£°åÐÅÏ¢.
-		//@±ðÃû ÏîÄ£°å_¼ÓÔØ´Ó×Ö·û´®()
+		//@å¤‡æ³¨ åŠ è½½åˆ—è¡¨é¡¹æ¨¡æ¿æ–‡ä»¶ä»Žå†…å­˜å­—ç¬¦ä¸²
+		//@å‚æ•° nType æ¨¡æ¿ç±»åž‹,æ”¯æŒç±»åž‹: \n
+		//@å‚æ•° pStringXML å­—ç¬¦ä¸²æŒ‡é’ˆ.
+		//@è¿”å›ž è¿”å›žæ¨¡æ¿ä¿¡æ¯.
+		//@åˆ«å é¡¹æ¨¡æ¿_åŠ è½½ä»Žå­—ç¬¦ä¸²()
 		HTEMP LoadFromString(listItemTemp_type_ nType, const std::string& xmlData) 
 		{
 			m_handle = XTemp_LoadFromString(nType, xmlData.c_str());
@@ -168,57 +168,57 @@ namespace xcgui {
 		}
 
 
-		//@±¸×¢ ¼ÓÔØÁÐ±íÏîÄ£°å´Ó×Ö·û´®
-		//@²ÎÊý nType Ä£°åÀàÐÍ, Ö§³ÖÀàÐÍ: \n 
-		//@²ÎÊý pStringXML ×Ö·û´®ÄÚÈÝ
-		//@²ÎÊý pOutTemp1 ·µ»ØÄ£°å¾ä±ú1, ÏîÄ£°å
-		//@²ÎÊý pOutTemp2 ·µ»ØÄ£°å¾ä±ú2, ÁÐ±íÍ·Ä£°å»òÁÐ±íÊÓ×éÄ£°å
-		//@·µ»Ø Èç¹û³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE.
-		//@±ðÃû ÏîÄ£°å_¼ÓÔØ´Ó×Ö·û´®À©Õ¹()
+		//@å¤‡æ³¨ åŠ è½½åˆ—è¡¨é¡¹æ¨¡æ¿ä»Žå­—ç¬¦ä¸²
+		//@å‚æ•° nType æ¨¡æ¿ç±»åž‹, æ”¯æŒç±»åž‹: \n 
+		//@å‚æ•° pStringXML å­—ç¬¦ä¸²å†…å®¹
+		//@å‚æ•° pOutTemp1 è¿”å›žæ¨¡æ¿å¥æŸ„1, é¡¹æ¨¡æ¿
+		//@å‚æ•° pOutTemp2 è¿”å›žæ¨¡æ¿å¥æŸ„2, åˆ—è¡¨å¤´æ¨¡æ¿æˆ–åˆ—è¡¨è§†ç»„æ¨¡æ¿
+		//@è¿”å›ž å¦‚æžœæˆåŠŸè¿”å›žTRUE,å¦åˆ™è¿”å›žFALSE.
+		//@åˆ«å é¡¹æ¨¡æ¿_åŠ è½½ä»Žå­—ç¬¦ä¸²æ‰©å±•()
 		static bool LoadFromStringEx(listItemTemp_type_ nType, const std::string& xmlData, HTEMP* pOutTemp1, HTEMP* pOutTemp2) {
 			return XTemp_LoadFromStringEx(nType, xmlData.c_str(), pOutTemp1, pOutTemp2);
 		}
 
 
-		//@±¸×¢ »ñÈ¡ÁÐ±íÏîÄ£°åÀàÐÍ
-		//@²ÎÊý hTemp ÁÐ±íÏîÄ£°å¾ä±ú.
-		//@·µ»Ø ·µ»ØÄ£°åÀàÐÍ.
-		//@±ðÃû ÏîÄ£°å_È¡ÀàÐÍ()
+		//@å¤‡æ³¨ èŽ·å–åˆ—è¡¨é¡¹æ¨¡æ¿ç±»åž‹
+		//@å‚æ•° hTemp åˆ—è¡¨é¡¹æ¨¡æ¿å¥æŸ„.
+		//@è¿”å›ž è¿”å›žæ¨¡æ¿ç±»åž‹.
+		//@åˆ«å é¡¹æ¨¡æ¿_å–ç±»åž‹()
 		listItemTemp_type_ GetType() {
 			return XTemp_GetType(m_handle);
 		}	
 
-		//@±¸×¢ ÏîÄ£°åÏú»Ù
-		//@²ÎÊý hTemp ÏîÄ£°å¾ä±ú.
-		//@±ðÃû ÏîÄ£°å_Ïú»Ù()
+		//@å¤‡æ³¨ é¡¹æ¨¡æ¿é”€æ¯
+		//@å‚æ•° hTemp é¡¹æ¨¡æ¿å¥æŸ„.
+		//@åˆ«å é¡¹æ¨¡æ¿_é”€æ¯()
 		bool Destroy() {
 			return 	XTemp_Destroy(m_handle);
 		}
 
 
-		//@±¸×¢ ¸´ÖÆÒ»·ÝÐÂµÄÏîÄ£°å
-		//@²ÎÊý hTemp ÁÐ±íÏîÄ£°å¾ä±ú
-		//@·µ»Ø ·µ»ØÄ£°å¾ä±ú
-		//@±ðÃû ÏîÄ£°å_¿ËÂ¡()
+		//@å¤‡æ³¨ å¤åˆ¶ä¸€ä»½æ–°çš„é¡¹æ¨¡æ¿
+		//@å‚æ•° hTemp åˆ—è¡¨é¡¹æ¨¡æ¿å¥æŸ„
+		//@è¿”å›ž è¿”å›žæ¨¡æ¿å¥æŸ„
+		//@åˆ«å é¡¹æ¨¡æ¿_å…‹éš†()
 		HTEMP Clone(HTEMP hTemp) {
 			m_handle = XTemp_Clone(hTemp);
 			return m_handle;
 		}
 
-		//@±¸×¢ Ìí¼Ó¸ù½Úµã
-		//@²ÎÊý hTemp ÏîÄ£°å¾ä±ú.
-		//@²ÎÊý pNode ½ÚµãÖ¸Õë.
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE.
-		//@±ðÃû ÏîÄ£°å_Ìí¼Ó¸ù½Úµã()
+		//@å¤‡æ³¨ æ·»åŠ æ ¹èŠ‚ç‚¹
+		//@å‚æ•° hTemp é¡¹æ¨¡æ¿å¥æŸ„.
+		//@å‚æ•° pNode èŠ‚ç‚¹æŒ‡é’ˆ.
+		//@è¿”å›ž æˆåŠŸè¿”å›žTRUE,å¦åˆ™è¿”å›žFALSE.
+		//@åˆ«å é¡¹æ¨¡æ¿_æ·»åŠ æ ¹èŠ‚ç‚¹()
 		bool AddNodeRoot(HTNODE pNode) {
 			return XTemp_AddNodeRoot(m_handle, pNode);
 		}
 
-		//@±¸×¢ »ñÈ¡ÁÐ±íÖÐµÄ½Úµã
-		//@²ÎÊý hTemp Ä£°å¾ä±ú
-		//@²ÎÊý index ½ÚµãÎ»ÖÃË÷Òý
-		//@·µ»Ø ·µ»Ø·µ»Ø½ÚµãÖ¸Õë
-		//@±ðÃû ÏîÄ£°å_È¡ÁÐ±íÖÐµÄ½Úµã()
+		//@å¤‡æ³¨ èŽ·å–åˆ—è¡¨ä¸­çš„èŠ‚ç‚¹
+		//@å‚æ•° hTemp æ¨¡æ¿å¥æŸ„
+		//@å‚æ•° index èŠ‚ç‚¹ä½ç½®ç´¢å¼•
+		//@è¿”å›ž è¿”å›žè¿”å›žèŠ‚ç‚¹æŒ‡é’ˆ
+		//@åˆ«å é¡¹æ¨¡æ¿_å–åˆ—è¡¨ä¸­çš„èŠ‚ç‚¹()
 		HTNODE GetNode(int index) {
 			return XTemp_List_GetNode(m_handle, index);
 		}

@@ -18,87 +18,87 @@ namespace xcgui {
 			m_handle = XDateTime_Create(x, y, width, height, parent);
 		}
 
-		//@±¸×¢ ÉèÖÃÑùÊ½.  
-		//@²ÎÊı nStyle ÑùÊ½, 0ÎªÈÕÆÚÔªËØ,1ÎªÊ±¼äÔªËØ.
-		//@±ğÃû  ÖÃÑùÊ½()
+		//@å¤‡æ³¨ è®¾ç½®æ ·å¼.  
+		//@å‚æ•° nStyle æ ·å¼, 0ä¸ºæ—¥æœŸå…ƒç´ ,1ä¸ºæ—¶é—´å…ƒç´ .
+		//@åˆ«å  ç½®æ ·å¼()
 		void SetStyle(int nStyle) {
 			XDateTime_SetStyle(getEleHandle(), nStyle);
 		}
 
-		//@±¸×¢ »ñÈ¡ÑùÊ½.  
-		//@·µ»Ø ÔªËØÑùÊ½.
-		//@±ğÃû  È¡ÑùÊ½()
+		//@å¤‡æ³¨ è·å–æ ·å¼.  
+		//@è¿”å› å…ƒç´ æ ·å¼.
+		//@åˆ«å  å–æ ·å¼()
 		int GetStyle() {
 			return XDateTime_GetStyle(getEleHandle());
 		}
 
-		//@±¸×¢ ÇĞ»»·Ö¸îÀ¸Îª:Ğ±Ïß»òºáÏß.  
-		//@²ÎÊı bSlash TRUE:Ğ±Ïß, FALSE:ºáÏß.
-		//@±ğÃû  ÆôÓÃ·Ö¸îÀ¸ÎªĞ±Ïß()
+		//@å¤‡æ³¨ åˆ‡æ¢åˆ†å‰²æ ä¸º:æ–œçº¿æˆ–æ¨ªçº¿.  
+		//@å‚æ•° bSlash TRUE:æ–œçº¿, FALSE:æ¨ªçº¿.
+		//@åˆ«å  å¯ç”¨åˆ†å‰²æ ä¸ºæ–œçº¿()
 		void EnableSplitSlash(bool bSlash) {
 			XDateTime_EnableSplitSlash(getEleHandle(), bSlash);
 		}
 
-		//@±¸×¢ »ñÈ¡ÄÚ²¿°´Å¥ÔªËØ.  
-		//@²ÎÊı nType °´Å¥ÀàĞÍ, 0:ÈÕÀúÏÂÀ­°´Å¥, 1:ÉÏ¼ıÍ·°´Å¥, 2:ÏÂ¼ıÍ·°´Å¥
-		//@·µ»Ø ÔªËØÑùÊ½.
-		//@±ğÃû  È¡ÄÚ²¿°´Å¥()
+		//@å¤‡æ³¨ è·å–å†…éƒ¨æŒ‰é’®å…ƒç´ .  
+		//@å‚æ•° nType æŒ‰é’®ç±»å‹, 0:æ—¥å†ä¸‹æ‹‰æŒ‰é’®, 1:ä¸Šç®­å¤´æŒ‰é’®, 2:ä¸‹ç®­å¤´æŒ‰é’®
+		//@è¿”å› å…ƒç´ æ ·å¼.
+		//@åˆ«å  å–å†…éƒ¨æŒ‰é’®()
 		HELE GetButton(int nType) {
 			return XDateTime_GetButton(getEleHandle(), nType);
 		}
 
-		//@±¸×¢ »ñÈ¡±»Ñ¡ÔñÎÄ×ÖµÄ±³¾°ÑÕÉ«.  
-		//@·µ»Ø ÔªËØÑùÊ½.
-		//@±ğÃû  È¡Ñ¡ÔñÈÕÆÚ±³¾°ÑÕÉ«()
+		//@å¤‡æ³¨ è·å–è¢«é€‰æ‹©æ–‡å­—çš„èƒŒæ™¯é¢œè‰².  
+		//@è¿”å› å…ƒç´ æ ·å¼.
+		//@åˆ«å  å–é€‰æ‹©æ—¥æœŸèƒŒæ™¯é¢œè‰²()
 		COLORREF GetSelBkColor() {
 			return XDateTime_GetSelBkColor(getEleHandle());
 		}
 
-		//@±¸×¢ ÉèÖÃ±»Ñ¡ÔñÎÄ×ÖµÄ±³¾°ÑÕÉ«.  
-		//@²ÎÊı crSelectBk ÎÄ×Ö±»Ñ¡ÖĞ±³¾°É«, ÑÕÉ«Öµ, ÇëÊ¹ÓÃºê: RGBA()
-		//@±ğÃû  ÖÃÑ¡ÔñÈÕÆÚ±³¾°ÑÕÉ«()
+		//@å¤‡æ³¨ è®¾ç½®è¢«é€‰æ‹©æ–‡å­—çš„èƒŒæ™¯é¢œè‰².  
+		//@å‚æ•° crSelectBk æ–‡å­—è¢«é€‰ä¸­èƒŒæ™¯è‰², é¢œè‰²å€¼, è¯·ä½¿ç”¨å®: RGBA()
+		//@åˆ«å  ç½®é€‰æ‹©æ—¥æœŸèƒŒæ™¯é¢œè‰²()
 		void SetSelBkColor(COLORREF crSelectBk) {
 			XDateTime_SetSelBkColor(getEleHandle(), crSelectBk);
 		}
 
-		//@±¸×¢ »ñÈ¡µ±Ç°ÈÕÆÚ.  
-		//@²ÎÊı pnYear Äê.[OUT]
-		//@²ÎÊı pnMonth ÔÂ.[OUT]
-		//@²ÎÊı pnDay ÈÕ.[OUT]
-		//@±ğÃû  È¡µ±Ç°ÈÕÆÚ()
+		//@å¤‡æ³¨ è·å–å½“å‰æ—¥æœŸ.  
+		//@å‚æ•° pnYear å¹´.[OUT]
+		//@å‚æ•° pnMonth æœˆ.[OUT]
+		//@å‚æ•° pnDay æ—¥.[OUT]
+		//@åˆ«å  å–å½“å‰æ—¥æœŸ()
 		void GetDate(int* pnYear, int* pnMonth, int* pnDay) {
 			XDateTime_GetDate(getEleHandle(), pnYear, pnMonth, pnDay);
 		}
 
-		//@±¸×¢ ÉèÖÃµ±Ç°ÈÕÆÚ.  
-		//@²ÎÊı nYear Äê.
-		//@²ÎÊı nMonth ÔÂ.
-		//@²ÎÊı nDay ÈÕ.
-		//@±ğÃû  ÖÃµ±Ç°ÈÕÆÚ()
+		//@å¤‡æ³¨ è®¾ç½®å½“å‰æ—¥æœŸ.  
+		//@å‚æ•° nYear å¹´.
+		//@å‚æ•° nMonth æœˆ.
+		//@å‚æ•° nDay æ—¥.
+		//@åˆ«å  ç½®å½“å‰æ—¥æœŸ()
 		void SetDate(int nYear, int nMonth, int nDay) {
 			XDateTime_SetDate(getEleHandle(), nYear, nMonth, nDay);
 		}
 
-		//@±¸×¢ »ñÈ¡µ±Ç°Ê±¼ä.  
-		//@²ÎÊı pnHour Ê±.[OUT]
-		//@²ÎÊı pnMinute ·Ö.[OUT]
-		//@²ÎÊı pnSecond Ãë.[OUT]
-		//@±ğÃû  È¡µ±Ç°Ê±¼ä()
+		//@å¤‡æ³¨ è·å–å½“å‰æ—¶é—´.  
+		//@å‚æ•° pnHour æ—¶.[OUT]
+		//@å‚æ•° pnMinute åˆ†.[OUT]
+		//@å‚æ•° pnSecond ç§’.[OUT]
+		//@åˆ«å  å–å½“å‰æ—¶é—´()
 		void GetTime(int* pnHour, int* pnMinute, int* pnSecond) {
 			XDateTime_GetTime(getEleHandle(), pnHour, pnMinute, pnSecond);
 		}
 
-		//@±¸×¢ ÉèÖÃµ±Ç°Ê±·ÖÃë.  
-		//@²ÎÊı nHour Ê±.
-		//@²ÎÊı nMinute ·Ö.
-		//@²ÎÊı nSecond Ãë.
-		//@±ğÃû  ÖÃµ±Ç°Ê±¼ä()
+		//@å¤‡æ³¨ è®¾ç½®å½“å‰æ—¶åˆ†ç§’.  
+		//@å‚æ•° nHour æ—¶.
+		//@å‚æ•° nMinute åˆ†.
+		//@å‚æ•° nSecond ç§’.
+		//@åˆ«å  ç½®å½“å‰æ—¶é—´()
 		void SetTime(int nHour, int nMinute, int nSecond) {
 			XDateTime_SetTime(getEleHandle(), nHour, nMinute, nSecond);
 		}
 
-		//@±¸×¢ µ¯³öÔÂÀú¿¨Æ¬
-		//@±ğÃû  µ¯³ö()
+		//@å¤‡æ³¨ å¼¹å‡ºæœˆå†å¡ç‰‡
+		//@åˆ«å  å¼¹å‡º()
 		void Popup() {
 			XDateTime_Popup(getEleHandle());
 		}

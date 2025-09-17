@@ -21,372 +21,372 @@ namespace xcgui {
 			m_handle = XComboBox_Create(x, y, width, height, parent);
 		}
 
-		//@±¸×¢ ÉèÖÃÑ¡ÔñÏî.  
-		//@²ÎÊı iIndex ÏîË÷Òı.
-		//@·µ»Ø ³É¹¦·µ»Ø·ñÔò·µ»ØFALSE.
-		//@±ğÃû  ÖÃÑ¡ÔñÏî()
+		//@å¤‡æ³¨ è®¾ç½®é€‰æ‹©é¡¹.  
+		//@å‚æ•° iIndex é¡¹ç´¢å¼•.
+		//@è¿”å› æˆåŠŸè¿”å›å¦åˆ™è¿”å›FALSE.
+		//@åˆ«å  ç½®é€‰æ‹©é¡¹()
 		bool SetSelItem(int iIndex) {
 			return XComboBox_SetSelItem(getEleHandle(), iIndex);
 		}
 
-		//@·µ»Ø ·µ»ØÊı¾İÊÊÅäÆ÷¾ä±ú
-		//@±ğÃû  ´´½¨Êı¾İÊÊÅäÆ÷()
+		//@è¿”å› è¿”å›æ•°æ®é€‚é…å™¨å¥æŸ„
+		//@åˆ«å  åˆ›å»ºæ•°æ®é€‚é…å™¨()
 		HXCGUI CreateAdapter() {
 			return XComboBox_CreateAdapter(getEleHandle());
 		}
 
-		//@±¸×¢ °ó¶¨Êı¾İÊÊÅäÆ÷.  
-		//@²ÎÊı hAdapter ÊÊÅäÆ÷¾ä±ú.
-		//@±ğÃû  °ó¶¨Êı¾İÊÊÅäÆ÷()
+		//@å¤‡æ³¨ ç»‘å®šæ•°æ®é€‚é…å™¨.  
+		//@å‚æ•° hAdapter é€‚é…å™¨å¥æŸ„.
+		//@åˆ«å  ç»‘å®šæ•°æ®é€‚é…å™¨()
 		void BindAdapter(HXCGUI hAdapter) {
 			XComboBox_BindAdapter(getEleHandle(), hAdapter);
 		}
 
-		//@±¸×¢ »ñÈ¡°ó¶¨µÄÊı¾İÊÊÅäÆ÷.  
-		//@·µ»Ø ·µ»ØÊı¾İÊÊÅäÆ÷.
-		//@±ğÃû  È¡Êı¾İÊÊÅäÆ÷()
+		//@å¤‡æ³¨ è·å–ç»‘å®šçš„æ•°æ®é€‚é…å™¨.  
+		//@è¿”å› è¿”å›æ•°æ®é€‚é…å™¨.
+		//@åˆ«å  å–æ•°æ®é€‚é…å™¨()
 		HXCGUI GetAdapter() {
 			return XComboBox_GetAdapter(getEleHandle());
 		}
 
-		//@±¸×¢ ÉèÖÃ°ó¶¨Êı¾İÊÊÅäÆ÷×Ö¶ÎÃû.  
-		//@²ÎÊı name.c_str() ×Ö¶ÎÃû
-		//@±ğÃû  ÖÃ°ó¶¨Ãû³Æ()
+		//@å¤‡æ³¨ è®¾ç½®ç»‘å®šæ•°æ®é€‚é…å™¨å­—æ®µå.  
+		//@å‚æ•° name.c_str() å­—æ®µå
+		//@åˆ«å  ç½®ç»‘å®šåç§°()
 		void SetBindName(const std::wstring& name) {
 			XComboBox_SetBindName(getEleHandle(), name.c_str());
 		}
 
-		//@±¸×¢ »ñÈ¡ÏÂÀ­°´Å¥×ø±ê.  
-		//@²ÎÊı pRect ×ø±ê.
-		//@±ğÃû  È¡ÏÂÀ­°´Å¥×ø±ê()
+		//@å¤‡æ³¨ è·å–ä¸‹æ‹‰æŒ‰é’®åæ ‡.  
+		//@å‚æ•° pRect åæ ‡.
+		//@åˆ«å  å–ä¸‹æ‹‰æŒ‰é’®åæ ‡()
 		void GetButtonRect(RECT* pRect) {
 			XComboBox_GetButtonRect(getEleHandle(), pRect);
 		}
 
-		//@±¸×¢ ÉèÖÃÏÂÀ­°´Å¥´óĞ¡.  
-		//@²ÎÊı size ´óĞ¡.
-		//@±ğÃû  ÖÃÏÂÀ­°´Å¥´óĞ¡()
+		//@å¤‡æ³¨ è®¾ç½®ä¸‹æ‹‰æŒ‰é’®å¤§å°.  
+		//@å‚æ•° size å¤§å°.
+		//@åˆ«å  ç½®ä¸‹æ‹‰æŒ‰é’®å¤§å°()
 		void SetButtonSize(int size) {
 			XComboBox_SetButtonSize(getEleHandle(), size);
 		}
 
-		//@±¸×¢ ÉèÖÃÏÂÀ­ÁĞ±íÔÊĞíµÄ×î´ó¸ß¶È, 
-		//@²ÎÊı height ¸ß¶È, -1×Ô¶¯¼ÆËã¸ß¶È
-		//@±ğÃû  ÖÃÏÂÀ­ÁĞ±í¸ß¶È()
+		//@å¤‡æ³¨ è®¾ç½®ä¸‹æ‹‰åˆ—è¡¨å…è®¸çš„æœ€å¤§é«˜åº¦, 
+		//@å‚æ•° height é«˜åº¦, -1è‡ªåŠ¨è®¡ç®—é«˜åº¦
+		//@åˆ«å  ç½®ä¸‹æ‹‰åˆ—è¡¨é«˜åº¦()
 		void SetDropHeight(int height) {
 			XComboBox_SetDropHeight(getEleHandle(), height);
 		}
 
-		//@±¸×¢ »ñÈ¡ÏÂÀ­ÁĞ±í¸ß¶È.  
-		//@·µ»Ø ÏÂÀ­ÁĞ±í¸ß¶È.
-		//@±ğÃû  È¡ÏÂÀ­ÁĞ±í¸ß¶È()
+		//@å¤‡æ³¨ è·å–ä¸‹æ‹‰åˆ—è¡¨é«˜åº¦.  
+		//@è¿”å› ä¸‹æ‹‰åˆ—è¡¨é«˜åº¦.
+		//@åˆ«å  å–ä¸‹æ‹‰åˆ—è¡¨é«˜åº¦()
 		int GetDropHeight() {
 			return XComboBox_GetDropHeight(getEleHandle());
 		}
 
-		//@±¸×¢ ÉèÖÃÏÂÀ­ÁĞ±íÏîÄ£°åÎÄ¼ş
-		//@²ÎÊı pXmlFile ÏîÄ£°åÎÄ¼ş.
-		//@±ğÃû  ÖÃÏîÄ£°åÎÄ¼ş()
+		//@å¤‡æ³¨ è®¾ç½®ä¸‹æ‹‰åˆ—è¡¨é¡¹æ¨¡æ¿æ–‡ä»¶
+		//@å‚æ•° pXmlFile é¡¹æ¨¡æ¿æ–‡ä»¶.
+		//@åˆ«å  ç½®é¡¹æ¨¡æ¿æ–‡ä»¶()
 		void SetItemTemplateXML(const std::wstring& xmlFile) {
 			XComboBox_SetItemTemplateXML(getEleHandle(), xmlFile.c_str());
 		}
 
-		//@±¸×¢ ÉèÖÃÏÂÀ­ÁĞ±íÏîÄ£°å.  
-		//@²ÎÊı pStringXML ×Ö·û´®Ö¸Õë.
-		//@±ğÃû  ÖÃÏîÄ£°å´Ó×Ö·û´®()
+		//@å¤‡æ³¨ è®¾ç½®ä¸‹æ‹‰åˆ—è¡¨é¡¹æ¨¡æ¿.  
+		//@å‚æ•° pStringXML å­—ç¬¦ä¸²æŒ‡é’ˆ.
+		//@åˆ«å  ç½®é¡¹æ¨¡æ¿ä»å­—ç¬¦ä¸²()
 		void SetItemTemplateXMLFromString(const char* pStringXML) {
 			XComboBox_SetItemTemplateXMLFromString(getEleHandle(), pStringXML);
 		}
 
-		//@²ÎÊı hTemp ÏîÄ£°å¾ä±ú
-		//@·µ»Ø Èç¹û³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  ÖÃÏîÄ£°å()
+		//@å‚æ•° hTemp é¡¹æ¨¡æ¿å¥æŸ„
+		//@è¿”å› å¦‚æœæˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  ç½®é¡¹æ¨¡æ¿()
 		bool SetItemTemplate(HTEMP hTemp) {
 			return XComboBox_SetItemTemplate(getEleHandle(), hTemp);
 		}
 
-		//@±¸×¢ ÊÇ·ñ»æÖÆÏÂÀ­°´Å¥.  
-		//@²ÎÊı bEnable ÊÇ·ñ»æÖÆ.
-		//@±ğÃû  ÆôÓÃ»æÖÆÏÂÀ­°´Å¥()
+		//@å¤‡æ³¨ æ˜¯å¦ç»˜åˆ¶ä¸‹æ‹‰æŒ‰é’®.  
+		//@å‚æ•° bEnable æ˜¯å¦ç»˜åˆ¶.
+		//@åˆ«å  å¯ç”¨ç»˜åˆ¶ä¸‹æ‹‰æŒ‰é’®()
 		void EnableDrawButton(bool bEnable) {
 			XComboBox_EnableDrawButton(getEleHandle(), bEnable);
 		}
 
-		//@±¸×¢ ÆôÓÃ¿É±à¼­ÏÔÊ¾µÄÎÄ±¾ÄÚÈİ.  
-		//@²ÎÊı bEdit TRUE¿É±à¼­,·ñÔòÏà·´.
-		//@±ğÃû  ÆôÓÃ±à¼­()
+		//@å¤‡æ³¨ å¯ç”¨å¯ç¼–è¾‘æ˜¾ç¤ºçš„æ–‡æœ¬å†…å®¹.  
+		//@å‚æ•° bEdit TRUEå¯ç¼–è¾‘,å¦åˆ™ç›¸å.
+		//@åˆ«å  å¯ç”¨ç¼–è¾‘()
 		void EnableEdit(bool bEdit) {
 			XComboBox_EnableEdit(getEleHandle(), bEdit);
 		}
 
-		//@±¸×¢ ÆôÓÃ/¹Ø±ÕÏÂÀ­ÁĞ±í¸ß¶È¹Ì¶¨´óĞ¡.  
-		//@²ÎÊı bEnable ÊÇ·ñÆôÓÃ
-		//@±ğÃû  ÆôÓÃÏÂÀ­ÁĞ±í¸ß¶È¹Ì¶¨´óĞ¡()
+		//@å¤‡æ³¨ å¯ç”¨/å…³é—­ä¸‹æ‹‰åˆ—è¡¨é«˜åº¦å›ºå®šå¤§å°.  
+		//@å‚æ•° bEnable æ˜¯å¦å¯ç”¨
+		//@åˆ«å  å¯ç”¨ä¸‹æ‹‰åˆ—è¡¨é«˜åº¦å›ºå®šå¤§å°()
 		void EnableDropHeightFixed(bool bEnable) {
 			XComboBox_EnableDropHeightFixed(getEleHandle(), bEnable);
 		}
 
-		//@·µ»Ø Èç¹û³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  µ¯³öÏÂÀ­ÁĞ±í()
+		//@è¿”å› å¦‚æœæˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  å¼¹å‡ºä¸‹æ‹‰åˆ—è¡¨()
 		void PopupDropList() {
 			XComboBox_PopupDropList(getEleHandle());
 		}
 
-		//@±¸×¢ »ñÈ¡×éºÏ¿òÏÂÀ­ÁĞ±íÖĞÑ¡ÔñÏîË÷Òı.  
-		//@·µ»Ø ·µ»ØÏîË÷Òı.
-		//@±ğÃû  È¡Ñ¡ÔñÏî()
+		//@å¤‡æ³¨ è·å–ç»„åˆæ¡†ä¸‹æ‹‰åˆ—è¡¨ä¸­é€‰æ‹©é¡¹ç´¢å¼•.  
+		//@è¿”å› è¿”å›é¡¹ç´¢å¼•.
+		//@åˆ«å  å–é€‰æ‹©é¡¹()
 		int GetSelItem() {
 			return XComboBox_GetSelItem(getEleHandle());
 		}
 
-		//@±¸×¢ »ñÈ¡×´Ì¬.  
-		//@·µ»Ø ×´Ì¬.
-		//@±ğÃû  È¡×´Ì¬()
+		//@å¤‡æ³¨ è·å–çŠ¶æ€.  
+		//@è¿”å› çŠ¶æ€.
+		//@åˆ«å  å–çŠ¶æ€()
 		comboBox_state_ GetState() {
 			return XComboBox_GetState(getEleHandle());
 		}
 
-		//@²ÎÊı text.c_str() 
-		//@·µ»Ø ·µ»ØÏîË÷Òı
-		//@±ğÃû  Ìí¼ÓÏîÎÄ±¾()
+		//@å‚æ•° text.c_str() 
+		//@è¿”å› è¿”å›é¡¹ç´¢å¼•
+		//@åˆ«å  æ·»åŠ é¡¹æ–‡æœ¬()
 		int AddItemText(const std::wstring& text) {
 			return XComboBox_AddItemText(getEleHandle(), text.c_str());
 		}
 
-		//@²ÎÊı name.c_str() ×Ö¶ÎÃû
-		//@²ÎÊı text.c_str() ÎÄ±¾
-		//@·µ»Ø ·µ»ØÏîË÷Òı
-		//@±ğÃû  Ìí¼ÓÏîÎÄ±¾À©Õ¹()
+		//@å‚æ•° name.c_str() å­—æ®µå
+		//@å‚æ•° text.c_str() æ–‡æœ¬
+		//@è¿”å› è¿”å›é¡¹ç´¢å¼•
+		//@åˆ«å  æ·»åŠ é¡¹æ–‡æœ¬æ‰©å±•()
 		int AddItemTextEx(const std::wstring& name, const std::wstring& text) {
 			return XComboBox_AddItemTextEx(getEleHandle(), name.c_str(), text.c_str());
 		}
 
-		//@²ÎÊı hImage Í¼Æ¬¾ä±ú
-		//@·µ»Ø ·µ»ØÏîË÷Òı
-		//@±ğÃû  Ìí¼ÓÏîÍ¼Æ¬()
+		//@å‚æ•° hImage å›¾ç‰‡å¥æŸ„
+		//@è¿”å› è¿”å›é¡¹ç´¢å¼•
+		//@åˆ«å  æ·»åŠ é¡¹å›¾ç‰‡()
 		int AddItemImage(HIMAGE hImage) {
 			return XComboBox_AddItemImage(getEleHandle(), hImage);
 		}
 
-		//@²ÎÊı name.c_str() ×Ö¶ÎÃû
-		//@²ÎÊı hImage Í¼Æ¬¾ä±ú
-		//@·µ»Ø ·µ»ØÏîË÷Òı
-		//@±ğÃû  Ìí¼ÓÏîÍ¼Æ¬À©Õ¹()
+		//@å‚æ•° name.c_str() å­—æ®µå
+		//@å‚æ•° hImage å›¾ç‰‡å¥æŸ„
+		//@è¿”å› è¿”å›é¡¹ç´¢å¼•
+		//@åˆ«å  æ·»åŠ é¡¹å›¾ç‰‡æ‰©å±•()
 		int AddItemImageEx(const std::wstring& name, HIMAGE hImage) {
 			return XComboBox_AddItemImageEx(getEleHandle(), name.c_str(), hImage);
 		}
 
-		//@²ÎÊı iItem ÏîË÷Òı
-		//@²ÎÊı text.c_str() ÎÄ±¾
-		//@·µ»Ø ·µ»ØÏîË÷Òı
-		//@±ğÃû  ²åÈëÏîÎÄ±¾()
+		//@å‚æ•° iItem é¡¹ç´¢å¼•
+		//@å‚æ•° text.c_str() æ–‡æœ¬
+		//@è¿”å› è¿”å›é¡¹ç´¢å¼•
+		//@åˆ«å  æ’å…¥é¡¹æ–‡æœ¬()
 		int InsertItemText(int iItem, const std::wstring& value) {
 			return XComboBox_InsertItemText(getEleHandle(), iItem, value.c_str());
 		}
 
-		//@²ÎÊı iItem ÏîË÷Òı
-		//@²ÎÊı name.c_str() ×Ö¶ÎÃû
-		//@²ÎÊı text.c_str() ÎÄ±¾
-		//@·µ»Ø ·µ»ØÏîË÷Òı
-		//@±ğÃû  ²åÈëÏîÎÄ±¾À©Õ¹()
+		//@å‚æ•° iItem é¡¹ç´¢å¼•
+		//@å‚æ•° name.c_str() å­—æ®µå
+		//@å‚æ•° text.c_str() æ–‡æœ¬
+		//@è¿”å› è¿”å›é¡¹ç´¢å¼•
+		//@åˆ«å  æ’å…¥é¡¹æ–‡æœ¬æ‰©å±•()
 		int InsertItemTextEx(int iItem, const std::wstring& name, const std::wstring& value) {
 			return XComboBox_InsertItemTextEx(getEleHandle(), iItem, name.c_str(), value.c_str());
 		}
 
-		//@²ÎÊı iItem ÏîË÷Òı
-		//@²ÎÊı hImage Í¼Æ¬¾ä±ú
-		//@·µ»Ø ·µ»ØÏîË÷Òı
-		//@±ğÃû  ²åÈëÏîÍ¼Æ¬()
+		//@å‚æ•° iItem é¡¹ç´¢å¼•
+		//@å‚æ•° hImage å›¾ç‰‡å¥æŸ„
+		//@è¿”å› è¿”å›é¡¹ç´¢å¼•
+		//@åˆ«å  æ’å…¥é¡¹å›¾ç‰‡()
 		int InsertItemImage(int iItem, HIMAGE hImage) {
 			return XComboBox_InsertItemImage(getEleHandle(), iItem, hImage);
 		}
 
-		//@²ÎÊı iItem ÏîË÷Òı
-		//@²ÎÊı name.c_str() ×Ö¶ÎÃû
-		//@²ÎÊı hImage Í¼Æ¬¾ä±ú
-		//@·µ»Ø ·µ»ØÏîË÷Òı
-		//@±ğÃû  ²åÈëÏîÍ¼Æ¬À©Õ¹()
+		//@å‚æ•° iItem é¡¹ç´¢å¼•
+		//@å‚æ•° name.c_str() å­—æ®µå
+		//@å‚æ•° hImage å›¾ç‰‡å¥æŸ„
+		//@è¿”å› è¿”å›é¡¹ç´¢å¼•
+		//@åˆ«å  æ’å…¥é¡¹å›¾ç‰‡æ‰©å±•()
 		int InsertItemImageEx(int iItem, const std::wstring& name, HIMAGE hImage) {
 			return XComboBox_InsertItemImageEx(getEleHandle(), iItem, name.c_str(), hImage);
 		}
 
-		//@²ÎÊı iItem ÏîË÷Òı
-		//@²ÎÊı iColumn ÁĞË÷Òı
-		//@²ÎÊı text.c_str() ÎÄ±¾
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  ÖÃÏîÎÄ±¾()
+		//@å‚æ•° iItem é¡¹ç´¢å¼•
+		//@å‚æ•° iColumn åˆ—ç´¢å¼•
+		//@å‚æ•° text.c_str() æ–‡æœ¬
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  ç½®é¡¹æ–‡æœ¬()
 		bool SetItemText(int iItem, int iColumn, const std::wstring& text) {
 			return XComboBox_SetItemText(getEleHandle(), iItem, iColumn, text.c_str());
 		}
 
-		//@²ÎÊı iItem ÏîË÷Òı
-		//@²ÎÊı name.c_str() ×Ö¶ÎÃû
-		//@²ÎÊı text.c_str() ÎÄ±¾
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  ÖÃÏîÎÄ±¾À©Õ¹()
+		//@å‚æ•° iItem é¡¹ç´¢å¼•
+		//@å‚æ•° name.c_str() å­—æ®µå
+		//@å‚æ•° text.c_str() æ–‡æœ¬
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  ç½®é¡¹æ–‡æœ¬æ‰©å±•()
 		bool SetItemTextEx(int iItem, const std::wstring& name, const std::wstring& text) {
 			return XComboBox_SetItemTextEx(getEleHandle(), iItem, name.c_str(), text.c_str());
 		}
 
-		//@²ÎÊı iItem ÏîË÷Òı
-		//@²ÎÊı iColumn ÁĞË÷Òı
-		//@²ÎÊı hImage Í¼Æ¬¾ä±ú
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  ÖÃÏîÍ¼Æ¬()
+		//@å‚æ•° iItem é¡¹ç´¢å¼•
+		//@å‚æ•° iColumn åˆ—ç´¢å¼•
+		//@å‚æ•° hImage å›¾ç‰‡å¥æŸ„
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  ç½®é¡¹å›¾ç‰‡()
 		bool SetItemImage(int iItem, int iColumn, HIMAGE hImage) {
 			return XComboBox_SetItemImage(getEleHandle(), iItem, iColumn, hImage);
 		}
 
-		//@²ÎÊı iItem ÏîË÷Òı
-		//@²ÎÊı name.c_str() ×Ö¶ÎÃû
-		//@²ÎÊı hImage Í¼Æ¬¾ä±ú
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  ÖÃÏîÍ¼Æ¬À©Õ¹()
+		//@å‚æ•° iItem é¡¹ç´¢å¼•
+		//@å‚æ•° name.c_str() å­—æ®µå
+		//@å‚æ•° hImage å›¾ç‰‡å¥æŸ„
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  ç½®é¡¹å›¾ç‰‡æ‰©å±•()
 		bool SetItemImageEx(int iItem, const std::wstring& name, HIMAGE hImage) {
 			return XComboBox_SetItemImageEx(getEleHandle(), iItem, name.c_str(), hImage);
 		}
 
-		//@²ÎÊı iItem ÏîË÷Òı
-		//@²ÎÊı iColumn ÁĞË÷Òı
-		//@²ÎÊı nValue ÕûÊıÖµ
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  ÖÃÏîÕûÊıÖµ()
+		//@å‚æ•° iItem é¡¹ç´¢å¼•
+		//@å‚æ•° iColumn åˆ—ç´¢å¼•
+		//@å‚æ•° nValue æ•´æ•°å€¼
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  ç½®é¡¹æ•´æ•°å€¼()
 		bool SetItemInt(int iItem, int iColumn, int nValue) {
 			return XComboBox_SetItemInt(getEleHandle(), iItem, iColumn, nValue);
 		}
 
-		//@²ÎÊı iItem ÏîË÷Òı
-		//@²ÎÊı name.c_str() ×Ö¶ÎÃû
-		//@²ÎÊı nValue ÕûÊıÖµ
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  ÖÃÏîÖ¸ÊıÖµÀ©Õ¹()
+		//@å‚æ•° iItem é¡¹ç´¢å¼•
+		//@å‚æ•° name.c_str() å­—æ®µå
+		//@å‚æ•° nValue æ•´æ•°å€¼
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  ç½®é¡¹æŒ‡æ•°å€¼æ‰©å±•()
 		bool SetItemIntEx(int iItem, const std::wstring& name, int nValue) {
 			return XComboBox_SetItemIntEx(getEleHandle(), iItem, name.c_str(), nValue);
 		}
 
-		//@²ÎÊı iItem ÏîË÷Òı
-		//@²ÎÊı iColumn ÁĞË÷Òı
-		//@²ÎÊı fFloat ¸¡µãÊı
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  ÖÃÏî¸¡µãÖµ()
+		//@å‚æ•° iItem é¡¹ç´¢å¼•
+		//@å‚æ•° iColumn åˆ—ç´¢å¼•
+		//@å‚æ•° fFloat æµ®ç‚¹æ•°
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  ç½®é¡¹æµ®ç‚¹å€¼()
 		bool SetItemFloat(int iItem, int iColumn, float fFloat) {
 			return XComboBox_SetItemFloat(getEleHandle(), iItem, iColumn, fFloat);
 		}
 
-		//@²ÎÊı iItem ÏîË÷Òı
-		//@²ÎÊı name.c_str() ×Ö¶ÎÃû
-		//@²ÎÊı fFloat ¸¡µãÊı
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  ÖÃÏî¸¡µãÖµÀ©Õ¹()
+		//@å‚æ•° iItem é¡¹ç´¢å¼•
+		//@å‚æ•° name.c_str() å­—æ®µå
+		//@å‚æ•° fFloat æµ®ç‚¹æ•°
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  ç½®é¡¹æµ®ç‚¹å€¼æ‰©å±•()
 		bool SetItemFloatEx(int iItem, const std::wstring& name, float fFloat) {
 			return XComboBox_SetItemFloatEx(getEleHandle(), iItem, name.c_str(), fFloat);
 		}
 
-		//@²ÎÊı iItem ÏîË÷Òı
-		//@²ÎÊı iColumn ÁĞË÷Òı
-		//@·µ»Ø ·µ»ØÎÄ±¾ÄÚÈİ
-		//@±ğÃû  È¡ÏîÎÄ±¾()
+		//@å‚æ•° iItem é¡¹ç´¢å¼•
+		//@å‚æ•° iColumn åˆ—ç´¢å¼•
+		//@è¿”å› è¿”å›æ–‡æœ¬å†…å®¹
+		//@åˆ«å  å–é¡¹æ–‡æœ¬()
 		std::wstring GetItemText(int iItem, int iColumn) {
 			auto pText = XComboBox_GetItemText(getEleHandle(), iItem, iColumn);
 			if (!pText) return L"";
 			return pText;
 		}
 
-		//@²ÎÊı iItem ÏîË÷Òı
-		//@²ÎÊı name.c_str() ×Ö¶ÎÃû
-		//@·µ»Ø ·µ»ØÎÄ±¾ÄÚÈİ
-		//@±ğÃû  È¡ÏîÎÄ±¾À©Õ¹()
+		//@å‚æ•° iItem é¡¹ç´¢å¼•
+		//@å‚æ•° name.c_str() å­—æ®µå
+		//@è¿”å› è¿”å›æ–‡æœ¬å†…å®¹
+		//@åˆ«å  å–é¡¹æ–‡æœ¬æ‰©å±•()
 		std::wstring GetItemTextEx(int iItem, const std::wstring& name) {
 			auto pText = XComboBox_GetItemTextEx(getEleHandle(), iItem, name.c_str());
 			if (!pText) return L"";
 			return pText;
 		}
 
-		//@²ÎÊı iItem ÏîË÷Òı
-		//@²ÎÊı iColumn ÁĞË÷Òı
-		//@·µ»Ø ·µ»ØÍ¼Æ¬¾ä±ú
-		//@±ğÃû  È¡ÏîÍ¼Æ¬()
+		//@å‚æ•° iItem é¡¹ç´¢å¼•
+		//@å‚æ•° iColumn åˆ—ç´¢å¼•
+		//@è¿”å› è¿”å›å›¾ç‰‡å¥æŸ„
+		//@åˆ«å  å–é¡¹å›¾ç‰‡()
 		HIMAGE GetItemImage(int iItem, int iColumn) {
 			return XComboBox_GetItemImage(getEleHandle(), iItem, iColumn);
 		}
 
-		//@²ÎÊı iItem ÏîË÷Òı
-		//@²ÎÊı name.c_str() ×Ö¶ÎÃû
-		//@·µ»Ø ·µ»ØÍ¼Æ¬¾ä±ú
-		//@±ğÃû  È¡ÏîÍ¼Æ¬À©Õ¹()
+		//@å‚æ•° iItem é¡¹ç´¢å¼•
+		//@å‚æ•° name.c_str() å­—æ®µå
+		//@è¿”å› è¿”å›å›¾ç‰‡å¥æŸ„
+		//@åˆ«å  å–é¡¹å›¾ç‰‡æ‰©å±•()
 		HIMAGE GetItemImageEx(int iItem, const std::wstring& name) {
 			return XComboBox_GetItemImageEx(getEleHandle(), iItem, name.c_str());
 		}
 
-		//@²ÎÊı iItem ÏîË÷Òı
-		//@²ÎÊı iColumn ÁĞË÷Òı
-		//@²ÎÊı pOutValue ½ÓÊÕ·µ»ØÕûÊıÖµ
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  È¡ÏîÕûÊıÖµ()
+		//@å‚æ•° iItem é¡¹ç´¢å¼•
+		//@å‚æ•° iColumn åˆ—ç´¢å¼•
+		//@å‚æ•° pOutValue æ¥æ”¶è¿”å›æ•´æ•°å€¼
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  å–é¡¹æ•´æ•°å€¼()
 		bool GetItemInt(int iItem, int iColumn, int* pOutValue) {
 			return XComboBox_GetItemInt(getEleHandle(), iItem, iColumn, pOutValue);
 		}
 
-		//@²ÎÊı iItem ÏîË÷Òı
-		//@²ÎÊı name.c_str() ×Ö¶ÎÃû
-		//@²ÎÊı pOutValue ½ÓÊÕ·µ»ØÕûÊıÖµ
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  È¡ÏîÕûÊıÖµÀ©Õ¹()
+		//@å‚æ•° iItem é¡¹ç´¢å¼•
+		//@å‚æ•° name.c_str() å­—æ®µå
+		//@å‚æ•° pOutValue æ¥æ”¶è¿”å›æ•´æ•°å€¼
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  å–é¡¹æ•´æ•°å€¼æ‰©å±•()
 		bool GetItemIntEx(int iItem, const std::wstring& name, int* pOutValue) {
 			return XComboBox_GetItemIntEx(getEleHandle(), iItem, name.c_str(), pOutValue);
 		}
 
-		//@²ÎÊı iItem ÏîË÷Òı
-		//@²ÎÊı iColumn ÁĞË÷Òı
-		//@²ÎÊı pOutValue ½ÓÊÕ·µ»Ø¸¡µãÖµ
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  È¡Ïî¸¡µãÖµ()
+		//@å‚æ•° iItem é¡¹ç´¢å¼•
+		//@å‚æ•° iColumn åˆ—ç´¢å¼•
+		//@å‚æ•° pOutValue æ¥æ”¶è¿”å›æµ®ç‚¹å€¼
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  å–é¡¹æµ®ç‚¹å€¼()
 		bool GetItemFloat(int iItem, int iColumn, float* pOutValue) {
 			return XComboBox_GetItemFloat(getEleHandle(), iItem, iColumn, pOutValue);
 		}
 
-		//@²ÎÊı iItem ÏîË÷Òı
-		//@²ÎÊı name.c_str() ×Ö¶ÎÃû
-		//@²ÎÊı pOutValue ½ÓÊÕ·µ»Ø¸¡µãÖµ
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  È¡Ïî¸¡µãÖµÀ©Õ¹()
+		//@å‚æ•° iItem é¡¹ç´¢å¼•
+		//@å‚æ•° name.c_str() å­—æ®µå
+		//@å‚æ•° pOutValue æ¥æ”¶è¿”å›æµ®ç‚¹å€¼
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  å–é¡¹æµ®ç‚¹å€¼æ‰©å±•()
 		bool GetItemFloatEx(int iItem, const std::wstring& name, float* pOutValue) {
 			return XComboBox_GetItemFloatEx(getEleHandle(), iItem, name.c_str(), pOutValue);
 		}
 
-		//@²ÎÊı iItem ÏîË÷Òı
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  É¾³ıÏî()
+		//@å‚æ•° iItem é¡¹ç´¢å¼•
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  åˆ é™¤é¡¹()
 		bool DeleteItem(int iItem) {
 			return XComboBox_DeleteItem(getEleHandle(), iItem);
 		}
 
-		//@²ÎÊı iItem ÏîË÷Òı
-		//@²ÎÊı nCount É¾³ıÊıÁ¿
-		//@·µ»Ø ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
-		//@±ğÃû  É¾³ıÏîÀ©Õ¹()
+		//@å‚æ•° iItem é¡¹ç´¢å¼•
+		//@å‚æ•° nCount åˆ é™¤æ•°é‡
+		//@è¿”å› æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
+		//@åˆ«å  åˆ é™¤é¡¹æ‰©å±•()
 		bool DeleteItemEx(int iItem, int nCount) {
 			return XComboBox_DeleteItemEx(getEleHandle(), iItem, nCount);
 		}
 
-		//@±ğÃû  É¾³ıÏîÈ«²¿()
+		//@åˆ«å  åˆ é™¤é¡¹å…¨éƒ¨()
 		void DeleteItemAll() {
 			XComboBox_DeleteItemAll(getEleHandle());
 		}
 
-		//@±ğÃû  É¾³ıÁĞÈ«²¿()
+		//@åˆ«å  åˆ é™¤åˆ—å…¨éƒ¨()
 		void DeleteColumnAll() {
 			XComboBox_DeleteColumnAll(getEleHandle());
 		}
 
-		//@·µ»Ø ·µ»ØÏîÊıÁ¿
-		//@±ğÃû  È¡ÏîÊıÁ¿()
+		//@è¿”å› è¿”å›é¡¹æ•°é‡
+		//@åˆ«å  å–é¡¹æ•°é‡()
 		int GetCount() {
 			return XComboBox_GetCount(getEleHandle());
 		}
 
-		//@·µ»Ø ·µ»ØÁĞÊıÁ¿
-		//@±ğÃû  È¡ÁĞÊıÁ¿()
+		//@è¿”å› è¿”å›åˆ—æ•°é‡
+		//@åˆ«å  å–åˆ—æ•°é‡()
 		int GetCountColumn() {
 			return XComboBox_GetCountColumn(getEleHandle());
 		}
