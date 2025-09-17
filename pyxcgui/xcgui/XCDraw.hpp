@@ -326,6 +326,13 @@ namespace xcgui {
 			XDraw_SetFont((HDRAW)m_handle, hFontx);
 		}
 
+		//@备注 获取字体句柄
+		//@返回 返回字体句柄
+		//@别名  取字体()
+		HFONTX GetFont() {
+			return XDraw_GetFont((HDRAW)m_handle);
+		}
+
 		// 设置线宽.  
 		//@参数 width 宽度.
 		//@别名  置线宽()

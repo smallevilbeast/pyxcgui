@@ -129,6 +129,11 @@ namespace xcgui {
 			.def("setFont", [](XCDraw& self, const XCFont& font) {
 				self.SetFont(font.getFontHandle());
 			}, "font"_a)
+			.def("getFont", [](XCDraw& self) -> XCFont* {
+				auto handle = self.GetFont();
+				if (!handle) return nullptr;
+				return new XCFont(handle);
+			}, py::return_value_policy::take_ownership)
 			.def("setLineWidth", &XCDraw::SetLineWidth, "width"_a)
 			.def("setLineWidthF", &XCDraw::SetLineWidthF, "width"_a)
 			.def("setClipRect", [](XCDraw& self, const XCRect& rect) {

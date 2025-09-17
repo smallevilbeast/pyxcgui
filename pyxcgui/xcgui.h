@@ -756,6 +756,10 @@ enum  window_style_
 /// @code int CALLBACK OnAdjustLayoutEnd(int nFlags, UINT nAdjustNo, BOOL *pbHandled) @endcode
 #define  XE_ADJUSTLAYOUT_END     18
 
+/// @brief 工具提示弹出事件.
+/// @code int CALLBACK OnTooltipPopup(BOOL *pbHandled) @endcode
+#define  XE_TOOLTIP_POPUP        19
+
 /// @brief 元素获得焦点事件.
 /// @code int CALLBACK OnSetFocus(BOOL *pbHandled) @endcode
 #define  XE_SETFOCUS           31
@@ -2051,6 +2055,7 @@ struct  menu_drawItem_
 	HWINDOW    hWindow;     ///<当前弹出菜单项的窗口句柄
 	int        nID;         ///<ID
 	int        nState;	    ///<状态 @ref menu_item_flag_
+	int        nShortcutKeyWidth; ///<右侧快捷键占位宽度
 	RECT       rcItem;      ///<坐标
 	HIMAGE     hIcon;       ///<菜单项图标
 	const wchar_t* pText;   ///<文本
@@ -2783,6 +2788,7 @@ XC_API int  WINAPI XEdit_GetLength(HELE hEle);
 XC_API int  WINAPI XEdit_GetLengthRow(HELE hEle, int iRow);
 XC_API wchar_t WINAPI XEdit_GetAt(HELE hEle, int iRow, int iCol);
 XC_API void WINAPI XEdit_InsertText(HELE hEle, int iRow, int iCol, const wchar_t* pString);
+XC_API void WINAPI XEdit_InsertChatBegin(HELE hEle, HIMAGE hImageAvatar, HIMAGE hImageBubble, int nFlag);
 
 //XC_API void WINAPI XEdit_InsertTextUser(HELE hEle, const wchar_t* pString);
 XC_API void WINAPI XEdit_AddText(HELE hEle, const wchar_t* pString);
@@ -3805,6 +3811,7 @@ XC_API void WINAPI XDraw_SetBrushColor(HDRAW hDraw, COLORREF color);
 XC_API void WINAPI XDraw_SetTextAlign(HDRAW hDraw, int nFlag);
 XC_API void WINAPI XDraw_SetTextVertical(HDRAW hDraw, BOOL bVertical);
 XC_API void WINAPI XDraw_SetFont(HDRAW hDraw, HFONTX  hFontx);
+XC_API HFONTX WINAPI XDraw_GetFont(HDRAW hDraw);
 XC_API void WINAPI XDraw_SetLineWidth(HDRAW hDraw, int width);
 XC_API void WINAPI XDraw_SetLineWidthF(HDRAW hDraw, float width);
 
@@ -4171,6 +4178,11 @@ XC_API HXCGUI WINAPI XC_LoadLayoutZip(const wchar_t *pZipFileName, const wchar_t
 XC_API HXCGUI WINAPI XC_LoadLayoutZipMem(void* data, int length, const wchar_t *pFileName, const wchar_t* pPassword = NULL, HXCGUI hParent = NULL, HWND hAttachWnd = NULL);
 XC_API HXCGUI WINAPI XC_LoadLayoutFromString(const char *pStringXML, HXCGUI hParent=NULL, HWND hAttachWnd = NULL);
 XC_API HXCGUI WINAPI XC_LoadLayoutFromStringUtf8(const char *pStringXML, HXCGUI hParent = NULL, HWND hAttachWnd = NULL);
+XC_API HXCGUI WINAPI XC_LoadLayoutEx(const wchar_t* pFileName, const wchar_t* pPrefixName=NULL, HXCGUI hParent=NULL, HWND hParentWnd=NULL, HWND hAttachWnd=NULL);
+XC_API HXCGUI WINAPI XC_LoadLayoutZipEx(const wchar_t* pZipFileName, const wchar_t* pFileName, const wchar_t* pPassword=NULL, const wchar_t* pPrefixName=NULL, HXCGUI hParent=NULL, HWND hParentWnd=NULL, HWND hAttachWnd=NULL);
+XC_API HXCGUI WINAPI XC_LoadLayoutZipMemEx(const void* data, int length, const wchar_t* pFileName, const wchar_t* pPassword=NULL, const wchar_t* pPrefixName=NULL, HXCGUI hParent=NULL, HWND hParentWnd=NULL, HWND hAttachWnd=NULL);
+XC_API HXCGUI WINAPI XC_LoadLayoutFromStringEx(const char* pStringXML, const wchar_t* pPrefixName=NULL, HXCGUI hParent=NULL, HWND hParentWnd=NULL, HWND hAttachWnd=NULL);
+XC_API HXCGUI WINAPI XC_LoadLayoutFromStringUtf8Ex(const char* pStringXML, const wchar_t* pPrefixName=NULL, HXCGUI hParent=NULL, HWND hParentWnd=NULL, HWND hAttachWnd=NULL);
 
 XC_API void WINAPI XWnd_SetCaptionMargin(HWINDOW hWindow, int left, int top, int right, int bottom);
 XC_API BOOL WINAPI XWnd_IsDragBorder(HWINDOW hWindow);

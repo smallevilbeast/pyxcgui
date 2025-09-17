@@ -68,6 +68,63 @@ namespace xcgui {
 				return XCDesigner::LoadStyleZipMem(data, fileName, password);
 			}, "data"_a, "filename"_a, "password"_a)
 
+			.def_static("loadLayoutEx", [](const std::wstring& fileName, const std::wstring& prefixName = L"", XCObject* parent = nullptr, uintptr_t parentHWND = 0, uintptr_t attachHWND = 0) -> XCObject* {
+				HXCGUI parentHandle = NULL;
+				if (parent) {
+					parentHandle = parent->GetHandle();
+				}
+				auto handle = XCDesigner::LoadLayoutEx(fileName, prefixName, parentHandle, (HWND)parentHWND, (HWND)attachHWND);
+				return XCastManager::GetInstance()->CastObject(handle);
+			}, "fileName"_a, "prefixName"_a = L"", "parent"_a = nullptr, "parentHWND"_a = 0, "attachHWND"_a = 0, py::return_value_policy::take_ownership)
+
+			.def_static("loadLayoutZipEx", [](const std::wstring& zipFileName,
+				const std::wstring& fileName,
+				const std::wstring& password = L"",
+				const std::wstring& prefixName = L"",
+				XCObject* parent = nullptr,
+				uintptr_t parentHWND = 0,
+				uintptr_t attachHWND = 0) -> XCObject* {
+				HXCGUI parentHandle = NULL;
+				if (parent) {
+					parentHandle = parent->GetHandle();
+				}
+				auto handle = XCDesigner::LoadLayoutZipEx(zipFileName, fileName, password, prefixName, parentHandle, (HWND)parentHWND, (HWND)attachHWND);
+				return XCastManager::GetInstance()->CastObject(handle);
+			}, "zipFileName"_a, "fileName"_a, "password"_a = L"", "prefixName"_a = L"", "parent"_a = nullptr, "parentHWND"_a = 0, "attachHWND"_a = 0, py::return_value_policy::take_ownership)
+
+			.def_static("loadLayoutZipMemEx", [](const py::bytes& data,
+				const std::wstring& fileName,
+				const std::wstring& password = L"",
+				const std::wstring& prefixName = L"",
+				XCObject* parent = nullptr,
+				uintptr_t parentHWND = 0,
+				uintptr_t attachHWND = 0) -> XCObject* {
+				HXCGUI parentHandle = NULL;
+				if (parent) {
+					parentHandle = parent->GetHandle();
+				}
+				auto handle = XCDesigner::LoadLayoutZipMemEx(data, fileName, password, prefixName, parentHandle, (HWND)parentHWND, (HWND)attachHWND);
+				return XCastManager::GetInstance()->CastObject(handle);
+			}, "data"_a, "fileName"_a, "password"_a = L"", "prefixName"_a = L"", "parent"_a = nullptr, "parentHWND"_a = 0, "attachHWND"_a = 0, py::return_value_policy::take_ownership)
+
+			.def_static("loadLayoutFromStringEx", [](const std::string& xml, const std::wstring& prefixName = L"", XCObject* parent = nullptr, uintptr_t parentHWND = 0, uintptr_t attachHWND = 0) -> XCObject* {
+				HXCGUI parentHandle = NULL;
+				if (parent) {
+					parentHandle = parent->GetHandle();
+				}
+				auto handle = XCDesigner::LoadLayoutFromStringEx(xml, prefixName, parentHandle, (HWND)parentHWND, (HWND)attachHWND);
+				return XCastManager::GetInstance()->CastObject(handle);
+			}, "xml"_a, "prefixName"_a = L"", "parent"_a = nullptr, "parentHWND"_a = 0, "attachHWND"_a = 0, py::return_value_policy::take_ownership)
+
+			.def_static("loadLayoutFromStringUtf8Ex", [](const std::string& xml, const std::wstring& prefixName = L"", XCObject* parent = nullptr, uintptr_t parentHWND = 0, uintptr_t attachHWND = 0) -> XCObject* {
+				HXCGUI parentHandle = NULL;
+				if (parent) {
+					parentHandle = parent->GetHandle();
+				}
+				auto handle = XCDesigner::LoadLayoutFromStringUtf8Ex(xml, prefixName, parentHandle, (HWND)parentHWND, (HWND)attachHWND);
+				return XCastManager::GetInstance()->CastObject(handle);
+			}, "xml"_a, "prefixName"_a = L"", "parent"_a = nullptr, "parentHWND"_a = 0, "attachHWND"_a = 0, py::return_value_policy::take_ownership)
+
 		;
 	}
 

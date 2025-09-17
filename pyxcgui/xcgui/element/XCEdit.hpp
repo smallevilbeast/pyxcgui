@@ -266,6 +266,15 @@ namespace xcgui {
 			XEdit_InsertText(getEleHandle(), iRow, iCol, text.c_str());
 		}
 
+		//@备注 插入聊天气泡开始
+		//@参数 hImageAvatar 头像图片句柄
+		//@参数 hImageBubble 气泡图片句柄
+		//@参数 nFlag 标志
+		//@别名  插入气泡开始()
+		void InsertChatBegin(HIMAGE hImageAvatar, HIMAGE hImageBubble, int nFlag) {
+			XEdit_InsertChatBegin(getEleHandle(), hImageAvatar, hImageBubble, nFlag);
+		}
+
 		//@参数 pString 字符串
 		//@别名  添加文本()
 		void AddText(const std::wstring& text) {

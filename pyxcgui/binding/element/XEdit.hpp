@@ -72,6 +72,9 @@ namespace xcgui {
 			.def("getLength", &XCEdit::GetLength)
 			.def("getLengthRow", &XCEdit::GetLengthRow, "row"_a)
 			.def("insertText", &XCEdit::InsertText, "row"_a, "column"_a, "text"_a)
+			.def("insertChatBegin", [](XCEdit& self, const XCImage& avatarImage, const XCImage& bubbleImage, int flag) {
+				self.InsertChatBegin(avatarImage.getImageHandle(), bubbleImage.getImageHandle(), flag);
+			}, "avatarImage"_a, "bubbleImage"_a, "flag"_a)
 			.def("addText", &XCEdit::AddText, "text"_a)
 			.def("addTextUser", &XCEdit::AddTextUser, "text"_a)
 			.def("addTextEx", &XCEdit::AddTextEx, "text"_a, "style"_a)

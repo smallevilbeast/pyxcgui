@@ -275,7 +275,8 @@ namespace xcgui {
     
             })
 
-	        .def_readwrite("pText", &menu_drawItem_::pText);
+	        .def_readwrite("pText", &menu_drawItem_::pText)
+	        .def_readwrite("nShortcutKeyWidth", &menu_drawItem_::nShortcutKeyWidth);
 
         py::class_<tree_drag_item_>(m, "tree_drag_item_")
             PYCAST(tree_drag_item_)
