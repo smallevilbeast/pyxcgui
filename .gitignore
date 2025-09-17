@@ -349,3 +349,4 @@ venv
 upload.bat
 dist/
 module_xcgui.h
+xcgui/*.pyd

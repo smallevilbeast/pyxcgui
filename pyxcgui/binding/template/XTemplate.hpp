@@ -207,6 +207,13 @@ namespace xcgui {
 				return new XCTemplateNode(handle);
 			}, "index"_a, py::return_value_policy::take_ownership)
 
+			.def("insertNode", [](XCListItemTemplate& self, int index, const XCTemplateNode& node) {
+				return self.InsertNode(index, node.getHandle());
+			}, "index"_a, "node"_a)
+			.def("deleteNode", &XCListItemTemplate::DeleteNode, "index"_a)
+			.def("getCount", &XCListItemTemplate::GetCount)
+			.def("moveColumn", &XCListItemTemplate::MoveColumn, "srcColumn"_a, "destColumn"_a)
+
 			.def("getHandle", [](XCListItemTemplate& self) -> uintptr_t {
 				return (uintptr_t)self.getHandle();
 			})

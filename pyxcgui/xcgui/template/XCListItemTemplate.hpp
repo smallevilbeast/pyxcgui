@@ -223,6 +223,39 @@ namespace xcgui {
 			return XTemp_List_GetNode(m_handle, index);
 		}
 
+		//@备注 在指定位置插入节点
+		//@参数 index 插入位置索引
+		//@参数 pNode 节点指针
+		//@返回 如果成功返回TRUE,否则返回FALSE
+		//@别名 项模板_列表_插入节点()
+		bool InsertNode(int index, HTNODE pNode) {
+			return XTemp_List_InsertNode(m_handle, index, pNode);
+		}
+
+		//@备注 删除指定位置的节点
+		//@参数 index 节点位置索引
+		//@返回 如果成功返回TRUE,否则返回FALSE
+		//@别名 项模板_列表_删除节点()
+		bool DeleteNode(int index) {
+			return XTemp_List_DeleteNode(m_handle, index);
+		}
+
+		//@备注 获取子节点数量,只当前层子节点
+		//@返回 返回节点数量
+		//@别名 项模板_列表_取数量()
+		int GetCount() {
+			return XTemp_List_GetCount(m_handle);
+		}
+
+		//@备注 移动列位置
+		//@参数 iColSrc 源列索引
+		//@参数 iColDest 目标列索引
+		//@返回 如果成功返回TRUE,否则返回FALSE
+		//@别名 项模板_列表_移动列()
+		bool MoveColumn(int iColSrc, int iColDest) {
+			return XTemp_List_MoveColumn(m_handle, iColSrc, iColDest);
+		}
+
 		HTEMP getHandle() const {
 			return m_handle;
 		}
