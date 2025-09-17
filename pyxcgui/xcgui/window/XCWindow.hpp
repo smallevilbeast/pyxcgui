@@ -163,8 +163,8 @@ namespace xcgui {
 		}
 
 		// 限制窗口最小和最大尺寸
-		void EnablemLimitWindowSize(bool bEnable) { 
-			XWnd_EnablemLimitWindowSize(GetWindowHandle(), bEnable); 
+		void EnableLimitWindowSize(bool bEnable) {
+			XWnd_EnableLimitWindowSize(GetWindowHandle(), bEnable);
 		}
 
 		// 启用拖放文件

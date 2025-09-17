@@ -42,7 +42,7 @@ namespace xcgui {
 			.def("enableVScrollBarTop", &XCList::EnableVScrollBarTop, "enable"_a)
 			.def("enableItemBkFullRow", &XCList::EnableItemBkFullRow, "enable"_a)
 			.def("enableFixedRowHeight", &XCList::EnableFixedRowHeight, "enable"_a)
-			.def("enableTemplateReuse", &XCList::EnablemTemplateReuse, "enable"_a)
+			.def("enableTemplateReuse", &XCList::EnableTemplateReuse, "enable"_a)
 			.def("enableVirtualTable", &XCList::EnableVirtualTable, "enable"_a)
 			.def("setVirtualRowCount", &XCList::SetVirtualRowCount, "rowCount"_a)
 			.def("setSort", &XCList::SetSort, "column"_a, "columnAdapter"_a, "enable"_a)

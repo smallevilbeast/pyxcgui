@@ -3038,7 +3038,7 @@ XC_API HELE WINAPI XLayoutFrame_Create(int x, int y, int cx, int cy, HXCGUI hPar
 XC_API void WINAPI XLayoutFrame_ShowLayoutFrame(HELE hEle, BOOL bEnable);
 XC_API HELE WINAPI XListBox_Create(int x, int y, int cx, int cy, HXCGUI hParent = NULL);
 XC_API void WINAPI XListBox_EnableFixedRowHeight(HELE hEle, BOOL bEnable);
-XC_API void WINAPI XListBox_EnablemTemplateReuse(HELE hEle, BOOL bEnable);
+XC_API void WINAPI XListBox_EnableTemplateReuse(HELE hEle, BOOL bEnable);
 XC_API void WINAPI XListBox_EnableVirtualTable(HELE hEle, BOOL bEnable);
 XC_API void WINAPI XListBox_SetVirtualRowCount(HELE hEle, int nRowCount);
 XC_API void WINAPI XListBox_SetDrawItemBkFlags(HELE hEle, int nFlags);
@@ -3133,7 +3133,7 @@ XC_API void WINAPI XList_EnableDragChangeColumnWidth(HELE hEle, BOOL bEnable);
 XC_API void WINAPI XList_EnableVScrollBarTop(HELE hEle, BOOL bTop);
 XC_API void WINAPI XList_EnableItemBkFullRow(HELE hEle, BOOL bFull);
 XC_API void WINAPI XList_EnableFixedRowHeight(HELE hEle, BOOL bEnable);
-XC_API void WINAPI XList_EnablemTemplateReuse(HELE hEle, BOOL bEnable);
+XC_API void WINAPI XList_EnableTemplateReuse(HELE hEle, BOOL bEnable);
 XC_API void WINAPI XList_EnableVirtualTable(HELE hEle, BOOL bEnable);
 XC_API void WINAPI XList_SetVirtualRowCount(HELE hEle, int nRowCount);
 XC_API void WINAPI XList_SetSort(HELE hEle, int iColumn, int iColumnAdapter, BOOL bEnable);//设置排序
@@ -3231,7 +3231,7 @@ XC_API BOOL  WINAPI XListView_GetItemIDFromHXCGUI(HELE hEle, HXCGUI hXCGUI, out_
 XC_API BOOL WINAPI XListView_HitTest(HELE hEle, in_ POINT* pPt, out_ int* pOutGroup, out_ int* pOutItem);
 XC_API BOOL WINAPI XListView_HitTestOffset(HELE hEle, in_ POINT* pPt, out_ int* pOutGroup, out_ int* pOutItem); //自动添加滚动视图偏移量
 XC_API void WINAPI XListView_EnableMultiSel(HELE hEle, BOOL bEnable);
-XC_API void WINAPI XListView_EnablemTemplateReuse(HELE hEle, BOOL bEnable);
+XC_API void WINAPI XListView_EnableTemplateReuse(HELE hEle, BOOL bEnable);
 XC_API void WINAPI XListView_EnableVirtualTable(HELE hEle, BOOL bEnable);
 XC_API BOOL WINAPI XListView_SetVirtualItemCount(HELE hEle, int iGroup, int nCount);
 XC_API void WINAPI XListView_SetDrawItemBkFlags(HELE hEle, int nFlags);
@@ -3542,7 +3542,6 @@ XC_API int  WINAPI XTabBar_GetLabelSpacing(HELE hEle); //获取标签间距, 0�
 XC_API int  WINAPI XTabBar_GetLabelCount(HELE hEle); //获取标签项数量
 XC_API int  WINAPI XTabBar_GetindexByEle(HELE hEle, HELE hLabel);
 XC_API void WINAPI XTabBar_SetLabelSpacing(HELE hEle, int spacing);//设置标签间距, 0没有间距
-XC_API void WINAPI XTabBar_SetPadding(HELE hEle, int left, int top, int right, int bottom);
 XC_API void WINAPI XTabBar_SetSelect(HELE hEle, int index);   //设置选择标签
 XC_API void WINAPI XTabBar_SetUp(HELE hEle);    //左滚动
 XC_API void WINAPI XTabBar_SetDown(HELE hEle);  //右滚动
@@ -3592,7 +3591,7 @@ XC_API HELE WINAPI XTree_Create(int x, int y, int cx, int cy, HXCGUI hParent = N
 XC_API void WINAPI XTree_EnableDragItem(HELE hEle, BOOL bEnable);
 XC_API void WINAPI XTree_EnableConnectLine(HELE hEle, BOOL bEnable, BOOL bSolid);
 XC_API void WINAPI XTree_EnableExpand(HELE hEle, BOOL bEnable);
-XC_API void WINAPI XTree_EnablemTemplateReuse(HELE hEle, BOOL bEnable);
+XC_API void WINAPI XTree_EnableTemplateReuse(HELE hEle, BOOL bEnable);
 XC_API void WINAPI XTree_SetConnectLineColor(HELE hEle, COLORREF color);
 XC_API void WINAPI XTree_SetExpandButtonSize(HELE hEle, int nWidth, int nHeight);
 XC_API void WINAPI XTree_SetConnectLineLength(HELE hEle, int nLength);
@@ -3668,7 +3667,7 @@ XC_API void WINAPI XWnd_EnableDragCaption(HWINDOW hWindow, BOOL bEnable);
 XC_API void WINAPI XWnd_EnableDrawBk(HWINDOW hWindow, BOOL bEnable);
 XC_API void WINAPI XWnd_EnableAutoFocus(HWINDOW hWindow, BOOL bEnable); //当鼠标左键按下是否获得焦点
 XC_API void WINAPI XWnd_EnableMaxWindow(HWINDOW hWindow, BOOL bEnable);
-XC_API void WINAPI XWnd_EnablemLimitWindowSize(HWINDOW hWindow, BOOL bEnable);
+XC_API void WINAPI XWnd_EnableLimitWindowSize(HWINDOW hWindow, BOOL bEnable);
 XC_API void WINAPI XWnd_EnableLayout(HWINDOW hWindow, BOOL bEnable);
 XC_API void WINAPI XWnd_EnableLayoutOverlayBorder(HWINDOW hWindow, BOOL bEnable);
 XC_API void WINAPI XWnd_ShowLayoutFrame(HWINDOW hWindow, BOOL bEnable);

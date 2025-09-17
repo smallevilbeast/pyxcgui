@@ -129,15 +129,6 @@ namespace xcgui {
 			XTabBar_SetLabelSpacing(getEleHandle(), spacing);
 		}
 
-		//@备注 设置内容与边框的间隔大小.  
-		//@参数 left 左边间隔大小.
-		//@参数 top 上边间隔大小.
-		//@参数 right 右边间隔大小.
-		//@参数 bottom 下边间隔大小.
-		//@别名  置边距()
-		void SetPadding(int left, int top, int right, int bottom) {
-			XTabBar_SetPadding(getEleHandle(), left, top, right, bottom);
-		}
 
 		//@备注 设置选择标签.  
 		//@参数 index 标签位置索引.

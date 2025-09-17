@@ -75,7 +75,6 @@ namespace xcgui {
 				return self.GetIndexByEle(ele.getEleHandle());
 			}, "ele"_a)
 			.def("setLabelSpacing", &XCTabBar::SetLabelSpacing, "spacing"_a)
-			.def("setPadding", &XCTabBar::SetPadding, "left"_a, "top"_a, "right"_a, "bottom"_a)
 			.def("setSelect", &XCTabBar::SetSelect, "index"_a)
 			.def("setUp", &XCTabBar::SetUp)
 			.def("setDown", &XCTabBar::SetDown)

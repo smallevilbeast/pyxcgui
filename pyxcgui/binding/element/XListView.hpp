@@ -82,7 +82,7 @@ namespace xcgui {
 			}, "point"_a)
 
 			.def("enableMultiSel", &XCListView::EnableMultiSel, "enable"_a)
-			.def("enableTemplateReuse", &XCListView::EnablemTemplateReuse, "enable"_a)
+			.def("enableTemplateReuse", &XCListView::EnableTemplateReuse, "enable"_a)
 			.def("enableVirtualTable", &XCListView::EnableVirtualTable, "enable"_a)
 			.def("setVirtualItemCount", &XCListView::SetVirtualItemCount, "group"_a, "count"_a)
 			.def("setDrawItemBkFlags", &XCListView::SetDrawItemBkFlags, "flags"_a)

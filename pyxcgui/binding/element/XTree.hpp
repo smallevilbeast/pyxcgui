@@ -38,7 +38,7 @@ namespace xcgui {
 			.def("enableDragItem", &XCTree::EnableDragItem, "enable"_a)
 			.def("enableConnectLine", &XCTree::EnableConnectLine, "enable"_a, "solid"_a)
 			.def("enableExpand", &XCTree::EnableExpand, "enable"_a)
-			.def("enableTemplateReuse", &XCTree::EnablemTemplateReuse, "enable"_a)
+			.def("enableTemplateReuse", &XCTree::EnableTemplateReuse, "enable"_a)
 			.def("setConnectLineColor", &XCTree::SetConnectLineColor, "color"_a)
 
 			

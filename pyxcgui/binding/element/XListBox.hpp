@@ -35,7 +35,7 @@ namespace xcgui {
 
 
 			.def("enableFixedRowHeight", &XCListBox::EnableFixedRowHeight, "enable"_a)
-			.def("enableTemplateReuse", &XCListBox::EnablemTemplateReuse, "enable"_a)
+			.def("enableTemplateReuse", &XCListBox::EnableTemplateReuse, "enable"_a)
 			.def("enableVirtualTable", &XCListBox::EnableVirtualTable, "enable"_a)
 			.def("setVirtualRowCount", &XCListBox::SetVirtualRowCount, "rowCount"_a)
 			.def("setDrawItemBkFlags", &XCListBox::SetDrawItemBkFlags, "flags"_a)

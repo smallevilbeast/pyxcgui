@@ -45,8 +45,8 @@ namespace xcgui {
 
 		//@参数 bEnable 是否启用
 		//@别名  启用模板复用()
-		void EnablemTemplateReuse(bool bEnable) {
-			XTree_EnablemTemplateReuse(getEleHandle(), bEnable);
+		void EnableTemplateReuse(bool bEnable) {
+			XTree_EnableTemplateReuse(getEleHandle(), bEnable);
 		}
 
 		//@备注 设置项连接线颜色.  

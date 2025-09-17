@@ -29,8 +29,8 @@ namespace xcgui {
 
 		//@参数 bEnable 是否启用
 		//@别名  启用模板复用()
-		void EnablemTemplateReuse(bool bEnable) {
-			XListBox_EnablemTemplateReuse(getEleHandle(), bEnable);
+		void EnableTemplateReuse(bool bEnable) {
+			XListBox_EnableTemplateReuse(getEleHandle(), bEnable);
 		}
 
 		//@参数 bEnable 是否启用
