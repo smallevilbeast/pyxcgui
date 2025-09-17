@@ -348,3 +348,4 @@ cmake-build-debug/
 venv
 upload.bat
 dist/
+module_xcgui.h

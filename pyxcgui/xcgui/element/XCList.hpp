@@ -322,6 +322,20 @@ namespace xcgui {
 			return XList_SetItemTemplate(getEleHandle(), hTemp);
 		}
 
+		//@备注 获取列表项模板句柄
+		//@返回 返回列表项模板句柄
+		//@别名  取项模板()
+		HTEMP GetItemTemplate() {
+			return XList_GetItemTemplate(getEleHandle());
+		}
+
+		//@备注 获取列表头项模板句柄
+		//@返回 返回列表头项模板句柄
+		//@别名  取项模板列表头()
+		HTEMP GetItemTemplateHeader() {
+			return XList_GetItemTemplateHeader(getEleHandle());
+		}
+
 		//@备注 通过模板项ID,获取实例化模板项ID对应的对象句柄.  
 		//@参数 iRow 行索引.
 		//@参数 iColumn 列索引.
@@ -478,6 +492,12 @@ namespace xcgui {
 		//@别名  刷新项数据()
 		void RefreshData() {
 			XList_RefreshData(getEleHandle());
+		}
+
+		//@备注 刷新列表头数据
+		//@别名  刷新数据列表头()
+		void RefreshDataHeader() {
+			XList_RefreshDataHeader(getEleHandle());
 		}
 
 		//@备注 修改数据后,刷新指定项模板,以便更新数据到模板(如果当前项可见).  

@@ -123,6 +123,16 @@ namespace xcgui {
 			.def("setItemTemplate", [](XCList& self, const XCListItemTemplate& itemTemplate) {
 				return self.SetItemTemplate(itemTemplate.getHandle());
 			}, "template"_a)
+			.def("getItemTemplate", [](XCList& self) -> XCListItemTemplate* {
+				auto handle = self.GetItemTemplate();
+				if (!handle) return nullptr;
+				return new XCListItemTemplate(handle);
+			}, py::return_value_policy::take_ownership)
+			.def("getItemTemplateHeader", [](XCList& self) -> XCListItemTemplate* {
+				auto handle = self.GetItemTemplateHeader();
+				if (!handle) return nullptr;
+				return new XCListItemTemplate(handle);
+			}, py::return_value_policy::take_ownership)
 			.def("setItemTemplateFromMem", [](XCList& self, const py::bytes xmlData) {
 				return self.SetItemTemplateXMLFromString(xmlData);
 			}, "xmlData"_a)
@@ -189,6 +199,7 @@ namespace xcgui {
 
 
 			.def("refreshData", &XCList::RefreshData)
+			.def("refreshDataHeader", &XCList::RefreshDataHeader)
 			.def("refreshItem", &XCList::RefreshItem, "row"_a)
 
 			.def("addColumnText", &XCList::AddColumnText, "width"_a, "name"_a, "text"_a)

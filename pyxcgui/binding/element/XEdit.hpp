@@ -67,6 +67,7 @@ namespace xcgui {
 			.def("setText", &XCEdit::SetText, "text"_a)
 			.def("setTextInt", &XCEdit::SetTextInt, "value"_a)
 			.def("getText", &XCEdit::GetText, "maxSize"_a=-1)
+			.def("getTextTemp", &XCEdit::GetText_Temp)
 			.def("getTextRow", &XCEdit::GetTextRow, "row"_a, "maxSize"_a=-1)
 			.def("getLength", &XCEdit::GetLength)
 			.def("getLengthRow", &XCEdit::GetLengthRow, "row"_a)

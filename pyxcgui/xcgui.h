@@ -2777,6 +2777,7 @@ XC_API void WINAPI XEdit_SetTabSpace(HELE hEle, int  nSpace);
 XC_API void WINAPI XEdit_SetText(HELE hEle, const wchar_t* pString);
 XC_API void WINAPI XEdit_SetTextInt(HELE hEle, int nValue);
 XC_API int  WINAPI XEdit_GetText(HELE hEle, out_ wchar_t* pOut, int nOutlen);
+XC_API const wchar_t* WINAPI XEdit_GetText_Temp(HELE hEle);
 XC_API int  WINAPI XEdit_GetTextRow(HELE hEle, int iRow, out_ wchar_t* pOut, int nOutlen);
 XC_API int  WINAPI XEdit_GetLength(HELE hEle);
 XC_API int  WINAPI XEdit_GetLengthRow(HELE hEle, int iRow);
@@ -3125,6 +3126,10 @@ XC_API BOOL  WINAPI XTemp_SetNodeAttributeEx(void* pNode, int itemID, const wcha
 XC_API void* WINAPI XTemp_List_GetNode(HTEMP hTemp, int index);
 XC_API void* WINAPI XTemp_GetNode(void* pNode, int itemID);
 XC_API void* WINAPI XTemp_CloneNode(void* pNode);
+XC_API BOOL WINAPI XTemp_List_InsertNode(HTEMP hTemp, int index, void* pNode);
+XC_API BOOL WINAPI XTemp_List_DeleteNode(HTEMP hTemp, int index);
+XC_API int WINAPI XTemp_List_GetCount(HTEMP hTemp);
+XC_API BOOL WINAPI XTemp_List_MoveColumn(HTEMP hTemp, int iColSrc, int iColDest);
 XC_API HELE WINAPI XList_Create(int x, int y, int cx, int cy, HXCGUI hParent = NULL);
 XC_API int WINAPI XList_AddColumn(HELE hEle, int width); //增加列
 XC_API int WINAPI XList_InsertColumn(HELE hEle, int width, int iItem);
@@ -3166,6 +3171,8 @@ XC_API HXCGUI WINAPI XList_GetAdapterHeader(HELE hEle);
 XC_API BOOL WINAPI XList_SetItemTemplateXML(HELE hEle, const wchar_t* pXmlFile);
 XC_API BOOL WINAPI XList_SetItemTemplateXMLFromString(HELE hEle, const char* pStringXML);
 XC_API BOOL WINAPI XList_SetItemTemplate(HELE hEle, HTEMP hTemp);
+XC_API HTEMP WINAPI XList_GetItemTemplate(HELE hEle);
+XC_API HTEMP WINAPI XList_GetItemTemplateHeader(HELE hEle);
 XC_API HXCGUI WINAPI XList_GetTemplateObject(HELE hEle, int iItem, int iSubItem, int nTempItemID); //通过模板项ID,获取实例化模板项ID对应的对象.
 XC_API int    WINAPI XList_GetItemIndexFromHXCGUI(HELE hEle, HXCGUI hXCGUI);
 XC_API HXCGUI WINAPI XList_GetHeaderTemplateObject(HELE hEle, int iItem, int nTempItemID);
@@ -3185,6 +3192,7 @@ XC_API void WINAPI XList_SetLockRowBottomOverlap(HELE hEle, BOOL bOverlap); //�
 XC_API BOOL WINAPI XList_HitTest(HELE hEle, POINT* pPt, out_ int* piItem, out_ int* piSubItem);
 XC_API BOOL WINAPI XList_HitTestOffset(HELE hEle, POINT* pPt, out_ int* piItem, out_ int* piSubItem);
 XC_API void WINAPI XList_RefreshData(HELE hEle);
+XC_API void WINAPI XList_RefreshDataHeader(HELE hEle);
 XC_API void WINAPI XList_RefreshItem(HELE hEle, int iItem);
 XC_API int WINAPI XList_AddColumnText(HELE hEle, int nWidth, const wchar_t* pName, const wchar_t* pText);
 XC_API int WINAPI XList_AddColumnImage(HELE hEle, int nWidth, const wchar_t* pName, HIMAGE hImage);

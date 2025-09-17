@@ -209,6 +209,15 @@ namespace xcgui {
 			return out.substr(0, realLen);
 		}
 
+		//@备注 获取文本内容,返回临时文本指针
+		//@返回 返回文本内容
+		//@别名  取文本_临时()
+		std::wstring GetText_Temp() {
+			const wchar_t* pText = XEdit_GetText_Temp(getEleHandle());
+			if (!pText) return L"";
+			return std::wstring(pText);
+		}
+
 		//@备注 获取指定行文本内容
 		//@参数 iRow 行索引
 		//@参数 pOut 接收文本内存指针
