@@ -4731,4 +4731,36 @@ XC_API void WINAPI XAdTable_DeleteRowAll(HXCGUI hAdapter);
 /// @return 行数
 XC_API int WINAPI XAdTable_GetCountRow(HXCGUI hAdapter);
 
+// 3.3.9.1 新增函数
+/// @brief 设置窗口总是在顶部显示
+/// @param hWindow 窗口句柄
+/// @param bTop TRUE设置为顶部显示，FALSE取消顶部显示（默认TRUE）
+XC_API void WINAPI XWnd_SetTop(HWINDOW hWindow, BOOL bTop=TRUE);
+
+/// @brief 检查XCGUI是否已初始化
+/// @return 已初始化返回TRUE，否则返回FALSE
+XC_API BOOL WINAPI XC_IsInit();
+
+/// @brief 检查编辑器指定行是否为空
+/// @param hEle 编辑器元素句柄
+/// @param iRow 行索引
+/// @return 行为空返回TRUE，否则返回FALSE
+XC_API BOOL WINAPI XEditor_IsEmptyRow(HELE hEle, int iRow);
+
+/// @brief 设置Direct2D文本反锯齿模式
+/// @param mode 反锯齿模式值
+XC_API void WINAPI XC_SetD2dTextAntialiasMode(int mode);
+
+/// @brief 设置表格项目的文本和样式（扩展版本）
+/// @param hShape 表格形状句柄
+/// @param iRow 行索引
+/// @param iCol 列索引
+/// @param pText 文本内容
+/// @param textColor 文本颜色
+/// @param bkColor 背景颜色
+/// @param bTextColor 是否应用文本颜色（默认TRUE）
+/// @param bBkColor 是否应用背景颜色（默认TRUE）
+/// @param hFont 字体句柄（默认NULL）
+XC_API void WINAPI XTable_SetItemTextEx(HXCGUI hShape, int iRow, int iCol, const wchar_t* pText, COLORREF textColor, COLORREF bkColor, BOOL bTextColor=TRUE, BOOL bBkColor=TRUE, HFONTX hFont=NULL);
+
 

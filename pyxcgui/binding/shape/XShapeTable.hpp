@@ -55,6 +55,13 @@ namespace xcgui {
 				self.GetItemRect(iRow, iCol,(RECT*)&info);
 				return info;
 			}, "row"_a, "column"_a)
+
+			// 3.3.9.1 新增
+			.def("setItemTextEx", [](XCShapeTable& self, int iRow, int iCol, const std::wstring& text,
+				int textColor, int bkColor, bool bTextColor = true, bool bBkColor = true, const XCFont* font = nullptr) {
+				HFONTX hFont = font ? font->getFontHandle() : nullptr;
+				XTable_SetItemTextEx(self.GetHandle(), iRow, iCol, text.c_str(), textColor, bkColor, bTextColor, bBkColor, hFont);
+			}, "row"_a, "column"_a, "text"_a, "textColor"_a, "bkColor"_a, "textColorEnable"_a = true, "bkColorEnable"_a = true, "font"_a = nullptr)
 			;
 	}
 }

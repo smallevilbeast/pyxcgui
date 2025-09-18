@@ -326,6 +326,11 @@ namespace xcgui {
 				XWnd_DestroyWindow(self.GetWindowHandle());
 			})
 
+			// 3.3.9.1 新增
+			.def("setTop", [](XCWindow& self, bool bTop = true) {
+				XWnd_SetTop(self.GetWindowHandle(), bTop);
+			}, "top"_a = true)
+
 			;
 	}
 }

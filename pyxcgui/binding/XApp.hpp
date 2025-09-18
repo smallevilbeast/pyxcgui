@@ -76,6 +76,14 @@ namespace xcgui {
 			.def_static("getHandleCount", []() {
 				return XC_GetHandleCount();
 			})
+
+			// 3.3.9.1 新增 - 新功能
+			.def_static("isInit", []() {
+				return XC_IsInit();
+			})
+			.def_static("setD2dTextAntialiasMode", [](int mode) {
+				XC_SetD2dTextAntialiasMode(mode);
+			}, "mode"_a)
 			;
 	}
 }

@@ -157,5 +157,19 @@ namespace xcgui {
 			return XTable_GetItemRect(m_handle, iRow, iCol, pRect);
 		}
 
+		// 3.3.9.1 新增
+		/// @brief 设置表格项目的文本和样式（扩展版本）
+		/// @param iRow 行索引
+		/// @param iCol 列索引
+		/// @param pText 文本内容
+		/// @param textColor 文本颜色
+		/// @param bkColor 背景颜色
+		/// @param bTextColor 是否应用文本颜色（默认TRUE）
+		/// @param bBkColor 是否应用背景颜色（默认TRUE）
+		/// @param hFont 字体句柄（默认NULL）
+		void SetItemTextEx(int iRow, int iCol, const std::wstring& text, COLORREF textColor, COLORREF bkColor, bool bTextColor = true, bool bBkColor = true, HFONTX hFont = nullptr) {
+			XTable_SetItemTextEx(m_handle, iRow, iCol, text.c_str(), textColor, bkColor, bTextColor, bBkColor, hFont);
+		}
+
 	};
 }
