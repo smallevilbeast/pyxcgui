@@ -45,6 +45,21 @@ namespace xcgui {
 			XFrameWnd_SetPaneSplitBarColor(GetWindowHandle(), color);
 		}
 
+		// 获取主视图区域
+		void GetViewRect(RECT* pRect) {
+			XFrameWnd_GetViewRect(GetWindowHandle(), pRect);
+		}
+
+		// 设置窗格分隔条宽度
+		void SetPaneSplitBarWidth(int width) {
+			XFrameWnd_SetPaneSplitBarWidth(GetWindowHandle(), width);
+		}
+
+		// 获取窗格分隔条宽度
+		int GetPaneSplitBarWidth() {
+			return XFrameWnd_GetPaneSplitBarWidth(GetWindowHandle());
+		}
+
 		// 保存布局信息到文件
 		bool SaveLayoutToFile(const std::wstring& fileName) {
 			return XFrameWnd_SaveLayoutToFile(GetWindowHandle(), fileName.c_str());

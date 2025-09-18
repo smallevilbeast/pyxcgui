@@ -47,6 +47,18 @@ namespace xcgui {
 				return pSvg;
 			}, "zipFileName"_a, "fileName"_a, "password"_a, py::return_value_policy::take_ownership)
 
+			// 3.3.8 新增
+			.def_static("loadZipRes", [](int id, const std::wstring& fileName, const std::wstring& password = L"", uintptr_t hModule = 0) -> XCSvg* {
+				auto pSvg = new XCSvg();
+				const wchar_t* pPassword = password.empty() ? NULL : password.c_str();
+				pSvg->SetHandle(XSvg_LoadZipRes(id, fileName.c_str(), pPassword, (HMODULE)hModule));
+				if (!pSvg->GetHandle()) {
+					delete pSvg;
+					return nullptr;
+				}
+				return pSvg;
+			}, "id"_a, "fileName"_a, "password"_a = L"", "hModule"_a = 0, py::return_value_policy::take_ownership)
+
 			.def_static("loadZipMem", [](const py::bytes& data, const std::wstring& fileName, const std::wstring& password) -> XCSvg* {
 				auto pSvg = new XCSvg();
 				if (!pSvg->LoadZipMem(data, fileName, password)) {

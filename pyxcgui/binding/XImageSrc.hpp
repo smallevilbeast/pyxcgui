@@ -38,7 +38,7 @@ namespace xcgui {
 				return pImage;
 				}, "resId"_a, "typeName"_a, "hModule"_a, py::return_value_policy::take_ownership)
 
-			.def_static("loadZip", [](const std::wstring& zipFileName, const std::wstring& fileName, 
+			.def_static("loadZip", [](const std::wstring& zipFileName, const std::wstring& fileName,
 				const std::wstring& password) -> XCImageSrc* {
 				auto pImage = new XCImageSrc();
 				if (!pImage->LoadZip(zipFileName, fileName, password)) {
@@ -47,6 +47,18 @@ namespace xcgui {
 				}
 				return pImage;
 				}, "zipFileName"_a, "fileName"_a, "password"_a, py::return_value_policy::take_ownership)
+
+			// 3.3.8 新增
+			.def_static("loadZipRes", [](int id, const std::wstring& fileName, const std::wstring& password = L"", uintptr_t hModule = 0) -> XCImageSrc* {
+				auto pImage = new XCImageSrc();
+				const wchar_t* pPassword = password.empty() ? NULL : password.c_str();
+				pImage->SetHandle(XImgSrc_LoadZipRes(id, fileName.c_str(), pPassword, (HMODULE)hModule));
+				if (!pImage->GetHandle()) {
+					delete pImage;
+					return nullptr;
+				}
+				return pImage;
+			}, "id"_a, "fileName"_a, "password"_a = L"", "hModule"_a = 0, py::return_value_policy::take_ownership)
 
 
  			.def_static("loadZipRect", [](const std::wstring& zipFileName, const std::wstring& fileName, 

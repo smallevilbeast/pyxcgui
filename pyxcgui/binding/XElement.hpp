@@ -103,6 +103,23 @@ namespace xcgui {
 					return rect;
 				})
 
+			// 3.3.8 新增
+			.def("getWndClientRectDPI", [](XCElement& self) -> XCRect {
+					XCRect rect;
+					XEle_GetWndClientRectDPI(self.getEleHandle(), (RECT*)&rect);
+					return rect;
+				})
+			.def("pointClientToWndClientDPI", [](XCElement& self, const XCPoint& point) -> XCPoint {
+					XCPoint result = point;
+					XEle_PointClientToWndClientDPI(self.getEleHandle(), (POINT*)&result);
+					return result;
+				}, "point"_a)
+			.def("rectClientToWndClientDPI", [](XCElement& self, const XCRect& rect) -> XCRect {
+					XCRect result = rect;
+					XEle_RectClientToWndClientDPI(self.getEleHandle(), (RECT*)&result);
+					return result;
+				}, "rect"_a)
+
 			.def("getCursor", [](XCElement& self) -> intptr_t {
 					return (intptr_t)self.GetCursor();
 				})

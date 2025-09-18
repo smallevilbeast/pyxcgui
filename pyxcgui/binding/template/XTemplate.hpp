@@ -71,6 +71,50 @@ namespace xcgui {
 				return pTemplate;
 			}, "tempType"_a, "data"_a, "fileName"_a, "password"_a, py::return_value_policy::take_ownership)
 
+			// 3.3.8 新增
+			.def_static("loadFromMem", [](listItemTemp_type_ nType, const std::string& xmlData) -> XCListItemTemplate* {
+				auto handle = XTemp_LoadFromMem(nType, xmlData.c_str());
+				auto pTemplate = new XCListItemTemplate(handle);
+				if (!pTemplate->getHandle()) {
+					delete pTemplate;
+					return nullptr;
+				}
+				return pTemplate;
+			}, "tempType"_a, "xmlData"_a, py::return_value_policy::take_ownership)
+
+			.def_static("loadFromMemEx", [](listItemTemp_type_ nType, const std::string& xmlData, const std::wstring& prefixName = L"") -> XCListItemTemplate* {
+				const wchar_t* pPrefix = prefixName.empty() ? NULL : prefixName.c_str();
+				auto handle = XTemp_LoadFromMemEx(nType, xmlData.c_str(), pPrefix);
+				auto pTemplate = new XCListItemTemplate(handle);
+				if (!pTemplate->getHandle()) {
+					delete pTemplate;
+					return nullptr;
+				}
+				return pTemplate;
+			}, "tempType"_a, "xmlData"_a, "prefixName"_a = L"", py::return_value_policy::take_ownership)
+
+			.def_static("loadZipRes", [](listItemTemp_type_ nType, int id, const std::wstring& fileName, const std::wstring& password = L"", uintptr_t hModule = 0) -> XCListItemTemplate* {
+				const wchar_t* pPassword = password.empty() ? NULL : password.c_str();
+				auto handle = XTemp_LoadZipRes(nType, id, fileName.c_str(), pPassword, (HMODULE)hModule);
+				auto pTemplate = new XCListItemTemplate(handle);
+				if (!pTemplate->getHandle()) {
+					delete pTemplate;
+					return nullptr;
+				}
+				return pTemplate;
+			}, "tempType"_a, "id"_a, "fileName"_a, "password"_a = L"", "hModule"_a = 0, py::return_value_policy::take_ownership)
+
+			.def_static("loadZipResEx", [](listItemTemp_type_ nType, int id, const std::wstring& fileName, const std::wstring& password = L"", const std::wstring& prefixName = L"", uintptr_t hModule = 0) -> XCListItemTemplate* {
+				const wchar_t* pPassword = password.empty() ? NULL : password.c_str();
+				const wchar_t* pPrefix = prefixName.empty() ? NULL : prefixName.c_str();
+				auto handle = XTemp_LoadZipResEx(nType, id, fileName.c_str(), pPassword, pPrefix, (HMODULE)hModule);
+				auto pTemplate = new XCListItemTemplate(handle);
+				if (!pTemplate->getHandle()) {
+					delete pTemplate;
+					return nullptr;
+				}
+				return pTemplate;
+			}, "tempType"_a, "id"_a, "fileName"_a, "password"_a = L"", "prefixName"_a = L"", "hModule"_a = 0, py::return_value_policy::take_ownership)
 
 			.def_static("loadEx", [](listItemTemp_type_ nType, const std::wstring& fileName) -> std::vector<XCListItemTemplate*> {
 				HTEMP temp1 = NULL;

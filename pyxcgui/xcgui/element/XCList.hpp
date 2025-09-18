@@ -157,16 +157,16 @@ namespace xcgui {
 		//@参数 data 用户数据.
 		//@返回 成功返回TRUE否则返回FALSE.
 		//@别名  置项数据()
-		bool SetItemData(int iRow, int iColumn, int data) {
+		bool SetItemData(int iRow, int iColumn, vint data) {
 			return XList_SetItemData(getEleHandle(), iRow, iColumn, data);
 		}
 
-		//@备注 获取项用户数据.  
+		//@备注 获取项用户数据.
 		//@参数 iRow 行索引.
 		//@参数 iColumn 列索引.
 		//@返回 返回用户数据.
 		//@别名  取项数据()
-		int GetItemData(int iRow, int iColumn) {
+		vint GetItemData(int iRow, int iColumn) {
 			return XList_GetItemData(getEleHandle(), iRow, iColumn);
 		}
 

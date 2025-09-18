@@ -37,6 +37,11 @@ namespace xcgui {
 				self.SetImageLoad(image.getImageHandle());
 			}, "image"_a)
 
+			// 3.3.8 新增
+			.def("setColorLoad", [](XCProgressBar& self, unsigned int color) {
+				XProgBar_SetColorLoad(self.getEleHandle(), color);
+			}, "color"_a)
+
 
 			.def("setPos", &XCProgressBar::SetPos, "pos"_a)
 			.def("getPos", &XCProgressBar::GetPos)

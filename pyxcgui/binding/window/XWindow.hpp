@@ -82,7 +82,43 @@ namespace xcgui {
 			.def("isMaxWindow", &XCWindow::IsMaxWindow)
 			.def("isDragBorder", &XCWindow::IsDragBorder)
 			.def("isDragCaption", &XCWindow::IsDragCaption)
-			
+
+			// 3.3.8 新增
+			.def("setDPI", [](XCWindow& self, int dpi) {
+				XWnd_SetDPI(self.GetWindowHandle(), dpi);
+			}, "dpi"_a)
+			.def("getDPI", [](XCWindow& self) {
+				return XWnd_GetDPI(self.GetWindowHandle());
+			})
+			.def("rectToDPI", [](XCWindow& self, const XCRect& rect) {
+				XCRect result = rect;
+				XWnd_RectToDPI(self.GetWindowHandle(), (RECT*)&result);
+				return result;
+			}, "rect"_a)
+			.def("pointToDPI", [](XCWindow& self, const XCPoint& point) {
+				XCPoint result = point;
+				XWnd_PointToDPI(self.GetWindowHandle(), (POINT*)&result);
+				return result;
+			}, "point"_a)
+			.def("getCursorPos", [](XCWindow& self) {
+				XCPoint point;
+				XWnd_GetCursorPos(self.GetWindowHandle(), (POINT*)&point);
+				return point;
+			})
+			.def("clientToScreen", [](XCWindow& self, const XCPoint& point) {
+				XCPoint result = point;
+				XWnd_ClientToScreen(self.GetWindowHandle(), (POINT*)&result);
+				return result;
+			}, "point"_a)
+			.def("screenToClient", [](XCWindow& self, const XCPoint& point) {
+				XCPoint result = point;
+				XWnd_ScreenToClient(self.GetWindowHandle(), (POINT*)&result);
+				return result;
+			}, "point"_a)
+			.def("setWindowPos", [](XCWindow& self, uintptr_t hWndInsertAfter, int x, int y, int cx, int cy, unsigned int flags) {
+				XWnd_SetWindowPos(self.GetWindowHandle(), (HWND)hWndInsertAfter, x, y, cx, cy, flags);
+			}, "hWndInsertAfter"_a, "x"_a, "y"_a, "cx"_a, "cy"_a, "flags"_a)
+
 			.def("setCaptureEle", [](XCWindow& self, const XCElement& ele){
 				self.SetCaptureEle(ele.getEleHandle());
 			}, "ele"_a, py::call_guard<py::gil_scoped_release>())

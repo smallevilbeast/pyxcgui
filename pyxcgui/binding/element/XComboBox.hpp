@@ -52,10 +52,26 @@ namespace xcgui {
 			.def("setDropHeight", &XCComboBox::SetDropHeight, "height"_a)
 			.def("getDropHeight", &XCComboBox::GetDropHeight)
 			.def("setItemTemplateXML", &XCComboBox::SetItemTemplateXML, "xml"_a)
+
+			// 3.3.8 新增
+			.def("setItemTemplateXMLFromMem", [](XCComboBox& self, const std::string& xmlData) {
+				return XComboBox_SetItemTemplateXMLFromMem(self.getEleHandle(), xmlData.c_str());
+			}, "xmlData"_a)
+			.def("setItemTemplateXMLFromZipRes", [](XCComboBox& self, int id, const std::wstring& fileName, const std::wstring& password = L"", uintptr_t hModule = 0) {
+				const wchar_t* pPassword = password.empty() ? NULL : password.c_str();
+				return XComboBox_SetItemTemplateXMLFromZipRes(self.getEleHandle(), id, fileName.c_str(), pPassword, (HMODULE)hModule);
+			}, "id"_a, "fileName"_a, "password"_a = L"", "hModule"_a = 0)
+			.def("getItemTemplate", [](XCComboBox& self) -> XCListItemTemplate* {
+				auto handle = XComboBox_GetItemTemplate(self.getEleHandle());
+				if (!handle) return nullptr;
+				auto pTemplate = new XCListItemTemplate(handle);
+				return pTemplate;
+			}, py::return_value_policy::take_ownership)
+
 			.def("setItemTemplate", [](XCComboBox& self, const XCListItemTemplate& itemTemplate) {
 				return self.SetItemTemplate(itemTemplate.getHandle());
 			}, "template"_a)
-			
+
 			.def("enableDrawButton", &XCComboBox::EnableDrawButton, "enable"_a)
 			.def("enableEdit", &XCComboBox::EnableEdit, "enable"_a)
 			.def("enableDropHeightFixed", &XCComboBox::EnableDropHeightFixed, "enable"_a)

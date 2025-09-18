@@ -33,6 +33,23 @@ namespace xcgui {
 			.def("setPaintFrequency", &XCApp::SetPaintFrequency, "milliseconds"_a)
 			.def("setTextRenderingHint", &XCApp::SetTextRenderingHint, "nType"_a)
 			.def("setD2dTextRenderingMode", &XCApp::SetD2dTextRenderingMode, "mode"_a)
+
+			// 3.3.8 新增
+			.def("enableDPI", [](XCApp& self, bool enable) {
+				XC_EnableDPI(enable);
+			}, "enable"_a)
+			.def("enableAutoDPI", [](XCApp& self, bool enable) {
+				XC_EnableAutoDPI(enable);
+			}, "enable"_a)
+			.def("setWindowIcon", [](XCApp& self, uintptr_t hIcon) {
+				XC_SetWindowIcon((HICON)hIcon);
+			}, "hIcon"_a)
+			.def_static("loadResourceZipRes", [](int id, const std::wstring& fileName, const std::wstring& password = L"", uintptr_t hModule = 0) {
+				return XC_LoadResourceZipRes(id, fileName.c_str(), password.empty() ? NULL : password.c_str(), (HMODULE)hModule);
+			}, "id"_a, "fileName"_a, "password"_a = L"", "hModule"_a = 0)
+			.def_static("loadStyleZipRes", [](int id, const std::wstring& fileName, const std::wstring& password = L"", uintptr_t hModule = 0) {
+				return XC_LoadStyleZipRes(id, fileName.c_str(), password.empty() ? NULL : password.c_str(), (HMODULE)hModule);
+			}, "id"_a, "fileName"_a, "password"_a = L"", "hModule"_a = 0)
 			;
 	}
 }

@@ -125,6 +125,16 @@ namespace xcgui {
 				return XCastManager::GetInstance()->CastObject(handle);
 			}, "xml"_a, "prefixName"_a = L"", "parent"_a = nullptr, "parentHWND"_a = 0, "attachHWND"_a = 0, py::return_value_policy::take_ownership)
 
+			// 3.3.8 新增
+			.def_static("loadLayoutZipResEx", [](int id, const std::wstring& fileName, const std::wstring& password = L"", const std::wstring& prefixName = L"", XCObject* parent = nullptr, uintptr_t parentHWND = 0, uintptr_t attachHWND = 0, uintptr_t hModule = 0) -> XCObject* {
+				HXCGUI parentHandle = NULL;
+				if (parent) {
+					parentHandle = parent->GetHandle();
+				}
+				auto handle = XC_LoadLayoutZipResEx(id, fileName.c_str(), password.empty() ? NULL : password.c_str(), prefixName.empty() ? NULL : prefixName.c_str(), parentHandle, (HWND)parentHWND, (HWND)attachHWND, (HMODULE)hModule);
+				return XCastManager::GetInstance()->CastObject(handle);
+			}, "id"_a, "fileName"_a, "password"_a = L"", "prefixName"_a = L"", "parent"_a = nullptr, "parentHWND"_a = 0, "attachHWND"_a = 0, "hModule"_a = 0, py::return_value_policy::take_ownership)
+
 		;
 	}
 

@@ -50,10 +50,20 @@ namespace xcgui {
 			.def("getLayoutAreaRect", [](XCFrameWindow& self) {
 				XCRect rect;
 				self.GetLayoutAreaRect((RECT*)&rect);
+				return rect;
 				})
 
 			// 3.3.5 新增
 			.def("getDragFloatWndTopFlag", &XCFrameWindow::GetDragFloatWndTopFlag)
+
+			// 3.3.8 新增
+			.def("getViewRect", [](XCFrameWindow& self) {
+				XCRect rect;
+				self.GetViewRect((RECT*)&rect);
+				return rect;
+			})
+			.def("setPaneSplitBarWidth", &XCFrameWindow::SetPaneSplitBarWidth, "width"_a)
+			.def("getPaneSplitBarWidth", &XCFrameWindow::GetPaneSplitBarWidth)
 			;
 	}
 }

@@ -24,6 +24,17 @@ namespace xcgui {
 				return obj;
 			}), "x"_a, "y"_a, "width"_a, "height"_a, "parent"_a = nullptr)
 
+			.def(py::init([](int x, int y, int cx, int cy, XCObjectUI* parent, int flags) {
+				HXCGUI handle = nullptr;
+				if (parent) {
+					handle = parent->GetHandle();
+				}
+				auto eleHandle = XListBox_CreateEx(x, y, cx, cy, handle, flags);
+				XCListBox obj;
+				obj.SetHandle(eleHandle);
+				return obj;
+			}), "x"_a, "y"_a, "width"_a, "height"_a, "parent"_a, "flags"_a)
+
 		.	def(py::init([](int cx, int cy, XCObjectUI* parent=nullptr) {
 				HXCGUI handle = nullptr;
 				if (parent) {
@@ -101,6 +112,22 @@ namespace xcgui {
 			}, "point"_a)
 
 			.def("setItemTemplateXML", &XCListBox::SetItemTemplateXML, "xmlFile"_a)
+
+			// 3.3.8 新增
+			.def("setItemTemplateXMLFromMem", [](XCListBox& self, const std::string& xmlData) {
+				return XListBox_SetItemTemplateXMLFromMem(self.getEleHandle(), xmlData.c_str());
+			}, "xmlData"_a)
+			.def("setItemTemplateXMLFromZipRes", [](XCListBox& self, int id, const std::wstring& fileName, const std::wstring& password = L"", uintptr_t hModule = 0) {
+				const wchar_t* pPassword = password.empty() ? NULL : password.c_str();
+				return XListBox_SetItemTemplateXMLFromZipRes(self.getEleHandle(), id, fileName.c_str(), pPassword, (HMODULE)hModule);
+			}, "id"_a, "fileName"_a, "password"_a = L"", "hModule"_a = 0)
+			.def("getItemTemplate", [](XCListBox& self) -> XCListItemTemplate* {
+				auto handle = XListBox_GetItemTemplate(self.getEleHandle());
+				if (!handle) return nullptr;
+				auto pTemplate = new XCListItemTemplate(handle);
+				return pTemplate;
+			}, py::return_value_policy::take_ownership)
+
 			.def("setItemTemplate", [](XCListBox& self, const XCListItemTemplate& itemTemplate) {
 				return self.SetItemTemplate(itemTemplate.getHandle());
 			}, "template"_a)

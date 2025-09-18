@@ -670,6 +670,14 @@ enum  window_style_
 //窗格显示隐藏
 //int CALLBACK OnWndPaneShow(HELE hPane, BOOL bShow, BOOL *pbHandled);
 #define  XWM_PANE_SHOW              0x7000+23
+
+/// @brief 元素获得焦点消息
+/// @code int CALLBACK OnSetFocusEle(HELE hEle, BOOL *pbHandled) @endcode
+#define  XWM_SETFOCUS_ELE           0x7000+24
+
+/// @brief 框架窗口主视图区域改变消息
+/// @code int CALLBACK OnBodyViewRect(RECT *pRect, BOOL *pbHandled) @endcode
+#define  XWM_BODYVIEW_RECT          0x7000+25
 ///@}
 
 /////////////////////////////////////////////////////////////////////
@@ -2550,6 +2558,9 @@ XC_API HXCGUI WINAPI XComboBox_GetAdapter(HELE hEle);
 XC_API void WINAPI XComboBox_SetBindName(HELE hEle, const wchar_t* pName);
 XC_API void WINAPI XComboBox_SetItemTemplateXML(HELE hEle, const wchar_t* pXmlFile);
 XC_API void WINAPI XComboBox_SetItemTemplateXMLFromString(HELE hEle, const char* pStringXML);
+XC_API BOOL WINAPI XComboBox_SetItemTemplateXMLFromMem(HELE hEle, const char* pStringXML);
+XC_API BOOL WINAPI XComboBox_SetItemTemplateXMLFromZipRes(HELE hEle, int id, const wchar_t* pFileName, const wchar_t* pPassword = NULL, HMODULE hModule = NULL);
+XC_API HTEMP WINAPI XComboBox_GetItemTemplate(HELE hEle);
 XC_API void WINAPI XComboBox_EnableDrawButton(HELE hEle, BOOL bEnable);
 XC_API void WINAPI XComboBox_EnableEdit(HELE hEle, BOOL bEdit);  //启动编辑内容
 XC_API void WINAPI XComboBox_EnableDropHeightFixed(HELE hEle, BOOL bEnable);
@@ -2789,6 +2800,10 @@ XC_API int  WINAPI XEdit_GetLengthRow(HELE hEle, int iRow);
 XC_API wchar_t WINAPI XEdit_GetAt(HELE hEle, int iRow, int iCol);
 XC_API void WINAPI XEdit_InsertText(HELE hEle, int iRow, int iCol, const wchar_t* pString);
 XC_API void WINAPI XEdit_InsertChatBegin(HELE hEle, HIMAGE hImageAvatar, HIMAGE hImageBubble, int nFlag);
+XC_API void WINAPI XEdit_SetChatMaxWidth(HELE hEle, int nWidth);
+XC_API int WINAPI XEdit_GetChatFlags(HELE hEle);
+XC_API void WINAPI XEdit_InsertTextEx(HELE hEle, int iRow, int iCol, const wchar_t* pString, int nStyle);
+XC_API void WINAPI XEdit_InsertObject(HELE hEle, int iRow, int iCol, HXCGUI hObj);
 
 //XC_API void WINAPI XEdit_InsertTextUser(HELE hEle, const wchar_t* pString);
 XC_API void WINAPI XEdit_AddText(HELE hEle, const wchar_t* pString);
@@ -2873,6 +2888,9 @@ XC_API void WINAPI XEle_GetRect(HELE hEle, out_ RECT* pRect);   //相对与父�
 XC_API void WINAPI XEle_GetRectLogic(HELE hEle, out_ RECT* pRect); //相对与父坐标,逻辑模式
 XC_API void WINAPI XEle_GetClientRect(HELE hEle, out_ RECT* pRect);  //左上角为0，0坐标
 XC_API void WINAPI XEle_GetWndClientRect(HELE hEle, out_ RECT* pRect);
+XC_API void WINAPI XEle_GetWndClientRectDPI(HELE hEle, out_ RECT* pRect);
+XC_API void WINAPI XEle_PointClientToWndClientDPI(HELE hEle, in_out_ POINT* pPoint);
+XC_API void WINAPI XEle_RectClientToWndClientDPI(HELE hEle, in_out_ RECT* pRect);
 XC_API void WINAPI XEle_SetWidth(HELE hEle, int nWidth);
 XC_API void WINAPI XEle_SetHeight(HELE hEle, int nHeight);
 XC_API int  WINAPI XEle_GetWidth(HELE hEle);
@@ -2963,6 +2981,9 @@ XC_API void WINAPI XFrameWnd_GetLayoutAreaRect(HWINDOW hWindow, out_ RECT* pRect
 XC_API void WINAPI XFrameWnd_SetView(HWINDOW hWindow, HELE hEle);
 XC_API void WINAPI XFrameWnd_SetPaneSplitBarColor(HWINDOW hWindow, COLORREF color);
 XC_API void WINAPI XFrameWnd_SetTabBarHeight(HWINDOW hWindow, int nHeight);
+XC_API void WINAPI XFrameWnd_GetViewRect(HWINDOW hWindow, out_ RECT* pRect);
+XC_API void WINAPI XFrameWnd_SetPaneSplitBarWidth(HWINDOW hWindow, int nWidth);
+XC_API int WINAPI XFrameWnd_GetPaneSplitBarWidth(HWINDOW hWindow);
 XC_API BOOL WINAPI XFrameWnd_SaveLayoutToFile(HWINDOW hWindow, const wchar_t* pFileName);
 XC_API BOOL WINAPI XFrameWnd_LoadLayoutFile(HWINDOW hWindow, in_buffer_ HELE* aPaneList, int nEleCount, const wchar_t* pFileName);
 XC_API BOOL WINAPI XFrameWnd_AddPane(HWINDOW hWindow, HELE hPaneDest, HELE hPaneNew, pane_align_ align);
@@ -2973,6 +2994,7 @@ XC_API HIMAGE WINAPI XImgSrc_LoadRes(int id, const wchar_t* pType, HMODULE hModu
 XC_API HIMAGE WINAPI XImgSrc_LoadZip(const wchar_t* pZipFileName, const wchar_t* pFileName, const wchar_t* pPassword = NULL);//从ZIP中加载图片
 XC_API HIMAGE WINAPI XImgSrc_LoadZipRect(const wchar_t* pZipFileName, const wchar_t* pFileName, const wchar_t* pPassword, int x, int y, int cx, int cy);
 XC_API HIMAGE WINAPI XImgSrc_LoadZipMem(void* data, int length, const wchar_t* pFileName, const wchar_t* pPassword = NULL);
+XC_API HIMAGE WINAPI XImgSrc_LoadZipRes(int id, const wchar_t* pFileName, const wchar_t* pPassword = NULL, HMODULE hModule = NULL);
 XC_API HIMAGE WINAPI XImgSrc_LoadMemory(void* pBuffer, int nSize);
 XC_API HIMAGE WINAPI XImgSrc_LoadMemoryRect(void* pBuffer, int nSize, int x, int y, int cx, int cy);
 XC_API HIMAGE WINAPI XImgSrc_LoadFromImage(void* pImage);
@@ -2996,6 +3018,7 @@ XC_API HIMAGE WINAPI XImage_LoadRes(int id, const wchar_t* pType, HMODULE hInst 
 XC_API HIMAGE WINAPI XImage_LoadZip(const wchar_t* pZipFileName, const wchar_t* pFileName, const wchar_t* pPassword = NULL);
 XC_API HIMAGE WINAPI XImage_LoadZipAdaptive(const wchar_t* pZipFileName, const wchar_t* pFileName, const wchar_t* pPassword, int x1, int x2, int y1, int y2);
 XC_API HIMAGE WINAPI XImage_LoadZipRect(const wchar_t* pZipFileName, const wchar_t* pFileName, const wchar_t* pPassword, int x, int y, int cx, int cy);
+XC_API HIMAGE WINAPI XImage_LoadZipRes(int id, const wchar_t* pFileName, const wchar_t* pPassword = NULL, HMODULE hModule = NULL);
 XC_API HIMAGE WINAPI XImage_LoadZipMem(void* data, int length, const wchar_t* pFileName, const wchar_t* pPassword = NULL);
 XC_API HIMAGE WINAPI XImage_LoadMemory(void* pBuffer, int nSize);
 XC_API HIMAGE WINAPI XImage_LoadMemoryRect(void* pBuffer, int nSize, int x, int y, int cx, int cy);
@@ -3044,6 +3067,7 @@ XC_API void WINAPI XLayoutBox_SetSpaceRow(HXCGUI hLayoutBox, int nSpace);
 XC_API HELE WINAPI XLayoutFrame_Create(int x, int y, int cx, int cy, HXCGUI hParent);
 XC_API void WINAPI XLayoutFrame_ShowLayoutFrame(HELE hEle, BOOL bEnable);
 XC_API HELE WINAPI XListBox_Create(int x, int y, int cx, int cy, HXCGUI hParent = NULL);
+XC_API HELE WINAPI XListBox_CreateEx(int x, int y, int cx, int cy, HXCGUI hParent = NULL, int nFlags = 0);
 XC_API void WINAPI XListBox_EnableFixedRowHeight(HELE hEle, BOOL bEnable);
 XC_API void WINAPI XListBox_EnableTemplateReuse(HELE hEle, BOOL bEnable);
 XC_API void WINAPI XListBox_EnableVirtualTable(HELE hEle, BOOL bEnable);
@@ -3074,6 +3098,9 @@ XC_API int  WINAPI XListBox_HitTest(HELE hEle, POINT* pPt);
 XC_API int  WINAPI XListBox_HitTestOffset(HELE hEle, POINT* pPt); //自动添加滚动视图偏移量
 XC_API BOOL WINAPI XListBox_SetItemTemplateXML(HELE hEle, const wchar_t* pXmlFile);
 XC_API BOOL WINAPI XListBox_SetItemTemplateXMLFromString(HELE hEle, const char* pStringXML);
+XC_API BOOL WINAPI XListBox_SetItemTemplateXMLFromMem(HELE hEle, const char* pStringXML);
+XC_API BOOL WINAPI XListBox_SetItemTemplateXMLFromZipRes(HELE hEle, int id, const wchar_t* pFileName, const wchar_t* pPassword = NULL, HMODULE hModule = NULL);
+XC_API HTEMP WINAPI XListBox_GetItemTemplate(HELE hEle);
 XC_API BOOL WINAPI XListBox_SetItemTemplate(HELE hEle, HTEMP hTemp);
 XC_API HXCGUI WINAPI XListBox_GetTemplateObject(HELE hEle, int iItem, int nTempItemID);
 XC_API void WINAPI XListBox_EnableMultiSel(HELE hEle, BOOL bEnable);
@@ -3116,6 +3143,10 @@ XC_API int WINAPI XListBox_GetCountColumn_AD(HELE hEle);
 XC_API HTEMP WINAPI XTemp_Load(listItemTemp_type_ nType, const wchar_t* pFileName);  //加载模板 返回模板对象
 XC_API HTEMP WINAPI XTemp_LoadZip(listItemTemp_type_ nType, const wchar_t* pZipFile, const wchar_t* pFileName, const wchar_t* pPassword = NULL);
 XC_API HTEMP WINAPI XTemp_LoadZipMem(listItemTemp_type_ nType, void* data, int length, const wchar_t* pFileName, const wchar_t* pPassword = NULL);
+XC_API HTEMP WINAPI XTemp_LoadFromMem(listItemTemp_type_ nType, const char* pStringXML);
+XC_API HTEMP WINAPI XTemp_LoadFromMemEx(listItemTemp_type_ nType, const char* pStringXML, const wchar_t* pPrefixName = NULL);
+XC_API HTEMP WINAPI XTemp_LoadZipRes(listItemTemp_type_ nType, int id, const wchar_t* pFileName, const wchar_t* pPassword = NULL, HMODULE hModule = NULL);
+XC_API HTEMP WINAPI XTemp_LoadZipResEx(listItemTemp_type_ nType, int id, const wchar_t* pFileName, const wchar_t* pPassword = NULL, const wchar_t* pPrefixName = NULL, HMODULE hModule = NULL);
 XC_API BOOL  WINAPI XTemp_LoadEx(listItemTemp_type_ nType, const wchar_t* pFileName, out_ HTEMP* pOutTemp1, out_ HTEMP* pOutTemp2);
 XC_API BOOL  WINAPI XTemp_LoadZipEx(listItemTemp_type_ nType, const wchar_t* pZipFile, const wchar_t* pFileName, const wchar_t* pPassword, out_ HTEMP* pOutTemp1, out_ HTEMP* pOutTemp2);
 XC_API BOOL  WINAPI XTemp_LoadZipMemEx(listItemTemp_type_ nType, void* data, int length, const wchar_t* pFileName, const wchar_t* pPassword, out_ HTEMP* pOutTemp1, out_ HTEMP* pOutTemp2);
@@ -3137,6 +3168,7 @@ XC_API BOOL WINAPI XTemp_List_DeleteNode(HTEMP hTemp, int index);
 XC_API int WINAPI XTemp_List_GetCount(HTEMP hTemp);
 XC_API BOOL WINAPI XTemp_List_MoveColumn(HTEMP hTemp, int iColSrc, int iColDest);
 XC_API HELE WINAPI XList_Create(int x, int y, int cx, int cy, HXCGUI hParent = NULL);
+XC_API HELE WINAPI XList_CreateEx(int x, int y, int cx, int cy, HXCGUI hParent = NULL, int nFlags = 0);
 XC_API int WINAPI XList_AddColumn(HELE hEle, int width); //增加列
 XC_API int WINAPI XList_InsertColumn(HELE hEle, int width, int iItem);
 XC_API void WINAPI XList_EnableMultiSel(HELE hEle, BOOL bEnable);
@@ -3156,8 +3188,8 @@ XC_API int  WINAPI XList_GetColumnWidth(HELE hEle, int iColumn);  //获取列宽
 XC_API int  WINAPI XList_GetColumnCount(HELE hEle);  //获取列数量
 XC_API BOOL WINAPI XList_DeleteColumn(HELE hEle, int iItem);
 XC_API void WINAPI XList_DeleteColumnAll(HELE hEle);
-XC_API BOOL WINAPI XList_SetItemData(HELE hEle, int iItem, int iSubItem, int data);
-XC_API int  WINAPI XList_GetItemData(HELE hEle, int iItem, int iSubItem);
+XC_API BOOL WINAPI XList_SetItemData(HELE hEle, int iItem, int iSubItem, vint data);
+XC_API vint WINAPI XList_GetItemData(HELE hEle, int iItem, int iSubItem);
 XC_API BOOL WINAPI XList_SetSelectItem(HELE hEle, int iItem);
 XC_API int  WINAPI XList_GetSelectItem(HELE hEle);
 XC_API int  WINAPI XList_GetSelectItemCount(HELE hEle);
@@ -3176,6 +3208,8 @@ XC_API HXCGUI WINAPI XList_GetAdapter(HELE hEle);
 XC_API HXCGUI WINAPI XList_GetAdapterHeader(HELE hEle);
 XC_API BOOL WINAPI XList_SetItemTemplateXML(HELE hEle, const wchar_t* pXmlFile);
 XC_API BOOL WINAPI XList_SetItemTemplateXMLFromString(HELE hEle, const char* pStringXML);
+XC_API BOOL WINAPI XList_SetItemTemplateXMLFromMem(HELE hEle, const char* pStringXML);
+XC_API BOOL WINAPI XList_SetItemTemplateXMLFromZipRes(HELE hEle, int id, const wchar_t* pFileName, const wchar_t* pPassword = NULL, HMODULE hModule = NULL);
 XC_API BOOL WINAPI XList_SetItemTemplate(HELE hEle, HTEMP hTemp);
 XC_API HTEMP WINAPI XList_GetItemTemplate(HELE hEle);
 XC_API HTEMP WINAPI XList_GetItemTemplateHeader(HELE hEle);
@@ -3233,11 +3267,16 @@ XC_API void WINAPI XList_DeleteColumnAll_AD(HELE hEle);
 XC_API int  WINAPI XList_GetCount_AD(HELE hEle);
 XC_API int  WINAPI XList_GetCountColumn_AD(HELE hEle);
 XC_API HELE WINAPI XListView_Create(int x, int y, int cx, int cy, HXCGUI hParent = NULL);
+XC_API HELE WINAPI XListView_CreateEx(int x, int y, int cx, int cy, HXCGUI hParent = NULL, int nFlags = 0);
 XC_API HXCGUI WINAPI XListView_CreateAdapter(HELE hEle);
 XC_API void   WINAPI XListView_BindAdapter(HELE hEle, HXCGUI hAdapter);
 XC_API HXCGUI WINAPI XListView_GetAdapter(HELE hEle);
 XC_API BOOL WINAPI XListView_SetItemTemplateXML(HELE hEle, const wchar_t* pXmlFile);
 XC_API BOOL WINAPI XListView_SetItemTemplateXMLFromString(HELE hEle, const char* pStringXML);
+XC_API BOOL WINAPI XListView_SetItemTemplateXMLFromMem(HELE hEle, const char* pStringXML);
+XC_API BOOL WINAPI XListView_SetItemTemplateXMLFromZipRes(HELE hEle, int id, const wchar_t* pFileName, const wchar_t* pPassword = NULL, HMODULE hModule = NULL);
+XC_API HTEMP WINAPI XListView_GetItemTemplate(HELE hEle);
+XC_API HTEMP WINAPI XListView_GetItemTemplateGroup(HELE hEle);
 XC_API BOOL WINAPI XListView_SetItemTemplate(HELE hEle, HTEMP hTemp);
 XC_API HXCGUI WINAPI XListView_GetTemplateObject(HELE hEle, int iGroup, int iItem, int nTempItemID);
 XC_API HXCGUI WINAPI XListView_GetTemplateObjectGroup(HELE hEle, int iGroup, int nTempItemID);
@@ -3373,6 +3412,7 @@ XC_API int  WINAPI XProgBar_GetRange(HELE hEle);
 
 XC_API void WINAPI XProgBar_SetPos(HELE hEle, int pos);
 XC_API int  WINAPI XProgBar_GetPos(HELE hEle);
+XC_API void WINAPI XProgBar_SetColorLoad(HELE hEle, COLORREF color);
 XC_API void WINAPI XProgBar_EnableHorizon(HELE hEle, BOOL bHorizon);
 XC_API void WINAPI XProgBar_SetImageLoad(HELE hEle, HIMAGE hImage);
 XC_API HELE WINAPI XPGrid_Create(int x, int y, int cx, int cy, HXCGUI hParent = NULL);
@@ -3602,6 +3642,7 @@ XC_API void WINAPI XToolBar_SetSpace(HELE hEle, int nSize);
 XC_API void WINAPI XToolBar_DeleteEle(HELE hEle, int index); //移除工具条上元素并销毁
 XC_API void WINAPI XToolBar_DeleteAllEle(HELE hEle);
 XC_API HELE WINAPI XTree_Create(int x, int y, int cx, int cy, HXCGUI hParent = NULL);
+XC_API HELE WINAPI XTree_CreateEx(int x, int y, int cx, int cy, HXCGUI hParent = NULL, int nFlags = 0);
 XC_API void WINAPI XTree_EnableDragItem(HELE hEle, BOOL bEnable);
 XC_API void WINAPI XTree_EnableConnectLine(HELE hEle, BOOL bEnable, BOOL bSolid);
 XC_API void WINAPI XTree_EnableExpand(HELE hEle, BOOL bEnable);
@@ -3616,6 +3657,9 @@ XC_API BOOL WINAPI XTree_SetItemTemplate(HELE hEle, HTEMP hTemp);
 XC_API BOOL WINAPI XTree_SetItemTemplateSel(HELE hEle, HTEMP hTemp);
 XC_API BOOL WINAPI XTree_SetItemTemplateXMLFromString(HELE hEle, const char* pStringXML);
 XC_API BOOL WINAPI XTree_SetItemTemplateXMLSelFromString(HELE hEle, const char* pStringXML);
+XC_API BOOL WINAPI XTree_SetItemTemplateXMLFromMem(HELE hEle, const char* pStringXML);
+XC_API BOOL WINAPI XTree_SetItemTemplateXMLFromZipRes(HELE hEle, int id, const wchar_t* pFileName, const wchar_t* pPassword = NULL, HMODULE hModule = NULL);
+XC_API HTEMP WINAPI XTree_GetItemTemplate(HELE hEle);
 XC_API void WINAPI XTree_SetDrawItemBkFlags(HELE hEle, int nFlags);
 XC_API BOOL WINAPI XTree_SetItemData(HELE hEle, int nID, vint nUserData);
 XC_API vint WINAPI XTree_GetItemData(HELE hEle, int nID);
@@ -4043,6 +4087,7 @@ XC_API HSVG WINAPI XSvg_LoadString(const char* pString);
 XC_API HSVG WINAPI XSvg_LoadStringW(const wchar_t* pString);
 XC_API HSVG WINAPI XSvg_LoadStringUtf8(const char* pString);
 XC_API HSVG WINAPI XSvg_LoadZip(const wchar_t* pZipFileName, const wchar_t* pFileName, const wchar_t* pPassword = NULL);
+XC_API HSVG WINAPI XSvg_LoadZipRes(int id, const wchar_t* pFileName, const wchar_t* pPassword = NULL, HMODULE hModule = NULL);
 XC_API HSVG WINAPI XSvg_LoadRes(int id, const wchar_t* pType, HMODULE hModule = NULL);
 
 XC_API void WINAPI XSvg_SetSize(HSVG hSvg, int nWidth, int nHeight);
@@ -4183,11 +4228,26 @@ XC_API HXCGUI WINAPI XC_LoadLayoutZipEx(const wchar_t* pZipFileName, const wchar
 XC_API HXCGUI WINAPI XC_LoadLayoutZipMemEx(const void* data, int length, const wchar_t* pFileName, const wchar_t* pPassword=NULL, const wchar_t* pPrefixName=NULL, HXCGUI hParent=NULL, HWND hParentWnd=NULL, HWND hAttachWnd=NULL);
 XC_API HXCGUI WINAPI XC_LoadLayoutFromStringEx(const char* pStringXML, const wchar_t* pPrefixName=NULL, HXCGUI hParent=NULL, HWND hParentWnd=NULL, HWND hAttachWnd=NULL);
 XC_API HXCGUI WINAPI XC_LoadLayoutFromStringUtf8Ex(const char* pStringXML, const wchar_t* pPrefixName=NULL, HXCGUI hParent=NULL, HWND hParentWnd=NULL, HWND hAttachWnd=NULL);
+XC_API HXCGUI WINAPI XC_LoadLayoutZipResEx(int id, const wchar_t* pFileName, const wchar_t* pPassword=NULL, const wchar_t* pPrefixName=NULL, HXCGUI hParent=NULL, HWND hParentWnd=NULL, HWND hAttachWnd=NULL, HMODULE hModule=NULL);
+
+XC_API void WINAPI XC_EnableDPI(BOOL bEnable);
+XC_API void WINAPI XC_EnableAutoDPI(BOOL bEnable);
+XC_API BOOL WINAPI XC_LoadResourceZipRes(int id, const wchar_t* pFileName, const wchar_t* pPassword=NULL, HMODULE hModule=NULL);
+XC_API BOOL WINAPI XC_LoadStyleZipRes(int id, const wchar_t* pFileName, const wchar_t* pPassword=NULL, HMODULE hModule=NULL);
+XC_API void WINAPI XC_SetWindowIcon(HICON hIcon);
 
 XC_API void WINAPI XWnd_SetCaptionMargin(HWINDOW hWindow, int left, int top, int right, int bottom);
 XC_API BOOL WINAPI XWnd_IsDragBorder(HWINDOW hWindow);
 XC_API BOOL WINAPI XWnd_IsDragWindow(HWINDOW hWindow);
 XC_API BOOL WINAPI XWnd_IsDragCaption(HWINDOW hWindow);
+XC_API void WINAPI XWnd_SetDPI(HWINDOW hWindow, int nDPI);
+XC_API int WINAPI XWnd_GetDPI(HWINDOW hWindow);
+XC_API void WINAPI XWnd_RectToDPI(HWINDOW hWindow, RECT* pRect);
+XC_API void WINAPI XWnd_PointToDPI(HWINDOW hWindow, POINT* pPoint);
+XC_API void WINAPI XWnd_GetCursorPos(HWINDOW hWindow, POINT* pPoint);
+XC_API void WINAPI XWnd_ClientToScreen(HWINDOW hWindow, POINT* pPoint);
+XC_API void WINAPI XWnd_ScreenToClient(HWINDOW hWindow, POINT* pPoint);
+XC_API void WINAPI XWnd_SetWindowPos(HWINDOW hWindow, HWND hWndInsertAfter, int x, int y, int cx, int cy, UINT uFlags);
 
 //v3.3.3-------------------------------------------------------
 XC_API void WINAPI XList_SetSplitLineColor(HELE hEle, COLORREF color);

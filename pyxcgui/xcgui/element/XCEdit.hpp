@@ -275,6 +275,26 @@ namespace xcgui {
 			XEdit_InsertChatBegin(getEleHandle(), hImageAvatar, hImageBubble, nFlag);
 		}
 
+		// 设置聊天最大宽度
+		void SetChatMaxWidth(int width) {
+			XEdit_SetChatMaxWidth(getEleHandle(), width);
+		}
+
+		// 获取聊天标志
+		int GetChatFlags() {
+			return XEdit_GetChatFlags(getEleHandle());
+		}
+
+		// 插入文本扩展
+		void InsertTextEx(int row, int col, const std::wstring& text, int style) {
+			XEdit_InsertTextEx(getEleHandle(), row, col, text.c_str(), style);
+		}
+
+		// 插入对象
+		void InsertObject(int row, int col, HXCGUI obj) {
+			XEdit_InsertObject(getEleHandle(), row, col, obj);
+		}
+
 		//@参数 pString 字符串
 		//@别名  添加文本()
 		void AddText(const std::wstring& text) {
