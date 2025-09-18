@@ -136,6 +136,12 @@ namespace xcgui {
 			return info;
 		}, "text"_a, "font"_a);
 
+		// 加载图标文件
+		m.def("LoadIcon", [](const std::wstring& filePath) -> uintptr_t {
+			HICON hIcon = (HICON)::LoadImageW(NULL, filePath.c_str(), IMAGE_ICON, 0, 0, LR_LOADFROMFILE | LR_DEFAULTSIZE);
+			return (uintptr_t)hIcon;
+		}, "filePath"_a);
+
 		;
 	}
 

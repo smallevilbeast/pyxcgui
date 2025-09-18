@@ -1,6 +1,7 @@
 #pragma once
 #include "pch.h"
 #include "xcgui/menu/XCMenu.hpp"
+#include "xcgui/element/XCMenuBar.hpp"
 #include "xcgui/XCImage.hpp"
 #include "xcgui/XCElement.hpp"
 
@@ -62,6 +63,13 @@ namespace xcgui {
 			.def("getLeftWidth", &XCMenu::GetLeftWidth)
 			.def("getLeftSpaceText", &XCMenu::GetLeftSpaceText)
 			.def("setItemCheck", &XCMenu::SetItemCheck, "nId"_a, "check"_a)
-			.def("isItemCheck", &XCMenu::IsItemCheck, "nId"_a);
+			.def("isItemCheck", &XCMenu::IsItemCheck, "nId"_a)
+
+			// 3.3.8.1 新增
+			.def("getMenuBar", [](XCMenu& self) -> XCMenuBar* {
+				auto handle = XMenu_GetMenuBar(self.getMenuHandle());
+				if (!handle) return nullptr;
+				return new XCMenuBar(handle);
+			}, py::return_value_policy::take_ownership);
 	}
 }

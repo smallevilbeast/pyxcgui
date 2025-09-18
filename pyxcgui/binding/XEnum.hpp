@@ -636,6 +636,15 @@ namespace xcgui {
 			.value("layout_state_flag_body", layout_state_flag_body)
 			.export_values();
 
+		py::enum_<trayIcon_flag_>(m, "trayIcon_flag_", py::arithmetic())
+			.value("trayIcon_flag_icon_none", trayIcon_flag_icon_none)
+			.value("trayIcon_flag_icon_info", trayIcon_flag_icon_info)
+			.value("trayIcon_flag_icon_warning", trayIcon_flag_icon_warning)
+			.value("trayIcon_flag_icon_error", trayIcon_flag_icon_error)
+			.value("trayIcon_flag_icon_user", trayIcon_flag_icon_user)
+			.value("trayIcon_flag_nosound", trayIcon_flag_nosound)
+			.export_values();
+
 
 	}
 }

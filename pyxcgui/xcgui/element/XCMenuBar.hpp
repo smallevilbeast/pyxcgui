@@ -63,5 +63,10 @@ namespace xcgui {
 			XMenuBar_EnableAutoWidth(getEleHandle(), bEnable);
 		}
 
+		// 3.3.8.1 新增
+		int GetSelect() {
+			return XMenuBar_GetSelect(getEleHandle());
+		}
+
 	};
 }

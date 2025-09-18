@@ -280,5 +280,14 @@ namespace xcgui {
 			return XMenu_IsItemCheck((HMENUX)m_handle, nID);
 		}
 
+		// 3.3.8.1 新增
+		HELE GetMenuBar() {
+			return XMenu_GetMenuBar((HMENUX)m_handle);
+		}
+
+		HMENUX getMenuHandle() const {
+			return (HMENUX)m_handle;
+		}
+
 	};
 }

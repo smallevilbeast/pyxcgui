@@ -9,6 +9,7 @@
 #include "binding/bkmanager/XBkObject.hpp"
 #include "binding/XObjectUI.hpp"
 #include "binding/XApp.hpp"
+#include "binding/XTrayIcon.hpp"
 #include "binding/XWidget.hpp"
 #include "binding/XFont.hpp"
 #include "binding/XSvg.hpp"
@@ -132,6 +133,9 @@ namespace xcgui {
 
 		// app
 		declareApp(m);
+
+		// trayIcon
+		declareTrayIcon(m);
 
 		// widget
 		declareWidget(m);

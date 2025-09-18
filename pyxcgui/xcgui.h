@@ -678,6 +678,10 @@ enum  window_style_
 /// @brief 框架窗口主视图区域改变消息
 /// @code int CALLBACK OnBodyViewRect(RECT *pRect, BOOL *pbHandled) @endcode
 #define  XWM_BODYVIEW_RECT          0x7000+25
+
+/// @brief 托盘图标事件
+/// @code int CALLBACK OnTrayIcon(trayIcon_flag_ flag, BOOL *pbHandled) @endcode
+#define  XWM_TRAYICON               0x7000+26
 ///@}
 
 /////////////////////////////////////////////////////////////////////
@@ -1462,6 +1466,20 @@ enum edit_textAlign_flag_
 	edit_textAlign_flag_top      = 0x0,  ///<顶部
 	edit_textAlign_flag_bottom   = 0x4,  ///<底部
 	edit_textAlign_flag_center_v = 0x8,  ///<垂直居中
+};
+///@}
+
+
+///@defgroup Group_trayIcon_flag_  托盘图标标识(trayIcon_flag_)
+///@{
+enum trayIcon_flag_
+{
+	trayIcon_flag_icon_none     = 0x0,      ///< 无图标 NIIF_NONE
+	trayIcon_flag_icon_info     = 0x1,      ///< 信息图标 NIIF_INFO
+	trayIcon_flag_icon_warning  = 0x2,      ///< 警告图标 NIIF_WARNING
+	trayIcon_flag_icon_error    = 0x3,      ///< 错误图标 NIIF_ERROR
+	trayIcon_flag_icon_user     = 0x4,      ///< 用户指定的图标 NIIF_USER
+	trayIcon_flag_nosound       = 0x10,     ///< 禁止播放气泡声音 NIIF_NOSOUND
 };
 ///@}
 
@@ -3347,6 +3365,9 @@ XC_API void WINAPI XMenuBar_SetButtonHeight(HELE hEle, int height);
 XC_API HMENUX WINAPI XMenuBar_GetMenu(HELE hEle, int nIndex);
 XC_API BOOL WINAPI XMenuBar_DeleteButton(HELE hEle, int nIndex); //删除菜单项并且销毁,同时该按钮下的弹出菜单也被销毁
 XC_API void WINAPI XMenuBar_EnableAutoWidth(HELE hEle, BOOL bEnable);
+
+// 3.3.8.1 新增
+XC_API int WINAPI XMenuBar_GetSelect(HELE hEle);
 XC_API HMENUX WINAPI XMenu_Create();
 XC_API void WINAPI XMenu_AddItem(HMENUX hMenu, int nID, const wchar_t* pText, int parentId = XC_ID_ROOT, int nFlags = 0); //添加菜单项
 XC_API void WINAPI XMenu_AddItemIcon(HMENUX hMenu, int nID, const wchar_t* pText, int nParentID, HIMAGE hImage, int nFlags = 0);
@@ -3378,6 +3399,9 @@ XC_API int  WINAPI XMenu_GetLeftSpaceText(HMENUX hMenu);  //获取菜单项文�
 XC_API int  WINAPI XMenu_GetItemCount(HMENUX hMenu); //获取菜单项数量,包含子菜单项
 XC_API BOOL WINAPI XMenu_SetItemCheck(HMENUX hMenu, int nID, BOOL bCheck);
 XC_API BOOL WINAPI XMenu_IsItemCheck(HMENUX hMenu, int nID);
+
+// 3.3.8.1 新增
+XC_API HELE WINAPI XMenu_GetMenuBar(HMENUX hMenu);
 XC_API HWINDOW WINAPI XModalWnd_Create(int nWidth, int nHeight, const wchar_t* pTitle, HWND hWndParent, int XCStyle = window_style_modal);
 XC_API void WINAPI XModalWnd_EnableAutoClose(HWINDOW hWindow, BOOL bEnable);
 XC_API void WINAPI XModalWnd_EnableEscClose(HWINDOW hWindow, BOOL bEnable);
@@ -4381,5 +4405,16 @@ XC_API HFONTX WINAPI XFont_CreateFromZipMem(void* data, int length, const wchar_
 
 //增加参数 col_extend_count  列表项模板支持列延伸
 //XC_API HXCGUI WINAPI XList_CreateAdapter(HELE hEle, int col_extend_count=0);
+
+// 3.3.8.1 新增 - 托盘图标函数
+XC_API void WINAPI XTrayIcon_Reset();
+XC_API BOOL WINAPI XTrayIcon_Add(HWINDOW hWindow, int id);
+XC_API BOOL WINAPI XTrayIcon_Del();
+XC_API BOOL WINAPI XTrayIcon_Modify();
+XC_API void WINAPI XTrayIcon_SetIcon(HICON hIcon);
+XC_API BOOL WINAPI XTrayIcon_SetFocus();
+XC_API void WINAPI XTrayIcon_SetTips(const wchar_t* pTips);
+XC_API void WINAPI XTrayIcon_SetPopupBalloon(const wchar_t* pTitle, const wchar_t* pText, HICON hBalloonIcon = NULL, int flags = 0);
+XC_API void WINAPI XTrayIcon_SetCallbackMessage(UINT user_message);
 
 

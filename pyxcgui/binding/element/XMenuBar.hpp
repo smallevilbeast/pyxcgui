@@ -45,7 +45,12 @@ namespace xcgui {
 
 			.def("deleteButton", &XCMenuBar::DeleteButton, "index"_a)
 			.def("enableAutoWidth", &XCMenuBar::EnableAutoWidth, "enable"_a)
-				
+
+			// 3.3.8.1 新增
+			.def("getSelect", [](XCMenuBar& self) {
+				return XMenuBar_GetSelect(self.getEleHandle());
+			})
+
 			;
 	}
 }

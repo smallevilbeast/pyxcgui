@@ -50,6 +50,21 @@ namespace xcgui {
 			.def_static("loadStyleZipRes", [](int id, const std::wstring& fileName, const std::wstring& password = L"", uintptr_t hModule = 0) {
 				return XC_LoadStyleZipRes(id, fileName.c_str(), password.empty() ? NULL : password.c_str(), (HMODULE)hModule);
 			}, "id"_a, "fileName"_a, "password"_a = L"", "hModule"_a = 0)
+
+			// 3.3.8.1 新增 - 托盘图标全局函数（保留静态方法用于兼容性）
+			.def_static("trayIconReset", []() {
+				XTrayIcon_Reset();
+			})
+			.def_static("trayIconSetTips", [](const std::wstring& tips) {
+				XTrayIcon_SetTips(tips.c_str());
+			}, "tips"_a)
+			.def_static("trayIconSetPopupBalloon", [](const std::wstring& title, const std::wstring& text, const XCImage* balloonIcon = nullptr, int flags = 0) {
+				HICON hIcon = balloonIcon ? (HICON)balloonIcon->getImageHandle() : NULL;
+				XTrayIcon_SetPopupBalloon(title.c_str(), text.c_str(), hIcon, flags);
+			}, "title"_a, "text"_a, "balloonIcon"_a = nullptr, "flags"_a = 0)
+			.def_static("trayIconSetCallbackMessage", [](unsigned int userMessage) {
+				XTrayIcon_SetCallbackMessage((UINT)userMessage);
+			}, "userMessage"_a)
 			;
 	}
 }
