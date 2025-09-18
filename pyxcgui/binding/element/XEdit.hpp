@@ -185,10 +185,6 @@ namespace xcgui {
 			.def("addChatEnd", &XCEdit::AddChatEnd)
 			.def("setChatIndentation", &XCEdit::SetChatIndentation, "indentation"_a)
 
-			// 3.3.9.1 新增
-			.def("isEmptyRow", [](XCEdit& self, int iRow) {
-				return XEditor_IsEmptyRow(self.getEleHandle(), iRow);
-			}, "row"_a)
 
 			;
 	}

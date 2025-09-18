@@ -4741,11 +4741,6 @@ XC_API void WINAPI XWnd_SetTop(HWINDOW hWindow, BOOL bTop=TRUE);
 /// @return 已初始化返回TRUE，否则返回FALSE
 XC_API BOOL WINAPI XC_IsInit();
 
-/// @brief 检查编辑器指定行是否为空
-/// @param hEle 编辑器元素句柄
-/// @param iRow 行索引
-/// @return 行为空返回TRUE，否则返回FALSE
-XC_API BOOL WINAPI XEditor_IsEmptyRow(HELE hEle, int iRow);
 
 /// @brief 设置Direct2D文本反锯齿模式
 /// @param mode 反锯齿模式值
