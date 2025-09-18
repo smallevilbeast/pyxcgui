@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--炫彩界面库-窗口布局文件-->
+<head>
+	<bindJsFile value="" />
+	<bindClassName value="CMainFrame" />
+</head>
+<windowUI center="true" content="炫彩界面库 - 我的窗口名" rect="20,20,955,658" showT="true" windowStyle="2031">
+	<layoutFrameUI enableCanvas="true" expandT="true" layout.height="fill" layout.width="fill" name="布局框架" rect="379,307,100,100" showT="true">
+		<buttonUI content="新闻" expandT="true" name="新闻" rect="70,58,60,25" showT="true" transparent="true" />
+		<buttonUI content="好123" expandT="true" name="好123" rect="483,153,60,25" showT="true" transparent="true" />
+		<buttonUI content="地图" expandT="true" name="地图" rect="503,173,60,25" showT="true" transparent="true" />
+		<buttonUI content="直播" expandT="true" rect="523,193,60,25" showT="true" transparent="true" />
+		<buttonUI content="视频" expandT="true" rect="543,213,60,25" showT="true" transparent="true" />
+		<buttonUI content="贴吧" expandT="true" rect="563,233,60,25" showT="true" transparent="true" />
+		<buttonUI content="学术" expandT="true" rect="583,253,60,25" showT="true" transparent="true" />
+		<buttonUI content="更多" expandT="true" rect="603,273,60,25" showT="true" transparent="true" />
+		<buttonUI bkInfoM="{99:1.9.9;5:2(15)20(1)21(3)26(0)22(-889266)23(255);5:2(15)20(1)21(3)26(0)22(-681855)23(255);5:2(15)20(1)21(3)26(0)22(-1094107)23(255);98:16(0)32(1)64(2);}" content="登录" expandT="true" layout.float="true" rect="623,293,60,25" showT="true" textColor="#FFFFFFFF" transparent="true" />
+		<buttonUI content="设置" expandT="true" layout.float="true" rect="643,313,60,25" showT="true" transparent="true" />
+		<layoutEleUI expandT="true" layout.alignH="center" layout.height="auto" layout.minSize="900,400" layout.width="fill" rect="624,384,100,100" showT="true">
+			<shapePicture expandT="true" image="@baidu.png" layout.margin="0,30,0,20" rect="476,135,270,129" showT="true" />
+			<editUI bkInfoM="{99:1.9.9;98:16(1,0)32(1,0);5:2(15)10(1)7(2)11(3)16(1)12(-3225660)13(255)9(10,0,0,10);5:2(15)20(1)21(3)26(0)22(-1)23(255);}" content="炫彩界面库" contentTips="请输入搜索内容..." expandT="true" layout.wrap="true" name="搜索框" padding="10" rect="453,240,500,43" showT="true" />
+			<buttonUI bkInfoM="{99:1.9.9;5:2(15)20(1)21(3)26(1)22(-889266)23(255)9(0,10,10,0);5:2(15)20(1)21(3)26(1)22(-749963)23(255)9(0,10,10,0);5:2(15)20(1)21(3)26(1)22(-1162214)23(255)9(0,10,10,0);98:16(0)32(1)64(2);}" content="百度一下" expandT="true" font="@ID_FONT_12" name="百度一下" rect="727,172,110,43" showT="true" textColor="#FFFFFFFF" />
+			<layoutEleUI expandT="true" layout.margin="0,40" rect="363,259,630,20" showT="true">
+				<buttonUI content="百度热搜" expandT="true" rect="112,12,60,20" showT="true" transparent="true" />
+				<buttonUI content="换一换" expandT="true" layout.float="true" rect="306,13,60,20" showT="true" transparent="true" />
+			</layoutEleUI>
+			<layoutEleUI expandT="true" layout.height="auto" layout.horizon="false" layout.margin="0,10" layout.space="10" layout.wrap="true" rect="921,375,200,100" showT="true">
+				<shapeText content="1 xx新增本土确诊病例2例" expandT="true" layout.height="20" layout.width="auto" rect="31,39,100,20" showT="true" />
+				<shapeText content="1 xx新增本土确诊病例2例" expandT="true" layout.height="20" layout.width="auto" rect="51,59,100,20" showT="true" />
+				<shapeText content="1 xx新增本土确诊病例2例" expandT="true" layout.height="20" layout.width="auto" rect="71,79,100,20" showT="true" />
+			</layoutEleUI>
+			<layoutEleUI expandT="true" layout.height="auto" layout.horizon="false" layout.margin="220,10" layout.space="10" rect="845,459,200,100" showT="true">
+				<shapeText content="1 xx新增本土确诊病例2例" expandT="true" layout.height="20" layout.width="auto" rect="91,99,100,20" showT="true" />
+				<shapeText content="1 xx新增本土确诊病例2例" expandT="true" layout.height="20" layout.width="auto" rect="111,119,100,20" showT="true" />
+				<shapeText content="1 xx新增本土确诊病例2例" expandT="true" layout.height="20" layout.width="auto" rect="131,139,100,20" showT="true" />
+			</layoutEleUI>
+		</layoutEleUI>
+		<layoutEleUI bkInfoM="{99:1.9.9;5:2(15)20(1)21(3)26(0)22(-1)23(255);98:16(0);}" enableCanvas="true" expandT="true" layout.alignH="center" layout.height="30" layout.position="0,-3200,0,0" layout.space="20" layout.width="fill" rect="282,558,100,100" showT="true" topmost="true">
+			<buttonUI content="设为首页" expandT="true" rect="505,15,60,25" showT="true" transparent="true" />
+			<buttonUI content="关于百度" expandT="true" rect="525,35,60,25" showT="true" transparent="true" />
+			<buttonUI content="意见反馈" expandT="true" rect="545,55,60,25" showT="true" transparent="true" />
+			<buttonUI content="帮助中心" expandT="true" rect="565,75,60,25" showT="true" transparent="true" />
+		</layoutEleUI>
+		<layoutEleUI bkInfoM="{99:1.9.9;5:2(15)20(1)21(3)26(0)22(-8727554)23(255);98:16(0);}" enableCanvas="true" expandT="true" layout.alignH="center" layout.position="-3200,-3200,10,50" rect="937,541,100,50" showT="true" topmost="true">
+			<shapeText content="漂浮测试" expandT="true" layout.height="20" layout.width="auto" rect="54,20,100,20" showT="true" />
+			<buttonUI content="回到顶部" expandT="true" name="回到顶部" rect="61,30,60,25" showT="true" />
+		</layoutEleUI>
+	</layoutFrameUI>
+	<buttonUI buttonType="close" expandT="true" rect="1071,1,60,25" showT="true" style="close" />
+</windowUI>

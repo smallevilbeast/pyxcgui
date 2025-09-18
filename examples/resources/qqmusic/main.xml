@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--炫彩界面库-窗口布局文件-->
+<head>
+	<bindJsFile value="" />
+	<bindClassName value="我的主窗口类" />
+</head>
+<windowUI bkInfoM="{99:1.9.9;98:1(0,1);5:2(11)3(0,0,210,0)20(1)21(3)26(0)22(-986896)23(255);5:2(15)3(210,0,0,0)20(1)21(3)26(0)22(-592138)23(255);}" center="true" content="炫彩界面库 - 我的窗口名" dragWindow="true" enableLayout="true" layout.space="0" overlayBorder="true" rect="20,-18,1217,700" showT="true" transparentAlpha="255" transparentFlag="shadow" windowStyle="0">
+	<layoutEleUI expandT="true" layout.autoWrap="false" layout.height="fill" layout.horizon="false" layout.space="10" layout.width="210" padding="26,0,26,0" rect="53,114,100,100" showT="true">
+		<shapePicture expandT="true" image="@logo.png" layout.height="25" layout.margin="0,25,0,25" layout.width="110" rect="89,54,100,100" showT="true" />
+		<shapeText content="在线音乐" expandT="true" layout.height="20" layout.width="auto" rect="107,190,100,20" showT="true" textColor="@ID_灰色" />
+		<buttonUI bkInfoM="@ID_导航按钮" buttonType="radio" check="true" content="推荐" cursor="IDC_HAND" expandT="true" groupID="1" imageIcon="@推荐1.png" layout.height="30" layout.width="fill" padding="10" rect="93,154,60,25" showT="true" textAlign="DT_LEFT,DT_VCENTER,DT_SINGLELINE" transparent="true" />
+		<buttonUI bkInfoM="@ID_导航按钮" buttonType="radio" content="音乐馆" cursor="IDC_HAND" expandT="true" groupID="1" imageIcon="@音乐.png" layout.height="30" layout.width="fill" padding="10" rect="113,174,60,25" showT="true" textAlign="DT_LEFT,DT_VCENTER,DT_SINGLELINE" transparent="true" />
+		<buttonUI bkInfoM="@ID_导航按钮" buttonType="radio" content="视频" cursor="IDC_HAND" expandT="true" groupID="1" imageIcon="@视频.png" layout.height="30" layout.width="fill" padding="10" rect="133,194,60,25" showT="true" textAlign="DT_LEFT,DT_VCENTER,DT_SINGLELINE" transparent="true" />
+		<buttonUI bkInfoM="@ID_导航按钮" buttonType="radio" content="电台" cursor="IDC_HAND" expandT="true" groupID="1" imageIcon="@电台.png" layout.height="30" layout.width="fill" padding="10" rect="153,214,60,25" showT="true" textAlign="DT_LEFT,DT_VCENTER,DT_SINGLELINE" transparent="true" />
+		<shapeText content="我的音乐" expandT="true" layout.height="20" layout.margin="10,20,0,0" layout.width="auto" rect="127,210,100,20" showT="true" textColor="@ID_灰色" />
+		<buttonUI bkInfoM="@ID_导航按钮" buttonType="radio" content="我喜欢" cursor="IDC_HAND" expandT="true" groupID="1" imageIcon="@我喜欢.png" layout.height="30" layout.width="fill" padding="10" rect="133,194,60,25" showT="true" textAlign="DT_LEFT,DT_VCENTER,DT_SINGLELINE" transparent="true" />
+		<buttonUI bkInfoM="@ID_导航按钮" buttonType="radio" content="本地和下载" cursor="IDC_HAND" expandT="true" groupID="1" imageIcon="@本地与下载.png" layout.height="30" layout.width="fill" padding="10" rect="153,214,60,25" showT="true" textAlign="DT_LEFT,DT_VCENTER,DT_SINGLELINE" transparent="true" />
+		<buttonUI bkInfoM="@ID_导航按钮" buttonType="radio" content="最近播放" cursor="IDC_HAND" expandT="true" groupID="1" imageIcon="@最近播放.png" layout.height="30" layout.width="fill" padding="10" rect="173,234,60,25" showT="true" textAlign="DT_LEFT,DT_VCENTER,DT_SINGLELINE" transparent="true" />
+		<buttonUI bkInfoM="@ID_导航按钮" buttonType="radio" content="试听列表" cursor="IDC_HAND" expandT="true" groupID="1" imageIcon="@试听列表.png" layout.height="30" layout.width="fill" padding="10" rect="193,254,60,25" showT="true" textAlign="DT_LEFT,DT_VCENTER,DT_SINGLELINE" transparent="true" />
+		<layoutEleUI expandT="true" layout.alignV="center" layout.height="50" layout.width="fill" padding="10,0,10,0" rect="97,510,100,100" showT="true">
+			<shapeText content="创建歌单" expandT="true" layout.height="20" layout.width="auto" rect="127,210,100,20" showT="true" textColor="@ID_灰色" />
+			<buttonUI bkInfoM="{99:1.9.9;98:16(0)32(0)64(1);3:2(15)4(@arrow_bottom.png);3:2(15)4(@arrow_right.png);}" cursor="IDC_HAND" expandT="true" layout.float="true" layout.height="20" layout.width="20" rect="109,29,60,25" showT="true" transparent="true" />
+			<buttonUI bkInfoM="{99:1.9.9;98:16(0,1)32(0,1)64(0,1);5:2(48)3(10,2,100,100)20(1)21(3)26(0)22(-8355712)23(255);5:2(48)3(2,10,2,10)20(1)21(3)26(0)22(-8355712)23(255);}" cursor="IDC_HAND" expandT="true" layout.float="true" layout.height="20" layout.width="20" rect="129,49,60,25" showT="true" transparent="true" />
+		</layoutEleUI>
+		<layoutEleUI expandT="true" layout.alignV="center" layout.height="50" layout.width="fill" padding="10,0,10,0" rect="117,530,100,100" showT="true">
+			<shapeText content="收藏的歌单" expandT="true" layout.height="20" layout.width="auto" rect="147,230,100,20" showT="true" textColor="@ID_灰色" />
+			<buttonUI bkInfoM="{99:1.9.9;98:16(0,1)32(0,1)64(0,1);5:2(48)3(10,2,100,100)20(1)21(3)26(0)22(-8355712)23(255);5:2(48)3(2,10,2,10)20(1)21(3)26(0)22(-8355712)23(255);}" cursor="IDC_HAND" expandT="true" layout.float="true" layout.height="20" layout.width="20" rect="149,69,60,25" showT="true" transparent="true" />
+		</layoutEleUI>
+	</layoutEleUI>
+	<layoutEleUI expandT="true" layout.height="fill" layout.horizon="false" layout.width=":1" rect="331,129,100,100" showT="true">
+		<layoutEleUI expandT="true" layout.alignBaseline="center" layout.alignH="left" layout.alignV="center" layout.autoWrap="false" layout.height="70" layout.space="5" layout.width="fill" padding="30" rect="457,97,100,100" showT="true">
+			<buttonUI bkInfoM="{99:1.9.9;98:16(0,1)32(0,1)64(0,1);5:2(48)3(10,2,100,100)20(1)21(3)26(0)22(-8355712)23(255);5:2(48)3(2,10,2,10)20(1)21(3)26(0)22(-8355712)23(255);}" cursor="IDC_HAND" expandT="true" layout.height="30" layout.width="30" rect="149,69,60,25" showT="true" transparent="true" />
+			<buttonUI bkInfoM="{99:1.9.9;98:16(0,1)32(0,1)64(0,1);5:2(48)3(10,2,100,100)20(1)21(3)26(0)22(-8355712)23(255);5:2(48)3(2,10,2,10)20(1)21(3)26(0)22(-8355712)23(255);}" cursor="IDC_HAND" expandT="true" layout.height="30" layout.width="30" rect="169,89,60,25" showT="true" transparent="true" />
+			<editUI bkInfoM="{99:1.9.9;98:16(0);5:2(15)20(1)21(3)26(1)22(-1842205)23(255)9(15,15,15,15);}" contentTips="搜索音乐" expandT="true" layout.height="33" layout.margin="10,0,10,0" layout.width="200" padding="15,0,40,0" rect="134,31,100,20" showT="true" transparent="true">
+				<buttonUI bkInfoM="{99:1.9.9;98:16(0)32(0)64(0);3:2(15)4(@search.png);}" expandT="true" layout.height="20" layout.width="20" rect="169,6,60,25" showT="true" transparent="true" />
+			</editUI>
+			<buttonUI bkInfoM="{99:1.9.9;98:16(0)32(0)64(0);3:2(15)4(@听歌辩曲.png);}" cursor="IDC_HAND" expandT="true" layout.height="30" layout.width="30" rect="189,109,60,25" showT="true" transparent="true" />
+			<buttonUI bkInfoM="{99:1.9.9;98:16(0)32(0)64(0);3:2(15)4(@start.png);}" cursor="IDC_HAND" expandT="true" layout.float="true" layout.height="30" layout.width="30" rect="209,129,60,25" showT="true" transparent="true" />
+			<buttonUI bkInfoM="{99:1.9.9;98:16(0)32(0)64(0);3:2(15)4(@skin.png);}" cursor="IDC_HAND" expandT="true" layout.float="true" layout.height="30" layout.width="30" rect="229,149,60,25" showT="true" transparent="true" />
+			<buttonUI bkInfoM="{99:1.9.9;98:16(0)32(0)64(0);3:2(15)4(@推荐1.png);}" cursor="IDC_HAND" expandT="true" layout.float="true" layout.height="30" layout.width="30" rect="249,169,60,25" showT="true" transparent="true" />
+			<shapeText content="炫彩界面库" expandT="true" layout.float="true" layout.height="20" layout.width="auto" rect="127,210,100,20" showT="true" textColor="@ID_灰色" />
+			<shapeRect border="false" expandT="true" fillColor="#FF7B7B7B" layout.float="true" layout.height="20" layout.margin="10" layout.width="1" rect="499,42,100,100" showT="true" />
+			<buttonUI bkInfoM="{99:1.9.9;98:16(0)32(1,0)64(2,0);3:2(15)4(@minIcon.png);5:2(15)20(1)21(3)26(0)22(-1644826)23(255);5:2(15)20(1)21(3)26(0)22(-3487030)23(255);}" buttonType="min" cursor="IDC_HAND" expandT="true" layout.float="true" layout.height="30" layout.width="30" rect="229,149,60,25" showT="true" transparent="true" />
+			<buttonUI bkInfoM="{99:1.9.9;98:528(0)544(2,0)576(3,0)1040(1)1056(2,1)1088(3,1);3:2(15)4(@maxIcon.png);3:2(15)4(@maxIcon2.png);5:2(15)20(1)21(3)26(0)22(-1644826)23(255);5:2(15)20(1)21(3)26(0)22(-3487030)23(255);}" buttonType="max" cursor="IDC_HAND" expandT="true" layout.float="true" layout.height="30" layout.width="30" rect="249,169,60,25" showT="true" transparent="true" />
+			<buttonUI bkInfoM="{99:1.9.9;98:16(0)32(1,0)64(2,0);3:2(15)4(@close.png);5:2(15)20(1)21(3)26(0)22(-14478872)23(255);5:2(15)20(1)21(3)26(0)22(-8752911)23(255);}" buttonType="close" cursor="IDC_HAND" expandT="true" layout.float="true" layout.height="30" layout.margin="0,0,10,0" layout.width="40" rect="249,169,60,25" showT="true" transparent="true" />
+		</layoutEleUI>
+		<layoutFrameUI bkInfoM="{99:1.9.9;98:16(0);5:2(15)20(1)21(3)26(0)22(-592138)23(255);}" drawFocus="false" enableCanvas="true" expandT="true" layout.alignBaseline="end" layout.autoWrap="false" layout.height=":1" layout.width="fill" padding="30" rect="338,256,100,100" showT="true">
+			<child>
+				<scrollBarUI showButton="false" transparent="true" childType="scrollBarV" />
+				<buttonUI bkInfoM="{sizeT:17,200;99:1.9.9;98:16(0)32(1)64(0);5:2(15)20(1)21(3)26(1)22(-3158065)23(255)9(4,4,4,4);5:2(15)20(1)21(3)26(1)22(-3815995)23(255)9(4,4,4,4);}" childType="scrollBarV.button" />
+			</child>
+			<shapeText content="音乐馆" expandT="true" font="@ID_字体大" layout.height="auto" layout.width="auto" rect="241,115,100,20" showT="true" />
+			<buttonUI bkInfoM="{99:1.9.9;98:16(0)32(0)64(0);3:2(15)4(@111.jpg);}" cursor="IDC_HAND" expandT="true" layout.height="177" layout.width="443" layout.wrap="true" rect="282,199,60,25" showT="true" />
+			<buttonUI bkInfoM="{99:1.9.9;98:16(0)32(0)64(0);3:2(15)4(@222.jpg);}" cursor="IDC_HAND" expandT="true" layout.height="177" layout.margin="20" layout.width="443" rect="302,219,60,25" showT="true" />
+			<shapeText content="官方哥单" expandT="true" font="@ID_字体中" layout.height="auto" layout.margin="0,30,10,10" layout.width="auto" layout.wrap="true" rect="261,135,100,20" showT="true" />
+			<shapeText content="官方甄选订阅歌单" expandT="true" layout.height="20" layout.margin="0,0,0,15" layout.width="auto" rect="127,210,100,20" showT="true" textColor="@ID_灰色" />
+			<buttonUI bkInfoM="{99:1.9.9;98:16(0)32(1)64(1);3:2(15)4(@2-1.jpg);3:2(15)4(@2-1-1.jpg);}" cursor="IDC_HAND" expandT="true" layout.height="165" layout.width="165" layout.wrap="true" rect="302,219,60,25" showT="true" />
+			<buttonUI bkInfoM="{99:1.9.9;98:16(0)32(1)64(1);3:2(15)4(@2-2.jpg);3:2(15)4(@2-2-1.jpg);}" cursor="IDC_HAND" expandT="true" layout.height="165" layout.margin="20" layout.width="165" rect="322,239,60,25" showT="true" />
+			<buttonUI bkInfoM="{99:1.9.9;98:16(0)32(1)64(1);3:2(15)4(@2-3.jpg);3:2(15)4(@2-3-1.jpg);}" cursor="IDC_HAND" expandT="true" layout.height="165" layout.margin="20" layout.width="165" rect="342,259,60,25" showT="true" />
+			<buttonUI bkInfoM="{99:1.9.9;98:16(0)32(1)64(1);3:2(15)4(@2-4.jpg);3:2(15)4(@2-4-1.jpg);}" cursor="IDC_HAND" expandT="true" layout.height="165" layout.margin="20" layout.width="165" rect="362,279,60,25" showT="true" />
+			<buttonUI bkInfoM="{99:1.9.9;98:16(0)32(1)64(1);3:2(15)4(@2-5.jpg);3:2(15)4(@2-5-1.jpg);}" cursor="IDC_HAND" expandT="true" layout.height="165" layout.margin="20" layout.width="165" rect="382,299,60,25" showT="true" />
+			<shapeText content="电影配乐大师" expandT="true" layout.height="20" layout.margin="0,10,0,0" layout.width="185" layout.wrap="true" rect="294,503,100,20" showT="true" />
+			<shapeText content="话语摇滚 川流不息" expandT="true" layout.height="20" layout.margin="0,10,0,0" layout.width="185" rect="314,523,100,20" showT="true" />
+			<shapeText content="欧美电影 梦想起航" expandT="true" layout.height="20" layout.margin="0,10,0,0" layout.width="185" rect="334,543,100,20" showT="true" />
+			<shapeText content="轻音乐 一步一步" expandT="true" layout.height="20" layout.margin="0,10,0,0" layout.width="185" rect="354,563,100,20" showT="true" />
+			<shapeText content="欧美 懒惰时光" expandT="true" layout.height="20" layout.margin="0,10,0,0" layout.width="185" rect="374,583,100,20" showT="true" />
+			<shapeText content="推荐有声视频" expandT="true" font="@ID_字体中" layout.height="auto" layout.margin="0,30,10,10" layout.width="auto" layout.wrap="true" rect="281,155,100,20" showT="true" />
+			<buttonUI bkInfoM="{99:1.9.9;98:16(0)32(1)64(1);3:2(15)4(@2-1.jpg);3:2(15)4(@2-1-1.jpg);}" cursor="IDC_HAND" expandT="true" layout.height="165" layout.width="165" layout.wrap="true" rect="322,239,60,25" showT="true" />
+			<buttonUI bkInfoM="{99:1.9.9;98:16(0)32(1)64(1);3:2(15)4(@2-2.jpg);3:2(15)4(@2-2-1.jpg);}" cursor="IDC_HAND" expandT="true" layout.height="165" layout.margin="20" layout.width="165" rect="342,259,60,25" showT="true" />
+			<buttonUI bkInfoM="{99:1.9.9;98:16(0)32(1)64(1);3:2(15)4(@2-3.jpg);3:2(15)4(@2-3-1.jpg);}" cursor="IDC_HAND" expandT="true" layout.height="165" layout.margin="20" layout.width="165" rect="362,279,60,25" showT="true" />
+			<buttonUI bkInfoM="{99:1.9.9;98:16(0)32(1)64(1);3:2(15)4(@2-4.jpg);3:2(15)4(@2-4-1.jpg);}" cursor="IDC_HAND" expandT="true" layout.height="165" layout.margin="20" layout.width="165" rect="382,299,60,25" showT="true" />
+			<buttonUI bkInfoM="{99:1.9.9;98:16(0)32(1)64(1);3:2(15)4(@2-5.jpg);3:2(15)4(@2-5-1.jpg);}" cursor="IDC_HAND" expandT="true" layout.height="165" layout.margin="20" layout.width="165" rect="402,319,60,25" showT="true" />
+			<shapeText content="电影配乐大师" expandT="true" layout.height="20" layout.margin="0,10,0,0" layout.width="185" layout.wrap="true" rect="314,523,100,20" showT="true" />
+			<shapeText content="话语摇滚 川流不息" expandT="true" layout.height="20" layout.margin="0,10,0,0" layout.width="185" rect="334,543,100,20" showT="true" />
+			<shapeText content="欧美电影 梦想起航" expandT="true" layout.height="20" layout.margin="0,10,0,0" layout.width="185" rect="354,563,100,20" showT="true" />
+			<shapeText content="轻音乐 一步一步" expandT="true" layout.height="20" layout.margin="0,10,0,0" layout.width="185" rect="374,583,100,20" showT="true" />
+			<shapeText content="欧美 懒惰时光" expandT="true" layout.height="20" layout.margin="0,10,0,0" layout.width="185" rect="394,603,100,20" showT="true" />
+			<shapeText content="推荐视频" expandT="true" font="@ID_字体中" layout.height="auto" layout.margin="0,30,10,10" layout.width="auto" layout.wrap="true" rect="301,175,100,20" showT="true" />
+			<buttonUI bkInfoM="{99:1.9.9;98:16(0)32(1)64(1);3:2(15)4(@2-1.jpg);3:2(15)4(@2-1-1.jpg);}" cursor="IDC_HAND" expandT="true" layout.height="165" layout.width="165" layout.wrap="true" rect="342,259,60,25" showT="true" />
+			<buttonUI bkInfoM="{99:1.9.9;98:16(0)32(1)64(1);3:2(15)4(@2-2.jpg);3:2(15)4(@2-2-1.jpg);}" cursor="IDC_HAND" expandT="true" layout.height="165" layout.margin="20" layout.width="165" rect="362,279,60,25" showT="true" />
+			<buttonUI bkInfoM="{99:1.9.9;98:16(0)32(1)64(1);3:2(15)4(@2-3.jpg);3:2(15)4(@2-3-1.jpg);}" cursor="IDC_HAND" expandT="true" layout.height="165" layout.margin="20" layout.width="165" rect="382,299,60,25" showT="true" />
+			<buttonUI bkInfoM="{99:1.9.9;98:16(0)32(1)64(1);3:2(15)4(@2-4.jpg);3:2(15)4(@2-4-1.jpg);}" cursor="IDC_HAND" expandT="true" layout.height="165" layout.margin="20" layout.width="165" rect="402,319,60,25" showT="true" />
+			<buttonUI bkInfoM="{99:1.9.9;98:16(0)32(1)64(1);3:2(15)4(@2-5.jpg);3:2(15)4(@2-5-1.jpg);}" cursor="IDC_HAND" expandT="true" layout.height="165" layout.margin="20" layout.width="165" rect="422,339,60,25" showT="true" />
+			<shapeText content="电影配乐大师" expandT="true" layout.height="20" layout.margin="0,10,0,0" layout.width="185" layout.wrap="true" rect="334,543,100,20" showT="true" />
+			<shapeText content="话语摇滚 川流不息" expandT="true" layout.height="20" layout.margin="0,10,0,0" layout.width="185" rect="354,563,100,20" showT="true" />
+			<shapeText content="欧美电影 梦想起航" expandT="true" layout.height="20" layout.margin="0,10,0,0" layout.width="185" rect="374,583,100,20" showT="true" />
+			<shapeText content="轻音乐 一步一步" expandT="true" layout.height="20" layout.margin="0,10,0,0" layout.width="185" rect="394,603,100,20" showT="true" />
+			<shapeText content="欧美 懒惰时光" expandT="true" layout.height="20" layout.margin="0,10,0,0" layout.width="185" rect="414,623,100,20" showT="true" />
+		</layoutFrameUI>
+		<layoutEleUI bkInfoM="{99:1.9.9;98:16(0);5:2(7)3(0,0,0,2)20(1)21(3)26(0)22(-1381654)23(255);}" expandT="true" layout.alignBaseline="center" layout.alignV="center" layout.height="70" layout.space="10" layout.width="fill" padding="30,0,20,0" rect="539,305,100,100" showT="true">
+			<buttonUI bkInfoM="{99:1.9.9;98:16(0)32(0)64(0);3:2(15)4(@QQ截图20210821220155.png);}" cursor="IDC_HAND" expandT="true" layout.height="40" layout.margin="20,0,10,0" layout.width="40" rect="53,36,60,25" showT="true" transparent="true" />
+			<layoutEleUI expandT="true" layout.alignV="center" layout.height="fill" layout.space="5" layout.width="200" rect="177,42,100,100" showT="true">
+				<shapeText content="两只老虎爱跳舞" expandT="true" layout.height="20" layout.width="auto" rect="147,230,100,20" showT="true" textColor="@ID_灰色" />
+				<buttonUI bkInfoM="{99:1.9.9;98:16(0)32(0)64(0);3:2(15)4(@听歌辩曲.png);}" expandT="true" layout.height="20" layout.width="20" layout.wrap="true" rect="209,129,60,25" showT="true" transparent="true" />
+				<buttonUI bkInfoM="{99:1.9.9;98:16(0,1)32(0,1)64(0,1);5:2(48)3(10,2,100,100)20(1)21(3)26(0)22(-8355712)23(255);5:2(48)3(2,10,2,10)20(1)21(3)26(0)22(-8355712)23(255);}" expandT="true" layout.height="20" layout.width="20" rect="189,109,60,25" showT="true" transparent="true" />
+				<buttonUI bkInfoM="{99:1.9.9;98:16(0,1)32(0,1)64(0,1);5:2(48)3(10,2,100,100)20(1)21(3)26(0)22(-8355712)23(255);5:2(48)3(2,10,2,10)20(1)21(3)26(0)22(-8355712)23(255);}" expandT="true" layout.height="20" layout.width="20" rect="209,129,60,25" showT="true" transparent="true" />
+			</layoutEleUI>
+			<buttonUI bkInfoM="{99:1.9.9;98:16(0)32(0)64(0);3:2(15)4(@顺序播放.png);}" expandT="true" layout.height="30" layout.width="30" rect="209,129,60,25" showT="true" transparent="true" />
+			<buttonUI bkInfoM="{99:1.9.9;98:16(0)32(0)64(0);3:2(15)4(@上一曲_按下.png);}" expandT="true" layout.height="30" layout.width="30" rect="229,149,60,25" showT="true" transparent="true" />
+			<buttonUI bkInfoM="{99:1.9.9;98:16(0)32(0)64(0);3:2(15)4(@播放暂停.png);}" expandT="true" layout.height="30" layout.width="30" rect="249,169,60,25" showT="true" transparent="true" />
+			<buttonUI bkInfoM="{99:1.9.9;98:16(0)32(0)64(0);3:2(15)4(@下一曲_按下.png);}" expandT="true" layout.height="30" layout.width="30" rect="269,189,60,25" showT="true" transparent="true" />
+			<buttonUI bkInfoM="{99:1.9.9;98:16(0)32(0)64(0);3:2(15)4(@播放列表.png);}" expandT="true" layout.float="true" layout.height="30" layout.width="30" rect="229,149,60,25" showT="true" transparent="true" />
+			<buttonUI bkInfoM="{99:1.9.9;98:16(0)32(0)64(0);3:2(15)4(@听歌辩曲.png);}" expandT="true" layout.float="true" layout.height="30" layout.width="30" rect="249,169,60,25" showT="true" transparent="true" />
+		</layoutEleUI>
+	</layoutEleUI>
+</windowUI>

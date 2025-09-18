@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--炫彩界面库-窗口布局文件-->
+<head>
+	<bindJsFile value="" />
+</head>
+<windowUI center="true" content="动画特效演示" layout.horizon="false" rect="20,20,1020,650" showT="true" windowStyle="2031">
+	<layoutEleUI layout.height="fill" layout.width="fill" rect="158,377,100,100" showT="true" transparent="true" expandT="true">
+		<layoutEleUI layout.height="fill" padding="0,5" rect="82,182,100,100" showT="true" expandT="false">
+			<buttonUI content="1.下落 缩放 缓动" groupID="1" layout.height="30" layout.width="fill" name="global:btn1" rect="36,30,60,25" showT="true" textAlign="DT_LEFT,DT_VCENTER,DT_SINGLELINE" expandT="true" />
+			<buttonUI content="2.下落 呼吸SVG" groupID="1" layout.height="30" layout.width="fill" name="global:btn2" rect="56,50,60,25" showT="true" textAlign="DT_LEFT,DT_VCENTER,DT_SINGLELINE" expandT="true" />
+			<buttonUI content="3.呼吸SVG" groupID="1" layout.height="30" layout.width="fill" name="global:btn3" rect="76,70,60,25" showT="true" textAlign="DT_LEFT,DT_VCENTER,DT_SINGLELINE" expandT="true" />
+			<buttonUI content="4.不透明度SVG" groupID="1" layout.height="30" layout.width="fill" name="global:btn4" rect="96,90,60,25" showT="true" textAlign="DT_LEFT,DT_VCENTER,DT_SINGLELINE" expandT="true" />
+			<buttonUI content="5.移动SVG" groupID="1" layout.height="30" layout.width="fill" name="global:btn5" rect="116,110,60,25" showT="true" textAlign="DT_LEFT,DT_VCENTER,DT_SINGLELINE" expandT="true" />
+			<buttonUI content="6.形状文本" groupID="1" layout.height="30" layout.width="fill" name="global:btn6" rect="136,130,60,25" showT="true" textAlign="DT_LEFT,DT_VCENTER,DT_SINGLELINE" expandT="true" />
+			<buttonUI content="7.按钮" groupID="1" layout.height="30" layout.width="fill" name="global:btn7" rect="156,150,60,25" showT="true" textAlign="DT_LEFT,DT_VCENTER,DT_SINGLELINE" expandT="true" />
+			<buttonUI content="8.布局焦点展开" groupID="1" layout.height="30" layout.width="fill" name="global:btn8" rect="176,170,60,25" showT="true" textAlign="DT_LEFT,DT_VCENTER,DT_SINGLELINE" expandT="true" />
+			<buttonUI content="9.图片切换" groupID="1" layout.height="30" layout.width="fill" name="global:btn9" rect="196,190,60,25" showT="true" textAlign="DT_LEFT,DT_VCENTER,DT_SINGLELINE" expandT="true" />
+			<buttonUI content="10.图片切换2" groupID="1" layout.height="30" layout.width="fill" name="global:btn10" rect="216,210,60,25" showT="true" textAlign="DT_LEFT,DT_VCENTER,DT_SINGLELINE" expandT="true" />
+			<buttonUI content="11.进度 等待" groupID="1" layout.height="30" layout.width="fill" name="global:btn11" rect="236,230,60,25" showT="true" textAlign="DT_LEFT,DT_VCENTER,DT_SINGLELINE" expandT="true" />
+			<buttonUI content="12.旋转 移动" groupID="1" layout.height="30" layout.width="fill" name="global:btn12" rect="256,250,60,25" showT="true" textAlign="DT_LEFT,DT_VCENTER,DT_SINGLELINE" expandT="true" />
+			<buttonUI content="13.旋转 摇摆" groupID="1" layout.height="30" layout.width="fill" name="global:btn13" rect="276,270,60,25" showT="true" textAlign="DT_LEFT,DT_VCENTER,DT_SINGLELINE" expandT="true" />
+			<buttonUI content="14.旋转 移动 缩放" groupID="1" layout.height="30" layout.width="fill" name="global:btn14" rect="296,290,60,25" showT="true" textAlign="DT_LEFT,DT_VCENTER,DT_SINGLELINE" expandT="true" />
+			<buttonUI content="15.旋转 开合效果" groupID="1" layout.height="30" layout.width="fill" name="global:btn15" rect="316,310,60,25" showT="true" textAlign="DT_LEFT,DT_VCENTER,DT_SINGLELINE" expandT="true" />
+			<buttonUI content="16.颜色渐变" groupID="1" layout.height="30" layout.width="fill" name="global:btn16" rect="336,330,110,31" showT="true" textAlign="DT_LEFT,DT_VCENTER,DT_SINGLELINE" expandT="true" />
+			<buttonUI content="17.缩放 位置" groupID="1" layout.height="30" layout.width="fill" name="global:btn17" rect="356,350,60,25" showT="true" textAlign="DT_LEFT,DT_VCENTER,DT_SINGLELINE" expandT="true" />
+			<buttonUI content="18.按钮 宽度" groupID="1" layout.height="30" layout.width="fill" name="global:btn18" rect="376,370,60,25" showT="true" textAlign="DT_LEFT,DT_VCENTER,DT_SINGLELINE" expandT="true" />
+		</layoutEleUI>
+		<layoutEleUI layout.height="fill" layout.width=":1" name="global:layoutMain" rect="219,66,100,100" showT="true" transparent="true" expandT="true" />
+		<layoutEleUI layout.align="auto" layout.float="true" layout.height="fill" layout.margin="0,5" layout.width="110" rect="689,167,100,100" showT="true" expandT="true">
+			<buttonUI content="19.窗口特效" groupID="1" layout.height="30" layout.width="fill" name="global:btn19" rect="56,50,60,25" showT="true" textAlign="DT_LEFT,DT_VCENTER,DT_SINGLELINE" expandT="true" />
+			<buttonUI content="20.遮盖弹窗" groupID="1" layout.height="30" layout.width="fill" name="global:btn20" rect="76,70,60,25" showT="true" textAlign="DT_LEFT,DT_VCENTER,DT_SINGLELINE" expandT="true" />
+			<buttonUI content="21.通知消息" groupID="1" layout.height="30" layout.width="fill" name="global:btn21" rect="96,90,60,25" showT="true" textAlign="DT_LEFT,DT_VCENTER,DT_SINGLELINE" expandT="true" />
+			<buttonUI content="22.进度条" groupID="1" layout.height="30" layout.width="fill" name="global:btn22" rect="116,110,60,25" showT="true" textAlign="DT_LEFT,DT_VCENTER,DT_SINGLELINE" expandT="true" />
+			<buttonUI content="23.焦点追踪" groupID="1" layout.height="30" layout.width="fill" name="global:btn23" rect="136,130,60,25" showT="true" textAlign="DT_LEFT,DT_VCENTER,DT_SINGLELINE" expandT="true" />
+			<buttonUI content="24.页面切换 滑动" groupID="1" layout.height="30" layout.width="fill" name="global:btn24" rect="156,150,60,25" showT="true" textAlign="DT_LEFT,DT_VCENTER,DT_SINGLELINE" expandT="true" />
+			<buttonUI content="25.折叠面板" groupID="1" layout.height="30" layout.width="fill" name="global:btn25" rect="176,170,60,25" showT="true" textAlign="DT_LEFT,DT_VCENTER,DT_SINGLELINE" expandT="true" />
+			<buttonUI content="26.图片轮播" groupID="1" layout.height="30" layout.width="fill" name="global:btn26" rect="196,190,60,25" showT="true" textAlign="DT_LEFT,DT_VCENTER,DT_SINGLELINE" expandT="true" />
+			<buttonUI content="27.背景管理器" groupID="1" layout.height="30" layout.width="fill" name="global:btn27" rect="216,210,60,25" showT="true" textAlign="DT_LEFT,DT_VCENTER,DT_SINGLELINE" expandT="true" />
+		</layoutEleUI>
+	</layoutEleUI>
+</windowUI>
