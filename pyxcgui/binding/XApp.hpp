@@ -65,6 +65,17 @@ namespace xcgui {
 			.def_static("trayIconSetCallbackMessage", [](unsigned int userMessage) {
 				XTrayIcon_SetCallbackMessage((UINT)userMessage);
 			}, "userMessage"_a)
+
+			// 加载图标文件
+			.def_static("loadIcon", [](const std::wstring& filePath) -> uintptr_t {
+				HICON hIcon = (HICON)LoadImageW(NULL, filePath.c_str(), IMAGE_ICON, 0, 0, LR_LOADFROMFILE | LR_DEFAULTSIZE);
+				return (uintptr_t)hIcon;
+			}, "filePath"_a)
+
+			// 3.3.9 新增 - 系统功能
+			.def_static("getHandleCount", []() {
+				return XC_GetHandleCount();
+			})
 			;
 	}
 }

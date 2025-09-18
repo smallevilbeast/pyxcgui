@@ -261,6 +261,14 @@ namespace xcgui {
 			.def("deleteColumnGroup", &XCListView::DeleteColumnGroup, "column"_a)
 			.def("deleteColumnItem", &XCListView::DeleteColumnItem, "column"_a)
 			.def("setDragRectColor", &XCListView::SetDragRectColor, "color"_a, "width"_a)
+
+			// 3.3.9 新增 - 虚拟表格功能
+			.def("enableVirtualTable", [](XCListView& self, bool enable) {
+				XListView_EnableVirtualTable(self.getEleHandle(), enable);
+			}, "enable"_a)
+			.def("setVirtualItemCount", [](XCListView& self, int group, int count) {
+				return XListView_SetVirtualItemCount(self.getEleHandle(), group, count);
+			}, "group"_a, "count"_a)
 			;
 	}
 }

@@ -321,6 +321,11 @@ namespace xcgui {
 			.def("notifyMsgWindowPopupEx", &XCWindow::NotifyMsgWindowPopupEx, "position"_a, "title"_a, "text"_a, "icon"_a, "skin"_a,
 				"btnClose"_a, "autoClose"_a, "width"_a, "height"_a)
 
+			// 3.3.9 新增 - 窗口销毁
+			.def("destroyWindow", [](XCWindow& self) {
+				XWnd_DestroyWindow(self.GetWindowHandle());
+			})
+
 			;
 	}
 }

@@ -311,6 +311,104 @@ namespace xcgui {
 			.def("getCount_AD", &XCList::GetCount_AD)
 			.def("getCountColumn_AD", &XCList::GetCountColumn_AD)
 			.def("setDragRectColor", &XCList::SetDragRectColor, "color"_a, "width"_a)
+
+			// 3.3.9 新增 - 虚拟表格功能
+			.def("enableVirtualTable", [](XCList& self, bool enable) {
+				XList_EnableVirtualTable(self.getEleHandle(), enable);
+			}, "enable"_a)
+			.def("setVirtualRowCount", [](XCList& self, int rowCount) {
+				XList_SetVirtualRowCount(self.getEleHandle(), rowCount);
+			}, "rowCount"_a)
+
+			// 3.3.9 新增 - 行操作增强功能
+			.def("addRowText", [](XCList& self, const std::wstring& text) {
+				return XList_AddRowText(self.getEleHandle(), text.c_str());
+			}, "text"_a)
+			.def("addRowTextEx", [](XCList& self, const std::wstring& name, const std::wstring& text) {
+				return XList_AddRowTextEx(self.getEleHandle(), name.c_str(), text.c_str());
+			}, "name"_a, "text"_a)
+			.def("addRowImage", [](XCList& self, const XCImage& image) {
+				return XList_AddRowImage(self.getEleHandle(), image.getImageHandle());
+			}, "image"_a)
+			.def("addRowImageEx", [](XCList& self, const std::wstring& name, const XCImage& image) {
+				return XList_AddRowImageEx(self.getEleHandle(), name.c_str(), image.getImageHandle());
+			}, "name"_a, "image"_a)
+
+			.def("insertRowText", [](XCList& self, int row, const std::wstring& value) {
+				return XList_InsertRowText(self.getEleHandle(), row, value.c_str());
+			}, "row"_a, "value"_a)
+			.def("insertRowTextEx", [](XCList& self, int row, const std::wstring& name, const std::wstring& value) {
+				return XList_InsertRowTextEx(self.getEleHandle(), row, name.c_str(), value.c_str());
+			}, "row"_a, "name"_a, "value"_a)
+			.def("insertRowImage", [](XCList& self, int row, const XCImage& image) {
+				return XList_InsertRowImage(self.getEleHandle(), row, image.getImageHandle());
+			}, "row"_a, "image"_a)
+			.def("insertRowImageEx", [](XCList& self, int row, const std::wstring& name, const XCImage& image) {
+				return XList_InsertRowImageEx(self.getEleHandle(), row, name.c_str(), image.getImageHandle());
+			}, "row"_a, "name"_a, "image"_a)
+
+			.def("deleteRow", [](XCList& self, int row) {
+				return XList_DeleteRow(self.getEleHandle(), row);
+			}, "row"_a)
+			.def("deleteRowEx", [](XCList& self, int row, int count) {
+				return XList_DeleteRowEx(self.getEleHandle(), row, count);
+			}, "row"_a, "count"_a)
+			.def("deleteRowAll", [](XCList& self) {
+				XList_DeleteRowAll(self.getEleHandle());
+			})
+
+			// 3.3.9 新增 - 选择操作
+			.def("setSelectRow", [](XCList& self, int row) {
+				return XList_SetSelectRow(self.getEleHandle(), row);
+			}, "row"_a)
+			.def("getSelectRow", [](XCList& self) {
+				return XList_GetSelectRow(self.getEleHandle());
+			})
+			.def("getSelectRowCount", [](XCList& self) {
+				return XList_GetSelectRowCount(self.getEleHandle());
+			})
+			.def("addSelectRow", [](XCList& self, int row) {
+				return XList_AddSelectRow(self.getEleHandle(), row);
+			}, "row"_a)
+			.def("visibleRow", [](XCList& self, int row) {
+				XList_VisibleRow(self.getEleHandle(), row);
+			}, "row"_a)
+			.def("cancelSelectRow", [](XCList& self, int row) {
+				return XList_CancelSelectRow(self.getEleHandle(), row);
+			}, "row"_a)
+
+			// 3.3.9 新增 - 索引和属性操作
+			.def("getRowIndexFromHXCGUI", [](XCList& self, uintptr_t hXCGUI) {
+				return XList_GetRowIndexFromHXCGUI(self.getEleHandle(), (HXCGUI)hXCGUI);
+			}, "hXCGUI"_a)
+			.def("getHeaderColumnIndexFromHXCGUI", [](XCList& self, uintptr_t hXCGUI) {
+				return XList_GetHeaderColumnIndexFromHXCGUI(self.getEleHandle(), (HXCGUI)hXCGUI);
+			}, "hXCGUI"_a)
+			.def("setRowHeightDefault", [](XCList& self, int height, int selHeight) {
+				XList_SetRowHeightDefault(self.getEleHandle(), height, selHeight);
+			}, "height"_a, "selHeight"_a)
+			.def("getRowHeightDefault", [](XCList& self) {
+				int height, selHeight;
+				XList_GetRowHeightDefault(self.getEleHandle(), &height, &selHeight);
+				return py::make_tuple(height, selHeight);
+			})
+			.def("setRowHeight", [](XCList& self, int row, int height, int selHeight) {
+				XList_SetRowHeight(self.getEleHandle(), row, height, selHeight);
+			}, "row"_a, "height"_a, "selHeight"_a)
+			.def("getRowHeight", [](XCList& self, int row) {
+				int height, selHeight;
+				XList_GetRowHeight(self.getEleHandle(), row, &height, &selHeight);
+				return py::make_tuple(height, selHeight);
+			}, "row"_a)
+			.def("enableRowBkFull", [](XCList& self, bool full) {
+				XList_EnableRowBkFull(self.getEleHandle(), full);
+			}, "full"_a)
+			.def("setDrawRowBkFlags", [](XCList& self, int style) {
+				XList_SetDrawRowBkFlags(self.getEleHandle(), style);
+			}, "style"_a)
+			.def("refreshRow", [](XCList& self, int row) {
+				XList_RefreshRow(self.getEleHandle(), row);
+			}, "row"_a)
 			;
 	}
 }

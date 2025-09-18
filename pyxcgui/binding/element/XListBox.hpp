@@ -239,6 +239,14 @@ namespace xcgui {
 			.def("getCount_AD", &XCListBox::GetCount_AD)
 			.def("getCountColumn_AD", &XCListBox::GetCountColumn_AD)
 			.def("setDragRectColor", &XCListBox::SetDragRectColor, "color"_a, "width"_a)
+
+			// 3.3.9 新增 - 虚拟表格功能
+			.def("enableVirtualTable", [](XCListBox& self, bool enable) {
+				XListBox_EnableVirtualTable(self.getEleHandle(), enable);
+			}, "enable"_a)
+			.def("setVirtualRowCount", [](XCListBox& self, int rowCount) {
+				XListBox_SetVirtualRowCount(self.getEleHandle(), rowCount);
+			}, "rowCount"_a)
 			;
 	}
 }

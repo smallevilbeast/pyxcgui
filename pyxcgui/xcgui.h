@@ -4407,14 +4407,328 @@ XC_API HFONTX WINAPI XFont_CreateFromZipMem(void* data, int length, const wchar_
 //XC_API HXCGUI WINAPI XList_CreateAdapter(HELE hEle, int col_extend_count=0);
 
 // 3.3.8.1 新增 - 托盘图标函数
+/// @brief 重置托盘图标系统，清理所有托盘图标
 XC_API void WINAPI XTrayIcon_Reset();
+
+/// @brief 添加托盘图标到系统托盘
+/// @param hWindow 窗口句柄
+/// @param id 托盘图标唯一标识符
+/// @return 成功返回TRUE，失败返回FALSE
 XC_API BOOL WINAPI XTrayIcon_Add(HWINDOW hWindow, int id);
+
+/// @brief 删除当前托盘图标
+/// @return 成功返回TRUE，失败返回FALSE
 XC_API BOOL WINAPI XTrayIcon_Del();
+
+/// @brief 修改托盘图标属性
+/// @return 成功返回TRUE，失败返回FALSE
 XC_API BOOL WINAPI XTrayIcon_Modify();
+
+/// @brief 设置托盘图标的图标
+/// @param hIcon 图标句柄
 XC_API void WINAPI XTrayIcon_SetIcon(HICON hIcon);
+
+/// @brief 设置托盘图标获取焦点
+/// @return 成功返回TRUE，失败返回FALSE
 XC_API BOOL WINAPI XTrayIcon_SetFocus();
+
+/// @brief 设置托盘图标的提示文本
+/// @param pTips 提示文本字符串
 XC_API void WINAPI XTrayIcon_SetTips(const wchar_t* pTips);
+
+/// @brief 显示托盘图标的气球提示
+/// @param pTitle 气球标题
+/// @param pText 气球内容文本
+/// @param hBalloonIcon 气球图标句柄（可选，默认NULL）
+/// @param flags 气球标志位（默认0）
 XC_API void WINAPI XTrayIcon_SetPopupBalloon(const wchar_t* pTitle, const wchar_t* pText, HICON hBalloonIcon = NULL, int flags = 0);
+
+/// @brief 设置托盘图标回调消息
+/// @param user_message 用户自定义消息ID
 XC_API void WINAPI XTrayIcon_SetCallbackMessage(UINT user_message);
+
+// 3.3.9 新增函数
+// 窗口和系统功能
+/// @brief 立即销毁指定窗口
+/// @param hWindow 要销毁的窗口句柄
+XC_API void WINAPI XWnd_DestroyWindow(HWINDOW hWindow);
+
+/// @brief 获取当前XCGUI系统中活动句柄的数量
+/// @return 活动句柄数量
+XC_API int WINAPI XC_GetHandleCount();
+
+// 虚拟表格功能
+/// @brief 启用或禁用XList的虚拟表格模式（用于大数据集优化）
+/// @param hEle 列表元素句柄
+/// @param bEnable TRUE启用虚拟表格，FALSE禁用
+XC_API void WINAPI XList_EnableVirtualTable(HELE hEle, BOOL bEnable);
+
+/// @brief 设置虚拟表格的行数
+/// @param hEle 列表元素句柄
+/// @param nRowCount 虚拟行数
+XC_API void WINAPI XList_SetVirtualRowCount(HELE hEle, int nRowCount);
+
+/// @brief 启用或禁用XListBox的虚拟表格模式
+/// @param hEle 列表框元素句柄
+/// @param bEnable TRUE启用虚拟表格，FALSE禁用
+XC_API void WINAPI XListBox_EnableVirtualTable(HELE hEle, BOOL bEnable);
+
+/// @brief 设置XListBox虚拟表格的行数
+/// @param hEle 列表框元素句柄
+/// @param nRowCount 虚拟行数
+XC_API void WINAPI XListBox_SetVirtualRowCount(HELE hEle, int nRowCount);
+
+/// @brief 启用或禁用XListView的虚拟表格模式
+/// @param hEle 列表视图元素句柄
+/// @param bEnable TRUE启用虚拟表格，FALSE禁用
+XC_API void WINAPI XListView_EnableVirtualTable(HELE hEle, BOOL bEnable);
+
+/// @brief 设置XListView虚拟表格中指定组的项目数量
+/// @param hEle 列表视图元素句柄
+/// @param iGroup 组索引
+/// @param nCount 项目数量
+/// @return 成功返回TRUE，失败返回FALSE
+XC_API BOOL WINAPI XListView_SetVirtualItemCount(HELE hEle, int iGroup, int nCount);
+
+// XList 行操作增强功能
+/// @brief 向XList添加文本行
+/// @param hEle 列表元素句柄
+/// @param pText 文本内容
+/// @return 新添加行的索引
+XC_API int WINAPI XList_AddRowText(HELE hEle, const wchar_t* pText);
+
+/// @brief 向XList指定列添加文本行（按列名）
+/// @param hEle 列表元素句柄
+/// @param pName 列名
+/// @param pText 文本内容
+/// @return 新添加行的索引
+XC_API int WINAPI XList_AddRowTextEx(HELE hEle, const wchar_t* pName, const wchar_t* pText);
+
+/// @brief 向XList添加图像行
+/// @param hEle 列表元素句柄
+/// @param hImage 图像句柄
+/// @return 新添加行的索引
+XC_API int WINAPI XList_AddRowImage(HELE hEle, HIMAGE hImage);
+
+/// @brief 向XList指定列添加图像行（按列名）
+/// @param hEle 列表元素句柄
+/// @param pName 列名
+/// @param hImage 图像句柄
+/// @return 新添加行的索引
+XC_API int WINAPI XList_AddRowImageEx(HELE hEle, const wchar_t* pName, HIMAGE hImage);
+
+/// @brief 在XList指定位置插入文本行
+/// @param hEle 列表元素句柄
+/// @param iRow 插入位置（行索引）
+/// @param pValue 文本内容
+/// @return 插入行的索引
+XC_API int WINAPI XList_InsertRowText(HELE hEle, int iRow, const wchar_t* pValue);
+
+/// @brief 在XList指定位置和列插入文本行（按列名）
+/// @param hEle 列表元素句柄
+/// @param iRow 插入位置（行索引）
+/// @param pName 列名
+/// @param pValue 文本内容
+/// @return 插入行的索引
+XC_API int WINAPI XList_InsertRowTextEx(HELE hEle, int iRow, const wchar_t* pName, const wchar_t* pValue);
+
+/// @brief 在XList指定位置插入图像行
+/// @param hEle 列表元素句柄
+/// @param iRow 插入位置（行索引）
+/// @param hImage 图像句柄
+/// @return 插入行的索引
+XC_API int WINAPI XList_InsertRowImage(HELE hEle, int iRow, HIMAGE hImage);
+
+/// @brief 在XList指定位置和列插入图像行（按列名）
+/// @param hEle 列表元素句柄
+/// @param iRow 插入位置（行索引）
+/// @param pName 列名
+/// @param hImage 图像句柄
+/// @return 插入行的索引
+XC_API int WINAPI XList_InsertRowImageEx(HELE hEle, int iRow, const wchar_t* pName, HIMAGE hImage);
+
+/// @brief 删除XList中的指定行
+/// @param hEle 列表元素句柄
+/// @param iRow 行索引
+/// @return 成功返回TRUE，失败返回FALSE
+XC_API BOOL WINAPI XList_DeleteRow(HELE hEle, int iRow);
+
+/// @brief 删除XList中的多行
+/// @param hEle 列表元素句柄
+/// @param iRow 起始行索引
+/// @param nCount 删除行数
+/// @return 成功返回TRUE，失败返回FALSE
+XC_API BOOL WINAPI XList_DeleteRowEx(HELE hEle, int iRow, int nCount);
+
+/// @brief 删除XList中的所有行
+/// @param hEle 列表元素句柄
+XC_API void WINAPI XList_DeleteRowAll(HELE hEle);
+
+// XList 选择操作
+/// @brief 设置XList的选中行
+/// @param hEle 列表元素句柄
+/// @param iRow 行索引
+/// @return 成功返回TRUE，失败返回FALSE
+XC_API BOOL WINAPI XList_SetSelectRow(HELE hEle, int iRow);
+
+/// @brief 获取XList当前选中行
+/// @param hEle 列表元素句柄
+/// @return 选中行索引，-1表示无选中
+XC_API int WINAPI XList_GetSelectRow(HELE hEle);
+
+/// @brief 获取XList选中行的数量
+/// @param hEle 列表元素句柄
+/// @return 选中行数量
+XC_API int WINAPI XList_GetSelectRowCount(HELE hEle);
+
+/// @brief 添加选中行（多选模式）
+/// @param hEle 列表元素句柄
+/// @param iRow 行索引
+/// @return 成功返回TRUE，失败返回FALSE
+XC_API BOOL WINAPI XList_AddSelectRow(HELE hEle, int iRow);
+
+/// @brief 滚动到指定行使其可见
+/// @param hEle 列表元素句柄
+/// @param iRow 目标行索引
+XC_API void WINAPI XList_VisibleRow(HELE hEle, int iRow);
+
+/// @brief 取消选中指定行
+/// @param hEle 列表元素句柄
+/// @param iRow 行索引
+/// @return 成功返回TRUE，失败返回FALSE
+XC_API BOOL WINAPI XList_CancelSelectRow(HELE hEle, int iRow);
+
+// XList 索引和属性操作
+/// @brief 根据UI元素句柄获取所在行的索引
+/// @param hEle 列表元素句柄
+/// @param hXCGUI UI元素句柄
+/// @return 行索引，-1表示未找到
+XC_API int WINAPI XList_GetRowIndexFromHXCGUI(HELE hEle, HXCGUI hXCGUI);
+
+/// @brief 根据UI元素句柄获取所在列头的索引
+/// @param hEle 列表元素句柄
+/// @param hXCGUI UI元素句柄
+/// @return 列索引，-1表示未找到
+XC_API int WINAPI XList_GetHeaderColumnIndexFromHXCGUI(HELE hEle, HXCGUI hXCGUI);
+
+/// @brief 设置默认行高
+/// @param hEle 列表元素句柄
+/// @param nHeight 普通行高度
+/// @param nSelHeight 选中行高度
+XC_API void WINAPI XList_SetRowHeightDefault(HELE hEle, int nHeight, int nSelHeight);
+
+/// @brief 获取默认行高
+/// @param hEle 列表元素句柄
+/// @param pHeight 普通行高度输出指针
+/// @param pSelHeight 选中行高度输出指针
+XC_API void WINAPI XList_GetRowHeightDefault(HELE hEle, int* pHeight, int* pSelHeight);
+
+/// @brief 设置指定行的高度
+/// @param hEle 列表元素句柄
+/// @param iRow 行索引
+/// @param nHeight 普通行高度
+/// @param nSelHeight 选中行高度
+XC_API void WINAPI XList_SetRowHeight(HELE hEle, int iRow, int nHeight, int nSelHeight);
+
+/// @brief 获取指定行的高度
+/// @param hEle 列表元素句柄
+/// @param iRow 行索引
+/// @param pHeight 普通行高度输出指针
+/// @param pSelHeight 选中行高度输出指针
+XC_API void WINAPI XList_GetRowHeight(HELE hEle, int iRow, int* pHeight, int* pSelHeight);
+
+/// @brief 启用或禁用行背景全宽显示
+/// @param hEle 列表元素句柄
+/// @param bFull TRUE启用全宽，FALSE禁用
+XC_API void WINAPI XList_EnableRowBkFull(HELE hEle, BOOL bFull);
+
+/// @brief 设置行背景绘制标志
+/// @param hEle 列表元素句柄
+/// @param style 绘制样式标志
+XC_API void WINAPI XList_SetDrawRowBkFlags(HELE hEle, int style);
+
+/// @brief 刷新指定行
+/// @param hEle 列表元素句柄
+/// @param iRow 行索引
+XC_API void WINAPI XList_RefreshRow(HELE hEle, int iRow);
+
+// XAdTable 适配器表格功能 - 行操作增强
+/// @brief 向适配器表格添加文本行
+/// @param hAdapter 适配器表格句柄
+/// @param pValue 文本内容
+/// @return 新添加行的索引
+XC_API int WINAPI XAdTable_AddRowText(HXCGUI hAdapter, const wchar_t* pValue);
+
+/// @brief 向适配器表格指定列添加文本行（按列名）
+/// @param hAdapter 适配器表格句柄
+/// @param pName 列名
+/// @param pValue 文本内容
+/// @return 新添加行的索引
+XC_API int WINAPI XAdTable_AddRowTextEx(HXCGUI hAdapter, const wchar_t* pName, const wchar_t* pValue);
+
+/// @brief 向适配器表格添加图像行
+/// @param hAdapter 适配器表格句柄
+/// @param hImage 图像句柄
+/// @return 新添加行的索引
+XC_API int WINAPI XAdTable_AddRowImage(HXCGUI hAdapter, HIMAGE hImage);
+
+/// @brief 向适配器表格指定列添加图像行（按列名）
+/// @param hAdapter 适配器表格句柄
+/// @param pName 列名
+/// @param hImage 图像句柄
+/// @return 新添加行的索引
+XC_API int WINAPI XAdTable_AddRowImageEx(HXCGUI hAdapter, const wchar_t* pName, HIMAGE hImage);
+
+/// @brief 在适配器表格指定位置插入文本行
+/// @param hAdapter 适配器表格句柄
+/// @param iRow 插入位置（行索引）
+/// @param pValue 文本内容
+/// @return 插入行的索引
+XC_API int WINAPI XAdTable_InsertRowText(HXCGUI hAdapter, int iRow, const wchar_t* pValue);
+
+/// @brief 在适配器表格指定位置和列插入文本行（按列名）
+/// @param hAdapter 适配器表格句柄
+/// @param iRow 插入位置（行索引）
+/// @param pName 列名
+/// @param pValue 文本内容
+/// @return 插入行的索引
+XC_API int WINAPI XAdTable_InsertRowTextEx(HXCGUI hAdapter, int iRow, const wchar_t* pName, const wchar_t* pValue);
+
+/// @brief 在适配器表格指定位置插入图像行
+/// @param hAdapter 适配器表格句柄
+/// @param iRow 插入位置（行索引）
+/// @param hImage 图像句柄
+/// @return 插入行的索引
+XC_API int WINAPI XAdTable_InsertRowImage(HXCGUI hAdapter, int iRow, HIMAGE hImage);
+
+/// @brief 在适配器表格指定位置和列插入图像行（按列名）
+/// @param hAdapter 适配器表格句柄
+/// @param iRow 插入位置（行索引）
+/// @param pName 列名
+/// @param hImage 图像句柄
+/// @return 插入行的索引
+XC_API int WINAPI XAdTable_InsertRowImageEx(HXCGUI hAdapter, int iRow, const wchar_t* pName, HIMAGE hImage);
+
+/// @brief 删除适配器表格中的指定行
+/// @param hAdapter 适配器表格句柄
+/// @param iRow 行索引
+/// @return 成功返回TRUE，失败返回FALSE
+XC_API BOOL WINAPI XAdTable_DeleteRow(HXCGUI hAdapter, int iRow);
+
+/// @brief 删除适配器表格中的多行
+/// @param hAdapter 适配器表格句柄
+/// @param iRow 起始行索引
+/// @param nCount 删除行数
+/// @return 成功返回TRUE，失败返回FALSE
+XC_API BOOL WINAPI XAdTable_DeleteRowEx(HXCGUI hAdapter, int iRow, int nCount);
+
+/// @brief 删除适配器表格中的所有行
+/// @param hAdapter 适配器表格句柄
+XC_API void WINAPI XAdTable_DeleteRowAll(HXCGUI hAdapter);
+
+/// @brief 获取适配器表格的行数
+/// @param hAdapter 适配器表格句柄
+/// @return 行数
+XC_API int WINAPI XAdTable_GetCountRow(HXCGUI hAdapter);
 
 

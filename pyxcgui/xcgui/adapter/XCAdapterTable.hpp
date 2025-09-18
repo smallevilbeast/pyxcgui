@@ -397,6 +397,81 @@ namespace xcgui {
 		bool GetItemFloatEx(int iItem, const std::wstring& name, float* pOutValue) {
 			return XAdTable_GetItemFloatEx(m_handle, iItem, name.c_str(), pOutValue);
 		}
+
+		// 3.3.9 新增 - 行操作功能
+		/**
+		 * @brief 添加文本行到适配器表格末尾
+		 *
+		 * @param value 文本内容
+		 * @return 新添加行的索引
+		 */
+		int AddRowText(const std::wstring& value) {
+			return XAdTable_AddRowText(m_handle, value.c_str());
+		}
+
+		/**
+		 * @brief 添加文本行到指定列（按列名）
+		 *
+		 * @param name 列名
+		 * @param value 文本内容
+		 * @return 新添加行的索引
+		 */
+		int AddRowTextEx(const std::wstring& name, const std::wstring& value) {
+			return XAdTable_AddRowTextEx(m_handle, name.c_str(), value.c_str());
+		}
+
+		/**
+		 * @brief 添加图像行到适配器表格末尾
+		 *
+		 * @param hImage 图像句柄
+		 * @return 新添加行的索引
+		 */
+		int AddRowImage(HIMAGE hImage) {
+			return XAdTable_AddRowImage(m_handle, hImage);
+		}
+
+		/**
+		 * @brief 添加图像行到指定列（按列名）
+		 *
+		 * @param name 列名
+		 * @param hImage 图像句柄
+		 * @return 新添加行的索引
+		 */
+		int AddRowImageEx(const std::wstring& name, HIMAGE hImage) {
+			return XAdTable_AddRowImageEx(m_handle, name.c_str(), hImage);
+		}
+
+		int InsertRowText(int iRow, const std::wstring& value) {
+			return XAdTable_InsertRowText(m_handle, iRow, value.c_str());
+		}
+
+		int InsertRowTextEx(int iRow, const std::wstring& name, const std::wstring& value) {
+			return XAdTable_InsertRowTextEx(m_handle, iRow, name.c_str(), value.c_str());
+		}
+
+		int InsertRowImage(int iRow, HIMAGE hImage) {
+			return XAdTable_InsertRowImage(m_handle, iRow, hImage);
+		}
+
+		int InsertRowImageEx(int iRow, const std::wstring& name, HIMAGE hImage) {
+			return XAdTable_InsertRowImageEx(m_handle, iRow, name.c_str(), hImage);
+		}
+
+		bool DeleteRow(int iRow) {
+			return XAdTable_DeleteRow(m_handle, iRow);
+		}
+
+		bool DeleteRowEx(int iRow, int nCount) {
+			return XAdTable_DeleteRowEx(m_handle, iRow, nCount);
+		}
+
+		void DeleteRowAll() {
+			XAdTable_DeleteRowAll(m_handle);
+		}
+
+		int GetCountRow() {
+			return XAdTable_GetCountRow(m_handle);
+		}
 	};
 
 }

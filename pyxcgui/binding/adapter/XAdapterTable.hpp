@@ -102,7 +102,31 @@ namespace xcgui {
 				float value = -1;
 				self.GetItemFloatEx(item, name, &value);
 				return value;
-			}, "item"_a, "name"_a)			
+			}, "item"_a, "name"_a)
+
+			// 3.3.9 新增 - 行操作功能
+			.def("addRowText", &XCAdapterTable::AddRowText, "value"_a)
+			.def("addRowTextEx", &XCAdapterTable::AddRowTextEx, "name"_a, "value"_a)
+			.def("addRowImage", [](XCAdapterTable& self, const XCImage& image) {
+				return self.AddRowImage(image.getImageHandle());
+			}, "image"_a)
+			.def("addRowImageEx", [](XCAdapterTable& self, const std::wstring& name, const XCImage& image) {
+				return self.AddRowImageEx(name, image.getImageHandle());
+			}, "name"_a, "image"_a)
+
+			.def("insertRowText", &XCAdapterTable::InsertRowText, "row"_a, "value"_a)
+			.def("insertRowTextEx", &XCAdapterTable::InsertRowTextEx, "row"_a, "name"_a, "value"_a)
+			.def("insertRowImage", [](XCAdapterTable& self, int row, const XCImage& image) {
+				return self.InsertRowImage(row, image.getImageHandle());
+			}, "row"_a, "image"_a)
+			.def("insertRowImageEx", [](XCAdapterTable& self, int row, const std::wstring& name, const XCImage& image) {
+				return self.InsertRowImageEx(row, name, image.getImageHandle());
+			}, "row"_a, "name"_a, "image"_a)
+
+			.def("deleteRow", &XCAdapterTable::DeleteRow, "row"_a)
+			.def("deleteRowEx", &XCAdapterTable::DeleteRowEx, "row"_a, "count"_a)
+			.def("deleteRowAll", &XCAdapterTable::DeleteRowAll)
+			.def("getCountRow", &XCAdapterTable::GetCountRow)
 		;
 	}
 }
