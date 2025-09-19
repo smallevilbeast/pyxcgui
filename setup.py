@@ -204,7 +204,7 @@ extension.extra_compile_cpp_args = extra_compile_cpp_args[target_os]
 
 setup(
     name='xcgui',
-    version='0.1.7',
+    version='0.1.8',
     description='xcgui - bundled xcgui for python',
     long_description="",
     long_description_content_type='text/markdown',
@@ -215,12 +215,11 @@ setup(
     classifiers=[
         'Development Status :: 4 - Beta',
         'License :: OSI Approved :: MIT License',
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
-        'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3.10',
         'Programming Language :: Python :: 3.11',
+        'Programming Language :: Python :: 3.12',
+        'Programming Language :: Python :: 3.13',
     ],
     package_data={"": ["py.typed", "*.pyi"]},
     include_package_data=True,

@@ -55,7 +55,9 @@ namespace xcgui {
 			}, "nId"_a, "column"_a, py::return_value_policy::take_ownership)
 
 			.def("getItemImageEx", [](XCAdapterTree& self,  int nId, const std::wstring& name) {
-				return self.GetItemImageEx(nId, name);
+				auto handle = self.GetItemImageEx(item, name);
+				if (!handle) return nullptr;
+				return new XCImage(handle);
 			}, "nId"_a, "name"_a)
 
 			.def("deleteItem", &XCAdapterTree::DeleteItem, "nId"_a)

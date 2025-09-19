@@ -467,9 +467,11 @@ namespace xcgui {
 		}
 
 		// 置顶
-		void SetTop() { 
-			XWnd_SetTop(GetWindowHandle()); 
+		void SetTop(BOOL bTop=TRUE) { 
+			XWnd_SetTop(GetWindowHandle(), bTop); 
 		}
+
+		
 
 		//  最大化
 		void MaxWindow(bool bMaximize) { 
@@ -631,6 +633,13 @@ namespace xcgui {
 			return (HWINDOW)m_handle;
 		}
 
+		void DestroyWindow()
+		{
+			if (m_handle) {
+				XWnd_DestroyWindow(GetWindowHandle());
+				m_handle = nullptr;
+			}
+		}
 
 
 

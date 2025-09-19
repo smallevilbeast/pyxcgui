@@ -1,10 +1,10 @@
 <h1 align="center">XCGUI for Python</h1>
 <p align="center">
-    <a href="https://github.com/smallevilbeast/pyxcgui/releases"><img src="https://img.shields.io/badge/release-0.1.7-blue.svg?" alt="release"></a>
-    <a href="http://www.xcgui.com"><img src="https://img.shields.io/badge/XCGUI-3.3.5-blue.svg?" alt="XCGUI"></a>
+    <a href="https://github.com/smallevilbeast/pyxcgui/releases"><img src="https://img.shields.io/badge/release-0.1.8-blue.svg?" alt="release"></a>
+    <a href="http://www.xcgui.com"><img src="https://img.shields.io/badge/XCGUI-3.3.9.1-blue.svg?" alt="XCGUI"></a>
     <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-brightgreen.svg?" alt="License"></a>
     <br><br>
-    <a href="https://github.com/smallevilbeast/pyxcgui-example">程序示例</a>&nbsp;&nbsp;
+    <a href="./examples">程序示例</a>&nbsp;&nbsp;
     <a href="http://www.xcgui.com/doc-ui/">官方文档</a>&nbsp;&nbsp;
 	<a href="http://mall.xcgui.com">官方资源</a>
 </p>

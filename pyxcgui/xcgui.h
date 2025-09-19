@@ -3808,7 +3808,6 @@ XC_API void WINAPI XWnd_GetBodyRect(HWINDOW hWindow, out_ RECT* pRect);  //获�
 XC_API void WINAPI XWnd_GetLayoutRect(HWINDOW hWindow, out_ RECT* pRect);
 XC_API void WINAPI XWnd_GetRect(HWINDOW hWindow, out_ RECT* pRect);
 XC_API void WINAPI XWnd_SetRect(HWINDOW hWindow, RECT* pRect);
-XC_API void WINAPI XWnd_SetTop(HWINDOW hWindow);
 XC_API void WINAPI XWnd_MaxWindow(HWINDOW hWindow, BOOL bMaximize);
 XC_API UINT WINAPI XWnd_SetTimer(HWINDOW hWindow, UINT nIDEvent, UINT uElapse); //设置定时器
 XC_API BOOL WINAPI XWnd_KillTimer(HWINDOW hWindow, UINT nIDEvent);

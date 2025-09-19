@@ -322,14 +322,10 @@ namespace xcgui {
 				"btnClose"_a, "autoClose"_a, "width"_a, "height"_a)
 
 			// 3.3.9 新增 - 窗口销毁
-			.def("destroyWindow", [](XCWindow& self) {
-				XWnd_DestroyWindow(self.GetWindowHandle());
-			})
+			.def("destroyWindow", &XCWindow::DestroyWindow)
 
 			// 3.3.9.1 新增
-			.def("setTop", [](XCWindow& self, bool bTop = true) {
-				XWnd_SetTop(self.GetWindowHandle(), bTop);
-			}, "top"_a = true)
+			.def("setTop", &XCWindow::SetTop, "bTop"_a = true);
 
 			;
 	}
