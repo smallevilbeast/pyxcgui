@@ -354,4 +354,4 @@ dist/
 module_xcgui.h
 xcgui/*.pyd
 stubs/stubs/
-
+uv.lock

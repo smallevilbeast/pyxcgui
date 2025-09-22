@@ -33,6 +33,9 @@ Repository = "https://github.com/smallevilbeast/pyxcgui"
 [project.optional-dependencies]
 dev = [
     "pybind11-stubgen>=2.5.5",
+    "build>=0.10.0",
+    "twine>=4.0.0",
+    "cibuildwheel>=2.16.0",
 ]
 
 [tool.setuptools]
@@ -43,3 +46,24 @@ include = ["xcgui*"]
 
 [tool.setuptools.package-data]
 "*" = ["py.typed", "*.pyi"]
+
+[tool.cibuildwheel]
+# 构建的 Python 版本（只构建你支持的版本）
+build = ["cp39-win_amd64", "cp310-win_amd64", "cp311-win_amd64", "cp312-win_amd64", "cp313-win_amd64"]
+
+# 跳过不需要的构建
+skip = ["*-win32", "*-manylinux_i686", "*-musllinux_*", "pp*"]
+
+# 跳过测试，因为需要外部 DLL 依赖
+test-skip = "*"
+
+# Windows 特定配置
+[tool.cibuildwheel.windows]
+# 构建前安装依赖并设置环境变量
+before-build = [
+    "pip install pybind11>=2.10.0",
+    "pip install setuptools>=61.0 wheel",
+]
+
+# 配置环境变量，让 cibuildwheel 自动找到 VS
+environment = { CIBW_BUILD_VERBOSITY = "1", Py_DEBUG = "0", SETUPTOOLS_USE_DISTUTILS = "stdlib" }
