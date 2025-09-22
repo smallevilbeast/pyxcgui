@@ -1,5 +1,6 @@
 #pragma once
-#include "pch.h"
+#include "pch.h" // Temporarily disabled PCH
+#include "framework.h"
 #include "binding/XDefine.hpp"
 #include "binding/XEnum.hpp"
 #include "binding/XStruct.hpp"
@@ -22,6 +23,7 @@
 #include "binding/element/XButton.hpp"
 #include "binding/XResource.hpp"
 #include "binding/menu/XMenu.hpp"
+#include "binding/menu/XMenuBar.hpp"
 #include "binding/XDesigner.hpp"
 #include "binding/window/XWindow.hpp"
 #include "binding/window/XFrameWindow.hpp"
@@ -36,7 +38,6 @@
 #include "binding/element/XDateTime.hpp"
 #include "binding/element/XMonthCal.hpp"
 #include "binding/element/XLayoutEle.hpp"
-#include "binding/element/XMenuBar.hpp"
 #include "binding/element/XPane.hpp"
 #include "binding/element/XProgressBar.hpp"
 #include "binding/element/XScrollBar.hpp"
@@ -140,14 +141,14 @@ namespace xcgui {
 		// element
 		declareElement(m);
 
-		// menuBar
-		declareMenuBar(m);
-
 		// menu
 		declareMenu(m);
 
 		// button
 		declareButton(m);
+
+		// menuBar
+		declareMenuBar(m);
 
 		// window
 		declareWindow(m);

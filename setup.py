@@ -1,9 +1,11 @@
 from setuptools import setup, find_packages
 from pybind11.setup_helpers import Pybind11Extension
 from distutils.errors import *
-from distutils.dep_util import newer_group
 from distutils import log
 from distutils.command.build_ext import build_ext
+import distutils.util
+from distutils._msvccompiler import MSVCCompiler
+import os
 
 from codecs import open
 import os
@@ -20,6 +22,21 @@ from pybind11.setup_helpers import ParallelCompile
 
 # 并行编译
 ParallelCompile("NPY_NUM_BUILD_JOBS", needs_recompile=True).install()
+
+# Patch MSVCCompiler to remove /MD flag on Windows
+if platform.system() == 'Windows':
+    original_initialize = MSVCCompiler.initialize
+
+    def patched_initialize(self, plat_name=None):
+        original_initialize(self, plat_name)
+        # Remove /MD and /MDd from compile_options if they exist
+        if hasattr(self, 'compile_options'):
+            self.compile_options = [opt for opt in self.compile_options if opt not in ['/MD', '/MDd']]
+        # Also remove from compile_options_debug if it exists
+        if hasattr(self, 'compile_options_debug'):
+            self.compile_options_debug = [opt for opt in self.compile_options_debug if opt not in ['/MD', '/MDd']]
+
+    MSVCCompiler.initialize = patched_initialize
 
 
 def compile(self, sources, output_dir=None, macros=None, include_dirs=None, debug=0, extra_preargs=None,
@@ -92,7 +109,18 @@ def build_extension(self, ext):
     sources = list(sources)
     ext_path = self.get_ext_fullpath(ext.name)
     depends = sources + ext.depends
-    if not (self.force or newer_group(depends, ext_path, 'newer')):
+    # Check if extension needs rebuilding
+    needs_rebuild = self.force
+    if not needs_rebuild and os.path.exists(ext_path):
+        ext_mtime = os.path.getmtime(ext_path)
+        for dep in depends:
+            if os.path.exists(dep) and os.path.getmtime(dep) > ext_mtime:
+                needs_rebuild = True
+                break
+    elif not os.path.exists(ext_path):
+        needs_rebuild = True
+
+    if not needs_rebuild:
         log.debug("skipping '%s' extension (up-to-date)", ext.name)
         return
     else:
@@ -147,6 +175,11 @@ def build_extension(self, ext):
 # patching
 build_ext.build_extension = build_extension
 
+
+class CustomBuildExt(build_ext):
+    """Custom build_ext to handle runtime library flags properly on Windows"""
+    pass
+
 definitions = {
     'win32': [("GLFW_USE_HYBRID_HPG", 0)],
 }
@@ -172,7 +205,7 @@ extra_link = {
 extra_compile_args = {
     'darwin': [],
     'posix': [],
-    'win32': ["/MT", "/EHsc", "/bigobj", "/utf-8"],
+    'win32': ["/MT", "/EHsc", "/bigobj", "/utf-8", "/wd4267"],
 }
 
 extra_compile_cpp_args = {
@@ -192,7 +225,8 @@ extension = Pybind11Extension("xcgui._xcgui",
                             xcgui_sources,
                             define_macros=definitions[target_os],
                             include_dirs=[
-                                "pyxcgui"
+                                "pyxcgui",
+                                "."
                             ],
                             extra_compile_args=extra_compile_args[target_os],
                             extra_link_args=extra_link[target_os],
@@ -203,27 +237,6 @@ extension = Pybind11Extension("xcgui._xcgui",
 extension.extra_compile_cpp_args = extra_compile_cpp_args[target_os]
 
 setup(
-    name='xcgui',
-    version='0.1.8',
-    description='xcgui - bundled xcgui for python',
-    long_description="",
-    long_description_content_type='text/markdown',
-    url='https://github.com/smallevilbeast/pyxcgui',
-    author='evilbeast',
-    author_email='houshao55@gmail.com',
-    license='MIT',
-    classifiers=[
-        'Development Status :: 4 - Beta',
-        'License :: OSI Approved :: MIT License',
-        'Programming Language :: Python :: 3.9',
-        'Programming Language :: Python :: 3.10',
-        'Programming Language :: Python :: 3.11',
-        'Programming Language :: Python :: 3.12',
-        'Programming Language :: Python :: 3.13',
-    ],
-    package_data={"": ["py.typed", "*.pyi"]},
-    include_package_data=True,
-    packages=find_packages(include=['xcgui', 'xcgui.*']),
-    keywords='xcgui pybind11 ui',
+    cmdclass={'build_ext': CustomBuildExt},
     ext_modules=[extension]
 )

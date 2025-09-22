@@ -1,0 +1,45 @@
+[build-system]
+requires = [
+    "setuptools>=61.0",
+    "wheel",
+    "pybind11>=2.10.0",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "xcgui"
+version = "0.1.8"
+description = "xcgui - bundled xcgui for python"
+readme = "README.md"
+license = "MIT"
+authors = [
+    {name = "evilbeast", email = "houshao55@gmail.com"}
+]
+keywords = ["xcgui", "pybind11", "ui"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+requires-python = ">=3.9"
+
+[project.urls]
+Homepage = "https://github.com/smallevilbeast/pyxcgui"
+Repository = "https://github.com/smallevilbeast/pyxcgui"
+
+[project.optional-dependencies]
+dev = [
+    "pybind11-stubgen>=2.5.5",
+]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["xcgui*"]
+
+[tool.setuptools.package-data]
+"*" = ["py.typed", "*.pyi"]

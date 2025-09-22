@@ -90,12 +90,12 @@ namespace xcgui {
 					return point;
 				}, "point"_a)
 
-			.def("pointClientToScreen", [](XCElement& self, 
-				position_flag_ position_flag=position_flag_leftBottom, int xOffset = 0, int yOffset = 0) -> XCPoint {
+			.def("pointClientToScreen", [](XCElement& self,
+				position_flag_ position_flag, int xOffset, int yOffset) -> XCPoint {
 					XCPoint point;
 					self.PointClientToScreen((POINT*)&point, position_flag, xOffset, yOffset);
 					return point;
-				}, "position_flag"_a= position_flag_leftBottom, "xOffset"_a=0, "yOffset"_a=0)
+				}, "position_flag"_a= py::cast(position_flag_leftBottom), "xOffset"_a=0, "yOffset"_a=0)
 		
 			.def("getWndClientRect", [](XCElement& self) -> XCRect {
 					XCRect rect;
@@ -136,17 +136,17 @@ namespace xcgui {
 					self.InsertChild(child.GetHandle(), index);
 				}, "child"_a, "index"_a)
 
-			.def("setRect", &XCElement::SetRect, "rect"_a, "redraw"_a = false, "flags"_a = adjustLayout_all, "adjust_no"_a = 0)
-			.def("setRectEx", &XCElement::SetRectEx, "x"_a, "y"_a, "cx"_a, "cy"_a, "redraw"_a = false, "flags"_a = adjustLayout_all, "adjust_no"_a = 0)
-			.def("setRectLogic", &XCElement::SetRectLogic, "rect"_a, "redraw"_a = false, "flags"_a = adjustLayout_all, "adjust_no"_a = 0)
-			.def("setPosition", &XCElement::SetPosition, "x"_a, "y"_a, "redraw"_a=false,"flags"_a= adjustLayout_all, "adjust_no"_a=0)
-			.def("setPositionLogic", &XCElement::SetPositionLogic, "x"_a, "y"_a, "redraw"_a = false, "flags"_a = adjustLayout_all, "adjust_no"_a = 0)
+			.def("setRect", &XCElement::SetRect, "rect"_a, "redraw"_a = false, "flags"_a = py::cast(adjustLayout_all), "adjust_no"_a = 0)
+			.def("setRectEx", &XCElement::SetRectEx, "x"_a, "y"_a, "cx"_a, "cy"_a, "redraw"_a = false, "flags"_a = py::cast(adjustLayout_all), "adjust_no"_a = 0)
+			.def("setRectLogic", &XCElement::SetRectLogic, "rect"_a, "redraw"_a = false, "flags"_a = py::cast(adjustLayout_all), "adjust_no"_a = 0)
+			.def("setPosition", &XCElement::SetPosition, "x"_a, "y"_a, "redraw"_a=false,"flags"_a= py::cast(adjustLayout_all), "adjust_no"_a=0)
+			.def("setPositionLogic", &XCElement::SetPositionLogic, "x"_a, "y"_a, "redraw"_a = false, "flags"_a = py::cast(adjustLayout_all), "adjust_no"_a = 0)
 			.def("getPositon", [](XCElement& self) -> XCPoint {
 					XCPoint point;
 					self.GetPosition(&point.x, &point.y);
 					return point;
 				})
-			.def("setSize", &XCElement::SetSize, "width"_a, "height"_a, "redraw"_a=false, "flags"_a=adjustLayout_all, "adjust_no"_a = 0)
+			.def("setSize", &XCElement::SetSize, "width"_a, "height"_a, "redraw"_a=false, "flags"_a=py::cast(adjustLayout_all), "adjust_no"_a = 0)
 			.def("getSize", [](XCElement& self) -> XCSize {
 					XCSize size;
 					self.GetSize(&size.width, &size.height);

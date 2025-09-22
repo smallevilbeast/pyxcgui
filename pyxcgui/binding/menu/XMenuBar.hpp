@@ -31,11 +31,12 @@ namespace xcgui {
 
 			.def("addButton", &XCMenuBar::AddButton, "text"_a)
 			.def("setButtonHeight", &XCMenuBar::SetButtonHeight, "height"_a)
-			.def("getMenu", [](XCMenuBar& self, int index) -> XCMenu* {
+			.def("getMenu", [](XCMenuBar& self, int index) -> py::object {
 				auto handle = self.GetMenu(index);
-				if (!handle) return nullptr;
-				return new XCMenu(handle);
-			}, "index"_a, py::return_value_policy::take_ownership)
+				if (!handle) return py::none();
+				auto menu = new XCMenu(handle);
+				return py::cast(menu, py::return_value_policy::take_ownership);
+			}, "index"_a)
 
 			.def("getButton", [](XCMenuBar& self, int index) -> XCButton* {
 				auto handle = self.GetButton(index);

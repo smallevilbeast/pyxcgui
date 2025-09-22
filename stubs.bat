@@ -1,0 +1,1 @@
+pybind11-stubgen xcgui._xcgui --enum-class-locations menu_popup_position_:xcgui._xcgui.menu_popup_position_  --enum-class-locations adjustLayout_:xcgui._xcgui.adjustLayout_ --enum-class-locations position_flag_:xcgui._xcgui.position_flag_  -o .

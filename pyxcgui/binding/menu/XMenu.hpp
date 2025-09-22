@@ -38,9 +38,9 @@ namespace xcgui {
 			.def("enableDrawBackground", &XCMenu::EnableDrawBackground, "enable"_a)
 
 			.def("popup", [](XCMenu& self, uintptr_t hParentWnd, int x, int y,
-				XCElement* parentEle = nullptr, menu_popup_position_ nPosition = menu_popup_position_left_top) {
+				XCElement* parentEle, menu_popup_position_ nPosition) {
 				return self.Popup((HWND)hParentWnd, x, y, parentEle ? parentEle->getEleHandle() : nullptr, nPosition);
-			}, "parentHWND"_a, "x"_a, "y"_a, "parentEle"_a=nullptr, "position"_a=menu_popup_position_left_top)
+			}, "parentHWND"_a, "x"_a, "y"_a, "parentEle"_a=nullptr, "position"_a=py::cast(menu_popup_position_left_top))
 
 			.def("destroyMenu", &XCMenu::DestroyMenu)
 			.def("closeMenu", &XCMenu::CloseMenu)
@@ -66,10 +66,12 @@ namespace xcgui {
 			.def("isItemCheck", &XCMenu::IsItemCheck, "nId"_a)
 
 			// 3.3.8.1 新增
-			.def("getMenuBar", [](XCMenu& self) -> XCMenuBar* {
+			.def("getMenuBar", [](XCMenu& self) -> py::object {
 				auto handle = XMenu_GetMenuBar(self.getMenuHandle());
-				if (!handle) return nullptr;
-				return new XCMenuBar(handle);
-			}, py::return_value_policy::take_ownership);
+				if (!handle) return py::none();
+				auto menubar = new XCMenuBar(handle);
+				return py::cast(menubar, py::return_value_policy::take_ownership);
+			});
+			
 	}
 }
