@@ -112,7 +112,11 @@ namespace xcgui {
 					nXSrc, nYSrc, dwRop);
 			}, "xDest"_a, "yDest"_a, "width"_a, "height"_a, "drawSrc"_a, "xSrc"_a, "ySrc"_a, "rop"_a)	
 
-			.def("gdiAlphaBlend", &XCDraw::GDI_AlphaBlend, "xOriginDest"_a, "yOriginDest"_a, "widthDest"_a, "heightDest"_a, 
+			.def("gdiAlphaBlend", [](XCDraw& self, int xOriginDest, int yOriginDest, int widthDest, int heightDest,
+				uintptr_t hdcSrc, int xOriginSrc, int yOriginSrc, int widthSrc, int heightSrc, int alpha) {
+				return self.GDI_AlphaBlend(xOriginDest, yOriginDest, widthDest, heightDest, (HDC)hdcSrc,
+					xOriginSrc, yOriginSrc, widthSrc, heightSrc, alpha);
+			}, "xOriginDest"_a, "yOriginDest"_a, "widthDest"_a, "heightDest"_a,
 				"hdcSrc"_a, "xOriginSrc"_a, "yOriginSrc"_a, "widthSrc"_a, "heightSrc"_a, "alpha"_a)
 
 			.def("gdiSetPixel", &XCDraw::GDI_SetPixel, "x"_a, "y"_a, "color"_a)

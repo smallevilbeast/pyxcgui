@@ -134,14 +134,14 @@ namespace xcgui {
 		// app
 		declareApp(m);
 
-		// trayIcon
-		declareTrayIcon(m);
-
 		// widget
 		declareWidget(m);
 
 		// element
 		declareElement(m);
+
+		// menuBar
+		declareMenuBar(m);
 
 		// menu
 		declareMenu(m);
@@ -151,6 +151,9 @@ namespace xcgui {
 
 		// window
 		declareWindow(m);
+
+		// trayIcon
+		declareTrayIcon(m);
 
 		// frameWindow
 		declareFrameWindow(m);
@@ -187,9 +190,6 @@ namespace xcgui {
 		
 		// layoutEle
 		declareLayoutEle(m);
-
-		// menubar
-		declareMenuBar(m);
 
 		// panel
 		declarePanel(m);

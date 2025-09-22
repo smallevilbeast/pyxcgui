@@ -180,11 +180,6 @@ namespace xcgui {
 			XTrayIcon_SetCallbackMessage(userMessage);
 		}
 
-		// 获取窗口句柄
-		HWINDOW GetWindow() const {
-			return m_hWindow;
-		}
-
 		// 获取托盘图标ID
 		UINT GetID() const {
 			return m_uID;

@@ -28,14 +28,6 @@ namespace xcgui {
 			.def("setIcon", &XCTrayIcon::SetIcon, "hIcon"_a)
 
 			.def("setFocus", &XCTrayIcon::SetFocus)
-
-			// 属性方法
-			.def("getWindow", &XCTrayIcon::GetWindow)
-			.def("getId", &XCTrayIcon::GetID)
-			.def("isCreated", &XCTrayIcon::IsCreated)
-
-			.def("setWindow", py::overload_cast<const XCWindow&>(&XCTrayIcon::SetWindow), "window"_a)
-			.def("setId", &XCTrayIcon::SetID, "id"_a)
 			;
 	}
 }

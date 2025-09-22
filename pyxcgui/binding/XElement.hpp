@@ -139,7 +139,7 @@ namespace xcgui {
 			.def("setRect", &XCElement::SetRect, "rect"_a, "redraw"_a = false, "flags"_a = adjustLayout_all, "adjust_no"_a = 0)
 			.def("setRectEx", &XCElement::SetRectEx, "x"_a, "y"_a, "cx"_a, "cy"_a, "redraw"_a = false, "flags"_a = adjustLayout_all, "adjust_no"_a = 0)
 			.def("setRectLogic", &XCElement::SetRectLogic, "rect"_a, "redraw"_a = false, "flags"_a = adjustLayout_all, "adjust_no"_a = 0)
-			.def("setPosition", &XCElement::SetPosition, "x"_a, "y"_a, "redraw"_a=false,"flags"_a=adjustLayout_all, "adjust_no"_a=0)
+			.def("setPosition", &XCElement::SetPosition, "x"_a, "y"_a, "redraw"_a=false,"flags"_a= adjustLayout_all, "adjust_no"_a=0)
 			.def("setPositionLogic", &XCElement::SetPositionLogic, "x"_a, "y"_a, "redraw"_a = false, "flags"_a = adjustLayout_all, "adjust_no"_a = 0)
 			.def("getPositon", [](XCElement& self) -> XCPoint {
 					XCPoint point;

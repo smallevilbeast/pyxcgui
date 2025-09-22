@@ -54,11 +54,11 @@ namespace xcgui {
 				return new XCImage(handle);
 			}, "nId"_a, "column"_a, py::return_value_policy::take_ownership)
 
-			.def("getItemImageEx", [](XCAdapterTree& self,  int nId, const std::wstring& name) {
-				auto handle = self.GetItemImageEx(item, name);
+			.def("getItemImageEx", [](XCAdapterTree& self,  int nId, const std::wstring& name) -> XCImage*  {
+				auto handle = self.GetItemImageEx(nId, name);
 				if (!handle) return nullptr;
 				return new XCImage(handle);
-			}, "nId"_a, "name"_a)
+			}, "nId"_a, "name"_a, py::return_value_policy::take_ownership)
 
 			.def("deleteItem", &XCAdapterTree::DeleteItem, "nId"_a)
 			.def("deleteItemAll", &XCAdapterTree::DeleteItemAll)
