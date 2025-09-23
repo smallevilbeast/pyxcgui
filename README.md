@@ -43,6 +43,7 @@ pip install -i https://pypi.tuna.tsinghua.edu.cn/simple xcgui
 from xcgui import XApp, XWindow, XDesigner
 
 app = XApp()
+app.enableDPI(True)
 XDesigner.loadResource("baidu\\resource.res")
 
 
@@ -88,6 +89,7 @@ class DemoWindow(XWindow):
 
 def main():
     app = XApp()
+    app.enableDPI(True)
     window = DemoWindow()
     window.showWindow()
     app.run()
