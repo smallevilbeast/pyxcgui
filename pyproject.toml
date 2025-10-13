@@ -4,7 +4,7 @@ requires = [
     "wheel",
     "pybind11>=2.10.0",
 ]
-build-backend = "setuptools.build_meta"
+# build-backend = "setuptools.build_meta"
 
 [project]
 name = "xcgui"
@@ -23,6 +23,7 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
 ]
 requires-python = ">=3.9"
 
@@ -57,13 +58,14 @@ skip = ["*-win32", "*-manylinux_i686", "*-musllinux_*", "pp*"]
 # 跳过测试，因为需要外部 DLL 依赖
 test-skip = "*"
 
+
 # Windows 特定配置
 [tool.cibuildwheel.windows]
 # 构建前安装依赖并设置环境变量
 before-build = [
+    "pip install --upgrade pip setuptools wheel",
     "pip install pybind11>=2.10.0",
-    "pip install setuptools>=61.0 wheel",
 ]
 
 # 配置环境变量，让 cibuildwheel 自动找到 VS
-environment = { CIBW_BUILD_VERBOSITY = "1", Py_DEBUG = "0", SETUPTOOLS_USE_DISTUTILS = "stdlib" }
+environment = { CIBW_BUILD_VERBOSITY = "1", Py_DEBUG = "0" }
