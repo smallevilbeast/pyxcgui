@@ -50,6 +50,10 @@ namespace xcgui {
 			XC_EnableGdiDrawText(bEnable);
 		}
 
+		void EnableAutoRedrawUI(bool bEnable) {
+			XC_EnableAutoRedrawUI(bEnable);
+		}
+
 		// 启用资源监视器
 		void EnableResMonitor(bool bEnable) {
 			XC_EnableResMonitor(bEnable);

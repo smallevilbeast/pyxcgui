@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--炫彩界面库-窗口布局文件-->
+<head />
+<windowUI bkInfoM_nameT="0(矩形)" center="true" css.name="基础窗口_填充2_R8" enableLayout="true" layout.space="10" minSize="0,0" overlayBorder="true" padding="10,10,10,10" rect="20,20,333,174" shadowAngleSize="8" shadowDepth="128" shadowRightAngle="false" shadowSize="5" showT="true" topmost="true" transparentAlpha="0" transparentFlag="shadow" windowStyle="0">
+	<shapeText content="TextBlock" expandT="true" font="@WmUi_Base:\微软雅黑_s10" layout.height="auto" layout.width="auto" name="形状文本_消息内容" rect="273,158,169,102" showT="true" textAlign="DT_LEFT,DT_VCENTER" textColor="@WmUi:\主文本色" />
+	<buttonUI content="" css.name="三态按钮_次要_链接" cursor="IDC_HAND" expandT="true" font="@WmUi_Base:\图标字体_s10" layout.height="auto" layout.width="20" name="按钮_关闭消息" rect="54,10,60,25" showT="true" />
+</windowUI>

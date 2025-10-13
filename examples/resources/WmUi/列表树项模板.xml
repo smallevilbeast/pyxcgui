@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--炫彩界面库-树元素项模板文件-->
+<head />
+<xc_template_tree>
+	<layoutEleUI heightT="30" layout.alignBaseline="center" layout.alignH="left" layout.alignV="center" layout.height="fill" layout.horizon="true" layout.space="3" layout.width="fill" padding="5,0,5,0" widthT="300" showT="true" expandT="true">
+		<layoutEleUI layout.alignV="center" layout.height="20" layout.width="20" showT="true" expandT="true">
+			<buttonUI buttonType="check" css.name="六态按钮_展开收缩_上下" expandButton="true" itemID="1" layout.height="fill" layout.width="fill" rect="0,0,13,13" transparent="true" showT="true" expandT="true" />
+		</layoutEleUI>
+		<shapeText content="{binding field=name1}" itemID="2" layout.height="fill" layout.width="auto" textColor="@Wm_Dark:\主文本色" showT="true" expandT="true" />
+	</layoutEleUI>
+</xc_template_tree>

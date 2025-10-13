@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--炫彩界面库-列表框元素项模板文件-->
+<head />
+<xc_template_listBox>
+	<layoutEleUI drawBorder="false" enableCanvas="false" heightT="30" layout.alignH="left" layout.alignV="center" layout.height="fill" layout.horizon="true" layout.space="2" layout.width="fill" mouseThrough="true" padding="5,5,5,5" widthT="300" showT="true" expandT="true">
+		<shapeText content="{binding field=name1}" font="@Wm_Dark:\微软雅黑_s11" itemID="0" layout.height="fill" layout.width=":1" textColor="@Wm_Dark:\主文本色" showT="true" expandT="true" />
+		<buttonUI content="按钮1" css.name="三态按钮_主要_渐变_R4" itemID="1" layout.height="fill" layout.width="auto" padding="5,0,5,0" rect="237,14,60,25" showT="true" expandT="true" />
+	</layoutEleUI>
+</xc_template_listBox>

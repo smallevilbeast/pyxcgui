@@ -1,0 +1,1593 @@
+﻿buttonUI[style:scrollbar_slider_h]{
+	bkInfoM:@WmUi:\滚动按钮_水平;
+	transparent:true;
+}
+buttonUI[style:scrollbar_slider_v]{
+	bkInfoM:@WmUi:\滚动按钮_垂直;
+	transparent:true;
+}
+scrollBarUI{
+	bkInfoM:@WmUi:\通用滚动条;
+	showButton:false;
+	transparent:true;
+}
+.buttonUI 三态按钮_主要_链接{
+	bkInfoM:@WmUi:\三态按钮_主要_链接;
+	cursor:IDC_ARROW;
+	transparent:true;
+}
+.buttonUI 三态按钮_次要_链接{
+	bkInfoM:@WmUi:\三态按钮_次要_链接;
+	cursor:IDC_ARROW;
+	transparent:true;
+}
+.buttonUI 三态按钮_警告_链接{
+	bkInfoM:@WmUi:\三态按钮_警告_链接;
+	cursor:IDC_ARROW;
+	transparent:true;
+}
+.buttonUI 三态按钮_明亮_链接{
+	bkInfoM:@WmUi:\三态按钮_明亮_链接;
+	cursor:IDC_ARROW;
+	transparent:true;
+}
+.buttonUI 三态按钮_白色_链接{
+	bkInfoM:@WmUi:\三态按钮_白色_链接;
+	cursor:IDC_ARROW;
+	transparent:true;
+}
+.buttonUI 三态按钮_黑色_链接{
+	bkInfoM:@WmUi:\三态按钮_黑色_链接;
+	cursor:IDC_ARROW;
+	transparent:true;
+}
+.buttonUI 三态按钮_主要_渐变_R4{
+	bkInfoM:@WmUi:\三态按钮_主要_渐变_R4;
+	transparent:true;
+}
+.buttonUI 三态按钮_主要_渐变_R8{
+	bkInfoM:@WmUi:\三态按钮_主要_渐变_R8;
+	transparent:true;
+}
+.buttonUI 三态按钮_主要_渐变_R16{
+	bkInfoM:@WmUi:\三态按钮_主要_渐变_R16;
+	transparent:true;
+}
+.buttonUI 三态按钮_主要_填充_R4{
+	bkInfoM:@WmUi:\三态按钮_主要_填充_R4;
+	transparent:true;
+}
+.buttonUI 三态按钮_主要_填充_R8{
+	bkInfoM:@WmUi:\三态按钮_主要_填充_R8;
+	transparent:true;
+}
+.buttonUI 三态按钮_主要_填充_R16{
+	bkInfoM:@WmUi:\三态按钮_主要_填充_R16;
+	transparent:true;
+}
+.buttonUI 三态按钮_主要_边框_R4{
+	bkInfoM:@WmUi:\三态按钮_主要_边框_R4;
+	transparent:true;
+}
+.buttonUI 三态按钮_主要_边框_R8{
+	bkInfoM:@WmUi:\三态按钮_主要_边框_R8;
+	transparent:true;
+}
+.buttonUI 三态按钮_主要_边框_R16{
+	bkInfoM:@WmUi:\三态按钮_主要_边框_R16;
+	transparent:true;
+}
+.buttonUI 三态按钮_主要_文字_R4{
+	bkInfoM:@WmUi:\三态按钮_主要_文字_R4;
+	transparent:true;
+}
+.buttonUI 三态按钮_主要_文字_R8{
+	bkInfoM:@WmUi:\三态按钮_主要_文字_R8;
+	transparent:true;
+}
+.buttonUI 三态按钮_主要_文字_R16{
+	bkInfoM:@WmUi:\三态按钮_主要_文字_R16;
+	transparent:true;
+}
+.buttonUI 三态按钮_次要_渐变_R4{
+	bkInfoM:@WmUi:\三态按钮_次要_渐变_R4;
+	transparent:true;
+}
+.buttonUI 三态按钮_次要_渐变_R8{
+	bkInfoM:@WmUi:\三态按钮_次要_渐变_R8;
+	transparent:true;
+}
+.buttonUI 三态按钮_次要_渐变_R16{
+	bkInfoM:@WmUi:\三态按钮_次要_渐变_R16;
+	transparent:true;
+}
+.buttonUI 三态按钮_次要_填充_R4{
+	bkInfoM:@WmUi:\三态按钮_次要_填充_R4;
+	transparent:true;
+}
+.buttonUI 三态按钮_次要_填充_R8{
+	bkInfoM:@WmUi:\三态按钮_次要_填充_R8;
+	transparent:true;
+}
+.buttonUI 三态按钮_次要_填充_R16{
+	bkInfoM:@WmUi:\三态按钮_次要_填充_R16;
+	transparent:true;
+}
+.buttonUI 三态按钮_次要_边框_R4{
+	bkInfoM:@WmUi:\三态按钮_次要_边框_R4;
+	transparent:true;
+}
+.buttonUI 三态按钮_次要_边框_R8{
+	bkInfoM:@WmUi:\三态按钮_次要_边框_R8;
+	transparent:true;
+}
+.buttonUI 三态按钮_次要_边框_R16{
+	bkInfoM:@WmUi:\三态按钮_次要_边框_R16;
+	transparent:true;
+}
+.buttonUI 三态按钮_次要_文字_R4{
+	bkInfoM:@WmUi:\三态按钮_次要_文字_R4;
+	transparent:true;
+}
+.buttonUI 三态按钮_次要_文字_R8{
+	bkInfoM:@WmUi:\三态按钮_次要_文字_R8;
+	transparent:true;
+}
+.buttonUI 三态按钮_次要_文字_R16{
+	bkInfoM:@WmUi:\三态按钮_次要_文字_R16;
+	transparent:true;
+}
+.buttonUI 三态按钮_警告_渐变_R4{
+	bkInfoM:@WmUi:\三态按钮_警告_渐变_R4;
+	transparent:true;
+}
+.buttonUI 三态按钮_警告_渐变_R8{
+	bkInfoM:@WmUi:\三态按钮_警告_渐变_R8;
+	transparent:true;
+}
+.buttonUI 三态按钮_警告_渐变_R16{
+	bkInfoM:@WmUi:\三态按钮_警告_渐变_R16;
+	transparent:true;
+}
+.buttonUI 三态按钮_警告_填充_R4{
+	bkInfoM:@WmUi:\三态按钮_警告_填充_R4;
+	transparent:true;
+}
+.buttonUI 三态按钮_警告_填充_R8{
+	bkInfoM:@WmUi:\三态按钮_警告_填充_R8;
+	transparent:true;
+}
+.buttonUI 三态按钮_警告_填充_R16{
+	bkInfoM:@WmUi:\三态按钮_警告_填充_R16;
+	transparent:true;
+}
+.buttonUI 三态按钮_警告_边框_R4{
+	bkInfoM:@WmUi:\三态按钮_警告_边框_R4;
+	transparent:true;
+}
+.buttonUI 三态按钮_警告_边框_R8{
+	bkInfoM:@WmUi:\三态按钮_警告_边框_R8;
+	transparent:true;
+}
+.buttonUI 三态按钮_警告_边框_R16{
+	bkInfoM:@WmUi:\三态按钮_警告_边框_R16;
+	transparent:true;
+}
+.buttonUI 三态按钮_警告_文字_R4{
+	bkInfoM:@WmUi:\三态按钮_警告_文字_R4;
+	transparent:true;
+}
+.buttonUI 三态按钮_警告_文字_R8{
+	bkInfoM:@WmUi:\三态按钮_警告_文字_R8;
+	transparent:true;
+}
+.buttonUI 三态按钮_警告_文字_R16{
+	bkInfoM:@WmUi:\三态按钮_警告_文字_R16;
+	transparent:true;
+}
+.buttonUI 三态按钮_明亮_渐变_R4{
+	bkInfoM:@WmUi:\三态按钮_明亮_渐变_R4;
+	transparent:true;
+}
+.buttonUI 三态按钮_明亮_渐变_R8{
+	bkInfoM:@WmUi:\三态按钮_明亮_渐变_R8;
+	transparent:true;
+}
+.buttonUI 三态按钮_明亮_渐变_R16{
+	bkInfoM:@WmUi:\三态按钮_明亮_渐变_R16;
+	transparent:true;
+}
+.buttonUI 三态按钮_明亮_填充_R4{
+	bkInfoM:@WmUi:\三态按钮_明亮_填充_R4;
+	transparent:true;
+}
+.buttonUI 三态按钮_明亮_填充_R8{
+	bkInfoM:@WmUi:\三态按钮_明亮_填充_R8;
+	transparent:true;
+}
+.buttonUI 三态按钮_明亮_填充_R16{
+	bkInfoM:@WmUi:\三态按钮_明亮_填充_R16;
+	transparent:true;
+}
+.buttonUI 三态按钮_明亮_边框_R4{
+	bkInfoM:@WmUi:\三态按钮_明亮_边框_R4;
+	transparent:true;
+}
+.buttonUI 三态按钮_明亮_边框_R8{
+	bkInfoM:@WmUi:\三态按钮_明亮_边框_R8;
+	transparent:true;
+}
+.buttonUI 三态按钮_明亮_边框_R16{
+	bkInfoM:@WmUi:\三态按钮_明亮_边框_R16;
+	transparent:true;
+}
+.buttonUI 三态按钮_明亮_文字_R4{
+	bkInfoM:@WmUi:\三态按钮_明亮_文字_R4;
+	transparent:true;
+}
+.buttonUI 三态按钮_明亮_文字_R8{
+	bkInfoM:@WmUi:\三态按钮_明亮_文字_R8;
+	transparent:true;
+}
+.buttonUI 三态按钮_明亮_文字_R16{
+	bkInfoM:@WmUi:\三态按钮_明亮_文字_R16;
+	transparent:true;
+}
+.buttonUI 三态按钮_白色_渐变_R4{
+	bkInfoM:@WmUi:\三态按钮_白色_渐变_R4;
+	transparent:true;
+}
+.buttonUI 三态按钮_白色_渐变_R8{
+	bkInfoM:@WmUi:\三态按钮_白色_渐变_R8;
+	transparent:true;
+}
+.buttonUI 三态按钮_白色_渐变_R16{
+	bkInfoM:@WmUi:\三态按钮_白色_渐变_R16;
+	transparent:true;
+}
+.buttonUI 三态按钮_白色_填充_R4{
+	bkInfoM:@WmUi:\三态按钮_白色_填充_R4;
+	transparent:true;
+}
+.buttonUI 三态按钮_白色_填充_R8{
+	bkInfoM:@WmUi:\三态按钮_白色_填充_R8;
+	transparent:true;
+}
+.buttonUI 三态按钮_白色_填充_R16{
+	bkInfoM:@WmUi:\三态按钮_白色_填充_R16;
+	transparent:true;
+}
+.buttonUI 三态按钮_白色_边框_R4{
+	bkInfoM:@WmUi:\三态按钮_白色_边框_R4;
+	transparent:true;
+}
+.buttonUI 三态按钮_白色_边框_R8{
+	bkInfoM:@WmUi:\三态按钮_白色_边框_R8;
+	transparent:true;
+}
+.buttonUI 三态按钮_白色_边框_R16{
+	bkInfoM:@WmUi:\三态按钮_白色_边框_R16;
+	transparent:true;
+}
+.buttonUI 三态按钮_白色_文字_R4{
+	bkInfoM:@WmUi:\三态按钮_白色_文字_R4;
+	transparent:true;
+}
+.buttonUI 三态按钮_白色_文字_R8{
+	bkInfoM:@WmUi:\三态按钮_白色_文字_R8;
+	transparent:true;
+}
+.buttonUI 三态按钮_白色_文字_R16{
+	bkInfoM:@WmUi:\三态按钮_白色_文字_R16;
+	transparent:true;
+}
+.buttonUI 三态按钮_黑色_渐变_R4{
+	bkInfoM:@WmUi:\三态按钮_黑色_渐变_R4;
+	transparent:true;
+}
+.buttonUI 三态按钮_黑色_渐变_R8{
+	bkInfoM:@WmUi:\三态按钮_黑色_渐变_R8;
+	transparent:true;
+}
+.buttonUI 三态按钮_黑色_渐变_R16{
+	bkInfoM:@WmUi:\三态按钮_黑色_渐变_R16;
+	transparent:true;
+}
+.buttonUI 三态按钮_黑色_填充_R4{
+	bkInfoM:@WmUi:\三态按钮_黑色_填充_R4;
+	transparent:true;
+}
+.buttonUI 三态按钮_黑色_填充_R8{
+	bkInfoM:@WmUi:\三态按钮_黑色_填充_R8;
+	transparent:true;
+}
+.buttonUI 三态按钮_黑色_填充_R16{
+	bkInfoM:@WmUi:\三态按钮_黑色_填充_R16;
+	transparent:true;
+}
+.buttonUI 三态按钮_黑色_边框_R4{
+	bkInfoM:@WmUi:\三态按钮_黑色_边框_R4;
+	transparent:true;
+}
+.buttonUI 三态按钮_黑色_边框_R8{
+	bkInfoM:@WmUi:\三态按钮_黑色_边框_R8;
+	transparent:true;
+}
+.buttonUI 三态按钮_黑色_边框_R16{
+	bkInfoM:@WmUi:\三态按钮_黑色_边框_R16;
+	transparent:true;
+}
+.buttonUI 三态按钮_黑色_文字_R4{
+	bkInfoM:@WmUi:\三态按钮_黑色_文字_R4;
+	transparent:true;
+}
+.buttonUI 三态按钮_黑色_文字_R8{
+	bkInfoM:@WmUi:\三态按钮_黑色_文字_R8;
+	transparent:true;
+}
+.buttonUI 三态按钮_黑色_文字_R16{
+	bkInfoM:@WmUi:\三态按钮_黑色_文字_R16;
+	transparent:true;
+}
+.buttonUI 六态按钮_勾选{
+	bkInfoM:@WmUi:\六态按钮_勾选;
+	cursor:IDC_ARROW;
+	padding:30,0,10,0;
+	textAlign:DT_LEFT,DT_VCENTER,DT_SINGLELINE;
+	transparent:true;
+}
+.buttonUI 六态按钮_标签{
+	bkInfoM:@WmUi:\六态按钮_标签;
+	padding:10,0,35,0;
+	textAlign:DT_LEFT,DT_VCENTER,DT_SINGLELINE;
+	transparent:true;
+}
+.buttonUI 六态按钮_开关{
+	bkInfoM:@WmUi:\六态按钮_开关;
+	padding:40,0,10,0;
+	textAlign:DT_LEFT,DT_VCENTER,DT_SINGLELINE;
+	transparent:true;
+}
+.buttonUI 六态按钮_点选{
+	bkInfoM:@WmUi:\六态按钮_点选;
+	padding:30,0,10,0;
+	textAlign:DT_LEFT,DT_VCENTER,DT_SINGLELINE;
+	transparent:true;
+}
+.buttonUI 六态按钮_展开收缩_上下{
+	bkInfoM:@WmUi:\六态按钮_展开收缩_上下;
+	textAlign:DT_LEFT,DT_VCENTER,DT_SINGLELINE;
+	transparent:true;
+}
+.buttonUI 六态按钮_高亮_全_R8{
+	bkInfoM:@WmUi:\六态按钮_高亮_全_R8;
+	transparent:true;
+}
+.buttonUI 六态按钮_高亮_左_R8{
+	bkInfoM:@WmUi:\六态按钮_高亮_左_R8;
+	transparent:true;
+}
+.buttonUI 六态按钮_高亮_上_R8{
+	bkInfoM:@WmUi:\六态按钮_高亮_上_R8;
+	transparent:true;
+}
+.buttonUI 六态按钮_高亮_右_R8{
+	bkInfoM:@WmUi:\六态按钮_高亮_右_R8;
+	transparent:true;
+}
+.buttonUI 六态按钮_高亮_下_R8{
+	bkInfoM:@WmUi:\六态按钮_高亮_下_R8;
+	transparent:true;
+}
+.buttonUI 六态按钮_灰色_全_R8{
+	bkInfoM:@WmUi:\六态按钮_灰色_全_R8;
+	transparent:true;
+}
+.buttonUI 六态按钮_灰色_左_R8{
+	bkInfoM:@WmUi:\六态按钮_灰色_左_R8;
+	transparent:true;
+}
+.buttonUI 六态按钮_灰色_上_R8{
+	bkInfoM:@WmUi:\六态按钮_灰色_上_R8;
+	transparent:true;
+}
+.buttonUI 六态按钮_灰色_右_R8{
+	bkInfoM:@WmUi:\六态按钮_灰色_右_R8;
+	transparent:true;
+}
+.buttonUI 六态按钮_灰色_下_R8{
+	bkInfoM:@WmUi:\六态按钮_灰色_下_R8;
+	transparent:true;
+}
+.buttonUI 六态按钮_线型_左_直角{
+	bkInfoM:@WmUi:\六态按钮_线型_左_直角;
+	transparent:true;
+}
+.buttonUI 六态按钮_线型_上_直角{
+	bkInfoM:@WmUi:\六态按钮_线型_上_直角;
+	transparent:true;
+}
+.buttonUI 六态按钮_线型_右_直角{
+	bkInfoM:@WmUi:\六态按钮_线型_右_直角;
+	transparent:true;
+}
+.buttonUI 六态按钮_线型_下_直角{
+	bkInfoM:@WmUi:\六态按钮_线型_下_直角;
+	transparent:true;
+}
+.buttonUI 六态按钮_线型_左_R8{
+	bkInfoM:@WmUi:\六态按钮_线型_左_R8;
+	transparent:true;
+}
+.buttonUI 六态按钮_线型_上_R8{
+	bkInfoM:@WmUi:\六态按钮_线型_上_R8;
+	transparent:true;
+}
+.buttonUI 六态按钮_线型_右_R8{
+	bkInfoM:@WmUi:\六态按钮_线型_右_R8;
+	transparent:true;
+}
+.buttonUI 六态按钮_线型_下_R8{
+	bkInfoM:@WmUi:\六态按钮_线型_下_R8;
+	transparent:true;
+}
+.elementUI 基础元素_渐变_红_炽热_R4{
+	bkInfoM:@WmUi:\基础元素_渐变_红_炽热_R4;
+}
+.elementUI 基础元素_渐变_红_炽热_R8{
+	bkInfoM:@WmUi:\基础元素_渐变_红_炽热_R8;
+}
+.elementUI 基础元素_渐变_红_炽热_R16{
+	bkInfoM:@WmUi:\基础元素_渐变_红_炽热_R16;
+}
+.elementUI 基础元素_渐变_红_炽热_R24{
+	bkInfoM:@WmUi:\基础元素_渐变_红_炽热_R24;
+}
+.elementUI 基础元素_渐变_红_柔和_R4{
+	bkInfoM:@WmUi:\基础元素_渐变_红_柔和_R4;
+}
+.elementUI 基础元素_渐变_红_柔和_R8{
+	bkInfoM:@WmUi:\基础元素_渐变_红_柔和_R8;
+}
+.elementUI 基础元素_渐变_红_柔和_R16{
+	bkInfoM:@WmUi:\基础元素_渐变_红_柔和_R16;
+}
+.elementUI 基础元素_渐变_红_柔和_R24{
+	bkInfoM:@WmUi:\基础元素_渐变_红_柔和_R24;
+}
+.elementUI 基础元素_渐变_橙_活力_R4{
+	bkInfoM:@WmUi:\基础元素_渐变_橙_活力_R4;
+}
+.elementUI 基础元素_渐变_橙_活力_R8{
+	bkInfoM:@WmUi:\基础元素_渐变_橙_活力_R8;
+}
+.elementUI 基础元素_渐变_橙_活力_R16{
+	bkInfoM:@WmUi:\基础元素_渐变_橙_活力_R16;
+}
+.elementUI 基础元素_渐变_橙_活力_R24{
+	bkInfoM:@WmUi:\基础元素_渐变_橙_活力_R24;
+}
+.elementUI 基础元素_渐变_橙_沉稳_R4{
+	bkInfoM:@WmUi:\基础元素_渐变_橙_沉稳_R4;
+}
+.elementUI 基础元素_渐变_橙_沉稳_R8{
+	bkInfoM:@WmUi:\基础元素_渐变_橙_沉稳_R8;
+}
+.elementUI 基础元素_渐变_橙_沉稳_R16{
+	bkInfoM:@WmUi:\基础元素_渐变_橙_沉稳_R16;
+}
+.elementUI 基础元素_渐变_橙_沉稳_R24{
+	bkInfoM:@WmUi:\基础元素_渐变_橙_沉稳_R24;
+}
+.elementUI 基础元素_渐变_黄_明亮_R4{
+	bkInfoM:@WmUi:\基础元素_渐变_黄_明亮_R4;
+}
+.elementUI 基础元素_渐变_黄_明亮_R8{
+	bkInfoM:@WmUi:\基础元素_渐变_黄_明亮_R8;
+}
+.elementUI 基础元素_渐变_黄_明亮_R16{
+	bkInfoM:@WmUi:\基础元素_渐变_黄_明亮_R16;
+}
+.elementUI 基础元素_渐变_黄_明亮_R24{
+	bkInfoM:@WmUi:\基础元素_渐变_黄_明亮_R24;
+}
+.elementUI 基础元素_渐变_黄_奢华_R4{
+	bkInfoM:@WmUi:\基础元素_渐变_黄_奢华_R4;
+}
+.elementUI 基础元素_渐变_黄_奢华_R8{
+	bkInfoM:@WmUi:\基础元素_渐变_黄_奢华_R8;
+}
+.elementUI 基础元素_渐变_黄_奢华_R16{
+	bkInfoM:@WmUi:\基础元素_渐变_黄_奢华_R16;
+}
+.elementUI 基础元素_渐变_黄_奢华_R24{
+	bkInfoM:@WmUi:\基础元素_渐变_黄_奢华_R24;
+}
+.elementUI 基础元素_渐变_绿_宁静_R4{
+	bkInfoM:@WmUi:\基础元素_渐变_绿_宁静_R4;
+}
+.elementUI 基础元素_渐变_绿_宁静_R8{
+	bkInfoM:@WmUi:\基础元素_渐变_绿_宁静_R8;
+}
+.elementUI 基础元素_渐变_绿_宁静_R16{
+	bkInfoM:@WmUi:\基础元素_渐变_绿_宁静_R16;
+}
+.elementUI 基础元素_渐变_绿_宁静_R24{
+	bkInfoM:@WmUi:\基础元素_渐变_绿_宁静_R24;
+}
+.elementUI 基础元素_渐变_绿_活力_R4{
+	bkInfoM:@WmUi:\基础元素_渐变_绿_活力_R4;
+}
+.elementUI 基础元素_渐变_绿_活力_R8{
+	bkInfoM:@WmUi:\基础元素_渐变_绿_活力_R8;
+}
+.elementUI 基础元素_渐变_绿_活力_R16{
+	bkInfoM:@WmUi:\基础元素_渐变_绿_活力_R16;
+}
+.elementUI 基础元素_渐变_绿_活力_R24{
+	bkInfoM:@WmUi:\基础元素_渐变_绿_活力_R24;
+}
+.elementUI 基础元素_渐变_青_清凉_R4{
+	bkInfoM:@WmUi:\基础元素_渐变_青_清凉_R4;
+}
+.elementUI 基础元素_渐变_青_清凉_R8{
+	bkInfoM:@WmUi:\基础元素_渐变_青_清凉_R8;
+}
+.elementUI 基础元素_渐变_青_清凉_R16{
+	bkInfoM:@WmUi:\基础元素_渐变_青_清凉_R16;
+}
+.elementUI 基础元素_渐变_青_清凉_R24{
+	bkInfoM:@WmUi:\基础元素_渐变_青_清凉_R24;
+}
+.elementUI 基础元素_渐变_青_温润_R4{
+	bkInfoM:@WmUi:\基础元素_渐变_青_温润_R4;
+}
+.elementUI 基础元素_渐变_青_温润_R8{
+	bkInfoM:@WmUi:\基础元素_渐变_青_温润_R8;
+}
+.elementUI 基础元素_渐变_青_温润_R16{
+	bkInfoM:@WmUi:\基础元素_渐变_青_温润_R16;
+}
+.elementUI 基础元素_渐变_青_温润_R24{
+	bkInfoM:@WmUi:\基础元素_渐变_青_温润_R24;
+}
+.elementUI 基础元素_渐变_蓝_深邃_R4{
+	bkInfoM:@WmUi:\基础元素_渐变_蓝_深邃_R4;
+}
+.elementUI 基础元素_渐变_蓝_深邃_R8{
+	bkInfoM:@WmUi:\基础元素_渐变_蓝_深邃_R8;
+}
+.elementUI 基础元素_渐变_蓝_深邃_R16{
+	bkInfoM:@WmUi:\基础元素_渐变_蓝_深邃_R16;
+}
+.elementUI 基础元素_渐变_蓝_深邃_R24{
+	bkInfoM:@WmUi:\基础元素_渐变_蓝_深邃_R24;
+}
+.elementUI 基础元素_渐变_蓝_平和_R4{
+	bkInfoM:@WmUi:\基础元素_渐变_蓝_平和_R4;
+}
+.elementUI 基础元素_渐变_蓝_平和_R8{
+	bkInfoM:@WmUi:\基础元素_渐变_蓝_平和_R8;
+}
+.elementUI 基础元素_渐变_蓝_平和_R16{
+	bkInfoM:@WmUi:\基础元素_渐变_蓝_平和_R16;
+}
+.elementUI 基础元素_渐变_蓝_平和_R24{
+	bkInfoM:@WmUi:\基础元素_渐变_蓝_平和_R24;
+}
+.elementUI 基础元素_渐变_紫_梦幻_R4{
+	bkInfoM:@WmUi:\基础元素_渐变_紫_梦幻_R4;
+}
+.elementUI 基础元素_渐变_紫_梦幻_R8{
+	bkInfoM:@WmUi:\基础元素_渐变_紫_梦幻_R8;
+}
+.elementUI 基础元素_渐变_紫_梦幻_R16{
+	bkInfoM:@WmUi:\基础元素_渐变_紫_梦幻_R16;
+}
+.elementUI 基础元素_渐变_紫_梦幻_R24{
+	bkInfoM:@WmUi:\基础元素_渐变_紫_梦幻_R24;
+}
+.elementUI 基础元素_渐变_紫_浪漫_R4{
+	bkInfoM:@WmUi:\基础元素_渐变_紫_浪漫_R4;
+}
+.elementUI 基础元素_渐变_紫_浪漫_R8{
+	bkInfoM:@WmUi:\基础元素_渐变_紫_浪漫_R8;
+}
+.elementUI 基础元素_渐变_紫_浪漫_R16{
+	bkInfoM:@WmUi:\基础元素_渐变_紫_浪漫_R16;
+}
+.elementUI 基础元素_渐变_紫_浪漫_R24{
+	bkInfoM:@WmUi:\基础元素_渐变_紫_浪漫_R24;
+}
+.elementUI 基础元素_填充1_R4{
+	bkInfoM:@WmUi:\基础元素_填充1_R4;
+}
+.elementUI 基础元素_填充1_R8{
+	bkInfoM:@WmUi:\基础元素_填充1_R8;
+}
+.elementUI 基础元素_填充1_R16{
+	bkInfoM:@WmUi:\基础元素_填充1_R16;
+}
+.elementUI 基础元素_填充1_R24{
+	bkInfoM:@WmUi:\基础元素_填充1_R24;
+}
+.elementUI 基础元素_填充2_R4{
+	bkInfoM:@WmUi:\基础元素_填充2_R4;
+}
+.elementUI 基础元素_填充2_R8{
+	bkInfoM:@WmUi:\基础元素_填充2_R8;
+}
+.elementUI 基础元素_填充2_R16{
+	bkInfoM:@WmUi:\基础元素_填充2_R16;
+}
+.elementUI 基础元素_填充2_R24{
+	bkInfoM:@WmUi:\基础元素_填充2_R24;
+}
+.elementUI 基础元素_填充3_R4{
+	bkInfoM:@WmUi:\基础元素_填充3_R4;
+}
+.elementUI 基础元素_填充3_R8{
+	bkInfoM:@WmUi:\基础元素_填充3_R8;
+}
+.elementUI 基础元素_填充3_R16{
+	bkInfoM:@WmUi:\基础元素_填充3_R16;
+}
+.elementUI 基础元素_填充3_R24{
+	bkInfoM:@WmUi:\基础元素_填充3_R24;
+}
+.elementUI 基础元素_填充4_R4{
+	bkInfoM:@WmUi:\基础元素_填充4_R4;
+}
+.elementUI 基础元素_填充4_R8{
+	bkInfoM:@WmUi:\基础元素_填充4_R8;
+}
+.elementUI 基础元素_填充4_R16{
+	bkInfoM:@WmUi:\基础元素_填充4_R16;
+}
+.elementUI 基础元素_填充4_R24{
+	bkInfoM:@WmUi:\基础元素_填充4_R24;
+}
+.elementUI 基础元素_填充5_R4{
+	bkInfoM:@WmUi:\基础元素_填充5_R4;
+}
+.elementUI 基础元素_填充5_R8{
+	bkInfoM:@WmUi:\基础元素_填充5_R8;
+}
+.elementUI 基础元素_填充5_R16{
+	bkInfoM:@WmUi:\基础元素_填充5_R16;
+}
+.elementUI 基础元素_填充5_R24{
+	bkInfoM:@WmUi:\基础元素_填充5_R24;
+}
+.elementUI 基础元素_填充6_R4{
+	bkInfoM:@WmUi:\基础元素_填充6_R4;
+}
+.elementUI 基础元素_填充6_R8{
+	bkInfoM:@WmUi:\基础元素_填充6_R8;
+}
+.elementUI 基础元素_填充6_R16{
+	bkInfoM:@WmUi:\基础元素_填充6_R16;
+}
+.elementUI 基础元素_填充6_R24{
+	bkInfoM:@WmUi:\基础元素_填充6_R24;
+}
+.elementUI 基础元素_填充7_R4{
+	bkInfoM:@WmUi:\基础元素_填充7_R4;
+}
+.elementUI 基础元素_填充7_R8{
+	bkInfoM:@WmUi:\基础元素_填充7_R8;
+}
+.elementUI 基础元素_填充7_R16{
+	bkInfoM:@WmUi:\基础元素_填充7_R16;
+}
+.elementUI 基础元素_填充7_R24{
+	bkInfoM:@WmUi:\基础元素_填充7_R24;
+}
+.layoutEleUI 布局元素_渐变_红_炽热_R4{
+	bkInfoM:@WmUi:\布局元素_渐变_红_炽热_R4;
+}
+.layoutEleUI 布局元素_渐变_红_炽热_R8{
+	bkInfoM:@WmUi:\布局元素_渐变_红_炽热_R8;
+}
+.layoutEleUI 布局元素_渐变_红_炽热_R16{
+	bkInfoM:@WmUi:\布局元素_渐变_红_炽热_R16;
+}
+.layoutEleUI 布局元素_渐变_红_炽热_R24{
+	bkInfoM:@WmUi:\布局元素_渐变_红_炽热_R24;
+}
+.layoutEleUI 布局元素_渐变_红_柔和_R4{
+	bkInfoM:@WmUi:\布局元素_渐变_红_柔和_R4;
+}
+.layoutEleUI 布局元素_渐变_红_柔和_R8{
+	bkInfoM:@WmUi:\布局元素_渐变_红_柔和_R8;
+}
+.layoutEleUI 布局元素_渐变_红_柔和_R16{
+	bkInfoM:@WmUi:\布局元素_渐变_红_柔和_R16;
+}
+.layoutEleUI 布局元素_渐变_红_柔和_R24{
+	bkInfoM:@WmUi:\布局元素_渐变_红_柔和_R24;
+}
+.layoutEleUI 布局元素_渐变_橙_活力_R4{
+	bkInfoM:@WmUi:\布局元素_渐变_橙_活力_R4;
+}
+.layoutEleUI 布局元素_渐变_橙_活力_R8{
+	bkInfoM:@WmUi:\布局元素_渐变_橙_活力_R8;
+}
+.layoutEleUI 布局元素_渐变_橙_活力_R16{
+	bkInfoM:@WmUi:\布局元素_渐变_橙_活力_R16;
+}
+.layoutEleUI 布局元素_渐变_橙_活力_R24{
+	bkInfoM:@WmUi:\布局元素_渐变_橙_活力_R24;
+}
+.layoutEleUI 布局元素_渐变_橙_沉稳_R4{
+	bkInfoM:@WmUi:\布局元素_渐变_橙_沉稳_R4;
+}
+.layoutEleUI 布局元素_渐变_橙_沉稳_R8{
+	bkInfoM:@WmUi:\布局元素_渐变_橙_沉稳_R8;
+}
+.layoutEleUI 布局元素_渐变_橙_沉稳_R16{
+	bkInfoM:@WmUi:\布局元素_渐变_橙_沉稳_R16;
+}
+.layoutEleUI 布局元素_渐变_橙_沉稳_R24{
+	bkInfoM:@WmUi:\布局元素_渐变_橙_沉稳_R24;
+}
+.layoutEleUI 布局元素_渐变_黄_明亮_R4{
+	bkInfoM:@WmUi:\布局元素_渐变_黄_明亮_R4;
+}
+.layoutEleUI 布局元素_渐变_黄_明亮_R8{
+	bkInfoM:@WmUi:\布局元素_渐变_黄_明亮_R8;
+}
+.layoutEleUI 布局元素_渐变_黄_明亮_R16{
+	bkInfoM:@WmUi:\布局元素_渐变_黄_明亮_R16;
+}
+.layoutEleUI 布局元素_渐变_黄_明亮_R24{
+	bkInfoM:@WmUi:\布局元素_渐变_黄_明亮_R24;
+}
+.layoutEleUI 布局元素_渐变_黄_奢华_R4{
+	bkInfoM:@WmUi:\布局元素_渐变_黄_奢华_R4;
+}
+.layoutEleUI 布局元素_渐变_黄_奢华_R8{
+	bkInfoM:@WmUi:\布局元素_渐变_黄_奢华_R8;
+}
+.layoutEleUI 布局元素_渐变_黄_奢华_R16{
+	bkInfoM:@WmUi:\布局元素_渐变_黄_奢华_R16;
+}
+.layoutEleUI 布局元素_渐变_黄_奢华_R24{
+	bkInfoM:@WmUi:\布局元素_渐变_黄_奢华_R24;
+}
+.layoutEleUI 布局元素_渐变_绿_宁静_R4{
+	bkInfoM:@WmUi:\布局元素_渐变_绿_宁静_R4;
+}
+.layoutEleUI 布局元素_渐变_绿_宁静_R8{
+	bkInfoM:@WmUi:\布局元素_渐变_绿_宁静_R8;
+}
+.layoutEleUI 布局元素_渐变_绿_宁静_R16{
+	bkInfoM:@WmUi:\布局元素_渐变_绿_宁静_R16;
+}
+.layoutEleUI 布局元素_渐变_绿_宁静_R24{
+	bkInfoM:@WmUi:\布局元素_渐变_绿_宁静_R24;
+}
+.layoutEleUI 布局元素_渐变_绿_活力_R4{
+	bkInfoM:@WmUi:\布局元素_渐变_绿_活力_R4;
+}
+.layoutEleUI 布局元素_渐变_绿_活力_R8{
+	bkInfoM:@WmUi:\布局元素_渐变_绿_活力_R8;
+}
+.layoutEleUI 布局元素_渐变_绿_活力_R16{
+	bkInfoM:@WmUi:\布局元素_渐变_绿_活力_R16;
+}
+.layoutEleUI 布局元素_渐变_绿_活力_R24{
+	bkInfoM:@WmUi:\布局元素_渐变_绿_活力_R24;
+}
+.layoutEleUI 布局元素_渐变_青_清凉_R4{
+	bkInfoM:@WmUi:\布局元素_渐变_青_清凉_R4;
+}
+.layoutEleUI 布局元素_渐变_青_清凉_R8{
+	bkInfoM:@WmUi:\布局元素_渐变_青_清凉_R8;
+}
+.layoutEleUI 布局元素_渐变_青_清凉_R16{
+	bkInfoM:@WmUi:\布局元素_渐变_青_清凉_R16;
+}
+.layoutEleUI 布局元素_渐变_青_清凉_R24{
+	bkInfoM:@WmUi:\布局元素_渐变_青_清凉_R24;
+}
+.layoutEleUI 布局元素_渐变_青_温润_R4{
+	bkInfoM:@WmUi:\布局元素_渐变_青_温润_R4;
+}
+.layoutEleUI 布局元素_渐变_青_温润_R8{
+	bkInfoM:@WmUi:\布局元素_渐变_青_温润_R8;
+}
+.layoutEleUI 布局元素_渐变_青_温润_R16{
+	bkInfoM:@WmUi:\布局元素_渐变_青_温润_R16;
+}
+.layoutEleUI 布局元素_渐变_青_温润_R24{
+	bkInfoM:@WmUi:\布局元素_渐变_青_温润_R24;
+}
+.layoutEleUI 布局元素_渐变_蓝_深邃_R4{
+	bkInfoM:@WmUi:\布局元素_渐变_蓝_深邃_R4;
+}
+.layoutEleUI 布局元素_渐变_蓝_深邃_R8{
+	bkInfoM:@WmUi:\布局元素_渐变_蓝_深邃_R8;
+}
+.layoutEleUI 布局元素_渐变_蓝_深邃_R16{
+	bkInfoM:@WmUi:\布局元素_渐变_蓝_深邃_R16;
+}
+.layoutEleUI 布局元素_渐变_蓝_深邃_R24{
+	bkInfoM:@WmUi:\布局元素_渐变_蓝_深邃_R24;
+}
+.layoutEleUI 布局元素_渐变_蓝_平和_R4{
+	bkInfoM:@WmUi:\布局元素_渐变_蓝_平和_R4;
+}
+.layoutEleUI 布局元素_渐变_蓝_平和_R8{
+	bkInfoM:@WmUi:\布局元素_渐变_蓝_平和_R8;
+}
+.layoutEleUI 布局元素_渐变_蓝_平和_R16{
+	bkInfoM:@WmUi:\布局元素_渐变_蓝_平和_R16;
+}
+.layoutEleUI 布局元素_渐变_蓝_平和_R24{
+	bkInfoM:@WmUi:\布局元素_渐变_蓝_平和_R24;
+}
+.layoutEleUI 布局元素_渐变_紫_梦幻_R4{
+	bkInfoM:@WmUi:\布局元素_渐变_紫_梦幻_R4;
+}
+.layoutEleUI 布局元素_渐变_紫_梦幻_R8{
+	bkInfoM:@WmUi:\布局元素_渐变_紫_梦幻_R8;
+}
+.layoutEleUI 布局元素_渐变_紫_梦幻_R16{
+	bkInfoM:@WmUi:\布局元素_渐变_紫_梦幻_R16;
+}
+.layoutEleUI 布局元素_渐变_紫_梦幻_R24{
+	bkInfoM:@WmUi:\布局元素_渐变_紫_梦幻_R24;
+}
+.layoutEleUI 布局元素_渐变_紫_浪漫_R4{
+	bkInfoM:@WmUi:\布局元素_渐变_紫_浪漫_R4;
+}
+.layoutEleUI 布局元素_渐变_紫_浪漫_R8{
+	bkInfoM:@WmUi:\布局元素_渐变_紫_浪漫_R8;
+}
+.layoutEleUI 布局元素_渐变_紫_浪漫_R16{
+	bkInfoM:@WmUi:\布局元素_渐变_紫_浪漫_R16;
+}
+.layoutEleUI 布局元素_渐变_紫_浪漫_R24{
+	bkInfoM:@WmUi:\布局元素_渐变_紫_浪漫_R24;
+}
+.layoutEleUI 布局元素_填充1_R4{
+	bkInfoM:@WmUi:\布局元素_填充1_R4;
+}
+.layoutEleUI 布局元素_填充1_R8{
+	bkInfoM:@WmUi:\布局元素_填充1_R8;
+}
+.layoutEleUI 布局元素_填充1_R16{
+	bkInfoM:@WmUi:\布局元素_填充1_R16;
+}
+.layoutEleUI 布局元素_填充1_R24{
+	bkInfoM:@WmUi:\布局元素_填充1_R24;
+}
+.layoutEleUI 布局元素_填充2_R4{
+	bkInfoM:@WmUi:\布局元素_填充2_R4;
+}
+.layoutEleUI 布局元素_填充2_R8{
+	bkInfoM:@WmUi:\布局元素_填充2_R8;
+}
+.layoutEleUI 布局元素_填充2_R16{
+	bkInfoM:@WmUi:\布局元素_填充2_R16;
+}
+.layoutEleUI 布局元素_填充2_R24{
+	bkInfoM:@WmUi:\布局元素_填充2_R24;
+}
+.layoutEleUI 布局元素_填充3_R4{
+	bkInfoM:@WmUi:\布局元素_填充3_R4;
+}
+.layoutEleUI 布局元素_填充3_R8{
+	bkInfoM:@WmUi:\布局元素_填充3_R8;
+}
+.layoutEleUI 布局元素_填充3_R16{
+	bkInfoM:@WmUi:\布局元素_填充3_R16;
+}
+.layoutEleUI 布局元素_填充3_R24{
+	bkInfoM:@WmUi:\布局元素_填充3_R24;
+}
+.layoutEleUI 布局元素_填充4_R4{
+	bkInfoM:@WmUi:\布局元素_填充4_R4;
+}
+.layoutEleUI 布局元素_填充4_R8{
+	bkInfoM:@WmUi:\布局元素_填充4_R8;
+}
+.layoutEleUI 布局元素_填充4_R16{
+	bkInfoM:@WmUi:\布局元素_填充4_R16;
+}
+.layoutEleUI 布局元素_填充4_R24{
+	bkInfoM:@WmUi:\布局元素_填充4_R24;
+}
+.layoutEleUI 布局元素_填充5_R4{
+	bkInfoM:@WmUi:\布局元素_填充5_R4;
+}
+.layoutEleUI 布局元素_填充5_R8{
+	bkInfoM:@WmUi:\布局元素_填充5_R8;
+}
+.layoutEleUI 布局元素_填充5_R16{
+	bkInfoM:@WmUi:\布局元素_填充5_R16;
+}
+.layoutEleUI 布局元素_填充5_R24{
+	bkInfoM:@WmUi:\布局元素_填充5_R24;
+}
+.layoutEleUI 布局元素_填充6_R4{
+	bkInfoM:@WmUi:\布局元素_填充6_R4;
+}
+.layoutEleUI 布局元素_填充6_R8{
+	bkInfoM:@WmUi:\布局元素_填充6_R8;
+}
+.layoutEleUI 布局元素_填充6_R16{
+	bkInfoM:@WmUi:\布局元素_填充6_R16;
+}
+.layoutEleUI 布局元素_填充6_R24{
+	bkInfoM:@WmUi:\布局元素_填充6_R24;
+}
+.layoutEleUI 布局元素_填充7_R4{
+	bkInfoM:@WmUi:\布局元素_填充7_R4;
+}
+.layoutEleUI 布局元素_填充7_R8{
+	bkInfoM:@WmUi:\布局元素_填充7_R8;
+}
+.layoutEleUI 布局元素_填充7_R16{
+	bkInfoM:@WmUi:\布局元素_填充7_R16;
+}
+.layoutEleUI 布局元素_填充7_R24{
+	bkInfoM:@WmUi:\布局元素_填充7_R24;
+}
+.layoutFrameUI 布局框架_渐变_红_炽热_R4{
+	bkInfoM:@WmUi:\布局框架_渐变_红_炽热_R4;
+}
+.layoutFrameUI 布局框架_渐变_红_炽热_R8{
+	bkInfoM:@WmUi:\布局框架_渐变_红_炽热_R8;
+}
+.layoutFrameUI 布局框架_渐变_红_炽热_R16{
+	bkInfoM:@WmUi:\布局框架_渐变_红_炽热_R16;
+}
+.layoutFrameUI 布局框架_渐变_红_炽热_R24{
+	bkInfoM:@WmUi:\布局框架_渐变_红_炽热_R24;
+}
+.layoutFrameUI 布局框架_渐变_红_柔和_R4{
+	bkInfoM:@WmUi:\布局框架_渐变_红_柔和_R4;
+}
+.layoutFrameUI 布局框架_渐变_红_柔和_R8{
+	bkInfoM:@WmUi:\布局框架_渐变_红_柔和_R8;
+}
+.layoutFrameUI 布局框架_渐变_红_柔和_R16{
+	bkInfoM:@WmUi:\布局框架_渐变_红_柔和_R16;
+}
+.layoutFrameUI 布局框架_渐变_红_柔和_R24{
+	bkInfoM:@WmUi:\布局框架_渐变_红_柔和_R24;
+}
+.layoutFrameUI 布局框架_渐变_橙_活力_R4{
+	bkInfoM:@WmUi:\布局框架_渐变_橙_活力_R4;
+}
+.layoutFrameUI 布局框架_渐变_橙_活力_R8{
+	bkInfoM:@WmUi:\布局框架_渐变_橙_活力_R8;
+}
+.layoutFrameUI 布局框架_渐变_橙_活力_R16{
+	bkInfoM:@WmUi:\布局框架_渐变_橙_活力_R16;
+}
+.layoutFrameUI 布局框架_渐变_橙_活力_R24{
+	bkInfoM:@WmUi:\布局框架_渐变_橙_活力_R24;
+}
+.layoutFrameUI 布局框架_渐变_橙_沉稳_R4{
+	bkInfoM:@WmUi:\布局框架_渐变_橙_沉稳_R4;
+}
+.layoutFrameUI 布局框架_渐变_橙_沉稳_R8{
+	bkInfoM:@WmUi:\布局框架_渐变_橙_沉稳_R8;
+}
+.layoutFrameUI 布局框架_渐变_橙_沉稳_R16{
+	bkInfoM:@WmUi:\布局框架_渐变_橙_沉稳_R16;
+}
+.layoutFrameUI 布局框架_渐变_橙_沉稳_R24{
+	bkInfoM:@WmUi:\布局框架_渐变_橙_沉稳_R24;
+}
+.layoutFrameUI 布局框架_渐变_黄_明亮_R4{
+	bkInfoM:@WmUi:\布局框架_渐变_黄_明亮_R4;
+}
+.layoutFrameUI 布局框架_渐变_黄_明亮_R8{
+	bkInfoM:@WmUi:\布局框架_渐变_黄_明亮_R8;
+}
+.layoutFrameUI 布局框架_渐变_黄_明亮_R16{
+	bkInfoM:@WmUi:\布局框架_渐变_黄_明亮_R16;
+}
+.layoutFrameUI 布局框架_渐变_黄_明亮_R24{
+	bkInfoM:@WmUi:\布局框架_渐变_黄_明亮_R24;
+}
+.layoutFrameUI 布局框架_渐变_黄_奢华_R4{
+	bkInfoM:@WmUi:\布局框架_渐变_黄_奢华_R4;
+}
+.layoutFrameUI 布局框架_渐变_黄_奢华_R8{
+	bkInfoM:@WmUi:\布局框架_渐变_黄_奢华_R8;
+}
+.layoutFrameUI 布局框架_渐变_黄_奢华_R16{
+	bkInfoM:@WmUi:\布局框架_渐变_黄_奢华_R16;
+}
+.layoutFrameUI 布局框架_渐变_黄_奢华_R24{
+	bkInfoM:@WmUi:\布局框架_渐变_黄_奢华_R24;
+}
+.layoutFrameUI 布局框架_渐变_绿_宁静_R4{
+	bkInfoM:@WmUi:\布局框架_渐变_绿_宁静_R4;
+}
+.layoutFrameUI 布局框架_渐变_绿_宁静_R8{
+	bkInfoM:@WmUi:\布局框架_渐变_绿_宁静_R8;
+}
+.layoutFrameUI 布局框架_渐变_绿_宁静_R16{
+	bkInfoM:@WmUi:\布局框架_渐变_绿_宁静_R16;
+}
+.layoutFrameUI 布局框架_渐变_绿_宁静_R24{
+	bkInfoM:@WmUi:\布局框架_渐变_绿_宁静_R24;
+}
+.layoutFrameUI 布局框架_渐变_绿_活力_R4{
+	bkInfoM:@WmUi:\布局框架_渐变_绿_活力_R4;
+}
+.layoutFrameUI 布局框架_渐变_绿_活力_R8{
+	bkInfoM:@WmUi:\布局框架_渐变_绿_活力_R8;
+}
+.layoutFrameUI 布局框架_渐变_绿_活力_R16{
+	bkInfoM:@WmUi:\布局框架_渐变_绿_活力_R16;
+}
+.layoutFrameUI 布局框架_渐变_绿_活力_R24{
+	bkInfoM:@WmUi:\布局框架_渐变_绿_活力_R24;
+}
+.layoutFrameUI 布局框架_渐变_青_清凉_R4{
+	bkInfoM:@WmUi:\布局框架_渐变_青_清凉_R4;
+}
+.layoutFrameUI 布局框架_渐变_青_清凉_R8{
+	bkInfoM:@WmUi:\布局框架_渐变_青_清凉_R8;
+}
+.layoutFrameUI 布局框架_渐变_青_清凉_R16{
+	bkInfoM:@WmUi:\布局框架_渐变_青_清凉_R16;
+}
+.layoutFrameUI 布局框架_渐变_青_清凉_R24{
+	bkInfoM:@WmUi:\布局框架_渐变_青_清凉_R24;
+}
+.layoutFrameUI 布局框架_渐变_青_温润_R4{
+	bkInfoM:@WmUi:\布局框架_渐变_青_温润_R4;
+}
+.layoutFrameUI 布局框架_渐变_青_温润_R8{
+	bkInfoM:@WmUi:\布局框架_渐变_青_温润_R8;
+}
+.layoutFrameUI 布局框架_渐变_青_温润_R16{
+	bkInfoM:@WmUi:\布局框架_渐变_青_温润_R16;
+}
+.layoutFrameUI 布局框架_渐变_青_温润_R24{
+	bkInfoM:@WmUi:\布局框架_渐变_青_温润_R24;
+}
+.layoutFrameUI 布局框架_渐变_蓝_深邃_R4{
+	bkInfoM:@WmUi:\布局框架_渐变_蓝_深邃_R4;
+}
+.layoutFrameUI 布局框架_渐变_蓝_深邃_R8{
+	bkInfoM:@WmUi:\布局框架_渐变_蓝_深邃_R8;
+}
+.layoutFrameUI 布局框架_渐变_蓝_深邃_R16{
+	bkInfoM:@WmUi:\布局框架_渐变_蓝_深邃_R16;
+}
+.layoutFrameUI 布局框架_渐变_蓝_深邃_R24{
+	bkInfoM:@WmUi:\布局框架_渐变_蓝_深邃_R24;
+}
+.layoutFrameUI 布局框架_渐变_蓝_平和_R4{
+	bkInfoM:@WmUi:\布局框架_渐变_蓝_平和_R4;
+}
+.layoutFrameUI 布局框架_渐变_蓝_平和_R8{
+	bkInfoM:@WmUi:\布局框架_渐变_蓝_平和_R8;
+}
+.layoutFrameUI 布局框架_渐变_蓝_平和_R16{
+	bkInfoM:@WmUi:\布局框架_渐变_蓝_平和_R16;
+}
+.layoutFrameUI 布局框架_渐变_蓝_平和_R24{
+	bkInfoM:@WmUi:\布局框架_渐变_蓝_平和_R24;
+}
+.layoutFrameUI 布局框架_渐变_紫_梦幻_R4{
+	bkInfoM:@WmUi:\布局框架_渐变_紫_梦幻_R4;
+}
+.layoutFrameUI 布局框架_渐变_紫_梦幻_R8{
+	bkInfoM:@WmUi:\布局框架_渐变_紫_梦幻_R8;
+}
+.layoutFrameUI 布局框架_渐变_紫_梦幻_R16{
+	bkInfoM:@WmUi:\布局框架_渐变_紫_梦幻_R16;
+}
+.layoutFrameUI 布局框架_渐变_紫_梦幻_R24{
+	bkInfoM:@WmUi:\布局框架_渐变_紫_梦幻_R24;
+}
+.layoutFrameUI 布局框架_渐变_紫_浪漫_R4{
+	bkInfoM:@WmUi:\布局框架_渐变_紫_浪漫_R4;
+}
+.layoutFrameUI 布局框架_渐变_紫_浪漫_R8{
+	bkInfoM:@WmUi:\布局框架_渐变_紫_浪漫_R8;
+}
+.layoutFrameUI 布局框架_渐变_紫_浪漫_R16{
+	bkInfoM:@WmUi:\布局框架_渐变_紫_浪漫_R16;
+}
+.layoutFrameUI 布局框架_渐变_紫_浪漫_R24{
+	bkInfoM:@WmUi:\布局框架_渐变_紫_浪漫_R24;
+}
+.layoutFrameUI 布局框架_填充1_R4{
+	bkInfoM:@WmUi:\布局框架_填充1_R4;
+}
+.layoutFrameUI 布局框架_填充1_R8{
+	bkInfoM:@WmUi:\布局框架_填充1_R8;
+}
+.layoutFrameUI 布局框架_填充1_R16{
+	bkInfoM:@WmUi:\布局框架_填充1_R16;
+}
+.layoutFrameUI 布局框架_填充1_R24{
+	bkInfoM:@WmUi:\布局框架_填充1_R24;
+}
+.layoutFrameUI 布局框架_填充2_R4{
+	bkInfoM:@WmUi:\布局框架_填充2_R4;
+}
+.layoutFrameUI 布局框架_填充2_R8{
+	bkInfoM:@WmUi:\布局框架_填充2_R8;
+}
+.layoutFrameUI 布局框架_填充2_R16{
+	bkInfoM:@WmUi:\布局框架_填充2_R16;
+}
+.layoutFrameUI 布局框架_填充2_R24{
+	bkInfoM:@WmUi:\布局框架_填充2_R24;
+}
+.layoutFrameUI 布局框架_填充3_R4{
+	bkInfoM:@WmUi:\布局框架_填充3_R4;
+}
+.layoutFrameUI 布局框架_填充3_R8{
+	bkInfoM:@WmUi:\布局框架_填充3_R8;
+}
+.layoutFrameUI 布局框架_填充3_R16{
+	bkInfoM:@WmUi:\布局框架_填充3_R16;
+}
+.layoutFrameUI 布局框架_填充3_R24{
+	bkInfoM:@WmUi:\布局框架_填充3_R24;
+}
+.layoutFrameUI 布局框架_填充4_R4{
+	bkInfoM:@WmUi:\布局框架_填充4_R4;
+}
+.layoutFrameUI 布局框架_填充4_R8{
+	bkInfoM:@WmUi:\布局框架_填充4_R8;
+}
+.layoutFrameUI 布局框架_填充4_R16{
+	bkInfoM:@WmUi:\布局框架_填充4_R16;
+}
+.layoutFrameUI 布局框架_填充4_R24{
+	bkInfoM:@WmUi:\布局框架_填充4_R24;
+}
+.layoutFrameUI 布局框架_填充5_R4{
+	bkInfoM:@WmUi:\布局框架_填充5_R4;
+}
+.layoutFrameUI 布局框架_填充5_R8{
+	bkInfoM:@WmUi:\布局框架_填充5_R8;
+}
+.layoutFrameUI 布局框架_填充5_R16{
+	bkInfoM:@WmUi:\布局框架_填充5_R16;
+}
+.layoutFrameUI 布局框架_填充5_R24{
+	bkInfoM:@WmUi:\布局框架_填充5_R24;
+}
+.layoutFrameUI 布局框架_填充6_R4{
+	bkInfoM:@WmUi:\布局框架_填充6_R4;
+}
+.layoutFrameUI 布局框架_填充6_R8{
+	bkInfoM:@WmUi:\布局框架_填充6_R8;
+}
+.layoutFrameUI 布局框架_填充6_R16{
+	bkInfoM:@WmUi:\布局框架_填充6_R16;
+}
+.layoutFrameUI 布局框架_填充6_R24{
+	bkInfoM:@WmUi:\布局框架_填充6_R24;
+}
+.layoutFrameUI 布局框架_填充7_R4{
+	bkInfoM:@WmUi:\布局框架_填充7_R4;
+}
+.layoutFrameUI 布局框架_填充7_R8{
+	bkInfoM:@WmUi:\布局框架_填充7_R8;
+}
+.layoutFrameUI 布局框架_填充7_R16{
+	bkInfoM:@WmUi:\布局框架_填充7_R16;
+}
+.layoutFrameUI 布局框架_填充7_R24{
+	bkInfoM:@WmUi:\布局框架_填充7_R24;
+}
+.editUI 编辑框_通用_R4{
+	bkInfoM:@WmUi:\编辑框_通用_R4;
+	border:5,5,5,5;
+	caretColor:@WmUi_Base:\白色;
+	textColor:@WmUi_Base:\白色;
+	transparent:true;
+}
+.editUI 编辑框_通用_R8{
+	bkInfoM:@WmUi:\编辑框_通用_R8;
+	border:5,5,5,5;
+	caretColor:@WmUi_Base:\白色;
+	textColor:@WmUi_Base:\白色;
+	transparent:true;
+}
+.comboBoxUI 下拉组合框_普通{
+	bkInfoM:@WmUi:\下拉组合框_普通;
+	border:10,0,40,0;
+	caretColor:@WmUi_Base:\白色;
+	textColor:@WmUi_Base:\白色;
+	transparent:true;
+}
+.comboBoxUI 下拉组合框_突出按钮{
+	bkInfoM:@WmUi:\下拉组合框_突出按钮;
+	border:5,0,40,0;
+	caretColor:@WmUi_Base:\白色;
+	textColor:@WmUi_Base:\白色;
+	transparent:true;
+}
+.comboBoxUI 下拉组合框_突出内容{
+	bkInfoM:@WmUi:\下拉组合框_突出内容;
+	border:10,0,40,0;
+	caretColor:@WmUi_Base:\白色;
+	textColor:@WmUi_Base:\白色;
+	transparent:true;
+}
+.dateTimeUI 日期时间_普通{
+	bkInfoM:@WmUi:\日期时间_普通;
+	padding:10,5,10,5;
+	textColor:@WmUi_Base:\白色;
+}
+.monthCalUI 月历卡片_普通{
+	bkInfoM:@WmUi:\月历卡片_普通;
+	textColor:@WmUi_Base:\白色;
+}
+.windowUI 基础窗口_填充1_R4{
+	bkInfoM:@WmUi:\基础窗口_填充1_R4;
+}
+.windowUI 基础窗口_填充1_R8{
+	bkInfoM:@WmUi:\基础窗口_填充1_R8;
+}
+.windowUI 基础窗口_填充1_R16{
+	bkInfoM:@WmUi:\基础窗口_填充1_R16;
+}
+.windowUI 基础窗口_填充1_R24{
+	bkInfoM:@WmUi:\基础窗口_填充1_R24;
+}
+.windowUI 基础窗口_填充2_R4{
+	bkInfoM:@WmUi:\基础窗口_填充2_R4;
+}
+.windowUI 基础窗口_填充2_R8{
+	bkInfoM:@WmUi:\基础窗口_填充2_R8;
+}
+.windowUI 基础窗口_填充2_R16{
+	bkInfoM:@WmUi:\基础窗口_填充2_R16;
+}
+.windowUI 基础窗口_填充2_R24{
+	bkInfoM:@WmUi:\基础窗口_填充2_R24;
+}
+.windowUI 基础窗口_填充3_R4{
+	bkInfoM:@WmUi:\基础窗口_填充3_R4;
+}
+.windowUI 基础窗口_填充3_R8{
+	bkInfoM:@WmUi:\基础窗口_填充3_R8;
+}
+.windowUI 基础窗口_填充3_R16{
+	bkInfoM:@WmUi:\基础窗口_填充3_R16;
+}
+.windowUI 基础窗口_填充3_R24{
+	bkInfoM:@WmUi:\基础窗口_填充3_R24;
+}
+.windowUI 基础窗口_填充4_R4{
+	bkInfoM:@WmUi:\基础窗口_填充4_R4;
+}
+.windowUI 基础窗口_填充4_R8{
+	bkInfoM:@WmUi:\基础窗口_填充4_R8;
+}
+.windowUI 基础窗口_填充4_R16{
+	bkInfoM:@WmUi:\基础窗口_填充4_R16;
+}
+.windowUI 基础窗口_填充4_R24{
+	bkInfoM:@WmUi:\基础窗口_填充4_R24;
+}
+.windowUI 基础窗口_填充5_R4{
+	bkInfoM:@WmUi:\基础窗口_填充5_R4;
+}
+.windowUI 基础窗口_填充5_R8{
+	bkInfoM:@WmUi:\基础窗口_填充5_R8;
+}
+.windowUI 基础窗口_填充5_R16{
+	bkInfoM:@WmUi:\基础窗口_填充5_R16;
+}
+.windowUI 基础窗口_填充5_R24{
+	bkInfoM:@WmUi:\基础窗口_填充5_R24;
+}
+.windowUI 基础窗口_填充6_R4{
+	bkInfoM:@WmUi:\基础窗口_填充6_R4;
+}
+.windowUI 基础窗口_填充6_R8{
+	bkInfoM:@WmUi:\基础窗口_填充6_R8;
+}
+.windowUI 基础窗口_填充6_R16{
+	bkInfoM:@WmUi:\基础窗口_填充6_R16;
+}
+.windowUI 基础窗口_填充6_R24{
+	bkInfoM:@WmUi:\基础窗口_填充6_R24;
+}
+.windowUI 基础窗口_填充7_R4{
+	bkInfoM:@WmUi:\基础窗口_填充7_R4;
+}
+.windowUI 基础窗口_填充7_R8{
+	bkInfoM:@WmUi:\基础窗口_填充7_R8;
+}
+.windowUI 基础窗口_填充7_R16{
+	bkInfoM:@WmUi:\基础窗口_填充7_R16;
+}
+.windowUI 基础窗口_填充7_R24{
+	bkInfoM:@WmUi:\基础窗口_填充7_R24;
+}
+.modalWindowUI 模态窗口_填充1_R4{
+	bkInfoM:@WmUi:\模态窗口_填充1_R4;
+}
+.modalWindowUI 模态窗口_填充1_R8{
+	bkInfoM:@WmUi:\模态窗口_填充1_R8;
+}
+.modalWindowUI 模态窗口_填充1_R16{
+	bkInfoM:@WmUi:\模态窗口_填充1_R16;
+}
+.modalWindowUI 模态窗口_填充1_R24{
+	bkInfoM:@WmUi:\模态窗口_填充1_R24;
+}
+.modalWindowUI 模态窗口_填充2_R4{
+	bkInfoM:@WmUi:\模态窗口_填充2_R4;
+}
+.modalWindowUI 模态窗口_填充2_R8{
+	bkInfoM:@WmUi:\模态窗口_填充2_R8;
+}
+.modalWindowUI 模态窗口_填充2_R16{
+	bkInfoM:@WmUi:\模态窗口_填充2_R16;
+}
+.modalWindowUI 模态窗口_填充2_R24{
+	bkInfoM:@WmUi:\模态窗口_填充2_R24;
+}
+.modalWindowUI 模态窗口_填充3_R4{
+	bkInfoM:@WmUi:\模态窗口_填充3_R4;
+}
+.modalWindowUI 模态窗口_填充3_R8{
+	bkInfoM:@WmUi:\模态窗口_填充3_R8;
+}
+.modalWindowUI 模态窗口_填充3_R16{
+	bkInfoM:@WmUi:\模态窗口_填充3_R16;
+}
+.modalWindowUI 模态窗口_填充3_R24{
+	bkInfoM:@WmUi:\模态窗口_填充3_R24;
+}
+.modalWindowUI 模态窗口_填充4_R4{
+	bkInfoM:@WmUi:\模态窗口_填充4_R4;
+}
+.modalWindowUI 模态窗口_填充4_R8{
+	bkInfoM:@WmUi:\模态窗口_填充4_R8;
+}
+.modalWindowUI 模态窗口_填充4_R16{
+	bkInfoM:@WmUi:\模态窗口_填充4_R16;
+}
+.modalWindowUI 模态窗口_填充4_R24{
+	bkInfoM:@WmUi:\模态窗口_填充4_R24;
+}
+.modalWindowUI 模态窗口_填充5_R4{
+	bkInfoM:@WmUi:\模态窗口_填充5_R4;
+}
+.modalWindowUI 模态窗口_填充5_R8{
+	bkInfoM:@WmUi:\模态窗口_填充5_R8;
+}
+.modalWindowUI 模态窗口_填充5_R16{
+	bkInfoM:@WmUi:\模态窗口_填充5_R16;
+}
+.modalWindowUI 模态窗口_填充5_R24{
+	bkInfoM:@WmUi:\模态窗口_填充5_R24;
+}
+.modalWindowUI 模态窗口_填充6_R4{
+	bkInfoM:@WmUi:\模态窗口_填充6_R4;
+}
+.modalWindowUI 模态窗口_填充6_R8{
+	bkInfoM:@WmUi:\模态窗口_填充6_R8;
+}
+.modalWindowUI 模态窗口_填充6_R16{
+	bkInfoM:@WmUi:\模态窗口_填充6_R16;
+}
+.modalWindowUI 模态窗口_填充6_R24{
+	bkInfoM:@WmUi:\模态窗口_填充6_R24;
+}
+.modalWindowUI 模态窗口_填充7_R4{
+	bkInfoM:@WmUi:\模态窗口_填充7_R4;
+}
+.modalWindowUI 模态窗口_填充7_R8{
+	bkInfoM:@WmUi:\模态窗口_填充7_R8;
+}
+.modalWindowUI 模态窗口_填充7_R16{
+	bkInfoM:@WmUi:\模态窗口_填充7_R16;
+}
+.modalWindowUI 模态窗口_填充7_R24{
+	bkInfoM:@WmUi:\模态窗口_填充7_R24;
+}
+.frameWindowUI 框架窗口_填充1_R4{
+	bkInfoM:@WmUi:\框架窗口_填充1_R4;
+}
+.frameWindowUI 框架窗口_填充1_R8{
+	bkInfoM:@WmUi:\框架窗口_填充1_R8;
+}
+.frameWindowUI 框架窗口_填充1_R16{
+	bkInfoM:@WmUi:\框架窗口_填充1_R16;
+}
+.frameWindowUI 框架窗口_填充1_R24{
+	bkInfoM:@WmUi:\框架窗口_填充1_R24;
+}
+.frameWindowUI 框架窗口_填充2_R4{
+	bkInfoM:@WmUi:\框架窗口_填充2_R4;
+}
+.frameWindowUI 框架窗口_填充2_R8{
+	bkInfoM:@WmUi:\框架窗口_填充2_R8;
+}
+.frameWindowUI 框架窗口_填充2_R16{
+	bkInfoM:@WmUi:\框架窗口_填充2_R16;
+}
+.frameWindowUI 框架窗口_填充2_R24{
+	bkInfoM:@WmUi:\框架窗口_填充2_R24;
+}
+.frameWindowUI 框架窗口_填充3_R4{
+	bkInfoM:@WmUi:\框架窗口_填充3_R4;
+}
+.frameWindowUI 框架窗口_填充3_R8{
+	bkInfoM:@WmUi:\框架窗口_填充3_R8;
+}
+.frameWindowUI 框架窗口_填充3_R16{
+	bkInfoM:@WmUi:\框架窗口_填充3_R16;
+}
+.frameWindowUI 框架窗口_填充3_R24{
+	bkInfoM:@WmUi:\框架窗口_填充3_R24;
+}
+.frameWindowUI 框架窗口_填充4_R4{
+	bkInfoM:@WmUi:\框架窗口_填充4_R4;
+}
+.frameWindowUI 框架窗口_填充4_R8{
+	bkInfoM:@WmUi:\框架窗口_填充4_R8;
+}
+.frameWindowUI 框架窗口_填充4_R16{
+	bkInfoM:@WmUi:\框架窗口_填充4_R16;
+}
+.frameWindowUI 框架窗口_填充4_R24{
+	bkInfoM:@WmUi:\框架窗口_填充4_R24;
+}
+.frameWindowUI 框架窗口_填充5_R4{
+	bkInfoM:@WmUi:\框架窗口_填充5_R4;
+}
+.frameWindowUI 框架窗口_填充5_R8{
+	bkInfoM:@WmUi:\框架窗口_填充5_R8;
+}
+.frameWindowUI 框架窗口_填充5_R16{
+	bkInfoM:@WmUi:\框架窗口_填充5_R16;
+}
+.frameWindowUI 框架窗口_填充5_R24{
+	bkInfoM:@WmUi:\框架窗口_填充5_R24;
+}
+.frameWindowUI 框架窗口_填充6_R4{
+	bkInfoM:@WmUi:\框架窗口_填充6_R4;
+}
+.frameWindowUI 框架窗口_填充6_R8{
+	bkInfoM:@WmUi:\框架窗口_填充6_R8;
+}
+.frameWindowUI 框架窗口_填充6_R16{
+	bkInfoM:@WmUi:\框架窗口_填充6_R16;
+}
+.frameWindowUI 框架窗口_填充6_R24{
+	bkInfoM:@WmUi:\框架窗口_填充6_R24;
+}
+.frameWindowUI 框架窗口_填充7_R4{
+	bkInfoM:@WmUi:\框架窗口_填充7_R4;
+}
+.frameWindowUI 框架窗口_填充7_R8{
+	bkInfoM:@WmUi:\框架窗口_填充7_R8;
+}
+.frameWindowUI 框架窗口_填充7_R16{
+	bkInfoM:@WmUi:\框架窗口_填充7_R16;
+}
+.frameWindowUI 框架窗口_填充7_R24{
+	bkInfoM:@WmUi:\框架窗口_填充7_R24;
+}
+.listBoxUI 列表框_普通{
+	bkInfoM:@WmUi:\列表框_普通;
+	transparent:true;
+}
+.listUI 列表_普通{
+	bkInfoM:@WmUi:\列表_普通;
+	transparent:true;
+}
+.listHeaderUI 列表头_普通{
+	bkInfoM:@WmUi:\列表头_普通;
+	transparent:true;
+}
+.treeUI 列表树_普通{
+	bkInfoM:@WmUi:\列表树_普通;
+	transparent:true;
+}
+.listViewUI 列表视图_普通{
+	bkInfoM:@WmUi:\列表视图_普通;
+	transparent:true;
+}
+.menuBarButtonUI 菜单条按钮_普通{
+	bkInfoM:@WmUi:\六态按钮_高亮_全_R8;
+	transparent:true;
+}
+.sliderBarUI 滑动条_渐变_红_炽热_R4{
+	bkInfoM:@WmUi:\滑动条_渐变_红_炽热_R4;
+	transparent:true;
+}
+.sliderBarUI 滑动条_渐变_红_柔和_R4{
+	bkInfoM:@WmUi:\滑动条_渐变_红_柔和_R4;
+	transparent:true;
+}
+.sliderBarUI 滑动条_渐变_橙_活力_R4{
+	bkInfoM:@WmUi:\滑动条_渐变_橙_活力_R4;
+	transparent:true;
+}
+.sliderBarUI 滑动条_渐变_橙_沉稳_R4{
+	bkInfoM:@WmUi:\滑动条_渐变_橙_沉稳_R4;
+	transparent:true;
+}
+.sliderBarUI 滑动条_渐变_黄_明亮_R4{
+	bkInfoM:@WmUi:\滑动条_渐变_黄_明亮_R4;
+	transparent:true;
+}
+.sliderBarUI 滑动条_渐变_黄_奢华_R4{
+	bkInfoM:@WmUi:\滑动条_渐变_黄_奢华_R4;
+	transparent:true;
+}
+.sliderBarUI 滑动条_渐变_绿_宁静_R4{
+	bkInfoM:@WmUi:\滑动条_渐变_绿_宁静_R4;
+	transparent:true;
+}
+.sliderBarUI 滑动条_渐变_绿_活力_R4{
+	bkInfoM:@WmUi:\滑动条_渐变_绿_活力_R4;
+	transparent:true;
+}
+.sliderBarUI 滑动条_渐变_青_清凉_R4{
+	bkInfoM:@WmUi:\滑动条_渐变_青_清凉_R4;
+	transparent:true;
+}
+.sliderBarUI 滑动条_渐变_青_温润_R4{
+	bkInfoM:@WmUi:\滑动条_渐变_青_温润_R4;
+	transparent:true;
+}
+.sliderBarUI 滑动条_渐变_蓝_深邃_R4{
+	bkInfoM:@WmUi:\滑动条_渐变_蓝_深邃_R4;
+	transparent:true;
+}
+.sliderBarUI 滑动条_渐变_蓝_平和_R4{
+	bkInfoM:@WmUi:\滑动条_渐变_蓝_平和_R4;
+	transparent:true;
+}
+.sliderBarUI 滑动条_渐变_紫_梦幻_R4{
+	bkInfoM:@WmUi:\滑动条_渐变_紫_梦幻_R4;
+	transparent:true;
+}
+.sliderBarUI 滑动条_渐变_紫_浪漫_R4{
+	bkInfoM:@WmUi:\滑动条_渐变_紫_浪漫_R4;
+	transparent:true;
+}
+.sliderBarUI 滑动条_填充1_R4{
+	bkInfoM:@WmUi:\滑动条_填充1_R4;
+	transparent:true;
+}
+.sliderBarUI 滑动条_填充2_R4{
+	bkInfoM:@WmUi:\滑动条_填充2_R4;
+	transparent:true;
+}
+.sliderBarUI 滑动条_填充3_R4{
+	bkInfoM:@WmUi:\滑动条_填充3_R4;
+	transparent:true;
+}
+.sliderBarUI 滑动条_填充4_R4{
+	bkInfoM:@WmUi:\滑动条_填充4_R4;
+	transparent:true;
+}
+.sliderBarUI 滑动条_填充5_R4{
+	bkInfoM:@WmUi:\滑动条_填充5_R4;
+	transparent:true;
+}
+.sliderBarUI 滑动条_填充6_R4{
+	bkInfoM:@WmUi:\滑动条_填充6_R4;
+	transparent:true;
+}
+.sliderBarUI 滑动条_填充7_R4{
+	bkInfoM:@WmUi:\滑动条_填充7_R4;
+	transparent:true;
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--炫彩界面库-布局面板文件-->
+<head />
+<layoutPanel showT="true">
+	<layoutEleUI expandT="true" layout.alignBaseline="center" layout.alignH="center" layout.alignV="center" layout.autoWrap="false" layout.height="fill" layout.space="5" layout.width="auto" name="布局元素_分页容器" padding="5,0,5,0" rect="39,30,628,186" showT="true">
+		<shapeText content="总数：0" expandT="true" font="@WmUi_Base:\微软雅黑_s10" layout.height="25" layout.width="auto" name="形状文本_总数" rect="164,195,100,20" showT="true" textColor="@WmUi:\主文本色" />
+		<buttonUI content="" css.name="三态按钮_主要_填充_R8" cursor="IDC_HAND" enable="false" expandT="true" font="@WmUi_Base:\图标字体_s12" layout.height="25" layout.width="35" name="按钮_上一页" rect="47,21,60,25" showT="true" />
+		<buttonUI buttonType="radio" content="1" css.name="六态按钮_高亮_全_R8" cursor="IDC_HAND" expandT="true" font="@WmUi_Base:\微软雅黑_s10" layout.height="25" layout.width="auto" name="按钮_首页" padding="5,0,5,0" rect="147,188,60,25" showT="true" userData="1" />
+		<buttonUI buttonType="radio" content="..." css.name="六态按钮_高亮_全_R8" cursor="IDC_HAND" expandT="true" font="@WmUi_Base:\微软雅黑_s10" layout.height="25" layout.width="auto" name="按钮_前跳页" padding="5,0,5,0" rect="348,210,60,25" showT="true" />
+		<buttonUI buttonType="radio" content="4" css.name="六态按钮_高亮_全_R8" cursor="IDC_HAND" expandT="true" font="@WmUi_Base:\微软雅黑_s10" layout.height="25" layout.width="auto" name="按钮_中间页3" padding="5,0,5,0" rect="351,204,60,25" showT="true" />
+		<buttonUI buttonType="radio" content="5" css.name="六态按钮_高亮_全_R8" cursor="IDC_HAND" expandT="true" font="@WmUi_Base:\微软雅黑_s10" layout.height="25" layout.width="auto" name="按钮_中间页4" padding="5,0,5,0" rect="352,203,60,25" showT="true" />
+		<buttonUI buttonType="radio" content="7" css.name="六态按钮_高亮_全_R8" cursor="IDC_HAND" expandT="true" font="@WmUi_Base:\微软雅黑_s10" layout.height="25" layout.width="auto" name="按钮_中间页5" padding="5,0,5,0" rect="352,203,60,25" showT="true" />
+		<buttonUI buttonType="radio" content="8" css.name="六态按钮_高亮_全_R8" cursor="IDC_HAND" expandT="true" font="@WmUi_Base:\微软雅黑_s10" layout.height="25" layout.width="auto" name="按钮_中间页6" padding="5,0,5,0" rect="328,193,60,25" showT="true" />
+		<buttonUI buttonType="radio" content="9" css.name="六态按钮_高亮_全_R8" cursor="IDC_HAND" expandT="true" font="@WmUi_Base:\微软雅黑_s10" layout.height="25" layout.width="auto" name="按钮_中间页7" padding="5,0,5,0" rect="456,224,60,25" showT="true" />
+		<buttonUI buttonType="radio" content="10" css.name="六态按钮_高亮_全_R8" cursor="IDC_HAND" expandT="true" font="@WmUi_Base:\微软雅黑_s10" layout.height="25" layout.width="auto" name="按钮_后跳页" padding="5,0,5,0" rect="456,224,60,25" showT="true" />
+		<buttonUI buttonType="radio" content="11" css.name="六态按钮_高亮_全_R8" cursor="IDC_HAND" expandT="true" font="@WmUi_Base:\微软雅黑_s10" layout.height="25" layout.width="auto" name="按钮_尾页" padding="5,0,5,0" rect="410,203,60,25" showT="true" />
+		<buttonUI content="" css.name="三态按钮_主要_填充_R8" cursor="IDC_HAND" enable="false" expandT="true" font="@WmUi_Base:\图标字体_s12" layout.height="25" layout.width="35" name="按钮_下一页" rect="405,201,60,25" showT="true" />
+	</layoutEleUI>
+</layoutPanel>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--炫彩界面库-列表视元素项模板文件-->
+<head />
+<xc_template_listView showT="true">
+	<listView_Group showT="true" expandT="true">
+		<layoutEleUI drawBorder="false" enableCanvas="false" heightT="30" layout.alignBaseline="center" layout.alignH="left" layout.alignV="center" layout.height="fill" layout.horizon="true" layout.space="2" layout.width="fill" mouseThrough="true" padding="5,0,5,0" widthT="300" showT="true" expandT="true">
+			<buttonUI buttonType="check" css.name="六态按钮_展开收缩_上下" expandButton="true" itemID="0" layout.height="20" layout.width="20" rect="0,0,80,20" showT="true" expandT="true" />
+			<shapeText content="{binding field=name1}" itemID="0" layout.height="fill" layout.width="auto" textColor="@Wm_Dark:\主文本色" showT="true" expandT="true" />
+		</layoutEleUI>
+	</listView_Group>
+	<listView_item showT="true" expandT="true">
+		<layoutEleUI drawBorder="false" enableCanvas="false" heightT="100" layout.alignH="center" layout.alignV="center" layout.height="fill" layout.horizon="false" layout.space="2" layout.width="fill" mouseThrough="true" widthT="100" showT="true" expandT="true">
+			<shapePicture image="{binding field=name2}" itemID="0" layout.height="60" layout.width="60" rect="0,0,70,65" showT="true" expandT="true" />
+			<shapeText content="{binding field=name3}" itemID="0" layout.height="20" layout.width="auto" textColor="@Wm_Dark:\主文本色" showT="true" expandT="true" />
+		</layoutEleUI>
+	</listView_item>
+</xc_template_listView>

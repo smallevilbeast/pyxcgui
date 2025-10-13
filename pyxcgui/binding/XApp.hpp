@@ -26,6 +26,7 @@ namespace xcgui {
 			.def("enableDebugFile", &XCApp::EnableDebugFile, "enable"_a)
 			.def("enableErrorMessageBox", &XCApp::EnableErrorMessageBox, "enable"_a)
 			.def("enableGdiDrawText", &XCApp::EnableGdiDrawText, "enable"_a)
+			.def("enableAutoRedrawUI", &XCApp::EnableAutoRedrawUI, "enable"_a)
 			.def("enableResMonitor", &XCApp::EnableResMonitor, "enable"_a)
 			.def("showLayoutFrame", &XCApp::ShowLayoutFrame, "enable"_a)
 			.def("showSvgFrame", &XCApp::ShowSvgFrame, "enable"_a)

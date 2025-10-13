@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--炫彩界面库-窗口布局文件-->
+<head />
+<windowUI center="true" css.name="模态窗口_填充2_R8" dragWindow="true" enableLayout="true" minSize="360,0" overlayBorder="true" rect="20,20,450,181" shadowAngleSize="8" shadowDepth="128" shadowRightAngle="false" shadowSize="20" showT="true" topmost="true" transparentAlpha="255" transparentFlag="shadow" windowStyle="0" windowType="modalWindow">
+	<layoutEleUI css.name="布局元素_对话框标题" expandT="true" layout.alignBaseline="center" layout.height="40" layout.width="fill" padding="10,0,5" rect="135,58,100,100" showT="true">
+		<shapeText content="TextBlock" expandT="true" font="@WmUi_Base:\微软雅黑_s10" layout.height="fill" layout.width=":1" name="形状文本_标题" rect="166,16,100,20" showT="true" textAlign="DT_LEFT,DT_VCENTER,DT_SINGLELINE" textColor="@WmUi:\主文本色" />
+		<buttonUI buttonType="close" content="" css.name="三态按钮_警告_链接" expandT="true" font="@WmUi_Dark:\图标字体_s12" layout.height="30" layout.width="30" rect="304,12,60,25" showT="true" textAlign="DT_CENTER,DT_VCENTER,DT_SINGLELINE" />
+	</layoutEleUI>
+	<layoutEleUI css.name="布局元素_填充1_R8" expandT="true" layout.height="auto" layout.margin="10,0,10,0" layout.minSize="0,0" layout.width="fill" padding="10,15,10,15" rect="207,72,100,100" showT="true">
+		<shapeText expandT="true" font="@WmUi_Base:\微软雅黑_s10" layout.height="auto" layout.width="auto" name="形状文本_提示内容" rect="164,42,100,20" showT="true" textAlign="DT_LEFT,DT_VCENTER" textColor="@WmUi:\主文本色" />
+	</layoutEleUI>
+	<layoutEleUI css.name="布局元素_对话框按钮" expandT="true" layout.autoWrap="false" layout.height="45" layout.space="10" layout.width="fill" padding="10,10,10,5" rect="281,160,100,100" showT="true">
+		<buttonUI content="重试" css.name="三态按钮_明亮_填充_R8" expandT="true" font="@WmUi_Base:\微软雅黑_s11" layout.float="true" layout.height="fill" layout.width="auto" name="按钮_重试" padding="15,0,15" rect="193,27,60,25" show="false" showT="true" />
+		<buttonUI content="取消" css.name="三态按钮_次要_填充_R8" expandT="true" font="@WmUi_Base:\微软雅黑_s11" layout.float="true" layout.height="fill" layout.width="auto" name="按钮_取消" padding="15,0,15" rect="245,25,60,25" show="false" showT="true" />
+		<buttonUI content="确定" css.name="三态按钮_主要_填充_R8" expandT="true" font="@WmUi_Base:\微软雅黑_s11" layout.float="true" layout.height="fill" layout.width="auto" name="按钮_确定" padding="15,0,15" rect="176,25,60,25" showT="true" />
+	</layoutEleUI>
+</windowUI>

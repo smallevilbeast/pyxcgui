@@ -35,6 +35,7 @@ namespace xcgui {
 			.def("getNextSiblingItem", &XCMenu::GetNextSiblingItem, "nId"_a)
 			.def("getParentItem", &XCMenu::GetParentItem, "nId"_a)
 			.def("setAutoDestroy", &XCMenu::SetAutoDestroy, "enable"_a)
+			.def("enableDrawItem", &XCMenu::EnableDrawItem, "enable"_a)
 			.def("enableDrawBackground", &XCMenu::EnableDrawBackground, "enable"_a)
 
 			.def("popup", [](XCMenu& self, uintptr_t hParentWnd, int x, int y,

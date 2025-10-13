@@ -8,7 +8,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "xcgui"
-version = "0.1.8"
+version = "0.1.9"
 description = "xcgui - bundled xcgui for python"
 readme = "README.md"
 license = "MIT"
@@ -49,7 +49,7 @@ include = ["xcgui*"]
 
 [tool.cibuildwheel]
 # 构建的 Python 版本（只构建你支持的版本）
-build = ["cp39-win_amd64", "cp310-win_amd64", "cp311-win_amd64", "cp312-win_amd64", "cp313-win_amd64"]
+build = ["cp39-win_amd64", "cp310-win_amd64", "cp311-win_amd64", "cp312-win_amd64", "cp313-win_amd64", "cp314-win_amd64"]
 
 # 跳过不需要的构建
 skip = ["*-win32", "*-manylinux_i686", "*-musllinux_*", "pp*"]

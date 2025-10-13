@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--炫彩界面库-窗口布局文件-->
+<head />
+<windowUI center="true" content="炫彩界面库 - 我的窗口名" css.name="基础窗口_填充1_R4" dragBorder="true" dragWindow="true" enableLayout="true" layout.space="10" layout.spaceRow="10" overlayBorder="true" padding="5,5,5,5" rect="20,20,980,648" shadowAngleSize="4" shadowDepth="128" shadowRightAngle="false" shadowSize="15" showT="true" transparentAlpha="255" transparentFlag="shadow" windowStyle="0">
+	<layoutEleUI expandT="true" layout.height="40" layout.width="fill" padding="10" rect="650,28,100,100" showT="true">
+		<shapeText content="WmUi" expandT="true" font="@WmUi_Base:\微软雅黑_s15" layout.height="fill" layout.width=":1" rect="371,12,100,20" showT="true" textColor="@WmUi:\主文本色" />
+		<buttonUI buttonType="min" content="" css.name="三态按钮_次要_链接" expandT="true" font="@WmUi_Base:\图标字体_s12" layout.height="fill" layout.width="40" rect="890,18,60,25" showT="true" />
+		<buttonUI buttonType="max" content="" css.name="三态按钮_次要_链接" expandT="true" font="@WmUi_Base:\图标字体_s12" layout.height="fill" layout.width="40" rect="102,14,60,25" showT="true" />
+		<buttonUI buttonType="close" content="" css.name="三态按钮_警告_链接" expandT="true" font="@WmUi_Base:\图标字体_s12" layout.height="fill" layout.width="40" rect="199,19,60,25" showT="true" />
+	</layoutEleUI>
+	<layoutFrameUI drawFocus="false" expandT="true" layout.alignH="center" layout.height=":1" layout.wrap="true" rect="35,214,100,100" showT="true">
+		<buttonUI bindEle="@基础元素" buttonType="radio" check="true" content="容器元素" css.name="六态按钮_高亮_全_R8" expandT="true" layout.height="40" layout.width="fill" rect="31,149,60,25" showT="true" />
+		<buttonUI bindEle="@三态按钮" buttonType="radio" content="三态按钮" css.name="六态按钮_高亮_全_R8" expandT="true" layout.height="40" layout.width="fill" rect="20,41,60,25" showT="true" />
+		<buttonUI bindEle="@六态按钮" buttonType="radio" content="六态按钮" css.name="六态按钮_高亮_全_R8" expandT="true" layout.height="40" layout.width="fill" rect="46,89,60,25" showT="true" />
+		<buttonUI bindEle="@输入组件" buttonType="radio" content="输入组件" css.name="六态按钮_高亮_全_R8" expandT="true" layout.height="40" layout.width="fill" rect="47,178,60,25" showT="true" />
+		<buttonUI bindEle="@列表组件" buttonType="radio" content="列表组件" css.name="六态按钮_高亮_全_R8" expandT="true" layout.height="40" layout.width="fill" rect="45,206,60,25" showT="true" />
+		<buttonUI bindEle="@其他控件" buttonType="radio" content="其他控件" css.name="六态按钮_高亮_全_R8" expandT="true" layout.height="40" layout.width="fill" rect="54,243,60,25" showT="true" />
+		<buttonUI buttonType="check" content="切换" css.name="六态按钮_开关" expandT="true" layout.width="auto" name="切换" rect="51,436,60,25" showT="true" toolTip="点击切换主题" />
+	</layoutFrameUI>
+	<layoutFrameUI drawFocus="false" expandT="true" layout.height=":1" layout.width=":1" name="布局框架1" rect="225,258,100,100" showT="true">
+		<layoutEleUI expandT="false" id="@基础元素" layout.height="auto" layout.space="10" layout.spaceRow="10" layout.width="fill" rect="-382,275,897,161" showT="false">
+			<shapeText content="容器：基础元素、布局元素、布局框架" expandT="true" font="@WmUi_Base:\微软雅黑_s19" layout.height="40" layout.width="fill" rect="345,22,100,20" showT="true" textColor="@WmUi:\主文本色" />
+			<shapeText content="彩色渐变，以下元素从左到右，分别以：红橙黄绿青蓝紫，而制作的渐变色" expandT="true" font="@WmUi_Base:\微软雅黑_s11" layout.width="fill" rect="839,84,100,20" showT="true" textColor="@WmUi:\次文本色" />
+			<layoutEleUI expandT="false" layout.height="auto" layout.space="10" layout.spaceRow="10" layout.width="fill" rect="821,179,100,100" showT="true">
+				<elementUI css.name="基础元素_渐变_红_炽热_R4" expandT="true" rect="561,22,100,100" showT="true" />
+				<elementUI css.name="基础元素_渐变_橙_活力_R4" expandT="true" rect="280,109,100,100" showT="true" />
+				<elementUI css.name="基础元素_渐变_黄_明亮_R4" expandT="true" rect="430,116,100,100" showT="true" />
+				<elementUI css.name="基础元素_渐变_绿_宁静_R4" expandT="true" rect="620,107,100,100" showT="true" />
+				<elementUI css.name="基础元素_渐变_青_清凉_R4" expandT="true" rect="662,106,100,100" showT="true" />
+				<elementUI css.name="基础元素_渐变_蓝_深邃_R4" expandT="true" rect="684,107,100,100" showT="true" />
+				<elementUI css.name="基础元素_渐变_紫_梦幻_R4" expandT="true" rect="754,111,100,100" showT="true" />
+				<elementUI css.name="基础元素_渐变_红_柔和_R4" expandT="true" layout.wrap="true" rect="832,121,100,100" showT="true" />
+				<elementUI css.name="基础元素_渐变_橙_沉稳_R8" expandT="true" rect="852,75,100,100" showT="true" />
+				<elementUI css.name="基础元素_渐变_黄_奢华_R16" expandT="true" rect="872,95,100,100" showT="true" />
+				<elementUI css.name="基础元素_渐变_绿_活力_R24" expandT="true" rect="448,115,100,100" showT="true" />
+				<elementUI css.name="基础元素_渐变_青_温润_R4" expandT="true" rect="468,75,100,100" showT="true" />
+				<elementUI css.name="基础元素_渐变_蓝_平和_R8" expandT="true" rect="488,95,100,100" showT="true" />
+				<elementUI css.name="基础元素_渐变_紫_浪漫_R16" expandT="true" rect="508,115,100,100" showT="true" />
+			</layoutEleUI>
+			<shapeText content="中性色填充，从左到右共7个中性色，#141414 &gt; #808080" expandT="true" font="@WmUi_Base:\微软雅黑_s11" layout.width="fill" rect="619,51,100,20" showT="true" textColor="@WmUi:\次文本色" />
+			<layoutEleUI expandT="false" layout.height="auto" layout.space="10" layout.spaceRow="10" layout.width="fill" rect="757,72,100,100" showT="true">
+				<elementUI css.name="基础元素_填充1_R4" expandT="true" rect="561,22,100,100" showT="true">
+					<shapeText content="这里也有一个&#10;是背景色&#10;#141414" expandT="true" font="@WmUi_Base:\微软雅黑_s11" layout.width="auto" rect="2,17,92,70" showT="true" textAlign="DT_CENTER,DT_VCENTER" textColor="@WmUi:\次文本色" />
+				</elementUI>
+				<elementUI css.name="基础元素_填充2_R8" expandT="true" rect="280,109,100,100" showT="true" />
+				<elementUI css.name="基础元素_填充3_R16" expandT="true" rect="430,116,100,100" showT="true" />
+				<elementUI css.name="基础元素_填充4_R24" expandT="true" rect="620,107,100,100" showT="true" />
+				<elementUI css.name="基础元素_填充5_R4" expandT="true" rect="662,106,100,100" showT="true" />
+				<elementUI css.name="基础元素_填充6_R8" expandT="true" rect="684,107,100,100" showT="true" />
+				<elementUI css.name="基础元素_填充7_R16" expandT="true" rect="754,111,100,100" showT="true" />
+			</layoutEleUI>
+			<shapeText content="以上每个颜色都制作了：4、8、16、24，四种圆角大小&#10;并且基础元素、布局元素、布局框架，都制作了&#10;&#10;基础窗口、模态窗口、框架窗口仅制作了中性色&#10;&#10;彩色的还可以用于做一些小标记，如下：" expandT="true" font="@WmUi_Base:\微软雅黑_s11" layout.height="120" layout.width="fill" rect="464,44,100,20" showT="true" textColor="@WmUi:\次文本色" />
+			<layoutEleUI css.name="布局元素_渐变_红_炽热_R8" expandT="true" layout.height="20" layout.width="auto" padding="2,2,2,2" rect="721,482,100,100" showT="true">
+				<shapeText content="99+" expandT="true" layout.height="fill" layout.width="auto" rect="45,9,100,20" showT="true" textColor="@WmUi_Base:\黑色" />
+			</layoutEleUI>
+			<layoutEleUI css.name="布局元素_渐变_黄_明亮_R4" expandT="false" layout.height="25" layout.width="auto" padding="5,5,5,5" rect="101,295,57,25" showT="true">
+				<shapeText content="" expandT="true" font="@WmUi_Base:\图标字体_s12" layout.height="fill" layout.width="20" rect="45,9,100,20" showT="true" textAlign="DT_CENTER,DT_VCENTER,DT_SINGLELINE" textColor="@WmUi_Base:\黑色" />
+				<shapeText content="SVIP" expandT="true" layout.height="fill" layout.width="auto" rect="23,-6,100,20" showT="true" textColor="@WmUi:\黑色" />
+			</layoutEleUI>
+			<layoutEleUI css.name="布局元素_渐变_蓝_平和_R4" expandT="false" layout.height="25" layout.width="auto" padding="5,5,5,5" rect="202,568,57,25" showT="true">
+				<shapeText content="" expandT="true" font="@WmUi_Base:\图标字体_s12" layout.height="fill" layout.width="20" rect="45,9,100,20" showT="true" textAlign="DT_CENTER,DT_VCENTER,DT_SINGLELINE" textColor="@WmUi_Base:\白色" />
+				<shapeText content="Lv4" expandT="true" layout.height="fill" layout.width="auto" rect="23,-6,100,20" showT="true" textColor="@WmUi:\黄色" />
+			</layoutEleUI>
+			<layoutEleUI css.name="布局元素_渐变_橙_沉稳_R8" expandT="false" layout.height="25" layout.width="auto" padding="5,5,5,5" rect="256,569,57,25" showT="true">
+				<shapeText content="" expandT="true" font="@WmUi_Base:\图标字体_s12" layout.height="fill" layout.width="20" rect="45,9,100,20" showT="true" textAlign="DT_CENTER,DT_VCENTER,DT_SINGLELINE" textColor="@WmUi_Base:\黄色" />
+				<shapeText content="Hot" expandT="true" layout.height="fill" layout.width="auto" rect="23,-6,100,20" showT="true" textColor="@WmUi:\白色" />
+			</layoutEleUI>
+			<elementUI css.name="基础元素_渐变_红_炽热_R4" expandT="true" layout.height="8" layout.width="8" rect="376,573,100,100" showT="true" />
+			<elementUI css.name="基础元素_渐变_橙_活力_R4" expandT="true" layout.height="8" layout.width="8" rect="396,297,100,100" showT="true" />
+			<elementUI css.name="基础元素_渐变_黄_明亮_R4" expandT="true" layout.height="8" layout.width="8" rect="416,317,100,100" showT="true" />
+			<elementUI css.name="基础元素_渐变_绿_宁静_R4" expandT="true" layout.height="8" layout.width="8" rect="436,337,100,100" showT="true" />
+			<elementUI css.name="基础元素_渐变_青_清凉_R4" expandT="true" layout.height="8" layout.width="8" rect="456,357,100,100" showT="true" />
+			<elementUI css.name="基础元素_渐变_蓝_深邃_R4" expandT="true" layout.height="8" layout.width="8" rect="476,377,100,100" showT="true" />
+			<elementUI css.name="基础元素_渐变_紫_梦幻_R4" expandT="true" layout.height="8" layout.width="8" rect="496,397,100,100" showT="true" />
+			<elementUI css.name="基础元素_填充2_R4" expandT="true" layout.height="8" layout.width="8" rect="511,297,100,100" showT="true" />
+			<elementUI css.name="基础元素_填充3_R4" expandT="true" layout.height="8" layout.width="8" rect="531,317,100,100" showT="true" />
+			<elementUI css.name="基础元素_填充4_R4" expandT="true" layout.height="8" layout.width="8" rect="551,337,100,100" showT="true" />
+			<elementUI css.name="基础元素_填充5_R4" expandT="true" layout.height="8" layout.width="8" rect="571,357,100,100" showT="true" />
+			<elementUI css.name="基础元素_填充6_R4" expandT="true" layout.height="8" layout.width="8" rect="591,377,100,100" showT="true" />
+			<elementUI css.name="基础元素_填充7_R4" expandT="true" layout.height="8" layout.width="8" rect="611,397,100,100" showT="true" />
+		</layoutEleUI>
+		<layoutEleUI expandT="false" id="@三态按钮" layout.height="auto" layout.space="10" layout.spaceRow="10" layout.width="fill" rect="178,150,888,73" showT="false">
+			<shapeText content="三态按钮" expandT="true" font="@WmUi_Base:\微软雅黑_s19" layout.height="40" layout.width="fill" rect="345,22,100,20" showT="true" textColor="@WmUi:\主文本色" />
+			<buttonUI content="通用禁用态" css.name="三态按钮_主要_填充_R4" enable="false" expandT="true" layout.height="40" layout.width="auto" padding="10,0,10,0" rect="511,20,95,37" showT="true" />
+			<layoutEleUI expandT="false" layout.height="40" layout.space="10" layout.width="fill" rect="402,47,100,100" showT="true">
+				<buttonUI content="主要渐变" css.name="三态按钮_主要_渐变_R4" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="337,18,95,37" showT="true" />
+				<buttonUI content="主要填充" css.name="三态按钮_主要_填充_R4" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="163,145,95,37" showT="true" />
+				<buttonUI content="主要边框" css.name="三态按钮_主要_边框_R4" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="191,59,95,37" showT="true" />
+				<buttonUI content="主要文字" css.name="三态按钮_主要_文字_R4" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="314,33,95,37" showT="true" />
+				<buttonUI content="主要链接" css.name="三态按钮_主要_链接" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="435,20,95,37" showT="true" />
+			</layoutEleUI>
+			<layoutEleUI expandT="false" layout.height="40" layout.space="10" layout.width="fill" rect="-239,33,100,100" showT="true">
+				<buttonUI content="次要渐变" css.name="三态按钮_次要_渐变_R4" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="365,20,95,37" showT="true" />
+				<buttonUI content="次要填充" css.name="三态按钮_次要_填充_R4" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="163,145,95,37" showT="true" />
+				<buttonUI content="次要边框" css.name="三态按钮_次要_边框_R4" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="191,59,95,37" showT="true" />
+				<buttonUI content="次要文字" css.name="三态按钮_次要_文字_R4" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="314,33,95,37" showT="true" />
+				<buttonUI content="次要链接" css.name="三态按钮_次要_链接" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="584,20,95,37" showT="true" />
+			</layoutEleUI>
+			<layoutEleUI expandT="false" layout.height="40" layout.space="10" layout.width="fill" rect="131,62,100,100" showT="true">
+				<buttonUI content="警告渐变" css.name="三态按钮_警告_渐变_R4" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="335,20,95,37" showT="true" />
+				<buttonUI content="警告填充" css.name="三态按钮_警告_填充_R4" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="163,145,95,37" showT="true" />
+				<buttonUI content="警告边框" css.name="三态按钮_警告_边框_R4" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="191,59,95,37" showT="true" />
+				<buttonUI content="警告文字" css.name="三态按钮_警告_文字_R4" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="314,33,95,37" showT="true" />
+				<buttonUI content="警告链接" css.name="三态按钮_警告_链接" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="411,20,95,37" showT="true" />
+			</layoutEleUI>
+			<layoutEleUI expandT="false" layout.height="40" layout.space="10" layout.width="fill" rect="263,33,100,100" showT="true">
+				<buttonUI content="明亮渐变" css.name="三态按钮_明亮_渐变_R4" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="287,20,95,37" showT="true" />
+				<buttonUI content="明亮填充" css.name="三态按钮_明亮_填充_R4" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="163,145,95,37" showT="true" />
+				<buttonUI content="明亮边框" css.name="三态按钮_明亮_边框_R4" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="191,59,95,37" showT="true" />
+				<buttonUI content="明亮文字" css.name="三态按钮_明亮_文字_R4" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="314,33,95,37" showT="true" />
+				<buttonUI content="明亮链接" css.name="三态按钮_明亮_链接" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="397,18,95,37" showT="true" />
+			</layoutEleUI>
+			<layoutEleUI css.name="布局元素_渐变_绿_宁静_R8" expandT="false" layout.height="60" layout.space="10" layout.width="fill" padding="10,10,10,10" rect="557,394,100,100" showT="true">
+				<buttonUI content="白色渐变" css.name="三态按钮_白色_渐变_R4" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="365,20,95,37" showT="true" />
+				<buttonUI content="白色填充" css.name="三态按钮_白色_填充_R4" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="163,145,95,37" showT="true" />
+				<buttonUI content="白色边框" css.name="三态按钮_白色_边框_R4" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="191,59,95,37" showT="true" />
+				<buttonUI content="白色文字" css.name="三态按钮_白色_文字_R4" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="314,33,95,37" showT="true" />
+				<buttonUI content="白色链接" css.name="三态按钮_白色_链接" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="496,20,95,37" showT="true" />
+			</layoutEleUI>
+			<layoutEleUI css.name="布局元素_渐变_绿_宁静_R8" expandT="false" layout.height="60" layout.space="10" layout.width="fill" padding="10,10,10,10" rect="-307,320,100,100" showT="true">
+				<buttonUI content="黑色渐变" css.name="三态按钮_黑色_渐变_R4" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="365,20,95,37" showT="true" />
+				<buttonUI content="黑色填充" css.name="三态按钮_黑色_填充_R4" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="163,145,95,37" showT="true" />
+				<buttonUI content="黑色边框" css.name="三态按钮_黑色_边框_R4" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="191,59,95,37" showT="true" />
+				<buttonUI content="黑色文字" css.name="三态按钮_黑色_文字_R4" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="314,33,95,37" showT="true" />
+				<buttonUI content="黑色链接" css.name="三态按钮_黑色_链接" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="496,20,95,37" showT="true" />
+			</layoutEleUI>
+			<layoutEleUI expandT="false" layout.height="40" layout.space="10" layout.width="fill" rect="535,24,100,100" showT="true">
+				<buttonUI content="渐变圆角8" css.name="三态按钮_主要_渐变_R8" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="337,18,95,37" showT="true" />
+				<buttonUI content="填充圆角8" css.name="三态按钮_主要_填充_R8" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="163,145,95,37" showT="true" />
+				<buttonUI content="边框圆角8" css.name="三态按钮_主要_边框_R8" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="191,59,95,37" showT="true" />
+				<buttonUI content="文字圆角8" css.name="三态按钮_主要_文字_R8" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="314,33,95,37" showT="true" />
+			</layoutEleUI>
+			<layoutEleUI expandT="false" layout.height="40" layout.space="10" layout.width="fill" rect="152,145,100,100" showT="true">
+				<buttonUI content="渐变圆角16" css.name="三态按钮_次要_渐变_R16" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="365,20,95,37" showT="true" />
+				<buttonUI content="填充圆角16" css.name="三态按钮_次要_填充_R16" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="163,145,95,37" showT="true" />
+				<buttonUI content="边框圆角16" css.name="三态按钮_次要_边框_R16" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="191,59,95,37" showT="true" />
+				<buttonUI content="文字圆角16" css.name="三态按钮_次要_文字_R16" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="314,33,95,37" showT="true" />
+			</layoutEleUI>
+			<shapeText content="以上按钮样式，都做了：4、8、16，三种大小的圆角&#10;如果使用不同尺寸的按钮，想让字体大小也做出改变&#10;可以在按钮的字体属性中选择合适字号的字体&#10;如下：" expandT="true" font="@WmUi_Base:\微软雅黑_s11" layout.height="100" layout.width="fill" rect="510,71,100,20" showT="true" textColor="@WmUi:\次文本色" />
+			<layoutEleUI expandT="false" layout.height="80" layout.space="10" layout.width="fill" rect="499,299,100,100" showT="true">
+				<buttonUI content="主要渐变1" css.name="三态按钮_主要_渐变_R16" expandT="true" font="@WmUi_Base:\微软雅黑_s19" layout.height="fill" layout.width="auto" padding="20,0,20,0" rect="337,18,95,37" showT="true" />
+				<buttonUI content="主要填充1" css.name="三态按钮_主要_填充_R16" expandT="true" font="@WmUi_Base:\微软雅黑_s19" layout.height="fill" layout.width="auto" padding="20,0,20,0" rect="163,145,95,37" showT="true" />
+				<buttonUI content="主要边框1" css.name="三态按钮_主要_边框_R16" expandT="true" font="@WmUi_Base:\微软雅黑_s19" layout.height="fill" layout.width="auto" padding="20,0,20,0" rect="191,59,95,37" showT="true" />
+				<buttonUI content="主要文字1" css.name="三态按钮_主要_文字_R16" expandT="true" font="@WmUi_Base:\微软雅黑_s19" layout.height="fill" layout.width="auto" padding="20,0,20,0" rect="314,33,95,37" showT="true" />
+				<buttonUI content="主要链接1" css.name="三态按钮_主要_链接" expandT="true" font="@WmUi_Base:\微软雅黑_s19" layout.height="fill" layout.width="auto" padding="20,0,20,0" rect="435,20,95,37" showT="true" />
+			</layoutEleUI>
+		</layoutEleUI>
+		<layoutEleUI expandT="false" id="@六态按钮" layout.alignH="center" layout.height="auto" layout.space="10" layout.spaceRow="20" layout.width="fill" rect="348,434,888,73" showT="false">
+			<shapeText content="六态按钮：多选、开关、单选" expandT="true" font="@WmUi_Base:\微软雅黑_s19" layout.height="40" layout.width="fill" rect="345,22,100,20" showT="true" textColor="@WmUi:\主文本色" />
+			<layoutEleUI expandT="true" layout.height="40" layout.space="10" layout.width="fill" rect="402,47,100,100" showT="true">
+				<buttonUI buttonType="check" content="未选中" css.name="六态按钮_勾选" expandT="true" layout.height="fill" layout.width="auto" rect="337,18,95,37" showT="true" />
+				<buttonUI buttonType="check" check="true" content="选中" css.name="六态按钮_勾选" expandT="true" layout.height="fill" layout.width="auto" rect="163,145,95,37" showT="true" />
+				<buttonUI buttonType="check" content="禁用" css.name="六态按钮_勾选" enable="false" expandT="true" layout.height="fill" layout.width="auto" rect="191,59,95,37" showT="true" />
+			</layoutEleUI>
+			<layoutEleUI expandT="true" layout.height="40" layout.space="10" layout.width="fill" rect="482,49,100,100" showT="true">
+				<buttonUI buttonType="check" content="未选中" css.name="六态按钮_标签" expandT="true" layout.height="fill" layout.width="auto" rect="337,18,95,37" showT="true" />
+				<buttonUI buttonType="check" check="true" content="选中" css.name="六态按钮_标签" expandT="true" layout.height="fill" layout.width="auto" rect="163,145,95,37" showT="true" />
+				<buttonUI buttonType="check" content="禁用" css.name="六态按钮_标签" enable="false" expandT="true" layout.height="fill" layout.width="auto" rect="191,59,95,37" showT="true" />
+			</layoutEleUI>
+			<layoutEleUI expandT="true" layout.height="40" layout.space="10" layout.width="fill" rect="424,96,100,100" showT="true">
+				<buttonUI buttonType="check" content="未选中" css.name="六态按钮_开关" expandT="true" layout.height="fill" layout.width="auto" rect="337,18,95,37" showT="true" />
+				<buttonUI buttonType="check" check="true" content="选中" css.name="六态按钮_开关" expandT="true" layout.height="fill" layout.width="auto" rect="163,145,95,37" showT="true" />
+				<buttonUI buttonType="check" content="禁用" css.name="六态按钮_开关" enable="false" expandT="true" layout.height="fill" layout.width="auto" rect="191,59,95,37" showT="true" />
+			</layoutEleUI>
+			<layoutEleUI expandT="true" layout.height="40" layout.space="10" layout.width="fill" rect="394,145,100,100" showT="true">
+				<buttonUI buttonType="radio" content="未选中" css.name="六态按钮_点选" expandT="true" layout.height="fill" layout.width="auto" rect="337,18,95,37" showT="true" />
+				<buttonUI buttonType="radio" check="true" content="选中" css.name="六态按钮_点选" expandT="true" layout.height="fill" layout.width="auto" rect="163,145,95,37" showT="true" />
+				<buttonUI buttonType="radio" content="禁用" css.name="六态按钮_点选" enable="false" expandT="true" layout.height="fill" layout.width="auto" rect="191,59,95,37" showT="true" />
+			</layoutEleUI>
+			<shapeRect expandT="true" layout.height="1" layout.width="fill" rect="626,18,100,100" showT="true" />
+			<shapeText content="六态按钮：以下通常作为标签页按钮（Tabs）" expandT="true" font="@WmUi_Base:\微软雅黑_s19" layout.height="40" layout.width="fill" rect="516,12,100,20" showT="true" textColor="@WmUi:\主文本色" />
+			<layoutEleUI expandT="true" layout.height="35" layout.space="10" layout.width="fill" rect="371,194,100,100" showT="true">
+				<buttonUI buttonType="radio" content="全圆角选项" css.name="六态按钮_高亮_全_R8" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="337,18,95,37" showT="true" />
+				<buttonUI buttonType="radio" check="true" content="全圆角选项" css.name="六态按钮_高亮_全_R8" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="163,145,95,37" showT="true" />
+				<buttonUI buttonType="radio" content="全圆角选项" css.name="六态按钮_高亮_全_R8" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="268,15,95,37" showT="true" />
+				<buttonUI buttonType="radio" content="全圆角选项" css.name="六态按钮_高亮_全_R8" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="370,14,95,37" showT="true" />
+				<buttonUI buttonType="radio" content="禁用" css.name="六态按钮_高亮_全_R8" enable="false" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="191,59,95,37" showT="true" />
+				<shapeText content="六态按钮：以下通常作为标签页按钮（Tabs）" expandT="true" font="@WmUi_Dark:\微软雅黑_s19" layout.height="40" layout.width="fill" rect="611,17,100,20" showT="true" textColor="@WmUi_Dark:\白色" />
+			</layoutEleUI>
+			<shapeRect expandT="true" layout.height="1" layout.width="700" rect="-173,17,100,100" showT="true" />
+			<layoutEleUI expandT="true" layout.height="160" layout.horizon="true" layout.width="fill" rect="436,242,572,44" showT="true">
+				<layoutEleUI expandT="true" layout.height="fill" layout.spaceRow="2" rect="193,70,100,100" showT="true">
+					<buttonUI buttonType="radio" content="左圆角选项" css.name="六态按钮_高亮_左_R8" expandT="true" layout.height="30" layout.width="fill" padding="10,0,10,0" rect="337,18,95,37" showT="true" />
+					<buttonUI buttonType="radio" check="true" content="左圆角选项" css.name="六态按钮_高亮_左_R8" expandT="true" layout.height="30" layout.width="fill" padding="10,0,10,0" rect="163,145,95,37" showT="true" />
+					<buttonUI buttonType="radio" content="左圆角选项" css.name="六态按钮_高亮_左_R8" expandT="true" layout.height="30" layout.width="fill" padding="10,0,10,0" rect="268,15,95,37" showT="true" />
+					<buttonUI buttonType="radio" content="左圆角选项" css.name="六态按钮_高亮_左_R8" expandT="true" layout.height="30" layout.width="fill" padding="10,0,10,0" rect="370,14,95,37" showT="true" />
+					<buttonUI buttonType="radio" content="禁用" css.name="六态按钮_高亮_左_R8" enable="false" expandT="true" layout.height="30" layout.width="fill" padding="10,0,10,0" rect="191,59,95,37" showT="true" />
+				</layoutEleUI>
+				<shapeText content="类似的按钮共有：左、上、右、下，四个方向的圆角&#10;适合作为不同方向的标签页按钮&#10;&#10;其中全圆角按钮，也可作为多选按钮的样式" expandT="true" font="@WmUi_Base:\微软雅黑_s11" layout.height="fill" layout.width=":1" rect="194,85,291,126" showT="true" textAlign="DT_CENTER,DT_VCENTER,DT_SINGLELINE" textColor="@WmUi:\次文本色" />
+			</layoutEleUI>
+			<shapeRect expandT="true" layout.height="1" layout.width="700" rect="235,80,100,100" showT="true" />
+			<layoutEleUI expandT="true" layout.height="35" layout.space="5" layout.width="fill" rect="418,289,100,100" showT="true">
+				<buttonUI buttonType="radio" content="上圆角选项" css.name="六态按钮_高亮_上_R8" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="337,18,95,37" showT="true" />
+				<buttonUI buttonType="radio" check="true" content="上圆角选项" css.name="六态按钮_高亮_上_R8" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="163,145,95,37" showT="true" />
+				<buttonUI buttonType="radio" content="上圆角选项" css.name="六态按钮_高亮_上_R8" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="268,15,95,37" showT="true" />
+				<buttonUI buttonType="radio" content="上圆角选项" css.name="六态按钮_高亮_上_R8" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="370,14,95,37" showT="true" />
+				<buttonUI buttonType="radio" content="禁用" css.name="六态按钮_高亮_上_R8" enable="false" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="191,59,95,37" showT="true" />
+			</layoutEleUI>
+			<layoutEleUI expandT="true" layout.height="35" layout.space="5" layout.width="fill" rect="495,828,100,100" showT="true">
+				<buttonUI buttonType="radio" content="全圆角 灰" css.name="六态按钮_灰色_全_R8" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="337,18,95,37" showT="true" />
+				<buttonUI buttonType="radio" check="true" content="左圆角 灰" css.name="六态按钮_灰色_左_R8" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="163,145,95,37" showT="true" />
+				<buttonUI buttonType="radio" content="上圆角 灰" css.name="六态按钮_灰色_上_R8" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="268,15,95,37" showT="true" />
+				<buttonUI buttonType="radio" content="右圆角 灰" css.name="六态按钮_灰色_右_R8" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="370,14,95,37" showT="true" />
+				<buttonUI buttonType="radio" content="下圆角 灰" css.name="六态按钮_灰色_下_R8" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="255,17,95,37" showT="true" />
+				<buttonUI buttonType="radio" content="禁用" css.name="六态按钮_灰色_全_R8" enable="false" expandT="true" layout.height="fill" layout.width="auto" padding="10,0,10,0" rect="191,59,95,37" showT="true" />
+				<shapeText content="灰色其他方向圆角，同上" expandT="true" font="@WmUi_Base:\微软雅黑_s11" layout.height="35" layout.width="200" rect="593,14,100,20" showT="true" textColor="@WmUi:\次文本色" />
+			</layoutEleUI>
+			<shapeRect expandT="true" layout.height="1" layout.width="700" rect="-349,80,100,100" showT="true" />
+			<layoutEleUI expandT="true" layout.height="160" layout.horizon="true" layout.width="fill" rect="758,643,572,44" showT="true">
+				<layoutEleUI expandT="true" layout.height="fill" rect="193,70,100,100" showT="true">
+					<buttonUI buttonType="radio" content="左直角选项" css.name="六态按钮_线型_左_直角" expandT="true" layout.height="30" layout.width="fill" padding="10,0,10,0" rect="337,18,95,37" showT="true" />
+					<buttonUI buttonType="radio" check="true" content="左直角选项" css.name="六态按钮_线型_左_直角" expandT="true" layout.height="30" layout.width="fill" padding="10,0,10,0" rect="163,145,95,37" showT="true" />
+					<buttonUI buttonType="radio" content="左直角选项" css.name="六态按钮_线型_左_直角" expandT="true" layout.height="30" layout.width="fill" padding="10,0,10,0" rect="268,15,95,37" showT="true" />
+					<buttonUI buttonType="radio" content="左直角选项" css.name="六态按钮_线型_左_直角" expandT="true" layout.height="30" layout.width="fill" padding="10,0,10,0" rect="370,14,95,37" showT="true" />
+					<buttonUI buttonType="radio" content="禁用" css.name="六态按钮_线型_左_直角" enable="false" expandT="true" layout.height="30" layout.width="fill" padding="10,0,10,0" rect="191,59,95,37" showT="true" />
+				</layoutEleUI>
+				<shapeText content="线型tab按钮，不应设置间距&#10;才能使按钮之间的线连接连贯&#10;&#10;线型tab按钮同样有四个方向的样式&#10;并且有直角和圆角样式" expandT="true" font="@WmUi_Base:\微软雅黑_s11" layout.height="fill" layout.width=":1" rect="194,85,291,126" showT="true" textAlign="DT_CENTER,DT_VCENTER,DT_SINGLELINE" textColor="@WmUi:\次文本色" />
+			</layoutEleUI>
+		</layoutEleUI>
+		<layoutEleUI expandT="false" id="@输入组件" layout.height="auto" layout.space="10" layout.spaceRow="10" layout.width="fill" rect="60,275,897,161" showT="false">
+			<shapeText content="编辑框：单行、多行" expandT="true" font="@WmUi_Base:\微软雅黑_s19" layout.height="40" layout.width="fill" rect="345,22,100,20" showT="true" textColor="@WmUi:\主文本色" />
+			<layoutEleUI expandT="true" layout.height="auto" layout.space="10" layout.spaceRow="10" layout.width="fill" rect="821,179,100,100" showT="true">
+				<editUI contentTips="我是编辑框的提示内容" css.name="编辑框_通用_R4" expandT="true" layout.height="35" layout.width="fill" rect="202,88,100,20" showT="true" />
+				<layoutEleUI css.name="布局元素_渐变_绿_宁静_R4" expandT="true" layout.alignBaseline="center" layout.height="40" layout.space="5" layout.width="fill" padding="3,3,3,3" rect="708,48,100,100" showT="true">
+					<shapeText content="" expandT="true" font="@WmUi_Base:\图标字体_s12" layout.height="30" layout.width="30" rect="365,18,100,20" showT="true" textAlign="DT_CENTER,DT_VCENTER,DT_SINGLELINE" textColor="@WmUi:\主文本色" />
+					<editUI contentTips="这是由：布局元素、形状文本、编辑框，组合而成的" css.name="编辑框_通用_R4" expandT="true" layout.height="fill" layout.width=":1" rect="471,81,100,20" showT="true" />
+				</layoutEleUI>
+				<layoutEleUI css.name="布局元素_渐变_蓝_平和_R4" expandT="true" layout.alignBaseline="center" layout.height="40" layout.space="5" layout.width="fill" padding="3,3,3,3" rect="691,97,100,100" showT="true">
+					<shapeText content="" expandT="true" font="@WmUi_Base:\图标字体_s12" layout.height="30" layout.width="30" rect="365,18,100,20" showT="true" textAlign="DT_CENTER,DT_VCENTER,DT_SINGLELINE" textColor="@WmUi:\主文本色" />
+					<editUI contentTips="这是由：布局元素、形状文本、编辑框，组合而成的" css.name="编辑框_通用_R4" expandT="true" layout.height="fill" layout.width=":1" rect="471,81,100,20" showT="true" />
+				</layoutEleUI>
+				<layoutEleUI css.name="布局元素_填充4_R4" expandT="true" layout.alignBaseline="center" layout.height="40" layout.space="5" layout.width="fill" padding="3,3,3,3" rect="53,184,100,100" showT="true">
+					<shapeText content="" expandT="true" font="@WmUi_Base:\图标字体_s12" layout.height="30" layout.width="30" rect="365,18,100,20" showT="true" textAlign="DT_CENTER,DT_VCENTER,DT_SINGLELINE" textColor="@WmUi:\主文本色" />
+					<editUI contentTips="这是由：布局元素、形状文本、编辑框，组合而成的" css.name="编辑框_通用_R4" expandT="true" layout.height="fill" layout.width=":1" rect="471,81,100,20" showT="true" />
+				</layoutEleUI>
+				<editUI content="上面这三个单行编辑框左侧的图标&#10;可以在：https://fontawesome.com/search?o=r，复制&#10;&#10;只需要将字体设置为资源文件中的：图标字体，即可&#10;&#10;其实CSS样式可以直接设计出带图标的编辑框，但是那是写死的，图标无法自定义&#10;为了能提高一些自由度，编辑框的样式做成了统一样式&#10;想要个性化，就可以使用上面的方式，组合搭配出自己想要的编辑框&#10;&#10;我是多行编辑框&#10;我是多行编辑框&#10;我是多行编辑框" css.name="编辑框_通用_R8" edit.autoWrap="true" expandT="true" layout.height="160" layout.width="fill" multiLine="true" rect="-361,10,100,20" showT="true" />
+			</layoutEleUI>
+			<shapeText content="下拉组合框" expandT="true" font="@WmUi_Base:\微软雅黑_s19" layout.height="40" layout.width="fill" rect="372,294,100,20" showT="true" textColor="@WmUi:\主文本色" />
+			<comboBoxUI comboBox.dropHeightFixed="false" comboBox.enableEdit="false" content="123123123" css.name="下拉组合框_普通" enable="true" expandT="true" layout.height="40" layout.width="200" name="下拉组合框1" rect="530,177,100,20" showT="true" />
+			<comboBoxUI comboBox.dropHeightFixed="false" comboBox.enableEdit="false" content="123123123" css.name="下拉组合框_突出按钮" enable="true" expandT="true" layout.height="40" layout.width="200" name="下拉组合框2" rect="342,250,100,20" showT="true" />
+			<comboBoxUI comboBox.dropHeightFixed="false" comboBox.enableEdit="false" content="123123123" css.name="下拉组合框_突出内容" enable="true" expandT="true" layout.height="40" layout.width="200" name="下拉组合框3" rect="542,472,200,41" showT="true" />
+			<shapeText content="日期时间、月历卡片" expandT="true" font="@WmUi_Base:\微软雅黑_s19" layout.height="40" layout.width="fill" rect="712,479,100,20" showT="true" textColor="@WmUi:\主文本色" />
+			<dateTimeUI css.name="日期时间_普通" expandT="true" layout.height="40" layout.width="200" name="日期时间1" rect="697,480,100,20" showT="true" />
+			<dateTimeUI css.name="日期时间_普通" expandT="true" layout.height="40" layout.width="200" name="日期时间2" rect="567,563,100,20" showT="true" />
+			<monthCalUI css.name="月历卡片_普通" expandT="true" layout.height="280" layout.width="300" name="月历卡片1" rect="213,579,319,300" showT="true" />
+		</layoutEleUI>
+		<layoutEleUI expandT="false" id="@列表组件" layout.height="auto" layout.space="10" layout.spaceRow="10" layout.width="fill" rect="-352,290,897,161" showT="false">
+			<shapeText content="列表框、列表" expandT="true" font="@WmUi_Base:\微软雅黑_s19" layout.height="40" layout.width="fill" rect="345,22,100,20" showT="true" textColor="@WmUi:\主文本色" />
+			<layoutEleUI css.name="布局元素_填充2_R16" expandT="true" layout.height="300" layout.spaceRow="10" layout.width=":1" layout.wrap="true" padding="15,15,15,15" rect="406,56,100,100" showT="true">
+				<shapeText content="列表框" expandT="true" font="@WmUi_Base:\微软雅黑_s11" layout.width="auto" rect="79,39,76,20" showT="true" textColor="@WmUi:\主文本色" />
+				<layoutEleUI css.name="布局元素_填充1_R8" expandT="true" layout.height=":1" layout.space="10" layout.spaceRow="10" layout.width="fill" layout.wrap="true" padding="10,10,10,10" rect="821,179,100,100" showT="true">
+					<listBoxUI css.name="列表框_普通" expandT="true" layout.height="fill" layout.width="fill" listBox.itemHeight="40,40" name="列表框1" rect="416,44,100,100" showT="true" textColor="@WmUi_Dark:\白色" />
+				</layoutEleUI>
+			</layoutEleUI>
+			<layoutEleUI css.name="布局元素_填充2_R16" expandT="true" layout.height="300" layout.spaceRow="10" layout.width=":1" padding="15,15,15,15" rect="381,44,100,100" showT="true">
+				<shapeText content="列表" expandT="true" font="@WmUi_Base:\微软雅黑_s11" layout.width="auto" rect="79,39,100,20" showT="true" textColor="@WmUi:\主文本色" />
+				<layoutEleUI css.name="布局元素_填充1_R8" expandT="true" layout.height=":1" layout.space="10" layout.spaceRow="10" layout.width="fill" layout.wrap="true" padding="10,10,10,10" rect="688,42,100,100" showT="true">
+					<listUI css.name="列表_普通" expandT="true" layout.height="fill" layout.width="fill" list.rowHeight="40,40" name="列表1" rect="175,99,100,100" showT="true">
+						<child>
+							<listHeaderUI css.name="列表头_普通" childType="listHeader" />
+						</child>
+					</listUI>
+				</layoutEleUI>
+			</layoutEleUI>
+			<shapeText content="列表树、列表视图" expandT="true" font="@WmUi_Base:\微软雅黑_s19" layout.height="40" layout.width="fill" layout.wrap="true" rect="449,47,100,20" showT="true" textColor="@WmUi:\主文本色" />
+			<layoutEleUI css.name="布局元素_填充2_R16" expandT="true" layout.height="300" layout.spaceRow="10" layout.width=":1" layout.wrap="true" padding="15,15,15,15" rect="438,47,100,100" showT="true">
+				<shapeText content="列表树" expandT="true" font="@WmUi_Base:\微软雅黑_s11" layout.width="auto" rect="79,39,100,20" showT="true" textColor="@WmUi:\主文本色" />
+				<layoutEleUI css.name="布局元素_填充1_R8" expandT="true" layout.height=":1" layout.space="10" layout.spaceRow="10" layout.width="fill" layout.wrap="true" padding="10,10,10,10" rect="821,179,100,100" showT="true">
+					<treeUI css.name="列表树_普通" expandT="true" layout.height="fill" layout.width="fill" name="列表树1" rect="138,107,100,100" showT="true" tree.connectLine="false" tree.itemHeight="30,30" />
+				</layoutEleUI>
+			</layoutEleUI>
+			<layoutEleUI css.name="布局元素_填充2_R16" expandT="true" layout.height="300" layout.spaceRow="10" layout.width=":1" padding="15,15,15,15" rect="440,50,100,100" showT="true">
+				<shapeText content="列表视图" expandT="true" font="@WmUi_Base:\微软雅黑_s11" layout.width="auto" rect="79,39,75,20" showT="true" textColor="@WmUi:\主文本色" />
+				<layoutEleUI css.name="布局元素_填充1_R8" expandT="true" layout.height=":1" layout.space="10" layout.spaceRow="10" layout.width="fill" layout.wrap="true" padding="10,10,10,10" rect="688,42,100,100" showT="true">
+					<listViewUI css.name="列表视图_普通" expandT="true" layout.height="fill" layout.width="fill" listView.groupHeight="40" name="列表视图1" rect="64,116,100,100" showT="true" />
+				</layoutEleUI>
+			</layoutEleUI>
+		</layoutEleUI>
+		<layoutEleUI expandT="false" id="@其他控件" layout.height="auto" layout.space="10" layout.spaceRow="10" layout.width="fill" rect="262,343,897,161" showT="true">
+			<shapeText content="工具条：无需刻意做样式，只需要将工具条放在容器元素中即可" expandT="true" font="@WmUi_Base:\微软雅黑_s19" layout.height="40" layout.width="fill" rect="345,22,100,20" showT="true" textColor="@WmUi:\主文本色" />
+			<layoutEleUI css.name="布局元素_填充2_R8" expandT="true" layout.height="50" layout.width="fill" padding="10,10,10,10" rect="508,43,100,100" showT="true">
+				<toolBarUI expandT="true" layout.height="fill" layout.width="fill" name="工具条1" rect="493,20,200,30" showT="true" toolBar.space="10" transparent="true" />
+			</layoutEleUI>
+			<shapeText content="菜单条：也是放在容器元素中，但需通过代码设置菜单按钮的样式" expandT="true" font="@WmUi_Base:\微软雅黑_s19" layout.height="40" layout.width="fill" rect="691,44,100,20" showT="true" textColor="@WmUi:\主文本色" />
+			<layoutEleUI css.name="布局元素_填充2_R4" expandT="true" layout.height="40" layout.width="fill" padding="5,5,5,5" rect="541,154,100,100" showT="true">
+				<menuBarUI expandT="true" layout.height="fill" layout.width="fill" name="菜单条1" rect="428,132,310,30" showT="true" transparent="true" />
+			</layoutEleUI>
+			<shapeText content="滑动条" expandT="true" font="@WmUi_Base:\微软雅黑_s19" layout.height="40" layout.width="fill" rect="-95,588,100,20" showT="true" textColor="@WmUi:\主文本色" />
+			<sliderBarUI css.name="滑动条_渐变_红_炽热_R4" expandT="true" horizon="true" layout.height="20" layout.width="fill" name="滑动条1" rect="558,256,812,8" showT="true" sliderBar.buttonSize="16,16" sliderBar.range="100" />
+			<sliderBarUI css.name="滑动条_渐变_蓝_深邃_R4" expandT="true" horizon="true" layout.height="20" layout.width="fill" name="滑动条2" rect="456,253,812,8" showT="true" sliderBar.buttonSize="16,16" sliderBar.pos="20" sliderBar.range="100" />
+			<sliderBarUI css.name="滑动条_填充2_R4" expandT="true" horizon="true" layout.height="20" layout.width="fill" name="滑动条3" rect="218,281,812,8" showT="true" sliderBar.buttonSize="18,18" sliderBar.pos="40" sliderBar.range="100" />
+			<shapeText content="进度条" expandT="true" font="@WmUi_Base:\微软雅黑_s19" layout.height="40" layout.width="fill" rect="249,368,100,20" showT="true" textColor="@WmUi:\主文本色" />
+			<buttonUI content="播放进度" css.name="三态按钮_主要_填充_R8" expandT="true" layout.height="30" layout.width="auto" name="按钮1" padding="5,0,5,0" rect="619,-1,60,25" showT="true" />
+			<progressBarUI expandT="true" horizon="true" layout.height="40" layout.width="fill" name="进度条1" rect="480,287,100,20" showT="true" />
+			<progressBarUI expandT="true" horizon="true" layout.height="40" layout.width="fill" name="进度条2" rect="165,15,100,20" showT="true" />
+			<progressBarUI expandT="true" horizon="true" layout.height="40" layout.width="fill" name="进度条3" rect="67,15,100,20" showT="true" />
+			<progressBarUI expandT="true" horizon="false" layout.height="200" layout.width="40" name="进度条4" rect="31,12,100,20" showT="true" />
+			<progressBarUI expandT="true" horizon="false" layout.height="200" layout.width="40" name="进度条5" rect="9,150,100,20" showT="true" />
+			<progressBarUI expandT="true" horizon="false" layout.height="200" layout.width="40" name="进度条6" rect="5,96,100,20" showT="true" />
+			<shapeText content="Tab条" expandT="true" font="@WmUi_Base:\微软雅黑_s19" layout.height="40" layout.width="fill" rect="211,368,100,20" showT="true" textColor="@WmUi:\主文本色" />
+			<layoutEleUI css.name="布局元素_填充2_R8" expandT="true" layout.height="50" layout.width="fill" padding="5,5,5,5" rect="276,12,100,100" showT="true">
+				<tabBarUI expandT="true" layout.height="fill" layout.width="fill" name="tab条1" rect="535,417,100,20" showT="true" tabBar.enableClose="true" tabBar.itemCloseSize="30,30" tabBar.itemSpace="5" tabBar.turnButtonSize="20,30" transparent="true" />
+			</layoutEleUI>
+			<shapeText content="分页器：封装的自定义控件，需用代码加载分页器" expandT="true" font="@WmUi_Base:\微软雅黑_s19" layout.height="40" layout.width="fill" rect="378,20,100,20" showT="true" textColor="@WmUi:\主文本色" />
+			<layoutEleUI expandT="true" layout.alignH="left" layout.alignV="center" layout.height="40" layout.width="fill" name="布局元素_分页器" rect="295,26,100,100" showT="true" />
+			<layoutEleUI expandT="true" layout.alignH="right" layout.alignV="center" layout.height="40" layout.width="fill" name="布局元素_分页器2" rect="180,20,100,100" showT="true" />
+			<shapeText content="滚动条" expandT="true" font="@WmUi_Base:\微软雅黑_s19" layout.height="40" layout.width="fill" rect="549,100,100,20" showT="true" textColor="@WmUi:\主文本色" />
+			<layoutEleUI css.name="布局元素_填充2_R8" expandT="true" layout.height="1000" layout.space="10" layout.width="fill" padding="10,10,10,10" rect="523,208,100,100" showT="true">
+				<shapeText content="请看右侧滚动条，无需套用&#10;&#10;滚动条制作的是自动套用的，但凡使用到滚动条的地方，都会套用统一的样式" expandT="true" font="@WmUi:\图标字体_s10" layout.height="80" layout.width="auto" rect="194,58,482,60" showT="true" textColor="@WmUi:\主文本色" />
+				<buttonUI content="信息框_传入父句柄" css.name="三态按钮_主要_填充_R8" expandT="true" layout.height="30" layout.width="130" layout.wrap="true" name="信息框" rect="643,115,60,25" showT="true" />
+				<buttonUI content="信息框_无父句柄" css.name="三态按钮_主要_填充_R8" expandT="true" layout.height="30" layout.width="120" name="信息框_无父句柄" rect="123,213,60,25" showT="true" />
+				<buttonUI content="输入框" css.name="三态按钮_主要_填充_R8" expandT="true" layout.height="30" layout.width="80" name="输入框" rect="186,136,60,25" showT="true" />
+				<buttonUI content="提示框&#10;鼠标停留会有工具提示出现" css.name="三态按钮_主要_填充_R8" expandT="true" layout.height="50" layout.width="220" name="提示框_鼠标停留会有提示出现" rect="342,165,60,25" showT="true" toolTip="每点击一次&#10;都会出现一个不同位置的提示框" toolTipTextAlign="DT_CENTER,DT_VCENTER,DT_SINGLELINE" />
+			</layoutEleUI>
+		</layoutEleUI>
+	</layoutFrameUI>
+</windowUI>

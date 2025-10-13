@@ -2464,6 +2464,7 @@ XC_API HXCGUI WINAPI XC_GetObjectByName(const wchar_t* pName);
 XC_API void WINAPI XC_SetPaintFrequency(int nMilliseconds); //设置UI绘制频率
 XC_API void WINAPI XC_SetTextRenderingHint(int  nType);   //设置文本渲染质量
 XC_API void WINAPI XC_EnableGdiDrawText(BOOL bEnable);
+XC_API void WINAPI XC_EnableAutoRedrawUI(BOOL bEnable);
 XC_API BOOL WINAPI XC_RectInRect(RECT* pRect1, RECT* pRect2);
 XC_API void WINAPI XC_CombineRect(RECT* pDest, RECT* pSrc1, RECT* pSrc2);
 XC_API void WINAPI XC_ShowLayoutFrame(BOOL bShow);
